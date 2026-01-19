@@ -1,0 +1,37 @@
+
+================================================================================
+H2Q-EVO COMPREHENSIVE CAPABILITY EVALUATION
+================================================================================
+
+============================================================
+PHASE 1: Data Sensitivity Analysis
+============================================================
+[Test 1] Monotonic synthetic data (baseline)...
+[Test 2] Realistic multi-modal data...
+Traceback (most recent call last):
+  File "/Users/imymm/H2Q-Evo/h2q_project/comprehensive_evaluation.py", line 547, in <module>
+    evaluator.run_all()
+  File "/Users/imymm/H2Q-Evo/h2q_project/comprehensive_evaluation.py", line 464, in run_all
+    self.phase_1_data_sensitivity()
+  File "/Users/imymm/H2Q-Evo/h2q_project/comprehensive_evaluation.py", line 209, in phase_1_data_sensitivity
+    pred = model(quat_data)
+           ^^^^^^^^^^^^^^^^
+  File "/Users/imymm/.pyenv/versions/3.12.2/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/imymm/.pyenv/versions/3.12.2/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/imymm/H2Q-Evo/h2q_project/comprehensive_evaluation.py", line 161, in forward
+    h = self.relu(self.quat_proj(x_flat))
+                  ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/imymm/.pyenv/versions/3.12.2/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/imymm/.pyenv/versions/3.12.2/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/imymm/.pyenv/versions/3.12.2/lib/python3.12/site-packages/torch/nn/modules/linear.py", line 134, in forward
+    return F.linear(input, self.weight, self.bias)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: mat1 and mat2 shapes cannot be multiplied (100x128 and 256x128)

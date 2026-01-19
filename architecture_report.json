@@ -1,0 +1,177 @@
+{
+  "timestamp": "2026-01-19T23:18:42.437762",
+  "statistics": {
+    "total_modules": 480,
+    "total_lines": 41470,
+    "avg_lines_per_module": 86,
+    "quaternion_modules": 251,
+    "fractal_modules": 143,
+    "acceleration_modules": 79,
+    "memory_modules": 183,
+    "inference_modules": 38
+  },
+  "quaternion_modules": [
+    "demo_interactive.py",
+    "train_synesthesia_unified.py",
+    "demo_neural_zip.py",
+    "train_synesthesia_avtg.py",
+    "train_full_stack_v2.py",
+    "analyze_architecture.py",
+    "tests/test_api_contract.py",
+    "h2q/hierarchical_decoder.py",
+    "h2q/quaternion_ops.py",
+    "h2q/knot_kernel.py"
+  ],
+  "fractal_modules": [
+    "train_spacetime_vision.py",
+    "train_fdc.py",
+    "train_tpq_optim.py",
+    "demo_interactive.py",
+    "train_fdc_pure.py",
+    "verify_multimodal_cpu.py",
+    "train_synesthesia_unified.py",
+    "demo_neural_zip.py",
+    "train_fractal.py",
+    "train_synesthesia_avtg.py"
+  ],
+  "acceleration_modules": [
+    "train_spacetime_vision.py",
+    "verify_multimodal_cpu.py",
+    "accelerate_gpt2.py",
+    "analyze_architecture.py",
+    "h2q/meta_learner.py",
+    "h2q/group_ops.py",
+    "h2q/kernels.py",
+    "h2q/dde.py",
+    "h2q/benchmark_latency.py",
+    "h2q/kernels/metal_spectral_det.py"
+  ],
+  "memory_modules": [
+    "train_zero_memory.py",
+    "train_fdc.py",
+    "train_fdc_pure.py",
+    "demo_neural_zip.py",
+    "train_discrete_cpu.py",
+    "accelerate_gpt2.py",
+    "train_h2q.py",
+    "code_analyzer.py",
+    "train_full_stack_v2.py",
+    "deploy_reasoning_vault.py"
+  ],
+  "inference_modules": [
+    "demo_interactive.py",
+    "verify_multimodal_cpu.py",
+    "h2q_server.py",
+    "analyze_architecture.py",
+    "tools/h2q_bridge.py",
+    "tools/heartbeat.py",
+    "tests/test_crystal_integration.py",
+    "h2q/system.py",
+    "h2q/inference.py",
+    "h2q/visualization/fueter_poincare_dashboard.py"
+  ],
+  "top_modules_by_lines": [
+    [
+      "analyze_architecture.py",
+      190
+    ],
+    [
+      "train_fdc_pure.py",
+      164
+    ],
+    [
+      "h2q/services/synesthesia_central.py",
+      164
+    ],
+    [
+      "h2q/core/resonator.py",
+      161
+    ],
+    [
+      "h2q/core/memory/rskh_v2_mmap_orchestrator.py",
+      157
+    ],
+    [
+      "h2q/services/bargmann_consolidation.py",
+      155
+    ],
+    [
+      "h2q/core/persistence/spectral_swap_manager.py",
+      149
+    ],
+    [
+      "h2q/kernels/topological_braiding.py",
+      148
+    ],
+    [
+      "h2q/core/memory/rskh_rnn.py",
+      147
+    ],
+    [
+      "h2q/core/layers/hamilton_reversible_cell.py",
+      147
+    ],
+    [
+      "h2q/core/accelerators/hamilton_amx_bridge.py",
+      146
+    ],
+    [
+      "h2q/core/trainers/berry_synesthesia.py",
+      146
+    ],
+    [
+      "train_h2q.py",
+      143
+    ],
+    [
+      "h2q/kernel_engine.py",
+      143
+    ],
+    [
+      "h2q/ops/rskh_mmap_swapper.py",
+      142
+    ],
+    [
+      "h2q/core/accelerators/m4_amx_kernel.py",
+      142
+    ],
+    [
+      "train_full_stack_v2.py",
+      140
+    ],
+    [
+      "h2q/kernels/cmeb.py",
+      139
+    ],
+    [
+      "h2q/core/optimization/tso_optimizer.py",
+      139
+    ],
+    [
+      "h2q/visualization/homeostatic_dashboard.py",
+      138
+    ]
+  ],
+  "core_imports": {
+    "torch": 401,
+    "h2q": 249,
+    "typing": 169,
+    "os": 71,
+    "math": 67,
+    "numpy": 57,
+    "time": 39,
+    "psutil": 19,
+    "logging": 16,
+    "matplotlib": 15,
+    "tqdm": 13,
+    "tools": 13,
+    "json": 9,
+    "pytest": 8,
+    "pathlib": 8,
+    "transformers": 7,
+    "dataclasses": 6,
+    "asyncio": 6,
+    "sys": 6,
+    "subprocess": 4
+  }
+}
