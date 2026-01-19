@@ -4,10 +4,45 @@ from pathlib import Path
 from openai import OpenAI
 
 # --- 配置部分 ---
-# 如果你使用其他模型（如 DeepSeek），请修改 base_url 和 model 名称
-BASE_URL = "https://api.deepseek.com/v1" 
-MODEL = "deepseek-chat"  # 或者使用 "gpt-3.5-turbo", "deepseek-chat" 等
+# 使用环境变量获取 API Key
+# 支持多个 LLM 提供商：DeepSeek, OpenAI, Claude 等
 
+def get_api_config():
+    """从环境变量获取 API 配置，提示用户输入"""
+    
+    # 尝试从环境变量获取
+    api_key = os.getenv("LLM_API_KEY")
+    base_url = os.getenv("LLM_BASE_URL", "https://api.deepseek.com/v1")
+    model = os.getenv("LLM_MODEL", "deepseek-chat")
+    
+    # 如果没有配置，提示用户
+    if not api_key:
+        print("=" * 60)
+        print("ERROR: LLM API Key not found!")
+        print("=" * 60)
+        print("\n请设置以下环境变量之一：")
+        print("\n方式 1：DeepSeek API")
+        print("  export LLM_API_KEY='your-deepseek-api-key'")
+        print("  export LLM_BASE_URL='https://api.deepseek.com/v1'")
+        print("  export LLM_MODEL='deepseek-chat'")
+        print("\n方式 2：OpenAI API")
+        print("  export LLM_API_KEY='your-openai-api-key'")
+        print("  export LLM_BASE_URL='https://api.openai.com/v1'")
+        print("  export LLM_MODEL='gpt-3.5-turbo'")
+        print("\n方式 3：其他 OpenAI 兼容的提供商")
+        print("  export LLM_API_KEY='your-api-key'")
+        print("  export LLM_BASE_URL='your-base-url'")
+        print("  export LLM_MODEL='your-model'")
+        print("\n获取免费 API Key：")
+        print("  • DeepSeek: https://platform.deepseek.com/")
+        print("  • OpenAI: https://platform.openai.com/")
+        print("=" * 60)
+        raise ValueError("LLM_API_KEY not set. Please set environment variables first.")
+    
+    return api_key, base_url, model
+
+# 获取配置并初始化客户端
+API_KEY, BASE_URL, MODEL = get_api_config()
 client = OpenAI(api_key=API_KEY, base_url=BASE_URL)
 
 class ProjectAnalyzer:

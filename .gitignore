@@ -1,1 +1,72 @@
 temp_sandbox/
+# ============ 环境变量与敏感信息 ============
+.env
+.env.local
+.env.*.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# ============ API Keys 与凭证 ============
+*.key
+*.pem
+secrets/
+credentials/
+auth_token.txt
+api_keys.txt
+
+# ============ Python ============
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# ============ 虚拟环境 ============
+venv/
+ENV/
+env/
+.venv
+
+# ============ IDE ============
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# ============ 测试与覆盖 ============
+.coverage
+.pytest_cache/
+htmlcov/
+
+# ============ 日志 ============
+*.log
+logs/
+
+# ============ 构建产物 ============
+*.pkl
+*.pickle
+*.joblib
+
+# ============ 本地沙箱模式 (内部 git 用于沙箱代码迭代) ============
+# Note: h2q_project 可能有其自己的 .git 用于跟踪沙箱模式代码进化
+# 这是故意的，允许内部版本控制用于 AI 自我学习追踪
+# h2q_project/.git 不被此顶级 .gitignore 跟踪
