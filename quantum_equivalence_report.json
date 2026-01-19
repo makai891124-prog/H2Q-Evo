@@ -1,0 +1,128 @@
+{
+  "timestamp": 1768847801.154591,
+  "h2q_results": {
+    "Bernstein_Vazirani": 0.0,
+    "GHZ_State_Fidelity": {
+      "3": 0.9999999999999996,
+      "5": 0.9999999999999996,
+      "10": 0.9999999999999996
+    },
+    "Quantum_Fourier_Transform": {
+      "3": 0.9999999999999993,
+      "5": 0.9999999999999987
+    },
+    "Quantum_Volume": {
+      "4": 0,
+      "5": 0,
+      "6": 0
+    }
+  },
+  "real_hardware_data": {
+    "specs": {
+      "IBM_Q_System_One": {
+        "technology": "Superconducting transmon qubits",
+        "qubits": 20,
+        "gate_fidelity": 0.9994,
+        "year": 2019
+      },
+      "Google_Sycamore": {
+        "technology": "Superconducting qubits",
+        "qubits": 53,
+        "gate_fidelity": 0.9993,
+        "year": 2019
+      },
+      "IonQ_Aria": {
+        "technology": "Trapped ion qubits",
+        "qubits": 25,
+        "gate_fidelity": 0.9999,
+        "year": 2023
+      },
+      "IBM_Eagle": {
+        "technology": "Superconducting qubits",
+        "qubits": 127,
+        "gate_fidelity": 0.9996,
+        "year": 2021
+      }
+    },
+    "benchmark_results": {
+      "Quantum_Volume": {
+        "IBM_Q_System_One": 32,
+        "Google_Sycamore": 128,
+        "IonQ_Aria": 8388608,
+        "IBM_Eagle": 128
+      },
+      "Bernstein_Vazirani": {
+        "IBM_Q_System_One": 0.92,
+        "Google_Sycamore": 0.94,
+        "IonQ_Aria": 0.998,
+        "IBM_Eagle": 0.95
+      },
+      "GHZ_State_Fidelity": {
+        "IBM_Q_System_One": {
+          "3": 0.88,
+          "5": 0.75,
+          "10": 0.45
+        },
+        "Google_Sycamore": {
+          "3": 0.9,
+          "5": 0.82,
+          "10": 0.65
+        },
+        "IonQ_Aria": {
+          "3": 0.99,
+          "5": 0.98,
+          "10": 0.95
+        },
+        "IBM_Eagle": {
+          "3": 0.91,
+          "5": 0.84,
+          "10": 0.7
+        }
+      },
+      "Quantum_Fourier_Transform": {
+        "IBM_Q_System_One": {
+          "3": 0.85,
+          "5": 0.72
+        },
+        "Google_Sycamore": {
+          "3": 0.88,
+          "5": 0.78
+        },
+        "IonQ_Aria": {
+          "3": 0.995,
+          "5": 0.99
+        },
+        "IBM_Eagle": {
+          "3": 0.87,
+          "5": 0.75
+        }
+      }
+    }
+  },
+  "comparison": {
+    "IBM_Q_System_One": {
+      "BV_diff": 100.0,
+      "GHZ_3_diff": 13.636363636363585,
+      "GHZ_5_diff": 33.33333333333328,
+      "GHZ_10_diff": 122.22222222222211
+    },
+    "Google_Sycamore": {
+      "BV_diff": 100.0,
+      "GHZ_3_diff": 11.11111111111106,
+      "GHZ_5_diff": 21.951219512195074,
+      "GHZ_10_diff": 53.846153846153776
+    },
+    "IonQ_Aria": {
+      "BV_diff": 100.0,
+      "GHZ_3_diff": 1.0101010101009662,
+      "GHZ_5_diff": 2.0408163265305688,
+      "GHZ_10_diff": 5.2631578947368
+    },
+    "IBM_Eagle": {
+      "BV_diff": 100.0,
+      "GHZ_3_diff": 9.890109890109837,
+      "GHZ_5_diff": 19.047619047618998,
+      "GHZ_10_diff": 42.857142857142804
+    }
+  }
+}
