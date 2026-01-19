@@ -1,0 +1,9 @@
+data_cifar/
+
+# --- H2Q Memory Crystals ---
+checkpoints/
+*.pt
+*.pth
+*.h2q
+__pycache__/
+*.pyc
