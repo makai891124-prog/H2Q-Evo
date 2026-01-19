@@ -1,0 +1,6 @@
+torch 
+numpy 
+pytest
+datasets
+zstandard
+scikit-learn

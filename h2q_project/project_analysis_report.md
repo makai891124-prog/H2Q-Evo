@@ -1,0 +1,1 @@
+API 请求失败: Error code: 400 - {'error': {'message': "This model's maximum context length is 131072 tokens. However, you requested 237772 tokens (237772 in the messages, 0 in the completion). Please reduce the length of the messages or completion.", 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_request_error'}}
