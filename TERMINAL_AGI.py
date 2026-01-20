@@ -22,6 +22,14 @@ H2Q_PROJECT = PROJECT_ROOT / "h2q_project"
 sys.path.insert(0, str(PROJECT_ROOT))
 sys.path.insert(0, str(H2Q_PROJECT))
 
+# 导入长文本生成器
+try:
+    from local_long_text_generator import LocalLongTextGenerator
+    from dialogue_validator import DialogueValidator
+except ImportError:
+    LocalLongTextGenerator = None
+    DialogueValidator = None
+
 # 颜色输出
 class Colors:
     HEADER = '\033[95m'
@@ -259,6 +267,22 @@ class TerminalAGI:
         self.quantum_engine = QuantumReasoningEngine(self.model_loader)
         self.math_prover = MathematicalProver()
         
+        # 初始化长文本生成器
+        if LocalLongTextGenerator:
+            self.text_generator = LocalLongTextGenerator()
+            print_success("长文本生成器已加载")
+        else:
+            self.text_generator = None
+            print_error("长文本生成器不可用")
+        
+        # 初始化对话验证器
+        if DialogueValidator:
+            self.dialogue_validator = DialogueValidator()
+            print_success("对话验证器已加载")
+        else:
+            self.dialogue_validator = None
+            print_error("对话验证器不可用")
+        
         self.interaction_count = 0
         self.history = []
         
@@ -300,6 +324,12 @@ class TerminalAGI:
                 elif user_input.lower().startswith('load '):
                     model_name = user_input[5:].strip()
                     self._load_model(model_name)
+                elif user_input.lower().startswith('generate '):
+                    prompt = user_input[9:].strip()
+                    self._generate_long_text(prompt)
+                elif user_input.lower().startswith('dialogue'):
+                    topic = user_input[9:].strip() if len(user_input) > 9 else None
+                    self._start_dialogue_validation(topic)
                 elif user_input.lower().startswith('prove '):
                     theorem = user_input[6:].strip()
                     self._prove_theorem(theorem)
@@ -326,6 +356,8 @@ class TerminalAGI:
             ("status, s", "显示系统状态"),
             ("history", "显示交互历史"),
             ("load <model>", "加载指定模型"),
+            ("generate <提示>", "生成超长文本"),
+            ("dialogue [话题]", "进入对话验证模式"),
             ("prove <定理>", "证明数学定理"),
             ("quantum <查询>", "量子推理"),
             ("<任意输入>", "自动推理"),
@@ -419,6 +451,80 @@ class TerminalAGI:
             "result": result,
             "duration": result['duration']
         })
+    
+    def _generate_long_text(self, prompt: str):
+        """生成超长文本"""
+        if not self.text_generator:
+            print_error("长文本生成器不可用")
+            return
+        
+        print_section(f"长文本生成")
+        start_time = time.time()
+        
+        print(f"\n{Colors.BOLD}提示:{Colors.ENDC} {prompt}")
+        print_info("正在生成超长文本（可能需要几秒钟）...")
+        
+        try:
+            result = self.text_generator.generate_long_text(prompt, max_tokens=2048)
+            
+            print(f"\n{Colors.BOLD}生成结果:{Colors.ENDC}")
+            # 分段显示，避免终端溢出
+            lines = result.split('\n')
+            for i, line in enumerate(lines):
+                if i < 20:  # 只显示前20行
+                    print(f"  {line}")
+                elif i == 20:
+                    print(f"  ... (共 {len(lines)} 行，省略显示)")
+                    break
+            
+            duration = time.time() - start_time
+            print(f"\n{Colors.OKGREEN}生成完成 | 长度: {len(result)} 字符 | 耗时: {duration:.2f}s{Colors.ENDC}")
+            
+            self.history.append({
+                "type": "generate",
+                "query": prompt,
+                "result": f"生成 {len(result)} 字符文本",
+                "duration": duration
+            })
+            
+        except Exception as e:
+            print_error(f"生成失败: {e}")
+    
+    def _start_dialogue_validation(self, topic: Optional[str]):
+        """启动对话验证模式"""
+        if not self.dialogue_validator:
+            print_error("对话验证器不可用")
+            return
+        
+        print_section("对话验证模式")
+        print_info("进入 H2Q-Evo 对话验证系统")
+        print_info("这将验证本地模型的实际对话能力")
+        print_info("输入 'quit' 退出对话模式")
+        
+        try:
+            # 启动对话
+            conversation_id = self.dialogue_validator.start_conversation(topic)
+            
+            # 进入对话循环
+            while True:
+                user_input = input("你: ").strip()
+                
+                if user_input.lower() in ['quit', 'exit', 'q']:
+                    self.dialogue_validator.end_conversation()
+                    print_info("已退出对话验证模式")
+                    break
+                elif user_input.lower() == 'stats':
+                    self.dialogue_validator.show_conversation_stats()
+                elif user_input.lower() == 'save':
+                    self.dialogue_validator.save_conversation()
+                elif user_input:
+                    self.dialogue_validator.send_message(user_input)
+        
+        except KeyboardInterrupt:
+            self.dialogue_validator.end_conversation()
+            print_info("对话验证模式已中断")
+        except Exception as e:
+            print_error(f"对话验证错误: {e}")
     
     def _auto_inference(self, query: str):
         """自动推理"""

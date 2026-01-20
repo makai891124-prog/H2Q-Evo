@@ -14,7 +14,17 @@ def test_system_end_to_end_flow():
     # 1. 初始化系统
     context_dim = 16
     action_dim = 4
-    system = AutonomousSystem(context_dim, action_dim)
+    
+    # Create a simple model and config for AutonomousSystem
+    model = torch.nn.Linear(context_dim, action_dim)
+    config = {
+        "latent_dim": context_dim,
+        "n_choices": action_dim,
+        "lr": 1e-4,
+        "hdi_threshold": 0.75,
+        "recovery_threshold": 0.20
+    }
+    system = AutonomousSystem(model, config)
     
     # 检查初始状态
     initial_status = system.get_system_status()

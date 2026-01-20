@@ -93,3 +93,41 @@ class DiscreteDecisionEngine(nn.Module):
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
         return self.policy_head(x)
+
+class TraceFormulaValidator:
+    """
+    Validates the trace formula consistency between discrete η sums and continuous μ(E) integrals.
+    """
+    def __init__(self, tolerance: float = 0.1):
+        self.tolerance = tolerance
+    
+    def validate(self, decision_indices: list, eta_map: dict, mu_func, energy_limit: float):
+        """
+        Validates that the discrete sum of η matches the continuous integral of μ(E).
+        
+        Args:
+            decision_indices: List of decision indices
+            eta_map: Mapping from decision index to η value
+            mu_func: Function that computes μ(E) for energy E
+            energy_limit: Upper limit for energy integration
+            
+        Returns:
+            (is_valid, error): Whether validation passes and the error magnitude
+        """
+        # Calculate discrete sum: Σ η_i
+        discrete_sum = sum(eta_map.get(idx, 0.0) for idx in decision_indices)
+        
+        # Calculate continuous integral: ∫ μ(E) dE from 0 to energy_limit
+        # For simplicity, approximate with trapezoidal rule
+        n_points = 100
+        E_values = torch.linspace(0, energy_limit, n_points)
+        mu_values = torch.tensor([mu_func(E.item()) for E in E_values])
+        continuous_integral = torch.trapz(mu_values, E_values).item()
+        
+        # Calculate error
+        error = abs(discrete_sum - continuous_integral)
+        
+        # Check if within tolerance
+        is_valid = error <= self.tolerance
+        
+        return is_valid, error

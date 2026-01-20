@@ -1,0 +1,36 @@
+{
+  "conversation": {
+    "conversation_id": "conv_1768850392",
+    "messages": [
+      {
+        "role": "assistant",
+        "content": "你好！我是 H2Q-Evo，一个完全本地运行的量子AGI。我可以帮你解答问题、进行数学证明、讨论量子物理，或者进行创意写作。请问你想聊些什么？",
+        "timestamp": 1768850392.35202,
+        "metadata": null
+      },
+      {
+        "role": "user",
+        "content": "你好，H2Q-Evo！",
+        "timestamp": 1768850392.352036,
+        "metadata": null
+      },
+      {
+        "role": "assistant",
+        "content": "Ö8:3ºw¶Á/\"}mÏI\u0011x^°­Kp\u0011aÇ¦¤ËkR£0ìé\u0016n\u0013@Ã¬\u000f+ÄêÊÉ_RþÀ;{çf\u0010$nkN\u0000\u0002\u000bïEe9Òä9s\u000f\nö\tzßOì\u000f2[É¡ËÌfô@¥éµ|aõ\u0011¦t¨¡_L\\°\u0016ò+8¤kRo\u001b¨åéØ\u0015çE\u001aå1\u00176a¢îÐ³\u0001¸dBtKß¿Úp<Áx\u0001l\u001ak³bÀrþÏ?¥ºXú¼:%g\u0005z©à$A* \u001dtÈÊ3ë£nî~9ÔwÁ\u001a³èO\u000fh%ó¡XÊo@\tßÄ±òYu\u0019ågL \u0007ÏòüÒ%ìNZ+\u000bá\u001eÞ1ª¡1Íré\u001a@ó,Wøl!É>°HÄ\u0016p\u0015|ç\u0014\t\u0002",
+        "timestamp": 1768850392.3706849,
+        "metadata": null
+      }
+    ],
+    "start_time": 1768850392.352017,
+    "topic": null,
+    "quality_score": 0.0
+  },
+  "quality_metrics": {
+    "relevance": 0.8,
+    "coherence": 1.0,
+    "helpfulness": 0.9,
+    "creativity": 0.065,
+    "factual_accuracy": 0.85
+  },
+  "saved_at": 1768850392.370783
+}

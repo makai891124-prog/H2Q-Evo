@@ -1,0 +1,2032 @@
+{
+  "train_zero_memory.py": [
+    "os",
+    "psutil",
+    "copy",
+    "h2q",
+    "tools",
+    "torch",
+    "tqdm"
+  ],
+  "train_spacetime.py": [
+    "matplotlib",
+    "random",
+    "h2q",
+    "tools",
+    "torch",
+    "tqdm"
+  ],
+  "comprehensive_evaluation.py": [
+    "os",
+    "psutil",
+    "json",
+    "torch",
+    "threading",
+    "datetime",
+    "collections",
+    "pathlib",
+    "typing",
+    "numpy",
+    "time"
+  ],
+  "train_spacetime_vision.py": [
+    "torch"
+  ],
+  "train_multilingual_decoder.py": [
+    "os",
+    "h2q",
+    "tools",
+    "torch",
+    "tqdm"
+  ],
+  "quick_experiment.py": [
+    "json",
+    "torch",
+    "pathlib",
+    "numpy",
+    "time"
+  ],
+  "train_fdc.py": [
+    "torch",
+    "math",
+    "time"
+  ],
+  "train_byte_compression.py": [
+    "os",
+    "matplotlib",
+    "h2q",
+    "tools",
+    "torch",
+    "tqdm"
+  ],
+  "train_tpq_optim.py": [
+    "h2q",
+    "torch",
+    "time"
+  ],
+  "system_analyzer.py": [
+    "os",
+    "ast",
+    "pandas",
+    "importlib",
+    "json",
+    "dataclasses",
+    "torch",
+    "collections",
+    "datetime",
+    "sys",
+    "pathlib",
+    "typing",
+    "numpy"
+  ],
+  "demo_interactive.py": [
+    "torch",
+    "sys",
+    "typing",
+    "numpy",
+    "time"
+  ],
+  "train_decoder.py": [
+    "os",
+    "h2q",
+    "tools",
+    "torch",
+    "tqdm"
+  ],
+  "train_fdc_pure.py": [
+    "typing",
+    "torch",
+    "math"
+  ],
+  "verify_multimodal_cpu.py": [
+    "torch",
+    "time",
+    "numpy"
+  ],
+  "train_multilingual.py": [
+    "os",
+    "h2q",
+    "tools",
+    "torch",
+    "tqdm"
+  ],
+  "train_synesthesia_unified.py": [
+    "h2q",
+    "torch"
+  ],
+  "train_hierarchy.py": [
+    "os",
+    "h2q",
+    "tools",
+    "torch",
+    "tqdm"
+  ],
+  "demo_neural_zip.py": [
+    "typing",
+    "torch",
+    "numpy"
+  ],
+  "train_fractal.py": [
+    "os",
+    "matplotlib",
+    "h2q",
+    "tools",
+    "torch",
+    "tqdm"
+  ],
+  "train_discrete_cpu.py": [
+    "os",
+    "psutil",
+    "h2q",
+    "tools",
+    "torch",
+    "tqdm"
+  ],
+  "h2q_evaluation_final.py": [
+    "os",
+    "psutil",
+    "json",
+    "torch",
+    "datetime",
+    "pathlib",
+    "numpy",
+    "time"
+  ],
+  "accelerate_gpt2.py": [
+    "h2q",
+    "torch",
+    "time",
+    "transformers"
+  ],
+  "train_synesthesia_avtg.py": [
+    "h2q",
+    "torch"
+  ],
+  "train_vision_core.py": [
+    "os",
+    "h2q",
+    "tools",
+    "torch",
+    "tqdm"
+  ],
+  "train_multimodal.py": [
+    "torch"
+  ],
+  "train_h2q.py": [
+    "typing",
+    "torch",
+    "math"
+  ],
+  "code_analyzer.py": [
+    "sys",
+    "os",
+    "pathlib",
+    "openai"
+  ],
+  "train_distillation.py": [
+    "h2q",
+    "typing",
+    "torch"
+  ],
+  "train_full_stack_v2.py": [
+    "typing",
+    "torch",
+    "math"
+  ],
+  "deploy_reasoning_vault.py": [
+    "os",
+    "torch",
+    "h2q",
+    "numpy"
+  ],
+  "train_manual_reversible.py": [
+    "torch",
+    "time"
+  ],
+  "train_knot.py": [
+    "torch",
+    "h2q",
+    "tools",
+    "tqdm"
+  ],
+  "train_omniscience.py": [
+    "torch",
+    "math",
+    "numpy"
+  ],
+  "train_self_coder.py": [
+    "os",
+    "torch",
+    "json"
+  ],
+  "run_experiment.py": [
+    "matplotlib",
+    "torch",
+    "h2q"
+  ],
+  "benchmark_latency.py": [
+    "transformers",
+    "h2q",
+    "torch",
+    "numpy",
+    "time"
+  ],
+  "train_reversible_vision.py": [
+    "os",
+    "psutil",
+    "h2q",
+    "tools",
+    "torch",
+    "tqdm"
+  ],
+  "h2q_server.py": [
+    "pydantic",
+    "h2q",
+    "torch",
+    "fastapi",
+    "typing"
+  ],
+  "train_arithmetic.py": [
+    "os",
+    "random",
+    "h2q",
+    "torch",
+    "tqdm"
+  ],
+  "run_language_simulation.py": [
+    "os",
+    "matplotlib",
+    "transformers",
+    "h2q",
+    "torch"
+  ],
+  "demo_universal_zip.py": [
+    "sys",
+    "os",
+    "torch",
+    "h2q"
+  ],
+  "analyze_architecture.py": [
+    "os",
+    "ast",
+    "json",
+    "collections",
+    "pathlib",
+    "typing"
+  ],
+  "tools/spacetime_loader.py": [
+    "torchvision",
+    "torch",
+    "PIL"
+  ],
+  "tools/byte_loader.py": [
+    "os",
+    "datasets",
+    "torch"
+  ],
+  "tools/prism_converter.py": [
+    "os",
+    "torch",
+    "transformers"
+  ],
+  "tools/data_loader.py": [
+    "os",
+    "datasets",
+    "torch",
+    "transformers"
+  ],
+  "tools/extract_qwen_crystal.py": [
+    "os",
+    "torch",
+    "transformers"
+  ],
+  "tools/registry_audit.py": [
+    "os",
+    "pathlib",
+    "ast",
+    "typing"
+  ],
+  "tools/h2q_bridge.py": [
+    "os",
+    "json",
+    "h2q",
+    "torch",
+    "sys"
+  ],
+  "tools/multi_prism.py": [
+    "os",
+    "torch",
+    "transformers"
+  ],
+  "tools/heartbeat.py": [
+    "sys",
+    "h2q",
+    "time",
+    "traceback"
+  ],
+  "tools/vision_loader.py": [
+    "torchvision",
+    "os",
+    "torch",
+    "numpy"
+  ],
+  "tools/mix_corpus_generator.py": [
+    "os"
+  ],
+  "tools/code_writer.py": [
+    "logging",
+    "os",
+    "pathlib",
+    "typing"
+  ],
+  "h2q/train_zero_memory.py": [
+    "typing",
+    "torch",
+    "numpy"
+  ],
+  "h2q/hierarchical_decoder.py": [
+    "torch"
+  ],
+  "h2q/system.py": [
+    "h2q",
+    "typing",
+    "torch"
+  ],
+  "h2q/gut_kernel.py": [
+    "torch",
+    "fractal_embedding"
+  ],
+  "h2q/quaternion_ops.py": [
+    "torch"
+  ],
+  "h2q/knot_kernel.py": [
+    "torch"
+  ],
+  "h2q/prism_engine.py": [
+    "torch",
+    "math"
+  ],
+  "h2q/fdc_kernel.py": [
+    "torch"
+  ],
+  "h2q/cem.py": [
+    "torch"
+  ],
+  "h2q/dream_engine.py": [
+    "h2q",
+    "typing",
+    "torch"
+  ],
+  "h2q/meta_learner.py": [
+    "typing",
+    "torch"
+  ],
+  "h2q/decision_engine.py": [
+    "torch"
+  ],
+  "h2q/cost_functional.py": [
+    "typing",
+    "torch"
+  ],
+  "h2q/spacetime_kernel.py": [
+    "torch",
+    "group_ops"
+  ],
+  "h2q/group_ops.py": [
+    "torch",
+    "math"
+  ],
+  "h2q/production_logical_generator.py": [
+    "h2q",
+    "torch"
+  ],
+  "h2q/spacetime_3d_kernel.py": [
+    "torch"
+  ],
+  "h2q/engine.py": [
+    "torch",
+    "math"
+  ],
+  "h2q/fractal_embedding.py": [
+    "torch"
+  ],
+  "h2q/reversible_kernel.py": [
+    "torch",
+    "group_ops"
+  ],
+  "h2q/trace_formula.py": [
+    "typing",
+    "torch"
+  ],
+  "h2q/kernel_engine.py": [
+    "torch",
+    "math"
+  ],
+  "h2q/kernels.py": [
+    "h2q",
+    "torch",
+    "math"
+  ],
+  "h2q/inference.py": [
+    "sys",
+    "os",
+    "torch",
+    "argparse"
+  ],
+  "h2q/dde.py": [
+    "typing",
+    "torch"
+  ],
+  "h2q/train_distillation.py": [
+    "torch",
+    "numpy"
+  ],
+  "h2q/train_full_stack_v2.py": [
+    "h2q",
+    "torch"
+  ],
+  "h2q/vision_loader.py": [
+    "torch"
+  ],
+  "h2q/hierarchical_system.py": [
+    "spacetime_3d_kernel",
+    "torch",
+    "knot_kernel"
+  ],
+  "h2q/main.py": [
+    "typing",
+    "torch",
+    "numpy"
+  ],
+  "h2q/benchmark_latency.py": [
+    "typing",
+    "torch",
+    "time",
+    "numpy"
+  ],
+  "h2q/dreaming.py": [
+    "h2q",
+    "typing",
+    "torch"
+  ],
+  "h2q/manual_reversible_kernel.py": [
+    "torch",
+    "group_ops"
+  ],
+  "h2q/visualization/spectral_dream_visualizer.py": [
+    "matplotlib",
+    "h2q",
+    "torch",
+    "typing",
+    "numpy"
+  ],
+  "h2q/visualization/bargmann_explorer.py": [
+    "matplotlib",
+    "h2q",
+    "torch",
+    "typing",
+    "numpy"
+  ],
+  "h2q/visualization/fueter_poincare_dashboard.py": [
+    "matplotlib",
+    "base64",
+    "h2q",
+    "torch",
+    "io",
+    "numpy"
+  ],
+  "h2q/visualization/poincare_bargmann_visualizer.py": [
+    "matplotlib",
+    "h2q",
+    "torch",
+    "typing",
+    "numpy"
+  ],
+  "h2q/visualization/homeostatic_dashboard.py": [
+    "os",
+    "torch",
+    "time",
+    "h2q"
+  ],
+  "h2q/visualization/hjb_value_surface.py": [
+    "mpl_toolkits",
+    "matplotlib",
+    "h2q",
+    "torch",
+    "numpy"
+  ],
+  "h2q/visualization/holomorphic_path_visualizer.py": [
+    "matplotlib",
+    "h2q",
+    "torch",
+    "typing",
+    "numpy"
+  ],
+  "h2q/kernels/cmeb.py": [
+    "h2q",
+    "torch"
+  ],
+  "h2q/kernels/metal_spectral_det.py": [
+    "torch",
+    "math"
+  ],
+  "h2q/kernels/resonance_tiling.py": [
+    "h2q",
+    "torch"
+  ],
+  "h2q/kernels/m4_quat_conv.py": [
+    "torch"
+  ],
+  "h2q/kernels/topological_braiding.py": [
+    "torch",
+    "math"
+  ],
+  "h2q/topology/entropy_routing.py": [
+    "torch",
+    "math"
+  ],
+  "h2q/grounding/genomic_streamer.py": [
+    "os",
+    "typing",
+    "torch",
+    "numpy"
+  ],
+  "h2q/grounding/gauss_linking_integrator.py": [
+    "h2q",
+    "typing",
+    "torch",
+    "math"
+  ],
+  "h2q/core/hydra_allocator.py": [
+    "h2q",
+    "torch"
+  ],
+  "h2q/core/hhk.py": [
+    "h2q",
+    "torch"
+  ],
+  "h2q/core/metal_jit_bridge.py": [
+    "os",
+    "h2q",
+    "torch",
+    "platform",
+    "typing",
+    "subprocess"
+  ],
+  "h2q/core/ddfl_dream_connector.py": [
+    "h2q",
+    "torch"
+  ],
+  "h2q/core/holomorphic_healing_wrapper.py": [
+    "h2q",
+    "typing",
+    "torch"
+  ],
+  "h2q/core/transducer.py": [
+    "h2q",
+    "torch"
+  ],
+  "h2q/core/holomorphic_synthesizer.py": [
+    "h2q",
+    "torch"
+  ],
+  "h2q/core/spacetime.py": [
+    "torch"
+  ],
+  "h2q/core/synesthesia_engine.py": [
+    "typing",
+    "torch",
+    "math"
+  ],
+  "h2q/core/thermodynamic_gate.py": [
+    "h2q",
+    "torch"
+  ],
+  "h2q/core/generation.py": [
+    "h2q",
+    "typing",
+    "torch"
+  ],
+  "h2q/core/berry_phase_sync.py": [
+    "h2q",
+    "torch",
+    "math"
+  ],
+  "h2q/core/manifold.py": [
+    "torch"
+  ],
+  "h2q/core/unified_orchestrator.py": [
+    "psutil",
+    "h2q",
+    "torch",
+    "logging",
+    "typing"
+  ],
+  "h2q/core/interpolation.py": [
+    "h2q",
+    "torch"
+  ],
+  "h2q/core/interface_registry.py": [
+    "typing",
+    "torch",
+    "pydantic"
+  ],
+  "h2q/core/gter_system.py": [
+    "h2q",
+    "torch"
+  ],
+  "h2q/core/dynamic_inference.py": [
+    "h2q",
+    "torch"
+  ],
+  "h2q/core/synesthesia_loss.py": [
+    "h2q",
+    "torch"
+  ],
+  "h2q/core/holomorphic_loss_kernel.py": [
+    "h2q",
+    "typing",
+    "torch"
+  ],
+  "h2q/core/spectral_tuner.py": [
+    "h2q",
+    "typing",
+    "torch",
+    "math"
+  ],
+  "h2q/core/geodesic_surgery.py": [
+    "h2q",
+    "typing",
+    "torch"
+  ],
+  "h2q/core/manifold_recovery.py": [
+    "h2q",
+    "torch"
+  ],
+  "h2q/core/adapter.py": [
+    "h2q",
+    "typing",
+    "torch"
+  ],
+  "h2q/core/manifold_scaler.py": [
+    "h2q",
+    "typing",
+    "torch"
+  ],
+  "h2q/core/compression.py": [
+    "torch",
+    "math"
+  ],
+  "h2q/core/isomorphism_bridge.py": [
+    "h2q",
+    "torch"
+  ],
+  "h2q/core/ttd_scheduler.py": [
+    "h2q",
+    "typing",
+    "torch",
+    "math"
+  ],
+  "h2q/core/genomic_topological_validator.py": [
+    "h2q",
+    "torch",
+    "math"
+  ],
+  "h2q/core/geodesic_kernel.py": [
+    "typing",
+    "torch"
+  ],
+  "h2q/core/genomic_logic_pipeline.py": [
+    "h2q",
+    "torch"
+  ],
+  "h2q/core/manifold_shield.py": [
+    "typing",
+    "torch"
+  ],
+  "h2q/core/tpq_engine.py": [
+    "torch",
+    "numpy"
+  ],
+  "h2q/core/genomic_isomorphism_linker.py": [
+    "h2q",
+    "typing",
+    "torch"
+  ],
+  "h2q/core/decision_engine.py": [
+    "typing",
+    "torch",
+    "math"
+  ],
+  "h2q/core/l2_schema_weaver.py": [
+    "h2q",
+    "typing",
+    "torch"
+  ],
+  "h2q/core/topological_cooling.py": [
+    "h2q",
+    "torch"
+  ],
+  "h2q/core/gter_diagnostic.py": [
+    "typing",
+    "torch"
+  ],
+  "h2q/core/genomic_logic_validator.py": [
+    "h2q",
+    "torch"
+  ],
+  "h2q/core/decision.py": [
+    "torch"
+  ],
+  "h2q/core/zwi_spectral_tuner.py": [
+    "h2q",
+    "torch"
+  ],
+  "h2q/core/fueter_laplace_beam_search.py": [
+    "h2q",
+    "torch"
+  ],
+  "h2q/core/discrete_decision_engine.py": [
+    "dataclasses",
+    "typing",
+    "torch"
+  ],
+  "h2q/core/strider.py": [
+    "torch",
+    "math"
+  ],
+  "h2q/core/brain.py": [
+    "os",
+    "argparse",
+    "json",
+    "h2q",
+    "torch",
+    "collections",
+    "pathlib",
+    "time"
+  ],
+  "h2q/core/ddfl_integration.py": [
+    "torch",
+    "numpy"
+  ],
+  "h2q/core/engine.py": [
+    "dataclasses",
+    "typing",
+    "torch"
+  ],
+  "h2q/core/autonomous_system.py": [
+    "typing",
+    "torch",
+    "math"
+  ],
+  "h2q/core/manifold_audit.py": [
+    "torch"
+  ],
+  "h2q/core/reversible_kernel.py": [
+    "typing",
+    "torch"
+  ],
+  "h2q/core/interferometer.py": [
+    "torch",
+    "math"
+  ],
+  "h2q/core/orchestrator.py": [
+    "h2q",
+    "typing",
+    "torch"
+  ],
+  "h2q/core/homeostatic_trainer.py": [
+    "h2q",
+    "torch",
+    "math"
+  ],
+  "h2q/core/cas_kernel.py": [
+    "h2q",
+    "torch"
+  ],
+  "h2q/core/genomic_crystallizer.py": [
+    "h2q",
+    "typing",
+    "torch"
+  ],
+  "h2q/core/berry_cross_attenuator.py": [
+    "h2q",
+    "torch"
+  ],
+  "h2q/core/kernels.py": [
+    "torch",
+    "discrete_decision_engine"
+  ],
+  "h2q/core/m4_amx_tiled_linear.py": [
+    "h2q",
+    "torch"
+  ],
+  "h2q/core/topology.py": [
+    "typing",
+    "torch",
+    "math"
+  ],
+  "h2q/core/genomic_discovery_agent.py": [
+    "os",
+    "torch",
+    "h2q"
+  ],
+  "h2q/core/genomic_hge.py": [
+    "h2q",
+    "torch",
+    "numpy"
+  ],
+  "h2q/core/tracker.py": [
+    "sst"
+  ],
+  "h2q/core/genomic_logic_bridge.py": [
+    "h2q",
+    "torch"
+  ],
+  "h2q/core/base_module.py": [
+    "h2q",
+    "typing",
+    "torch",
+    "pydantic"
+  ],
+  "h2q/core/bargmann_prover.py": [
+    "h2q",
+    "torch"
+  ],
+  "h2q/core/manifold_alignment.py": [
+    "torch",
+    "math"
+  ],
+  "h2q/core/adaptive_striding.py": [
+    "torch",
+    "math"
+  ],
+  "h2q/core/memory_crystal.py": [
+    "os",
+    "glob",
+    "torch",
+    "datetime",
+    "logging",
+    "pathlib",
+    "time"
+  ],
+  "h2q/core/holomorphic_controller.py": [
+    "h2q",
+    "typing",
+    "torch"
+  ],
+  "h2q/core/synesthesia_bridge.py": [
+    "torch",
+    "math"
+  ],
+  "h2q/core/sst.py": [
+    "typing",
+    "torch"
+  ],
+  "h2q/core/ddfl.py": [
+    "torch",
+    "collections",
+    "numpy"
+  ],
+  "h2q/core/logic_auditing.py": [
+    "torch"
+  ],
+  "h2q/core/fueter_beam_search.py": [
+    "h2q",
+    "typing",
+    "torch"
+  ],
+  "h2q/core/zwi_engine.py": [
+    "typing",
+    "torch"
+  ],
+  "h2q/core/bprm.py": [
+    "h2q",
+    "torch"
+  ],
+  "h2q/core/genomic_logic_braid_integrator.py": [
+    "h2q",
+    "torch"
+  ],
+  "h2q/core/unified_kernel.py": [
+    "torch",
+    "math"
+  ],
+  "h2q/core/uam_trainer.py": [
+    "h2q",
+    "typing",
+    "torch"
+  ],
+  "h2q/core/tve_engine.py": [
+    "h2q",
+    "torch"
+  ],
+  "h2q/core/resonator.py": [
+    "typing",
+    "torch"
+  ],
+  "h2q/core/resonance_buffer.py": [
+    "torch",
+    "math"
+  ],
+  "h2q/memory/geodesic_window.py": [
+    "torch"
+  ],
+  "h2q/memory/geodesic_replay.py": [
+    "h2q",
+    "torch"
+  ],
+  "h2q/layers/interference.py": [
+    "torch",
+    "math"
+  ],
+  "h2q/layers/amx_spinor_interference.py": [
+    "h2q",
+    "torch"
+  ],
+  "h2q/layers/amx_linear.py": [
+    "h2q",
+    "torch"
+  ],
+  "h2q/layers/interferometric_gating.py": [
+    "torch",
+    "math"
+  ],
+  "h2q/layers/quantum_alignment.py": [
+    "h2q",
+    "torch"
+  ],
+  "h2q/optimizer/fdc_optimizer.py": [
+    "torch"
+  ],
+  "h2q/calibration/holonomy.py": [
+    "torch"
+  ],
+  "h2q/bridge/multimodal.py": [
+    "torch",
+    "math"
+  ],
+  "h2q/experiments/active_inference_feedback.py": [
+    "h2q",
+    "torch"
+  ],
+  "h2q/experiments/berry_phase_interferometer.py": [
+    "h2q",
+    "torch"
+  ],
+  "h2q/experiments/synesthesia_4way_alignment.py": [
+    "h2q",
+    "torch"
+  ],
+  "h2q/dispatch/amx_orchestrator.py": [
+    "typing",
+    "torch",
+    "time"
+  ],
+  "h2q/dispatch/m4_amx_dispatcher.py": [
+    "h2q",
+    "typing",
+    "torch",
+    "numpy"
+  ],
+  "h2q/dispatch/amx_tiling_dispatcher.py": [
+    "h2q",
+    "typing",
+    "torch",
+    "numpy"
+  ],
+  "h2q/logic/biharmonic_loss_integration.py": [
+    "h2q",
+    "torch"
+  ],
+  "h2q/logic/holomorphic_filter.py": [
+    "torch"
+  ],
+  "h2q/logic/holomorphic_streaming_guard.py": [
+    "h2q",
+    "torch"
+  ],
+  "h2q/logic/high_order_fueter.py": [
+    "h2q",
+    "torch"
+  ],
+  "h2q/logic/biharmonic_stabilizer.py": [
+    "h2q",
+    "torch"
+  ],
+  "h2q/logic/fueter_pruner.py": [
+    "torch"
+  ],
+  "h2q/logic/biharmonic_guard.py": [
+    "h2q",
+    "torch"
+  ],
+  "h2q/logic/fueter_gradient_surgery.py": [
+    "torch"
+  ],
+  "h2q/logic/holomorphic_gating_unit.py": [
+    "h2q",
+    "torch"
+  ],
+  "h2q/utils/mps_compat.py": [
+    "logging",
+    "torch"
+  ],
+  "h2q/utils/visualizer.py": [
+    "matplotlib",
+    "os",
+    "torch",
+    "numpy"
+  ],
+  "h2q/models/hierarchical_decoder.py": [
+    "torch",
+    "math"
+  ],
+  "h2q/models/h2q_world_model.py": [
+    "torch",
+    "math"
+  ],
+  "h2q/vision/loader.py": [
+    "torch"
+  ],
+  "h2q/optimizers/fdc_optimizer.py": [
+    "torch",
+    "math"
+  ],
+  "h2q/optimizers/geodesic_unitary.py": [
+    "torch",
+    "math"
+  ],
+  "h2q/optimizers/spectral_entropy_wrapper.py": [
+    "typing",
+    "torch",
+    "math"
+  ],
+  "h2q/audit/synesthesia_4way_audit.py": [
+    "h2q",
+    "torch",
+    "core",
+    "src"
+  ],
+  "h2q/audit/persistence_audit_v1.py": [
+    "typing",
+    "torch",
+    "time",
+    "numpy"
+  ],
+  "h2q/audit/topology.py": [
+    "gudhi",
+    "scipy",
+    "torch",
+    "typing",
+    "numpy"
+  ],
+  "h2q/resonance/avt_resonator.py": [
+    "typing",
+    "torch"
+  ],
+  "h2q/engines/decision.py": [
+    "torch"
+  ],
+  "h2q/benchmarks/zwi_geometric_crystal.py": [
+    "h2q",
+    "torch",
+    "time"
+  ],
+  "h2q/benchmarks/geodesic_retrieval_benchmark.py": [
+    "typing",
+    "torch",
+    "time",
+    "numpy"
+  ],
+  "h2q/benchmarks/amx_tiled_profiler.py": [
+    "h2q",
+    "torch",
+    "typing",
+    "numpy",
+    "time"
+  ],
+  "h2q/benchmarks/amx_precision_audit.py": [
+    "h2q",
+    "torch",
+    "numpy"
+  ],
+  "h2q/benchmarks/fractal_latency_amx.py": [
+    "gc",
+    "typing",
+    "torch",
+    "time"
+  ],
+  "h2q/benchmarks/tis_streaming_v1.py": [
+    "torch",
+    "math",
+    "time"
+  ],
+  "h2q/benchmarks/rskh_infinite_stress.py": [
+    "os",
+    "psutil",
+    "h2q",
+    "torch",
+    "time"
+  ],
+  "h2q/benchmarks/mps_hamilton_optimizer.py": [
+    "torch",
+    "time",
+    "numpy"
+  ],
+  "h2q/benchmarks/temporal_knot_persistence.py": [
+    "torch",
+    "typing",
+    "numpy",
+    "math",
+    "time"
+  ],
+  "h2q/benchmarks/infinite_context_persistence_audit.py": [
+    "os",
+    "psutil",
+    "h2q",
+    "torch",
+    "numpy",
+    "time"
+  ],
+  "h2q/persistence/rskh.py": [
+    "torch",
+    "math"
+  ],
+  "h2q/persistence/crystal_auditor.py": [
+    "os",
+    "json",
+    "hashlib",
+    "h2q",
+    "torch",
+    "typing"
+  ],
+  "h2q/diagnostics/reversibility_sentinel.py": [
+    "h2q",
+    "typing",
+    "torch",
+    "time"
+  ],
+  "h2q/diagnostics/fueter_audit.py": [
+    "typing",
+    "torch"
+  ],
+  "h2q/diagnostics/manifold_entropy_audit.py": [
+    "typing",
+    "torch",
+    "math"
+  ],
+  "h2q/governance/m4_homeostatic_governor.py": [
+    "h2q",
+    "typing",
+    "torch",
+    "time"
+  ],
+  "h2q/governance/memory_governor.py": [
+    "logging",
+    "h2q",
+    "torch",
+    "psutil"
+  ],
+  "h2q/governance/heat_sink_controller.py": [
+    "h2q",
+    "typing",
+    "torch"
+  ],
+  "h2q/governance/rank_resuscitator.py": [
+    "h2q",
+    "typing",
+    "torch"
+  ],
+  "h2q/governance/thermal_geodesic_governor.py": [
+    "os",
+    "torch",
+    "h2q"
+  ],
+  "h2q/governance/heat_death_governor.py": [
+    "h2q",
+    "torch"
+  ],
+  "h2q/governance/modality_synchronizer.py": [
+    "h2q",
+    "torch"
+  ],
+  "h2q/ops/memory_manager.py": [
+    "os",
+    "psutil",
+    "shutil",
+    "torch",
+    "logging",
+    "typing",
+    "time"
+  ],
+  "h2q/ops/m4_amx_extension.py": [
+    "h2q",
+    "torch",
+    "time"
+  ],
+  "h2q/ops/mps_amx_bridge.py": [
+    "os",
+    "torch"
+  ],
+  "h2q/ops/m4_amx_bridge.py": [
+    "gc",
+    "typing",
+    "torch",
+    "h2q"
+  ],
+  "h2q/ops/rskh_mmap_swapper.py": [
+    "os",
+    "mmap",
+    "h2q",
+    "torch",
+    "typing",
+    "numpy"
+  ],
+  "h2q/decision/dde.py": [
+    "torch",
+    "math"
+  ],
+  "h2q/dna_topology/topology_engine.py": [
+    "typing",
+    "torch",
+    "numpy"
+  ],
+  "h2q/physics/spectral_ops.py": [
+    "typing",
+    "torch"
+  ],
+  "h2q/routing/dynamic_precision.py": [
+    "typing",
+    "torch",
+    "math"
+  ],
+  "h2q/monitoring/mhdm.py": [
+    "logging",
+    "typing",
+    "torch",
+    "numpy"
+  ],
+  "h2q/data/universal_stream.py": [
+    "datasets",
+    "torch",
+    "typing"
+  ],
+  "h2q/data/generator.py": [
+    "dataclasses",
+    "typing",
+    "numpy",
+    "random"
+  ],
+  "h2q/engine/discrete_decision.py": [
+    "torch"
+  ],
+  "h2q/engine/decision_engine.py": [
+    "torch"
+  ],
+  "h2q/engine/decision.py": [
+    "typing",
+    "torch"
+  ],
+  "h2q/engine/curiosity.py": [
+    "h2q",
+    "torch",
+    "threading",
+    "logging",
+    "typing",
+    "time"
+  ],
+  "h2q/loaders/audio_knot.py": [
+    "typing",
+    "torch",
+    "torchaudio"
+  ],
+  "h2q/control/ast_engine.py": [
+    "typing",
+    "torch",
+    "math"
+  ],
+  "h2q/control/dmdc.py": [
+    "os",
+    "psutil",
+    "h2q",
+    "torch",
+    "typing"
+  ],
+  "h2q/services/topological_loop_healer.py": [
+    "h2q",
+    "torch",
+    "logging",
+    "typing",
+    "asyncio"
+  ],
+  "h2q/services/bargmann_coherence_server.py": [
+    "h2q",
+    "typing",
+    "torch",
+    "asyncio"
+  ],
+  "h2q/services/bargmann_consolidation.py": [
+    "h2q",
+    "torch",
+    "logging",
+    "typing",
+    "asyncio"
+  ],
+  "h2q/services/spectral_paging_service.py": [
+    "os",
+    "psutil",
+    "h2q",
+    "torch",
+    "logging",
+    "typing"
+  ],
+  "h2q/services/berry_phase_validator.py": [
+    "h2q",
+    "typing",
+    "torch"
+  ],
+  "h2q/services/uhbs_healer.py": [
+    "h2q",
+    "typing",
+    "torch"
+  ],
+  "h2q/services/holomorphic_telemetry.py": [
+    "json",
+    "h2q",
+    "torch",
+    "typing",
+    "asyncio"
+  ],
+  "h2q/services/geodesic_healer_service.py": [
+    "h2q",
+    "torch",
+    "threading",
+    "logging",
+    "typing",
+    "time"
+  ],
+  "h2q/services/berry_phase_checkpointer.py": [
+    "os",
+    "h2q",
+    "torch",
+    "typing",
+    "time"
+  ],
+  "h2q/services/hjb_recovery_service.py": [
+    "h2q",
+    "torch",
+    "logging",
+    "typing",
+    "asyncio"
+  ],
+  "h2q/services/synesthesia_central.py": [
+    "h2q",
+    "typing",
+    "torch",
+    "math"
+  ],
+  "h2q/validation/algorithmic_isomorphism.py": [
+    "h2q",
+    "typing",
+    "torch",
+    "numpy"
+  ],
+  "h2q/validation/compression_audit.py": [
+    "torch",
+    "math",
+    "numpy"
+  ],
+  "h2q/visualizer/manifold_curvature_map.py": [
+    "matplotlib",
+    "h2q",
+    "torch",
+    "typing",
+    "numpy"
+  ],
+  "h2q/kernels/quantization/tpq_v2.py": [
+    "torch",
+    "math"
+  ],
+  "h2q/core/metrics/geodesic_integrator.py": [
+    "typing",
+    "torch",
+    "math"
+  ],
+  "h2q/core/kernels/metal_fused_cpig.py": [
+    "h2q",
+    "torch"
+  ],
+  "h2q/core/kernels/__init__.py": [
+    "kernels"
+  ],
+  "h2q/core/topology/entropy_router.py": [
+    "torch",
+    "math"
+  ],
+  "h2q/core/topology/knot_hash.py": [
+    "torch",
+    "math"
+  ],
+  "h2q/core/memory/ssd_paging_controller.py": [
+    "os",
+    "psutil",
+    "dataclasses",
+    "h2q",
+    "torch",
+    "typing",
+    "time"
+  ],
+  "h2q/core/memory/h2q_vault.py": [
+    "os",
+    "torch",
+    "h2q"
+  ],
+  "h2q/core/memory/mps_swap.py": [
+    "h2q",
+    "typing",
+    "torch",
+    "threading"
+  ],
+  "h2q/core/memory/hdi_sparsity_scheduler.py": [
+    "psutil",
+    "h2q",
+    "torch",
+    "logging",
+    "typing"
+  ],
+  "h2q/core/memory/rskh_berry_pruner.py": [
+    "os",
+    "psutil",
+    "h2q",
+    "torch",
+    "typing"
+  ],
+  "h2q/core/memory/rskh_ssd_paging.py": [
+    "os",
+    "typing",
+    "torch",
+    "h2q"
+  ],
+  "h2q/core/memory/dynamic_precision_paging.py": [
+    "os",
+    "typing",
+    "torch",
+    "h2q"
+  ],
+  "h2q/core/memory/topological_forgetting.py": [
+    "h2q",
+    "typing",
+    "torch",
+    "numpy"
+  ],
+  "h2q/core/memory/rskh_ssd_persistence_broker.py": [
+    "os",
+    "mmap",
+    "psutil",
+    "h2q",
+    "torch",
+    "typing",
+    "numpy",
+    "asyncio"
+  ],
+  "h2q/core/memory/holomorphic_vault_middleware.py": [
+    "h2q",
+    "typing",
+    "torch"
+  ],
+  "h2q/core/memory/geodesic_paging_dispatcher.py": [
+    "psutil",
+    "h2q",
+    "torch",
+    "logging",
+    "typing"
+  ],
+  "h2q/core/memory/gpim.py": [
+    "typing",
+    "torch",
+    "math"
+  ],
+  "h2q/core/memory/genomic_vault_interface.py": [
+    "h2q",
+    "typing",
+    "torch"
+  ],
+  "h2q/core/memory/rskh_deduplicator.py": [
+    "os",
+    "typing",
+    "torch",
+    "h2q"
+  ],
+  "h2q/core/memory/rskh_v2_mmap_orchestrator.py": [
+    "os",
+    "dataclasses",
+    "h2q",
+    "torch",
+    "enum",
+    "typing",
+    "numpy"
+  ],
+  "h2q/core/memory/infinite_holonomy_cache.py": [
+    "h2q",
+    "torch"
+  ],
+  "h2q/core/memory/berry_kv_cache.py": [
+    "h2q",
+    "torch"
+  ],
+  "h2q/core/memory/rskh_rnn.py": [
+    "h2q",
+    "torch"
+  ],
+  "h2q/core/memory/topological_spinor_kv.py": [
+    "h2q",
+    "torch"
+  ],
+  "h2q/core/memory/geodesic_prefetcher.py": [
+    "h2q",
+    "typing",
+    "torch",
+    "threading"
+  ],
+  "h2q/core/memory/rskh_vault.py": [
+    "h2q",
+    "typing",
+    "torch"
+  ],
+  "h2q/core/memory/spectral_swap_daemon.py": [
+    "os",
+    "psutil",
+    "h2q",
+    "torch",
+    "time"
+  ],
+  "h2q/core/memory/l2_vault.py": [
+    "h2q",
+    "typing",
+    "torch"
+  ],
+  "h2q/core/layers/usc_barycenter.py": [
+    "h2q",
+    "torch"
+  ],
+  "h2q/core/layers/berry_amx_attention.py": [
+    "h2q",
+    "torch"
+  ],
+  "h2q/core/layers/berry_interference_head.py": [
+    "h2q",
+    "torch"
+  ],
+  "h2q/core/layers/uht.py": [
+    "h2q",
+    "typing",
+    "torch"
+  ],
+  "h2q/core/layers/hamilton_reversible_cell.py": [
+    "h2q",
+    "torch"
+  ],
+  "h2q/core/layers/amx_reversible.py": [
+    "h2q",
+    "torch"
+  ],
+  "h2q/core/layers/spectral_pooling.py": [
+    "h2q",
+    "torch"
+  ],
+  "h2q/core/accelerators/m4_jit_linker.py": [
+    "os",
+    "tempfile",
+    "h2q",
+    "torch",
+    "typing",
+    "subprocess"
+  ],
+  "h2q/core/accelerators/m4_jit_compiler.py": [
+    "os",
+    "tempfile",
+    "h2q",
+    "torch",
+    "logging",
+    "typing",
+    "subprocess"
+  ],
+  "h2q/core/accelerators/m4_jit_hot_swapper.py": [
+    "os",
+    "tempfile",
+    "h2q",
+    "torch",
+    "typing",
+    "subprocess"
+  ],
+  "h2q/core/accelerators/m4_auto_tiler.py": [
+    "h2q",
+    "typing",
+    "torch"
+  ],
+  "h2q/core/accelerators/m4_amx_kernel.py": [
+    "os",
+    "torch",
+    "h2q"
+  ],
+  "h2q/core/accelerators/m4_fused_spectral_tracker.py": [
+    "h2q",
+    "torch",
+    "math"
+  ],
+  "h2q/core/accelerators/m4_berry_jit.py": [
+    "os",
+    "typing",
+    "torch",
+    "h2q"
+  ],
+  "h2q/core/accelerators/gter_adjoint.py": [
+    "h2q",
+    "typing",
+    "torch"
+  ],
+  "h2q/core/accelerators/m4_fused_hamilton.py": [
+    "h2q",
+    "torch"
+  ],
+  "h2q/core/accelerators/metal_amx_linker.py": [
+    "os",
+    "typing",
+    "torch",
+    "h2q"
+  ],
+  "h2q/core/accelerators/hamilton_amx_bridge.py": [
+    "h2q",
+    "torch",
+    "time",
+    "numpy"
+  ],
+  "h2q/core/calibration/genomic_vision_suite.py": [
+    "h2q",
+    "typing",
+    "torch"
+  ],
+  "h2q/core/calibration/holonomy_calibrator.py": [
+    "typing",
+    "torch"
+  ],
+  "h2q/core/calibration/synesthesia_calibration_suite.py": [
+    "h2q",
+    "torch"
+  ],
+  "h2q/core/calibration/berry_phase.py": [
+    "typing",
+    "torch"
+  ],
+  "h2q/core/shields/manifold_shield.py": [
+    "torch"
+  ],
+  "h2q/core/optimization/fdc_optimizer.py": [
+    "h2q",
+    "torch"
+  ],
+  "h2q/core/optimization/holomorphic_projection.py": [
+    "h2q",
+    "torch"
+  ],
+  "h2q/core/optimization/unified_holomorphic_optimizer.py": [
+    "h2q",
+    "torch",
+    "math"
+  ],
+  "h2q/core/optimization/tso_optimizer.py": [
+    "h2q",
+    "typing",
+    "torch",
+    "numpy"
+  ],
+  "h2q/core/optimization/holomorphic_healing.py": [
+    "h2q",
+    "torch"
+  ],
+  "h2q/core/optimization/holomorphic_backprop.py": [
+    "h2q",
+    "torch"
+  ],
+  "h2q/core/serialization/manifold_snapshot.py": [
+    "os",
+    "struct",
+    "torch",
+    "typing",
+    "numpy"
+  ],
+  "h2q/core/serialization/uqc_handler.py": [
+    "json",
+    "hashlib",
+    "torch",
+    "pathlib",
+    "typing",
+    "numpy",
+    "time"
+  ],
+  "h2q/core/distillation/avtg_training_pipeline.py": [
+    "h2q",
+    "typing",
+    "torch"
+  ],
+  "h2q/core/distillation/code_genomic_distiller.py": [
+    "h2q",
+    "typing",
+    "torch"
+  ],
+  "h2q/core/distillation/topological_distiller.py": [
+    "torch",
+    "math"
+  ],
+  "h2q/core/distillation/quaternionic_gauss_loss.py": [
+    "h2q",
+    "torch"
+  ],
+  "h2q/core/distillation/cmi_distiller.py": [
+    "h2q",
+    "torch"
+  ],
+  "h2q/core/distillation/holonomy_distiller.py": [
+    "typing",
+    "torch"
+  ],
+  "h2q/core/distillation/l2_distiller.py": [
+    "h2q",
+    "typing",
+    "torch"
+  ],
+  "h2q/core/distillation/avtg_distiller.py": [
+    "h2q",
+    "torch"
+  ],
+  "h2q/core/distillation/genomic_logic_bridge.py": [
+    "h2q",
+    "torch"
+  ],
+  "h2q/core/distillation/code_geometric_bridge.py": [
+    "h2q",
+    "torch",
+    "math"
+  ],
+  "h2q/core/optimizers/fdc_optimizer.py": [
+    "h2q",
+    "torch"
+  ],
+  "h2q/core/optimizers/hjb_solver.py": [
+    "h2q",
+    "torch"
+  ],
+  "h2q/core/optimizers/drag_vsync.py": [
+    "h2q",
+    "typing",
+    "torch"
+  ],
+  "h2q/core/optimizers/spectral_drag.py": [
+    "h2q",
+    "torch",
+    "math",
+    "collections"
+  ],
+  "h2q/core/optimizers/rago.py": [
+    "h2q",
+    "torch"
+  ],
+  "h2q/core/optimizers/gpio.py": [
+    "h2q",
+    "torch",
+    "math"
+  ],
+  "h2q/core/optimizers/spectral_drag_scheduler.py": [
+    "h2q",
+    "torch"
+  ],
+  "h2q/core/optimizers/su2_momentum.py": [
+    "typing",
+    "torch"
+  ],
+  "h2q/core/quantization/tpq_engine.py": [
+    "torch",
+    "math"
+  ],
+  "h2q/core/quantization/tpq_packer.py": [
+    "h2q",
+    "typing",
+    "torch"
+  ],
+  "h2q/core/quantization/fractal_quantizer.py": [
+    "torch",
+    "math"
+  ],
+  "h2q/core/quantization/quaternionic_protocol.py": [
+    "typing",
+    "torch",
+    "numpy"
+  ],
+  "h2q/core/trainers/berry_synesthesia.py": [
+    "torch",
+    "math"
+  ],
+  "h2q/core/trainers/unified_barycenter_trainer.py": [
+    "h2q",
+    "torch"
+  ],
+  "h2q/core/trainers/karcher_frechet_trainer.py": [
+    "h2q",
+    "torch"
+  ],
+  "h2q/core/trainers/holomorphic_hjb_healer.py": [
+    "h2q",
+    "typing",
+    "torch"
+  ],
+  "h2q/core/trainers/genomic_starcoder_trainer.py": [
+    "h2q",
+    "typing",
+    "torch"
+  ],
+  "h2q/core/trainers/bargmann_isomorphism_trainer.py": [
+    "h2q",
+    "typing",
+    "torch"
+  ],
+  "h2q/core/trainers/berry_fusion_unified.py": [
+    "h2q",
+    "torch"
+  ],
+  "h2q/core/trainers/karcher_synesthesia.py": [
+    "h2q",
+    "torch"
+  ],
+  "h2q/core/trainers/genomic_algorithmic_isomorphism.py": [
+    "h2q",
+    "typing",
+    "torch"
+  ],
+  "h2q/core/trainers/sleep_healer.py": [
+    "h2q",
+    "typing",
+    "torch"
+  ],
+  "h2q/core/pruning/geodesic_engine.py": [
+    "h2q",
+    "typing",
+    "torch"
+  ],
+  "h2q/core/audit/crosstalk_auditor.py": [
+    "h2q",
+    "torch"
+  ],
+  "h2q/core/audit/manifold_audit.py": [
+    "typing",
+    "torch",
+    "math"
+  ],
+  "h2q/core/audit/genomic_invariant_audit.py": [
+    "h2q",
+    "typing",
+    "torch",
+    "math"
+  ],
+  "h2q/core/audit/genomic_starcoder_auditor.py": [
+    "h2q",
+    "torch",
+    "math"
+  ],
+  "h2q/core/persistence/rskh_uqc_layer.py": [
+    "os",
+    "json",
+    "hashlib",
+    "h2q",
+    "torch",
+    "typing",
+    "numpy"
+  ],
+  "h2q/core/persistence/l2_super_knot.py": [
+    "h2q",
+    "typing",
+    "torch"
+  ],
+  "h2q/core/persistence/gter_storage.py": [
+    "os",
+    "h2q",
+    "torch",
+    "typing",
+    "numpy"
+  ],
+  "h2q/core/persistence/spectral_swap_manager.py": [
+    "os",
+    "psutil",
+    "dataclasses",
+    "h2q",
+    "torch",
+    "pickle",
+    "typing",
+    "numpy",
+    "time"
+  ],
+  "h2q/core/diagnostics/fractal_recovery.py": [
+    "typing",
+    "torch",
+    "numpy"
+  ],
+  "h2q/core/alignment/genomic_vision_aligner.py": [
+    "h2q",
+    "typing",
+    "torch"
+  ],
+  "h2q/core/alignment/bargmann_aligner.py": [
+    "h2q",
+    "torch"
+  ],
+  "h2q/core/alignment/bargmann_isomorphism_finetuner.py": [
+    "h2q",
+    "torch"
+  ],
+  "h2q/core/alignment/cmga_interferometer.py": [
+    "typing",
+    "torch"
+  ],
+  "h2q/core/alignment/berry_phase_comparator.py": [
+    "h2q",
+    "torch"
+  ],
+  "h2q/core/alignment/bargmann_validator.py": [
+    "h2q",
+    "torch"
+  ],
+  "h2q/core/alignment/karcher_flow_aligner.py": [
+    "h2q",
+    "torch"
+  ],
+  "h2q/core/ops/hamilton_amx.py": [
+    "os",
+    "torch"
+  ],
+  "h2q/core/monitoring/manifold_audit.py": [
+    "matplotlib",
+    "typing",
+    "torch",
+    "numpy"
+  ],
+  "h2q/core/guards/holomorphic_sparsity_guard.py": [
+    "h2q",
+    "typing",
+    "torch"
+  ],
+  "h2q/core/guards/holomorphic_healing_middleware.py": [
+    "h2q",
+    "torch"
+  ],
+  "h2q/core/guards/holomorphic_streaming_middleware.py": [
+    "h2q",
+    "typing",
+    "torch"
+  ],
+  "h2q/core/guards/hqa_guard.py": [
+    "h2q",
+    "typing",
+    "torch"
+  ],
+  "h2q/core/guards/holomorphic_guard.py": [
+    "typing",
+    "torch"
+  ],
+  "h2q/core/guards/holomorphic_guard_middleware.py": [
+    "starlette",
+    "h2q",
+    "torch",
+    "fastapi",
+    "typing"
+  ],
+  "h2q/core/guards/holomorphic_beam_search.py": [
+    "h2q",
+    "typing",
+    "torch"
+  ],
+  "h2q/core/generation/holomorphic_decoder.py": [
+    "h2q",
+    "typing",
+    "torch"
+  ],
+  "h2q/core/generation/holomorphic_backtracker.py": [
+    "h2q",
+    "typing",
+    "torch"
+  ],
+  "h2q/core/generation/holomorphic_sampler.py": [
+    "h2q",
+    "torch"
+  ],
+  "h2q/layers/fusion/manifold_interferometer.py": [
+    "torch",
+    "math"
+  ],
+  "h2q/models/bridges/berry_phase_synesthesia.py": [
+    "torch",
+    "math"
+  ],
+  "h2q/models/quantum_geometric/interferometer.py": [
+    "torch"
+  ]
+}

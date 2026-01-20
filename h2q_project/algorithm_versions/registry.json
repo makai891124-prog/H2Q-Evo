@@ -1,0 +1,21 @@
+{
+  "DiscreteDecisionEngine": [
+    {
+      "name": "DiscreteDecisionEngine",
+      "version": "2.1.0",
+      "status": "production",
+      "description": "生产环境稳定版本",
+      "created_at": "2026-01-20T10:43:42.451112",
+      "author": "H2Q-Evo Team",
+      "checkpoint_path": "algorithm_versions/DiscreteDecisionEngine/2.1.0/checkpoint.pt",
+      "config": {
+        "latent_dim": 256,
+        "n_choices": 64
+      },
+      "performance_metrics": {},
+      "breaking_changes": [],
+      "dependencies": {},
+      "signature": "6283b35e207fb3a2"
+    }
+  ]
+}

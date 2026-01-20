@@ -119,3 +119,37 @@ class ManifoldLayer(nn.Module):
             
             drift = torch.norm(x - x_rec)
             return drift < 1e-6, drift
+
+
+class QuaternionicManifold(nn.Module):
+    """
+    Quaternionic Manifold for H2Q Framework.
+    Implements quaternion-based geometric transformations.
+    """
+    def __init__(self, seed_atoms=2, target_dim=256):
+        super().__init__()
+        self.seed_atoms = seed_atoms
+        self.target_dim = target_dim
+        # Use the existing ManifoldLayer as base
+        self.manifold_layer = ManifoldLayer(target_dim)
+
+    def forward(self, x):
+        return self.manifold_layer(x)
+    
+    def fractal_expand(self, seed):
+        """
+        Fractal expansion from seed atoms to target dimension.
+        """
+        # Simple expansion: repeat and concatenate to reach target dimension
+        batch_size, n_atoms, quat_components = seed.shape
+        # Flatten and expand
+        expanded = seed.view(batch_size, -1)  # Flatten atoms and components
+        # Expand to target dimension by repeating and truncating
+        if expanded.shape[-1] < self.target_dim:
+            # Repeat to reach target dimension
+            repeats = (self.target_dim + expanded.shape[-1] - 1) // expanded.shape[-1]
+            expanded = expanded.repeat(1, repeats)[:, :self.target_dim]
+        else:
+            expanded = flattened[:, :self.target_dim]
+        # Return shape: (batch, target_dim, 1) so that [-2] is target_dim
+        return expanded.unsqueeze(-1)

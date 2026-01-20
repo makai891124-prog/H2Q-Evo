@@ -1,7 +1,7 @@
 # tests/test_sst.py
 
 import pytest
-from h2q.sst import SpectralShiftTracker
+from h2q.core.sst import SpectralShiftTracker
 
 def test_sst_normal_learning_is_monotone():
     # 思想实验1：模拟一个正常的、持续学习的过程

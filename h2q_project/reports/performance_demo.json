@@ -1,0 +1,15 @@
+{
+  "timestamp": "2026-01-20",
+  "model": "DiscreteDecisionEngine v2.1.0",
+  "metrics": {
+    "avg_latency_ms": 1.1085963249206543,
+    "p50_latency_ms": 1.1284351348876953,
+    "p95_latency_ms": 1.62506103515625,
+    "p99_latency_ms": 1.7333030700683594,
+    "throughput_qps": 902.041597577525
+  },
+  "environment": {
+    "device": "cpu",
+    "dtype": "torch.float32"
+  }
+}

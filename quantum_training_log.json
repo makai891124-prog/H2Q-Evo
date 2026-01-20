@@ -1,0 +1,10 @@
+[
+  {
+    "epoch": 1,
+    "train_loss": 10.80934770901998,
+    "eval_loss": null,
+    "perplexity": null,
+    "epoch_time": 103.10113096237183,
+    "total_time": 103.1018500328064
+  }
+]

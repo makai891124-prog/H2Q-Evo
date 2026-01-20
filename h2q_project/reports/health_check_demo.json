@@ -1,0 +1,36 @@
+{
+  "overall_status": "healthy",
+  "checks": {
+    "model_loading": "healthy",
+    "inference_performance": "healthy",
+    "memory_usage": "healthy",
+    "mathematical_integrity": "healthy"
+  },
+  "metrics": {
+    "model_loading": {
+      "success_rate": 1.0,
+      "last_status": "healthy",
+      "last_check_time": "2026-01-20T10:43:42.459924",
+      "circuit_breaker_state": "CLOSED"
+    },
+    "inference_performance": {
+      "success_rate": 1.0,
+      "last_status": "healthy",
+      "last_check_time": "2026-01-20T10:43:42.532919",
+      "circuit_breaker_state": "CLOSED"
+    },
+    "memory_usage": {
+      "success_rate": 1.0,
+      "last_status": "healthy",
+      "last_check_time": "2026-01-20T10:43:42.538448",
+      "circuit_breaker_state": "CLOSED"
+    },
+    "mathematical_integrity": {
+      "success_rate": 1.0,
+      "last_status": "healthy",
+      "last_check_time": "2026-01-20T10:43:42.557744",
+      "circuit_breaker_state": "CLOSED"
+    }
+  },
+  "timestamp": "2026-01-20T10:43:42.557845"
+}

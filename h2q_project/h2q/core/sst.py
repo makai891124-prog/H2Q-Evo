@@ -1,6 +1,7 @@
 # h2q/sst.py
 
 from typing import List, Dict
+import torch
 
 class SpectralShiftTracker:
     """
@@ -66,9 +67,17 @@ class SpectralShiftTracker:
             'learning_rate_avg': learning_rate_avg
         }
 
-    def reset(self):
+    def compute_shift(self, S: torch.Tensor) -> float:
         """
-        重置追踪器状态，用于新的实验。
+        计算谱位移 η = (1/π) arg{det(S)}
+        
+        Args:
+            S: 散射矩阵 (复数张量)
+            
+        Returns:
+            谱位移值 (实数)
         """
-        self.eta_history = []
-        self.is_monotone = True
+        det_S = torch.det(S)
+        arg_det = torch.angle(det_S)
+        eta = arg_det / torch.pi
+        return eta.item()

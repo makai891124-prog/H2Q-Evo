@@ -5,6 +5,8 @@ H2Q-Evo 核心 AGI 能力实证验证脚本
 """
 
 import sys
+import json
+from pathlib import Path
 import torch
 import torch.nn as nn
 import torch.optim as optim
@@ -284,6 +286,144 @@ def benchmark_quaternion_speed():
     print(f"吞吐量: {throughput:.0f} quaternion ops/sec")
     print(f"平均单次: {(elapsed / 100) * 1000:.2f}ms")
 
+
+# ==================== 离线数据与多实现交叉验证 ====================
+
+class OfflineCorpusConfig:
+    """离线公开数据集配置（只读，不自动下载）。"""
+
+    def __init__(self, base_dir: Path):
+        self.base_dir = Path(base_dir)
+        self.allowed_subdirs = {
+            "text": ["pile", "openwebtext", "wikipedia"],
+            "code": ["the_stack", "starcoder"],
+            "math": ["proofwiki", "arxiv_math"],
+        }
+        self.max_file_mb = 512  # 单文件大小上限，防止误读超大文件
+
+    def list_corpora(self):
+        """列出允许的离线数据子目录，不触网。"""
+        if not self.base_dir.exists():
+            print_warning(f"离线语料目录不存在: {self.base_dir}")
+            return {}
+
+        summary = {}
+        for domain, subdirs in self.allowed_subdirs.items():
+            domain_dir = self.base_dir / domain
+            if not domain_dir.exists():
+                continue
+            summary[domain] = []
+            for sd in subdirs:
+                p = domain_dir / sd
+                if p.exists():
+                    total = sum(1 for _ in p.rglob("*.json")) + sum(1 for _ in p.rglob("*.txt"))
+                    summary[domain].append({"name": sd, "files": total, "path": str(p)})
+        return summary
+
+
+class OfflineMemoryIndex:
+    """极简离线记忆索引（不联网，不自动下载）。"""
+
+    def __init__(self, root: Path):
+        self.root = Path(root)
+        self.index = []  # [{"path": str, "size": int, "domain": str}]
+
+    def build(self, max_files: int = 200):
+        if not self.root.exists():
+            print_warning(f"离线语料目录不存在: {self.root}")
+            return
+
+        count = 0
+        for path in self.root.rglob("*.txt"):
+            if count >= max_files:
+                break
+            if path.stat().st_size > 512 * 1024 * 1024:  # 512 MB 防御性限制
+                continue
+            self.index.append({
+                "path": str(path),
+                "size": path.stat().st_size,
+                "domain": path.parent.name,
+            })
+            count += 1
+
+    def stats(self):
+        total_size = sum(item["size"] for item in self.index)
+        return {
+            "files_indexed": len(self.index),
+            "total_size_mb": round(total_size / (1024 * 1024), 2),
+        }
+
+
+def hamilton_product_reference(q: torch.Tensor, x: torch.Tensor) -> torch.Tensor:
+    """纯 PyTorch 参考实现（不依赖自定义算子）。"""
+    q0, q1, q2, q3 = q.unbind(-1)
+    x0, x1, x2, x3 = x.unbind(-1)
+    y0 = q0 * x0 - q1 * x1 - q2 * x2 - q3 * x3
+    y1 = q0 * x1 + q1 * x0 + q2 * x3 - q3 * x2
+    y2 = q0 * x2 - q1 * x3 + q2 * x0 + q3 * x1
+    y3 = q0 * x3 + q1 * x2 - q2 * x1 + q3 * x0
+    return torch.stack([y0, y1, y2, y3], dim=-1)
+
+
+def verify_hamilton_product_consistency():
+    """多实现交叉验证：自定义算子 vs 参考实现（含梯度）。"""
+    print_section("多实现交叉验证：HamiltonProduct 一致性")
+    try:
+        from h2q.dde import HamiltonProductAMX
+    except ImportError:
+        print_warning("h2q.dde.HamiltonProductAMX 不可用，跳过一致性验证")
+        return False
+
+    q = torch.randn(2, 3, 4, requires_grad=True)
+    x = torch.randn(2, 3, 4, requires_grad=True)
+
+    # 前向比对
+    y_custom = HamiltonProductAMX.apply(q, x)
+    y_ref = hamilton_product_reference(q, x)
+    forward_close = torch.allclose(y_custom, y_ref, atol=1e-5, rtol=1e-5)
+
+    # 反向比对
+    grad_out = torch.randn_like(y_custom)
+    y_custom.backward(grad_out, retain_graph=True)
+    grad_q_custom = q.grad.clone()
+    grad_x_custom = x.grad.clone()
+
+    q.grad.zero_(); x.grad.zero_()
+    y_ref.backward(grad_out)
+    grad_q_ref = q.grad.clone()
+    grad_x_ref = x.grad.clone()
+
+    backward_close = (
+        torch.allclose(grad_q_custom, grad_q_ref, atol=1e-5, rtol=1e-5)
+        and torch.allclose(grad_x_custom, grad_x_ref, atol=1e-5, rtol=1e-5)
+    )
+
+    if forward_close and backward_close:
+        print_success("HamiltonProduct 前向/反向 与参考实现一致")
+        return True
+    else:
+        print_warning("HamiltonProduct 与参考实现存在差异，请检查")
+        return False
+
+
+def offline_corpus_status(base_dir: Path):
+    """打印离线语料与记忆索引状态，不进行联网。"""
+    print_section("离线语料与记忆索引状态（仅本地，不联网）")
+    cfg = OfflineCorpusConfig(base_dir)
+    summary = cfg.list_corpora()
+    if not summary:
+        print_warning("未发现离线语料，请将数据放入 data/public_corpora 下")
+    else:
+        for domain, items in summary.items():
+            print_success(f"{domain}: {len(items)} 组")
+            for it in items:
+                print(f"  - {it['name']}: {it['files']} files @ {it['path']}")
+
+    idx = OfflineMemoryIndex(base_dir)
+    idx.build(max_files=50)
+    stats = idx.stats()
+    print(f"索引文件数: {stats.get('files_indexed', 0)}，容量: {stats.get('total_size_mb', 0)} MB")
+
 def main():
     print(f"\n{Fore.CYAN}{'='*70}")
     print(f"{Fore.CYAN}H2Q-Evo 核心 AGI 能力实证验证".center(70))
@@ -295,6 +435,7 @@ def main():
         "在线学习": False,
         "离散决策引擎": False,
         "代码生成": False,
+        "HamiltonProduct 一致性": False,
     }
     
     # 运行所有测试
@@ -302,6 +443,11 @@ def main():
         results["四元数 Hamilton 积"] = test_quaternion_math()
     except Exception as e:
         print_error(f"四元数测试异常: {e}")
+
+    try:
+        results["HamiltonProduct 一致性"] = verify_hamilton_product_consistency()
+    except Exception as e:
+        print_warning(f"一致性验证异常: {e}")
     
     try:
         results["在线学习"] = test_online_learning()
@@ -323,6 +469,12 @@ def main():
         benchmark_quaternion_speed()
     except Exception as e:
         print_warning(f"性能测试失败: {e}")
+
+    # 离线语料与记忆索引状态（默认 data/public_corpora，用户自行放置数据）
+    try:
+        offline_corpus_status(Path("data/public_corpora"))
+    except Exception as e:
+        print_warning(f"离线语料检查失败: {e}")
     
     # 总结
     print_section("验证总结")

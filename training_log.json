@@ -1,0 +1,82 @@
+[
+  {
+    "epoch": 1,
+    "train_loss": 4.926958781022292,
+    "eval_loss": null,
+    "perplexity": null,
+    "epoch_time": 10.259980916976929,
+    "total_time": 10.26000690460205
+  },
+  {
+    "epoch": 2,
+    "train_loss": 3.958703426214365,
+    "eval_loss": 3.5113850923684926,
+    "perplexity": 33.494632720947266,
+    "epoch_time": 10.17470383644104,
+    "total_time": 22.00272297859192
+  },
+  {
+    "epoch": 3,
+    "train_loss": 3.308551861689641,
+    "eval_loss": null,
+    "perplexity": null,
+    "epoch_time": 10.184937953948975,
+    "total_time": 32.1876859664917
+  },
+  {
+    "epoch": 4,
+    "train_loss": 2.8947353179638204,
+    "eval_loss": 2.67492938041687,
+    "perplexity": 14.511324882507324,
+    "epoch_time": 10.125385999679565,
+    "total_time": 43.882832765579224
+  },
+  {
+    "epoch": 5,
+    "train_loss": 2.6474456787109375,
+    "eval_loss": null,
+    "perplexity": null,
+    "epoch_time": 10.144044876098633,
+    "total_time": 54.14196300506592
+  },
+  {
+    "epoch": 6,
+    "train_loss": 2.4906365871429443,
+    "eval_loss": 2.3712064119485707,
+    "perplexity": 10.710306167602539,
+    "epoch_time": 10.186132907867432,
+    "total_time": 65.8944251537323
+  },
+  {
+    "epoch": 7,
+    "train_loss": 2.3928331228402944,
+    "eval_loss": null,
+    "perplexity": null,
+    "epoch_time": 10.156697750091553,
+    "total_time": 76.05114603042603
+  },
+  {
+    "epoch": 8,
+    "train_loss": 2.365479065821721,
+    "eval_loss": 2.243431595655588,
+    "perplexity": 9.425620079040527,
+    "epoch_time": 10.331346273422241,
+    "total_time": 87.94976592063904
+  },
+  {
+    "epoch": 9,
+    "train_loss": 2.3069255902216983,
+    "eval_loss": null,
+    "perplexity": null,
+    "epoch_time": 10.174265146255493,
+    "total_time": 98.1240599155426
+  },
+  {
+    "epoch": 10,
+    "train_loss": 2.31240123968858,
+    "eval_loss": 2.2473286848801832,
+    "perplexity": 9.462425231933594,
+    "epoch_time": 10.16916298866272,
+    "total_time": 109.95948004722595
+  }
+]

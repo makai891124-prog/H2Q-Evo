@@ -4,6 +4,7 @@ import torch
 import pytest
 import os
 from h2q.dde import DiscreteDecisionEngine
+from h2q.core.discrete_decision_engine import get_canonical_dde
 
 def test_crystal_loading_and_inference():
     print("\n🧪 [测试] 启动记忆晶体集成测试...")
@@ -15,7 +16,7 @@ def test_crystal_loading_and_inference():
     
     # 2. 初始化 DDE (几何版)
     # 我们使用标准的 256 维空间
-    dde = DiscreteDecisionEngine(context_dim=256, action_dim=256)
+    dde = get_canonical_dde(latent_dim=256, n_choices=256)
     print("✅ DDE 引擎初始化完成")
 
     # 3. 加载记忆晶体
@@ -48,7 +49,7 @@ def test_crystal_loading_and_inference():
     
     # 检查 η (谱位移) 是否被计算出来
     eta = metadata['eta_values']
-    print(f"✅ 决策完成。计算出的谱位移 (η): {eta.detach().numpy()}")
+    print(f"✅ 决策完成。计算出的谱位移 (η): {eta.detach().cpu().numpy()}")
     
     # 验证 η 的范围是否在 [0, 3.14] (0 到 Pi 弧度)
     assert (eta >= 0).all() and (eta <= 3.14159).all()
