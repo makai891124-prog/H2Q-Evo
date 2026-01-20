@@ -91,7 +91,7 @@ class TestCheckpointManager:
 
             assert checkpoint_file.exists()
             loaded = mgr.load(checkpoint_file)
-            assert loaded["version"] == "1.0.0"
+            assert loaded["version"] == "2.0.0"
 
     def test_checkpoint_verify(self):
         with tempfile.TemporaryDirectory() as tmpdir:
