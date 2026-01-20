@@ -14,9 +14,12 @@ from uuid import uuid4
 
 try:
     from knowledge_artifacts import make_proof_artifact, write_artifact, confidence_details
+    from templates_library import select_template
 except Exception:
     make_proof_artifact = None  # type: ignore
     write_artifact = None  # type: ignore
+    def select_template(domain: str):
+        return {"id": "P0", "name": "通用跨域推理", "steps": []}
     def confidence_details(base: float, knowledge_count: int, complexity: str, noise: float):
         return {"final": 0.0}
 
@@ -100,6 +103,7 @@ class AGIDaemon:
                 conf_info["noise"] = round(confidence - base_plus, 10)
                 conf_info["raw"] = base_plus + conf_info["noise"]
                 conf_info["final"] = confidence
+                template = select_template(domain)
                 artifact = make_proof_artifact(
                     session_id=self.session_id,
                     reasoning_id=self.query_count + 1,
@@ -110,6 +114,7 @@ class AGIDaemon:
                     confidence_info=conf_info,
                     response=response,
                     system="agi_daemon",
+                    template=template,
                 )
                 write_artifact(artifact)
         except Exception:

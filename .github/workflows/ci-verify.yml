@@ -1,0 +1,30 @@
+name: CI Verify Artifacts
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Generate proof samples
+        run: |
+          python generate_proof_samples.py
+
+      - name: Third-party verify latest session
+        run: |
+          python third_party_verifier.py --dir-only --latest-session-only

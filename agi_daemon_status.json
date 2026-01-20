@@ -1,14 +1,14 @@
 {
-  "uptime_seconds": 18210.89748287201,
-  "query_count": 1821,
-  "evolution_cycles": 364,
-  "knowledge_total": 373,
-  "last_update": "2026-01-20T17:50:28.669938",
+  "uptime_seconds": 18581.099846839905,
+  "query_count": 1858,
+  "evolution_cycles": 371,
+  "knowledge_total": 380,
+  "last_update": "2026-01-20T17:56:38.872300",
   "knowledge_by_domain": {
     "mathematics": 71,
-    "physics": 76,
-    "chemistry": 76,
-    "biology": 71,
-    "engineering": 79
+    "physics": 80,
+    "chemistry": 77,
+    "biology": 72,
+    "engineering": 80
   }
 }

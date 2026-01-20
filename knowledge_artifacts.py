@@ -83,6 +83,7 @@ def make_proof_artifact(
     confidence_info: Dict[str, Any],
     response: str,
     system: str,
+    template: Optional[Dict[str, Any]] = None,
 ) -> Dict[str, Any]:
     ts = time.time()
     content_concat = "\n".join([k.get("content", "") for k in knowledge_used])
@@ -132,6 +133,7 @@ def make_proof_artifact(
             "note": "使用哈希导出的Dowker-like对序列做一致性/同构审计（非拓扑不变量）",
             "knot_like": encoding,
         },
+        "template": template or {},
         "integrity": {
             "content_hash": sha256_hex((query + response).encode("utf-8")),
         }
