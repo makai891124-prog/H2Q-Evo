@@ -1,0 +1,144 @@
+{
+  "generated_at": "2026-01-20T17:09:09.121938",
+  "raw_data": {
+    "query_count": 1573,
+    "runtime_seconds": 15729.590565919876,
+    "evolution_cycles": 314,
+    "knowledge_total": 323
+  },
+  "performance_metrics": {
+    "throughput_qps": 0.10000260295446603,
+    "response_time_ms": 9999.739711328592,
+    "evolution_frequency_sec": 50.09423747108241,
+    "knowledge_growth_rate": 0.2053401144310235
+  },
+  "capability_scores": {
+    "throughput": 66.66840196964402,
+    "response": 100,
+    "evolution": 100,
+    "knowledge": 100,
+    "overall": 91.66710049241101,
+    "grade": "A+ (卓越)"
+  },
+  "problem_patterns": [
+    {
+      "id": "P1",
+      "name": "约束优化问题",
+      "frequency": "高频 (>15%)",
+      "method": "拉格朗日乘数法",
+      "confidence": "85-95%",
+      "knowledge_base": [
+        "数学优化",
+        "变分法",
+        "KKT条件"
+      ]
+    },
+    {
+      "id": "P2",
+      "name": "量子力学计算",
+      "frequency": "高频 (>12%)",
+      "method": "薛定谔方程求解",
+      "confidence": "80-90%",
+      "knowledge_base": [
+        "哈密顿算符",
+        "波函数",
+        "能级理论"
+      ]
+    },
+    {
+      "id": "P3",
+      "name": "化学反应机理",
+      "frequency": "中频 (8-12%)",
+      "method": "反应动力学分析",
+      "confidence": "75-85%",
+      "knowledge_base": [
+        "活化能",
+        "过渡态理论",
+        "催化机制"
+      ]
+    },
+    {
+      "id": "P4",
+      "name": "生物分子动力学",
+      "frequency": "中频 (8-12%)",
+      "method": "分子模拟 + 热力学分析",
+      "confidence": "70-85%",
+      "knowledge_base": [
+        "蛋白质折叠",
+        "自由能",
+        "构象空间"
+      ]
+    },
+    {
+      "id": "P5",
+      "name": "工程结构优化",
+      "frequency": "中频 (8-12%)",
+      "method": "有限元分析 + 拓扑优化",
+      "confidence": "80-90%",
+      "knowledge_base": [
+        "应力分析",
+        "模态分析",
+        "灵敏度分析"
+      ]
+    }
+  ],
+  "improvement_suggestions": [
+    {
+      "area": "问题分类器",
+      "implementation": "构建基于领域关键词的自动分类系统",
+      "benefit": "提升问题路由准确率至95%以上",
+      "priority": "高"
+    },
+    {
+      "area": "知识索引系统",
+      "implementation": "建立向量数据库实现语义检索",
+      "benefit": "将知识检索时间降低50%",
+      "priority": "高"
+    },
+    {
+      "area": "推理模板库",
+      "implementation": "固定化5大类问题的推理流程",
+      "benefit": "置信度提升10-15个百分点",
+      "priority": "中"
+    },
+    {
+      "area": "进化策略优化",
+      "implementation": "基于置信度反馈的自适应进化",
+      "benefit": "知识增长率提升30%",
+      "priority": "中"
+    },
+    {
+      "area": "并行推理引擎",
+      "implementation": "多线程处理不同领域查询",
+      "benefit": "吞吐量提升3-5倍",
+      "priority": "低"
+    }
+  ],
+  "reusable_modules": [
+    {
+      "name": "LiveKnowledgeBase",
+      "source": "live_agi_system.py",
+      "description": "知识库管理"
+    },
+    {
+      "name": "LiveReasoningEngine",
+      "source": "live_agi_system.py",
+      "description": "推理引擎"
+    },
+    {
+      "name": "AGIDaemon._reason()",
+      "source": "agi_daemon.py",
+      "description": "单次推理逻辑"
+    },
+    {
+      "name": "AGIDaemon._evolve()",
+      "source": "agi_daemon.py",
+      "description": "进化触发器"
+    },
+    {
+      "name": "domain_keywords映射",
+      "source": "live_agi_system.py:125-131",
+      "description": "领域识别器"
+    }
+  ]
+}
