@@ -291,7 +291,12 @@ class LiveAGISystem:
                 complexity = analysis.get("complexity", "medium")
                 # 估算噪声为0（实时计算时引擎已有随机项，这里仅存公式分解）
                 conf_info = confidence_details(0.6, len(kb_items), complexity, 0.0)
-                conf_info["final"] = result.get("confidence", conf_info["final"])  # 同步最终值
+                # 反推噪声分量，使证明工件可被第三方重建
+                final_val = result.get("confidence", conf_info["final"])  # 引擎最终值（含噪声）
+                base_plus = conf_info["base"] + conf_info["knowledge_boost"] + conf_info["complexity_factor"]
+                conf_info["noise"] = round(final_val - base_plus, 10)
+                conf_info["raw"] = base_plus + conf_info["noise"]
+                conf_info["final"] = final_val
                 artifact = make_proof_artifact(
                     session_id=self.session_id,
                     reasoning_id=result.get("reasoning_id", len(self.query_history)),

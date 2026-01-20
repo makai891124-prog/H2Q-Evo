@@ -1,0 +1,9 @@
+{
+  "total": 5,
+  "schema_ok": 5,
+  "integrity_ok": 5,
+  "encoding_ok": 5,
+  "confidence_ok": 5,
+  "all_ok": 5,
+  "sample_failures": []
+}

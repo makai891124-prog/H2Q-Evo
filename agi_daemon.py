@@ -96,6 +96,9 @@ class AGIDaemon:
                     for k in self.knowledge_base.get(domain, [])[-3:]
                 ]
                 conf_info = confidence_details(0.6, len(knowledge_used), analysis["complexity"], 0.0)
+                base_plus = conf_info["base"] + conf_info["knowledge_boost"] + conf_info["complexity_factor"]
+                conf_info["noise"] = round(confidence - base_plus, 10)
+                conf_info["raw"] = base_plus + conf_info["noise"]
                 conf_info["final"] = confidence
                 artifact = make_proof_artifact(
                     session_id=self.session_id,
