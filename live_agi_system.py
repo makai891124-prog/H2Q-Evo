@@ -24,12 +24,14 @@ from uuid import uuid4
 # 证明工件
 try:
     from knowledge_artifacts import make_proof_artifact, write_artifact, confidence_details
-    from templates_library import select_template
+    from templates_library import select_template, build_trace
 except Exception:
     make_proof_artifact = None  # type: ignore
     write_artifact = None  # type: ignore
     def select_template(domain: str):
         return {"id": "P0", "name": "通用跨域推理", "steps": []}
+    def build_trace(template: Dict):
+        return []
     def confidence_details(base: float, knowledge_count: int, complexity: str, noise: float):
         return {"final": 0.0}
 
@@ -301,6 +303,7 @@ class LiveAGISystem:
                 conf_info["raw"] = base_plus + conf_info["noise"]
                 conf_info["final"] = final_val
                 template = select_template(result.get("domain", "general"))
+                template_trace = build_trace(template)
                 artifact = make_proof_artifact(
                     session_id=self.session_id,
                     reasoning_id=result.get("reasoning_id", len(self.query_history)),
@@ -312,6 +315,7 @@ class LiveAGISystem:
                     response=result.get("response", ""),
                     system="live_agi_system",
                     template=template,
+                    template_trace=template_trace,
                 )
                 write_artifact(artifact)
         except Exception as _e:

@@ -84,6 +84,7 @@ def make_proof_artifact(
     response: str,
     system: str,
     template: Optional[Dict[str, Any]] = None,
+    template_trace: Optional[List[Dict[str, Any]]] = None,
 ) -> Dict[str, Any]:
     ts = time.time()
     content_concat = "\n".join([k.get("content", "") for k in knowledge_used])
@@ -134,6 +135,7 @@ def make_proof_artifact(
             "knot_like": encoding,
         },
         "template": template or {},
+        "template_trace": template_trace or [],
         "integrity": {
             "content_hash": sha256_hex((query + response).encode("utf-8")),
         }

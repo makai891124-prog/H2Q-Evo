@@ -28,3 +28,9 @@ jobs:
       - name: Third-party verify latest session
         run: |
           python third_party_verifier.py --dir-only --latest-session-only
+
+      - name: Verify bundle
+        run: |
+          python third_party_verifier.py --bundle-only
+          python sign_bundle.py
+          python sign_bundle.py --verify

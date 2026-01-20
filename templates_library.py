@@ -81,6 +81,20 @@ def select_template(domain: str) -> Dict:
     }
 
 
+def build_trace(template: Dict) -> List[Dict]:
+    """根据模板步骤生成执行轨迹占位（可供工件记录）。"""
+    steps = template.get("steps", [])
+    trace = []
+    for idx, step in enumerate(steps, 1):
+        trace.append({
+            "step": idx,
+            "description": step,
+            "status": "done",
+            "confidence": 0.9  # 占位值，真实系统可按执行结果填写
+        })
+    return trace
+
+
 if __name__ == "__main__":
     import json
     print(json.dumps(TEMPLATES, ensure_ascii=False, indent=2))
