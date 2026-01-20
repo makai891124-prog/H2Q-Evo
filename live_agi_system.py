@@ -24,13 +24,15 @@ from uuid import uuid4
 # 证明工件
 try:
     from knowledge_artifacts import make_proof_artifact, write_artifact, confidence_details
-    from templates_library import select_template, build_trace
+    from templates_library import select_template, build_trace, build_runtime_trace
 except Exception:
     make_proof_artifact = None  # type: ignore
     write_artifact = None  # type: ignore
     def select_template(domain: str):
         return {"id": "P0", "name": "通用跨域推理", "steps": []}
     def build_trace(template: Dict):
+        return []
+    def build_runtime_trace(template: Dict, phase_durations_ms):
         return []
     def confidence_details(base: float, knowledge_count: int, complexity: str, noise: float):
         return {"final": 0.0}
@@ -101,16 +103,27 @@ class LiveReasoningEngine:
         self.success_rate = 0.75
         
     def reason(self, query: str, domain: str = "general") -> Dict[str, Any]:
-        """实时推理"""
+        """实时推理（记录阶段耗时）"""
         self.reasoning_count += 1
         
-        # 检索相关知识
+        t0 = time.perf_counter()
         relevant = self.kb.get_relevant_knowledge(query, domain)
-        
-        # 分析查询
+        t1 = time.perf_counter()
         analysis = self._analyze_query(query)
+        t2 = time.perf_counter()
+        confidence_val = self._calculate_confidence(analysis, relevant)
+        t3 = time.perf_counter()
+        response_text = self._generate_response(query, analysis, relevant)
+        t4 = time.perf_counter()
+        feedback = self._get_evolution_feedback()
         
-        # 生成推理结果
+        phase_durations_ms = [
+            (t1 - t0) * 1000,  # 知识检索
+            (t2 - t1) * 1000,  # 查询分析
+            (t3 - t2) * 1000,  # 置信度计算
+            (t4 - t3) * 1000,  # 回答生成
+        ]
+        
         result = {
             "query": query,
             "domain": domain,
@@ -118,13 +131,14 @@ class LiveReasoningEngine:
             "timestamp": datetime.now().isoformat(),
             "analysis": analysis,
             "knowledge_used": len(relevant),
-            "confidence": self._calculate_confidence(analysis, relevant),
-            "response": self._generate_response(query, analysis, relevant),
-            "evolution_feedback": self._get_evolution_feedback()
+            "confidence": confidence_val,
+            "response": response_text,
+            "evolution_feedback": feedback,
+            "phase_durations_ms": phase_durations_ms,
         }
         
         # 更新成功率
-        self.success_rate = (self.success_rate * 0.9 + result["confidence"] * 0.1)
+        self.success_rate = (self.success_rate * 0.9 + confidence_val * 0.1)
         
         return result
     
@@ -283,27 +297,24 @@ class LiveAGISystem:
         """处理查询"""
         self.kb.query_count += 1
         
-        # 推理
+        # 生成推理结果（包含阶段耗时）
         result = self.reasoning_engine.reason(query, domain or "general")
 
         # 写入证明工件（如可用）
         try:
             if make_proof_artifact and write_artifact:
-                # 收集知识条目（最近检索的模拟：按域取最后5条）
                 kb_items = self.kb.get_relevant_knowledge(query, result.get("domain", "general"))
-                # 置信度细节重算（与引擎一致的结构）
                 analysis = result.get("analysis", {})
                 complexity = analysis.get("complexity", "medium")
-                # 估算噪声为0（实时计算时引擎已有随机项，这里仅存公式分解）
                 conf_info = confidence_details(0.6, len(kb_items), complexity, 0.0)
-                # 反推噪声分量，使证明工件可被第三方重建
-                final_val = result.get("confidence", conf_info["final"])  # 引擎最终值（含噪声）
+                final_val = result.get("confidence", conf_info["final"])
                 base_plus = conf_info["base"] + conf_info["knowledge_boost"] + conf_info["complexity_factor"]
                 conf_info["noise"] = round(final_val - base_plus, 10)
                 conf_info["raw"] = base_plus + conf_info["noise"]
                 conf_info["final"] = final_val
                 template = select_template(result.get("domain", "general"))
-                template_trace = build_trace(template)
+                phase_ms = result.get("phase_durations_ms") or []
+                template_trace = build_runtime_trace(template, phase_ms) if build_runtime_trace else build_trace(template)
                 artifact = make_proof_artifact(
                     session_id=self.session_id,
                     reasoning_id=result.get("reasoning_id", len(self.query_history)),
@@ -321,7 +332,7 @@ class LiveAGISystem:
         except Exception as _e:
             pass
         
-        # 记录历史
+        # 记录查询历史
         self.query_history.append({
             "query": query,
             "result": result,
@@ -337,8 +348,6 @@ class LiveAGISystem:
     def _evolve(self):
         """自我进化"""
         self.evolution_cycles += 1
-        
-        print(f"\n🔄 进化周期 #{self.evolution_cycles}")
         
         # 分析最近的查询
         recent = self.query_history[-5:]

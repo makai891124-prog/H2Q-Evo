@@ -167,9 +167,11 @@ def export_bundle(output_path: Path) -> Dict[str, Any]:
             if not fn.endswith(".json"):
                 continue
             p = Path(root) / fn
-            with open(p, "rb") as f:
-                data = f.read()
-            lines.append(data)
+            with open(p, "r", encoding="utf-8") as f:
+                obj = json.load(f)
+            # 写入单行紧凑JSON，避免多行pretty导致JSONL解析失败
+            compact = json.dumps(obj, ensure_ascii=False, separators=(',', ':'))
+            lines.append(compact.encode("utf-8"))
             count += 1
     header = {
         "schema": "knowledge_artifact_bundle/1.0",

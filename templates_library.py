@@ -6,7 +6,7 @@
 import random
 import time
 from datetime import datetime
-from typing import Dict, List
+from typing import Dict, List, Sequence
 
 
 TEMPLATES: Dict[str, Dict] = {
@@ -101,6 +101,34 @@ def build_trace(template: Dict) -> List[Dict]:
             "finished_at": datetime.fromtimestamp(finish).isoformat(),
             "duration_ms": round(duration_ms, 2)
         })
+    return trace
+
+
+def build_runtime_trace(template: Dict, phase_durations_ms: Sequence[float]) -> List[Dict]:
+    """根据真实测量的阶段耗时构造执行轨迹。
+
+    phase_durations_ms: 依次对应模板步骤的耗时，若步骤多于耗时，剩余标记为pending。
+    """
+    steps = template.get("steps", [])
+    trace: List[Dict] = []
+    now = time.time()
+    current = now
+    for idx, step in enumerate(steps, 1):
+        dur = float(phase_durations_ms[idx - 1]) if idx - 1 < len(phase_durations_ms) else 0.0
+        start_ts = current
+        finish_ts = current + dur / 1000.0
+        status = "done" if dur > 0 else "pending"
+        confidence = 0.9 if dur > 0 else 0.5
+        trace.append({
+            "step": idx,
+            "description": step,
+            "status": status,
+            "confidence": confidence,
+            "started_at": datetime.fromtimestamp(start_ts).isoformat(),
+            "finished_at": datetime.fromtimestamp(finish_ts).isoformat(),
+            "duration_ms": round(dur, 2)
+        })
+        current = finish_ts
     return trace
 
 

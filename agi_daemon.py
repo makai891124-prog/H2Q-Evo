@@ -14,13 +14,15 @@ from uuid import uuid4
 
 try:
     from knowledge_artifacts import make_proof_artifact, write_artifact, confidence_details
-    from templates_library import select_template, build_trace
+    from templates_library import select_template, build_trace, build_runtime_trace
 except Exception:
     make_proof_artifact = None  # type: ignore
     write_artifact = None  # type: ignore
     def select_template(domain: str):
         return {"id": "P0", "name": "通用跨域推理", "steps": []}
     def build_trace(template: Dict):
+        return []
+    def build_runtime_trace(template: Dict, phase_durations_ms):
         return []
     def confidence_details(base: float, knowledge_count: int, complexity: str, noise: float):
         return {"final": 0.0}
@@ -77,16 +79,17 @@ class AGIDaemon:
     
     def _reason(self, domain: str, query: str) -> Tuple[str, float]:
         """推理引擎"""
-        # 检查知识库
+        t0 = time.perf_counter()
         relevant_knowledge = self.knowledge_base.get(domain, [])
+        t1 = time.perf_counter()
         
-        # 模拟推理过程
         if relevant_knowledge:
             confidence = random.uniform(0.75, 0.95)
             response = f"基于{len(relevant_knowledge)}条知识的推理结果"
         else:
             confidence = random.uniform(0.45, 0.65)
             response = "探索性推理，需要更多知识"
+        t2 = time.perf_counter()
         
         # 写入证明工件（尽量提供可解释的记录）
         try:
@@ -106,7 +109,11 @@ class AGIDaemon:
                 conf_info["raw"] = base_plus + conf_info["noise"]
                 conf_info["final"] = confidence
                 template = select_template(domain)
-                template_trace = build_trace(template)
+                phase_ms = [
+                    (t1 - t0) * 1000,  # 知识检索
+                    (t2 - t1) * 1000,  # 推理与生成
+                ]
+                template_trace = build_runtime_trace(template, phase_ms) if build_runtime_trace else build_trace(template)
                 artifact = make_proof_artifact(
                     session_id=self.session_id,
                     reasoning_id=self.query_count + 1,
