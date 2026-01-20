@@ -70,3 +70,7 @@ logs/
 # Note: h2q_project 可能有其自己的 .git 用于跟踪沙箱模式代码进化
 # 这是故意的，允许内部版本控制用于 AI 自我学习追踪
 # h2q_project/.git 不被此顶级 .gitignore 跟踪
+
+# ============ 生成的知识工件与打包 ============
+knowledge_artifacts/
+knowledge_artifacts_bundle.jsonl

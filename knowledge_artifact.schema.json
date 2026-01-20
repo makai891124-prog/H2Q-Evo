@@ -1,0 +1,84 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://h2q-evo/schema/knowledge_artifact.schema.json",
+  "title": "Knowledge Proof Artifact",
+  "type": "object",
+  "required": ["schema_version", "metadata", "problem", "reasoning", "confidence", "encoding_isomorphism", "integrity"],
+  "properties": {
+    "schema_version": {"type": "string"},
+    "metadata": {
+      "type": "object",
+      "required": ["session_id", "reasoning_id", "timestamp", "system"],
+      "properties": {
+        "session_id": {"type": "string"},
+        "reasoning_id": {"type": "integer"},
+        "timestamp": {"type": "number"},
+        "system": {"type": "string"}
+      }
+    },
+    "problem": {
+      "type": "object",
+      "required": ["query", "domain", "analysis"],
+      "properties": {
+        "query": {"type": "string"},
+        "domain": {"type": "string"},
+        "analysis": {"type": "object"}
+      }
+    },
+    "knowledge": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "content": {"type": "string"},
+          "confidence": {"type": "number"},
+          "timestamp": {"type": ["string", "number", "null"]}
+        }
+      }
+    },
+    "reasoning": {
+      "type": "object",
+      "required": ["steps", "response"],
+      "properties": {
+        "steps": {"type": "array"},
+        "response": {"type": "string"}
+      }
+    },
+    "confidence": {
+      "type": "object",
+      "required": ["base", "knowledge_boost", "complexity_factor", "noise", "final"],
+      "properties": {
+        "base": {"type": "number"},
+        "knowledge_boost": {"type": "number"},
+        "complexity_factor": {"type": "number"},
+        "noise": {"type": "number"},
+        "raw": {"type": "number"},
+        "final": {"type": "number"}
+      }
+    },
+    "encoding_isomorphism": {
+      "type": "object",
+      "required": ["knot_like"],
+      "properties": {
+        "note": {"type": "string"},
+        "knot_like": {
+          "type": "object",
+          "required": ["hash", "dowker_like_pairs", "bit_summary_128"],
+          "properties": {
+            "hash": {"type": "string"},
+            "dowker_like_pairs": {"type": "array"},
+            "bit_summary_128": {"type": "string"},
+            "lengths": {"type": "object"}
+          }
+        }
+      }
+    },
+    "integrity": {
+      "type": "object",
+      "required": ["content_hash"],
+      "properties": {
+        "content_hash": {"type": "string"}
+      }
+    }
+  }
+}

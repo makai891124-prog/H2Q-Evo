@@ -28,3 +28,4 @@ tokenizers
 torchaudio
 torchvision
 torch
+jsonschema>=4.20.0

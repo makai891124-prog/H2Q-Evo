@@ -19,6 +19,16 @@ import random
 from pathlib import Path
 from datetime import datetime
 from typing import Dict, List, Any
+from uuid import uuid4
+
+# 证明工件
+try:
+    from knowledge_artifacts import make_proof_artifact, write_artifact, confidence_details
+except Exception:
+    make_proof_artifact = None  # type: ignore
+    write_artifact = None  # type: ignore
+    def confidence_details(base: float, knowledge_count: int, complexity: str, noise: float):
+        return {"final": 0.0}
 
 # 配置路径
 PROJECT_ROOT = Path(__file__).parent
@@ -229,6 +239,7 @@ class LiveAGISystem:
         self.reasoning_engine = LiveReasoningEngine(self.kb)
         self.session_start = datetime.now()
         self.query_history = []
+        self.session_id = f"live_{uuid4().hex[:8]}_{self.session_start.strftime('%Y%m%d_%H%M%S')}"
         self.evolution_cycles = 0
         
         print("✓ 知识库初始化完成")
@@ -269,6 +280,32 @@ class LiveAGISystem:
         
         # 推理
         result = self.reasoning_engine.reason(query, domain or "general")
+
+        # 写入证明工件（如可用）
+        try:
+            if make_proof_artifact and write_artifact:
+                # 收集知识条目（最近检索的模拟：按域取最后5条）
+                kb_items = self.kb.get_relevant_knowledge(query, result.get("domain", "general"))
+                # 置信度细节重算（与引擎一致的结构）
+                analysis = result.get("analysis", {})
+                complexity = analysis.get("complexity", "medium")
+                # 估算噪声为0（实时计算时引擎已有随机项，这里仅存公式分解）
+                conf_info = confidence_details(0.6, len(kb_items), complexity, 0.0)
+                conf_info["final"] = result.get("confidence", conf_info["final"])  # 同步最终值
+                artifact = make_proof_artifact(
+                    session_id=self.session_id,
+                    reasoning_id=result.get("reasoning_id", len(self.query_history)),
+                    query=query,
+                    domain=result.get("domain", "general"),
+                    analysis=analysis,
+                    knowledge_used=kb_items,
+                    confidence_info=conf_info,
+                    response=result.get("response", ""),
+                    system="live_agi_system",
+                )
+                write_artifact(artifact)
+        except Exception as _e:
+            pass
         
         # 记录历史
         self.query_history.append({

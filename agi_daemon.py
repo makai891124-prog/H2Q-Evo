@@ -10,6 +10,15 @@ import random
 from pathlib import Path
 from datetime import datetime
 from typing import List, Dict, Tuple
+from uuid import uuid4
+
+try:
+    from knowledge_artifacts import make_proof_artifact, write_artifact, confidence_details
+except Exception:
+    make_proof_artifact = None  # type: ignore
+    write_artifact = None  # type: ignore
+    def confidence_details(base: float, knowledge_count: int, complexity: str, noise: float):
+        return {"final": 0.0}
 
 class AGIDaemon:
     """持续运行的AGI守护进程"""
@@ -21,6 +30,7 @@ class AGIDaemon:
         self.evolution_cycles = 0
         self.knowledge_base = self._init_knowledge()
         self.status_file = Path("agi_daemon_status.json")
+        self.session_id = f"daemon_{uuid4().hex[:8]}_{datetime.now().strftime('%Y%m%d_%H%M%S')}"
         
         # 自主探索的问题队列
         self.exploration_queue = [
@@ -73,6 +83,35 @@ class AGIDaemon:
             confidence = random.uniform(0.45, 0.65)
             response = "探索性推理，需要更多知识"
         
+        # 写入证明工件（尽量提供可解释的记录）
+        try:
+            if make_proof_artifact and write_artifact:
+                analysis = {
+                    "detected_domain": domain,
+                    "complexity": "high" if len(query) > 20 else "medium",
+                    "keywords": [query[:10]]
+                }
+                knowledge_used = [
+                    {"content": k, "confidence": 0.8, "timestamp": datetime.now().isoformat()}
+                    for k in self.knowledge_base.get(domain, [])[-3:]
+                ]
+                conf_info = confidence_details(0.6, len(knowledge_used), analysis["complexity"], 0.0)
+                conf_info["final"] = confidence
+                artifact = make_proof_artifact(
+                    session_id=self.session_id,
+                    reasoning_id=self.query_count + 1,
+                    query=query,
+                    domain=domain,
+                    analysis=analysis,
+                    knowledge_used=knowledge_used,
+                    confidence_info=conf_info,
+                    response=response,
+                    system="agi_daemon",
+                )
+                write_artifact(artifact)
+        except Exception:
+            pass
+
         return response, confidence
     
     def _evolve(self):
