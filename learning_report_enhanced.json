@@ -1,0 +1,461 @@
+{
+  "timestamp": "2026-01-20T13:20:31.759431",
+  "stats": {
+    "total_learned": 38,
+    "quality_passed": 24,
+    "quality_failed": 14,
+    "tests_conducted": 12,
+    "tests_passed": 2,
+    "tests_failed": 10,
+    "evolution_count": 7,
+    "quality_scores": [
+      0.7141509973927002,
+      0.7748282556687816,
+      0.7789433050257908,
+      0.8522980383543035,
+      0.6588253274459739,
+      0.7533064547470594,
+      0.7045317506873134,
+      0.8934861962100655,
+      0.7773915874125874,
+      0.9442831580933916,
+      0.7426474204030458,
+      0.798336463846418,
+      0.6332874340508381,
+      0.7347507565355317,
+      0.7299232099714849,
+      0.6526016330397767,
+      0.716789776853498,
+      0.8373285344502661,
+      0.7203711588723121,
+      0.7768712892584322,
+      0.7951819531038352,
+      0.8423455522433438,
+      0.6132830953906593,
+      0.9274329836238294,
+      0.6752218296495786,
+      0.6333042344488694,
+      0.656584135154275,
+      0.839469674466117,
+      0.6431102659971534,
+      0.6880718564579404,
+      0.6326098903192547,
+      0.7577271010250641,
+      0.6516714454424091,
+      0.7741292118544292,
+      0.8381531308019252,
+      0.5997531147655888,
+      0.6836820847456377,
+      0.6942528163476795
+    ],
+    "test_scores": [
+      0.3333333333333333,
+      0.6666666666666666,
+      1.0,
+      0.6666666666666666,
+      0.6666666666666666,
+      0.6666666666666666,
+      1.0,
+      0.3333333333333333,
+      0.0,
+      0.6666666666666666,
+      0.6666666666666666,
+      0.6666666666666666
+    ]
+  },
+  "kb_stats": {
+    "total_count": 87,
+    "by_domain": {
+      "mathematics": 15,
+      "physics": 16,
+      "chemistry": 15,
+      "biology": 16,
+      "engineering": 15,
+      "computer_science": 10
+    },
+    "verified_count": 39,
+    "unverified_count": 48,
+    "by_difficulty": {
+      "1": 0,
+      "2": 22,
+      "3": 37,
+      "4": 24,
+      "5": 4
+    }
+  },
+  "test_history": [
+    {
+      "timestamp": "2026-01-20T13:20:15.776481",
+      "test_num": 1,
+      "total": 3,
+      "correct": 1,
+      "pass_rate": 0.3333333333333333,
+      "quality": "需改进",
+      "details": [
+        {
+          "concept": "人工智能",
+          "original_score": 0.7748282556687816,
+          "test_score": 0.7397334543715415,
+          "passed": true
+        },
+        {
+          "concept": "量子纠缠",
+          "original_score": 0.7789433050257908,
+          "test_score": 0.6624467543399097,
+          "passed": false
+        },
+        {
+          "concept": "酸碱理论",
+          "original_score": 0.7141509973927002,
+          "test_score": 0.6086384207606099,
+          "passed": false
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-01-20T13:20:16.692146",
+      "test_num": 2,
+      "total": 3,
+      "correct": 2,
+      "pass_rate": 0.6666666666666666,
+      "quality": "需改进",
+      "details": [
+        {
+          "concept": "人工智能",
+          "original_score": 0.7748282556687816,
+          "test_score": 0.7515073039830157,
+          "passed": true
+        },
+        {
+          "concept": "量子纠缠",
+          "original_score": 0.7789433050257908,
+          "test_score": 0.6911039788086452,
+          "passed": false
+        },
+        {
+          "concept": "配位化合物",
+          "original_score": 0.7533064547470594,
+          "test_score": 0.7173632541505109,
+          "passed": true
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-01-20T13:20:18.602160",
+      "test_num": 3,
+      "total": 3,
+      "correct": 3,
+      "pass_rate": 1.0,
+      "quality": "优秀",
+      "details": [
+        {
+          "concept": "费马大定理",
+          "original_score": 0.8934861962100655,
+          "test_score": 0.8731110389611406,
+          "passed": true
+        },
+        {
+          "concept": "超导现象",
+          "original_score": 0.8522980383543035,
+          "test_score": 0.8259225736360332,
+          "passed": true
+        },
+        {
+          "concept": "酶催化机制",
+          "original_score": 0.7773915874125874,
+          "test_score": 0.7416901409390528,
+          "passed": true
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-01-20T13:20:19.518134",
+      "test_num": 4,
+      "total": 3,
+      "correct": 2,
+      "pass_rate": 0.6666666666666666,
+      "quality": "需改进",
+      "details": [
+        {
+          "concept": "酶催化机制",
+          "original_score": 0.7773915874125874,
+          "test_score": 0.7488207351629705,
+          "passed": true
+        },
+        {
+          "concept": "人工智能",
+          "original_score": 0.7748282556687816,
+          "test_score": 0.6748848481795509,
+          "passed": false
+        },
+        {
+          "concept": "费马大定理",
+          "original_score": 0.8934861962100655,
+          "test_score": 0.8173947116402652,
+          "passed": true
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-01-20T13:20:20.433739",
+      "test_num": 5,
+      "total": 3,
+      "correct": 2,
+      "pass_rate": 0.6666666666666666,
+      "quality": "需改进",
+      "details": [
+        {
+          "concept": "酶催化机制",
+          "original_score": 0.7773915874125874,
+          "test_score": 0.6649874941082176,
+          "passed": false
+        },
+        {
+          "concept": "超导现象",
+          "original_score": 0.8522980383543035,
+          "test_score": 0.8260400829487639,
+          "passed": true
+        },
+        {
+          "concept": "费马大定理",
+          "original_score": 0.8934861962100655,
+          "test_score": 0.7646063473144732,
+          "passed": true
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-01-20T13:20:22.350853",
+      "test_num": 6,
+      "total": 3,
+      "correct": 2,
+      "pass_rate": 0.6666666666666666,
+      "quality": "需改进",
+      "details": [
+        {
+          "concept": "中心法则",
+          "original_score": 0.716789776853498,
+          "test_score": 0.6620438967238351,
+          "passed": false
+        },
+        {
+          "concept": "基因表达调控",
+          "original_score": 0.7347507565355317,
+          "test_score": 0.7056908808697833,
+          "passed": true
+        },
+        {
+          "concept": "配位化合物",
+          "original_score": 0.7533064547470594,
+          "test_score": 0.7113865790229936,
+          "passed": true
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-01-20T13:20:23.265282",
+      "test_num": 7,
+      "total": 3,
+      "correct": 3,
+      "pass_rate": 1.0,
+      "quality": "优秀",
+      "details": [
+        {
+          "concept": "基因表达调控",
+          "original_score": 0.7347507565355317,
+          "test_score": 0.7062254792919868,
+          "passed": true
+        },
+        {
+          "concept": "酶催化机制",
+          "original_score": 0.7773915874125874,
+          "test_score": 0.7577936389724923,
+          "passed": true
+        },
+        {
+          "concept": "黎曼假设",
+          "original_score": 0.9442831580933916,
+          "test_score": 0.8122727549558497,
+          "passed": true
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-01-20T13:20:25.182955",
+      "test_num": 8,
+      "total": 3,
+      "correct": 1,
+      "pass_rate": 0.3333333333333333,
+      "quality": "需改进",
+      "details": [
+        {
+          "concept": "量子计算",
+          "original_score": 0.7299232099714849,
+          "test_score": 0.6626265833804019,
+          "passed": false
+        },
+        {
+          "concept": "图灵机",
+          "original_score": 0.7203711588723121,
+          "test_score": 0.6329679988063976,
+          "passed": false
+        },
+        {
+          "concept": "超导现象",
+          "original_score": 0.8522980383543035,
+          "test_score": 0.7334371563369676,
+          "passed": true
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-01-20T13:20:26.098448",
+      "test_num": 9,
+      "total": 3,
+      "correct": 0,
+      "pass_rate": 0.0,
+      "quality": "需改进",
+      "details": [
+        {
+          "concept": "量子计算",
+          "original_score": 0.7299232099714849,
+          "test_score": 0.6709439934430741,
+          "passed": false
+        },
+        {
+          "concept": "酸碱理论",
+          "original_score": 0.7141509973927002,
+          "test_score": 0.6954438929179039,
+          "passed": false
+        },
+        {
+          "concept": "配位化合物",
+          "original_score": 0.7533064547470594,
+          "test_score": 0.6565834502941283,
+          "passed": false
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-01-20T13:20:28.015684",
+      "test_num": 10,
+      "total": 3,
+      "correct": 2,
+      "pass_rate": 0.6666666666666666,
+      "quality": "需改进",
+      "details": [
+        {
+          "concept": "超导现象",
+          "original_score": 0.8522980383543035,
+          "test_score": 0.8303162551581971,
+          "passed": true
+        },
+        {
+          "concept": "化学键理论",
+          "original_score": 0.8423455522433438,
+          "test_score": 0.7872871948465175,
+          "passed": true
+        },
+        {
+          "concept": "酸碱理论",
+          "original_score": 0.7141509973927002,
+          "test_score": 0.6256103413704553,
+          "passed": false
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-01-20T13:20:28.927083",
+      "test_num": 11,
+      "total": 3,
+      "correct": 2,
+      "pass_rate": 0.6666666666666666,
+      "quality": "需改进",
+      "details": [
+        {
+          "concept": "酶催化机制",
+          "original_score": 0.7773915874125874,
+          "test_score": 0.7446664108749015,
+          "passed": true
+        },
+        {
+          "concept": "人工智能",
+          "original_score": 0.7748282556687816,
+          "test_score": 0.6703628259372867,
+          "passed": false
+        },
+        {
+          "concept": "表观遗传学",
+          "original_score": 0.798336463846418,
+          "test_score": 0.749692405050122,
+          "passed": true
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-01-20T13:20:30.843614",
+      "test_num": 12,
+      "total": 3,
+      "correct": 2,
+      "pass_rate": 0.6666666666666666,
+      "quality": "需改进",
+      "details": [
+        {
+          "concept": "P vs NP问题",
+          "original_score": 0.839469674466117,
+          "test_score": 0.7590233548567898,
+          "passed": true
+        },
+        {
+          "concept": "量子计算",
+          "original_score": 0.7299232099714849,
+          "test_score": 0.6871829368674094,
+          "passed": false
+        },
+        {
+          "concept": "化学键理论",
+          "original_score": 0.8423455522433438,
+          "test_score": 0.8067593685884012,
+          "passed": true
+        }
+      ]
+    }
+  ],
+  "top_concepts": [
+    {
+      "concept": "黎曼假设",
+      "domain": "mathematics",
+      "understanding_score": 0.9442831580933916,
+      "difficulty": 5,
+      "detail_length": 39
+    },
+    {
+      "concept": "薛定谔方程",
+      "domain": "physics",
+      "understanding_score": 0.9274329836238294,
+      "difficulty": 4,
+      "detail_length": 24
+    },
+    {
+      "concept": "费马大定理",
+      "domain": "mathematics",
+      "understanding_score": 0.8934861962100655,
+      "difficulty": 5,
+      "detail_length": 50
+    },
+    {
+      "concept": "超导现象",
+      "domain": "physics",
+      "understanding_score": 0.8522980383543035,
+      "difficulty": 4,
+      "detail_length": 22
+    },
+    {
+      "concept": "化学键理论",
+      "domain": "chemistry",
+      "understanding_score": 0.8423455522433438,
+      "difficulty": 3,
+      "detail_length": 20
+    }
+  ]
+}

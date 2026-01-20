@@ -1,0 +1,68 @@
+{
+  "timestamp": "2026-01-20T13:11:14.617591",
+  "stats": {
+    "total_learned": 71,
+    "tests_passed": 0,
+    "tests_failed": 0,
+    "evolution_count": 0,
+    "quality_scores": []
+  },
+  "kb_stats": {
+    "total_count": 87,
+    "by_domain": {
+      "mathematics": 15,
+      "physics": 16,
+      "chemistry": 15,
+      "biology": 16,
+      "engineering": 15,
+      "computer_science": 10
+    },
+    "verified_count": 15,
+    "unverified_count": 72,
+    "by_difficulty": {
+      "1": 0,
+      "2": 22,
+      "3": 37,
+      "4": 24,
+      "5": 4
+    }
+  },
+  "test_results": [],
+  "top_concepts": [
+    {
+      "concept": "复变函数",
+      "domain": "mathematics",
+      "timestamp": "2026-01-20T13:10:59.895510",
+      "understanding_score": 0.7940885793272324,
+      "learning_time": 0.3196520860224921
+    },
+    {
+      "concept": "量子谐振子",
+      "domain": "physics",
+      "timestamp": "2026-01-20T13:09:42.568126",
+      "understanding_score": 0.775765623105497,
+      "learning_time": 0.6469901969339762
+    },
+    {
+      "concept": "狭义相对论",
+      "domain": "physics",
+      "timestamp": "2026-01-20T13:10:28.891294",
+      "understanding_score": 0.7263113645689888,
+      "learning_time": 0.6366047852636423
+    },
+    {
+      "concept": "矩阵特征值",
+      "domain": "mathematics",
+      "timestamp": "2026-01-20T13:10:52.774050",
+      "understanding_score": 0.7198470139369118,
+      "learning_time": 0.4032332943572372
+    },
+    {
+      "concept": "概率论贝叶斯定理",
+      "domain": "mathematics",
+      "timestamp": "2026-01-20T13:11:10.415594",
+      "understanding_score": 0.7027247853844588,
+      "learning_time": 0.3082512030629228
+    }
+  ]
+}

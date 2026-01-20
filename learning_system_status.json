@@ -1,0 +1,33 @@
+{
+  "timestamp": "2026-01-20T13:02:08.708923",
+  "stats": {
+    "total_learned": 20,
+    "total_validated": 2,
+    "evolution_cycles": 2,
+    "knowledge_growth": [
+      1,
+      1
+    ]
+  },
+  "learning_rate": 0.06400000000000002,
+  "knowledge_base": {
+    "total_count": 87,
+    "by_domain": {
+      "mathematics": 15,
+      "physics": 16,
+      "chemistry": 15,
+      "biology": 16,
+      "engineering": 15,
+      "computer_science": 10
+    },
+    "verified_count": 2,
+    "unverified_count": 85,
+    "by_difficulty": {
+      "1": 0,
+      "2": 22,
+      "3": 37,
+      "4": 24,
+      "5": 4
+    }
+  }
+}

@@ -1,0 +1,792 @@
+{
+  "metadata": {
+    "creation_date": "2026-01-20T12:30:01.317542",
+    "total_items": 89,
+    "domains": [
+      "mathematics",
+      "physics",
+      "biology",
+      "chemistry",
+      "engineering"
+    ],
+    "stats": {
+      "total_papers": 89,
+      "by_domain": {
+        "mathematics": 42,
+        "physics": 22,
+        "biology": 22,
+        "chemistry": 2,
+        "engineering": 1
+      },
+      "download_time": 31.60644006729126
+    }
+  },
+  "datasets": [
+    {
+      "source": "arxiv",
+      "category": "math.CO",
+      "title": "Recoloring graphs of treewidth 2",
+      "abstract": "Two (proper) colorings of a graph are adjacent if they differ on exactly one vertex. Jerrum proved that any $(d + 2)$-coloring of any d-degenerate graph can be transformed into any other via a sequence of adjacent colorings. A result of Bonamy et al. ensures that a shortest transformation can have a quadratic length even for $d = 1$. Bousquet and Perarnau proved that a linear transformation exists for between $(2d + 2)$-colorings. It is open to determine if this bound can be reduced. In this note, we prove that it can be reduced for graphs of treewidth 2, which are 2-degenerate. There exists a linear transformation between 5-colorings. It completes the picture for graphs of treewidth 2 since there exist graphs of treewidth 2 such a linear transformation between 4-colorings does not exist.",
+      "published": "2020-12-21T16:23:41Z",
+      "domain": "mathematics"
+    },
+    {
+      "source": "arxiv",
+      "category": "math.CO",
+      "title": "The generalized Gassert-Shor formula as combinatorial Stokes theorem",
+      "abstract": "We generalize Gassert-Shor formula for numerical semigroups.",
+      "published": "2020-12-21T17:24:37Z",
+      "domain": "mathematics"
+    },
+    {
+      "source": "arxiv",
+      "category": "math.CO",
+      "title": "Cubes and cubical chains and cochains in combinatorial topology",
+      "abstract": "The present paper is a continuation of author's paper arXiv:1909.00940 [math.AT] devoted to the lemmas of Alexander and Sperner, but is independent from it. We begin by a step back from Alexander and Sperner to Lebesgue work on the invariance of the dimension. In contrast with almost everybody else, Lebesgue worked with cubes rather than with simplices. His methods were developed by Hurewicz and Lusternik-Schnirelmann and then forgotten. In the present paper these methods are recast in the language of cubical chains and cochains.   After this, we present a new approach to Lebesgue and Lusternik-Schnirelmann theorems which is both conceptual and elementary. It is based on adaptation of Serre's definition of products of singular cubical cochains to discrete setting. The main results are new purely combinatorial \"cubical lemmas\". This approach also clarifies the cubical versions of Sperner lemma of Kuhn and Ky Fan. In particular, Ky Fan's lemma can be understood as a natural strengthening of Lebesgue or Kuhn's results under a transversality assumption.   The exposition does not assume any knowledge of algebraic topology.",
+      "published": "2020-12-24T05:00:52Z",
+      "domain": "mathematics"
+    },
+    {
+      "source": "arxiv",
+      "category": "math.CO",
+      "title": "On Barycentric transformations of Fano polytopes",
+      "abstract": "We introduce the notion of barycentric transformation of Fano polytopes, from which we can assign a certain type to each Fano polytope. The type can be viewed as a measure of the extent to which the given Fano polytope is close to be Kähler-Einstein. In particular, we expect that every Kähler-Einstein or symmetric Fano polytope is of type $B_\\infty$. We verify this expectation for some low dimensional cases. We emphasize that for a Fano polytope $X$ of dimension $1$, $3$ or $5$, $X$ is Kähler-Einstein if and only if it is of type $B_\\infty$.",
+      "published": "2020-12-24T18:26:50Z",
+      "domain": "mathematics"
+    },
+    {
+      "source": "arxiv",
+      "category": "math.CO",
+      "title": "Arithmetization of well-formed parenthesis strings. Motzkin Numbers of the Second Kind",
+      "abstract": "In this paper, we perform an arithmetization of well-formed parenthesis strings with zeros (Motzkin words) and of corresponding Motzkin paths. The transformations used are reminiscent of Gödel numbering for mathematical objects of some formal language. We construct a Motzkin series that is as close as possible to natural numbers by many formal features. Parenthesis strings are encoded by ternary codes and corresponding natural numbers, Motzkin numbers of the 2nd kind, which made it possible to formalize and simplify the analysis of the successor function, to specify and clarify the procedure for selecting a successor. In the process of arithmetization of well-wormed parenthesis strings, various special numbers appeared. In this regard, in conclusion we will talk a little about numbers of the form $3^n+2$ and mirror numbers $2*3^n+1$.",
+      "published": "2020-12-23T14:09:26Z",
+      "domain": "mathematics"
+    },
+    {
+      "source": "arxiv",
+      "category": "math.CO",
+      "title": "Sharp discrete isoperimetric inequalities in periodic graphs via discrete PDE and Semidiscrete Optimal Transport",
+      "abstract": "We develop criteria based on a calibration argument via discrete PDE and semidiscrete optimal transport, for finding sharp isoperimetric inequalities of the form $(\\sharp Ω)^{d-1} \\le C (\\sharp \\overrightarrow{\\partialΩ})^d$ where $Ω$ is a subset of vertices of a graph and $\\overrightarrow{\\partialΩ}$ is the oriented edge-boundary of $Ω$, as well as the optimum isoperimetric shapes $Ω$. The method is a discrete counterpart to Optimal Transport and ABP method proofs valid in the continuum, and answers a question appearing in Hamamuki \\cite{hamamuki}, extending that work valid for rectangular grids, to a larger class of graphs, including graphs dual to simplicial meshes of equal volume. We also connect the problem to the theory Voronoi tessellations and of Aleksandrov solutions from semidiscrete optimal transport. The role of the geometric-arithmetic inequality that was used in previous works in the continuum case and in the $\\mathbb Z^d$-graph case is now played by a geometric cell-optimization constant, where the optimization problem is like in Minkowski's proof of his classical theorem for convex polyhedra. Finally, we study the optimal constant in the related discrete Neumann boundary problem, and present a series of possible directions for a further classification of discrete edge-isoperimetric constants and shapes.",
+      "published": "2020-12-20T22:17:53Z",
+      "domain": "mathematics"
+    },
+    {
+      "source": "arxiv",
+      "category": "math.CO",
+      "title": "The Characterization of Finite Elasticities",
+      "abstract": "Our motivating goal is factorization in Krull Domains $H$ with finitely generated class group $G$. The elasticity $ρ(H)$ is the maximal number of atoms in any re-factorization of a product of $k$ atoms. The elasticities are the same as those of a combinatorial monoid of zero-sum sequences $B(G_0)$, where $G_0\\subseteq G$ are the classes with height one primes. We characterize when finite elasticity holds for any Krull Domain with finitely generated class group. Our results are valid for the more general class of Transfer Krull Monoids (over a subset $G_0$ of a finitely generated abelian group $G$). We show there is a minimal $s\\leq (d+1)m$, where $d$ is the torsion free rank and $m$ is the torsion exponent, such that $ρ_s(H)<\\infty$ implies $ρ_k(H)<\\infty$ for all $k\\geq 1$. This ensures $ρ(H)<\\infty$ if and only if $ρ_{(d+1)m}(H)<\\infty$. Our characterization is in terms of a simple combinatorial obstruction to infinite elasticity: there existing a subset $G_0^\\diamond\\subseteq G_0$ and bound $N$ such that there are no nontrivial zero-sum sequences with terms from $G_0^\\diamond$, and every minimal zero-sum sequence has at most $N$ terms from $G_0\\setminus G_0^\\diamond$. We give an explicit description of $G_0^\\diamond$ in terms of the Convex Geometry of $G_0$ modulo the torsion subgroup $G_T\\leq G$, and show finite elasticity is equivalent to there being no positive linear combination of the elements of this explicitly defined subset equal to $0$ modulo $G_T$. We use our results to show finite elasticity implies the set of distances $Δ(H)$, the catenary degree $\\mathsf c(H)$ (for Krull Monoids) and a weakened tame degree (for Krull Monoids) are all also finite, and that the Structure Theorem for Unions holds. Our results for factorization in Transfer Krull Monoids are accomplished by developing an extensive theory in Convex Geometry generalizing positive bases.",
+      "published": "2020-12-23T15:53:56Z",
+      "domain": "mathematics"
+    },
+    {
+      "source": "arxiv",
+      "category": "math.CO",
+      "title": "Eigenvalues of the normalized complex Laplacian on finite electrical networks",
+      "abstract": "The spectrum of the normalized complex Laplacian for electrical networks is analyzed. We show that eigenvalues lie in a larger region compared to the case of the real Laplacian. We show the existence of eigenvalues with negative real part and absolute value greater than 2. An estimate from below for the first non-vanishing eigenvalue in modulus is provided. We supplement the estimates with examples, showing sharpness.",
+      "published": "2020-12-23T15:56:40Z",
+      "domain": "mathematics"
+    },
+    {
+      "source": "arxiv",
+      "category": "math.CO",
+      "title": "On the growth of the wallpaper groups",
+      "abstract": "We develop further Cannon's method of cone types for finding the growth function of a group, which can also be used to find the coordination sequences of certain infinite graphs. We then apply this method to compute the growth functions and series of the wallpaper groups (the 2 dimensional crystallographic groups). The paper has a number of illustrating colored figures and tables summarizing the results.",
+      "published": "2020-12-26T02:17:25Z",
+      "domain": "mathematics"
+    },
+    {
+      "source": "arxiv",
+      "category": "math.CO",
+      "title": "On the cop number of toroidal graphs",
+      "abstract": "We show that the cop number of toroidal graphs is at most 3. This resolves a conjecture by Schroeder from 2001 which is implicit in a question by Andreae from 1986.",
+      "published": "2019-04-16T19:54:11Z",
+      "domain": "mathematics"
+    },
+    {
+      "source": "arxiv",
+      "category": "math.CO",
+      "title": "Using Non-Linear Difference Equations to Study Quicksort Algorithms",
+      "abstract": "Using non-linear difference equations, combined with symbolic computations, we make a detailed study of the running times of numerous variants of the celebrated Quicksort algorithms, where we consider the variants of single-pivot and multi-pivot Quicksort algorithms as discrete probability problems. With non-linear difference equations, recurrence relations and experimental mathematics techniques, explicit expressions for expectations, variances and even higher moments of their numbers of comparisons and swaps can be obtained. For some variants, Monte Carlo experiments are performed, the numerical results are demonstrated and the scaled limiting distribution is also discussed.",
+      "published": "2019-04-30T22:04:28Z",
+      "domain": "mathematics"
+    },
+    {
+      "source": "arxiv",
+      "category": "math.CO",
+      "title": "Arboretum for a generalization of Ramanujan polynomials",
+      "abstract": "In this paper, we expand on the work of Guo and Zeng from 2007 on a generalization of the Ramanujan polynomials and planar trees. We manage to find combinatorial interpretations of this family of polynomials in terms of Greg trees, Cayley trees, and planar trees by constructing bijections that preserve relevant tree statistics.",
+      "published": "2019-05-06T15:05:53Z",
+      "domain": "mathematics"
+    },
+    {
+      "source": "arxiv",
+      "category": "math.CO",
+      "title": "A combinatorial description of the dormant Miura transformation",
+      "abstract": "A dormant generic Miura $\\mathfrak{sl}_2$-oper is a flat $\\mathrm{PGL}_2$-bundle over an algebraic curve in positive characteristic equipped with some additional data. In the present paper, we give a combinatorial description of dormant generic Miura $\\mathfrak{sl}_2$-opers on a totally degenerate curve. The combinatorial objects that we use are certain branch numberings of $3$-regular graphs. Our description may be thought of as an analogue of the combinatorial description of dormant $\\mathfrak{sl}_2$-opers given by S. Mochizuki, F. Liu, and B. Osserman. It allows us to think of the Miura transformation in terms of combinatorics. As an application, we identify the dormant generic Miura $\\mathfrak{sl}_2$-opers on totally degenerate curves of genus $>0$.",
+      "published": "2019-05-08T22:08:18Z",
+      "domain": "mathematics"
+    },
+    {
+      "source": "arxiv",
+      "category": "math.CO",
+      "title": "Distance-balanced graphs and Travelling Salesman Problems",
+      "abstract": "For every probability $p\\in[0,1]$ we define a distance-based graph property, the $p$TS-distance-balancedness, that in the case $p=0$ coincides with the standard distance-balancedness, and in the case $p=1$ is related to the Hamiltonian-connectedness. In analogy with the classical case, where the distance-balancedness of a graph is equivalent to the property of being self-median, we characterize the class of $p$TS-distance-balanced graphs in terms of their equity with respect to certain probabilistic centrality measures, inspired by the Travelling Salesman Problem. We prove that it is possible to detect this property looking at the classical distance-balancedness (and therefore looking at the classical centrality problems) of a suitable graph composition, namely the wreath product of graphs. More precisely, we characterize the distance-balancedness of a wreath product of two graphs in terms of the $p$TS-distance-balancedness of the factors.",
+      "published": "2019-05-08T15:49:03Z",
+      "domain": "mathematics"
+    },
+    {
+      "source": "arxiv",
+      "category": "math.CO",
+      "title": "Correcting Codes for Asymmetric Single Magnitude Four Error",
+      "abstract": "An error model with asymmetric single magnitude four error is considered. This paper is about constructions of codes correcting single error over $\\mathbb{Z}_{2^{a}3^{b}r}$. Firstly, we reduce the construction of a maximal size $B_{1}[4](2^{a}3^{b}r)$ set for $a\\geq4$ and $\\gcd(r,6)=1$ to the construction of a maximal size $B_{1}[4](2^{a-3}3^{b}r)$ set. Further, we will show that maximal size $B_{1}[4](8\\cdot3^{b}r)$ sets can be reduced to maximal size $B_{1}[4](3^{b}r)$ sets. Finally, we give a lower bounds of maximal size $B_{1}[4](2r)$ and $B_{1}[4](2\\cdot3^{b}r)$ sets.",
+      "published": "2019-05-05T11:40:42Z",
+      "domain": "mathematics"
+    },
+    {
+      "source": "arxiv",
+      "category": "math.CO",
+      "title": "Relation between the number of leaves of a tree and its diameter",
+      "abstract": "Let $L(n,d)$ denote the minimum possible number of leaves in a tree of order $n$ and diameter $d.$ In 1975 Lesniak gave the lower bound   $B(n,d)=\\lceil 2(n-1)/d\\rceil$ for $L(n,d).$ When $d$ is even, $B(n,d)=L(n,d).$ But when $d$ is odd, $B(n,d)$ is smaller than $L(n,d)$ in general.   For example, $B(21,3)=14$ while $L(21,3)=19.$ We prove that for $d\\ge 2,$   $ L(n,d)=\\left\\lceil \\frac{2(n-1)}{d}\\right\\rceil$ if $d$ is even and $L(n,d)=\\left\\lceil \\frac{2(n-2)}{d-1}\\right\\rceil$ if $d$ is odd.   The converse problem is also considered. Let $D(n,f)$ be the minimum possible diameter of a tree of order $n$ with exactly $f$ leaves.   We prove that $D(n,f)=2$ if $n=f+1,$ $D(n,f)=2k+1$ if $n=kf+2,$ and $D(n,f)=2k+2$ if $kf+3\\le n\\le (k+1)f+1.$",
+      "published": "2019-04-27T11:52:14Z",
+      "domain": "mathematics"
+    },
+    {
+      "source": "arxiv",
+      "category": "math.CO",
+      "title": "On Erdős-Ginzburg-Ziv inverse theorems for Dihedral and Dicyclic groups",
+      "abstract": "Let $G$ be a finite group and exp$(G)$ = lcm$\\{$ord$(g)$$\\mid$$g \\in G \\}$. A finite unordered sequence of terms from $G$, where repetition is allowed, is a product-one sequence if its terms can be ordered such that their product equals the identity element of $G$. We denote by $\\mathsf s (G)$ (or $\\mathsf E (G)$ respectively) the smallest integer $\\ell$ such that every sequence of length at least $\\ell$ has a product-one subsequence of length $\\exp (G)$ (or $|G|$ respectively). In this paper, we provide the exact values of $\\mathsf s (G)$ and $\\mathsf E (G)$ for Dihedral and Dicyclic groups and we provide explicit characterizations of all sequences of length $\\mathsf s (G) - 1$ (or $\\mathsf E (G) - 1$ respectively) having no product-one subsequence of length $\\exp (G)$ (or $|G|$ respectively).",
+      "published": "2019-04-30T11:37:28Z",
+      "domain": "mathematics"
+    },
+    {
+      "source": "arxiv",
+      "category": "math.CO",
+      "title": "Selfish Mining and Dyck Words in Bitcoin and Ethereum Networks",
+      "abstract": "The main goal of this article is to present a direct approach for the formula giving the long-term apparent hashrates of Selfish Mining strategies using only elementary probabilities and combinatorics, more precisely, Dyck words. We can avoid computing stationary probabilities on Markov chain, nor stopping times for Poisson processes as in previous analysis. We do apply these techniques to other block withholding strategies in Bitcoin, and then, we consider also selfish mining in Ethereum.",
+      "published": "2019-04-11T23:18:46Z",
+      "domain": "mathematics"
+    },
+    {
+      "source": "arxiv",
+      "category": "math.CO",
+      "title": "On the Chromatic Polynomial and Counting DP-Colorings",
+      "abstract": "The chromatic polynomial of a graph $G$, denoted $P(G,m)$, is equal to the number of proper $m$-colorings of $G$. The list color function of graph $G$, denoted $P_{\\ell}(G,m)$, is a list analogue of the chromatic polynomial that has been studied since 1992, primarily through comparisons with the corresponding chromatic polynomial. DP-coloring (also called correspondence coloring) is a generalization of list coloring recently introduced by Dvořák and Postle. In this paper, we introduce a DP-coloring analogue of the chromatic polynomial called the DP color function, denoted $P_{DP}(G,m)$, and ask several fundamental open questions about it, making progress on some of them. Motivated by known results related to the list color function, we show that while the DP color function behaves similar to the list color function for some graphs, there are also some surprising differences. For example, Wang, Qian, and Yan recently showed that if $G$ is a connected graph with $l$ edges, then $P_{\\ell}(G,m)=P(G,m)$ whenever $m > \\frac{l-1}{\\ln(1+ \\sqrt{2})}$, but we will show that for any $g \\geq 3$ there exists a graph, $G$, with girth $g$ such that $P_{DP}(G,m) < P(G,m)$ when $m$ is sufficiently large. We also study the asymptotics of $P(G,m) - P_{DP}(G,m)$ for a fixed graph $G$. We develop techniques to compute $P_{DP}(G,m)$ exactly and apply them to certain classes of graphs such as chordal graphs, unicyclic graphs, and cycles with a chord. Finally, we make progress towards showing that for any graph $G$, there is a $p$ such that $P_{DP}(G \\vee K_p, m) = P(G \\vee K_p , m)$ for large enough $m$.",
+      "published": "2019-04-16T14:12:36Z",
+      "domain": "mathematics"
+    },
+    {
+      "source": "arxiv",
+      "category": "math.CO",
+      "title": "Modular hyperbolas and bilinear forms of Kloosterman sums",
+      "abstract": "In this paper we study incidences for hyperbolas in $\\mathbf{F}_p$ and show how linear sum--product methods work for such curves. As an application we give a purely combinatorial proof of a nontrivial upper bound for bilinear forms of Kloosterman sums.",
+      "published": "2019-05-01T12:56:28Z",
+      "domain": "mathematics"
+    },
+    {
+      "source": "arxiv",
+      "category": "math.AG",
+      "title": "Localizing virtual cycles for Donaldson-Thomas invariants of Calabi-Yau 4-folds",
+      "abstract": "Recently Oh-Thomas constructed a virtual cycle $[X]^{\\mathrm{vir}}\\in A_*(X)$ for a quasi-projective moduli space $X$ of stable sheaves or complexes over a Calabi-Yau 4-fold against which DT4 invariants may be defined as integrals of cohomology classes. In this paper, we prove that the virtual cycle localizes to the zero locus $X(σ)$ of an isotropic cosection $σ$ of the obstruction sheaf $Ob_X$ of $X$ and construct a localized virtual cycle $[X]^{\\mathrm{vir}}_{\\mathrm{loc}}\\in A_*(X(σ))$. This is achieved by further localizing the Oh-Thomas class which localizes Edidin-Graham's square root Euler class of a special orthogonal bundle. When the cosection $σ$ is surjective so that the virtual cycle vanishes, we construct a reduced virtual cycle $[X]^{\\mathrm{vir}}_{\\mathrm{red}}$. As an application, we prove DT4 vanishing results for hyperkähler 4-folds. All these results hold for virtual structure sheaves and K-theoretic DT4 invariants.",
+      "published": "2020-12-24T08:27:01Z",
+      "domain": "mathematics"
+    },
+    {
+      "source": "arxiv",
+      "category": "math.AG",
+      "title": "On Barycentric transformations of Fano polytopes",
+      "abstract": "We introduce the notion of barycentric transformation of Fano polytopes, from which we can assign a certain type to each Fano polytope. The type can be viewed as a measure of the extent to which the given Fano polytope is close to be Kähler-Einstein. In particular, we expect that every Kähler-Einstein or symmetric Fano polytope is of type $B_\\infty$. We verify this expectation for some low dimensional cases. We emphasize that for a Fano polytope $X$ of dimension $1$, $3$ or $5$, $X$ is Kähler-Einstein if and only if it is of type $B_\\infty$.",
+      "published": "2020-12-24T18:26:50Z",
+      "domain": "mathematics"
+    },
+    {
+      "source": "arxiv",
+      "category": "math.AG",
+      "title": "Cascades of toric log del Pezzo surfaces of Picard number one",
+      "abstract": "We classify toric log del Pezzo surfaces of Picard number one by introducing the notion, cascades. As an application, we show that if such a surface is Kähler-Einstein, then it should admit a special cascade, and it satisfies the equality of the orbifold Bogomolov-Miyaoka-Yau inequality, i.e., $K^2 = 3e_{orb}.$",
+      "published": "2020-12-24T19:24:04Z",
+      "domain": "mathematics"
+    },
+    {
+      "source": "arxiv",
+      "category": "math.AG",
+      "title": "A Surface Degeneration With Non-Collapsible Contractible Dual Complex",
+      "abstract": "We construct a smoothing of a particular normal crossing surface, which dual complex is a duncehat, thus obtaining an example of a surface degeneration with non-collapsible, contractible dual complex. The general fiber of this family has $h^{1,0} = h^{2,0} = 0$ and $h^{1,1}=9$, we conjecture that it is in the deformation class of the Barlow surface. This text is a complete rewrite of author's previous work [14].",
+      "published": "2020-12-20T18:56:42Z",
+      "domain": "mathematics"
+    },
+    {
+      "source": "arxiv",
+      "category": "math.AG",
+      "title": "Matricial Proofs of Some Classical Results about Critical Point Location",
+      "abstract": "The Gauss--Lucas and Bôcher--Grace--Marden theorems are classical results in the geometry of polynomials. Proofs of the these results are available in the literature, but the approaches are seemingly different. In this work, we show that these theorems can be proven in a unified theoretical framework utilizing matrix analysis (in particular, using the field of values and the differentiator of a matrix). In addition, we provide a useful variant of a well-known result due to Siebeck.",
+      "published": "2020-12-21T20:40:56Z",
+      "domain": "mathematics"
+    },
+    {
+      "source": "arxiv",
+      "category": "math.AG",
+      "title": "Algebraic stability of meromorphic maps descended from Thurston's pullback maps",
+      "abstract": "Let $φ:S^2 \\to S^2$ be an orientation-preserving branched covering whose post-critical set has finite cardinality $n$. If $φ$ has a fully ramified periodic point $p_{\\infty}$ and satisfies certain additional conditions, then, by work of Koch, $φ$ induces a meromorphic self-map $R_φ$ on the moduli space $\\mathcal{M}_{0,n}$; $R_φ$ descends from Thurston's pullback map on Teichmüller space. Here, we relate the dynamics of $R_φ$ on $\\mathcal{M}_{0,n}$ to the dynamics of $φ$ on $S^2$. Let $\\ell$ be the length of the periodic cycle in which the fully ramified point $p_{\\infty}$ lies; we show that $R_φ$ is algebraically stable on the heavy-light Hassett space corresponding to $\\ell$ heavy marked points and $(n-\\ell)$ light points.",
+      "published": "2019-04-16T22:23:15Z",
+      "domain": "mathematics"
+    },
+    {
+      "source": "arxiv",
+      "category": "math.AG",
+      "title": "Twisted Dolbeault cohomology of nilpotent Lie algebras",
+      "abstract": "It is well known that cohomology of any non-trivial 1-dimensional local system on a nilmanifold vanishes (this result is due to L. Alaniya). A complex nilmanifold is a quotient of a nilpotent Lie group equipped with a left-invariant complex structure by an action of a discrete, co-compact subgroup. We prove a Dolbeault version of Alaniya's theorem, showing that the Dolbeault cohomology of a nilpotent Lie algebra with coefficients in any non-trivial 1-dimensional local system vanishes. Note that the Dolbeault cohomology of the corresponding local system on the manifold is not necessarily zero. This implies that the twisted version of Console-Fino theorem is false (Console-Fino proved that the Dolbeault cohomology of a complex nilmanifold is equal to the Dolbeault cohomology of its Lie algebra). As an application, we give a new proof of a theorem due to H. Sawai, who obtained an explicit description of LCK nilmanifolds. An LCK structure on a manifold $M$ is a Kähler structure on its cover $\\tilde M$ such that the deck transform map acts on $\\tilde M$ by homotheties. We show that any complex nilmanifold admitting an LCK structure is Vaisman, and is obtained as a compact quotient of the product of a Heisenberg group and the real line.",
+      "published": "2019-05-07T20:58:43Z",
+      "domain": "mathematics"
+    },
+    {
+      "source": "arxiv",
+      "category": "math.AG",
+      "title": "A combinatorial description of the dormant Miura transformation",
+      "abstract": "A dormant generic Miura $\\mathfrak{sl}_2$-oper is a flat $\\mathrm{PGL}_2$-bundle over an algebraic curve in positive characteristic equipped with some additional data. In the present paper, we give a combinatorial description of dormant generic Miura $\\mathfrak{sl}_2$-opers on a totally degenerate curve. The combinatorial objects that we use are certain branch numberings of $3$-regular graphs. Our description may be thought of as an analogue of the combinatorial description of dormant $\\mathfrak{sl}_2$-opers given by S. Mochizuki, F. Liu, and B. Osserman. It allows us to think of the Miura transformation in terms of combinatorics. As an application, we identify the dormant generic Miura $\\mathfrak{sl}_2$-opers on totally degenerate curves of genus $>0$.",
+      "published": "2019-05-08T22:08:18Z",
+      "domain": "mathematics"
+    },
+    {
+      "source": "arxiv",
+      "category": "math.AG",
+      "title": "Kähler packings of projective complex manifolds",
+      "abstract": "In this note we show that the multipoint Seshadri constant determines the maximum possible radii of embeddings of Kähler balls and vice versa.",
+      "published": "2019-05-08T15:15:16Z",
+      "domain": "mathematics"
+    },
+    {
+      "source": "arxiv",
+      "category": "math.AG",
+      "title": "Generalized GCD for toric Fano varieties",
+      "abstract": "We study the greatest common divisor problem for torus invariant blowing-up morphisms of nonsingular toric Fano varieties. Our main result applies the theory of Okounkov bodies together with an arithmetic form of Cartan's Second Main theorem, which has been established by Ru and Vojta. It also builds on Silverman's geometric concept of greatest common divisor. As a special case of our results, we deduce a bound for the generalized greatest common divisor of pairs of nonzero algebraic numbers.",
+      "published": "2019-04-30T12:28:33Z",
+      "domain": "mathematics"
+    },
+    {
+      "source": "arxiv",
+      "category": "math.AG",
+      "title": "Gevrey expansions of hypergeometric integrals II",
+      "abstract": "We study integral representations of the Gevrey series solutions of irregular hypergeometric systems under certain assumptions. We prove that, for such systems, any Gevrey series solution, along a coordinate hyperplane of its singular support, is the asymptotic expansion of a holomorphic solution given by a carefully chosen integral representation.",
+      "published": "2019-04-16T10:34:33Z",
+      "domain": "mathematics"
+    },
+    {
+      "source": "arxiv",
+      "category": "math.AG",
+      "title": "The Integral Chow Ring of $\\bar{M}_2$",
+      "abstract": "In this paper we compute the Chow ring of the moduli stack $\\bar{M}_2$ of stable curves of genus 2 with integral coefficients.",
+      "published": "2019-04-17T04:59:52Z",
+      "domain": "mathematics"
+    },
+    {
+      "source": "arxiv",
+      "category": "math.AG",
+      "title": "Autonomous first order differential equations",
+      "abstract": "The problem of algebraic dependence of solutions to (non-linear) first order autonomous equations over an algebraically closed field of characteristic zero is given a `complete' answer, obtained independently of model theoretic results on differentially closed fields. Instead, the geometry of curves and generalized Jacobians provides the key ingredient. Classification and formal solutions of autonomous equations are treated. The results are applied to answer a question on $D^n$-finiteness of solutions of first order differential equations.",
+      "published": "2019-04-17T09:26:47Z",
+      "domain": "mathematics"
+    },
+    {
+      "source": "arxiv",
+      "category": "math.AG",
+      "title": "On certain complex surface singularities",
+      "abstract": "The thesis deals with holomorphic germs $ Φ: (\\mathbb{C}^2, 0) \\to (\\mathbb{C}^3,0) $ singular only at the origin, with a special emphasis on the distinguished class of finitely determined germs. The results are published in two articles (arXiv:1404.2853 and arXiv:1902.01229), joint with András Némethi. In Chapter 3 of the thesis we study the associated immersion $ S^3 \\looparrowright S^5 $, while Chapter 5 contains an algorithm providing the Milnor fibre boundary of the non-isolated hypersurface singularity determined by the image of $ Φ$. These results create bridges between different areas of complex singularity theory and immersion theory. The background of these topics is summerized in Chapter 1, 2 and 4.",
+      "published": "2019-04-29T15:38:56Z",
+      "domain": "mathematics"
+    },
+    {
+      "source": "arxiv",
+      "category": "math.AG",
+      "title": "K-theory formulas for orthogonal and symplectic orbit closures",
+      "abstract": "The complex orthogonal and symplectic groups both act on the complete flag variety with finitely many orbits. We study two families of polynomials introduced by Wyser and Yong representing the $K$-theory classes of the closures of these orbits. Our polynomials are analogous to the Grothendieck polynomials representing $K$-classes of Schubert varieties, and we show that like Grothendieck polynomials, they are uniquely characterized among all polynomials representing the relevant classes by a certain stability property. We show that the same polynomials represent the equivariant $K$-classes of symmetric and skew-symmetric analogues of Knutson and Miller's matrix Schubert varieties. We derive explicit expressions for these polynomials in special cases, including a Pfaffian formula relying on a more general degeneracy locus formula of Anderson. Finally, we show that taking an appropriate limit of our representatives recovers the $K$-theoretic Schur $Q$-functions of Ikeda and Naruse.",
+      "published": "2019-06-03T16:18:06Z",
+      "domain": "mathematics"
+    },
+    {
+      "source": "arxiv",
+      "category": "math.AG",
+      "title": "Vertical Vafa-Witten invariants",
+      "abstract": "We show that \\emph{vertical} contributions to (possibly semistable) Tanaka-Thomas-Vafa-Witten invariants are well defined for surfaces with $p_g(S)>0$, partially proving conjectures of \\cite{TT2} and \\cite{T}. Moreover, we show that such contributions are computed by the same tautological integrals as in the stable case, which we studied in \\cite{L}. Using the work of Kiem and Li, we show that stability of universal families of vertical Joyce-Song pairs is controlled by cosections of the obstruction sheaves of such families.",
+      "published": "2019-06-04T08:28:38Z",
+      "domain": "mathematics"
+    },
+    {
+      "source": "arxiv",
+      "category": "math.AG",
+      "title": "The module of Valabrega-Valla of the Jacobian ideal of points in projective plane",
+      "abstract": "The module of Valabrega-Valla of the Jacobian ideal of a reduced projective variety $V$ is the torsion of the Aluffi algebra. One considers the problem of its vanishing in the case of where $V$ is a reduced set of points in the projective plane. It is shown that the module is nonzero for several cases of a special configuration class therein -- called $(s-r)$-{fold collinear configuration}. A complete classification of types is given for $5$ and $6$ points in regard to this problem.",
+      "published": "2019-06-03T08:22:39Z",
+      "domain": "mathematics"
+    },
+    {
+      "source": "arxiv",
+      "category": "math.AG",
+      "title": "K-Theoretic $I$-function of $V//_θ \\mathbf{G}$ and Application",
+      "abstract": "In this paper, we compute K-theoretic $I$-function with level structure (defined by quasi-map theory) of GIT-quotient of a vector space via abelian and non-abelian correspondence. As a consequence, we generalize Givental-Lee's result to find the analogous \"Toda operators\" for the $I$-function with nontrivial level structures in the case of complete flag variety.",
+      "published": "2019-05-30T14:00:22Z",
+      "domain": "mathematics"
+    },
+    {
+      "source": "arxiv",
+      "category": "math.AG",
+      "title": "Chern numbers of uniruled threefolds",
+      "abstract": "In this paper we show that the Chern numbers of a smooth Mori fibre space in dimension three are bounded in terms of the underlying topological manifold. We also generalise a theorem of Cascini and the second named author on the boundedness of Chern numbers of certain threefolds to the case of negative Kodaira dimension.",
+      "published": "2019-06-04T13:10:00Z",
+      "domain": "mathematics"
+    },
+    {
+      "source": "arxiv",
+      "category": "math.AG",
+      "title": "Self-dual intersection space complexes",
+      "abstract": "In this article, we prove that there is a canonical Verdier self-dual intersection space sheaf complex for the middle perversity on Witt spaces that admit compatible trivializations for their link bundles, for example toric varieties. If the space is an algebraic variety our construction takes place in the category of mixed Hodge modules. We obtain an intersection space cohomology theory, satisfying Poincaré duality, valid for a class of pseudomanifolds with arbitrary depth stratifications. The main new ingredient is the category of Künneth complexes; these are cohomologically constructible complexes with respect to a fixed stratification, together with additional data, which codifies triviality structures along the strata. In analogy to what Goreski and McPherson showed for intersection homology complexes, we prove that there are unique Künneth complexes that satisfy the axioms for intersection space complexes introduced by the first and third author. This uniqueness implies the duality statements in the same scheme as in Goreski and McPherson theory.",
+      "published": "2020-05-29T15:09:43Z",
+      "domain": "mathematics"
+    },
+    {
+      "source": "arxiv",
+      "category": "physics.comp-ph",
+      "title": "Chemical Reactivity Studies by the Natural-Orbital-Functional 2nd-Order-Moller-Plesset (NOF-MP2) method. Water Dehydrogenation by the Scandium Cation",
+      "abstract": "The reliability of the recently proposed natural orbital functional supplemented with second-order Møller-Plesset calculations, (NOF-MP2), has been assessed for the mechanistic studies of elementary reactions of transition metal compounds by investigating the dehydrogenation of water by the scandium cation. Both high- and low-spin state potential energy surfaces have been searched thoroughly. Special attention has been paid to the assessment of the capability of the NOF-MP2 method to describe the strong, both static and dynamic, electron correlation effects on the reactivity of Sc+(3D,1D) with water. In agreement with experimental observations, our calculations correctly predict that the only exothermic products are the lowest-lying ScO+(1Σ) and H2(1Σ_g+) species. Nevertheless, an in-depth analysis of the reaction paths leading to several additional products was carried out, including the characterization of various minima and several key transition states. Our results have been compared with the highly accurate multiconfigurational supplemented with quasi degenerate perturbation theory, MCQDPT, wavefunction-type calculations, and with the available experimental data. It is observed that NOF-MP2 is able to give a satisfactorily quantitative agreement, with a performance on par with that of the MCQDPT method.",
+      "published": "2020-12-24T11:36:16Z",
+      "domain": "physics"
+    },
+    {
+      "source": "arxiv",
+      "category": "physics.comp-ph",
+      "title": "Convolutional neural networks for long-time dissipative quantum dynamics",
+      "abstract": "Exact numerical simulations of dynamics of open quantum systems often require immense computational resources. We demonstrate that a deep artificial neural network comprised of convolutional layers is a powerful tool for predicting long-time dynamics of an open quantum system provided the preceding short-time dynamics of the system is known. The neural network model developed in this work simulates long-time dynamics efficiently and very accurately across different dynamical regimes from weakly damped coherent motion to incoherent relaxation. The model was trained on a data set relevant to photosynthetic excitation energy transfer and can be deployed to study long-lasting quantum coherence phenomena observed in light-harvesting complexes. Furthermore, our model performs well for the initial conditions different than those used in the training. Our approach considerably reduces the required computational resources for long-time simulations and holds promise for becoming a valuable tool in the study of open quantum systems.",
+      "published": "2020-12-20T19:47:54Z",
+      "domain": "physics"
+    },
+    {
+      "source": "arxiv",
+      "category": "physics.comp-ph",
+      "title": "Effects of latitude-dependent gravity wave source variations on the middle and upper atmosphere",
+      "abstract": "Atmospheric gravity waves (GWs) are generated in the lower atmosphere by various weather phenomena. They propagate upward, carry energy and momentum to higher altitudes, and appreciably influence the general circulation upon depositing them in the middle and upper atmosphere. We use a three-dimensional first-principle general circulation model (GCM) with an implemented nonlinear whole atmosphere GW parameterization to study the global climatology of wave activity and produced effects at altitudes up to the upper thermosphere. The numerical experiments were guided by the GW momentum fluxes and temperature variances as measured in 2010 by the SABER (Sounding of the Atmosphere using Broadband Emission Radiometry) instrument onboard NASA's TIMED (Thermosphere Ionosphere Mesosphere Energetics Dynamics) satellite. This includes the latitudinal dependence and magnitude of GW activity in the lower stratosphere for the boreal summer season. The modeling results were compared to the SABER temperature and total absolute momentum flux, and Upper Atmosphere Research Satellite (UARS) data in the mesosphere and lower thermosphere. Simulations suggest that, in order to reproduce the observed circulation and wave activity in the middle atmosphere, smaller than the measured GW fluxes have to be used at the source level in the lower atmosphere. This is because observations contain a broader spectrum of GWs, while parameterizations capture only a portion relevant to the middle and upper atmosphere dynamics. Accounting for the latitudinal variations of the source appreciably improves simulations.",
+      "published": "2020-12-23T17:44:21Z",
+      "domain": "physics"
+    },
+    {
+      "source": "arxiv",
+      "category": "physics.comp-ph",
+      "title": "Reproducible Workflow on a Public Cloud for Computational Fluid Dynamics",
+      "abstract": "In a new effort to make our research transparent and reproducible by others, we developed a workflow to run and share computational studies on the public cloud Microsoft Azure. It uses Docker containers to create an image of the application software stack. We also adopt several tools that facilitate creating and managing virtual machines on compute nodes and submitting jobs to these nodes. The configuration files for these tools are part of an expanded \"reproducibility package\" that includes workflow definitions for cloud computing, in addition to input files and instructions. This facilitates re-creating the cloud environment to re-run the computations under the same conditions. Although cloud providers have improved their offerings, many researchers using high-performance computing (HPC) are still skeptical about cloud computing. Thus, we ran benchmarks for tightly coupled applications to confirm that the latest HPC nodes of Microsoft Azure are indeed a viable alternative to traditional on-site HPC clusters. We also show that cloud offerings are now adequate to complete computational fluid dynamics studies with in-house research software that uses parallel computing with GPUs. Finally, we share with the community what we have learned from nearly two years of using Azure cloud to enhance transparency and reproducibility in our computational simulations.",
+      "published": "2019-04-16T20:50:09Z",
+      "domain": "physics"
+    },
+    {
+      "source": "arxiv",
+      "category": "physics.comp-ph",
+      "title": "Generalizing the Method of Images for Complex Boundary Conditions : Application on the LHC Beam Screen",
+      "abstract": "This paper seeks to show that the beam screen of the LHC has an important effect on the electric field of the LHC beam, a few tens of sigmas away from its center. To do so, we develop two new methods for finding the effect of a complex conducting boundary for boundary value problems in electrostatics. Both methods are based on a generalization of the method of images and require low computing power. The result is an exact solution to the problem of a discretized conducting boundary, which we take to be an approximation of the real solution. As an application, we compute the total electric field inside the LHC beam screen and show that neglecting the effect of the conducting boundary is only accurate to 1% for locations closer than 10$σ$ from the center of the beam, and only accurate to 10% for locations closer than 30$σ$.",
+      "published": "2019-05-09T01:29:50Z",
+      "domain": "physics"
+    },
+    {
+      "source": "arxiv",
+      "category": "physics.comp-ph",
+      "title": "Establishing the Quantum Supremacy Frontier with a 281 Pflop/s Simulation",
+      "abstract": "Noisy Intermediate-Scale Quantum (NISQ) computers are entering an era in which they can perform computational tasks beyond the capabilities of the most powerful classical computers, thereby achieving \"Quantum Supremacy\", a major milestone in quantum computing. NISQ Supremacy requires comparison with a state-of-the-art classical simulator. We report HPC simulations of hard random quantum circuits (RQC), which have been recently used as a benchmark for the first experimental demonstration of Quantum Supremacy, sustaining an average performance of 281 Pflop/s (true single precision) on Summit, currently the fastest supercomputer in the World. These simulations were carried out using qFlex, a tensor-network-based classical high-performance simulator of RQCs. Our results show an advantage of many orders of magnitude in energy consumption of NISQ devices over classical supercomputers. In addition, we propose a standard benchmark for NISQ computers based on qFlex.",
+      "published": "2019-05-01T18:42:19Z",
+      "domain": "physics"
+    },
+    {
+      "source": "arxiv",
+      "category": "physics.comp-ph",
+      "title": "The Scikit-HEP Project",
+      "abstract": "The Scikit-HEP project is a community-driven and community-oriented effort with the aim of providing Particle Physics at large with a Python scientific toolset containing core and common tools. The project builds on five pillars that embrace the major topics involved in a physicist's analysis work: datasets, data aggregations, modelling, simulation and visualisation. The vision is to build a user and developer community engaging collaboration across experiments, to emulate scikit-learn's unified interface with Astropy's embrace of third-party packages, and to improve discoverability of relevant tools.",
+      "published": "2019-04-29T20:48:26Z",
+      "domain": "physics"
+    },
+    {
+      "source": "arxiv",
+      "category": "physics.comp-ph",
+      "title": "Functional extrapolations to tame unbound anions in density-functional theory calculations",
+      "abstract": "Standard flavors of density-functional theory (DFT) calculations are known to fail in describing anions, due to large self-interaction errors. The problem may be circumvented by using localized basis sets of reduced size, leaving no variational flexibility for the extra electron to delocalize. Alternatively, a recent approach exploiting DFT evaluations of total energies on electronic densities optimized at the Hartree-Fock (HF) level has been reported, showing that the self-interaction-free HF densities are able to lead to an improved description of the additional electron, returning affinities in close agreement with the experiments. Nonetheless, such an approach can fail when the HF densities are too inaccurate. Here, an alternative approach is presented, in which an embedding environment is used to stabilize the anion in a bound configuration. Similarly to the HF case, when computing total energies at the DFT level on these corrected densities, electron affinities in very good agreement with experiments can be recovered. The effect of the environment can be evaluated and removed by an extrapolation of the results to the limit of vanishing embedding. Moreover, the approach can be easily applied to DFT calculations with delocalized basis sets, e.g. plane-waves, for which alternative approaches are either not viable or more computationally demanding. The proposed extrapolation strategy can be thus applied also to extended systems, as often studied in condensed-matter physics and materials science, and we illustrate how the embedding environment can be exploited to determine the energy of an adsorbing anion - here a chloride ion on a metal surface - whose charge configuration would be incorrectly predicted by standard density functionals.",
+      "published": "2019-06-03T14:07:29Z",
+      "domain": "physics"
+    },
+    {
+      "source": "arxiv",
+      "category": "physics.comp-ph",
+      "title": "Modelling double emulsion formation in planar flow-focusing microchannels",
+      "abstract": "Double emulsion formation in a hierarchical flow-focusing channel is systematically investigated using a free energy ternary lattice Boltzmann model. A three dimensional formation regime diagram is constructed based on the capillary numbers of the inner ($Ca_i$), middle ($Ca_m$) and outer ($Ca_o$) phase fluids. The results show that the formation diagram can be classified into periodic two-step region, periodic one-step region, and non-periodic region. By varying $Ca_i$ and $Ca_m$ in the two-step formation region, different morphologies are obtained, including the regular double emulsions, decussate regimes with one or two alternate empty droplets, and structures with multiple inner droplets contained in the continuous middle phase thread. Bidisperse behaviors are also frequently encountered in the two-step formation region. In the periodic one-step formation region, scaling laws are proposed for the double emulsion size and for the size ratio between the inner droplet and the overall double emulsion. Furthermore, we show that the interfacial tension ratio can greatly change the morphologies of the obtained emulsion droplets, and the channel geometry plays an important role in changing the formation regimes and the double emulsion sizes. In particular, narrowing the side inlets or the distance between the two side inlets promotes the conversion from the two-step formation regime to the one-step formation regime.",
+      "published": "2019-06-03T19:26:31Z",
+      "domain": "physics"
+    },
+    {
+      "source": "arxiv",
+      "category": "physics.comp-ph",
+      "title": "Generalised Multi-Rate Models for conjugate transfer in heterogeneous materials",
+      "abstract": "We propose a novel macroscopic model for conjugate heat and mass transfer between a \\emph{mobile region}, where advective transport is significant, and a set of \\emph{immobile regions} where diffusive transport is dominant. Applying a spatial averaging operator to the microscopic equations, we obtain a \\emph{multi-continuum} model, where an equation for the average concentration in the mobile region is coupled with a set of equations for the average concentrations in the immobile regions. Subsequently, by mean of a spectral decomposition, we derive a set of equations that can be viewed as a generalisation of the multi-rate mass transfer (MRMT) model, originally introduced by Haggerty & Gorelick. This new formulation does not require any assumption on local equilibrium or geometry. We then show that the MRMT can be obtained as the leading order approximation, when the mobile concentration is in local equilibrium. The new Generalised Multi-Rate Mode (GMRM) has the advantage of providing a direct method for calculating the model coefficients for immobile regions of arbitrary shapes, through the solution of appropriate micro-scale cell problems. An important finding is that a simple re-scaling or re-parametrisation of the transfer rate coefficient (and thus, the memory function) is not sufficient to account for the flow field in the mobile region and the resulting non-uniformity of the concentration at the interfaces between mobile and immobile regions.",
+      "published": "2019-06-04T10:18:04Z",
+      "domain": "physics"
+    },
+    {
+      "source": "arxiv",
+      "category": "physics.comp-ph",
+      "title": "Solution of the 3D density-driven groundwater flow problem with uncertain porosity and permeability",
+      "abstract": "As groundwater is an essential nutrition and irrigation resource, its pollution may lead to catastrophic consequences. Therefore, accurate modeling of the pollution of the soil and groundwater aquifer is highly important. As a model, we consider a density-driven groundwater flow problem with uncertain porosity and permeability. This problem may arise in geothermal reservoir simulation, natural saline-disposal basins, modeling of contaminant plumes, and subsurface flow. This strongly nonlinear time-dependent problem describes the convection of the two-phase flow. This liquid streams under the gravity force, building so-called \"fingers\". The accurate numerical solution requires fine spatial resolution with an unstructured mesh and, therefore, high computational resources. Consequently, we run the parallelized simulation toolbox \\myug with the geometric multigrid solver on Shaheen II supercomputer. The parallelization is done in physical and stochastic spaces. Additionally, we demonstrate how the \\myug toolbox can be run in a black-box fashion for testing different scenarios in the density-driven flow. As a benchmark, we solve the Elder-like problem in a 3D domain. For approximations in the stochastic space, we use the generalized polynomial chaos expansion. We compute the mean, variance, and exceedance probabilities of the mass fraction. As a reference solution, we use the solution, obtained from the quasi-Monte Carlo method.",
+      "published": "2019-05-31T23:39:12Z",
+      "domain": "physics"
+    },
+    {
+      "source": "arxiv",
+      "category": "physics.comp-ph",
+      "title": "Geometrical MoM formulation for eigenmode analysis",
+      "abstract": "The resonant frequencies of a structure and the associated field distributions are generally determined by solving a non-linear eigenvalue problem. Using frequency-domain solvers, the response of the structure needs to be evaluated at many different frequencies in order to solve the non-linear problem. Moreover, these frequencies may be complex, the inverse of the imaginary part physically corresponding to the e-folding time of the energy of the mode. In this paper, we propose to use the so-called \"Geometrical Method of Moments\" (GMoM) to accelerate the computation of the resonant frequencies of a structure using the Method of Moments. First, purely geometrical reaction integrals are precomputed, which do not depend on the frequency nor material parameters. Then, by summing these terms with proper weights, the impedance matrix can be obtained for any complex frequency. This method easily accommodates for dispersive materials provided that the permittivity and permeability of the material can be extrapolated to complex frequencies.",
+      "published": "2019-06-04T12:58:40Z",
+      "domain": "physics"
+    },
+    {
+      "source": "arxiv",
+      "category": "physics.comp-ph",
+      "title": "An efficient method for solving highly oscillatory ordinary differential equations with applications to physical systems",
+      "abstract": "We present a novel numerical routine (oscode) with a C++ and Python interface for the efficient solution of one-dimensional, second-order, ordinary differential equations with rapidly oscillating solutions. The method is based on a Runge-Kutta-like stepping procedure that makes use of the Wentzel-Kramers-Brillouin (WKB) approximation to skip regions of integration where the characteristic frequency varies slowly. In regions where this is not the case, the method is able to switch to a made-to-measure Runge-Kutta integrator that minimises the total number of function evaluations. We demonstrate the effectiveness of the method with example solutions of the Airy equation and an equation exhibiting a burst of oscillations, discussing the error properties of the method in detail. We then show the method applied to physical systems. First, the one-dimensional, time-independent Schrödinger equation is solved as part of a shooting method to search for the energy eigenvalues for a potential with quartic anharmonicity. Then, the method is used to solve the Mukhanov-Sasaki equation describing the evolution of cosmological perturbations, and the primordial power spectrum of the perturbations is computed in different cosmological scenarios. We compare the performance of our solver in calculating a primordial power spectrum of scalar perturbations to that of BINGO, an efficient code specifically designed for such applications.",
+      "published": "2019-05-30T18:00:00Z",
+      "domain": "physics"
+    },
+    {
+      "source": "arxiv",
+      "category": "physics.comp-ph",
+      "title": "Custom Edge-Element FEM Solver and its Application to Eddy-Current Simulation of Realistic 2M-Element Human Brain Phantom",
+      "abstract": "Extensive research papers of three-dimensional computational techniques are widely used for the investigation of human brain pathophysiology. Eddy current analyzing could provide an indication of conductivity change within a biological body. A significant obstacle to current trend analyses is the development of a numerically stable and efficiency-finite element scheme that performs well at low frequency and does not require a large number of degrees of freedom. Here, a custom finite element method (FEM) solver based on edge elements is proposed using the weakly coupled theory, which separates the solution into two steps. First, the background field (the magnetic vector potential on each edge) is calculated and stored. Then, the electric scalar potential on each node is obtained by FEM based on Galerkin formulations. Consequently, the electric field and eddy current distribution in the object can be obtained. This solver is more efficient than typical commercial solvers since it reduces the vector eddy current equation to a scalar one, and reduces the meshing domain to just the eddy current region. It can therefore tackle complex eddy current calculations for models with much larger numbers of elements, such as those encountered in eddy current computation in biological tissues. An example is presented with a realistic human brain mesh of 2 million elements. In addition, with this solver, the equivalent magnetic field induced from the excitation coil is applied, and therefore there is no need to mesh the excitation coil. In combination, these significantly increase the efficiency of the solver.",
+      "published": "2019-05-30T21:31:23Z",
+      "domain": "physics"
+    },
+    {
+      "source": "arxiv",
+      "category": "physics.comp-ph",
+      "title": "Nonlinear symmetry breaking in electron temperature gradient driven turbulence",
+      "abstract": "Nonlinear symmetry breaking may occur in systems with two or more states whose linear dynamics displays certain symmetries, one of which is preferred nonlinearly. We have identified a regime of electron temperature gradient (ETG) instabilities in a tokamak plasma with circular concentric flux surfaces that has its largest growth rate at a finite ballooning angle, establishing a symmetry that is nonlinearly broken to favor one sign for the ballooning angle. This is the first example of nonlinear symmetry breaking in simulations of a drift instability in the absence of externally imposed flow shear or asymmetry in the plasma column.",
+      "published": "2020-05-29T14:02:45Z",
+      "domain": "physics"
+    },
+    {
+      "source": "arxiv",
+      "category": "physics.comp-ph",
+      "title": "Exact solutions to planar emittance growth problems",
+      "abstract": "This paper is the first in a series which develops the theory of emittance dynamics based on simple statistical reasoning. Emittance is a central quantity used to characterize the quality of electron microscopes, photon sources and particle beams. Emittance growth in high intensity charged particle beams is a particularly challenging non-equilibrium statistical physics problem in which effects such as disordered-induced heating and charge reorganization can lead to very rapid degradation of emittance and beam quality. The concepts of free energy and entropy have been utilized to improve conceptual understanding of emittance dynamics. Here we develop a theory based on the second order cumulant of particle distributions and use this formulation to exactly solve several one dimensional problems. These solutions are important extensions of the existing results for the free expansion dynamics of pancake bunches used in ultrafast electron microscopy, which at short times are known to expand quadratically with time[1-3]. Here we show that the squared emittance of a strictly planar expanding bunch increases as a quadratic polynomial of time. We compare theories based on individual particle trajectories with theories based on distributions and expand the foundations of theories based on individual particle trajectories, which we call the \"sample picture\". Our later work uses this formulation to derive generalized envelope equations which capture emittance growth effects in two and three dimensional systems.   1. B. J. Siwick, J. R. Dwyer, R. E. Jordan, and R. J. Dwayne Miller, Journal of Applied Physics 92, 1643 (2002). 2. B. W. Reed, Journal of Applied Physics 100, 034916 (2006). 3. B. Zerbe, X. Xiang, C.-Y. Ruan, S. Lund, and P. Duxbury, Physical Review Accelerators and Beams 21, 064201 (2018).",
+      "published": "2020-05-31T02:24:56Z",
+      "domain": "physics"
+    },
+    {
+      "source": "arxiv",
+      "category": "physics.comp-ph",
+      "title": "An Overview of Computational Fluid Structure Interaction: Methods and Applications",
+      "abstract": "Over the past few decades, there has been a rapid improvement in computational power as well as techniques to simulate the real world phenomenon which has enabled us to understand the physics and develop new systems which outperform the existing ones. In the domain of multi-physics problems, fluid and structure interactions have been studied and various numerical methods are introduced to solve them. An extensive review of most commonly employed numerical techniques to solve fluid structure interaction(FSI) problems has been done in this article. It also becomes utmost important to understand the applicability of each method and hence a critical reasoning for usage of different methods has been provided. Application domains are presented which range from energy harvesting processes to simulation of human vocal cords and movement of bolus(food) inside esophagus. Suitable numerical methods applied for each application have also been discussed. Numerical methods developed so far are classified in particular groups based on the discretization, the manner in which coupling is performed and on the basis of meshing(division of entire domain into small blocks inside which variation of a variable is approximated). Challenges and instabilities posed by presently available numerical methods are discussed and potential applications where there is a possibility of errors due to these methods have been listed. A brief set of application areas which have not been explored through the lens of fluid structure interaction also have been discussed at the end of this article.",
+      "published": "2020-06-07T07:38:53Z",
+      "domain": "physics"
+    },
+    {
+      "source": "arxiv",
+      "category": "physics.comp-ph",
+      "title": "A second-order accurate semi-Lagrangian method for convection-diffusion equations with interfacial jumps",
+      "abstract": "In this paper, we present a second-order accurate finite-difference method for solving convectiondiffusion equations with interfacial jumps on a moving interface. The proposed method is constructed under a semi-Lagrangian framework for convection-diffusion equations; a novel interpolation scheme is developed in the presence of jump conditions. Combined with a second-order ghost fluid method [3], a sharp capturing method with a first-order local truncation error near the interface and second-order truncation error away from the interface is developed for the convectiondiffusion equation. In addition, a level-set advection algorithm is presented when the velocity gradient jumps across the interface. Numerical experiments support the conclusion that the proposed methods for convection-diffusion equations and level-set advection are necessary for the second-order convergence solution and the interface position.",
+      "published": "2020-05-28T00:41:28Z",
+      "domain": "physics"
+    },
+    {
+      "source": "arxiv",
+      "category": "physics.comp-ph",
+      "title": "Parameter Estimation for Subgrid-Scale Models Using Markov Chain Monte Carlo Approximate Bayesian Computation",
+      "abstract": "We use approximate Bayesian computation (ABC) combined with an \"improved\" Markov chain Monte Carlo (IMCMC) method to estimate posterior distributions of model parameters in subgrid-scale (SGS) closures for large eddy simulations (LES) of turbulent flows. The ABC-IMCMC approach avoids the need to directly compute a likelihood function during the parameter estimation, enabling a substantial speed-up and greater flexibility as compared to full Bayesian approaches. The method also naturally provides uncertainties in parameter estimates, avoiding the artificial certainty implied by many optimization methods for determining model parameters. In this study, we outline details of the present ABC-IMCMC approach, including the use of an adaptive proposal and a calibration step to accelerate the parameter estimation process. We demonstrate the approach by estimating parameters in two nonlinear SGS closures using reference data from direct numerical simulations of homogeneous isotropic turbulence. We show that the resulting parameter values give excellent agreement with reference probability density functions of the SGS stress and kinetic energy production rate in a priori tests, while also providing stable solutions in forward LES (i.e., a posteriori tests) for homogeneous isotropic turbulence. The ABC-IMCMC method is thus shown to be an effective and efficient approach for estimating unknown parameters, including their uncertainties, in SGS closure models for LES of turbulent flows.",
+      "published": "2020-05-26T19:49:51Z",
+      "domain": "physics"
+    },
+    {
+      "source": "arxiv",
+      "category": "physics.comp-ph",
+      "title": "ODEN: A Framework to Solve Ordinary Differential Equations using Artificial Neural Networks",
+      "abstract": "We explore in detail a method to solve ordinary differential equations using feedforward neural networks. We prove a specific loss function, which does not require knowledge of the exact solution, to be a suitable standard metric to evaluate neural networks' performance. Neural networks are shown to be proficient at approximating continuous solutions within their training domains. We illustrate neural networks' ability to outperform traditional standard numerical techniques. Training is thoroughly examined and three universal phases are found: (i) a prior tangent adjustment, (ii) a curvature fitting, and (iii) a fine-tuning stage. The main limitation of the method is the nontrivial task of finding the appropriate neural network architecture and the choice of neural network hyperparameters for efficient optimization. However, we observe an optimal architecture that matches the complexity of the differential equation. A user-friendly and adaptable open-source code (ODE$\\mathcal{N}$) is provided on GitHub.",
+      "published": "2020-05-28T15:34:10Z",
+      "domain": "physics"
+    },
+    {
+      "source": "arxiv",
+      "category": "q-bio.BM",
+      "title": "Allostery and conformational changes upon binding as generic features of proteins: a high-dimension geometrical approach",
+      "abstract": "A growing number of experimental evidence shows that it is general for a ligand binding protein to have a potential for allosteric regulation and for further evolution. In addition, such proteins generically change their conformation upon binding. O. Rivoire has recently proposed an evolutionary scenario that explains these properties as a generic byproduct of selection for exquisite discrimination between very similar ligands. The initial claim was supported by two classes of basic examples: continuous protein models with small numbers of degrees of freedom, on which the development of a conformational switch was established, and a 2-dimensional spin glass model supporting the rest of the statement. This work aimed to clarify the implication of the exquisite discrimination for smooth models with large number of degrees of freedom, the situation closer to real biological systems. With the help of differential geometry, jet-space analysis, and transversality theorems, it is shown that the claim holds true for any generic flexible system that can be described in terms of smooth manifolds. The result suggests that, indeed, evolutionary solutions to the exquisite discrimination problem, if exist, are located near a codimension-1 subspace of the appropriate genotypical space. This constraint, in turn, gives rise to a potential for the allosteric regulation of the discrimination via generic conformational changes upon binding.",
+      "published": "2019-05-07T21:24:29Z",
+      "domain": "biology"
+    },
+    {
+      "source": "arxiv",
+      "category": "q-bio.BM",
+      "title": "InfleCS: Clustering Free Energy Landscapes with Gaussian Mixtures",
+      "abstract": "Free energy landscapes provide insights into conformational ensembles of biomolecules. In order to analyze these landscapes and elucidate mechanisms underlying conformational changes, there is a need to extract metastable states with limited noise. This has remained a formidable task, despite a plethora of existing clustering methods. We present InfleCS, a novel method for extracting well-defined core states from free energy landscapes. The method is based on a Gaussian mixture free energy estimator and exploits the shape of the estimated density landscape. The core states that naturally arise from the clustering allow for detailed characterization of the conformational ensemble. The clustering quality is evaluated on three toy models with different properties, where the method is shown to consistently outperform other conventional and state-of-the-art clustering methods. Finally, the method is applied to a temperature enhanced molecular dynamics simulation of Ca2+ bound Calmodulin. Through the free energy landscape, we discover a pathway between a canonical and a compact state, revealing conformational changes driven by electrostatic interactions.",
+      "published": "2019-05-08T14:45:42Z",
+      "domain": "biology"
+    },
+    {
+      "source": "arxiv",
+      "category": "q-bio.BM",
+      "title": "Implementing Non-Equilibrium Networks with Active Circuits of Duplex Catalysts",
+      "abstract": "DNA strand displacement (DSD) reactions have been used to construct chemical reaction networks in which species act catalytically at the level of the overall stoichiometry of reactions. These effective catalytic reactions are typically realised through one or more of the following: many-stranded gate complexes to coordinate the catalysis, indirect interaction between the catalyst and its substrate, and the recovery of a distinct ``catalyst'' strand from the one that triggered the reaction. These facts make emulation of the out-of-equilibrium catalytic circuitry of living cells more difficult. Here, we propose a new framework for constructing catalytic DSD networks: Active Circuits of Duplex Catalysts (ACDC). ACDC components are all double-stranded complexes, with reactions occurring through 4-way strand exchange. Catalysts directly bind to their substrates, and and the ``identity'' strand of the catalyst recovered at the end of a reaction is the same molecule as the one that initiated it. We analyse the capability of the framework to implement catalytic circuits analogous to phosphorylation networks in living cells. We also propose two methods of systematically introducing mismatches within DNA strands to avoid leak reactions and introduce driving through net base pair formation. We then combine these results into a compiler to automate the process of designing DNA strands that realise any catalytic network allowed by our framework.",
+      "published": "2020-05-23T00:07:24Z",
+      "domain": "biology"
+    },
+    {
+      "source": "arxiv",
+      "category": "q-bio.BM",
+      "title": "Protein-ligand interaction study to identify potential dietary compounds binding at the active site of therapeutic target proteins of SARS-CoV-2",
+      "abstract": "Objective: Total 186 biologically important phenylpropanoids and polyketides compounds from different Indian medicinal plants and dietary sources were screened to filter potential compounds that bind at the active site of the therapeutic target proteins of SARS-CoV-2. Method: The molecular docking studies were carried out by using the Autodock Vina. The in silico ADMET and drug-likeness properties of the compounds were predicted from SwissADME server. Result: The molecular docking study of the 186 compounds with the therapeutic target proteins (Mpro, PLpro, RdRp, SGp and ACE2) of SARS-CoV-2 resulted 40 compounds that bind at the active site with dock score above -8.0 kcal/mol. Conclusion: Based on the in silico ADMET study and drug-likeness prediction of 40 compounds, we proposed petunidin, baicalein, cyanidin, 7-hydroxy-3',4'-methylenedioxyflavan, quercetin and ellagic acid among the 186 biologically important phenylpropanoids and polyketides as potential lead compounds, which can further be investigated pharmacologically and clinically to formulate therapeutic approaches for the COVID-19.",
+      "published": "2020-05-24T15:04:52Z",
+      "domain": "biology"
+    },
+    {
+      "source": "arxiv",
+      "category": "q-bio.BM",
+      "title": "Universal Free Energy Landscape Produces Efficient and Reversible Electron Bifurcation",
+      "abstract": "For decades, it was unknown how electron bifurcating systems in Nature prevented energy-wasting short-circuiting reactions that have large driving forces, so synthetic electron bifurcating molecular machines could not be designed and built. The underpinning free energy landscapes for electron bifurcation were also enigmatic. We predict that a simple and universal free energy landscape enables electron bifurcation, and we show that it enables high-efficiency bifurcation with limited short-circuiting (the EB-scheme). The landscape relies on steep free energy slopes in the two redox branches to insulate against short-circuiting without relying on nuanced changes in the microscopic rate constants for the short-circuiting reactions. The EB-scheme thus provides a blueprint for future campaigns to establish synthetic electron bifurcating machines.",
+      "published": "2020-05-28T14:34:10Z",
+      "domain": "biology"
+    },
+    {
+      "source": "arxiv",
+      "category": "q-bio.BM",
+      "title": "Transfer Learning for Protein Structure Classification at Low Resolution",
+      "abstract": "Structure determination is key to understanding protein function at a molecular level. Whilst significant advances have been made in predicting structure and function from amino acid sequence, researchers must still rely on expensive, time-consuming analytical methods to visualise detailed protein conformation. In this study, we demonstrate that it is possible to make accurate ($\\geq$80%) predictions of protein class and architecture from structures determined at low ($>$3A) resolution, using a deep convolutional neural network trained on high-resolution ($\\leq$3A) structures represented as 2D matrices. Thus, we provide proof of concept for high-speed, low-cost protein structure classification at low resolution, and a basis for extension to prediction of function. We investigate the impact of the input representation on classification performance, showing that side-chain information may not be necessary for fine-grained structure predictions. Finally, we confirm that high-resolution, low-resolution and NMR-determined structures inhabit a common feature space, and thus provide a theoretical foundation for boosting with single-image super-resolution.",
+      "published": "2020-08-11T15:01:32Z",
+      "domain": "biology"
+    },
+    {
+      "source": "arxiv",
+      "category": "q-bio.BM",
+      "title": "Soft macromolecular confinement",
+      "abstract": "We study equilibrium shapes and shape transformations of a confined semiflexible chain inside a soft lipid tubule using simulations and continuum theories. The deformed tubular shapes and chain conformations depend on the relative magnitude of their bending moduli. We characterise the collapsed macromolecular shapes by computing statistical quantities that probe the polymer properties at small length scales and report a prolate to toroidal coil transition for stiff chains. Deformed tubular shapes, calculated using elastic theories, agree with simulations. In conjunction with scattering studies, our work may provide a mechanistic understanding of gene encapsulation in soft structures.",
+      "published": "2020-06-10T16:49:48Z",
+      "domain": "biology"
+    },
+    {
+      "source": "arxiv",
+      "category": "q-bio.BM",
+      "title": "SARS-CoV-2 orthologs of pathogenesis-involved small viral RNAs of SARS-CoV",
+      "abstract": "Background: The COVID-19 pandemic clock is ticking and the survival of many of mankind's modern institutions and or survival of many individuals is at stake. There is a need for treatments to significantly reduce the morbidity and mortality of COVID-19. Hence, we delved deep into the SARS-CoV-2 genome, which is the virus that has caused COVID-19. SARS-CoV-2 is from the same family as SARS-CoV in which three small viral RNAs (svRNA) were recently identified; those svRNAs play a significant role in the virus pathogenesis in mice.   Contribution: In this paper, we report potential orthologs of those three svRNAs in the SARS-CoV-2 genome. Instead of off-the-shelf search and alignment algorithms, which failed to discover the orthologs, we used a special alignment scoring that does not penalize C/T and A/G mismatches as much as the other mutations. RNA bases C and U both can bind to G; similarly, A and G both can bind to U, hence, our scoring. We also validate this hypothesis using a novel, independent computational experiment. To validate our results, we confirmed the discovered orthologs are fully conserved in all the tested publicly available genomes of various strains of SARS-CoV-2; the loci at which the SARS-CoV-2 orthologs occur are close to the loci at which SARS-CoV svRNAs occur. We also report potential targets for these svRNAs. We hypothesize that the discovered orthologs play a role in pathogenesis of SARS-CoV-2, and therefore, antagomir-mediated inhibition of these SARS-CoV-2 svRNAs inhibits COVID-19.",
+      "published": "2020-07-11T21:27:48Z",
+      "domain": "biology"
+    },
+    {
+      "source": "arxiv",
+      "category": "q-bio.BM",
+      "title": "The natural polyphenol fortunellin and its structural analogs are inhibitors of the SARS-CoV-2 main proteinase dimerization, as revealed by molecular simulation studies",
+      "abstract": "3CL-Pro (or M-Pro) is the SARS-CoV-2 main protease, acting as a homodimer, is responsible for the cleavage of the large polyprotein 1ab transcript in proteins acting on viral growth and replication. 3CL-Pro has been one of the most studied SARS-CoV-2 proteins and the subject of therapeutic interventions, targeting its catalytic domain. A number of drug candidates have been reported, including some natural products. Here, we investigated in silico, through binding and molecular dynamics simulations, the natural product space for the identification of candidates of 3CL-Pro dimerization inhibitors. We report that fortunellin (acacetin 7-O-neohesperidoside), a natural flavonoid O-glycoside, is a potent inhibitor of 3CL-Pro dimerization. A search of the ZINC natural products database identified another 16 related molecules, including apilin and rhoifolin, with interesting pharmacological properties. We propose that fortunellin and its structural analogs might be the basis of novel pharmaceuticals and dietary supplements against SARS-CoV-2 induced COVID-19 disease.",
+      "published": "2020-07-15T15:08:00Z",
+      "domain": "biology"
+    },
+    {
+      "source": "arxiv",
+      "category": "q-bio.BM",
+      "title": "A Preliminary Investigation in the Molecular Basis of Host Shutoff Mechanism in SARS-CoV",
+      "abstract": "Recent events leading to the worldwide pandemic of COVID-19 have demonstrated the effective use of genomic sequencing technologies to establish the genetic sequence of this virus. In contrast, the COVID-19 pandemic has demonstrated the absence of computational approaches to understand the molecular basis of this infection rapidly. Here we present an integrated approach to the study of the nsp1 protein in SARS-CoV-1, which plays an essential role in maintaining the expression of viral proteins and further disabling the host protein expression, also known as the host shutoff mechanism. We present three independent methods of evaluating two potential binding sites speculated to participate in host shutoff by nsp1. We have combined results from computed models of nsp1, with deep mining of all existing protein structures (using PDBMine), and binding site recognition (using msTALI) to examine the two sites consisting of residues 55-59 and 73-80. Based on our preliminary results, we conclude that the residues 73-80 appear as the regions that facilitate the critical initial steps in the function of nsp1. Given the 90% sequence identity between nsp1 from SARS-CoV-1 and SARS-CoV-2, we conjecture the same critical initiation step in the function of COVID-19 nsp1.",
+      "published": "2020-07-23T21:56:07Z",
+      "domain": "biology"
+    },
+    {
+      "source": "arxiv",
+      "category": "q-bio.BM",
+      "title": "GPU-Accelerated Drug Discovery with Docking on the Summit Supercomputer: Porting, Optimization, and Application to COVID-19 Research",
+      "abstract": "Protein-ligand docking is an in silico tool used to screen potential drug compounds for their ability to bind to a given protein receptor within a drug-discovery campaign. Experimental drug screening is expensive and time consuming, and it is desirable to carry out large scale docking calculations in a high-throughput manner to narrow the experimental search space. Few of the existing computational docking tools were designed with high performance computing in mind. Therefore, optimizations to maximize use of high-performance computational resources available at leadership-class computing facilities enables these facilities to be leveraged for drug discovery. Here we present the porting, optimization, and validation of the AutoDock-GPU program for the Summit supercomputer, and its application to initial compound screening efforts to target proteins of the SARS-CoV-2 virus responsible for the current COVID-19 pandemic.",
+      "published": "2020-07-06T20:31:12Z",
+      "domain": "biology"
+    },
+    {
+      "source": "arxiv",
+      "category": "q-bio.BM",
+      "title": "Computation of single-cell metabolite distributions using mixture models",
+      "abstract": "Metabolic heterogeneity is widely recognised as the next challenge in our understanding of non-genetic variation. A growing body of evidence suggests that metabolic heterogeneity may result from the inherent stochasticity of intracellular events. However, metabolism has been traditionally viewed as a purely deterministic process, on the basis that highly abundant metabolites tend to filter out stochastic phenomena. Here we bridge this gap with a general method for prediction of metabolite distributions across single cells. By exploiting the separation of time scales between enzyme expression and enzyme kinetics, our method produces estimates for metabolite distributions without the lengthy stochastic simulations that would be typically required for large metabolic models. The metabolite distributions take the form of Gaussian mixture models that are directly computable from single-cell expression data and standard deterministic models for metabolic pathways. The proposed mixture models provide a systematic method to predict the impact of biochemical parameters on metabolite distributions. Our method lays the groundwork for identifying the molecular processes that shape metabolic heterogeneity and its functional implications in disease.",
+      "published": "2020-10-07T10:48:53Z",
+      "domain": "biology"
+    },
+    {
+      "source": "arxiv",
+      "category": "q-bio.BM",
+      "title": "A structural model for the Coronavirus Nucleocapsid",
+      "abstract": "We propose a mesoscale model structure for the coronavirus nucleocapsid, assembled from the high resolution structures of the basic building blocks of the N-protein, CryoEM imaging and mathematical constraints for an overall quasi-spherical particle. The structure is a truncated octahedron that accommodates two layers: an outer shell composed of triangular and quadrangular lattices of the N-terminal domain and an inner shell of equivalent lattices of coiled parallel helices of the C-terminal domain. The model is consistent with the dimensions expected for packaging large viral genomes and provides a rationale to interpret the apparent pleomorphic nature of coronaviruses.",
+      "published": "2020-05-25T15:22:04Z",
+      "domain": "biology"
+    },
+    {
+      "source": "arxiv",
+      "category": "q-bio.BM",
+      "title": "Molecular Characterization of Ebselen Binding Activity to SARS-CoV-2 Main Protease",
+      "abstract": "The Coronavirus Disease (COVID-19) pandemic caused by the SARS-coronavirus 2 (SARS-CoV-2) urgently calls for the design of drugs directed against this new virus. Given its essential role in proteolytic processing, the main protease Mpro has been identified as an attractive candidate for drugs against SARS-CoV-2 and similar coronaviruses. Recent high-throughput screening studies have identified a set of existing, small-molecule drugs as potent Mpro inhibitors. Amongst these, Ebselen (2-Phenyl-1,2-benzoselenazol-3-one), a glutathione peroxidase mimetic seleno-organic compound, is particularly attractive. Recent experiments suggest that its effectiveness is higher than that of other molecules that also act at the enzyme catalytic site. By relying on extensive simulations with all-atom models, in this study we examine at a molecular level the potential of Ebselen to decrease Mpro catalytic activity. Our results indicate that Ebselen exhibits a distinct affinity for the catalytic site cavity of Mpro. In addition, our molecular models reveal a second, previously unkown binding site for Ebselen in the dimerization region localized between the II and III domains of the protein. A detailed analysis of the free energy of binding indicates that the affinity of Ebselen to this second binding site is in fact significantly larger than that to the catalytic site. A strain analysis indicates that Ebselen bound between the II-III domains exerts a pronounced allosteric effect that regulates catalytic site access through surface loop interactions, and induces a displacement and reconfiguration of water hotspots, including the catalytic water, which could interfere with normal enzymatic function. Taken together, these findings provide a framework for the future design of more potent and specific Mpro inhibitors, based on the Ebselen scaffold, that could lead to new therapeutic strategies for COVID-19.",
+      "published": "2020-05-20T00:52:57Z",
+      "domain": "biology"
+    },
+    {
+      "source": "arxiv",
+      "category": "q-bio.BM",
+      "title": "Characterising DNA T-motifs by Simulation and Experiment",
+      "abstract": "The success of DNA nanotechnology has been driven by the discovery of novel structural motifs with a wide range of shapes and uses. We present a comprehensive study of the T-motif, a 3-armed, planar, right-angled junction that has been used in the self-assembly of DNA polyhedra and periodic structures. The motif is formed through the interaction of a bulge loop in one duplex and a sticky end of another. The polarity of the sticky end has significant consequences for the thermodynamic and geometrical properties of the T-motif: different polarities create junctions spanning different grooves of the duplex. We compare experimental binding strengths with predictions of oxDNA, a coarse-grained model of DNA, for various loop sizes. We find that, although both sticky-end polarities can create stable junctions, junctions resulting from 5$'$ sticky ends are stable over a wider range of bulge loop sizes. We highlight the importance of possible coaxial stacking interactions within the motif and investigate how each coaxial stacking interaction stabilises the structure and favours a particular geometry.",
+      "published": "2020-05-23T14:44:25Z",
+      "domain": "biology"
+    },
+    {
+      "source": "arxiv",
+      "category": "q-bio.BM",
+      "title": "Computational evidence on repurposing the anti-influenza drugs baloxavir acid and baloxavir marboxil against COVID-19",
+      "abstract": "The main reasons for the ongoing COVID-19 (coronavirus disease 2019) pandemic are the unavailability of recommended efficacious drugs or vaccines along with the human to human transmission nature of SARS-CoV-2 virus. So, there is urgent need to search appropriate therapeutic approach by repurposing approved drugs. In this communication, molecular docking analyses of two influenza antiviral drugs baloxavir acid (BXA) and baloxavir marboxil (BXM) were performed with the three therapeutic target proteins of severe acute respiratory syndrome coronavirus 2 (SARS-CoV-2), i.e., main protease (Mpro), papain-like protease (PLpro) and RNA-dependent RNA polymerase (RdRp). The molecular docking results of both the drugs BXA and BXM were analysed and compared. The investigational drug BXA binds at the active site of Mpro and RdRp, whereas the approved drug BXM binds only at the active site of RdRp. Also, comparison of dock score revealed that BXA is binding more effectively at the active site of RdRp than BXM. The computational molecular docking revealed that the drug BXA may be more effective against COVID-19 as compared to BXM.",
+      "published": "2020-09-02T14:14:35Z",
+      "domain": "biology"
+    },
+    {
+      "source": "arxiv",
+      "category": "q-bio.BM",
+      "title": "Protein Folding/Unfolding Phenomenon is originated by Synchronization/Desynchronization of Instantaneously Induced Oscillating Dipoles. A Hypothesis",
+      "abstract": "Protein folding is a phenomenon that has been studied for about 50 years and still remains as an unsolved problem. The main feature of this process is that it occurs as an all or none process, so a protein, can jump directly between folded and unfolded states. It is proposed in this manuscript that the cooperative phenomena associated to protein folding has its origin in the synchronization oscillating phases of the instantaneously induced dipoles that gives rise to the van der Waals London dispersion interaction. When the oscillation of the induced dipoles is synchronized an enhanced interaction regime is triggered and the protein enters a into a folding process. The propagation of this regime throughout the molecular structure complete the folding process. If a desynchronizing strong enough perturbation is introduced at any component cooperative network the system enters in a weakened -- or even a repulsive -- van der Waals dispersion interaction regime that propagate itself throughout the structure, that triggers a phase transition that finally unfolds the protein.",
+      "published": "2020-09-04T10:54:29Z",
+      "domain": "biology"
+    },
+    {
+      "source": "arxiv",
+      "category": "q-bio.BM",
+      "title": "High-Throughput Virtual Screening of 4487 flavonoids: New insights on the structural inhibition of SARS-CoV-2 Main Protease",
+      "abstract": "COVID-19 presents a great threat to public health worldwide and the infectious agent SARS-CoV-2 is currently the target of much research aiming at inhibition. The virus' main protease is a dimeric enzyme that has only recently begun to be thoroughly described, opening the door for virtual screening more broadly. Here, a PAIN-filtered flavonoid database was screened against four sites of the protease: a free (normal) conformation of the Substrate Binding Site (NSBS), an induced-fit state of the SBS (ISBS), a Dimerization Site (DS) and a Cryptic Site (CS). The mean binding energies of the top five ligands from each site were -9.52, -11.512, -7.042 and -10.348 kcal/mol for the NSBS, the ISBS, the DS and the CS, respectively. For the DS and CS, these top five compounds were selected as candidates to bind their respective site. In the case of SBS, the top 30 ligands with the lowest binding energies from NSBS and ISBS were contrasted and the ones present in both lists were selected as the final candidates. The final list was: Dorsilurin E (FL3FQUNP0001), Euchrenone a11 (FL2FALNP0014), Kurziflavolactone C (FL2FA9NC0016), Licorice glycoside E (FL2F1AGSN001) and Taxifolin 3'- (6\"-phenyl- acetylglucoside) (FL4DACGS0020) for the SBS; Sanggenol O (FL2FALNP0020), CHEMBL2171573, Kanzonol E (FL3F1ANP0001), CHEMBL2171584 and Abyssynoflavanone VI (FL2FACNP0014) for DS and CHEMBL2171598, CHEMBL2171577, Denticulaflavanol (FL5FAANR0001), Kurzichalcolactone (FL1CA9NC0001) and CHEMBL2171578 for CS. Virtual screening integrated several confirmation methods, including cross-docking assays and positive and negative controls. All 15 compounds are currently subjected to molecular dynamics so as to theoretically validate their binding to the protease.",
+      "published": "2020-08-30T20:28:33Z",
+      "domain": "biology"
+    },
+    {
+      "source": "arxiv",
+      "category": "q-bio.BM",
+      "title": "Attentive cross-modal paratope prediction",
+      "abstract": "Antibodies are a critical part of the immune system, having the function of directly neutralising or tagging undesirable objects (the antigens) for future destruction. Being able to predict which amino acids belong to the paratope, the region on the antibody which binds to the antigen, can facilitate antibody design and contribute to the development of personalised medicine. The suitability of deep neural networks has recently been confirmed for this task, with Parapred outperforming all prior physical models. Our contribution is twofold: first, we significantly outperform the computational efficiency of Parapred by leveraging à trous convolutions and self-attention. Secondly, we implement cross-modal attention by allowing the antibody residues to attend over antigen residues. This leads to new state-of-the-art results on this task, along with insightful interpretations.",
+      "published": "2018-06-12T08:58:19Z",
+      "domain": "biology"
+    },
+    {
+      "source": "arxiv",
+      "category": "q-bio.BM",
+      "title": "On the Natural Structure of Amino Acid Patterns in Families of Protein Sequences",
+      "abstract": "All known terrestrial proteins are coded as continuous strings of ~20 amino acids. The patterns formed by the repetitions of elements in groups of finite sequences describes the natural architectures of protein families. We present a method to search for patterns and groupings of patterns in protein sequences using a mathematically precise definition for 'repetition', an efficient algorithmic implementation and a robust scoring system with no adjustable parameters. We show that the sequence patterns can be well-separated into disjoint classes according to their recurrence in nested structures. The statistics of pattern occurrences indicate that short repetitions are enough to account for the differences between natural families and randomized groups by more than 10 standard deviations, while patterns shorter than 5 residues are effectively random. A small subset of patterns is sufficient to account for a robust ''familiarity'' definition of arbitrary sets of sequences.",
+      "published": "2018-07-26T22:59:48Z",
+      "domain": "biology"
+    },
+    {
+      "source": "synthetic",
+      "domain": "mathematics",
+      "type": "problem",
+      "title": "拉格朗日乘数法在约束优化中的应用",
+      "content": "给定目标函数 f(x,y) = x² + y²，约束条件 g(x,y) = x + y - 1 = 0，使用拉格朗日乘数法求解最优解。构造拉格朗日函数 L(x,y,λ) = x² + y² + λ(x + y - 1)，对各变量求偏导数并令其为零，得到方程组: ∂L/∂x = 2x + λ = 0, ∂L/∂y = 2y + λ = 0, ∂L/∂λ = x + y - 1 = 0。解此方程组得 x = y = 1/2, λ = -1。",
+      "keywords": [
+        "优化理论",
+        "拉格朗日乘数",
+        "约束优化",
+        "偏微分方程"
+      ],
+      "generated_date": "2026-01-20T12:30:01.317205"
+    },
+    {
+      "source": "synthetic",
+      "domain": "mathematics",
+      "type": "theorem",
+      "title": "柯西-施瓦茨不等式及其证明",
+      "content": "对于实数向量空间中的任意两个向量 u 和 v，满足 |⟨u,v⟩| ≤ ||u|| ||v||，当且仅当 u 和 v 线性相关时等号成立。证明：考虑任意实数 t，构造函数 f(t) = ||u - tv||² ≥ 0。展开得 f(t) = ||u||² - 2t⟨u,v⟩ + t²||v||²。由于对所有 t 都有 f(t) ≥ 0，判别式必须 ≤ 0，即 4⟨u,v⟩² - 4||u||²||v||² ≤ 0，得证。",
+      "keywords": [
+        "线性代数",
+        "不等式",
+        "内积空间",
+        "向量范数"
+      ],
+      "generated_date": "2026-01-20T12:30:01.317242"
+    },
+    {
+      "source": "synthetic",
+      "domain": "physics",
+      "type": "problem",
+      "title": "量子谐振子的能级推导",
+      "content": "一维量子谐振子的哈密顿量为 H = p²/(2m) + (1/2)mω²x²。引入无量纲坐标 ξ = √(mω/ℏ)x 和升降算符 a† = (ξ - d/dξ)/√2, a = (ξ + d/dξ)/√2，哈密顿量可改写为 H = ℏω(a†a + 1/2)。能量本征值为 Eₙ = ℏω(n + 1/2)，其中 n = 0,1,2,...。基态能量 E₀ = ℏω/2 为零点能，反映了量子力学的不确定性原理。",
+      "keywords": [
+        "量子力学",
+        "谐振子",
+        "本征值问题",
+        "算符方法"
+      ],
+      "generated_date": "2026-01-20T12:30:01.317249"
+    },
+    {
+      "source": "synthetic",
+      "domain": "physics",
+      "type": "derivation",
+      "title": "麦克斯韦方程组的波动方程推导",
+      "content": "从麦克斯韦方程 ∇×E = -∂B/∂t 和 ∇×B = μ₀ε₀∂E/∂t 出发，对第一式取旋度: ∇×(∇×E) = -∂(∇×B)/∂t。利用矢量恒等式和第二式，得到 ∇(∇·E) - ∇²E = -μ₀ε₀∂²E/∂t²。在无源区域 ∇·E = 0，得到电场波动方程 ∇²E = μ₀ε₀∂²E/∂t²，波速 c = 1/√(μ₀ε₀)。",
+      "keywords": [
+        "电磁学",
+        "麦克斯韦方程",
+        "波动方程",
+        "光速"
+      ],
+      "generated_date": "2026-01-20T12:30:01.317254"
+    },
+    {
+      "source": "synthetic",
+      "domain": "chemistry",
+      "type": "mechanism",
+      "title": "SN2亲核取代反应机理",
+      "content": "SN2（双分子亲核取代）反应是一步完成的协同反应。亲核试剂从背面进攻，同时离去基团从正面离开，经过五配位的过渡态。反应速率方程 v = k[RX][Nu⁻]，为二级反应。反应导致构型翻转（Walden翻转）。影响因素：1) 空间位阻越小反应越快；2) 亲核试剂强度；3) 离去基团能力；4) 溶剂极性（极性非质子溶剂有利）。",
+      "keywords": [
+        "有机化学",
+        "反应机理",
+        "立体化学",
+        "动力学"
+      ],
+      "generated_date": "2026-01-20T12:30:01.317259"
+    },
+    {
+      "source": "synthetic",
+      "domain": "chemistry",
+      "type": "calculation",
+      "title": "化学平衡常数与吉布斯自由能",
+      "content": "对于化学反应 aA + bB ⇌ cC + dD，平衡常数 K = [C]ᶜ[D]ᵈ/([A]ᵃ[B]ᵇ)。与吉布斯自由能变化的关系：ΔG° = -RT ln K。当 K > 1 时，ΔG° < 0，反应自发进行；K = 1 时，ΔG° = 0，处于平衡；K < 1 时，ΔG° > 0，逆反应自发。温度对平衡的影响遵循范特霍夫方程: d(ln K)/dT = ΔH°/(RT²)。",
+      "keywords": [
+        "物理化学",
+        "化学平衡",
+        "热力学",
+        "吉布斯能"
+      ],
+      "generated_date": "2026-01-20T12:30:01.317263"
+    },
+    {
+      "source": "synthetic",
+      "domain": "biology",
+      "type": "process",
+      "title": "蛋白质折叠的热力学原理",
+      "content": "蛋白质折叠由吉布斯自由能最小化驱动: ΔG = ΔH - TΔS。折叠过程中，疏水相互作用使非极性残基聚集到内核（熵减小但焓降低）；氢键和盐桥稳定二级和三级结构；二硫键形成共价连接。Levinthal悖论指出随机搜索构象空间需要天文数字时间，实际蛋白折叠遵循折叠漏斗模型，通过中间态逐步降低能量。分子伴侣（如GroEL/ES）帮助防止错误折叠和聚集。",
+      "keywords": [
+        "结构生物学",
+        "蛋白质化学",
+        "分子生物学",
+        "热力学"
+      ],
+      "generated_date": "2026-01-20T12:30:01.317268"
+    },
+    {
+      "source": "synthetic",
+      "domain": "biology",
+      "type": "pathway",
+      "title": "细胞呼吸的ATP产生计算",
+      "content": "完整的有氧呼吸包括糖酵解、柠檬酸循环和电子传递链。1个葡萄糖分子产生：糖酵解 2 ATP（底物水平磷酸化）+ 2 NADH；柠檬酸循环 2 ATP + 6 NADH + 2 FADH₂；电子传递链中 1 NADH → ~2.5 ATP，1 FADH₂ → ~1.5 ATP。总计：2 + 2 + 10×2.5 + 2×1.5 = 32 ATP（理论最大值）。实际产量受质子漏、ATP/ADP转运等因素影响，约为30-32 ATP。",
+      "keywords": [
+        "细胞生物学",
+        "代谢",
+        "生物能学",
+        "线粒体"
+      ],
+      "generated_date": "2026-01-20T12:30:01.317272"
+    },
+    {
+      "source": "synthetic",
+      "domain": "engineering",
+      "type": "design",
+      "title": "有限元分析在结构工程中的应用",
+      "content": "有限元法（FEM）将连续结构离散化为有限个单元。基本步骤：1) 离散化：将结构划分为单元网格；2) 选择形函数：描述单元内位移分布；3) 建立单元刚度矩阵：[K]ᵉ = ∫[B]ᵀ[D][B]dV；4) 组装总体刚度矩阵：[K] = Σ[K]ᵉ；5) 施加边界条件；6) 求解方程组 [K]{u} = {F}；7) 后处理：计算应力、应变。收敛性要求网格足够细密，单元类型匹配问题特征。",
+      "keywords": [
+        "计算力学",
+        "数值方法",
+        "结构分析",
+        "有限元"
+      ],
+      "generated_date": "2026-01-20T12:30:01.317276"
+    }
+  ]
+}

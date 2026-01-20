@@ -1,0 +1,77 @@
+{
+  "timestamp": "2026-01-20T12:57:41.060501",
+  "total_validated": 5,
+  "total_corrected": 0,
+  "validations": [
+    {
+      "concept": "酶催化机制",
+      "domain": "biology",
+      "original_detail": "通过降低活化能和稳定过渡态加速反应",
+      "validation_time": "2026-01-20T12:57:25.023251",
+      "sources": [
+        {
+          "source": "wikipedia",
+          "found": false
+        }
+      ],
+      "overall_confidence": 0.5,
+      "validated": false
+    },
+    {
+      "concept": "优化算法",
+      "domain": "engineering",
+      "original_detail": "梯度下降、遗传算法、粒子群优化等",
+      "validation_time": "2026-01-20T12:57:28.259183",
+      "sources": [
+        {
+          "source": "wikipedia",
+          "found": false
+        }
+      ],
+      "overall_confidence": 0.5,
+      "validated": false
+    },
+    {
+      "concept": "催化剂",
+      "domain": "chemistry",
+      "original_detail": "降低反应活化能但不改变反应平衡的物质",
+      "validation_time": "2026-01-20T12:57:31.779600",
+      "sources": [
+        {
+          "source": "wikipedia",
+          "found": false
+        }
+      ],
+      "overall_confidence": 0.5,
+      "validated": false
+    },
+    {
+      "concept": "电化学",
+      "domain": "chemistry",
+      "original_detail": "研究化学能和电能相互转换的科学",
+      "validation_time": "2026-01-20T12:57:34.792342",
+      "sources": [
+        {
+          "source": "wikipedia",
+          "found": false
+        }
+      ],
+      "overall_confidence": 0.5,
+      "validated": false
+    },
+    {
+      "concept": "线性规划",
+      "domain": "mathematics",
+      "original_detail": "在线性约束下优化线性目标函数，可用单纯形法求解",
+      "validation_time": "2026-01-20T12:57:37.827772",
+      "sources": [
+        {
+          "source": "wikipedia",
+          "found": false
+        }
+      ],
+      "overall_confidence": 0.5,
+      "validated": false
+    }
+  ]
+}

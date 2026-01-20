@@ -1,0 +1,167 @@
+{
+  "status": {
+    "session_start": "2026-01-20T12:45:05.023055",
+    "runtime_seconds": 2.526535,
+    "total_queries": 5,
+    "evolution_cycles": 1,
+    "knowledge_base": {
+      "mathematics": 2,
+      "physics": 2,
+      "chemistry": 2,
+      "biology": 2,
+      "engineering": 1,
+      "general": 0
+    },
+    "reasoning_stats": {
+      "count": 5,
+      "success_rate": 0.8047308484016495
+    }
+  },
+  "history": [
+    {
+      "query": "如何使用拉格朗日乘数法求解约束优化问题？",
+      "result": {
+        "query": "如何使用拉格朗日乘数法求解约束优化问题？",
+        "domain": "mathematics",
+        "reasoning_id": 1,
+        "timestamp": "2026-01-20T12:45:05.023099",
+        "analysis": {
+          "detected_domain": "engineering",
+          "complexity": "low",
+          "keywords": [
+            "如何使用拉格朗日乘数法求解约束优化问题？"
+          ]
+        },
+        "knowledge_used": 2,
+        "confidence": 0.7918915234004259,
+        "response": "这是一个low复杂度的工程问题。 需要应用工程方法和优化设计。\n\n根据知识库(2条相关知识)，可以采用以下方法求解：\n1. 识别问题关键要素\n2. 调用相关领域知识\n3. 构建解决方案\n4. 验证结果合理性",
+        "evolution_feedback": {
+          "reasoning_count": 1,
+          "success_rate": 0.75,
+          "suggested_improvements": [
+            null,
+            "优化推理策略",
+            null
+          ]
+        }
+      },
+      "timestamp": "2026-01-20T12:45:05.023106"
+    },
+    {
+      "query": "量子谐振子的能级公式是什么？",
+      "result": {
+        "query": "量子谐振子的能级公式是什么？",
+        "domain": "physics",
+        "reasoning_id": 2,
+        "timestamp": "2026-01-20T12:45:05.528291",
+        "analysis": {
+          "detected_domain": "physics",
+          "complexity": "low",
+          "keywords": [
+            "量子谐振子的能级公式是什么？"
+          ]
+        },
+        "knowledge_used": 2,
+        "confidence": 0.8946809913598481,
+        "response": "这是一个low复杂度的物理问题。 需要从基本物理原理出发，建立数学模型并求解。\n\n根据知识库(2条相关知识)，可以采用以下方法求解：\n1. 识别问题关键要素\n2. 调用相关领域知识\n3. 构建解决方案\n4. 验证结果合理性",
+        "evolution_feedback": {
+          "reasoning_count": 2,
+          "success_rate": 0.7541891523400426,
+          "suggested_improvements": [
+            null,
+            "优化推理策略",
+            null
+          ]
+        }
+      },
+      "timestamp": "2026-01-20T12:45:05.528367"
+    },
+    {
+      "query": "SN2反应的机理是怎样的？",
+      "result": {
+        "query": "SN2反应的机理是怎样的？",
+        "domain": "chemistry",
+        "reasoning_id": 3,
+        "timestamp": "2026-01-20T12:45:06.033532",
+        "analysis": {
+          "detected_domain": "chemistry",
+          "complexity": "low",
+          "keywords": [
+            "SN2反应的机理是怎样的？"
+          ]
+        },
+        "knowledge_used": 2,
+        "confidence": 0.863206485777326,
+        "response": "这是一个low复杂度的化学问题。 需要分析化学反应机理和分子结构。\n\n根据知识库(2条相关知识)，可以采用以下方法求解：\n1. 识别问题关键要素\n2. 调用相关领域知识\n3. 构建解决方案\n4. 验证结果合理性",
+        "evolution_feedback": {
+          "reasoning_count": 3,
+          "success_rate": 0.7682383362420232,
+          "suggested_improvements": [
+            null,
+            "优化推理策略",
+            null
+          ]
+        }
+      },
+      "timestamp": "2026-01-20T12:45:06.033591"
+    },
+    {
+      "query": "蛋白质折叠的驱动力是什么？",
+      "result": {
+        "query": "蛋白质折叠的驱动力是什么？",
+        "domain": "biology",
+        "reasoning_id": 4,
+        "timestamp": "2026-01-20T12:45:06.538757",
+        "analysis": {
+          "detected_domain": "physics",
+          "complexity": "low",
+          "keywords": [
+            "蛋白质折叠的驱动力是什么？"
+          ]
+        },
+        "knowledge_used": 2,
+        "confidence": 0.8638159530165306,
+        "response": "这是一个low复杂度的物理问题。 需要从基本物理原理出发，建立数学模型并求解。\n\n根据知识库(2条相关知识)，可以采用以下方法求解：\n1. 识别问题关键要素\n2. 调用相关领域知识\n3. 构建解决方案\n4. 验证结果合理性",
+        "evolution_feedback": {
+          "reasoning_count": 4,
+          "success_rate": 0.7777351511955535,
+          "suggested_improvements": [
+            null,
+            "优化推理策略",
+            null
+          ]
+        }
+      },
+      "timestamp": "2026-01-20T12:45:06.538783"
+    },
+    {
+      "query": "有限元分析的基本步骤是什么？",
+      "result": {
+        "query": "有限元分析的基本步骤是什么？",
+        "domain": "engineering",
+        "reasoning_id": 5,
+        "timestamp": "2026-01-20T12:45:07.043966",
+        "analysis": {
+          "detected_domain": "general",
+          "complexity": "high",
+          "keywords": [
+            "有限元分析的基本步骤是什么？"
+          ]
+        },
+        "knowledge_used": 1,
+        "confidence": 0.6100592884541172,
+        "response": "这是一个high复杂度的问题，需要跨学科知识整合。\n\n根据知识库(1条相关知识)，可以采用以下方法求解：\n1. 识别问题关键要素\n2. 调用相关领域知识\n3. 构建解决方案\n4. 验证结果合理性",
+        "evolution_feedback": {
+          "reasoning_count": 5,
+          "success_rate": 0.7863432313776513,
+          "suggested_improvements": [
+            "增加领域知识库",
+            "优化推理策略",
+            null
+          ]
+        }
+      },
+      "timestamp": "2026-01-20T12:45:07.044029"
+    }
+  ]
+}
