@@ -7,6 +7,9 @@
 - [README_V2_3_0.md](../README_V2_3_0.md) — v2.3.0 用户指南
 - [PRODUCTION_DEPLOYMENT_GUIDE_V2_3_0.md](../PRODUCTION_DEPLOYMENT_GUIDE_V2_3_0.md) — 生产部署手册
 
+## 目录导览
+- [STRUCTURE_OVERVIEW.md](STRUCTURE_OVERVIEW.md) — 主要目录/文件速览
+
 ## 版本与发布
 - [GITHUB_COMMIT_SUMMARY_V2_3_0.md](../GITHUB_COMMIT_SUMMARY_V2_3_0.md) — GitHub 提交摘要
 - [V2_3_0_COMPLETION_FINAL.md](../V2_3_0_COMPLETION_FINAL.md) — v2.3.0 完成清单
