@@ -30,6 +30,8 @@ jobs:
           python third_party_verifier.py --dir-only --latest-session-only
 
       - name: Verify bundle
+        env:
+          BUNDLE_SIGN_KEY: ci-test-key
         run: |
           python third_party_verifier.py --bundle-only
           python sign_bundle.py

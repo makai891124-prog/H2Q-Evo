@@ -1,8 +1,11 @@
 #!/usr/bin/env python3
 """
-推理模板库：为证明链提供模板ID/名称/步骤的轻量定义与匹配。
+推理模板库：为证明链提供模板ID/名称/步骤及可记录的执行轨迹。
 """
 
+import random
+import time
+from datetime import datetime
 from typing import Dict, List
 
 
@@ -82,15 +85,21 @@ def select_template(domain: str) -> Dict:
 
 
 def build_trace(template: Dict) -> List[Dict]:
-    """根据模板步骤生成执行轨迹占位（可供工件记录）。"""
+    """生成带时间戳和耗时的执行轨迹（轻量模拟）。"""
     steps = template.get("steps", [])
-    trace = []
+    trace: List[Dict] = []
     for idx, step in enumerate(steps, 1):
+        start = time.time()
+        duration_ms = random.uniform(5, 30)
+        finish = start + duration_ms / 1000.0
         trace.append({
             "step": idx,
             "description": step,
             "status": "done",
-            "confidence": 0.9  # 占位值，真实系统可按执行结果填写
+            "confidence": 0.9,
+            "started_at": datetime.fromtimestamp(start).isoformat(),
+            "finished_at": datetime.fromtimestamp(finish).isoformat(),
+            "duration_ms": round(duration_ms, 2)
         })
     return trace
 
