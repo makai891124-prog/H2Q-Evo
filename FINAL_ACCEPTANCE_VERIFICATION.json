@@ -1,0 +1,150 @@
+{
+  "timestamp": "2026-01-20T15:31:47.310143",
+  "version": "2.3.0",
+  "status": "FAILED",
+  "checks_passed": 19,
+  "checks_total": 28,
+  "pass_rate": "67.9%",
+  "details": [
+    {
+      "time": "2026-01-20 15:31:47",
+      "level": "WARN",
+      "msg": "⚠️  h2q_cli/main.py - 行数不足 (66 < 100)"
+    },
+    {
+      "time": "2026-01-20 15:31:47",
+      "level": "PASS",
+      "msg": "✅ h2q_cli/commands.py - 已验证 (142 行)"
+    },
+    {
+      "time": "2026-01-20 15:31:47",
+      "level": "WARN",
+      "msg": "⚠️  h2q_cli/config.py - 行数不足 (26 < 80)"
+    },
+    {
+      "time": "2026-01-20 15:31:47",
+      "level": "PASS",
+      "msg": "✅ h2q_project/local_executor.py - 已验证 (119 行)"
+    },
+    {
+      "time": "2026-01-20 15:31:47",
+      "level": "PASS",
+      "msg": "✅ h2q_project/learning_loop.py - 已验证 (44 行)"
+    },
+    {
+      "time": "2026-01-20 15:31:47",
+      "level": "WARN",
+      "msg": "⚠️  h2q_project/strategy_manager.py - 行数不足 (24 < 120)"
+    },
+    {
+      "time": "2026-01-20 15:31:47",
+      "level": "WARN",
+      "msg": "⚠️  h2q_project/feedback_handler.py - 行数不足 (12 < 70)"
+    },
+    {
+      "time": "2026-01-20 15:31:47",
+      "level": "WARN",
+      "msg": "⚠️  h2q_project/knowledge/knowledge_db.py - 行数不足 (85 < 140)"
+    },
+    {
+      "time": "2026-01-20 15:31:47",
+      "level": "WARN",
+      "msg": "⚠️  h2q_project/persistence/checkpoint_manager.py - 行数不足 (85 < 150)"
+    },
+    {
+      "time": "2026-01-20 15:31:47",
+      "level": "WARN",
+      "msg": "⚠️  h2q_project/persistence/migration_engine.py - 行数不足 (14 < 120)"
+    },
+    {
+      "time": "2026-01-20 15:31:47",
+      "level": "WARN",
+      "msg": "⚠️  h2q_project/persistence/integrity_checker.py - 行数不足 (15 < 100)"
+    },
+    {
+      "time": "2026-01-20 15:31:47",
+      "level": "WARN",
+      "msg": "⚠️  h2q_project/monitoring/metrics_tracker.py - 行数不足 (46 < 50)"
+    },
+    {
+      "time": "2026-01-20 15:31:47",
+      "level": "PASS",
+      "msg": "✅ tests/test_v2_3_0_cli.py - 已验证 (197 行)"
+    },
+    {
+      "time": "2026-01-20 15:31:47",
+      "level": "PASS",
+      "msg": "✅ validate_v2_3_0.py - 已验证 (145 行)"
+    },
+    {
+      "time": "2026-01-20 15:31:47",
+      "level": "PASS",
+      "msg": "✅ tools/smoke_cli.py - 已验证 (62 行)"
+    },
+    {
+      "time": "2026-01-20 15:31:47",
+      "level": "PASS",
+      "msg": "✅ README_V2_3_0.md - 已验证 (302 行)"
+    },
+    {
+      "time": "2026-01-20 15:31:47",
+      "level": "PASS",
+      "msg": "✅ ACCEPTANCE_REPORT_V2_3_0.md - 已验证 (358 行)"
+    },
+    {
+      "time": "2026-01-20 15:31:47",
+      "level": "PASS",
+      "msg": "✅ PROJECT_COMPLETION_SUMMARY_V2_3_0.md - 已验证 (336 行)"
+    },
+    {
+      "time": "2026-01-20 15:31:47",
+      "level": "PASS",
+      "msg": "✅ FINAL_DELIVERY_CHECKLIST.md - 已验证 (109 行)"
+    },
+    {
+      "time": "2026-01-20 15:31:47",
+      "level": "PASS",
+      "msg": "✅ V2_3_0_COMPLETION_FINAL.md - 已验证 (164 行)"
+    },
+    {
+      "time": "2026-01-20 15:31:47",
+      "level": "PASS",
+      "msg": "✅ PRODUCTION_DEPLOYMENT_GUIDE_V2_3_0.md - 已验证 (258 行)"
+    },
+    {
+      "time": "2026-01-20 15:31:47",
+      "level": "PASS",
+      "msg": "✅ requirements_v2_3_0.txt - 已验证 (33 行)"
+    },
+    {
+      "time": "2026-01-20 15:31:47",
+      "level": "PASS",
+      "msg": "✅ pyproject.toml - 已验证 (154 行)"
+    },
+    {
+      "time": "2026-01-20 15:31:47",
+      "level": "PASS",
+      "msg": "✅ h2q_cli/main.py - 内容验证通过"
+    },
+    {
+      "time": "2026-01-20 15:31:47",
+      "level": "PASS",
+      "msg": "✅ h2q_cli/commands.py - 内容验证通过"
+    },
+    {
+      "time": "2026-01-20 15:31:47",
+      "level": "PASS",
+      "msg": "✅ h2q_project/local_executor.py - 内容验证通过"
+    },
+    {
+      "time": "2026-01-20 15:31:47",
+      "level": "PASS",
+      "msg": "✅ h2q_project/knowledge/knowledge_db.py - 内容验证通过"
+    },
+    {
+      "time": "2026-01-20 15:31:47",
+      "level": "PASS",
+      "msg": "✅ pyproject.toml - 内容验证通过"
+    }
+  ]
+}
