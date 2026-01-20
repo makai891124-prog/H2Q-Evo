@@ -10,6 +10,12 @@
 
 ---
 
+## 🗂 文档索引
+
+为减少主目录文件拥挤，常用文档入口集中在 [docs/DOCUMENTATION_INDEX.md](docs/DOCUMENTATION_INDEX.md)。
+
+---
+
 ## 🌟 最新版本亮点 (v2.3.0)
 
 **焦点: 本地自主学习系统 + CLI 全功能落地**
