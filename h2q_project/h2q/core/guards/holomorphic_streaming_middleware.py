@@ -9,15 +9,20 @@ from h2q.quaternion_ops import quaternion_normalize, quaternion_mul
 class HolomorphicStreamingMiddleware(nn.Module):
     """
     Holomorphic Streaming Middleware for real-time veracity enforcement.
-    Performs geodesic snap-backs if the 2nd-order Fueter-Laplace curvature exceeds 0.05.
+    Performs geodesic snap-backs if the 2nd-order Fueter-Laplace curvature exceeds a threshold.
     """
-    def __init__(self, config: Optional[LatentConfig] = None):
+    def __init__(
+        self,
+        config: Optional[LatentConfig] = None,
+        *,
+        dde: Optional[DiscreteDecisionEngine] = None,
+        threshold: float = 0.05,
+    ):
         super().__init__()
-        # Fix for Runtime Error: DiscreteDecisionEngine.__init__() got an unexpected keyword argument 'dim'
-        # We use the canonical factory to ensure compatibility with the registry
-        self.dde = get_canonical_dde(config) if config else get_canonical_dde()
+        # Accept explicit DDE to match server usage; otherwise build canonical instance.
+        self.dde = dde if dde is not None else (get_canonical_dde(config) if config else get_canonical_dde())
         self.auditor = HighOrderFueterAuditor()
-        self.veracity_threshold = 0.05
+        self.veracity_threshold = threshold
         self.manifold_history: List[torch.Tensor] = []
         self.max_history = 16  # O(1) memory constraint via sliding window
 
@@ -80,6 +85,20 @@ class HolomorphicStreamingMiddleware(nn.Module):
         """
         corrected_x, _ = self.process_token_latent(x)
         return corrected_x
+
+    def audit_and_execute(self, input_tensor: torch.Tensor, max_steps: int = 512) -> dict:
+        """
+        Minimal shim to align with server call pattern.
+        Applies holomorphic guard to the input latent and returns curvature metadata.
+        """
+        corrected, corrected_flag = self.process_token_latent(input_tensor)
+        curvature = self.calculate_fueter_laplace(corrected).mean().item()
+        return {
+            "output_text": "",  # generation is upstream; middleware only guards
+            "fueter_curvature": curvature,
+            "spectral_shift": 0.0,  # DDE-driven spectral shift not computed here
+            "was_corrected": bool(corrected_flag),
+        }
 
 # STABLE CODE: Verified against H2Q Global Interface Registry
 # Compatible with Mac Mini M4 (MPS) via torch.norm and quaternion_ops
