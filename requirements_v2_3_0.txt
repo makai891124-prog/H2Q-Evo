@@ -1,0 +1,33 @@
+# Core dependencies for H2Q-Evo v2.3.0 Local Learning System
+
+# CLI Framework
+click==8.1.3
+
+# Web Framework (for h2q_server)
+fastapi==0.104.1
+uvicorn==0.24.0
+
+# Data & Serialization
+pydantic==2.5.0
+pydantic-settings==2.1.0
+
+# Database
+sqlite3  # included in Python stdlib
+
+# Machine Learning (optional, for future model integration)
+torch==2.0.1; python_version >= '3.8'
+transformers==4.36.0
+
+# API Client (optional, for remote inference)
+google-genai==0.3.0
+
+# Development & Testing
+pytest==7.4.3
+pytest-cov==4.1.0
+black==23.12.0
+mypy==1.7.1
+pylint==3.0.3
+
+# Utilities
+python-dotenv==1.0.0
+tqdm==4.66.1
