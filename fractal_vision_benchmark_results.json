@@ -1,0 +1,135 @@
+{
+  "summary": {
+    "total_tests": 10,
+    "passed_tests": 10,
+    "pass_rate": 1.0,
+    "average_score": 0.8946952308323611
+  },
+  "tests": [
+    {
+      "test_name": "Model Size (\u76ee\u6807 <50KB)",
+      "passed": true,
+      "score": 1.0,
+      "details": {
+        "total_size_bytes": 40784,
+        "total_size_kb": 39.828125,
+        "fractal_params": 9600,
+        "encoder_params": 596,
+        "target_kb": 50.0
+      }
+    },
+    {
+      "test_name": "End-to-End Latency (\u76ee\u6807 <200\u03bcs)",
+      "passed": "True",
+      "score": 1.0,
+      "details": {
+        "mean_latency_us": 167.43111597315874,
+        "p50_latency_us": 163.8329995330423,
+        "p95_latency_us": 183.1291476264596,
+        "p99_latency_us": 218.60065851797114,
+        "target_us": 200.0
+      }
+    },
+    {
+      "test_name": "Determinism (\u786e\u5b9a\u6027\u8f93\u51fa)",
+      "passed": true,
+      "score": 1.0,
+      "details": {
+        "identical_outputs": true,
+        "max_difference": 0.0,
+        "test_samples": 50
+      }
+    },
+    {
+      "test_name": "Fractal Hierarchy (\u5206\u5f62\u5c42\u7ea7\u4e00\u81f4\u6027)",
+      "passed": "True",
+      "score": 0.47116049523171405,
+      "details": {
+        "mean_scale_correlation": 0.9423188568420632,
+        "mean_layer_correlation": "2.1336214e-06",
+        "combined_score": 0.47116049523171405,
+        "n_levels": 4
+      }
+    },
+    {
+      "test_name": "Feedback Convergence (\u53cd\u9988\u6536\u655b\u6027)",
+      "passed": "True",
+      "score": 0.9988406133946,
+      "details": {
+        "mean_recovery_score": 0.9638980700365591,
+        "baseline_variance": 0.00011593866054000324,
+        "recovery_scores": [
+          0.9682020737091324,
+          0.9463432223037209,
+          0.9568867397883858,
+          0.9682173267032795,
+          0.9798409876782769
+        ]
+      }
+    },
+    {
+      "test_name": "Anomaly Detection (\u5f02\u5e38\u68c0\u6d4b)",
+      "passed": "True",
+      "score": 0.5717442710216349,
+      "details": {
+        "injected_count": 10,
+        "detected_count": 183,
+        "true_positives": 9,
+        "false_positives": 174,
+        "precision": 0.04918032786885246,
+        "recall": 0.9,
+        "f1_score": 0.09326424870466321,
+        "mean_anomaly_score": 0.8032019549839113,
+        "mean_normal_score": 0.5173298194730939,
+        "score_separation": 0.28587213551081747
+      }
+    },
+    {
+      "test_name": "Phase Transition (\u76f8\u4f4d\u8dc3\u8fc1\u68c0\u6d4b)",
+      "passed": true,
+      "score": 1.0,
+      "details": {
+        "injected": 10,
+        "detected": 10,
+        "detection_rate": 1.0
+      }
+    },
+    {
+      "test_name": "Long-Running Stability (\u957f\u65f6\u95f4\u7a33\u5b9a\u6027)",
+      "passed": true,
+      "score": 1.0,
+      "details": {
+        "total_cycles": 100000,
+        "elapsed_seconds": 16.821205854415894,
+        "throughput_per_sec": 5944.877012116706,
+        "numerical_stable": true,
+        "anomalies_detected": 2088,
+        "corrections_applied": 100000
+      }
+    },
+    {
+      "test_name": "Image Classification Simulation (\u56fe\u50cf\u5206\u7c7b\u6a21\u62df)",
+      "passed": true,
+      "score": 1.0,
+      "details": {
+        "n_classes": 10,
+        "test_samples": 100,
+        "correct": 95,
+        "accuracy": 0.95,
+        "random_baseline": 0.1,
+        "improvement_over_random": 9.499999999999998
+      }
+    },
+    {
+      "test_name": "Realtime Control Scenario (\u5b9e\u65f6\u63a7\u5236\u573a\u666f)",
+      "passed": "True",
+      "score": 0.9052069286756622,
+      "details": {
+        "mean_position_error": 0.27398739111269615,
+        "final_position_error": 0.18958614264867557,
+        "mean_control_effort": 0.013355644355350955,
+        "steps": 500
+      }
+    }
+  ]
+}
