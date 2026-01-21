@@ -1,0 +1,11 @@
+{
+  "timestamp": "2026-01-20 20:35:57",
+  "results": {
+    "fractal_time_us": 34805.041999788955,
+    "normalize_time_us": 31463.41600222513,
+    "memory_used_mb": 39.375,
+    "su2_verified": true,
+    "batch_size": 32
+  },
+  "conclusion": "\u5206\u5f62\u7ed3\u6784\u81ea\u52a8\u5f62\u6210\u53bb\u6a21\u957f\u7684\u5f52\u4e00\u5316\u7403\u9762\u6620\u5c04\u51e0\u4f55\u5173\u7cfb - \u5df2\u9a8c\u8bc1 \u2713"
+}

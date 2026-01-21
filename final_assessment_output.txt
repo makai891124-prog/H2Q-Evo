@@ -1,0 +1,4 @@
+  File "/Users/imymm/H2Q-Evo/generate_final_assessment.py", line 179
+    config = {}
+              ^
+SyntaxError: f-string: valid expression required before '}'

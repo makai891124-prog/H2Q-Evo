@@ -1,0 +1,42 @@
+{
+  "timestamp": "2026-01-21T22:09:46.449591",
+  "device": "mps",
+  "cifar10": {
+    "h2q": {
+      "accuracy": 88.78,
+      "params": 1046160,
+      "time": 1766.6756720542908,
+      "throughput": 1889.9267322857402
+    },
+    "baseline": {
+      "accuracy": 84.54,
+      "params": 410058,
+      "time": 321.955353975296,
+      "throughput": 23919.105776509605
+    }
+  },
+  "rotation": {
+    "h2q": {
+      "mean_similarity": 0.9964498792375837,
+      "std": 0.0029715361666339955,
+      "max_deviation": 0.0073896050453186035
+    },
+    "baseline": {
+      "mean_similarity": 0.9997587118829999,
+      "std": 0.0001349529732476117,
+      "max_deviation": 0.00044786930084228516
+    }
+  },
+  "multimodal": {
+    "h2q": {
+      "alignment_gap": 0.0019138653296977282,
+      "berry_coherence": 0.24840107560157776,
+      "throughput": 247095.89927044313
+    },
+    "baseline": {
+      "alignment_gap": 0.008861958980560303,
+      "berry_coherence": 0.0,
+      "throughput": 1070681.7229705474
+    }
+  }
+}

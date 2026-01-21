@@ -64,9 +64,16 @@ def normalize_dde_kwargs(kwargs: Dict[str, Any]) -> Dict[str, Any]:
     validated = DDEConfig(**kwargs)
     return validated.model_dump()
 
-def get_canonical_dde(latent_dim: int, **kwargs) -> DiscreteDecisionEngine:
+def get_canonical_dde(latent_dim: int = 256, **kwargs) -> DiscreteDecisionEngine:
     """
     Factory function to ensure all DDE instances adhere to the Veracity Compact.
+    
+    Args:
+        latent_dim: Dimensionality of the latent SU(2) manifold (default: 256)
+        **kwargs: Additional config options (action_space, alpha, etc.)
+    
+    Returns:
+        Configured DiscreteDecisionEngine instance
     """
     config_dict = {"latent_dim": latent_dim, **kwargs}
     return DiscreteDecisionEngine(**config_dict)
