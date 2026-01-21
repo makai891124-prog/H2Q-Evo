@@ -1,0 +1,135 @@
+{
+  "summary": {
+    "total_tests": 9,
+    "passed_tests": 6,
+    "pass_rate": 0.6666666666666666,
+    "average_score": 0.8023032592882114
+  },
+  "tests": [
+    {
+      "test_name": "Model Size (\u76ee\u6807 <2KB)",
+      "passed": true,
+      "score": 1.0,
+      "details": {
+        "parameters": 340,
+        "size_bytes": 1360,
+        "size_kb": 1.328125,
+        "target_kb": 2.0
+      }
+    },
+    {
+      "test_name": "Determinism (\u786e\u5b9a\u6027\u8f93\u51fa)",
+      "passed": true,
+      "score": 1.0,
+      "details": {
+        "identical_outputs": true,
+        "max_difference": 0.0,
+        "test_samples": 50
+      }
+    },
+    {
+      "test_name": "Micro-Change Detection (\u5fae\u53d8\u5316\u68c0\u6d4b)",
+      "passed": "False",
+      "score": 0.43,
+      "details": {
+        "perturbation_levels": [
+          0.01,
+          0.05,
+          0.1,
+          0.5,
+          1.0
+        ],
+        "detection_rates": [
+          0.48,
+          0.46,
+          0.46,
+          0.44,
+          0.42
+        ],
+        "avg_detection_rate": 0.45199999999999996,
+        "large_perturbation_rate": 0.43
+      }
+    },
+    {
+      "test_name": "Trajectory Prediction (\u8f68\u8ff9\u8d8b\u52bf\u9884\u6d4b)",
+      "passed": true,
+      "score": 0.8837209302325582,
+      "details": {
+        "total_predictions": 129,
+        "correct_trend_predictions": 114,
+        "trend_accuracy": 0.8837209302325582
+      }
+    },
+    {
+      "test_name": "Latency Performance (\u5ef6\u8fdf <50\u03bcs)",
+      "passed": "True",
+      "score": 1.0,
+      "details": {
+        "mean_latency_us": 41.9791756910854,
+        "min_latency_us": 20.91699934680946,
+        "p50_latency_us": 41.541999962646514,
+        "p95_latency_us": 46.12500197254121,
+        "p99_latency_us": 53.79283229558498,
+        "max_latency_us": 258.6250011518132,
+        "target_us": 50.0,
+        "samples": 10000
+      }
+    },
+    {
+      "test_name": "Phase Transition Detection (\u76f8\u4f4d\u8dc3\u8fc1\u68c0\u6d4b)",
+      "passed": true,
+      "score": 1.0,
+      "details": {
+        "injected_transitions": 20,
+        "detected_transitions": 20,
+        "detection_rate": 1.0
+      }
+    },
+    {
+      "test_name": "Long-Running Stability (\u957f\u65f6\u95f4\u7a33\u5b9a\u6027)",
+      "passed": true,
+      "score": 1.0,
+      "details": {
+        "total_steps": 1000000,
+        "elapsed_seconds": 45.70314002037048,
+        "throughput_steps_per_sec": 21880.334689351475,
+        "numerical_stable": true,
+        "final_samples": 1000000,
+        "mean_latency_us": 19.581894965085667
+      }
+    },
+    {
+      "test_name": "Noise Robustness (\u566a\u58f0\u9c81\u68d2\u6027)",
+      "passed": "False",
+      "score": 0.886,
+      "details": {
+        "noise_levels": [
+          0.001,
+          0.01,
+          0.05,
+          0.1
+        ],
+        "false_positive_rates": [
+          0.114,
+          0.114,
+          0.126,
+          0.132
+        ],
+        "low_noise_fpr": 0.114
+      }
+    },
+    {
+      "test_name": "Real-World Scenario (\u5de5\u4e1a\u4f20\u611f\u5668\u6a21\u62df)",
+      "passed": false,
+      "score": 0.021008403361344536,
+      "details": {
+        "correct_detections": 5,
+        "missed_detections": 0,
+        "false_alarms": 466,
+        "precision": 0.010615711252653927,
+        "recall": 1.0,
+        "f1_score": 0.021008403361344536
+      }
+    }
+  ]
+}

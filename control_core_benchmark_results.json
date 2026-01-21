@@ -1,0 +1,123 @@
+{
+  "summary": {
+    "total_tests": 8,
+    "passed_tests": 3,
+    "pass_rate": 0.375,
+    "average_score": 0.6757479653012257
+  },
+  "tests": [
+    {
+      "test_name": "Model Size (\u76ee\u6807 <50KB)",
+      "passed": true,
+      "score": 1.0,
+      "details": {
+        "parameters": 552,
+        "size_kb": 2.15625,
+        "target_kb": 50.0
+      }
+    },
+    {
+      "test_name": "Determinism (\u786e\u5b9a\u6027\u8f93\u51fa)",
+      "passed": true,
+      "score": 1.0,
+      "details": {
+        "identical_outputs": true,
+        "max_difference": 0.0,
+        "test_samples": 50
+      }
+    },
+    {
+      "test_name": "Micro-Change Detection (\u5fae\u53d8\u5316\u68c0\u6d4b)",
+      "passed": false,
+      "score": 0.8799999999999999,
+      "details": {
+        "perturbation_levels": [
+          0.001,
+          0.005,
+          0.01,
+          0.05,
+          0.1
+        ],
+        "detection_rates": [
+          0.95,
+          0.95,
+          1.0,
+          0.9,
+          0.6
+        ],
+        "avg_detection_rate": 0.8799999999999999,
+        "monotonic_response": false
+      }
+    },
+    {
+      "test_name": "Trajectory Prediction (\u8f68\u8ff9\u9884\u6d4b)",
+      "passed": "False",
+      "score": 0.3882100067611528,
+      "details": {
+        "mean_phase_error_rad": 1.9219949482989116,
+        "mean_phase_error_deg": 110.1221987829925,
+        "num_predictions": 139
+      }
+    },
+    {
+      "test_name": "Latency Performance (\u5ef6\u8fdf <100\u03bcs)",
+      "passed": "False",
+      "score": 0.2527737156486531,
+      "details": {
+        "mean_latency_us": 395.6107530539157,
+        "p50_latency_us": 390.6045003532199,
+        "p95_latency_us": 424.010398091923,
+        "p99_latency_us": 464.16032750130387,
+        "max_latency_us": 950.9579977020621,
+        "target_us": 100.0,
+        "samples": 1000
+      }
+    },
+    {
+      "test_name": "Phase Transition Detection (\u76f8\u4f4d\u8dc3\u8fc1\u68c0\u6d4b)",
+      "passed": false,
+      "score": 0.0,
+      "details": {
+        "injected_transitions": 10,
+        "detected_transitions": 0,
+        "detection_rate": 0.0
+      }
+    },
+    {
+      "test_name": "Long-Running Stability (\u957f\u65f6\u95f4\u7a33\u5b9a\u6027)",
+      "passed": true,
+      "score": 1.0,
+      "details": {
+        "total_steps": 100000,
+        "elapsed_seconds": 40.86132884025574,
+        "throughput_steps_per_sec": 2447.3017113795395,
+        "numerical_stable": true,
+        "memory_controlled": true,
+        "final_anomalies": 0,
+        "final_transitions": 99998
+      }
+    },
+    {
+      "test_name": "Noise Robustness (\u566a\u58f0\u9c81\u68d2\u6027)",
+      "passed": "False",
+      "score": 0.885,
+      "details": {
+        "noise_levels": [
+          0.001,
+          0.01,
+          0.05,
+          0.1,
+          0.2
+        ],
+        "false_positive_rates": [
+          0.18,
+          0.05,
+          0.22,
+          0.05,
+          0.17
+        ],
+        "low_noise_fpr": 0.11499999999999999
+      }
+    }
+  ]
+}
