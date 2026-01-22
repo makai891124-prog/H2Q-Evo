@@ -290,7 +290,15 @@ class TemplateEvolutionFramework:
             solutions = []
             for problem in state['problems']:
                 solution = solver(problem)
-                solutions.append(solution)
+                if isinstance(solution, list):
+                    solutions.extend(solution)
+                elif solution is not None:
+                    solutions.append(solution)
+
+            valid_solutions = [s for s in solutions if isinstance(s, dict)]
+            success_rate = 0.0
+            if valid_solutions:
+                success_rate = sum(1 for s in valid_solutions if s.get('success')) / len(valid_solutions)
             
             return EvolutionStep(
                 step_id=step_id,
@@ -298,7 +306,7 @@ class TemplateEvolutionFramework:
                 timestamp=timestamp,
                 input_data=state,
                 output_data={'solutions': solutions, 'count': len(solutions)},
-                metrics={'success_rate': sum(1 for s in solutions if s.get('success')) / len(solutions)}
+                metrics={'success_rate': success_rate}
             )
         except Exception as e:
             logger.error(f"解决尝试失败: {e}")
@@ -316,6 +324,8 @@ class TemplateEvolutionFramework:
             verification_results = []
             
             for i, solution in enumerate(solutions):
+                if not isinstance(solution, dict):
+                    continue
                 # 向Gemini请求验证
                 feedback = self.gemini_integration.analyze_decision(
                     decision=solution,
@@ -328,7 +338,7 @@ class TemplateEvolutionFramework:
                 phase=EvolutionPhase.EXTERNAL_VERIFICATION,
                 timestamp=timestamp,
                 input_data=state,
-                output_data={'verification_results': verification_results},
+                output_data={'verification_results': verification_results, 'count': len(verification_results)},
                 gemini_feedback=verification_results[0] if verification_results else None,
                 metrics={'verification_coverage': len(verification_results) / max(1, len(solutions))}
             )
@@ -348,6 +358,8 @@ class TemplateEvolutionFramework:
             m24_results = []
             
             for solution in solutions:
+                if not isinstance(solution, dict):
+                    continue
                 # M24协议验证
                 result = self.m24_protocol.audit_decision(
                     decision=solution,

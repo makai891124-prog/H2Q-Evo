@@ -24,9 +24,11 @@ class GeminiCLIIntegration:
     支持同步和异步调用，提供响应缓存和容错机制
     """
     
-    def __init__(self, api_key: str = None, model: str = "gemini-pro"):
+    def __init__(self, api_key: str = None, model: str = "gemini-2.0-flash"):
         """初始化Gemini CLI集成"""
         self.api_key = api_key or os.getenv("GEMINI_API_KEY")
+        if not self.api_key:
+            self.api_key = self._load_api_key_from_env_file()
         self.model = model
         self.cache_dir = Path("./gemini_cache")
         self.cache_dir.mkdir(exist_ok=True, parents=True)
@@ -38,15 +40,28 @@ class GeminiCLIIntegration:
             self.api_available = False
         else:
             self.api_available = self._verify_api_key()
+
+    def _load_api_key_from_env_file(self) -> Optional[str]:
+        """从项目根目录的 .env 中加载 GEMINI_API_KEY"""
+        env_path = Path(".env")
+        if not env_path.exists():
+            return None
+        try:
+            for line in env_path.read_text(encoding="utf-8").splitlines():
+                if line.startswith("GEMINI_API_KEY="):
+                    return line.split("=", 1)[1].strip().strip("\"").strip("'")
+        except Exception as e:
+            logger.warning(f"读取 .env 失败: {e}")
+        return None
             
     def _verify_api_key(self) -> bool:
         """验证API密钥是否可用"""
         try:
-            # 尝试调用简单命令进行验证
-            cmd = ["python3", "-c", 
-                   f"import google.generativeai as genai; genai.configure(api_key='{self.api_key}'); m = genai.list_models()"]
-            result = subprocess.run(cmd, capture_output=True, timeout=5)
-            return result.returncode == 0
+            from google import genai
+
+            client = genai.Client(api_key=self.api_key)
+            models = client.models.list()
+            return bool(list(models))
         except:
             return False
     
@@ -122,11 +137,13 @@ class GeminiCLIIntegration:
     def _query_via_api(self, prompt: str, cache_key: str) -> Dict[str, Any]:
         """通过Google Generative AI API查询"""
         try:
-            import google.generativeai as genai
-            genai.configure(api_key=self.api_key)
-            model = genai.GenerativeModel(self.model)
-            
-            response = model.generate_content(prompt, stream=False)
+            from google import genai
+
+            client = genai.Client(api_key=self.api_key)
+            response = client.models.generate_content(
+                model=self.model,
+                contents=prompt
+            )
             response_text = response.text
             
             # 保存到缓存
@@ -150,6 +167,43 @@ class GeminiCLIIntegration:
                 'model': self.model
             }
         except Exception as e:
+            error_text = str(e)
+            if "NOT_FOUND" in error_text or "not found" in error_text:
+                fallback_model = "gemini-2.0-flash"
+                if self.model != fallback_model:
+                    try:
+                        from google import genai
+
+                        client = genai.Client(api_key=self.api_key)
+                        response = client.models.generate_content(
+                            model=fallback_model,
+                            contents=prompt
+                        )
+                        response_text = response.text
+                        self.model = fallback_model
+                        self._save_to_cache(cache_key, response_text)
+                        self.call_history.append({
+                            'timestamp': datetime.now().isoformat(),
+                            'method': 'api',
+                            'model': self.model,
+                            'status': 'success'
+                        })
+                        logger.info("✓ Gemini API调用成功(回退模型)")
+                        return {
+                            'status': 'success',
+                            'source': 'api',
+                            'response': response_text,
+                            'timestamp': datetime.now().isoformat(),
+                            'model': self.model
+                        }
+                    except Exception as fallback_error:
+                        logger.error(f"✗ Gemini API调用失败: {fallback_error}")
+                        return {
+                            'status': 'error',
+                            'source': 'api',
+                            'error': str(fallback_error),
+                            'timestamp': datetime.now().isoformat()
+                        }
             logger.error(f"✗ Gemini API调用失败: {e}")
             return {
                 'status': 'error',
@@ -160,14 +214,23 @@ class GeminiCLIIntegration:
     
     def _query_via_cli(self, prompt: str, cache_key: str) -> Dict[str, Any]:
         """通过CLI调用Gemini"""
+        temp_prompt_file = None
         try:
+            if not self.api_key:
+                return {
+                    'status': 'error',
+                    'source': 'cli',
+                    'error': 'GEMINI_API_KEY 未设置，无法调用 CLI。',
+                    'timestamp': datetime.now().isoformat()
+                }
+
             # 创建临时提示文件
             temp_prompt_file = Path(f"/tmp/gemini_prompt_{cache_key}.txt")
             temp_prompt_file.write_text(prompt, encoding='utf-8')
             
             # 使用环境变量设置API密钥
             env = os.environ.copy()
-            env['GEMINI_API_KEY'] = self.api_key
+            env['GEMINI_API_KEY'] = str(self.api_key)
             
             # 调用Gemini CLI (假设已安装)
             cmd = [
@@ -217,7 +280,7 @@ class GeminiCLIIntegration:
             }
         finally:
             # 清理临时文件
-            if temp_prompt_file.exists():
+            if temp_prompt_file and temp_prompt_file.exists():
                 temp_prompt_file.unlink()
     
     def batch_query(self, prompts: List[str], max_workers: int = 3) -> List[Dict]:

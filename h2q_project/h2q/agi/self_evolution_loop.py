@@ -292,14 +292,6 @@ class SelfEvolutionLoop:
                 num_problems=num_problems_per_iteration
             )
         
-        # 问题求解函数
-        def solve_problems(state):
-            solutions = []
-            for problem in state.get('problems', []):
-                solution = self.solver.solve(problem)
-                solutions.append(solution)
-            return solutions
-        
         # 运行进化框架
         evolution_result = self.framework.run_evolution_cycle(
             template=self.framework.create_template(
@@ -312,7 +304,7 @@ class SelfEvolutionLoop:
             ),
             initial_state=initial_state,
             problem_generator=generate_problems,
-            solver=solve_problems
+            solver=self.solver.solve
         )
         
         # 收集统计

@@ -1,8 +1,8 @@
 {
   "generation": 0,
-  "learning_cycles": 21,
-  "total_training_updates": 361,
-  "knowledge_items": 42,
+  "learning_cycles": 23,
+  "total_training_updates": 443,
+  "knowledge_items": 46,
   "capability_scores": [
     {
       "cycle": 1,
@@ -129,6 +129,18 @@
       "score": 100.0,
       "grade": "卓越 (Outstanding)",
       "timestamp": "2026-01-22T12:24:00.458327"
+    },
+    {
+      "cycle": 22,
+      "score": 85.0,
+      "grade": "优秀 (Excellent)",
+      "timestamp": "2026-01-22T12:54:04.961225"
+    },
+    {
+      "cycle": 23,
+      "score": 95.0,
+      "grade": "卓越 (Outstanding)",
+      "timestamp": "2026-01-22T12:59:29.037569"
     }
   ],
   "learning_history": [
@@ -674,6 +686,58 @@
             "pattern": 100.0,
             "memory": 100.0,
             "knowledge": 100.0
+          }
+        }
+      }
+    },
+    {
+      "cycle": 22,
+      "timestamp": "2026-01-22T12:54:01.231708",
+      "phases": {
+        "knowledge": {
+          "acquired": 2,
+          "total": 44
+        },
+        "learning": {
+          "epochs": 228,
+          "updates": 70,
+          "test_accuracy": 0.5
+        },
+        "evaluation": {
+          "score": 85.0,
+          "grade": "优秀 (Excellent)",
+          "tests": {
+            "math": 100.0,
+            "logic": 100.0,
+            "pattern": 100.0,
+            "memory": 100.0,
+            "knowledge": 25.0
+          }
+        }
+      }
+    },
+    {
+      "cycle": 23,
+      "timestamp": "2026-01-22T12:59:26.566493",
+      "phases": {
+        "knowledge": {
+          "acquired": 2,
+          "total": 46
+        },
+        "learning": {
+          "epochs": 11,
+          "updates": 12,
+          "test_accuracy": 0.75
+        },
+        "evaluation": {
+          "score": 95.0,
+          "grade": "卓越 (Outstanding)",
+          "tests": {
+            "math": 100.0,
+            "logic": 100.0,
+            "pattern": 100.0,
+            "memory": 100.0,
+            "knowledge": 75.0
           }
         }
       }
