@@ -1,42 +1,15 @@
 {
-  "timestamp": "2026-01-21T21:54:51.219016",
-  "device": "mps",
-  "cifar10": {
-    "h2q": {
-      "accuracy": 51.04,
-      "params": 751574,
-      "time": 366.3162841796875,
-      "throughput": 9435.6609501579
-    },
-    "baseline": {
-      "accuracy": 74.97,
-      "params": 410058,
-      "time": 104.48403406143188,
-      "throughput": 32756.500103700055
-    }
-  },
-  "rotation": {
-    "h2q": {
-      "mean_similarity": 0.9993360212871006,
-      "std": 0.0005376121773249947,
-      "max_deviation": 0.0014456510543823242
-    },
-    "baseline": {
-      "mean_similarity": 0.9997170567512512,
-      "std": 0.00015321878807563665,
-      "max_deviation": 0.0005153417587280273
-    }
-  },
-  "multimodal": {
-    "h2q": {
-      "alignment_gap": 0.008761010831221938,
-      "berry_coherence": 0.7277698516845703,
-      "throughput": 333337.3090931414
-    },
-    "baseline": {
-      "alignment_gap": 0.012968897819519043,
-      "berry_coherence": 0.0,
-      "throughput": 1095183.323645081
-    }
+  "timestamp": "2026-01-22T02:28:17.775804",
+  "basic_score": 97.66666666666667,
+  "llm_score": 90.27777777777777,
+  "combined_score": 93.97222222222223,
+  "grade": "优秀 (Excellent)",
+  "benchmarks": {
+    "mmlu": 91.66666666666666,
+    "gsm8k": 75.0,
+    "arc": 75.0,
+    "hellaswag": 100.0,
+    "truthfulqa": 100.0,
+    "cmmlu": 100.0
   }
 }

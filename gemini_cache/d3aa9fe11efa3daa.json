@@ -1,0 +1,5 @@
+{
+  "timestamp": 1769056989.7008278,
+  "response": "[OFFLINE SIMULATION] \n        请分析以下决策的质量和潜在问题：\n        \n        【决策】\n        {\n  \"problem_id\": \"7929ef52\",\n  \"problem\": {\n    \"domain\": \"自然语言理解\",\n    \"question\": \"这句话的主语是什么: \\\"一只红色的小鸟飞过了窗户\\\"\",\n    \"expected_answer\": \"一只红色",
+  "model": "gemini-pro"
+}

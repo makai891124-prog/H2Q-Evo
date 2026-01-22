@@ -1,0 +1,46 @@
+{
+  "training_complete": true,
+  "total_epochs": 5,
+  "total_time_seconds": 90.6727020740509,
+  "total_time_formatted": "0:01:30",
+  "total_samples_processed": 13500,
+  "avg_samples_per_second": 153.23809720672222,
+  "best_accuracy": 0.5322222222222223,
+  "anti_cheat_report": {
+    "is_valid": true,
+    "total_epochs": 5,
+    "total_samples": 13500,
+    "total_time_seconds": 88.09819650650024,
+    "avg_speed": 153.23809720672222,
+    "warnings": [
+      {
+        "type": "accuracy_jump",
+        "epoch": 1,
+        "jump": 0.25592592592592595,
+        "message": "Epoch 1: \u51c6\u786e\u7387\u8df3\u8dc3 25.59% \u8d85\u8fc7\u9608\u503c 20.00%"
+      }
+    ],
+    "violations": [],
+    "verdict": "\u2705 \u8bad\u7ec3\u6709\u6548 - \u901a\u8fc7\u9632\u4f5c\u5f0a\u68c0\u67e5"
+  },
+  "model_parameters": 11449988,
+  "config": {
+    "vocab_size": 32000,
+    "hidden_dim": 256,
+    "num_layers": 4,
+    "num_heads": 4,
+    "ff_dim": 1024,
+    "max_seq_len": 256,
+    "dropout": 0.1,
+    "batch_size": 16,
+    "learning_rate": 0.0003,
+    "weight_decay": 0.01,
+    "min_samples_per_dataset": 1000,
+    "target_samples_per_epoch": 5000,
+    "target_training_hours": 0.1,
+    "min_epochs": 3,
+    "max_accuracy_jump": 0.2,
+    "min_samples_per_second": 10,
+    "max_samples_per_second": 1000
+  }
+}

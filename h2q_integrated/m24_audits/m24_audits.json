@@ -1,0 +1,185 @@
+[
+  {
+    "audit_id": "9f750252",
+    "decision_id": "6181b24c",
+    "audit_time": "2026-01-22T12:24:24.870929",
+    "transparency_verified": true,
+    "traceability_verified": true,
+    "anti_fraud_verified": true,
+    "mathematical_rigor_verified": true,
+    "proofs": [
+      {
+        "proof_id": "2e5cd673",
+        "decision_id": "6181b24c",
+        "verification_method": "information_transparency_check",
+        "evidence": {
+          "transparency_checks": {
+            "has_input": true,
+            "has_output": true,
+            "has_votes": true,
+            "has_timestamp": true,
+            "has_reasoning": true
+          },
+          "transparency_score": 1.0,
+          "recorded_fields": [
+            "input_prompt",
+            "final_output",
+            "votes",
+            "reasoning_path",
+            "mathematical_proof",
+            "consensus_level",
+            "confidence_score",
+            "fraud_check_result",
+            "timestamp"
+          ]
+        },
+        "confidence": 1.0,
+        "timestamp": "2026-01-22T12:24:24.866709",
+        "signature": "Vw+gn5GVygLI9eV1bp3h02vXENNbTMmy9ChVmRLDGVoX24me+K9H3zcbnQokQd687RZNmDE+MtSQCKYsA+L2kh2YvbcP23nZ2Z7OlahhTy6lssehoAs5cU7nCYDMM/q8/DBs5UlECwYszt8cKmQ3JkdeJDdTlmhUB+67vQhS5Z9WLUp9OXMWzXGA4q6Fpfvlenbba8WSJOvv46Mnx74LUkJQi/YtyQFkslcWMq80JAhwpZseUVoe/5XjC0oGr2oHwpSTdGSgEn+OnS8zajzTA7YwKG7AOSWd9lWv+hFpCK0MvCocEu/5ccAdsyAlC5q1yWq6HB99Ht2s7Cunkx2Z4g=="
+      },
+      {
+        "proof_id": "a37ca8d6",
+        "decision_id": "6181b24c",
+        "verification_method": "decision_traceability_check",
+        "evidence": {
+          "decision_id": "6181b24c",
+          "decision_hash": "b832da4a42e92a1a",
+          "reasoning_chain_length": 5,
+          "has_unique_id": true,
+          "has_timestamp": true,
+          "traceability_depth": 0.5
+        },
+        "confidence": 0.8,
+        "timestamp": "2026-01-22T12:24:24.868879",
+        "signature": "sAFdSIxBAub/j8887s7UjHcE/GCInQtIPV4LWhdD4hhYiJS8OWcEGx+szv0CTTHUb61TNrqer5GS4Ii1qa0jiAPmpj/75FmtXkkZ7VdriChkxEVE79hf4ZQ52rYDjzuri6nfyhHFlceh7fZWvL9YhdMJUvC1c9jaw+rEgAwuQlfqcZ5HGWWfVCLqoUTUSJdMxa0OP6UYptjom6tMKAYSVYxJbE5Qzac7LwxLs/lP52O2RRN9ASbs08qHWrqtFkgGLRyLd6AkVGkheXATscA6+vh0/DUExVIJ088+8Id5ZScffYva1rsqD78V1ZNUKN5YWK+C4ERG7XBBo4/ojZSUkQ=="
+      },
+      {
+        "proof_id": "483c2d42",
+        "decision_id": "6181b24c",
+        "verification_method": "anti_fraud_check",
+        "evidence": {
+          "fraud_indicators": [
+            "suspicious_uniform_confidence"
+          ],
+          "output_diversity_score": 1.0,
+          "confidence_std": 0.0,
+          "logical_consistency": true,
+          "time_reasonability": true,
+          "total_fraud_risk": 0.25
+        },
+        "confidence": 0.75,
+        "timestamp": "2026-01-22T12:24:24.869591",
+        "signature": "DRLIQ+7ZaT7ahr8bQXAIGTQLxG/RKkkdu+EN7OvGT5v0crknHNJkj08eG5g1RJySbV5hnKMTiqjQ2oHfhNfr0V6A215XCr8V+A3sgaZQNE9bvI+o8T7dIoJeeuwdX0nbKpmLyoMNOO/agoVpVLH5CjrnvYlrp827sLx7MjiyL5Vuwc/MWAt2uY+Cj/NAiHeZaRg1/TbSByKQrM4ZFLAgpHAG77Yw7aN57UcttASao90PuJGjMzfBUwmOTCD4WLW/98DNUHV2VgtNoEweQX+rGAP54Qexkdg0Oq44Fx7etGdF56v0D4lVCrLVYro4NxRDHfzX2oJ6I7Qa/8v1VBMN4A=="
+      },
+      {
+        "proof_id": "85eff823",
+        "decision_id": "6181b24c",
+        "verification_method": "mathematical_rigor_check",
+        "evidence": {
+          "calculation_correct": "True",
+          "avg_confidence": 0.0,
+          "consensus_valid": true,
+          "has_proof": true,
+          "calculation_error": 0.0
+        },
+        "confidence": 1.0,
+        "timestamp": "2026-01-22T12:24:24.870257",
+        "signature": "eEsxXhb8zZNOSQ7e+LsDRpV9GD3AD0dUpZe5uiow1AgOybwoZEq85ASjqAHYnrTkRBIc2kV9pN+kFE3ZMvM4wXtSCjV2XPul6XJH2LYfd5QKkFhPKN27wVEOSKBVSQTSO6nB3QDnLZ3MO98LHYNo7L9GBlpKi1i9zfuvNxKw1BD5iMl3V7fYkZPR9e9qO1i1zAh8uW3lc/7+8UgcFIasT/MIaLwHmTJAQtYEW1rduvmKoqO2XfR1d5st2bg2J4EhUHy9XhzFDDdhP9oqmMFh/m0buTnVz7gvh9CCGu1WWSdo90wBGzMn1ahFHFEt02LEqE/65zpEVaXr3uVYwaEZqQ=="
+      }
+    ],
+    "overall_honesty_level": "HonesttyLevel.PROVEN_HONEST",
+    "reasoning": "\nM24\u8bda\u5b9e\u6027\u5ba1\u8ba1\u7ed3\u679c:\n- \u4fe1\u606f\u900f\u660e: 1.000 \u2713\n- \u51b3\u7b56\u53ef\u8ffd\u6eaf: 0.800 \u2713\n- \u53cd\u4f5c\u5f0a\u9a8c\u8bc1: 0.750 \u2713\n- \u6570\u5b66\u4e25\u683c\u6027: 1.000 \u2713\n- \u5e73\u5747\u8bda\u5b9e\u8bc4\u5206: 0.887\n- \u6700\u7ec8\u5224\u5b9a: proven_honest\n"
+  },
+  {
+    "audit_id": "50cfdd94",
+    "decision_id": "6e8682fe",
+    "audit_time": "2026-01-22T12:24:27.991532",
+    "transparency_verified": true,
+    "traceability_verified": true,
+    "anti_fraud_verified": false,
+    "mathematical_rigor_verified": true,
+    "proofs": [
+      {
+        "proof_id": "43c7bc3c",
+        "decision_id": "6e8682fe",
+        "verification_method": "information_transparency_check",
+        "evidence": {
+          "transparency_checks": {
+            "has_input": true,
+            "has_output": true,
+            "has_votes": true,
+            "has_timestamp": true,
+            "has_reasoning": true
+          },
+          "transparency_score": 1.0,
+          "recorded_fields": [
+            "input_prompt",
+            "final_output",
+            "votes",
+            "reasoning_path",
+            "mathematical_proof",
+            "consensus_level",
+            "confidence_score",
+            "fraud_check_result",
+            "timestamp"
+          ]
+        },
+        "confidence": 1.0,
+        "timestamp": "2026-01-22T12:24:27.988714",
+        "signature": "g0ze4wJDCsP+vpuiXosMYkyvr1vagopUcIl0GQ+No8B+9RTuh9zkZRpyl0lCPHeGJIoKpqkN+ySdJpSkPNmarwDi0feqls+a8TDgHYtKWS8rk+o2oMQathEmRaUSlJ3JFTNovdr89s3seaC8/5dgWJHtwZUSaoV86wgcOgyCZ4HjM2X5dRY6DIpWrTUhZvrsB/tf1RA74fPdNuVpuVZ4Xk4G4zwDYOfbK++i72sZKlqpfIadw4ub/M+r/CVMxRygrlpsFzzIMlWcdea0sQY7ALFMBydBUJLWIMg+ckqZI1Q6RHEgfLMul+fK9pOgfPHLWFYcre+7ohtsDzjB878Q2g=="
+      },
+      {
+        "proof_id": "167fb4bd",
+        "decision_id": "6e8682fe",
+        "verification_method": "decision_traceability_check",
+        "evidence": {
+          "decision_id": "6e8682fe",
+          "decision_hash": "5c59f67d8c296e27",
+          "reasoning_chain_length": 5,
+          "has_unique_id": true,
+          "has_timestamp": true,
+          "traceability_depth": 0.5
+        },
+        "confidence": 0.8,
+        "timestamp": "2026-01-22T12:24:27.989469",
+        "signature": "r4vfxl9jMAdIlxAvwnUJIwp6aVjp+Lvs0STc4mqA0g6u+4wwT6Q0QNGHQti+6d5P97D/m1YxuwH29R0skshFeRhF+mESb70OyhLaFERNz/0VBbIH1oyYpS2wvIzq3HG5DuQl1bizbjvO01CP9/7MRXfEvRQ/EkhWklO7GWWrw1rATjGdB20CkTAInB3pIy0pjDlRht156xoJRdjw5pkzkWk6h6dvzzOZvo1oJLSoJryp/KNtKNHLlFz9cHbVE9xbTqDuYVxKxJiJihoqpAY9jb1D0apFZI39SF0SztJZl9oNGXchVg3j5sdOep80F7KsHwGfLfgGjl1G08w3ROWBjg=="
+      },
+      {
+        "proof_id": "8bba40d3",
+        "decision_id": "6e8682fe",
+        "verification_method": "anti_fraud_check",
+        "evidence": {
+          "fraud_indicators": [
+            "suspicious_uniform_confidence",
+            "logical_inconsistency"
+          ],
+          "output_diversity_score": 1.0,
+          "confidence_std": 0.0,
+          "logical_consistency": false,
+          "time_reasonability": true,
+          "total_fraud_risk": 0.5
+        },
+        "confidence": 0.5,
+        "timestamp": "2026-01-22T12:24:27.990173",
+        "signature": "mVw+lYz27juM9fY/hNlA0HL3uEWMMVloa/nkNl78rdo9KkgCHm6sRcTw6QfacFxG5WZO9Tg7qehVdEL1OuzV+9ew5vtwImH7Cr2+72MNMqmTr1LrzdH+GmiL2gnEQUPj8YfohmGwyIkPU/55zFr6d+FRygOIQYaLsxXF8ho/PTwIRsL3IzawmoKFormru8QQLZuwxsoFJFPPO+FQduT1BaYDT529KOIZdYBtuQxUba9FR8PK5JTlVuPL4EAz392U+fIAiDBHIQO4YNxZxmnzbyqDxx6LycCOVS8qTO3UsFGWPxR5x80KQ9KyftSyyzdllDZN5AqCdf7LwdvpVySfzA=="
+      },
+      {
+        "proof_id": "3126b0d2",
+        "decision_id": "6e8682fe",
+        "verification_method": "mathematical_rigor_check",
+        "evidence": {
+          "calculation_correct": "True",
+          "avg_confidence": 0.0,
+          "consensus_valid": true,
+          "has_proof": true,
+          "calculation_error": 0.0
+        },
+        "confidence": 1.0,
+        "timestamp": "2026-01-22T12:24:27.990840",
+        "signature": "03An5W4cGFicTAAV+oAzblmhPt3Lc+kooW1yjB0j0KvbuE+MLpZBRpc/YbhWzJDSM9SGhwRdXxh5iC9QxoxIqOVxSPtLOBpt4of1tb2avqj765HrKPY/vs5yu5ePwt+hA0kkh+eD8gs7hql3KRukFUpGaz3c4lU+pnyI4Wv4mUhgVbOwX/2LZ+9kk8fZYTx8/RXawAsmEuNoNv4slzjx9w6egtO9wjqFjpT0pPGR0GYC0q/ajYymSRwl3W8fkWUkI9vwIdzb23nmlIqdrzABrP0ussQxM+GXsq3ne9+yX6L/dfOyRvrXVtZ+wXUyq9lUVy3o+gVLecDB3yP3g9vbxQ=="
+      }
+    ],
+    "overall_honesty_level": "HonesttyLevel.HIGHLY_PROBABLE",
+    "reasoning": "\nM24\u8bda\u5b9e\u6027\u5ba1\u8ba1\u7ed3\u679c:\n- \u4fe1\u606f\u900f\u660e: 1.000 \u2713\n- \u51b3\u7b56\u53ef\u8ffd\u6eaf: 0.800 \u2713\n- \u53cd\u4f5c\u5f0a\u9a8c\u8bc1: 0.500 \u2717\n- \u6570\u5b66\u4e25\u683c\u6027: 1.000 \u2713\n- \u5e73\u5747\u8bda\u5b9e\u8bc4\u5206: 0.825\n- \u6700\u7ec8\u5224\u5b9a: highly_probable\n"
+  }
+]

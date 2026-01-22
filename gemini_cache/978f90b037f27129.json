@@ -1,0 +1,5 @@
+{
+  "timestamp": 1769056989.700732,
+  "response": "[OFFLINE SIMULATION] \n        请分析以下决策的质量和潜在问题：\n        \n        【决策】\n        {\n  \"problem_id\": \"7502adb3\",\n  \"problem\": {\n    \"domain\": \"常识问答\",\n    \"question\": \"地球绕太阳公转一周需要多少天？\",\n    \"expected_answer\": \"约365天或365.25天\",\n  ",
+  "model": "gemini-pro"
+}

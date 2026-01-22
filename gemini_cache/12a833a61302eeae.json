@@ -1,0 +1,5 @@
+{
+  "timestamp": 1769056989.702162,
+  "response": "[OFFLINE SIMULATION] \n        请分析以下决策的质量和潜在问题：\n        \n        【决策】\n        {\n  \"problem_id\": \"21703c13\",\n  \"problem\": {\n    \"domain\": \"数学计算\",\n    \"question\": \"计算2的10次方等于多少？\",\n    \"expected_answer\": \"1024\",\n    \"difficul",
+  "model": "gemini-pro"
+}

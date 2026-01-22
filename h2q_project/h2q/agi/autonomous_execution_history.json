@@ -1,0 +1,74 @@
+[
+  {
+    "task": "计算 25 加 17",
+    "timestamp": "2026-01-22T03:18:32.381593",
+    "stages": {
+      "compilation": {
+        "instructions_count": 10,
+        "instructions": [
+          "[打印输出] 操作数: [-1, 0, -2, -3] // 从任务'计算 25 加 17...'生成",
+          "[WRITE_FILE] 操作数: [2, 2, 0, 0] // 从任务'计算 25 加 17...'生成",
+          "[POP] 操作数: [3, -2, 2, -1] // 从任务'计算 25 加 17...'生成",
+          "[CALL] 操作数: [1, 3, -3, 0] // 从任务'计算 25 加 17...'生成",
+          "[逻辑非] 操作数: [-1, 0, 0, -2] // 从任务'计算 25 加 17...'生成",
+          "[SPLIT] 操作数: [-1, 4, 1, -1] // 从任务'计算 25 加 17...'生成",
+          "[JUMP] 操作数: [0, 2, 2, 0] // 从任务'计算 25 加 17...'生成",
+          "[PUSH] 操作数: [0, 0, 0, 2] // 从任务'计算 25 加 17...'生成",
+          "[GT] 操作数: [4, -1, -3, 1] // 从任务'计算 25 加 17...'生成",
+          "[CALL] 操作数: [3, -5, 0, 0] // 从任务'计算 25 加 17...'生成"
+        ]
+      },
+      "generation": {
+        "script_length": 1261,
+        "script": "#!/usr/bin/env python3\n\"\"\"\nH2Q 自动生成脚本\n生成时间: 2026-01-22T03:18:32.468375\n\n【重要说明】\n这是H2Q内部编码的Python翻译，供人类监督使用。\n系统的核心表示是H2Q编码，不是这个Python脚本。\n\"\"\"\n\n# 初始化\nresult = None\nvariables = {}\n\n# === 主程序 (从H2Q指令翻译) ===\n\n# 指令 0: PRINT\nprint('-1')\nvariables['step_0'] = result if 'result' in dir() else None\n\n# 指令 1: WRITE_FILE\n# (未实现的操作: WRITE_FILE)\nvariables['step_1'] = result if 'result' in dir() else None\n\n# 指令 2: POP\n# (未实现的操作: POP)\nvariables['step_2'] = result if 'result' in dir() else None\n\n# 指令 3: CALL\n# (未实现的操作: CALL)\nvariables['step_3'] = result if 'result' in dir() else None\n\n# 指令 4: NOT\nresult = not True\nvariables['step_4'] = result if 'result' in dir() else None\n\n# 指令 5: SPLIT\n# (未实现的操作: SPLIT)\nvariables['step_5'] = result if 'result' in dir() else None\n\n# 指令 6: JUMP\n# (未实现的操作: JUMP)\nvariables['step_6'] = result if 'result' in dir() else None\n\n# 指令 7: PUSH\n# (未实现的操作: PUSH)\nvariables['step_7'] = result if 'result' in dir() else None\n\n# 指令 8: GT\nresult = 4 > -1\nvariables['step_8'] = result if 'result' in dir() else None\n\n# 指令 9: CALL\n# (未实现的操作: CALL)\nvariables['step_9'] = result if 'result' in dir() else None\n\n# === 输出结果 ===\nprint('=' * 50)\nprint('H2Q 执行结果')\nprint('=' * 50)\nfor key, value in variables.items():\n    print(f'{key}: {value}')\nprint('执行完成')"
+      },
+      "execution": {
+        "success": false,
+        "stdout": "",
+        "stderr": "Cannot connect to the Docker daemon at unix:///Users/imymm/.docker/run/docker.sock. Is the docker daemon running?\n",
+        "exit_code": 1,
+        "execution_time": 0.182517,
+        "security_violations": []
+      },
+      "translation": {
+        "human_readable": "╔══════════════════════════════════════════════════════════════════════╗\n║           H2Q 程序 → 人类可读翻译                                     ║\n╠══════════════════════════════════════════════════════════════════════╣\n║   0: [打印输出] 操作数: [-1, 0, -2, -3] // 从任务'计算 25 加 17...'生成              ║\n║   1: [WRITE_FILE] 操作数: [2, 2, 0, 0] // 从任务'计算 25 加 17...'生成           ║\n║   2: [POP] 操作数: [3, -2, 2, -1] // 从任务'计算 25 加 17...'生成                ║\n║   3: [CALL] 操作数: [1, 3, -3, 0] // 从任务'计算 25 加 17...'生成                ║\n║   4: [逻辑非] 操作数: [-1, 0, 0, -2] // 从任务'计算 25 加 17...'生成                ║\n║   5: [SPLIT] 操作数: [-1, 4, 1, -1] // 从任务'计算 25 加 17...'生成              ║\n║   6: [JUMP] 操作数: [0, 2, 2, 0] // 从任务'计算 25 加 17...'生成                 ║\n║   7: [PUSH] 操作数: [0, 0, 0, 2] // 从任务'计算 25 加 17...'生成                 ║\n║   8: [GT] 操作数: [4, -1, -3, 1] // 从任务'计算 25 加 17...'生成                 ║\n║   9: [CALL] 操作数: [3, -5, 0, 0] // 从任务'计算 25 加 17...'生成                ║\n╚══════════════════════════════════════════════════════════════════════╝"
+      }
+    }
+  },
+  {
+    "task": "判断 100 是否大于 50",
+    "timestamp": "2026-01-22T03:18:32.651844",
+    "stages": {
+      "compilation": {
+        "instructions_count": 10,
+        "instructions": [
+          "[打印输出] 操作数: [-1, 0, -2, -2] // 从任务'判断 100 是否大于 50...'生成",
+          "[WRITE_FILE] 操作数: [3, 2, 0, 0] // 从任务'判断 100 是否大于 50...'生成",
+          "[MOD] 操作数: [2, -2, 2, -1] // 从任务'判断 100 是否大于 50...'生成",
+          "[CALL] 操作数: [1, 3, -2, -1] // 从任务'判断 100 是否大于 50...'生成",
+          "[逻辑非] 操作数: [-1, 0, 0, -2] // 从任务'判断 100 是否大于 50...'生成",
+          "[SPLIT] 操作数: [-1, 3, 1, -1] // 从任务'判断 100 是否大于 50...'生成",
+          "[JUMP] 操作数: [0, 2, 3, 0] // 从任务'判断 100 是否大于 50...'生成",
+          "[PUSH] 操作数: [0, 0, 0, 1] // 从任务'判断 100 是否大于 50...'生成",
+          "[GT] 操作数: [4, 0, -3, 1] // 从任务'判断 100 是否大于 50...'生成",
+          "[CALL] 操作数: [3, -5, 0, 0] // 从任务'判断 100 是否大于 50...'生成"
+        ]
+      },
+      "generation": {
+        "script_length": 1260,
+        "script": "#!/usr/bin/env python3\n\"\"\"\nH2Q 自动生成脚本\n生成时间: 2026-01-22T03:18:32.675946\n\n【重要说明】\n这是H2Q内部编码的Python翻译，供人类监督使用。\n系统的核心表示是H2Q编码，不是这个Python脚本。\n\"\"\"\n\n# 初始化\nresult = None\nvariables = {}\n\n# === 主程序 (从H2Q指令翻译) ===\n\n# 指令 0: PRINT\nprint('-1')\nvariables['step_0'] = result if 'result' in dir() else None\n\n# 指令 1: WRITE_FILE\n# (未实现的操作: WRITE_FILE)\nvariables['step_1'] = result if 'result' in dir() else None\n\n# 指令 2: MOD\nresult = 2 % -2\nvariables['step_2'] = result if 'result' in dir() else None\n\n# 指令 3: CALL\n# (未实现的操作: CALL)\nvariables['step_3'] = result if 'result' in dir() else None\n\n# 指令 4: NOT\nresult = not True\nvariables['step_4'] = result if 'result' in dir() else None\n\n# 指令 5: SPLIT\n# (未实现的操作: SPLIT)\nvariables['step_5'] = result if 'result' in dir() else None\n\n# 指令 6: JUMP\n# (未实现的操作: JUMP)\nvariables['step_6'] = result if 'result' in dir() else None\n\n# 指令 7: PUSH\n# (未实现的操作: PUSH)\nvariables['step_7'] = result if 'result' in dir() else None\n\n# 指令 8: GT\nresult = 4 > 0\nvariables['step_8'] = result if 'result' in dir() else None\n\n# 指令 9: CALL\n# (未实现的操作: CALL)\nvariables['step_9'] = result if 'result' in dir() else None\n\n# === 输出结果 ===\nprint('=' * 50)\nprint('H2Q 执行结果')\nprint('=' * 50)\nfor key, value in variables.items():\n    print(f'{key}: {value}')\nprint('执行完成')"
+      },
+      "execution": {
+        "success": false,
+        "stdout": "",
+        "stderr": "Cannot connect to the Docker daemon at unix:///Users/imymm/.docker/run/docker.sock. Is the docker daemon running?\n",
+        "exit_code": 1,
+        "execution_time": 0.119322,
+        "security_violations": []
+      },
+      "translation": {
+        "human_readable": "╔══════════════════════════════════════════════════════════════════════╗\n║           H2Q 程序 → 人类可读翻译                                     ║\n╠══════════════════════════════════════════════════════════════════════╣\n║   0: [打印输出] 操作数: [-1, 0, -2, -2] // 从任务'判断 100 是否大于 50...'生成          ║\n║   1: [WRITE_FILE] 操作数: [3, 2, 0, 0] // 从任务'判断 100 是否大于 50...'生成       ║\n║   2: [MOD] 操作数: [2, -2, 2, -1] // 从任务'判断 100 是否大于 50...'生成            ║\n║   3: [CALL] 操作数: [1, 3, -2, -1] // 从任务'判断 100 是否大于 50...'生成           ║\n║   4: [逻辑非] 操作数: [-1, 0, 0, -2] // 从任务'判断 100 是否大于 50...'生成            ║\n║   5: [SPLIT] 操作数: [-1, 3, 1, -1] // 从任务'判断 100 是否大于 50...'生成          ║\n║   6: [JUMP] 操作数: [0, 2, 3, 0] // 从任务'判断 100 是否大于 50...'生成             ║\n║   7: [PUSH] 操作数: [0, 0, 0, 1] // 从任务'判断 100 是否大于 50...'生成             ║\n║   8: [GT] 操作数: [4, 0, -3, 1] // 从任务'判断 100 是否大于 50...'生成              ║\n║   9: [CALL] 操作数: [3, -5, 0, 0] // 从任务'判断 100 是否大于 50...'生成            ║\n╚══════════════════════════════════════════════════════════════════════╝"
+      }
+    }
+  }
+]

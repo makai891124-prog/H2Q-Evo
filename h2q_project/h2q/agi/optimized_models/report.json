@@ -1,0 +1,11 @@
+{
+  "complete": true,
+  "epochs": 39,
+  "total_time": "5:00:25",
+  "total_samples": 1755000,
+  "avg_speed": 97.36099276603838,
+  "best_accuracy": 0.523,
+  "final_train_acc": 0.9408,
+  "final_val_acc": 0.516,
+  "model_params": 7353988
+}

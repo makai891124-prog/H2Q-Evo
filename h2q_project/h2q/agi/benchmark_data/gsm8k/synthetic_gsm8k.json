@@ -1,0 +1,3002 @@
+[
+  {
+    "question": "Alice has 29 apples. Bob gives her 98 more apples. How many apples does Alice have now?",
+    "choices": [
+      "127",
+      "124",
+      "132",
+      "29"
+    ],
+    "correct_answer": 0,
+    "category": "arithmetic",
+    "difficulty": "easy",
+    "metadata": {
+      "template": "word_problem_add"
+    }
+  },
+  {
+    "question": "A store had 133 items. They sold 90 items. How many items are left?",
+    "choices": [
+      "53",
+      "223",
+      "90",
+      "43"
+    ],
+    "correct_answer": 3,
+    "category": "arithmetic",
+    "difficulty": "easy",
+    "metadata": {
+      "template": "word_problem_sub"
+    }
+  },
+  {
+    "question": "Each box contains 14 items. There are 4 boxes. How many items in total?",
+    "choices": [
+      "18",
+      "112",
+      "70",
+      "56"
+    ],
+    "correct_answer": 3,
+    "category": "arithmetic",
+    "difficulty": "medium",
+    "metadata": {
+      "template": "word_problem_mult"
+    }
+  },
+  {
+    "question": "There are 15 candies to share equally among 3 children. How many candies does each child get?",
+    "choices": [
+      "3",
+      "6",
+      "18",
+      "5"
+    ],
+    "correct_answer": 3,
+    "category": "arithmetic",
+    "difficulty": "medium",
+    "metadata": {
+      "template": "word_problem_div"
+    }
+  },
+  {
+    "question": "Tom has 35 dollars. He earns 18 more dollars. Then he triples his money. How much does he have?",
+    "choices": [
+      "3150",
+      "265",
+      "58",
+      "58"
+    ],
+    "correct_answer": 1,
+    "category": "multi_step",
+    "difficulty": "hard",
+    "metadata": {
+      "template": "multi_step"
+    }
+  },
+  {
+    "question": "Alice has 61 apples. Bob gives her 11 more apples. How many apples does Alice have now?",
+    "choices": [
+      "69",
+      "72",
+      "61",
+      "77"
+    ],
+    "correct_answer": 1,
+    "category": "arithmetic",
+    "difficulty": "easy",
+    "metadata": {
+      "template": "word_problem_add"
+    }
+  },
+  {
+    "question": "A store had 96 items. They sold 19 items. How many items are left?",
+    "choices": [
+      "19",
+      "77",
+      "115",
+      "87"
+    ],
+    "correct_answer": 1,
+    "category": "arithmetic",
+    "difficulty": "easy",
+    "metadata": {
+      "template": "word_problem_sub"
+    }
+  },
+  {
+    "question": "Each box contains 9 items. There are 5 boxes. How many items in total?",
+    "choices": [
+      "45",
+      "14",
+      "54",
+      "90"
+    ],
+    "correct_answer": 0,
+    "category": "arithmetic",
+    "difficulty": "medium",
+    "metadata": {
+      "template": "word_problem_mult"
+    }
+  },
+  {
+    "question": "There are 108 candies to share equally among 9 children. How many candies does each child get?",
+    "choices": [
+      "117",
+      "12",
+      "13",
+      "9"
+    ],
+    "correct_answer": 1,
+    "category": "arithmetic",
+    "difficulty": "medium",
+    "metadata": {
+      "template": "word_problem_div"
+    }
+  },
+  {
+    "question": "Tom has 13 dollars. He earns 14 more dollars. Then he triples his money. How much does he have?",
+    "choices": [
+      "31",
+      "31",
+      "108",
+      "728"
+    ],
+    "correct_answer": 2,
+    "category": "multi_step",
+    "difficulty": "hard",
+    "metadata": {
+      "template": "multi_step"
+    }
+  },
+  {
+    "question": "Alice has 81 apples. Bob gives her 35 more apples. How many apples does Alice have now?",
+    "choices": [
+      "113",
+      "81",
+      "121",
+      "116"
+    ],
+    "correct_answer": 3,
+    "category": "arithmetic",
+    "difficulty": "easy",
+    "metadata": {
+      "template": "word_problem_add"
+    }
+  },
+  {
+    "question": "A store had 121 items. They sold 18 items. How many items are left?",
+    "choices": [
+      "103",
+      "113",
+      "18",
+      "139"
+    ],
+    "correct_answer": 0,
+    "category": "arithmetic",
+    "difficulty": "easy",
+    "metadata": {
+      "template": "word_problem_sub"
+    }
+  },
+  {
+    "question": "Each box contains 13 items. There are 7 boxes. How many items in total?",
+    "choices": [
+      "20",
+      "104",
+      "182",
+      "91"
+    ],
+    "correct_answer": 3,
+    "category": "arithmetic",
+    "difficulty": "medium",
+    "metadata": {
+      "template": "word_problem_mult"
+    }
+  },
+  {
+    "question": "There are 78 candies to share equally among 6 children. How many candies does each child get?",
+    "choices": [
+      "14",
+      "6",
+      "13",
+      "84"
+    ],
+    "correct_answer": 2,
+    "category": "arithmetic",
+    "difficulty": "medium",
+    "metadata": {
+      "template": "word_problem_div"
+    }
+  },
+  {
+    "question": "Tom has 29 dollars. He earns 6 more dollars. Then he triples his money. How much does he have?",
+    "choices": [
+      "140",
+      "39",
+      "696",
+      "39"
+    ],
+    "correct_answer": 0,
+    "category": "multi_step",
+    "difficulty": "hard",
+    "metadata": {
+      "template": "multi_step"
+    }
+  },
+  {
+    "question": "Alice has 43 apples. Bob gives her 16 more apples. How many apples does Alice have now?",
+    "choices": [
+      "64",
+      "56",
+      "59",
+      "43"
+    ],
+    "correct_answer": 2,
+    "category": "arithmetic",
+    "difficulty": "easy",
+    "metadata": {
+      "template": "word_problem_add"
+    }
+  },
+  {
+    "question": "A store had 99 items. They sold 51 items. How many items are left?",
+    "choices": [
+      "51",
+      "150",
+      "58",
+      "48"
+    ],
+    "correct_answer": 3,
+    "category": "arithmetic",
+    "difficulty": "easy",
+    "metadata": {
+      "template": "word_problem_sub"
+    }
+  },
+  {
+    "question": "Each box contains 2 items. There are 9 boxes. How many items in total?",
+    "choices": [
+      "36",
+      "11",
+      "20",
+      "18"
+    ],
+    "correct_answer": 3,
+    "category": "arithmetic",
+    "difficulty": "medium",
+    "metadata": {
+      "template": "word_problem_mult"
+    }
+  },
+  {
+    "question": "There are 48 candies to share equally among 8 children. How many candies does each child get?",
+    "choices": [
+      "6",
+      "7",
+      "8",
+      "56"
+    ],
+    "correct_answer": 0,
+    "category": "arithmetic",
+    "difficulty": "medium",
+    "metadata": {
+      "template": "word_problem_div"
+    }
+  },
+  {
+    "question": "Tom has 29 dollars. He earns 13 more dollars. Then he triples his money. How much does he have?",
+    "choices": [
+      "210",
+      "47",
+      "1885",
+      "47"
+    ],
+    "correct_answer": 0,
+    "category": "multi_step",
+    "difficulty": "hard",
+    "metadata": {
+      "template": "multi_step"
+    }
+  },
+  {
+    "question": "Alice has 17 apples. Bob gives her 61 more apples. How many apples does Alice have now?",
+    "choices": [
+      "83",
+      "75",
+      "17",
+      "78"
+    ],
+    "correct_answer": 3,
+    "category": "arithmetic",
+    "difficulty": "easy",
+    "metadata": {
+      "template": "word_problem_add"
+    }
+  },
+  {
+    "question": "A store had 130 items. They sold 57 items. How many items are left?",
+    "choices": [
+      "57",
+      "73",
+      "83",
+      "187"
+    ],
+    "correct_answer": 1,
+    "category": "arithmetic",
+    "difficulty": "easy",
+    "metadata": {
+      "template": "word_problem_sub"
+    }
+  },
+  {
+    "question": "Each box contains 13 items. There are 8 boxes. How many items in total?",
+    "choices": [
+      "208",
+      "104",
+      "117",
+      "21"
+    ],
+    "correct_answer": 1,
+    "category": "arithmetic",
+    "difficulty": "medium",
+    "metadata": {
+      "template": "word_problem_mult"
+    }
+  },
+  {
+    "question": "There are 63 candies to share equally among 7 children. How many candies does each child get?",
+    "choices": [
+      "10",
+      "7",
+      "70",
+      "9"
+    ],
+    "correct_answer": 3,
+    "category": "arithmetic",
+    "difficulty": "medium",
+    "metadata": {
+      "template": "word_problem_div"
+    }
+  },
+  {
+    "question": "Tom has 34 dollars. He earns 17 more dollars. Then he triples his money. How much does he have?",
+    "choices": [
+      "5202",
+      "60",
+      "60",
+      "459"
+    ],
+    "correct_answer": 3,
+    "category": "multi_step",
+    "difficulty": "hard",
+    "metadata": {
+      "template": "multi_step"
+    }
+  },
+  {
+    "question": "Alice has 73 apples. Bob gives her 82 more apples. How many apples does Alice have now?",
+    "choices": [
+      "152",
+      "73",
+      "155",
+      "160"
+    ],
+    "correct_answer": 2,
+    "category": "arithmetic",
+    "difficulty": "easy",
+    "metadata": {
+      "template": "word_problem_add"
+    }
+  },
+  {
+    "question": "A store had 175 items. They sold 126 items. How many items are left?",
+    "choices": [
+      "126",
+      "301",
+      "49",
+      "59"
+    ],
+    "correct_answer": 2,
+    "category": "arithmetic",
+    "difficulty": "easy",
+    "metadata": {
+      "template": "word_problem_sub"
+    }
+  },
+  {
+    "question": "Each box contains 9 items. There are 3 boxes. How many items in total?",
+    "choices": [
+      "27",
+      "54",
+      "36",
+      "12"
+    ],
+    "correct_answer": 0,
+    "category": "arithmetic",
+    "difficulty": "medium",
+    "metadata": {
+      "template": "word_problem_mult"
+    }
+  },
+  {
+    "question": "There are 28 candies to share equally among 4 children. How many candies does each child get?",
+    "choices": [
+      "32",
+      "4",
+      "7",
+      "8"
+    ],
+    "correct_answer": 2,
+    "category": "arithmetic",
+    "difficulty": "medium",
+    "metadata": {
+      "template": "word_problem_div"
+    }
+  },
+  {
+    "question": "Tom has 36 dollars. He earns 19 more dollars. Then he triples his money. How much does he have?",
+    "choices": [
+      "330",
+      "61",
+      "4104",
+      "61"
+    ],
+    "correct_answer": 0,
+    "category": "multi_step",
+    "difficulty": "hard",
+    "metadata": {
+      "template": "multi_step"
+    }
+  },
+  {
+    "question": "Alice has 46 apples. Bob gives her 29 more apples. How many apples does Alice have now?",
+    "choices": [
+      "46",
+      "75",
+      "72",
+      "80"
+    ],
+    "correct_answer": 1,
+    "category": "arithmetic",
+    "difficulty": "easy",
+    "metadata": {
+      "template": "word_problem_add"
+    }
+  },
+  {
+    "question": "A store had 154 items. They sold 149 items. How many items are left?",
+    "choices": [
+      "5",
+      "149",
+      "303",
+      "15"
+    ],
+    "correct_answer": 0,
+    "category": "arithmetic",
+    "difficulty": "easy",
+    "metadata": {
+      "template": "word_problem_sub"
+    }
+  },
+  {
+    "question": "Each box contains 4 items. There are 8 boxes. How many items in total?",
+    "choices": [
+      "64",
+      "36",
+      "12",
+      "32"
+    ],
+    "correct_answer": 3,
+    "category": "arithmetic",
+    "difficulty": "medium",
+    "metadata": {
+      "template": "word_problem_mult"
+    }
+  },
+  {
+    "question": "There are 144 candies to share equally among 9 children. How many candies does each child get?",
+    "choices": [
+      "9",
+      "17",
+      "153",
+      "16"
+    ],
+    "correct_answer": 3,
+    "category": "arithmetic",
+    "difficulty": "medium",
+    "metadata": {
+      "template": "word_problem_div"
+    }
+  },
+  {
+    "question": "Tom has 11 dollars. He earns 12 more dollars. Then he triples his money. How much does he have?",
+    "choices": [
+      "30",
+      "161",
+      "30",
+      "924"
+    ],
+    "correct_answer": 1,
+    "category": "multi_step",
+    "difficulty": "hard",
+    "metadata": {
+      "template": "multi_step"
+    }
+  },
+  {
+    "question": "Alice has 44 apples. Bob gives her 99 more apples. How many apples does Alice have now?",
+    "choices": [
+      "44",
+      "148",
+      "143",
+      "140"
+    ],
+    "correct_answer": 2,
+    "category": "arithmetic",
+    "difficulty": "easy",
+    "metadata": {
+      "template": "word_problem_add"
+    }
+  },
+  {
+    "question": "A store had 164 items. They sold 98 items. How many items are left?",
+    "choices": [
+      "76",
+      "98",
+      "66",
+      "262"
+    ],
+    "correct_answer": 2,
+    "category": "arithmetic",
+    "difficulty": "easy",
+    "metadata": {
+      "template": "word_problem_sub"
+    }
+  },
+  {
+    "question": "Each box contains 9 items. There are 8 boxes. How many items in total?",
+    "choices": [
+      "81",
+      "144",
+      "17",
+      "72"
+    ],
+    "correct_answer": 3,
+    "category": "arithmetic",
+    "difficulty": "medium",
+    "metadata": {
+      "template": "word_problem_mult"
+    }
+  },
+  {
+    "question": "There are 22 candies to share equally among 2 children. How many candies does each child get?",
+    "choices": [
+      "11",
+      "2",
+      "24",
+      "12"
+    ],
+    "correct_answer": 0,
+    "category": "arithmetic",
+    "difficulty": "medium",
+    "metadata": {
+      "template": "word_problem_div"
+    }
+  },
+  {
+    "question": "Tom has 17 dollars. He earns 19 more dollars. Then he triples his money. How much does he have?",
+    "choices": [
+      "42",
+      "42",
+      "1938",
+      "216"
+    ],
+    "correct_answer": 3,
+    "category": "multi_step",
+    "difficulty": "hard",
+    "metadata": {
+      "template": "multi_step"
+    }
+  },
+  {
+    "question": "Alice has 56 apples. Bob gives her 97 more apples. How many apples does Alice have now?",
+    "choices": [
+      "56",
+      "150",
+      "158",
+      "153"
+    ],
+    "correct_answer": 3,
+    "category": "arithmetic",
+    "difficulty": "easy",
+    "metadata": {
+      "template": "word_problem_add"
+    }
+  },
+  {
+    "question": "A store had 104 items. They sold 65 items. How many items are left?",
+    "choices": [
+      "49",
+      "169",
+      "65",
+      "39"
+    ],
+    "correct_answer": 3,
+    "category": "arithmetic",
+    "difficulty": "easy",
+    "metadata": {
+      "template": "word_problem_sub"
+    }
+  },
+  {
+    "question": "Each box contains 11 items. There are 4 boxes. How many items in total?",
+    "choices": [
+      "55",
+      "44",
+      "15",
+      "88"
+    ],
+    "correct_answer": 1,
+    "category": "arithmetic",
+    "difficulty": "medium",
+    "metadata": {
+      "template": "word_problem_mult"
+    }
+  },
+  {
+    "question": "There are 144 candies to share equally among 8 children. How many candies does each child get?",
+    "choices": [
+      "8",
+      "152",
+      "19",
+      "18"
+    ],
+    "correct_answer": 3,
+    "category": "arithmetic",
+    "difficulty": "medium",
+    "metadata": {
+      "template": "word_problem_div"
+    }
+  },
+  {
+    "question": "Tom has 17 dollars. He earns 13 more dollars. Then he triples his money. How much does he have?",
+    "choices": [
+      "120",
+      "34",
+      "884",
+      "34"
+    ],
+    "correct_answer": 0,
+    "category": "multi_step",
+    "difficulty": "hard",
+    "metadata": {
+      "template": "multi_step"
+    }
+  },
+  {
+    "question": "Alice has 18 apples. Bob gives her 38 more apples. How many apples does Alice have now?",
+    "choices": [
+      "18",
+      "61",
+      "56",
+      "53"
+    ],
+    "correct_answer": 2,
+    "category": "arithmetic",
+    "difficulty": "easy",
+    "metadata": {
+      "template": "word_problem_add"
+    }
+  },
+  {
+    "question": "A store had 136 items. They sold 14 items. How many items are left?",
+    "choices": [
+      "14",
+      "132",
+      "150",
+      "122"
+    ],
+    "correct_answer": 3,
+    "category": "arithmetic",
+    "difficulty": "easy",
+    "metadata": {
+      "template": "word_problem_sub"
+    }
+  },
+  {
+    "question": "Each box contains 13 items. There are 5 boxes. How many items in total?",
+    "choices": [
+      "130",
+      "18",
+      "65",
+      "78"
+    ],
+    "correct_answer": 2,
+    "category": "arithmetic",
+    "difficulty": "medium",
+    "metadata": {
+      "template": "word_problem_mult"
+    }
+  },
+  {
+    "question": "There are 95 candies to share equally among 5 children. How many candies does each child get?",
+    "choices": [
+      "100",
+      "20",
+      "19",
+      "5"
+    ],
+    "correct_answer": 2,
+    "category": "arithmetic",
+    "difficulty": "medium",
+    "metadata": {
+      "template": "word_problem_div"
+    }
+  },
+  {
+    "question": "Tom has 39 dollars. He earns 18 more dollars. Then he triples his money. How much does he have?",
+    "choices": [
+      "64",
+      "4914",
+      "64",
+      "399"
+    ],
+    "correct_answer": 3,
+    "category": "multi_step",
+    "difficulty": "hard",
+    "metadata": {
+      "template": "multi_step"
+    }
+  },
+  {
+    "question": "Alice has 29 apples. Bob gives her 85 more apples. How many apples does Alice have now?",
+    "choices": [
+      "29",
+      "114",
+      "119",
+      "111"
+    ],
+    "correct_answer": 1,
+    "category": "arithmetic",
+    "difficulty": "easy",
+    "metadata": {
+      "template": "word_problem_add"
+    }
+  },
+  {
+    "question": "A store had 98 items. They sold 25 items. How many items are left?",
+    "choices": [
+      "83",
+      "25",
+      "73",
+      "123"
+    ],
+    "correct_answer": 2,
+    "category": "arithmetic",
+    "difficulty": "easy",
+    "metadata": {
+      "template": "word_problem_sub"
+    }
+  },
+  {
+    "question": "Each box contains 6 items. There are 4 boxes. How many items in total?",
+    "choices": [
+      "10",
+      "24",
+      "30",
+      "48"
+    ],
+    "correct_answer": 1,
+    "category": "arithmetic",
+    "difficulty": "medium",
+    "metadata": {
+      "template": "word_problem_mult"
+    }
+  },
+  {
+    "question": "There are 33 candies to share equally among 3 children. How many candies does each child get?",
+    "choices": [
+      "11",
+      "3",
+      "12",
+      "36"
+    ],
+    "correct_answer": 0,
+    "category": "arithmetic",
+    "difficulty": "medium",
+    "metadata": {
+      "template": "word_problem_div"
+    }
+  },
+  {
+    "question": "Tom has 11 dollars. He earns 7 more dollars. Then he triples his money. How much does he have?",
+    "choices": [
+      "616",
+      "26",
+      "144",
+      "26"
+    ],
+    "correct_answer": 2,
+    "category": "multi_step",
+    "difficulty": "hard",
+    "metadata": {
+      "template": "multi_step"
+    }
+  },
+  {
+    "question": "Alice has 32 apples. Bob gives her 75 more apples. How many apples does Alice have now?",
+    "choices": [
+      "32",
+      "107",
+      "104",
+      "112"
+    ],
+    "correct_answer": 1,
+    "category": "arithmetic",
+    "difficulty": "easy",
+    "metadata": {
+      "template": "word_problem_add"
+    }
+  },
+  {
+    "question": "A store had 183 items. They sold 116 items. How many items are left?",
+    "choices": [
+      "299",
+      "116",
+      "77",
+      "67"
+    ],
+    "correct_answer": 3,
+    "category": "arithmetic",
+    "difficulty": "easy",
+    "metadata": {
+      "template": "word_problem_sub"
+    }
+  },
+  {
+    "question": "Each box contains 2 items. There are 3 boxes. How many items in total?",
+    "choices": [
+      "5",
+      "8",
+      "6",
+      "12"
+    ],
+    "correct_answer": 2,
+    "category": "arithmetic",
+    "difficulty": "medium",
+    "metadata": {
+      "template": "word_problem_mult"
+    }
+  },
+  {
+    "question": "There are 136 candies to share equally among 8 children. How many candies does each child get?",
+    "choices": [
+      "18",
+      "144",
+      "17",
+      "8"
+    ],
+    "correct_answer": 2,
+    "category": "arithmetic",
+    "difficulty": "medium",
+    "metadata": {
+      "template": "word_problem_div"
+    }
+  },
+  {
+    "question": "Tom has 15 dollars. He earns 12 more dollars. Then he triples his money. How much does he have?",
+    "choices": [
+      "360",
+      "29",
+      "54",
+      "29"
+    ],
+    "correct_answer": 2,
+    "category": "multi_step",
+    "difficulty": "hard",
+    "metadata": {
+      "template": "multi_step"
+    }
+  },
+  {
+    "question": "Alice has 28 apples. Bob gives her 38 more apples. How many apples does Alice have now?",
+    "choices": [
+      "71",
+      "66",
+      "28",
+      "63"
+    ],
+    "correct_answer": 1,
+    "category": "arithmetic",
+    "difficulty": "easy",
+    "metadata": {
+      "template": "word_problem_add"
+    }
+  },
+  {
+    "question": "A store had 137 items. They sold 54 items. How many items are left?",
+    "choices": [
+      "54",
+      "83",
+      "93",
+      "191"
+    ],
+    "correct_answer": 1,
+    "category": "arithmetic",
+    "difficulty": "easy",
+    "metadata": {
+      "template": "word_problem_sub"
+    }
+  },
+  {
+    "question": "Each box contains 7 items. There are 6 boxes. How many items in total?",
+    "choices": [
+      "84",
+      "49",
+      "42",
+      "13"
+    ],
+    "correct_answer": 2,
+    "category": "arithmetic",
+    "difficulty": "medium",
+    "metadata": {
+      "template": "word_problem_mult"
+    }
+  },
+  {
+    "question": "There are 66 candies to share equally among 6 children. How many candies does each child get?",
+    "choices": [
+      "6",
+      "11",
+      "12",
+      "72"
+    ],
+    "correct_answer": 1,
+    "category": "arithmetic",
+    "difficulty": "medium",
+    "metadata": {
+      "template": "word_problem_div"
+    }
+  },
+  {
+    "question": "Tom has 24 dollars. He earns 12 more dollars. Then he triples his money. How much does he have?",
+    "choices": [
+      "40",
+      "144",
+      "1152",
+      "40"
+    ],
+    "correct_answer": 1,
+    "category": "multi_step",
+    "difficulty": "hard",
+    "metadata": {
+      "template": "multi_step"
+    }
+  },
+  {
+    "question": "Alice has 94 apples. Bob gives her 69 more apples. How many apples does Alice have now?",
+    "choices": [
+      "168",
+      "163",
+      "160",
+      "94"
+    ],
+    "correct_answer": 1,
+    "category": "arithmetic",
+    "difficulty": "easy",
+    "metadata": {
+      "template": "word_problem_add"
+    }
+  },
+  {
+    "question": "A store had 75 items. They sold 28 items. How many items are left?",
+    "choices": [
+      "47",
+      "103",
+      "57",
+      "28"
+    ],
+    "correct_answer": 0,
+    "category": "arithmetic",
+    "difficulty": "easy",
+    "metadata": {
+      "template": "word_problem_sub"
+    }
+  },
+  {
+    "question": "Each box contains 11 items. There are 9 boxes. How many items in total?",
+    "choices": [
+      "20",
+      "99",
+      "198",
+      "110"
+    ],
+    "correct_answer": 1,
+    "category": "arithmetic",
+    "difficulty": "medium",
+    "metadata": {
+      "template": "word_problem_mult"
+    }
+  },
+  {
+    "question": "There are 84 candies to share equally among 6 children. How many candies does each child get?",
+    "choices": [
+      "90",
+      "14",
+      "6",
+      "15"
+    ],
+    "correct_answer": 1,
+    "category": "arithmetic",
+    "difficulty": "medium",
+    "metadata": {
+      "template": "word_problem_div"
+    }
+  },
+  {
+    "question": "Tom has 35 dollars. He earns 13 more dollars. Then he triples his money. How much does he have?",
+    "choices": [
+      "50",
+      "50",
+      "96",
+      "910"
+    ],
+    "correct_answer": 2,
+    "category": "multi_step",
+    "difficulty": "hard",
+    "metadata": {
+      "template": "multi_step"
+    }
+  },
+  {
+    "question": "Alice has 28 apples. Bob gives her 11 more apples. How many apples does Alice have now?",
+    "choices": [
+      "44",
+      "39",
+      "36",
+      "28"
+    ],
+    "correct_answer": 1,
+    "category": "arithmetic",
+    "difficulty": "easy",
+    "metadata": {
+      "template": "word_problem_add"
+    }
+  },
+  {
+    "question": "A store had 78 items. They sold 31 items. How many items are left?",
+    "choices": [
+      "31",
+      "57",
+      "47",
+      "109"
+    ],
+    "correct_answer": 2,
+    "category": "arithmetic",
+    "difficulty": "easy",
+    "metadata": {
+      "template": "word_problem_sub"
+    }
+  },
+  {
+    "question": "Each box contains 14 items. There are 4 boxes. How many items in total?",
+    "choices": [
+      "18",
+      "70",
+      "56",
+      "112"
+    ],
+    "correct_answer": 2,
+    "category": "arithmetic",
+    "difficulty": "medium",
+    "metadata": {
+      "template": "word_problem_mult"
+    }
+  },
+  {
+    "question": "There are 65 candies to share equally among 5 children. How many candies does each child get?",
+    "choices": [
+      "14",
+      "70",
+      "5",
+      "13"
+    ],
+    "correct_answer": 3,
+    "category": "arithmetic",
+    "difficulty": "medium",
+    "metadata": {
+      "template": "word_problem_div"
+    }
+  },
+  {
+    "question": "Tom has 26 dollars. He earns 13 more dollars. Then he triples his money. How much does he have?",
+    "choices": [
+      "46",
+      "46",
+      "273",
+      "2366"
+    ],
+    "correct_answer": 2,
+    "category": "multi_step",
+    "difficulty": "hard",
+    "metadata": {
+      "template": "multi_step"
+    }
+  },
+  {
+    "question": "Alice has 13 apples. Bob gives her 49 more apples. How many apples does Alice have now?",
+    "choices": [
+      "62",
+      "67",
+      "13",
+      "59"
+    ],
+    "correct_answer": 0,
+    "category": "arithmetic",
+    "difficulty": "easy",
+    "metadata": {
+      "template": "word_problem_add"
+    }
+  },
+  {
+    "question": "A store had 75 items. They sold 27 items. How many items are left?",
+    "choices": [
+      "48",
+      "102",
+      "58",
+      "27"
+    ],
+    "correct_answer": 0,
+    "category": "arithmetic",
+    "difficulty": "easy",
+    "metadata": {
+      "template": "word_problem_sub"
+    }
+  },
+  {
+    "question": "Each box contains 14 items. There are 6 boxes. How many items in total?",
+    "choices": [
+      "20",
+      "168",
+      "84",
+      "98"
+    ],
+    "correct_answer": 2,
+    "category": "arithmetic",
+    "difficulty": "medium",
+    "metadata": {
+      "template": "word_problem_mult"
+    }
+  },
+  {
+    "question": "There are 30 candies to share equally among 2 children. How many candies does each child get?",
+    "choices": [
+      "16",
+      "32",
+      "15",
+      "2"
+    ],
+    "correct_answer": 2,
+    "category": "arithmetic",
+    "difficulty": "medium",
+    "metadata": {
+      "template": "word_problem_div"
+    }
+  },
+  {
+    "question": "Tom has 19 dollars. He earns 9 more dollars. Then he triples his money. How much does he have?",
+    "choices": [
+      "34",
+      "168",
+      "34",
+      "1026"
+    ],
+    "correct_answer": 1,
+    "category": "multi_step",
+    "difficulty": "hard",
+    "metadata": {
+      "template": "multi_step"
+    }
+  },
+  {
+    "question": "Alice has 19 apples. Bob gives her 68 more apples. How many apples does Alice have now?",
+    "choices": [
+      "19",
+      "92",
+      "84",
+      "87"
+    ],
+    "correct_answer": 3,
+    "category": "arithmetic",
+    "difficulty": "easy",
+    "metadata": {
+      "template": "word_problem_add"
+    }
+  },
+  {
+    "question": "A store had 176 items. They sold 18 items. How many items are left?",
+    "choices": [
+      "168",
+      "18",
+      "158",
+      "194"
+    ],
+    "correct_answer": 2,
+    "category": "arithmetic",
+    "difficulty": "easy",
+    "metadata": {
+      "template": "word_problem_sub"
+    }
+  },
+  {
+    "question": "Each box contains 4 items. There are 6 boxes. How many items in total?",
+    "choices": [
+      "24",
+      "48",
+      "10",
+      "28"
+    ],
+    "correct_answer": 0,
+    "category": "arithmetic",
+    "difficulty": "medium",
+    "metadata": {
+      "template": "word_problem_mult"
+    }
+  },
+  {
+    "question": "There are 152 candies to share equally among 8 children. How many candies does each child get?",
+    "choices": [
+      "160",
+      "8",
+      "19",
+      "20"
+    ],
+    "correct_answer": 2,
+    "category": "arithmetic",
+    "difficulty": "medium",
+    "metadata": {
+      "template": "word_problem_div"
+    }
+  },
+  {
+    "question": "Tom has 10 dollars. He earns 19 more dollars. Then he triples his money. How much does he have?",
+    "choices": [
+      "31",
+      "58",
+      "31",
+      "380"
+    ],
+    "correct_answer": 1,
+    "category": "multi_step",
+    "difficulty": "hard",
+    "metadata": {
+      "template": "multi_step"
+    }
+  },
+  {
+    "question": "Alice has 14 apples. Bob gives her 35 more apples. How many apples does Alice have now?",
+    "choices": [
+      "14",
+      "46",
+      "49",
+      "54"
+    ],
+    "correct_answer": 2,
+    "category": "arithmetic",
+    "difficulty": "easy",
+    "metadata": {
+      "template": "word_problem_add"
+    }
+  },
+  {
+    "question": "A store had 61 items. They sold 57 items. How many items are left?",
+    "choices": [
+      "118",
+      "14",
+      "4",
+      "57"
+    ],
+    "correct_answer": 2,
+    "category": "arithmetic",
+    "difficulty": "easy",
+    "metadata": {
+      "template": "word_problem_sub"
+    }
+  },
+  {
+    "question": "Each box contains 7 items. There are 3 boxes. How many items in total?",
+    "choices": [
+      "10",
+      "42",
+      "21",
+      "28"
+    ],
+    "correct_answer": 2,
+    "category": "arithmetic",
+    "difficulty": "medium",
+    "metadata": {
+      "template": "word_problem_mult"
+    }
+  },
+  {
+    "question": "There are 30 candies to share equally among 6 children. How many candies does each child get?",
+    "choices": [
+      "6",
+      "6",
+      "36",
+      "5"
+    ],
+    "correct_answer": 3,
+    "category": "arithmetic",
+    "difficulty": "medium",
+    "metadata": {
+      "template": "word_problem_div"
+    }
+  },
+  {
+    "question": "Tom has 45 dollars. He earns 8 more dollars. Then he triples his money. How much does he have?",
+    "choices": [
+      "3240",
+      "62",
+      "477",
+      "62"
+    ],
+    "correct_answer": 2,
+    "category": "multi_step",
+    "difficulty": "hard",
+    "metadata": {
+      "template": "multi_step"
+    }
+  },
+  {
+    "question": "Alice has 96 apples. Bob gives her 44 more apples. How many apples does Alice have now?",
+    "choices": [
+      "96",
+      "137",
+      "145",
+      "140"
+    ],
+    "correct_answer": 3,
+    "category": "arithmetic",
+    "difficulty": "easy",
+    "metadata": {
+      "template": "word_problem_add"
+    }
+  },
+  {
+    "question": "A store had 106 items. They sold 19 items. How many items are left?",
+    "choices": [
+      "19",
+      "125",
+      "97",
+      "87"
+    ],
+    "correct_answer": 3,
+    "category": "arithmetic",
+    "difficulty": "easy",
+    "metadata": {
+      "template": "word_problem_sub"
+    }
+  },
+  {
+    "question": "Each box contains 5 items. There are 10 boxes. How many items in total?",
+    "choices": [
+      "100",
+      "55",
+      "15",
+      "50"
+    ],
+    "correct_answer": 3,
+    "category": "arithmetic",
+    "difficulty": "medium",
+    "metadata": {
+      "template": "word_problem_mult"
+    }
+  },
+  {
+    "question": "There are 70 candies to share equally among 7 children. How many candies does each child get?",
+    "choices": [
+      "7",
+      "10",
+      "11",
+      "77"
+    ],
+    "correct_answer": 1,
+    "category": "arithmetic",
+    "difficulty": "medium",
+    "metadata": {
+      "template": "word_problem_div"
+    }
+  },
+  {
+    "question": "Tom has 15 dollars. He earns 5 more dollars. Then he triples his money. How much does he have?",
+    "choices": [
+      "600",
+      "28",
+      "160",
+      "28"
+    ],
+    "correct_answer": 2,
+    "category": "multi_step",
+    "difficulty": "hard",
+    "metadata": {
+      "template": "multi_step"
+    }
+  },
+  {
+    "question": "Alice has 84 apples. Bob gives her 11 more apples. How many apples does Alice have now?",
+    "choices": [
+      "100",
+      "84",
+      "92",
+      "95"
+    ],
+    "correct_answer": 3,
+    "category": "arithmetic",
+    "difficulty": "easy",
+    "metadata": {
+      "template": "word_problem_add"
+    }
+  },
+  {
+    "question": "A store had 99 items. They sold 73 items. How many items are left?",
+    "choices": [
+      "73",
+      "26",
+      "36",
+      "172"
+    ],
+    "correct_answer": 1,
+    "category": "arithmetic",
+    "difficulty": "easy",
+    "metadata": {
+      "template": "word_problem_sub"
+    }
+  },
+  {
+    "question": "Each box contains 9 items. There are 8 boxes. How many items in total?",
+    "choices": [
+      "72",
+      "144",
+      "17",
+      "81"
+    ],
+    "correct_answer": 0,
+    "category": "arithmetic",
+    "difficulty": "medium",
+    "metadata": {
+      "template": "word_problem_mult"
+    }
+  },
+  {
+    "question": "There are 80 candies to share equally among 5 children. How many candies does each child get?",
+    "choices": [
+      "16",
+      "5",
+      "85",
+      "17"
+    ],
+    "correct_answer": 0,
+    "category": "arithmetic",
+    "difficulty": "medium",
+    "metadata": {
+      "template": "word_problem_div"
+    }
+  },
+  {
+    "question": "Tom has 29 dollars. He earns 7 more dollars. Then he triples his money. How much does he have?",
+    "choices": [
+      "180",
+      "1015",
+      "41",
+      "41"
+    ],
+    "correct_answer": 0,
+    "category": "multi_step",
+    "difficulty": "hard",
+    "metadata": {
+      "template": "multi_step"
+    }
+  },
+  {
+    "question": "Alice has 34 apples. Bob gives her 88 more apples. How many apples does Alice have now?",
+    "choices": [
+      "34",
+      "119",
+      "127",
+      "122"
+    ],
+    "correct_answer": 3,
+    "category": "arithmetic",
+    "difficulty": "easy",
+    "metadata": {
+      "template": "word_problem_add"
+    }
+  },
+  {
+    "question": "A store had 182 items. They sold 18 items. How many items are left?",
+    "choices": [
+      "164",
+      "18",
+      "200",
+      "174"
+    ],
+    "correct_answer": 0,
+    "category": "arithmetic",
+    "difficulty": "easy",
+    "metadata": {
+      "template": "word_problem_sub"
+    }
+  },
+  {
+    "question": "Each box contains 13 items. There are 6 boxes. How many items in total?",
+    "choices": [
+      "78",
+      "19",
+      "156",
+      "91"
+    ],
+    "correct_answer": 0,
+    "category": "arithmetic",
+    "difficulty": "medium",
+    "metadata": {
+      "template": "word_problem_mult"
+    }
+  },
+  {
+    "question": "There are 96 candies to share equally among 8 children. How many candies does each child get?",
+    "choices": [
+      "104",
+      "13",
+      "8",
+      "12"
+    ],
+    "correct_answer": 3,
+    "category": "arithmetic",
+    "difficulty": "medium",
+    "metadata": {
+      "template": "word_problem_div"
+    }
+  },
+  {
+    "question": "Tom has 14 dollars. He earns 11 more dollars. Then he triples his money. How much does he have?",
+    "choices": [
+      "770",
+      "125",
+      "30",
+      "30"
+    ],
+    "correct_answer": 1,
+    "category": "multi_step",
+    "difficulty": "hard",
+    "metadata": {
+      "template": "multi_step"
+    }
+  },
+  {
+    "question": "Alice has 18 apples. Bob gives her 69 more apples. How many apples does Alice have now?",
+    "choices": [
+      "87",
+      "84",
+      "18",
+      "92"
+    ],
+    "correct_answer": 0,
+    "category": "arithmetic",
+    "difficulty": "easy",
+    "metadata": {
+      "template": "word_problem_add"
+    }
+  },
+  {
+    "question": "A store had 102 items. They sold 82 items. How many items are left?",
+    "choices": [
+      "184",
+      "82",
+      "20",
+      "30"
+    ],
+    "correct_answer": 2,
+    "category": "arithmetic",
+    "difficulty": "easy",
+    "metadata": {
+      "template": "word_problem_sub"
+    }
+  },
+  {
+    "question": "Each box contains 2 items. There are 4 boxes. How many items in total?",
+    "choices": [
+      "16",
+      "6",
+      "10",
+      "8"
+    ],
+    "correct_answer": 3,
+    "category": "arithmetic",
+    "difficulty": "medium",
+    "metadata": {
+      "template": "word_problem_mult"
+    }
+  },
+  {
+    "question": "There are 36 candies to share equally among 3 children. How many candies does each child get?",
+    "choices": [
+      "3",
+      "13",
+      "39",
+      "12"
+    ],
+    "correct_answer": 3,
+    "category": "arithmetic",
+    "difficulty": "medium",
+    "metadata": {
+      "template": "word_problem_div"
+    }
+  },
+  {
+    "question": "Tom has 43 dollars. He earns 8 more dollars. Then he triples his money. How much does he have?",
+    "choices": [
+      "408",
+      "2752",
+      "59",
+      "59"
+    ],
+    "correct_answer": 0,
+    "category": "multi_step",
+    "difficulty": "hard",
+    "metadata": {
+      "template": "multi_step"
+    }
+  },
+  {
+    "question": "Alice has 35 apples. Bob gives her 81 more apples. How many apples does Alice have now?",
+    "choices": [
+      "121",
+      "116",
+      "113",
+      "35"
+    ],
+    "correct_answer": 1,
+    "category": "arithmetic",
+    "difficulty": "easy",
+    "metadata": {
+      "template": "word_problem_add"
+    }
+  },
+  {
+    "question": "A store had 90 items. They sold 89 items. How many items are left?",
+    "choices": [
+      "89",
+      "11",
+      "179",
+      "1"
+    ],
+    "correct_answer": 3,
+    "category": "arithmetic",
+    "difficulty": "easy",
+    "metadata": {
+      "template": "word_problem_sub"
+    }
+  },
+  {
+    "question": "Each box contains 7 items. There are 8 boxes. How many items in total?",
+    "choices": [
+      "63",
+      "112",
+      "15",
+      "56"
+    ],
+    "correct_answer": 3,
+    "category": "arithmetic",
+    "difficulty": "medium",
+    "metadata": {
+      "template": "word_problem_mult"
+    }
+  },
+  {
+    "question": "There are 54 candies to share equally among 6 children. How many candies does each child get?",
+    "choices": [
+      "10",
+      "6",
+      "60",
+      "9"
+    ],
+    "correct_answer": 3,
+    "category": "arithmetic",
+    "difficulty": "medium",
+    "metadata": {
+      "template": "word_problem_div"
+    }
+  },
+  {
+    "question": "Tom has 32 dollars. He earns 5 more dollars. Then he triples his money. How much does he have?",
+    "choices": [
+      "296",
+      "45",
+      "1280",
+      "45"
+    ],
+    "correct_answer": 0,
+    "category": "multi_step",
+    "difficulty": "hard",
+    "metadata": {
+      "template": "multi_step"
+    }
+  },
+  {
+    "question": "Alice has 41 apples. Bob gives her 64 more apples. How many apples does Alice have now?",
+    "choices": [
+      "110",
+      "41",
+      "105",
+      "102"
+    ],
+    "correct_answer": 2,
+    "category": "arithmetic",
+    "difficulty": "easy",
+    "metadata": {
+      "template": "word_problem_add"
+    }
+  },
+  {
+    "question": "A store had 85 items. They sold 15 items. How many items are left?",
+    "choices": [
+      "100",
+      "70",
+      "15",
+      "80"
+    ],
+    "correct_answer": 1,
+    "category": "arithmetic",
+    "difficulty": "easy",
+    "metadata": {
+      "template": "word_problem_sub"
+    }
+  },
+  {
+    "question": "Each box contains 12 items. There are 3 boxes. How many items in total?",
+    "choices": [
+      "15",
+      "72",
+      "48",
+      "36"
+    ],
+    "correct_answer": 3,
+    "category": "arithmetic",
+    "difficulty": "medium",
+    "metadata": {
+      "template": "word_problem_mult"
+    }
+  },
+  {
+    "question": "There are 128 candies to share equally among 8 children. How many candies does each child get?",
+    "choices": [
+      "17",
+      "8",
+      "16",
+      "136"
+    ],
+    "correct_answer": 2,
+    "category": "arithmetic",
+    "difficulty": "medium",
+    "metadata": {
+      "template": "word_problem_div"
+    }
+  },
+  {
+    "question": "Tom has 14 dollars. He earns 5 more dollars. Then he triples his money. How much does he have?",
+    "choices": [
+      "171",
+      "28",
+      "630",
+      "28"
+    ],
+    "correct_answer": 0,
+    "category": "multi_step",
+    "difficulty": "hard",
+    "metadata": {
+      "template": "multi_step"
+    }
+  },
+  {
+    "question": "Alice has 51 apples. Bob gives her 30 more apples. How many apples does Alice have now?",
+    "choices": [
+      "78",
+      "51",
+      "81",
+      "86"
+    ],
+    "correct_answer": 2,
+    "category": "arithmetic",
+    "difficulty": "easy",
+    "metadata": {
+      "template": "word_problem_add"
+    }
+  },
+  {
+    "question": "A store had 74 items. They sold 57 items. How many items are left?",
+    "choices": [
+      "57",
+      "131",
+      "17",
+      "27"
+    ],
+    "correct_answer": 2,
+    "category": "arithmetic",
+    "difficulty": "easy",
+    "metadata": {
+      "template": "word_problem_sub"
+    }
+  },
+  {
+    "question": "Each box contains 10 items. There are 5 boxes. How many items in total?",
+    "choices": [
+      "100",
+      "50",
+      "15",
+      "60"
+    ],
+    "correct_answer": 1,
+    "category": "arithmetic",
+    "difficulty": "medium",
+    "metadata": {
+      "template": "word_problem_mult"
+    }
+  },
+  {
+    "question": "There are 128 candies to share equally among 8 children. How many candies does each child get?",
+    "choices": [
+      "16",
+      "136",
+      "17",
+      "8"
+    ],
+    "correct_answer": 0,
+    "category": "arithmetic",
+    "difficulty": "medium",
+    "metadata": {
+      "template": "word_problem_div"
+    }
+  },
+  {
+    "question": "Tom has 22 dollars. He earns 17 more dollars. Then he triples his money. How much does he have?",
+    "choices": [
+      "1870",
+      "44",
+      "44",
+      "195"
+    ],
+    "correct_answer": 3,
+    "category": "multi_step",
+    "difficulty": "hard",
+    "metadata": {
+      "template": "multi_step"
+    }
+  },
+  {
+    "question": "Alice has 95 apples. Bob gives her 37 more apples. How many apples does Alice have now?",
+    "choices": [
+      "132",
+      "137",
+      "95",
+      "129"
+    ],
+    "correct_answer": 0,
+    "category": "arithmetic",
+    "difficulty": "easy",
+    "metadata": {
+      "template": "word_problem_add"
+    }
+  },
+  {
+    "question": "A store had 88 items. They sold 72 items. How many items are left?",
+    "choices": [
+      "16",
+      "160",
+      "26",
+      "72"
+    ],
+    "correct_answer": 0,
+    "category": "arithmetic",
+    "difficulty": "easy",
+    "metadata": {
+      "template": "word_problem_sub"
+    }
+  },
+  {
+    "question": "Each box contains 10 items. There are 11 boxes. How many items in total?",
+    "choices": [
+      "110",
+      "220",
+      "120",
+      "21"
+    ],
+    "correct_answer": 0,
+    "category": "arithmetic",
+    "difficulty": "medium",
+    "metadata": {
+      "template": "word_problem_mult"
+    }
+  },
+  {
+    "question": "There are 128 candies to share equally among 8 children. How many candies does each child get?",
+    "choices": [
+      "16",
+      "8",
+      "136",
+      "17"
+    ],
+    "correct_answer": 0,
+    "category": "arithmetic",
+    "difficulty": "medium",
+    "metadata": {
+      "template": "word_problem_div"
+    }
+  },
+  {
+    "question": "Tom has 31 dollars. He earns 8 more dollars. Then he triples his money. How much does he have?",
+    "choices": [
+      "351",
+      "48",
+      "48",
+      "2232"
+    ],
+    "correct_answer": 0,
+    "category": "multi_step",
+    "difficulty": "hard",
+    "metadata": {
+      "template": "multi_step"
+    }
+  },
+  {
+    "question": "Alice has 94 apples. Bob gives her 63 more apples. How many apples does Alice have now?",
+    "choices": [
+      "94",
+      "154",
+      "157",
+      "162"
+    ],
+    "correct_answer": 2,
+    "category": "arithmetic",
+    "difficulty": "easy",
+    "metadata": {
+      "template": "word_problem_add"
+    }
+  },
+  {
+    "question": "A store had 69 items. They sold 52 items. How many items are left?",
+    "choices": [
+      "17",
+      "27",
+      "121",
+      "52"
+    ],
+    "correct_answer": 0,
+    "category": "arithmetic",
+    "difficulty": "easy",
+    "metadata": {
+      "template": "word_problem_sub"
+    }
+  },
+  {
+    "question": "Each box contains 7 items. There are 11 boxes. How many items in total?",
+    "choices": [
+      "18",
+      "84",
+      "154",
+      "77"
+    ],
+    "correct_answer": 3,
+    "category": "arithmetic",
+    "difficulty": "medium",
+    "metadata": {
+      "template": "word_problem_mult"
+    }
+  },
+  {
+    "question": "There are 36 candies to share equally among 6 children. How many candies does each child get?",
+    "choices": [
+      "6",
+      "42",
+      "6",
+      "7"
+    ],
+    "correct_answer": 0,
+    "category": "arithmetic",
+    "difficulty": "medium",
+    "metadata": {
+      "template": "word_problem_div"
+    }
+  },
+  {
+    "question": "Tom has 48 dollars. He earns 16 more dollars. Then he triples his money. How much does he have?",
+    "choices": [
+      "384",
+      "4608",
+      "70",
+      "70"
+    ],
+    "correct_answer": 0,
+    "category": "multi_step",
+    "difficulty": "hard",
+    "metadata": {
+      "template": "multi_step"
+    }
+  },
+  {
+    "question": "Alice has 96 apples. Bob gives her 36 more apples. How many apples does Alice have now?",
+    "choices": [
+      "137",
+      "129",
+      "96",
+      "132"
+    ],
+    "correct_answer": 3,
+    "category": "arithmetic",
+    "difficulty": "easy",
+    "metadata": {
+      "template": "word_problem_add"
+    }
+  },
+  {
+    "question": "A store had 104 items. They sold 81 items. How many items are left?",
+    "choices": [
+      "81",
+      "23",
+      "33",
+      "185"
+    ],
+    "correct_answer": 1,
+    "category": "arithmetic",
+    "difficulty": "easy",
+    "metadata": {
+      "template": "word_problem_sub"
+    }
+  },
+  {
+    "question": "Each box contains 3 items. There are 11 boxes. How many items in total?",
+    "choices": [
+      "14",
+      "66",
+      "33",
+      "36"
+    ],
+    "correct_answer": 2,
+    "category": "arithmetic",
+    "difficulty": "medium",
+    "metadata": {
+      "template": "word_problem_mult"
+    }
+  },
+  {
+    "question": "There are 90 candies to share equally among 5 children. How many candies does each child get?",
+    "choices": [
+      "18",
+      "19",
+      "95",
+      "5"
+    ],
+    "correct_answer": 0,
+    "category": "arithmetic",
+    "difficulty": "medium",
+    "metadata": {
+      "template": "word_problem_div"
+    }
+  },
+  {
+    "question": "Tom has 35 dollars. He earns 14 more dollars. Then he triples his money. How much does he have?",
+    "choices": [
+      "51",
+      "51",
+      "98",
+      "980"
+    ],
+    "correct_answer": 2,
+    "category": "multi_step",
+    "difficulty": "hard",
+    "metadata": {
+      "template": "multi_step"
+    }
+  },
+  {
+    "question": "Alice has 31 apples. Bob gives her 31 more apples. How many apples does Alice have now?",
+    "choices": [
+      "67",
+      "62",
+      "31",
+      "59"
+    ],
+    "correct_answer": 1,
+    "category": "arithmetic",
+    "difficulty": "easy",
+    "metadata": {
+      "template": "word_problem_add"
+    }
+  },
+  {
+    "question": "A store had 90 items. They sold 38 items. How many items are left?",
+    "choices": [
+      "52",
+      "38",
+      "62",
+      "128"
+    ],
+    "correct_answer": 0,
+    "category": "arithmetic",
+    "difficulty": "easy",
+    "metadata": {
+      "template": "word_problem_sub"
+    }
+  },
+  {
+    "question": "Each box contains 2 items. There are 9 boxes. How many items in total?",
+    "choices": [
+      "20",
+      "36",
+      "11",
+      "18"
+    ],
+    "correct_answer": 3,
+    "category": "arithmetic",
+    "difficulty": "medium",
+    "metadata": {
+      "template": "word_problem_mult"
+    }
+  },
+  {
+    "question": "There are 75 candies to share equally among 5 children. How many candies does each child get?",
+    "choices": [
+      "16",
+      "80",
+      "5",
+      "15"
+    ],
+    "correct_answer": 3,
+    "category": "arithmetic",
+    "difficulty": "medium",
+    "metadata": {
+      "template": "word_problem_div"
+    }
+  },
+  {
+    "question": "Tom has 41 dollars. He earns 16 more dollars. Then he triples his money. How much does he have?",
+    "choices": [
+      "60",
+      "60",
+      "1968",
+      "171"
+    ],
+    "correct_answer": 3,
+    "category": "multi_step",
+    "difficulty": "hard",
+    "metadata": {
+      "template": "multi_step"
+    }
+  },
+  {
+    "question": "Alice has 97 apples. Bob gives her 55 more apples. How many apples does Alice have now?",
+    "choices": [
+      "97",
+      "152",
+      "149",
+      "157"
+    ],
+    "correct_answer": 1,
+    "category": "arithmetic",
+    "difficulty": "easy",
+    "metadata": {
+      "template": "word_problem_add"
+    }
+  },
+  {
+    "question": "A store had 182 items. They sold 97 items. How many items are left?",
+    "choices": [
+      "95",
+      "85",
+      "279",
+      "97"
+    ],
+    "correct_answer": 1,
+    "category": "arithmetic",
+    "difficulty": "easy",
+    "metadata": {
+      "template": "word_problem_sub"
+    }
+  },
+  {
+    "question": "Each box contains 5 items. There are 4 boxes. How many items in total?",
+    "choices": [
+      "20",
+      "40",
+      "25",
+      "9"
+    ],
+    "correct_answer": 0,
+    "category": "arithmetic",
+    "difficulty": "medium",
+    "metadata": {
+      "template": "word_problem_mult"
+    }
+  },
+  {
+    "question": "There are 18 candies to share equally among 3 children. How many candies does each child get?",
+    "choices": [
+      "21",
+      "7",
+      "6",
+      "3"
+    ],
+    "correct_answer": 2,
+    "category": "arithmetic",
+    "difficulty": "medium",
+    "metadata": {
+      "template": "word_problem_div"
+    }
+  },
+  {
+    "question": "Tom has 15 dollars. He earns 14 more dollars. Then he triples his money. How much does he have?",
+    "choices": [
+      "32",
+      "630",
+      "87",
+      "32"
+    ],
+    "correct_answer": 2,
+    "category": "multi_step",
+    "difficulty": "hard",
+    "metadata": {
+      "template": "multi_step"
+    }
+  },
+  {
+    "question": "Alice has 50 apples. Bob gives her 47 more apples. How many apples does Alice have now?",
+    "choices": [
+      "94",
+      "102",
+      "50",
+      "97"
+    ],
+    "correct_answer": 3,
+    "category": "arithmetic",
+    "difficulty": "easy",
+    "metadata": {
+      "template": "word_problem_add"
+    }
+  },
+  {
+    "question": "A store had 136 items. They sold 43 items. How many items are left?",
+    "choices": [
+      "93",
+      "179",
+      "43",
+      "103"
+    ],
+    "correct_answer": 0,
+    "category": "arithmetic",
+    "difficulty": "easy",
+    "metadata": {
+      "template": "word_problem_sub"
+    }
+  },
+  {
+    "question": "Each box contains 2 items. There are 5 boxes. How many items in total?",
+    "choices": [
+      "10",
+      "12",
+      "20",
+      "7"
+    ],
+    "correct_answer": 0,
+    "category": "arithmetic",
+    "difficulty": "medium",
+    "metadata": {
+      "template": "word_problem_mult"
+    }
+  },
+  {
+    "question": "There are 26 candies to share equally among 2 children. How many candies does each child get?",
+    "choices": [
+      "2",
+      "13",
+      "14",
+      "28"
+    ],
+    "correct_answer": 1,
+    "category": "arithmetic",
+    "difficulty": "medium",
+    "metadata": {
+      "template": "word_problem_div"
+    }
+  },
+  {
+    "question": "Tom has 41 dollars. He earns 12 more dollars. Then he triples his money. How much does he have?",
+    "choices": [
+      "58",
+      "58",
+      "2460",
+      "265"
+    ],
+    "correct_answer": 3,
+    "category": "multi_step",
+    "difficulty": "hard",
+    "metadata": {
+      "template": "multi_step"
+    }
+  },
+  {
+    "question": "Alice has 45 apples. Bob gives her 31 more apples. How many apples does Alice have now?",
+    "choices": [
+      "76",
+      "81",
+      "45",
+      "73"
+    ],
+    "correct_answer": 0,
+    "category": "arithmetic",
+    "difficulty": "easy",
+    "metadata": {
+      "template": "word_problem_add"
+    }
+  },
+  {
+    "question": "A store had 103 items. They sold 91 items. How many items are left?",
+    "choices": [
+      "22",
+      "194",
+      "91",
+      "12"
+    ],
+    "correct_answer": 3,
+    "category": "arithmetic",
+    "difficulty": "easy",
+    "metadata": {
+      "template": "word_problem_sub"
+    }
+  },
+  {
+    "question": "Each box contains 3 items. There are 8 boxes. How many items in total?",
+    "choices": [
+      "11",
+      "24",
+      "48",
+      "27"
+    ],
+    "correct_answer": 1,
+    "category": "arithmetic",
+    "difficulty": "medium",
+    "metadata": {
+      "template": "word_problem_mult"
+    }
+  },
+  {
+    "question": "There are 30 candies to share equally among 2 children. How many candies does each child get?",
+    "choices": [
+      "15",
+      "2",
+      "16",
+      "32"
+    ],
+    "correct_answer": 0,
+    "category": "arithmetic",
+    "difficulty": "medium",
+    "metadata": {
+      "template": "word_problem_div"
+    }
+  },
+  {
+    "question": "Tom has 21 dollars. He earns 7 more dollars. Then he triples his money. How much does he have?",
+    "choices": [
+      "196",
+      "35",
+      "1029",
+      "35"
+    ],
+    "correct_answer": 0,
+    "category": "multi_step",
+    "difficulty": "hard",
+    "metadata": {
+      "template": "multi_step"
+    }
+  },
+  {
+    "question": "Alice has 93 apples. Bob gives her 37 more apples. How many apples does Alice have now?",
+    "choices": [
+      "127",
+      "135",
+      "130",
+      "93"
+    ],
+    "correct_answer": 2,
+    "category": "arithmetic",
+    "difficulty": "easy",
+    "metadata": {
+      "template": "word_problem_add"
+    }
+  },
+  {
+    "question": "A store had 153 items. They sold 113 items. How many items are left?",
+    "choices": [
+      "266",
+      "113",
+      "50",
+      "40"
+    ],
+    "correct_answer": 3,
+    "category": "arithmetic",
+    "difficulty": "easy",
+    "metadata": {
+      "template": "word_problem_sub"
+    }
+  },
+  {
+    "question": "Each box contains 3 items. There are 8 boxes. How many items in total?",
+    "choices": [
+      "11",
+      "48",
+      "24",
+      "27"
+    ],
+    "correct_answer": 2,
+    "category": "arithmetic",
+    "difficulty": "medium",
+    "metadata": {
+      "template": "word_problem_mult"
+    }
+  },
+  {
+    "question": "There are 42 candies to share equally among 7 children. How many candies does each child get?",
+    "choices": [
+      "49",
+      "6",
+      "7",
+      "7"
+    ],
+    "correct_answer": 1,
+    "category": "arithmetic",
+    "difficulty": "medium",
+    "metadata": {
+      "template": "word_problem_div"
+    }
+  },
+  {
+    "question": "Tom has 21 dollars. He earns 7 more dollars. Then he triples his money. How much does he have?",
+    "choices": [
+      "34",
+      "34",
+      "168",
+      "882"
+    ],
+    "correct_answer": 2,
+    "category": "multi_step",
+    "difficulty": "hard",
+    "metadata": {
+      "template": "multi_step"
+    }
+  },
+  {
+    "question": "Alice has 37 apples. Bob gives her 97 more apples. How many apples does Alice have now?",
+    "choices": [
+      "134",
+      "139",
+      "37",
+      "131"
+    ],
+    "correct_answer": 0,
+    "category": "arithmetic",
+    "difficulty": "easy",
+    "metadata": {
+      "template": "word_problem_add"
+    }
+  },
+  {
+    "question": "A store had 184 items. They sold 20 items. How many items are left?",
+    "choices": [
+      "20",
+      "174",
+      "204",
+      "164"
+    ],
+    "correct_answer": 3,
+    "category": "arithmetic",
+    "difficulty": "easy",
+    "metadata": {
+      "template": "word_problem_sub"
+    }
+  },
+  {
+    "question": "Each box contains 7 items. There are 7 boxes. How many items in total?",
+    "choices": [
+      "14",
+      "49",
+      "98",
+      "56"
+    ],
+    "correct_answer": 1,
+    "category": "arithmetic",
+    "difficulty": "medium",
+    "metadata": {
+      "template": "word_problem_mult"
+    }
+  },
+  {
+    "question": "There are 33 candies to share equally among 3 children. How many candies does each child get?",
+    "choices": [
+      "12",
+      "11",
+      "3",
+      "36"
+    ],
+    "correct_answer": 1,
+    "category": "arithmetic",
+    "difficulty": "medium",
+    "metadata": {
+      "template": "word_problem_div"
+    }
+  },
+  {
+    "question": "Tom has 15 dollars. He earns 19 more dollars. Then he triples his money. How much does he have?",
+    "choices": [
+      "38",
+      "38",
+      "1140",
+      "136"
+    ],
+    "correct_answer": 3,
+    "category": "multi_step",
+    "difficulty": "hard",
+    "metadata": {
+      "template": "multi_step"
+    }
+  },
+  {
+    "question": "Alice has 49 apples. Bob gives her 65 more apples. How many apples does Alice have now?",
+    "choices": [
+      "49",
+      "119",
+      "114",
+      "111"
+    ],
+    "correct_answer": 2,
+    "category": "arithmetic",
+    "difficulty": "easy",
+    "metadata": {
+      "template": "word_problem_add"
+    }
+  },
+  {
+    "question": "A store had 54 items. They sold 21 items. How many items are left?",
+    "choices": [
+      "33",
+      "21",
+      "43",
+      "75"
+    ],
+    "correct_answer": 0,
+    "category": "arithmetic",
+    "difficulty": "easy",
+    "metadata": {
+      "template": "word_problem_sub"
+    }
+  },
+  {
+    "question": "Each box contains 13 items. There are 7 boxes. How many items in total?",
+    "choices": [
+      "182",
+      "20",
+      "104",
+      "91"
+    ],
+    "correct_answer": 3,
+    "category": "arithmetic",
+    "difficulty": "medium",
+    "metadata": {
+      "template": "word_problem_mult"
+    }
+  },
+  {
+    "question": "There are 42 candies to share equally among 7 children. How many candies does each child get?",
+    "choices": [
+      "6",
+      "7",
+      "49",
+      "7"
+    ],
+    "correct_answer": 0,
+    "category": "arithmetic",
+    "difficulty": "medium",
+    "metadata": {
+      "template": "word_problem_div"
+    }
+  },
+  {
+    "question": "Tom has 12 dollars. He earns 17 more dollars. Then he triples his money. How much does he have?",
+    "choices": [
+      "1224",
+      "174",
+      "35",
+      "35"
+    ],
+    "correct_answer": 1,
+    "category": "multi_step",
+    "difficulty": "hard",
+    "metadata": {
+      "template": "multi_step"
+    }
+  },
+  {
+    "question": "Alice has 18 apples. Bob gives her 11 more apples. How many apples does Alice have now?",
+    "choices": [
+      "18",
+      "26",
+      "34",
+      "29"
+    ],
+    "correct_answer": 3,
+    "category": "arithmetic",
+    "difficulty": "easy",
+    "metadata": {
+      "template": "word_problem_add"
+    }
+  },
+  {
+    "question": "A store had 149 items. They sold 50 items. How many items are left?",
+    "choices": [
+      "50",
+      "199",
+      "109",
+      "99"
+    ],
+    "correct_answer": 3,
+    "category": "arithmetic",
+    "difficulty": "easy",
+    "metadata": {
+      "template": "word_problem_sub"
+    }
+  },
+  {
+    "question": "Each box contains 8 items. There are 6 boxes. How many items in total?",
+    "choices": [
+      "56",
+      "48",
+      "96",
+      "14"
+    ],
+    "correct_answer": 1,
+    "category": "arithmetic",
+    "difficulty": "medium",
+    "metadata": {
+      "template": "word_problem_mult"
+    }
+  },
+  {
+    "question": "There are 30 candies to share equally among 6 children. How many candies does each child get?",
+    "choices": [
+      "6",
+      "36",
+      "6",
+      "5"
+    ],
+    "correct_answer": 3,
+    "category": "arithmetic",
+    "difficulty": "medium",
+    "metadata": {
+      "template": "word_problem_div"
+    }
+  },
+  {
+    "question": "Tom has 32 dollars. He earns 12 more dollars. Then he triples his money. How much does he have?",
+    "choices": [
+      "46",
+      "46",
+      "88",
+      "768"
+    ],
+    "correct_answer": 2,
+    "category": "multi_step",
+    "difficulty": "hard",
+    "metadata": {
+      "template": "multi_step"
+    }
+  },
+  {
+    "question": "Alice has 15 apples. Bob gives her 16 more apples. How many apples does Alice have now?",
+    "choices": [
+      "36",
+      "15",
+      "31",
+      "28"
+    ],
+    "correct_answer": 2,
+    "category": "arithmetic",
+    "difficulty": "easy",
+    "metadata": {
+      "template": "word_problem_add"
+    }
+  },
+  {
+    "question": "A store had 125 items. They sold 81 items. How many items are left?",
+    "choices": [
+      "44",
+      "206",
+      "81",
+      "54"
+    ],
+    "correct_answer": 0,
+    "category": "arithmetic",
+    "difficulty": "easy",
+    "metadata": {
+      "template": "word_problem_sub"
+    }
+  },
+  {
+    "question": "Each box contains 11 items. There are 11 boxes. How many items in total?",
+    "choices": [
+      "132",
+      "22",
+      "121",
+      "242"
+    ],
+    "correct_answer": 2,
+    "category": "arithmetic",
+    "difficulty": "medium",
+    "metadata": {
+      "template": "word_problem_mult"
+    }
+  },
+  {
+    "question": "There are 144 candies to share equally among 8 children. How many candies does each child get?",
+    "choices": [
+      "152",
+      "18",
+      "8",
+      "19"
+    ],
+    "correct_answer": 1,
+    "category": "arithmetic",
+    "difficulty": "medium",
+    "metadata": {
+      "template": "word_problem_div"
+    }
+  },
+  {
+    "question": "Tom has 25 dollars. He earns 6 more dollars. Then he triples his money. How much does he have?",
+    "choices": [
+      "34",
+      "34",
+      "450",
+      "93"
+    ],
+    "correct_answer": 3,
+    "category": "multi_step",
+    "difficulty": "hard",
+    "metadata": {
+      "template": "multi_step"
+    }
+  },
+  {
+    "question": "Alice has 84 apples. Bob gives her 92 more apples. How many apples does Alice have now?",
+    "choices": [
+      "84",
+      "176",
+      "181",
+      "173"
+    ],
+    "correct_answer": 1,
+    "category": "arithmetic",
+    "difficulty": "easy",
+    "metadata": {
+      "template": "word_problem_add"
+    }
+  },
+  {
+    "question": "A store had 192 items. They sold 82 items. How many items are left?",
+    "choices": [
+      "82",
+      "120",
+      "274",
+      "110"
+    ],
+    "correct_answer": 3,
+    "category": "arithmetic",
+    "difficulty": "easy",
+    "metadata": {
+      "template": "word_problem_sub"
+    }
+  },
+  {
+    "question": "Each box contains 5 items. There are 7 boxes. How many items in total?",
+    "choices": [
+      "35",
+      "40",
+      "70",
+      "12"
+    ],
+    "correct_answer": 0,
+    "category": "arithmetic",
+    "difficulty": "medium",
+    "metadata": {
+      "template": "word_problem_mult"
+    }
+  },
+  {
+    "question": "There are 36 candies to share equally among 3 children. How many candies does each child get?",
+    "choices": [
+      "3",
+      "39",
+      "13",
+      "12"
+    ],
+    "correct_answer": 3,
+    "category": "arithmetic",
+    "difficulty": "medium",
+    "metadata": {
+      "template": "word_problem_div"
+    }
+  },
+  {
+    "question": "Tom has 48 dollars. He earns 5 more dollars. Then he triples his money. How much does he have?",
+    "choices": [
+      "59",
+      "1440",
+      "318",
+      "59"
+    ],
+    "correct_answer": 2,
+    "category": "multi_step",
+    "difficulty": "hard",
+    "metadata": {
+      "template": "multi_step"
+    }
+  },
+  {
+    "question": "Alice has 86 apples. Bob gives her 87 more apples. How many apples does Alice have now?",
+    "choices": [
+      "173",
+      "86",
+      "170",
+      "178"
+    ],
+    "correct_answer": 0,
+    "category": "arithmetic",
+    "difficulty": "easy",
+    "metadata": {
+      "template": "word_problem_add"
+    }
+  },
+  {
+    "question": "A store had 187 items. They sold 36 items. How many items are left?",
+    "choices": [
+      "151",
+      "36",
+      "161",
+      "223"
+    ],
+    "correct_answer": 0,
+    "category": "arithmetic",
+    "difficulty": "easy",
+    "metadata": {
+      "template": "word_problem_sub"
+    }
+  },
+  {
+    "question": "Each box contains 3 items. There are 9 boxes. How many items in total?",
+    "choices": [
+      "54",
+      "30",
+      "12",
+      "27"
+    ],
+    "correct_answer": 3,
+    "category": "arithmetic",
+    "difficulty": "medium",
+    "metadata": {
+      "template": "word_problem_mult"
+    }
+  },
+  {
+    "question": "There are 30 candies to share equally among 6 children. How many candies does each child get?",
+    "choices": [
+      "6",
+      "36",
+      "6",
+      "5"
+    ],
+    "correct_answer": 3,
+    "category": "arithmetic",
+    "difficulty": "medium",
+    "metadata": {
+      "template": "word_problem_div"
+    }
+  },
+  {
+    "question": "Tom has 36 dollars. He earns 10 more dollars. Then he triples his money. How much does he have?",
+    "choices": [
+      "2880",
+      "54",
+      "54",
+      "368"
+    ],
+    "correct_answer": 3,
+    "category": "multi_step",
+    "difficulty": "hard",
+    "metadata": {
+      "template": "multi_step"
+    }
+  },
+  {
+    "question": "Alice has 34 apples. Bob gives her 69 more apples. How many apples does Alice have now?",
+    "choices": [
+      "34",
+      "103",
+      "100",
+      "108"
+    ],
+    "correct_answer": 1,
+    "category": "arithmetic",
+    "difficulty": "easy",
+    "metadata": {
+      "template": "word_problem_add"
+    }
+  },
+  {
+    "question": "A store had 106 items. They sold 51 items. How many items are left?",
+    "choices": [
+      "51",
+      "55",
+      "157",
+      "65"
+    ],
+    "correct_answer": 1,
+    "category": "arithmetic",
+    "difficulty": "easy",
+    "metadata": {
+      "template": "word_problem_sub"
+    }
+  },
+  {
+    "question": "Each box contains 6 items. There are 11 boxes. How many items in total?",
+    "choices": [
+      "132",
+      "17",
+      "66",
+      "72"
+    ],
+    "correct_answer": 2,
+    "category": "arithmetic",
+    "difficulty": "medium",
+    "metadata": {
+      "template": "word_problem_mult"
+    }
+  },
+  {
+    "question": "There are 48 candies to share equally among 3 children. How many candies does each child get?",
+    "choices": [
+      "16",
+      "3",
+      "51",
+      "17"
+    ],
+    "correct_answer": 0,
+    "category": "arithmetic",
+    "difficulty": "medium",
+    "metadata": {
+      "template": "word_problem_div"
+    }
+  },
+  {
+    "question": "Tom has 45 dollars. He earns 19 more dollars. Then he triples his money. How much does he have?",
+    "choices": [
+      "2565",
+      "67",
+      "67",
+      "192"
+    ],
+    "correct_answer": 3,
+    "category": "multi_step",
+    "difficulty": "hard",
+    "metadata": {
+      "template": "multi_step"
+    }
+  }
+]

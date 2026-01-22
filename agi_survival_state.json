@@ -1,0 +1,11 @@
+{
+  "state": "stopped",
+  "start_time": "2026-01-22T02:16:03.497468",
+  "last_heartbeat": "2026-01-22T02:21:34.736857",
+  "restart_count": 0,
+  "tasks_completed": 0,
+  "errors_count": 0,
+  "capability_score": 91.66666666666666,
+  "uptime": "00:05:39",
+  "saved_at": "2026-01-22T02:21:43.443245"
+}

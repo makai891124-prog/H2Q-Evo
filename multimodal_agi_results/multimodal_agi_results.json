@@ -1,0 +1,85 @@
+{
+  "experiment_info": {
+    "name": "H2Q 多模态 AGI 完整验证实验",
+    "timestamp": "2026-01-22T01:01:46.730879",
+    "config": {
+      "n_train_vision": 2000,
+      "n_test_vision": 500,
+      "vision_epochs": 10,
+      "n_exam_questions": 100
+    }
+  },
+  "model_info": {
+    "total_parameters": 255895,
+    "vision_params": 238116,
+    "language_params": 12516,
+    "math_params": 4933,
+    "config": {
+      "vision_input_size": 28,
+      "feature_dim": 32,
+      "num_classes": 10
+    }
+  },
+  "vision_results": {
+    "train_time": 0.7449898719787598,
+    "final_loss": 0.47330152080800997,
+    "test_accuracy": 0.794,
+    "test_loss": 0.4749761259505013,
+    "n_test": 500
+  },
+  "math_results": {
+    "train_time": 0.0020799636840820312,
+    "test_accuracy": 1.0,
+    "avg_error": 0.0,
+    "n_test": 200
+  },
+  "exam_results": {
+    "total_questions": 230,
+    "correct_answers": 228,
+    "accuracy": 0.991304347826087,
+    "grade": "卓越 (Outstanding)",
+    "by_category": {
+      "visual_understanding": {
+        "total": 50,
+        "correct": 50,
+        "accuracy": 1.0
+      },
+      "language_understanding": {
+        "total": 50,
+        "correct": 50,
+        "accuracy": 1.0
+      },
+      "mathematical_reasoning": {
+        "total": 50,
+        "correct": 48,
+        "accuracy": 0.96
+      },
+      "commonsense_reasoning": {
+        "total": 50,
+        "correct": 50,
+        "accuracy": 1.0
+      },
+      "cross_modal_understanding": {
+        "total": 30,
+        "correct": 30,
+        "accuracy": 1.0
+      }
+    },
+    "avg_time_per_question": 2.1198521489682407e-06,
+    "total_time": 0.0004875659942626953,
+    "avg_confidence": 0.8726086956521739,
+    "correct_confidence": 0.8723684210526315,
+    "wrong_confidence": 0.9,
+    "total_exam_time": 0.0007708072662353516,
+    "timestamp": "2026-01-22T01:01:46.730746"
+  },
+  "overall": {
+    "vision_score": 79.4,
+    "math_score": 100.0,
+    "exam_score": 99.1304347826087,
+    "overall_score": 93.47217391304349,
+    "grade": "优秀 (Excellent)",
+    "status": "EXCELLENT"
+  },
+  "exam_report": "============================================================\nH2Q 多模态 AGI - 人类标准考试报告\n============================================================\n\n日期: N/A\n\n总体成绩:\n  - 总题数: 230\n  - 正确数: 228\n  - 正确率: 99.1%\n  - 等级: 卓越 (Outstanding)\n\n分类成绩:\n  [visual_understanding]\n    正确: 50/50\n    正确率: 100.0%\n  [language_understanding]\n    正确: 50/50\n    正确率: 100.0%\n  [mathematical_reasoning]\n    正确: 48/50\n    正确率: 96.0%\n  [commonsense_reasoning]\n    正确: 50/50\n    正确率: 100.0%\n  [cross_modal_understanding]\n    正确: 30/30\n    正确率: 100.0%\n\n效率指标:\n  - 平均每题用时: 0.000秒\n  - 总用时: 0.00秒\n\n置信度分析:\n  - 平均置信度: 0.87\n  - 正确答案置信度: 0.87\n  - 错误答案置信度: 0.90\n\n等级解读:\n  系统展现出超越人类专家水平的能力!\n\n============================================================"
+}
