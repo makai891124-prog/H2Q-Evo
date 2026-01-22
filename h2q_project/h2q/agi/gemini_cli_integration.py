@@ -96,8 +96,9 @@ class GeminiCLIIntegration:
         except Exception as e:
             logger.warning(f"缓存保存失败: {e}")
     
-    def query(self, prompt: str, context: Optional[Dict] = None, 
-              use_cache: bool = True) -> Dict[str, Any]:
+    def query(self, prompt: str, context: Optional[Dict] = None,
+              use_cache: bool = True,
+              response_mime_type: Optional[str] = None) -> Dict[str, Any]:
         """
         查询Gemini获取矫正建议
         
@@ -130,20 +131,32 @@ class GeminiCLIIntegration:
         
         # 如果API可用，使用API调用
         if self.api_available:
-            return self._query_via_api(full_prompt, cache_key)
+            return self._query_via_api(full_prompt, cache_key, response_mime_type=response_mime_type)
         else:
             return self._query_via_cli(full_prompt, cache_key)
     
-    def _query_via_api(self, prompt: str, cache_key: str) -> Dict[str, Any]:
+    def _query_via_api(self, prompt: str, cache_key: str, response_mime_type: Optional[str] = None) -> Dict[str, Any]:
         """通过Google Generative AI API查询"""
         try:
             from google import genai
+            try:
+                from google.genai import types
+            except Exception:
+                types = None
 
             client = genai.Client(api_key=self.api_key)
-            response = client.models.generate_content(
-                model=self.model,
-                contents=prompt
-            )
+            if response_mime_type and types is not None:
+                config = types.GenerateContentConfig(response_mime_type=response_mime_type)
+                response = client.models.generate_content(
+                    model=self.model,
+                    contents=prompt,
+                    config=config
+                )
+            else:
+                response = client.models.generate_content(
+                    model=self.model,
+                    contents=prompt
+                )
             response_text = response.text
             
             # 保存到缓存
