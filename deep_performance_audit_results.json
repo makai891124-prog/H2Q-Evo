@@ -1,0 +1,47 @@
+{
+  "timestamp": "2026-01-23T15:49:17.005404",
+  "python_version": "3.12.2 (main, Dec 23 2025, 20:48:21) [Clang 17.0.0 (clang-1700.6.3.2)]",
+  "pytorch_version": "2.9.1",
+  "device": "mps",
+  "audits": {
+    "quaternion_parameters": {
+      "quaternion_equivalence": {
+        "quaternion_params": 132096,
+        "real_params": 33024,
+        "ratio": 4.0,
+        "expected_ratio": 4.0,
+        "is_fair": "yes"
+      }
+    },
+    "latency_integrity": {
+      "warmup_bias": {
+        "no_warmup_latency": 867.7071199826969,
+        "with_warmup_latency": 278.9984099854337,
+        "bias_percent": 67.8464768168553,
+        "is_fair": "no"
+      },
+      "measurement_completeness": {
+        "forward_only": 255.784129985841,
+        "full_pipeline": 472.68251999412314,
+        "overhead_percent": 45.88669579128478
+      }
+    },
+    "memory_accuracy": {
+      "memory_methods": {
+        "measurements": {
+          "param_only": 15.270233154296875,
+          "tracemalloc": 0.0090484619140625,
+          "psutil": 7.296875,
+          "torch_estimate": 15.636444091796875
+        },
+        "max_min_ratio": 1728.0775716694773
+      }
+    },
+    "cifar10_benchmark": {
+      "script_exists": "yes",
+      "script_path": "h2q_project/benchmarks/cifar10_classification.py",
+      "command": "PYTHONPATH=. python3 h2q_project/benchmarks/cifar10_classification.py --epochs 10",
+      "quick_command": "PYTHONPATH=. python3 h2q_project/benchmarks/cifar10_classification.py --epochs 3"
+    }
+  }
+}
