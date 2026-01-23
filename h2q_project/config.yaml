@@ -1,0 +1,18 @@
+# Configuration for training
+
+device: "cuda" # or "cpu"
+
+batch_size: 64
+epochs: 20
+learning_rate: 0.001
+
+optimizer: "Adam" # or "SGD"
+momentum: 0.9 # Only relevant for SGD
+
+loss_fn: "CrossEntropyLoss" # Example for classification.  Other option MSELoss for Regression
+
+scheduler: "ReduceLROnPlateau" # or null for no scheduler
+scheduler_factor: 0.1
+scheduler_patience: 5
+
+save_path: "checkpoints"

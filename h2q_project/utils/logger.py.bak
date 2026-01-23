@@ -1,0 +1,80 @@
+import logging
+import os
+from datetime import datetime
+
+import torch
+from torch.utils.tensorboard import SummaryWriter
+
+class Logger:
+    def __init__(self, log_dir, experiment_name='default', level=logging.INFO):
+        self.log_dir = log_dir
+        self.experiment_name = experiment_name
+        self.level = level
+        self.logger = self._get_logger()
+        self.tensorboard_writer = self._get_tensorboard_writer()
+
+    def _get_logger(self):
+        log_file_path = os.path.join(self.log_dir, f'{self.experiment_name}.log')
+        os.makedirs(self.log_dir, exist_ok=True)
+
+        logger = logging.getLogger(self.experiment_name)
+        logger.setLevel(self.level)
+
+        fh = logging.FileHandler(log_file_path)
+        formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+        fh.setFormatter(formatter)
+        logger.addHandler(fh)
+
+        return logger
+
+    def _get_tensorboard_writer(self):
+        tensorboard_dir = os.path.join(self.log_dir, 'tensorboard')
+        os.makedirs(tensorboard_dir, exist_ok=True)
+        return SummaryWriter(tensorboard_dir)
+
+    def log(self, message, level=logging.INFO):
+        self.logger.log(level, message)
+
+    def log_scalar(self, tag, value, step):
+        self.tensorboard_writer.add_scalar(tag, value, step)
+
+    def log_histogram(self, tag, values, step):
+        self.tensorboard_writer.add_histogram(tag, values, step)
+
+    def log_image(self, tag, img_tensor, step):
+        self.tensorboard_writer.add_image(tag, img_tensor, step)
+
+    def log_text(self, tag, text_string, step):
+        self.tensorboard_writer.add_text(tag, text_string, step)
+
+    def log_artifact(self, artifact_path):
+        pass # Placeholder for MLflow or other artifact tracking systems
+
+    def close(self):
+        self.tensorboard_writer.close()
+
+
+if __name__ == '__main__':
+    # Example Usage
+    log_dir = 'logs'
+    experiment_name = 'example_experiment'
+
+    logger = Logger(log_dir, experiment_name)
+
+    logger.log('This is an informational message.')
+    logger.log('This is a warning message.', level=logging.WARNING)
+
+    # Logging a scalar value for TensorBoard
+    logger.log_scalar('example_scalar', 0.5, 1)
+
+    # Example usage of logging a histogram (replace with your actual data)
+    import numpy as np
+    example_data = np.random.randn(1000)
+    logger.log_histogram('example_histogram', example_data, 1)
+
+    # Example of logging an image (replace with your actual image tensor)
+    # Note:  Requires image data to be a PyTorch Tensor of shape (C, H, W)
+    example_image = torch.rand((3, 100, 100))
+    logger.log_image('example_image', example_image, 1)
+
+    logger.close()

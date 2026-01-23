@@ -1,0 +1,99 @@
+import torch
+import torch.nn as nn
+import torch.optim as optim
+from typing import Dict, Any
+from h2q_project.trainer import Trainer
+
+# Define a simple example model
+class ExampleModel(nn.Module):
+    def __init__(self, input_size, output_size):
+        super(ExampleModel, self).__init__()
+        self.linear = nn.Linear(input_size, output_size)
+
+    def forward(self, x):
+        return self.linear(x)
+
+class ExampleTrainer(Trainer):
+    def __init__(self, config: Dict[str, Any]):
+        super().__init__(config)
+        self.model = ExampleModel(config['input_size'], config['output_size'])
+        self.optimizer = optim.Adam(self.model.parameters(), lr=config['learning_rate'])
+        self.criterion = nn.MSELoss()
+        self.device = config.get('device', 'cpu') # Use 'cpu' as default if not specified
+        self.model.to(self.device)
+
+        self.train_data = config['train_data']
+        self.val_data = config['val_data']
+
+    def train(self): # Removed type hints for brevity
+        self.model.train()
+        for i, (inputs, labels) in enumerate(self.train_data):
+            inputs = inputs.to(self.device)
+            labels = labels.to(self.device)
+            self.optimizer.zero_grad()
+            outputs = self.model(inputs)
+            loss = self.criterion(outputs, labels)
+            loss.backward()
+            self.optimizer.step()
+            if i % 10 == 0:
+                print(f'Epoch: [{i+1}/{len(self.train_data)}], Loss: {loss.item():.4f}')
+
+    def evaluate(self):
+        self.model.eval()
+        total_loss = 0
+        with torch.no_grad():
+            for inputs, labels in self.val_data:
+                inputs = inputs.to(self.device)
+                labels = labels.to(self.device)
+                outputs = self.model(inputs)
+                loss = self.criterion(outputs, labels)
+                total_loss += loss.item()
+
+        avg_loss = total_loss / len(self.val_data)
+        print(f'Validation Loss: {avg_loss:.4f}')
+        return {'validation_loss': avg_loss}
+
+    def save_model(self, path):
+        torch.save(self.model.state_dict(), path)
+        print(f'Model saved to {path}')
+
+    def load_model(self, path):
+        self.model.load_state_dict(torch.load(path))
+        self.model.eval()
+        print(f'Model loaded from {path}')
+
+
+if __name__ == '__main__':
+    # Example Usage (replace with your actual data and paths)
+    # Generate some dummy data
+    input_size = 10
+    output_size = 1
+    num_samples = 100
+    train_data = [(torch.randn(input_size), torch.randn(output_size)) for _ in range(80)]
+    val_data = [(torch.randn(input_size), torch.randn(output_size)) for _ in range(20)]
+
+    config = {
+        'input_size': input_size,
+        'output_size': output_size,
+        'learning_rate': 0.001,
+        'train_data': train_data,
+        'val_data': val_data,
+        'device': 'cpu' # or 'cuda' if available
+    }
+
+    trainer = ExampleTrainer(config)
+
+    # Train the model
+    trainer.train()
+
+    # Evaluate the model
+    metrics = trainer.evaluate()
+    print(f"Evaluation Metrics: {metrics}")
+
+    # Save the model
+    trainer.save_model('example_model.pth')
+
+    # Load the model
+    trainer.load_model('example_model.pth')
+
+    # You can now use the loaded model for inference

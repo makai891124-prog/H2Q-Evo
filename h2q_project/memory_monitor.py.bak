@@ -1,0 +1,50 @@
+import docker
+import time
+import json
+import logging
+
+# Configure logging
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+
+class MemoryMonitor:
+    def __init__(self, container_name, threshold_percent=90, interval=60):
+        self.container_name = container_name
+        self.threshold_percent = threshold_percent
+        self.interval = interval
+        self.client = docker.from_env()
+        self.container = self.client.containers.get(self.container_name)
+
+    def get_memory_usage(self):
+        try:
+            stats = self.container.stats(stream=False)
+            memory_usage = stats['memory_stats']['usage']
+            memory_limit = stats['memory_stats']['limit']
+            percentage_used = (memory_usage / memory_limit) * 100 if memory_limit > 0 else 0
+            return percentage_used
+        except Exception as e:
+            logging.error(f"Error getting memory usage: {e}")
+            return None
+
+    def check_threshold(self):
+        usage = self.get_memory_usage()
+        if usage is None:
+            return
+
+        if usage > self.threshold_percent:
+            logging.warning(f"Memory usage for {self.container_name} is above threshold: {usage:.2f}% > {self.threshold_percent}%")
+        else:
+            logging.info(f"Memory usage for {self.container_name}: {usage:.2f}% (Threshold: {self.threshold_percent}%) ")
+
+    def run(self):
+        while True:
+            self.check_threshold()
+            time.sleep(self.interval)
+
+if __name__ == '__main__':
+    # Example usage
+    container_name = 'my_container'  # Replace with your container name
+    threshold_percent = 80  # Example threshold
+    interval = 30  # Check every 30 seconds
+
+    monitor = MemoryMonitor(container_name, threshold_percent, interval)
+    monitor.run()

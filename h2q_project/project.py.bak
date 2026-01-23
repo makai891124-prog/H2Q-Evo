@@ -1,0 +1,42 @@
+import os
+
+class Project:
+    def __init__(self, path):
+        self.path = path
+
+    def get_file_content(self, file_path):
+        with open(os.path.join(self.path, file_path), 'r') as f:
+            return f.read()
+
+    def get_file_head(self, file_path, lines=5): # Reduced default lines to 5
+        try:
+            with open(os.path.join(self.path, file_path), 'r') as f:
+                head = []
+                for i in range(lines):
+                    try:
+                        head.append(f.readline())
+                    except:
+                        break
+                return ''.join(head)
+        except FileNotFoundError:
+            return None
+
+    def list_files(self):
+        files = []
+        for root, _, filenames in os.walk(self.path):
+            for filename in filenames:
+                files.append(os.path.join(root, filename))
+        return files
+
+    def get_project_context(self, max_files=5):
+        files = self.list_files()
+        context = ''
+        count = 0
+        for file in files:
+            if count >= max_files:
+                break
+            head = self.get_file_head(file, lines=3) #Reduced lines in project context
+            if head:
+                context += f'\n\nFile: {file}\n\n{head}'
+                count += 1
+        return context

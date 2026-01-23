@@ -1,0 +1,20 @@
+model:
+  input_size: 10
+  hidden_size: 20
+  output_size: 2
+
+optimizer:
+  learning_rate: 0.001
+
+dataloader:
+  batch_size: 32
+
+training:
+  num_epochs: 10
+
+device: 'cuda'
+
+checkpoint_path: 'checkpoints/model_a_checkpoint.pth'
+
+#Optional - set to path of existing checkpoint to load from
+#load_from_checkpoint: 'checkpoints/model_a_checkpoint.pth'

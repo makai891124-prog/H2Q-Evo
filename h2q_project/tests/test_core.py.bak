@@ -1,0 +1,22 @@
+import unittest
+
+# Assuming core module has functions like add, subtract, etc.
+# Replace with your actual core module import
+from h2q_project import core
+
+class TestCoreFunctions(unittest.TestCase):
+
+    def test_add(self):
+        self.assertEqual(core.add(2, 3), 5)
+        self.assertEqual(core.add(-1, 1), 0)
+        self.assertEqual(core.add(0, 0), 0)
+
+    def test_subtract(self):
+        self.assertEqual(core.subtract(5, 2), 3)
+        self.assertEqual(core.subtract(1, -1), 2)
+        self.assertEqual(core.subtract(0, 0), 0)
+
+# Add more test functions as needed for other functions in the core module
+
+if __name__ == '__main__':
+    unittest.main()

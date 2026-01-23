@@ -1,0 +1,62 @@
+from typing import List
+
+class Point:
+    def __init__(self, x: float, y: float, z: float):
+        self.x = x
+        self.y = y
+        self.z = z
+
+    def distance_to(self, other: 'Point') -> float:
+        return ((self.x - other.x)**2 + (self.y - other.y)**2 + (self.z - other.z)**2)**0.5
+
+class LineSegment:
+    def __init__(self, start: Point, end: Point):
+        self.start = start
+        self.end = end
+
+    def length(self) -> float:
+        return self.start.distance_to(self.end)
+
+class Triangle:
+    def __init__(self, p1: Point, p2: Point, p3: Point):
+        self.p1 = p1
+        self.p2 = p2
+        self.p3 = p3
+
+    def area(self) -> float:
+        a = self.p1.distance_to(self.p2)
+        b = self.p2.distance_to(self.p3)
+        c = self.p3.distance_to(self.p1)
+        s = (a + b + c) / 2
+        return (s * (s - a) * (s - b) * (s - c))**0.5
+
+
+class GeometryKernel:
+    def __init__(self):
+        pass
+
+    def calculate_distance(self, point1: Point, point2: Point) -> float:
+        return point1.distance_to(point2)
+
+    def calculate_area(self, triangle: Triangle) -> float:
+        return triangle.area()
+
+
+class SelfReflection:
+    def __init__(self, kernel: GeometryKernel):
+        self.kernel = kernel
+
+    def reflect_on_methods(self) -> str:
+        """Reflects on the methods available in the GeometryKernel."""
+        methods = [method for method in dir(self.kernel) if callable(getattr(self.kernel, method)) and not method.startswith("__")]
+        return f"Available methods in GeometryKernel: {', '.join(methods)}"
+
+    def reflect_on_distance_calculation(self, point1: Point, point2: Point) -> str:
+        """Reflects on the distance calculation between two points."""
+        distance = self.kernel.calculate_distance(point1, point2)
+        return f"The calculated distance between the two points is: {distance}"
+
+    def reflect_on_area_calculation(self, triangle: Triangle) -> str:
+        """Reflects on the area calculation of a triangle."""
+        area = self.kernel.calculate_area(triangle)
+        return f"The calculated area of the triangle is: {area}"

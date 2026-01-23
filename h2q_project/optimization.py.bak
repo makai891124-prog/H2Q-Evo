@@ -1,0 +1,65 @@
+import torch
+
+def optimize_model(model):
+    """Optimizes the PyTorch model for reduced memory footprint.
+
+    This function explores options like TorchScript or ONNX Runtime
+    to reduce the memory footprint of the model.
+    """
+    # Option 1: TorchScript
+    try:
+        # Convert the model to TorchScript
+        scripted_model = torch.jit.script(model)
+        print("Model converted to TorchScript.")
+        return scripted_model # Return the optimized model
+    except Exception as e:
+        print(f"TorchScript conversion failed: {e}")
+        print("Falling back to ONNX Runtime.")
+
+        # Option 2: ONNX Runtime (requires onnx and onnxruntime)
+        try:
+            import onnx
+            import onnxruntime as rt
+            import numpy as np
+
+            # Create a dummy input for tracing
+            dummy_input = torch.randn(1, *model.example_input_array.shape[1:]) # Use model's example input
+
+            # Export to ONNX format
+            onnx_path = "model.onnx"
+            torch.onnx.export(
+                model,
+                dummy_input,
+                onnx_path,
+                verbose=False,
+                input_names=['input'],  # Optional: Provide input names
+                output_names=['output'] # Optional: Provide output names
+            )
+            print("Model exported to ONNX.")
+
+            # Load with ONNX Runtime
+            sess = rt.InferenceSession(onnx_path)
+
+            def to_numpy(tensor):
+                return tensor.detach().cpu().numpy() if tensor.requires_grad else tensor.cpu().numpy()
+
+            # Create a wrapper function for ONNX Runtime inference
+            def onnx_inference(input_tensor):
+                ort_inputs = {'input': to_numpy(input_tensor)}
+                ort_outs = sess.run(None, ort_inputs)
+                return torch.tensor(ort_outs[0])
+
+            print("Model loaded with ONNX Runtime.")
+            return onnx_inference # Return the optimized inference function
+
+        except ImportError as e:
+            print(f"ONNX Runtime import error: {e}")
+            print("ONNX Runtime not available. Returning original model.")
+            return model # Return original model if ONNX not available
+        except Exception as e:
+             print(f"ONNX conversion or inference failed: {e}")
+             print("Returning original model.")
+             return model
+
+    # If both methods fail, return the original model
+    return model

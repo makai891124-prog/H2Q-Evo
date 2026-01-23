@@ -1,0 +1,31 @@
+import numpy as np
+from h2q_project.quaternion_inspector import QuaternionInspector
+
+# Example usage (assuming you have a model defined)
+# Replace 'your_model' with your actual model instance
+class DummyModel:
+    def __init__(self):
+        self.name = "DummyModel"
+
+    def get_name(self):
+        return self.name
+
+your_model = DummyModel()
+
+inspector = QuaternionInspector(your_model)
+
+# Example quaternion (replace with your model's output)
+quaternion = np.array([1.0, 0.0, 0.0, 0.0])
+
+# Inspect the quaternion and potentially adjust the model
+inspector.process_quaternion(quaternion)
+
+# Example of a potentially problematic quaternion
+quaternion_problem = np.array([-0.707, 0.0, 0.707, 0.0]) # Represents a 90 degree rotation around Z axis
+inspector.process_quaternion(quaternion_problem)
+
+quaternion_non_unit = np.array([1.0, 0.1, 0.0, 0.0]) # Not a unit quaternion
+inspector.process_quaternion(quaternion_non_unit)
+
+
+print(f"Model name: {your_model.get_name()}")

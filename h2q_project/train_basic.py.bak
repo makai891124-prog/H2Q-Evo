@@ -1,0 +1,51 @@
+import torch
+import torch.nn as nn
+import torch.optim as optim
+from torch.utils.data import DataLoader, TensorDataset
+from h2q_project.trainer import Trainer
+
+# Define a simple model
+class SimpleModel(nn.Module):
+    def __init__(self, input_size, output_size):
+        super(SimpleModel, self).__init__()
+        self.linear = nn.Linear(input_size, output_size)
+
+    def forward(self, x):
+        return self.linear(x)
+
+
+def train():
+    # Hyperparameters
+    input_size = 10
+    output_size = 1
+    learning_rate = 0.001
+    num_epochs = 10
+    batch_size = 32
+
+    # Generate some dummy data
+    X_train = torch.randn(100, input_size)
+    y_train = torch.randn(100, output_size)
+    X_val = torch.randn(50, input_size)
+    y_val = torch.randn(50, output_size)
+
+    # Create datasets and dataloaders
+    train_dataset = TensorDataset(X_train, y_train)
+    val_dataset = TensorDataset(X_val, y_val)
+    train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True)
+    val_loader = DataLoader(val_dataset, batch_size=batch_size)
+
+    # Initialize model, optimizer, and loss function
+    model = SimpleModel(input_size, output_size)
+    optimizer = optim.Adam(model.parameters(), lr=learning_rate)
+    loss_fn = nn.MSELoss()
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    model.to(device)
+
+    # Initialize Trainer
+    trainer = Trainer(model, optimizer, loss_fn, device, train_loader, val_loader)
+
+    # Train the model
+    trainer.train(num_epochs)
+
+if __name__ == "__main__":
+    train()

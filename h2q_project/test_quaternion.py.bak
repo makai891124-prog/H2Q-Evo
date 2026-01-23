@@ -1,0 +1,54 @@
+import unittest
+import numpy as np
+from h2q_project.quaternion import Quaternion
+
+class TestQuaternion(unittest.TestCase):
+
+    def test_conjugate(self):
+        q = Quaternion(1, 2, 3, 4)
+        q_conj = q.conjugate()
+        self.assertEqual(q_conj.w, 1)
+        self.assertEqual(q_conj.x, -2)
+        self.assertEqual(q_conj.y, -3)
+        self.assertEqual(q_conj.z, -4)
+
+    def test_norm(self):
+        q = Quaternion(1, 2, 2, 1)
+        self.assertAlmostEqual(q.norm(), np.sqrt(10))
+
+    def test_normalize(self):
+        q = Quaternion(1, 2, 2, 1)
+        q.normalize()
+        self.assertAlmostEqual(q.norm(), 1.0)
+
+    def test_multiplication(self):
+        q1 = Quaternion(1, 2, 3, 4)
+        q2 = Quaternion(5, 6, 7, 8)
+        q3 = q1 * q2
+
+        self.assertAlmostEqual(q3.w, -60.0)
+        self.assertAlmostEqual(q3.x, 12.0)
+        self.assertAlmostEqual(q3.y, 30.0)
+        self.assertAlmostEqual(q3.z, 24.0)
+
+    def test_to_rotation_matrix(self):
+        # Test quaternion to rotation matrix conversion
+        q = Quaternion(1, 0, 0, 0)  # Identity quaternion
+        rotation_matrix = q.to_rotation_matrix()
+        expected_matrix = np.array([[1, 0, 0],
+                                    [0, 1, 0],
+                                    [0, 0, 1]])
+        np.testing.assert_allclose(rotation_matrix, expected_matrix)
+
+        # Test rotation around Z axis by 90 degrees
+        angle = np.pi / 2
+        q = Quaternion(np.cos(angle / 2), 0, 0, np.sin(angle / 2))
+        rotation_matrix = q.to_rotation_matrix()
+        expected_matrix = np.array([[np.cos(angle), -np.sin(angle), 0],
+                                    [np.sin(angle), np.cos(angle), 0],
+                                    [0, 0, 1]])
+        np.testing.assert_allclose(rotation_matrix, expected_matrix, atol=1e-7)
+
+
+if __name__ == '__main__':
+    unittest.main()

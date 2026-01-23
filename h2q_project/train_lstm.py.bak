@@ -1,0 +1,31 @@
+import torch
+from h2q_project.model import SimpleLSTM  # 确保导入正确的 SimpleLSTM
+from h2q_project.dataset import MathDataset  # 确保导入正确的 MathDataset
+from h2q_project.trainer import Trainer
+
+# 超参数
+input_size = 10
+output_size = 5
+hidden_size = 64
+num_layers = 2
+batch_size = 32
+learning_rate = 0.001
+epochs = 10
+
+# 创建数据集和模型
+dataset = MathDataset(length=1000, input_size=input_size, output_size=output_size)
+model = SimpleLSTM(input_size, hidden_size, output_size, num_layers)
+
+# 创建 Trainer 实例
+trainer = Trainer(model, dataset, batch_size, learning_rate)
+
+# 训练模型
+trainer.train(epochs)
+
+# 评估模型
+trainer.evaluate()
+
+# 保存模型
+model_path = "trained_lstm_model.pth"
+trainer.save_model(model_path)
+print(f"Model saved to {model_path}")

@@ -1,0 +1,52 @@
+import tensorflow as tf
+from h2q_project.core.optimization import GradientBasedOptimizer, NetworkAdaptor
+
+class Trainer:
+    def __init__(self, model, loss_fn, optimizer=None):
+        self.model = model
+        self.loss_fn = loss_fn
+        if optimizer is None:
+            self.optimizer = GradientBasedOptimizer()
+        else:
+            self.optimizer = optimizer
+
+        self.network_adaptor = NetworkAdaptor(model)
+        self.loss_history = []
+
+
+    def train_step(self, data, labels):
+        with tf.GradientTape() as tape:
+            predictions = self.model(data)
+            loss = self.loss_fn(labels, predictions)
+
+        gradients = tape.gradient(loss, self.model.trainable_variables)
+        self.optimizer.apply_gradients(zip(gradients, self.model.trainable_variables))
+        return loss
+
+    def train(self, dataset, epochs=10, adaptation_frequency=5):
+        for epoch in range(epochs):
+            epoch_loss_avg = tf.keras.metrics.Mean()
+            for data, labels in dataset:
+                loss = self.train_step(data, labels)
+                epoch_loss_avg.update_state(loss)
+
+            self.loss_history.append(epoch_loss_avg.result().numpy())
+            print(f"Epoch {epoch+1}, Loss: {epoch_loss_avg.result().numpy()}")
+
+            self.optimizer.adjust_learning_rate(self.loss_history)
+
+            if (epoch + 1) % adaptation_frequency == 0:
+                # Evaluate performance (replace with your actual evaluation)
+                performance_metric = self.evaluate_performance(dataset)
+                self.network_adaptor.adapt_network(performance_metric)
+
+    def evaluate_performance(self, dataset):
+        """Evaluates the model's performance (replace with your actual evaluation logic)."""
+        # Example: Calculate accuracy
+        accuracy = tf.keras.metrics.Accuracy()
+        for data, labels in dataset:
+            predictions = self.model(data)
+            accuracy.update_state(tf.argmax(labels, axis=1), tf.argmax(predictions, axis=1))
+
+        return accuracy.result().numpy()
+

@@ -1,0 +1,39 @@
+import unittest
+from h2q_project.core.kernel import Kernel
+
+class TestKernel(unittest.TestCase):
+
+    def setUp(self):
+        self.kernel = Kernel()
+
+    def test_register_and_execute_operation(self):
+        def add_one(x):
+            return x + 1
+
+        self.kernel.register_operation("add_one", add_one)
+        result = self.kernel.execute_operation("add_one", 5)
+        self.assertEqual(result, 6)
+        self.assertIn("Executed operation add_one with data 5 and result 6", self.kernel.get_reflection_log())
+
+    def test_execute_unregistered_operation(self):
+        result = self.kernel.execute_operation("subtract_one", 5)
+        self.assertIsNone(result)
+        self.assertIn("Attempted to execute unregistered operation: subtract_one", self.kernel.get_reflection_log())
+
+    def test_operation_failure(self):
+        def failing_operation(x):
+            raise ValueError("Intentional failure")
+
+        self.kernel.register_operation("failing", failing_operation)
+        result = self.kernel.execute_operation("failing", 5)
+        self.assertIsNone(result)
+        self.assertIn("Operation failing failed with error: Intentional failure", self.kernel.get_reflection_log())
+
+    def test_reflection_log(self):
+        self.kernel.log_reflection("Test reflection message")
+        self.assertIn("Test reflection message", self.kernel.get_reflection_log())
+
+    def test_clear_reflection_log(self):
+        self.kernel.log_reflection("Initial message")
+        self.kernel.clear_reflection_log()
+        self.assertEqual(len(self.kernel.get_reflection_log()), 0)

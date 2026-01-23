@@ -1,0 +1,62 @@
+import torch
+import torch.nn as nn
+import torch.optim as optim
+from torch.utils.data import DataLoader, Dataset
+
+from h2q_project.trainer import Trainer
+
+# Dummy Dataset
+class DummyDataset(Dataset):
+    def __init__(self, length):
+        self.length = length
+        self.data = torch.randn(length, 10)
+        self.labels = torch.randint(0, 2, (length,))
+
+    def __len__(self):
+        return self.length
+
+    def __getitem__(self, idx):
+        return self.data[idx], self.labels[idx]
+
+# Dummy Model
+class DummyModel(nn.Module):
+    def __init__(self):
+        super(DummyModel, self).__init__()
+        self.linear = nn.Linear(10, 2)
+
+    def forward(self, x):
+        return self.linear(x)
+
+if __name__ == '__main__':
+    # Hyperparameters (can be overridden by config)
+    num_epochs = 15
+    learning_rate = 0.01
+    batch_size = 64
+
+    # Datasets
+    train_dataset = DummyDataset(2000)
+    val_dataset = DummyDataset(400)
+
+    # Model
+    model = DummyModel()
+
+    # Advanced Configuration
+    config = {
+        'optimizer': {
+            'name': 'SGD',
+            'params': {'lr': learning_rate, 'momentum': 0.9}
+        },
+        'lr_scheduler': {
+            'name': 'CosineAnnealingLR',
+            'params': {'T_max': num_epochs}
+        },
+        'loss_fn': 'NLLLoss',
+        'batch_size': batch_size,
+        'epochs': num_epochs
+    }
+
+    # Trainer
+    trainer = Trainer(model, train_dataset, val_dataset, config)
+
+    # Train
+    trainer.train()

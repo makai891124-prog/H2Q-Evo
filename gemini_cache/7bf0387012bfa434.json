@@ -1,0 +1,5 @@
+{
+  "timestamp": 1769074539.916256,
+  "response": "```json\n{\n  \"selected\": [3, 0],\n  \"ranked\": [3, 0, 1, 2],\n  \"probs\": [\n    0.1,\n    0.01,\n    0.001,\n    0.889\n  ]\n}\n```\n\n**Explanation:**\n\n*   **Calculation:**\n    *   Johnny started with $20 + $10 = $30.\n    *   This amount tripled, so he had $30 * 3 = $90.\n\n*   **selected:**  The two most likely answers are $90 and $105.\n\n*   **ranked:** The options are ranked from most to least likely based on the calculation. $90 is the correct answer so it is first. $105 could be a human error so it could also be considered by the model.\n\n*   **probs:**  The probabilities are assigned based on the ranked order, with the correct answer ($90) receiving the highest probability. The probabilities sum to 1.  The probabilities reflect the model's relatively high confidence in the correctness of $90. Because $105 is plausible, its probability is higher than the completely implausible $5 or $5600.\n",
+  "model": "gemini-2.0-flash"
+}

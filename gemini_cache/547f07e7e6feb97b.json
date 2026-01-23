@@ -1,0 +1,5 @@
+{
+  "timestamp": 1769074406.364175,
+  "response": "```json\n{\n  \"selected\": [1, 0],\n  \"ranked\": [1, 0, 3, 2],\n  \"probs\": [0.4, 0.59, 0.001, 0.009]\n}\n```\n\n**Explanation:**\n\n* **Calculation:**\n    * Street 1: 5 children\n    * Street 2: Each of the 5 children is joined by 1 more: 5 * 2 = 10 children\n    * Street 3: Each of the 10 children is joined by 2 more: 10 * 3 = 30 children\n    * Original 5 children leave: 30 children - 5 = 25 children\n\n    The expected answer is 25 but 10 is closer to intermediate number 10. Hence the ordering.\n\n* **`selected`**: The indices `1` and `0` correspond to '10' and '25', the two most probable answers.\n* **`ranked`**: The indices are ordered by descending probability (likelihood of being correct).  `1` (10) is considered the most likely, followed by `0` (25), then `3` (5), and finally `2` (5600).\n* **`probs`**:  These are estimated probabilities assigned to each option.  They sum to 1.  '10' has the highest probability (0.59), followed by '25' (0.4). The remaining probabilities are distributed very low to make them to sum 1.\n",
+  "model": "gemini-2.0-flash"
+}

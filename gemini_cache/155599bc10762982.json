@@ -1,0 +1,5 @@
+{
+  "timestamp": 1769076343.177941,
+  "response": "[\n  {\n    \"file_path\": \"h2q_project/core/tests/test_core.py\",\n    \"content\": \"import unittest\\nfrom h2q_project.core import core_function  # 假设core.py中有core_function\\n\\nclass TestCore(unittest.TestCase):\\n\\n    def test_core_function(self):\\n        # 编写你的测试用例\\n        self.assertEqual(core_function(2), 4) # 示例测试，假设core_function实现平方功能\\n\\nif __name__ == '__main__':\\n    unittest.main()\"\n  },\n  {\n    \"file_path\": \"h2q_project/core/core.py\",\n    \"content\": \"def core_function(x):\\n    return x * x\"\n  }\n]",
+  "model": "gemini-2.0-flash"
+}

@@ -1,0 +1,5 @@
+{
+  "timestamp": 1769071102.043594,
+  "response": "[\n  {\n    \"file_path\": \"h2q_project/fractal_generator.py\",\n    \"content\": \"import numpy as np\\n\\nclass FractalGenerator:\\n    def __init__(self, max_iterations=256):\\n        self.max_iterations = max_iterations\\n\\n    def mandelbrot(self, x, y, threshold=4.0):\\n        c = complex(x, y)\\n        z = 0j\\n        for i in range(self.max_iterations):\\n            z = z*z + c\\n            if (z.real * z.real + z.imag * z.imag) >= threshold:\\n                return i\\n        return self.max_iterations\\n\\n    def generate_fractal(self, x_start, x_end, y_start, y_end, width, height):\\n        x = np.linspace(x_start, x_end, width, dtype=np.float32)\\n        y = np.linspace(y_start, y_end, height, dtype=np.float32)\\n        image = np.empty((height, width), dtype=np.uint8)\\n        for i in range(height):\\n            for j in range(width):\\n                image[i, j] = self.mandelbrot(x[j], y[i])\\n        return image\"\n  }\n]",
+  "model": "gemini-2.0-flash"
+}

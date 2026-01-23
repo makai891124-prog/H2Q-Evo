@@ -1,0 +1,5 @@
+{
+  "timestamp": 1769069739.1114082,
+  "response": "[\n  {\n    \"file_path\": \"h2q_project/core.py\",\n    \"content\": \"import os\\nfrom typing import List, Dict\\n\\nclass Project:\\n    def __init__(self, root_dir: str):\\n        self.root_dir = root_dir\\n\\n    def get_all_files(self) -> List[str]:\\n        all_files = []\\n        for dirpath, dirnames, filenames in os.walk(self.root_dir):\\n            for filename in filenames:\\n                all_files.append(os.path.join(dirpath, filename))\\n        return all_files\\n\\n    def read_file(self, file_path: str) -> str:\\n        with open(file_path, 'r', encoding='utf-8') as f:\\n            return f.read()\\n\\n\\ndef get_project_context(project: Project) -> Dict[str, str]:\\n    context = {}\\n    for file_path in project.get_all_files():\\n        relative_path = os.path.relpath(file_path, project.root_dir)\\n        context[relative_path] = project.read_file(file_path)\\n    return context\\n\"\n  }\n]",
+  "model": "gemini-2.0-flash"
+}

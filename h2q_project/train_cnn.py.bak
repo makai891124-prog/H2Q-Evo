@@ -1,0 +1,65 @@
+import torch
+import torch.nn as nn
+import torch.optim as optim
+from torch.utils.data import DataLoader, TensorDataset
+from h2q_project.trainer import Trainer
+
+# Define a simple CNN model
+class SimpleCNN(nn.Module):
+    def __init__(self):
+        super(SimpleCNN, self).__init__()
+        self.conv1 = nn.Conv2d(1, 16, kernel_size=3, stride=1, padding=1)
+        self.relu1 = nn.ReLU()
+        self.pool1 = nn.MaxPool2d(kernel_size=2, stride=2)
+        self.conv2 = nn.Conv2d(16, 32, kernel_size=3, stride=1, padding=1)
+        self.relu2 = nn.ReLU()
+        self.pool2 = nn.MaxPool2d(kernel_size=2, stride=2)
+        self.fc = nn.Linear(32 * 7 * 7, 10)
+
+    def forward(self, x):
+        x = self.pool1(self.relu1(self.conv1(x)))
+        x = self.pool2(self.relu2(self.conv2(x)))
+        x = x.view(-1, 32 * 7 * 7)
+        x = self.fc(x)
+        return x
+
+# Generate some dummy data
+def generate_dummy_data(num_samples=1000):
+    X = torch.randn(num_samples, 1, 28, 28)
+    y = torch.randint(0, 10, (num_samples,))
+    return X, y
+
+
+def main():
+    # Hyperparameters
+    batch_size = 64
+    learning_rate = 0.001
+    epochs = 10
+    device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+
+    # Generate dummy data
+    X, y = generate_dummy_data()
+
+    # Split into training and validation sets
+    train_size = int(0.8 * len(X))
+    val_size = len(X) - train_size
+    train_dataset = TensorDataset(X[:train_size], y[:train_size])
+    val_dataset = TensorDataset(X[train_size:], y[train_size:])
+
+    # Create data loaders
+    train_dataloader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True)
+    val_dataloader = DataLoader(val_dataset, batch_size=batch_size, shuffle=False)
+
+    # Initialize model, optimizer, and loss function
+    model = SimpleCNN().to(device)
+    optimizer = optim.Adam(model.parameters(), lr=learning_rate)
+    criterion = nn.CrossEntropyLoss()
+
+    # Initialize Trainer
+    trainer = Trainer(model, train_dataloader, val_dataloader, optimizer, criterion, device)
+
+    # Train the model
+    trainer.train(epochs)
+
+if __name__ == "__main__":
+    main()

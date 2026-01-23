@@ -1,0 +1,49 @@
+import torch
+import torch.nn as nn
+import torch.optim as optim
+from torch.utils.data import Dataset, DataLoader
+from h2q_project.segmentation_model import SimpleSegmentationModel # Assuming segmentation_model.py exists
+from h2q_project.trainer import Trainer
+
+# Dummy dataset for demonstration (replace with your actual dataset)
+class DummySegmentationDataset(Dataset):
+    def __init__(self, length):
+        self.length = length
+
+    def __len__(self):
+        return self.length
+
+    def __getitem__(self, idx):
+        # Replace with actual data loading and preprocessing
+        image = torch.randn(3, 64, 64)  # Example image
+        mask = torch.randint(0, 2, (64, 64)).long()  # Example segmentation mask (binary)
+        return image, mask
+
+# Hyperparameters
+BATCH_SIZE = 32
+NUM_EPOCHS = 10
+LEARNING_RATE = 0.001
+DEVICE = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+
+# Create dummy datasets
+train_dataset = DummySegmentationDataset(length=1000)
+val_dataset = DummySegmentationDataset(length=200)
+
+# Model, optimizer, and loss function
+model = SimpleSegmentationModel().to(DEVICE)
+optimizer = optim.Adam(model.parameters(), lr=LEARNING_RATE)
+criterion = nn.CrossEntropyLoss()  # Assuming multi-class segmentation
+
+# Training loop using Trainer class
+trainer = Trainer(
+    model=model,
+    train_dataset=train_dataset,
+    val_dataset=val_dataset,
+    optimizer=optimizer,
+    criterion=criterion,
+    batch_size=BATCH_SIZE,
+    num_epochs=NUM_EPOCHS,
+    device=DEVICE
+)
+
+trainer.train()

@@ -1,0 +1,32 @@
+import pytest
+import numpy as np
+import time
+from h2q_project.quaternion_ops import quaternion_multiply, quaternion_conjugate, quaternion_inverse, quaternion_magnitude, quaternion_normalize
+
+NUM_ITERATIONS = 10000
+
+@pytest.fixture
+def random_quaternions():
+    return np.random.rand(NUM_ITERATIONS, 4)
+
+
+def benchmark_quaternion_multiply(random_quaternions, benchmark):
+    q1 = random_quaternions[:NUM_ITERATIONS // 2]
+    q2 = random_quaternions[NUM_ITERATIONS // 2:]
+    benchmark(quaternion_multiply, q1, q2)
+
+
+def benchmark_quaternion_conjugate(random_quaternions, benchmark):
+    benchmark(quaternion_conjugate, random_quaternions)
+
+
+def benchmark_quaternion_inverse(random_quaternions, benchmark):
+    benchmark(quaternion_inverse, random_quaternions)
+
+
+def benchmark_quaternion_magnitude(random_quaternions, benchmark):
+    benchmark(quaternion_magnitude, random_quaternions)
+
+
+def benchmark_quaternion_normalize(random_quaternions, benchmark):
+    benchmark(quaternion_normalize, random_quaternions)

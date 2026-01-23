@@ -11,6 +11,8 @@
 """
 
 import numpy as np
+import os
+import random
 from dataclasses import dataclass, field
 from typing import List, Dict, Any, Optional, Tuple
 from enum import Enum
@@ -61,12 +63,184 @@ class BenchmarkResult:
     """基准测试结果."""
     benchmark: BenchmarkType
     total_questions: int
-    correct_answers: int
+    correct_answers: float
     accuracy: float
     by_subject: Dict[str, Dict[str, float]]
     by_difficulty: Dict[str, float]
     time_taken: float
     timestamp: str
+    multi_select_accuracy: float = 0.0
+
+
+class PublicBenchmarkLoader:
+    """从公开基准数据集中加载题目（HuggingFace datasets）。"""
+
+    def __init__(self, cache_dir: Optional[str] = None):
+        try:
+            from datasets import load_dataset  # type: ignore
+        except Exception as e:
+            raise RuntimeError("缺少 datasets 依赖，无法加载公开基准测试数据。") from e
+
+        self._load_dataset = load_dataset
+        self.cache_dir = cache_dir
+
+    def load_questions(self, benchmark: BenchmarkType, n: int = 50) -> List[BenchmarkQuestion]:
+        if benchmark == BenchmarkType.MMLU:
+            return self._load_mmlu(n)
+        if benchmark == BenchmarkType.GSM8K:
+            return self._load_gsm8k(n)
+        if benchmark == BenchmarkType.ARC:
+            return self._load_arc(n)
+        if benchmark == BenchmarkType.HELLASWAG:
+            return self._load_hellaswag(n)
+        if benchmark == BenchmarkType.TRUTHFULQA:
+            return self._load_truthfulqa(n)
+        if benchmark == BenchmarkType.HUMANEVAL:
+            return self._load_humaneval(n)
+        return []
+
+    def _load_mmlu(self, n: int) -> List[BenchmarkQuestion]:
+        ds = self._load_dataset("cais/mmlu", "all", split="test", cache_dir=self.cache_dir)
+        items = ds.shuffle(seed=42).select(range(min(n, len(ds))))
+        questions = []
+        for idx, item in enumerate(items):
+            questions.append(BenchmarkQuestion(
+                id=f"mmlu_{idx}",
+                benchmark=BenchmarkType.MMLU,
+                subject=item.get("subject", "unknown"),
+                difficulty=Difficulty.COLLEGE,
+                question=item["question"],
+                choices=list(item["choices"]),
+                correct_answer=int(item["answer"]),
+                metadata={"source": "cais/mmlu"}
+            ))
+        return questions
+
+    def _load_gsm8k(self, n: int) -> List[BenchmarkQuestion]:
+        ds = self._load_dataset("gsm8k", "main", split="test", cache_dir=self.cache_dir)
+        items = ds.shuffle(seed=42).select(range(min(n, len(ds))))
+        answers = [self._extract_final_answer(x["answer"]) for x in items]
+        questions = []
+        for idx, item in enumerate(items):
+            correct = self._extract_final_answer(item["answer"])
+            choices = self._build_numeric_choices(correct, answers)
+            questions.append(BenchmarkQuestion(
+                id=f"gsm8k_{idx}",
+                benchmark=BenchmarkType.GSM8K,
+                subject="arithmetic",
+                difficulty=Difficulty.MIDDLE,
+                question=item["question"],
+                choices=choices,
+                correct_answer=choices.index(str(correct)),
+                metadata={"source": "gsm8k"}
+            ))
+        return questions
+
+    def _load_arc(self, n: int) -> List[BenchmarkQuestion]:
+        ds = self._load_dataset("allenai/ai2_arc", "ARC-Challenge", split="test", cache_dir=self.cache_dir)
+        items = ds.shuffle(seed=42).select(range(min(n, len(ds))))
+        questions = []
+        for idx, item in enumerate(items):
+            choices_obj = item.get("choices", {})
+            labels = list(choices_obj.get("label", []))
+            texts = list(choices_obj.get("text", []))
+            answer_key = item.get("answerKey", "")
+            if answer_key in labels:
+                correct_idx = labels.index(answer_key)
+            else:
+                try:
+                    correct_idx = int(answer_key) - 1
+                except Exception:
+                    correct_idx = 0
+            questions.append(BenchmarkQuestion(
+                id=f"arc_{idx}",
+                benchmark=BenchmarkType.ARC,
+                subject=item.get("category", "science"),
+                difficulty=Difficulty.MIDDLE,
+                question=item.get("question", ""),
+                choices=texts,
+                correct_answer=correct_idx,
+                metadata={"source": "allenai/ai2_arc"}
+            ))
+        return questions
+
+    def _load_hellaswag(self, n: int) -> List[BenchmarkQuestion]:
+        ds = self._load_dataset("hellaswag", split="validation", cache_dir=self.cache_dir)
+        items = ds.shuffle(seed=42).select(range(min(n, len(ds))))
+        questions = []
+        for idx, item in enumerate(items):
+            ctx = item.get("ctx", "")
+            endings = list(item.get("endings", []))
+            label = int(item.get("label", 0))
+            questions.append(BenchmarkQuestion(
+                id=f"hellaswag_{idx}",
+                benchmark=BenchmarkType.HELLASWAG,
+                subject="commonsense",
+                difficulty=Difficulty.MIDDLE,
+                question=ctx,
+                choices=endings,
+                correct_answer=label,
+                metadata={"source": "hellaswag"}
+            ))
+        return questions
+
+    def _load_truthfulqa(self, n: int) -> List[BenchmarkQuestion]:
+        ds = self._load_dataset("truthful_qa", "multiple_choice", split="validation", cache_dir=self.cache_dir)
+        items = ds.shuffle(seed=42).select(range(min(n, len(ds))))
+        questions = []
+        for idx, item in enumerate(items):
+            targets = item.get("mc1_targets", {})
+            choices = list(targets.get("choices", []))
+            labels = list(targets.get("labels", []))
+            correct_idx = labels.index(1) if 1 in labels else 0
+            questions.append(BenchmarkQuestion(
+                id=f"truthfulqa_{idx}",
+                benchmark=BenchmarkType.TRUTHFULQA,
+                subject="truthfulness",
+                difficulty=Difficulty.HIGH,
+                question=item.get("question", ""),
+                choices=choices,
+                correct_answer=correct_idx,
+                metadata={"source": "truthful_qa"}
+            ))
+        return questions
+
+    def _load_humaneval(self, n: int) -> List[BenchmarkQuestion]:
+        ds = self._load_dataset("openai_humaneval", split="test", cache_dir=self.cache_dir)
+        items = ds.shuffle(seed=42).select(range(min(n, len(ds))))
+        questions = []
+        for idx, item in enumerate(items):
+            questions.append(BenchmarkQuestion(
+                id=f"humaneval_{idx}",
+                benchmark=BenchmarkType.HUMANEVAL,
+                subject="code",
+                difficulty=Difficulty.COLLEGE,
+                question=item.get("prompt", ""),
+                choices=["<code>"],
+                correct_answer=0,
+                metadata={"source": "openai_humaneval", "entry_point": item.get("entry_point")}
+            ))
+        return questions
+
+    def _extract_final_answer(self, answer_text: str) -> int:
+        if "####" in answer_text:
+            answer_text = answer_text.split("####")[-1]
+        digits = "".join(ch for ch in answer_text if ch.isdigit() or ch in "-.")
+        try:
+            return int(float(digits))
+        except Exception:
+            return 0
+
+    def _build_numeric_choices(self, correct: int, pool: List[int]) -> List[str]:
+        choices = {correct}
+        random.seed(42)
+        while len(choices) < 4 and pool:
+            choices.add(random.choice(pool))
+        while len(choices) < 4:
+            choices.add(correct + random.randint(-10, 10))
+        choices_list = [str(c) for c in choices]
+        random.shuffle(choices_list)
+        return choices_list
 
 
 # ============================================================================
@@ -532,15 +706,10 @@ class StandardBenchmarkEvaluator:
         },
     }
     
-    def __init__(self):
-        self.benchmarks = {
-            BenchmarkType.MMLU: MMLUBenchmark(),
-            BenchmarkType.GSM8K: GSM8KBenchmark(),
-            BenchmarkType.ARC: ARCBenchmark(),
-            BenchmarkType.HELLASWAG: HellaSwagBenchmark(),
-        }
-        
+    def __init__(self, public_only: bool = True):
+        self.public_only = public_only and os.getenv("ALLOW_SYNTHETIC_BENCHMARKS", "0") != "1"
         self.results: Dict[BenchmarkType, BenchmarkResult] = {}
+        self.loader = PublicBenchmarkLoader() if self.public_only else None
     
     def evaluate_single(self, benchmark_type: BenchmarkType,
                         answer_func: callable,
@@ -552,12 +721,21 @@ class StandardBenchmarkEvaluator:
             answer_func: 回答函数 (question, choices) -> int
             n_questions: 问题数量
         """
-        benchmark = self.benchmarks[benchmark_type]
-        questions = benchmark.get_questions(n_questions)
+        if self.public_only:
+            questions = self.loader.load_questions(benchmark_type, n_questions or 50)
+        else:
+            benchmark = {
+                BenchmarkType.MMLU: MMLUBenchmark(),
+                BenchmarkType.GSM8K: GSM8KBenchmark(),
+                BenchmarkType.ARC: ARCBenchmark(),
+                BenchmarkType.HELLASWAG: HellaSwagBenchmark(),
+            }[benchmark_type]
+            questions = benchmark.get_questions(n_questions)
         
         start_time = time.time()
         
-        correct = 0
+        correct = 0.0
+        multi_select_score_sum = 0.0
         by_subject: Dict[str, Dict[str, int]] = {}
         by_difficulty: Dict[str, Dict[str, int]] = {}
         
@@ -567,11 +745,15 @@ class StandardBenchmarkEvaluator:
                 predicted = answer_func(q.question, q.choices)
             except Exception:
                 predicted = -1
-            
-            is_correct = predicted == q.correct_answer
-            
+
+            predicted_index, selected_set, multi_select_score = self._score_prediction(
+                predicted, q.correct_answer, len(q.choices)
+            )
+
+            is_correct = predicted_index == q.correct_answer
             if is_correct:
                 correct += 1
+            multi_select_score_sum += multi_select_score
             
             # 按学科统计
             if q.subject not in by_subject:
@@ -590,8 +772,9 @@ class StandardBenchmarkEvaluator:
         
         elapsed = time.time() - start_time
         
-        # 计算准确率
+        # 计算准确率 (单选) 与多选得分
         accuracy = correct / len(questions) if questions else 0.0
+        multi_select_accuracy = multi_select_score_sum / len(questions) if questions else 0.0
         
         subject_acc = {
             subj: stats["correct"] / stats["total"]
@@ -612,6 +795,7 @@ class StandardBenchmarkEvaluator:
             by_difficulty=diff_acc,
             time_taken=elapsed,
             timestamp=time.strftime("%Y-%m-%d %H:%M:%S"),
+            multi_select_accuracy=multi_select_accuracy,
         )
         
         self.results[benchmark_type] = result
@@ -622,11 +806,59 @@ class StandardBenchmarkEvaluator:
         """评估所有基准."""
         results = {}
         
-        for btype in self.benchmarks.keys():
+        benchmark_list = [
+            BenchmarkType.MMLU,
+            BenchmarkType.GSM8K,
+            BenchmarkType.ARC,
+            BenchmarkType.HELLASWAG,
+        ]
+        if not self.public_only:
+            benchmark_list = list(self.benchmarks.keys())
+
+        for btype in benchmark_list:
             result = self.evaluate_single(btype, answer_func, n_per_benchmark)
             results[btype] = result
         
         return results
+
+    def _score_prediction(self, predicted: Any, correct: int, num_choices: int) -> Tuple[int, List[int], float]:
+        """对预测进行多选评分，降低蒙对影响."""
+        # 允许预测返回: int | list[int] | dict{selected/ranked/probs}
+        selected: List[int] = []
+        predicted_index = 0
+
+        if isinstance(predicted, dict):
+            if "selected" in predicted and isinstance(predicted["selected"], list):
+                selected = [int(x) for x in predicted["selected"] if isinstance(x, (int, str))]
+            elif "ranked" in predicted and isinstance(predicted["ranked"], list):
+                selected = [int(x) for x in predicted["ranked"][: self._default_k(num_choices)]]
+            elif "probs" in predicted and isinstance(predicted["probs"], list):
+                probs = list(predicted["probs"])
+                ranked = sorted(range(len(probs)), key=lambda i: probs[i], reverse=True)
+                selected = ranked[: self._default_k(num_choices)]
+            if "top" in predicted and isinstance(predicted["top"], int):
+                predicted_index = int(predicted["top"])
+
+        elif isinstance(predicted, (list, tuple)):
+            selected = [int(x) for x in predicted]
+        elif isinstance(predicted, (int, np.integer)):
+            predicted_index = int(predicted)
+
+        if not selected:
+            selected = [predicted_index]
+
+        selected = [s for s in selected if 0 <= s < num_choices]
+        if not selected:
+            selected = [0]
+
+        predicted_index = selected[0]
+        multi_select_score = (1.0 / len(selected)) if correct in selected else 0.0
+        return predicted_index, selected, multi_select_score
+
+    def _default_k(self, num_choices: int) -> int:
+        if num_choices >= 5:
+            return 3
+        return 2
     
     def compare_with_models(self, benchmark_type: BenchmarkType,
                             our_accuracy: float) -> Dict[str, Any]:
@@ -663,8 +895,9 @@ class StandardBenchmarkEvaluator:
             report.append(f"\n{'='*60}")
             report.append(f"[{btype.value.upper()}]")
             report.append(f"  总题数: {result.total_questions}")
-            report.append(f"  正确数: {result.correct_answers}")
-            report.append(f"  准确率: {result.accuracy * 100:.1f}%")
+            report.append(f"  正确数(单选): {result.correct_answers:.1f}")
+            report.append(f"  准确率(单选): {result.accuracy * 100:.1f}%")
+            report.append(f"  多选评分: {result.multi_select_accuracy * 100:.1f}%")
             report.append(f"  用时: {result.time_taken:.2f}s")
             
             overall_correct += result.correct_answers
@@ -686,9 +919,9 @@ class StandardBenchmarkEvaluator:
         # 总体评分
         overall_acc = overall_correct / overall_total if overall_total > 0 else 0
         report.append(f"\n{'='*60}")
-        report.append(f"总体评分: {overall_acc * 100:.1f}%")
+        report.append(f"总体评分(单选): {overall_acc * 100:.1f}%")
         report.append(f"总题数: {overall_total}")
-        report.append(f"总正确: {overall_correct}")
+        report.append(f"总正确(单选): {overall_correct:.1f}")
         
         # 等级评定
         if overall_acc >= 0.90:
@@ -715,154 +948,44 @@ class StandardBenchmarkEvaluator:
 class AGIBenchmarkAnswerer:
     """AGI 基准答题器 - 使用 AGI 系统回答基准问题."""
     
-    def __init__(self, agi_core=None):
-        self.agi_core = agi_core
-        
-        # 知识库 (简化版)
-        self.knowledge = self._build_knowledge_base()
-    
-    def _build_knowledge_base(self) -> Dict[str, Any]:
-        """构建知识库."""
-        return {
-            # 数学
-            "derivative of x²": 1,  # 2x
-            "integral of 2x": 3,    # x² + C
-            "sum of angles in a triangle": 1,  # 180°
-            "log₁₀(1000)": 1,  # 3
-            
-            # 物理
-            "si unit of force": 2,  # Newton
-            "speed of light": 1,  # 3×10⁸ m/s
-            "newton's second law": 1,  # F = ma
-            
-            # 历史
-            "world war ii end": 2,  # 1945
-            "first president": 2,  # George Washington
-            
-            # 计算机
-            "binary search complexity": 2,  # O(log n)
-            "lifo data structure": 1,  # Stack
-            "cpu stand for": 0,  # Central Processing Unit
-            
-            # 科学
-            "main gas in atmosphere": 1,  # Nitrogen
-            "red planet": 1,  # Mars
-            "chemical formula for water": 1,  # H₂O
-            "pumps blood": 2,  # Heart
-            "causes seasons": 1,  # Earth's tilt
-            "smallest unit of matter": 2,  # Atom
-            "moving car energy": 1,  # Kinetic
-        }
+    def __init__(self, agi_core=None, answer_func: Optional[callable] = None):
+        self.answer_func = answer_func
+        if not self.answer_func and agi_core is not None:
+            self.answer_func = getattr(agi_core, "answer_multiple_choice", None)
+        if not self.answer_func:
+            raise ValueError("需要提供公开基准答题函数 (answer_func) 或 agi_core.answer_multiple_choice")
     
     def answer(self, question: str, choices: List[str]) -> int:
-        """回答问题.
-        
-        使用多种策略:
-        1. 知识库匹配
-        2. 关键词推理
-        3. 数学计算
-        4. 常识推断
-        """
-        q_lower = question.lower()
-        
-        # 1. 知识库匹配
-        for key, answer in self.knowledge.items():
-            if key in q_lower:
-                return answer
-        
-        # 2. 数学计算问题
-        if any(word in q_lower for word in ["how many", "calculate", "what is", "how much", "how far"]):
-            result = self._try_math_reasoning(question, choices)
-            if result is not None:
-                return result
-        
-        # 3. 常识推理
-        if any(word in q_lower for word in ["most likely", "should", "usually"]):
-            return self._commonsense_reasoning(question, choices)
-        
-        # 4. 简单启发式
-        return self._heuristic_answer(question, choices)
-    
-    def _try_math_reasoning(self, question: str, choices: List[str]) -> Optional[int]:
-        """尝试数学推理."""
-        import re
-        
-        # 提取数字
-        numbers = [int(x) for x in re.findall(r'\d+', question)]
-        
-        if len(numbers) >= 2:
-            # 尝试常见运算
-            a, b = numbers[0], numbers[1]
-            possible_answers = [
-                a + b,
-                a - b,
-                a * b,
-                a // b if b != 0 else 0,
-            ]
-            
-            # 如果有更多数字，尝试更复杂的运算
-            if len(numbers) >= 3:
-                c = numbers[2]
-                possible_answers.extend([
-                    a * b * c,
-                    a * b - c,
-                    a + b + c,
-                    (a + b) * c,
-                    a * c - b * c,
-                ])
-            
-            # 匹配选项
-            for i, choice in enumerate(choices):
-                choice_nums = re.findall(r'\d+', choice)
-                if choice_nums:
-                    choice_val = int(choice_nums[0])
-                    if choice_val in possible_answers:
-                        return i
-        
-        return None
-    
-    def _commonsense_reasoning(self, question: str, choices: List[str]) -> int:
-        """常识推理 - 选择最合理的选项."""
-        # 查找包含合理关键词的选项
-        reasonable_keywords = [
-            "stop", "shelter", "review", "study", "comfortable",
-            "hungry", "tired", "practice", "heat", "umbrella"
-        ]
-        
-        for i, choice in enumerate(choices):
-            c_lower = choice.lower()
-            for keyword in reasonable_keywords:
-                if keyword in c_lower:
-                    return i
-        
-        # 默认选择最长的选项 (通常更详细)
-        return max(range(len(choices)), key=lambda i: len(choices[i]))
-    
-    def _heuristic_answer(self, question: str, choices: List[str]) -> int:
-        """启发式回答."""
-        # 默认策略：选择中间选项
-        return len(choices) // 2
+        """回答问题（禁止硬编码与启发式）。"""
+        return int(self.answer_func(question, choices))
 
 
 # ============================================================================
 # 工厂函数
 # ============================================================================
 
-def create_benchmark_evaluator() -> StandardBenchmarkEvaluator:
+def create_benchmark_evaluator(public_only: bool = True) -> StandardBenchmarkEvaluator:
     """创建基准评估器."""
-    return StandardBenchmarkEvaluator()
+    return StandardBenchmarkEvaluator(public_only=public_only)
 
 
-def create_agi_answerer(agi_core=None) -> AGIBenchmarkAnswerer:
+def create_agi_answerer(agi_core=None, answer_func: Optional[callable] = None) -> AGIBenchmarkAnswerer:
     """创建 AGI 答题器."""
-    return AGIBenchmarkAnswerer(agi_core)
+    return AGIBenchmarkAnswerer(agi_core, answer_func=answer_func)
 
 
 def run_standard_benchmarks(agi_core=None, 
-                            n_per_benchmark: int = None) -> Dict[str, Any]:
-    """运行标准基准测试."""
-    evaluator = create_benchmark_evaluator()
-    answerer = create_agi_answerer(agi_core)
+                            n_per_benchmark: int = None,
+                            answer_func: Optional[callable] = None,
+                            public_only: bool = True) -> Dict[str, Any]:
+    """运行标准基准测试（仅公开基准）."""
+    min_questions = 100 if public_only else 20
+    if n_per_benchmark is None:
+        n_per_benchmark = min_questions
+    if n_per_benchmark < min_questions:
+        raise ValueError(f"题量不足：需要至少 {min_questions} 题用于分析。")
+    evaluator = create_benchmark_evaluator(public_only=public_only)
+    answerer = create_agi_answerer(agi_core, answer_func=answer_func)
     
     results = evaluator.evaluate_all(
         answer_func=answerer.answer,
@@ -876,6 +999,7 @@ def run_standard_benchmarks(agi_core=None,
             "accuracy": v.accuracy,
             "correct": v.correct_answers,
             "total": v.total_questions,
+            "multi_select_accuracy": v.multi_select_accuracy,
         } for k, v in results.items()},
         "report": report,
     }

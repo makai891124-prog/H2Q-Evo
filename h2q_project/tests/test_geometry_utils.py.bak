@@ -1,0 +1,32 @@
+import unittest
+import numpy as np
+from h2q_project.core import geometry_utils
+
+class TestGeometryUtils(unittest.TestCase):
+
+    def test_calculate_distance(self):
+        point1 = np.array([1, 2, 3])
+        point2 = np.array([4, 5, 6])
+        distance = geometry_utils.calculate_distance(point1, point2)
+        expected = np.sqrt(27)
+        self.assertAlmostEqual(distance, expected)
+
+    def test_calculate_midpoint(self):
+        point1 = np.array([1, 2, 3])
+        point2 = np.array([4, 5, 6])
+        midpoint = geometry_utils.calculate_midpoint(point1, point2)
+        expected = np.array([2.5, 3.5, 4.5])
+        np.testing.assert_array_equal(midpoint, expected)
+
+    def test_rotate_vector(self):
+        vector = np.array([1, 0, 0])
+        rotation_matrix = np.array([[0, -1, 0],
+                                    [1, 0, 0],
+                                    [0, 0, 1]])  # Rotate 90 degrees around Z
+        rotated_vector = geometry_utils.rotate_vector(vector, rotation_matrix)
+        expected = np.array([0, 1, 0])
+        np.testing.assert_allclose(rotated_vector, expected)
+
+
+if __name__ == '__main__':
+    unittest.main()

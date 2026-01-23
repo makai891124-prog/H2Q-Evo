@@ -1,0 +1,52 @@
+import unittest
+
+class ExtendedTestCase(unittest.TestCase):
+    def assertEqual(self, a, b, msg=None):
+        try:
+            super().assertEqual(a, b, msg)
+        except AssertionError as e:
+            standard_msg = str(e)
+            detailed_msg = f"\nDetailed Error Report:\n  - Expected: {b}\n  - Actual:   {a}\n"
+            if msg:
+                detailed_msg = f"{msg}\n{detailed_msg}"
+            raise AssertionError(f"{standard_msg}{detailed_msg}")
+
+    def assertTrue(self, x, msg=None):
+        try:
+            super().assertTrue(x, msg)
+        except AssertionError as e:
+            standard_msg = str(e)
+            detailed_msg = f"\nDetailed Error Report:\n  - Expected: True\n  - Actual:   {x}\n"
+            if msg:
+                detailed_msg = f"{msg}\n{detailed_msg}"
+            raise AssertionError(f"{standard_msg}{detailed_msg}")
+
+    def assertFalse(self, x, msg=None):
+        try:
+            super().assertFalse(x, msg)
+        except AssertionError as e:
+            standard_msg = str(e)
+            detailed_msg = f"\nDetailed Error Report:\n  - Expected: False\n  - Actual:   {x}\n"
+            if msg:
+                detailed_msg = f"{msg}\n{detailed_msg}"
+            raise AssertionError(f"{standard_msg}{detailed_msg}")
+
+    def assertIsNone(self, x, msg=None):
+        try:
+            super().assertIsNone(x, msg)
+        except AssertionError as e:
+            standard_msg = str(e)
+            detailed_msg = f"\nDetailed Error Report:\n  - Expected: None\n  - Actual:   {x}\n"
+            if msg:
+                detailed_msg = f"{msg}\n{detailed_msg}"
+            raise AssertionError(f"{standard_msg}{detailed_msg}")
+
+    def assertIsNotNone(self, x, msg=None):
+        try:
+            super().assertIsNotNone(x, msg)
+        except AssertionError as e:
+            standard_msg = str(e)
+            detailed_msg = f"\nDetailed Error Report:\n  - Expected: Not None\n  - Actual:   {x}\n"
+            if msg:
+                detailed_msg = f"{msg}\n{detailed_msg}"
+            raise AssertionError(f"{standard_msg}{detailed_msg}")

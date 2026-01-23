@@ -1,0 +1,54 @@
+import torch
+import torch.nn as nn
+from torch.utils.data import DataLoader, Dataset
+from typing import Dict, Any
+
+from h2q_project.trainer import Trainer
+
+# Dummy Dataset
+class DummyDataset(Dataset):
+    def __init__(self, length: int):
+        self.length = length
+
+    def __len__(self) -> int:
+        return self.length
+
+    def __getitem__(self, idx: int) -> tuple[torch.Tensor, int]:
+        return torch.randn(10), torch.randint(0, 2, (1,)).item()
+
+
+# Dummy Model
+class DummyClassifier(nn.Module):
+    def __init__(self) -> None:
+        super().__init__()
+        self.linear = nn.Linear(10, 2)
+
+    def forward(self, x: torch.Tensor) -> torch.Tensor:
+        return self.linear(x)
+
+
+def main(config: Dict[str, Any]) -> None:
+    # Prepare data
+    train_dataset = DummyDataset(config.get('train_size', 1000))
+    val_dataset = DummyDataset(config.get('val_size', 200))
+    train_dataloader = DataLoader(train_dataset, batch_size=config.get('batch_size', 32), shuffle=True)
+    val_dataloader = DataLoader(val_dataset, batch_size=config.get('batch_size', 32), shuffle=False)
+
+    # Initialize model
+    model = DummyClassifier()
+
+    # Initialize trainer
+    trainer = Trainer(model, train_dataloader, val_dataloader, config)
+
+    # Train
+    trainer.train()
+
+
+if __name__ == "__main__":
+    config = {
+        'epochs': 5,
+        'learning_rate': 1e-3,
+        'weight_decay': 0.01,
+        'batch_size': 64,
+    }
+    main(config)

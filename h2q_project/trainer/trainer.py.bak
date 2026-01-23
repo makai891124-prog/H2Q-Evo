@@ -1,0 +1,56 @@
+import torch
+import torch.nn as nn
+import torch.optim as optim
+from torch.utils.data import DataLoader
+
+class Trainer:
+    def __init__(self, model: nn.Module, optimizer: optim.Optimizer, criterion: nn.Module, device: str, config: dict):
+        self.model = model
+        self.optimizer = optimizer
+        self.criterion = criterion
+        self.device = device
+        self.config = config
+
+        self.model.to(self.device)
+
+    def train_epoch(self, dataloader: DataLoader) -> float:
+        self.model.train()
+        total_loss = 0.0
+        for inputs, labels in dataloader:
+            inputs = inputs.to(self.device)
+            labels = labels.to(self.device)
+
+            self.optimizer.zero_grad()
+            outputs = self.model(inputs)
+            loss = self.criterion(outputs, labels)
+            loss.backward()
+            self.optimizer.step()
+
+            total_loss += loss.item()
+
+        return total_loss / len(dataloader)
+
+    def evaluate_epoch(self, dataloader: DataLoader) -> float:
+        self.model.eval()
+        total_loss = 0.0
+        with torch.no_grad():
+            for inputs, labels in dataloader:
+                inputs = inputs.to(self.device)
+                labels = labels.to(self.device)
+
+                outputs = self.model(inputs)
+                loss = self.criterion(outputs, labels)
+
+                total_loss += loss.item()
+
+        return total_loss / len(dataloader)
+
+    def train(self, train_dataloader: DataLoader, val_dataloader: DataLoader, num_epochs: int):
+        for epoch in range(num_epochs):
+            train_loss = self.train_epoch(train_dataloader)
+            val_loss = self.evaluate_epoch(val_dataloader)
+
+            print(f'Epoch {epoch+1}/{num_epochs}, Train Loss: {train_loss:.4f}, Val Loss: {val_loss:.4f}')
+
+    def save_model(self, path: str):
+        torch.save(self.model.state_dict(), path)

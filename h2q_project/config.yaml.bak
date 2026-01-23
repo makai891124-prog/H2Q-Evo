@@ -1,0 +1,41 @@
+model:
+  module: h2q_project.models.simple_model  # Replace with your model module
+  class: SimpleModel          # Replace with your model class
+  kwargs:                      # Optional keyword arguments to your model
+    input_size: 10
+    hidden_size: 20
+    output_size: 2
+
+optimizer:
+  module: torch.optim
+  class: Adam
+  kwargs:
+    lr: 0.001
+
+criterion:
+  module: torch.nn
+  class: CrossEntropyLoss
+  kwargs: {}
+
+dataset:
+  train:
+    module: h2q_project.datasets.dummy_dataset # Replace with your train dataset module
+    class: DummyDataset           # Replace with your train dataset class
+    kwargs:                      # Optional keyword arguments to your dataset
+      num_samples: 100
+      input_size: 10
+    loader_kwargs:
+      batch_size: 32
+      shuffle: True
+
+  val:
+    module: h2q_project.datasets.dummy_dataset   # Replace with your val dataset module
+    class: DummyDataset             # Replace with your val dataset class
+    kwargs:
+      num_samples: 50
+      input_size: 10
+    loader_kwargs:
+      batch_size: 32
+      shuffle: False
+
+device: cuda if torch.cuda.is_available() else cpu  # Example device configuration

@@ -1,0 +1,24 @@
+import os
+from memory_analyzer import MemoryAnalyzer
+from optimization_suggestions import OptimizationSuggester
+
+def main():
+    project_root = '.'  # Current directory (project root)
+    analyzer = MemoryAnalyzer(project_root)
+    analysis_results = analyzer.analyze_project()
+
+    suggester = OptimizationSuggester(analysis_results)
+    optimization_suggestions = suggester.suggest_optimizations()
+
+    print("Memory Analysis and Optimization Suggestions:\n")
+    for file_path, suggestions in optimization_suggestions.items():
+        print(f"File: {file_path}")
+        if suggestions:
+            for suggestion in suggestions:
+                print(f"  - {suggestion}")
+        else:
+            print("  No specific memory optimization suggestions found.")
+        print("\n")
+
+if __name__ == "__main__":
+    main()

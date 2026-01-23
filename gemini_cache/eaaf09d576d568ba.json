@@ -1,0 +1,5 @@
+{
+  "timestamp": 1769070970.850934,
+  "response": "[\n  {\n    \"file_path\": \"h2q_project/main.py\",\n    \"content\": \"import os\\n\\ndef get_project_context(project_root):\\n    context = []\\n    for root, _, files in os.walk(project_root):\\n        for file in files:\\n            if file.endswith(\\\".py\\\"):\\n                file_path = os.path.join(root, file)\\n                try:\\n                    with open(file_path, 'r') as f:\\n                        content = f.read()\\n                        if len(content) < 10000: # Avoid reading too large files\\n                            relative_path = os.path.relpath(file_path, project_root)\\n                            context.append({\\\"file_path\\\": relative_path, \\\"content\\\": content})\\n                except Exception as e:\\n                    print(f\\\"Error reading {file_path}: {e}\\\")\\n    return context\"\n  }\n]",
+  "model": "gemini-2.0-flash"
+}

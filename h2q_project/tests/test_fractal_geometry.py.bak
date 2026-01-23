@@ -1,0 +1,23 @@
+import unittest
+import numpy as np
+from h2q_project.fractal_geometry import quaternion_julia_set
+
+class TestFractalGeometry(unittest.TestCase):
+
+    def test_quaternion_julia_set(self):
+        # Define parameters for the Julia set calculation
+        c = np.array([0.285 + 0j, 0.01 + 0j]) # Example complex constant c
+        grid_size = 10
+        iterations = 5
+
+        # Call the function to generate the Julia set (simplified test)
+        julia_set = quaternion_julia_set(c, grid_size, iterations)
+
+        # Perform basic assertions to check if the output is as expected
+        self.assertEqual(julia_set.shape, (grid_size, grid_size))
+        self.assertTrue(np.all(julia_set >= 0))
+        self.assertTrue(np.all(julia_set <= iterations))
+
+
+if __name__ == '__main__':
+    unittest.main()

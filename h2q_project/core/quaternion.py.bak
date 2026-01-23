@@ -1,0 +1,60 @@
+import numpy as np
+
+class Quaternion:
+    def __init__(self, w, x, y, z):
+        self.w = w
+        self.x = x
+        self.y = y
+        self.z = z
+        self.normalize()
+
+    def normalize(self):
+        magnitude = np.sqrt(self.w**2 + self.x**2 + self.y**2 + self.z**2)
+        if magnitude == 0:
+            return  # Avoid division by zero
+        self.w /= magnitude
+        self.x /= magnitude
+        self.y /= magnitude
+        self.z /= magnitude
+
+    def conjugate(self):
+        return Quaternion(self.w, -self.x, -self.y, -self.z)
+
+    def __mul__(self, other):
+        w = self.w * other.w - self.x * other.x - self.y * other.y - self.z * other.z
+        x = self.w * other.x + self.x * other.w + self.y * other.z - self.z * other.y
+        y = self.w * other.y - self.x * other.z + self.y * other.w + self.z * other.x
+        z = self.w * other.z + self.x * other.y - self.y * other.x + self.z * other.w
+        return Quaternion(w, x, y, z)
+
+    def to_rotation_matrix(self):
+        # Convert quaternion to rotation matrix (3x3).
+        q = np.array([self.w, self.x, self.y, self.z])
+        q = q / np.linalg.norm(q)
+        w, x, y, z = q
+        rotation_matrix = np.array([
+            [1 - 2*y**2 - 2*z**2, 2*x*y - 2*w*z, 2*x*z + 2*w*y],
+            [2*x*y + 2*w*z, 1 - 2*x**2 - 2*z**2, 2*y*z - 2*w*x],
+            [2*x*z - 2*w*y, 2*y*z + 2*w*x, 1 - 2*x**2 - 2*y**2]
+        ])
+        return rotation_matrix
+
+    def __str__(self): # Improved string representation for debugging
+        return f"Quaternion(w={self.w:.4f}, x={self.x:.4f}, y={self.y:.4f}, z={self.z:.4f})"
+
+
+class QuaternionValidator:
+    def __init__(self, tolerance=1e-6):
+        self.tolerance = tolerance
+
+    def is_unit_quaternion(self, quaternion):
+        magnitude = np.sqrt(quaternion.w**2 + quaternion.x**2 + quaternion.y**2 + quaternion.z**2)
+        return abs(magnitude - 1.0) < self.tolerance
+
+    def validate(self, quaternion):
+        if not self.is_unit_quaternion(quaternion):
+            print(f"Warning: Quaternion {quaternion} is not a unit quaternion.")
+            # Suggest normalization (optional):
+            # quaternion.normalize()
+            return False
+        return True

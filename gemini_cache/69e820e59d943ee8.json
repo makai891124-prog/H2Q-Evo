@@ -1,0 +1,5 @@
+{
+  "timestamp": 1769069006.194425,
+  "response": "[\n  {\n    \"file_path\": \"h2q_project/main.py\",\n    \"content\": \"import time\\nimport os\\nimport psutil\\nimport threading\\n\\ndef print_memory_usage():\\n    process = psutil.Process(os.getpid())\\n    memory_usage = process.memory_info().rss / 1024 ** 2  # in MB\\n    print(f\\\"Memory usage: {memory_usage:.2f} MB\\\")\\n\\ndef monitor_memory_usage(interval=60):\\n    def run():\\n        while True:\\n            print_memory_usage()\\n            time.sleep(interval)\\n\\n    thread = threading.Thread(target=run)\\n    thread.daemon = True  # Allow the main program to exit even if the thread is running\\n    thread.start()\\n\\n\\nif __name__ == \\\"__main__\\\":\\n    monitor_memory_usage()\\n    # Simulate some work that consumes memory\\n    data = [i for i in range(10000000)]\\n    time.sleep(10)\\n    data = None  # Release the memory\\n    time.sleep(5)\\n    print(\\\"Program finished\\\")\\n\"\n  }\n]",
+  "model": "gemini-2.0-flash"
+}

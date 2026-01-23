@@ -1,0 +1,5 @@
+{
+  "timestamp": 1769073418.023391,
+  "response": "[\n  {\n    \"file_path\": \"h2q_project/views.py\",\n    \"content\": \"from django.shortcuts import render\\nfrom .models import Project\\n\\n\\ndef get_project_context(request, project_id):\\n    try:\\n        project = Project.objects.get(pk=project_id)\\n        context = {\\n            'project': project\\n        }\\n        return render(request, 'project_detail.html', context)\\n    except Project.DoesNotExist:\\n        return render(request, 'project_not_found.html')\\n\"\n  }\n]",
+  "model": "gemini-2.0-flash"
+}

@@ -15,6 +15,7 @@ LLM 标准基准测试模块
 import json
 import random
 import hashlib
+import os
 from typing import Dict, List, Any, Optional, Tuple
 from dataclasses import dataclass, field
 from datetime import datetime
@@ -62,6 +63,8 @@ class LLMBenchmarkSuite:
     """LLM标准基准测试套件."""
     
     def __init__(self):
+        if os.getenv("ALLOW_SYNTHETIC_BENCHMARKS", "0") != "1":
+            raise RuntimeError("内置自编基准已禁用，请改用公开基准测试数据集（HuggingFace datasets）。")
         self.questions: Dict[BenchmarkType, List[BenchmarkQuestion]] = {}
         self.results_history: List[BenchmarkResult] = []
         

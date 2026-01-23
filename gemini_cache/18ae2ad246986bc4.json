@@ -1,0 +1,5 @@
+{
+  "timestamp": 1769071915.410452,
+  "response": "[\n  {\n    \"file_path\": \"h2q_project/core/context_utils.py\",\n    \"content\": \"from langchain.text_splitter import RecursiveCharacterTextSplitter\\nfrom langchain.chains.summarize import load_summarize_chain\\nfrom langchain_community.document_loaders import TextLoader\\nfrom h2q_project.utils.llm import get_llm\\n\\ndef get_project_context(file_path):\\n    \\\"\\\"\\\"Generates a project context summary for a given file.\\\"\\\"\\\"\\n    loader = TextLoader(file_path)\\n    documents = loader.load()\\n\\n    # Use a more efficient text splitting strategy to reduce tokens\\n    text_splitter = RecursiveCharacterTextSplitter(chunk_size=400, chunk_overlap=20, length_function=len)\\n    texts = text_splitter.split_documents(documents)\\n\\n    llm = get_llm()\\n\\n    # Use 'stuff' chain for summarization as it's simpler and often sufficient for smaller contexts\\n    chain = load_summarize_chain(llm, chain_type=\\\"stuff\\\", verbose=False)\\n    summary = chain.run(texts)\\n\\n    return summary\\n\"\n  }\n]",
+  "model": "gemini-2.0-flash"
+}

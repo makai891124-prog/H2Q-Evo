@@ -1,8 +1,8 @@
 {
   "generation": 0,
-  "learning_cycles": 23,
-  "total_training_updates": 443,
-  "knowledge_items": 46,
+  "learning_cycles": 30,
+  "total_training_updates": 630,
+  "knowledge_items": 60,
   "capability_scores": [
     {
       "cycle": 1,
@@ -140,7 +140,49 @@
       "cycle": 23,
       "score": 95.0,
       "grade": "卓越 (Outstanding)",
-      "timestamp": "2026-01-22T12:59:29.037569"
+      "timestamp": "2026-01-22T13:24:09.567230"
+    },
+    {
+      "cycle": 24,
+      "score": 80.0,
+      "grade": "良好 (Good)",
+      "timestamp": "2026-01-22T13:54:14.256154"
+    },
+    {
+      "cycle": 25,
+      "score": 80.0,
+      "grade": "良好 (Good)",
+      "timestamp": "2026-01-22T14:24:19.665347"
+    },
+    {
+      "cycle": 26,
+      "score": 23.0,
+      "grade": "需改进 (Needs Improvement)",
+      "timestamp": "2026-01-22T14:48:47.326901"
+    },
+    {
+      "cycle": 27,
+      "score": 23.0,
+      "grade": "需改进 (Needs Improvement)",
+      "timestamp": "2026-01-22T15:19:47.177731"
+    },
+    {
+      "cycle": 28,
+      "score": 23.0,
+      "grade": "需改进 (Needs Improvement)",
+      "timestamp": "2026-01-22T16:11:29.669608"
+    },
+    {
+      "cycle": 29,
+      "score": 23.0,
+      "grade": "需改进 (Needs Improvement)",
+      "timestamp": "2026-01-22T16:58:42.973334"
+    },
+    {
+      "cycle": 30,
+      "score": 23.0,
+      "grade": "需改进 (Needs Improvement)",
+      "timestamp": "2026-01-22T17:46:08.835683"
     }
   ],
   "learning_history": [
@@ -718,16 +760,16 @@
     },
     {
       "cycle": 23,
-      "timestamp": "2026-01-22T12:59:26.566493",
+      "timestamp": "2026-01-22T13:24:05.718700",
       "phases": {
         "knowledge": {
           "acquired": 2,
           "total": 46
         },
         "learning": {
-          "epochs": 11,
-          "updates": 12,
-          "test_accuracy": 0.75
+          "epochs": 239,
+          "updates": 7,
+          "test_accuracy": 0.5
         },
         "evaluation": {
           "score": 95.0,
@@ -741,6 +783,190 @@
           }
         }
       }
+    },
+    {
+      "cycle": 24,
+      "timestamp": "2026-01-22T13:54:10.645441",
+      "phases": {
+        "knowledge": {
+          "acquired": 2,
+          "total": 48
+        },
+        "learning": {
+          "epochs": 250,
+          "updates": 36,
+          "test_accuracy": 0.0
+        },
+        "evaluation": {
+          "score": 80.0,
+          "grade": "良好 (Good)",
+          "tests": {
+            "math": 100.0,
+            "logic": 100.0,
+            "pattern": 100.0,
+            "memory": 100.0,
+            "knowledge": 0.0
+          }
+        }
+      }
+    },
+    {
+      "cycle": 25,
+      "timestamp": "2026-01-22T14:24:15.609632",
+      "phases": {
+        "knowledge": {
+          "acquired": 2,
+          "total": 50
+        },
+        "learning": {
+          "epochs": 261,
+          "updates": 36,
+          "test_accuracy": 0.25
+        },
+        "evaluation": {
+          "score": 80.0,
+          "grade": "良好 (Good)",
+          "tests": {
+            "math": 100.0,
+            "logic": 100.0,
+            "pattern": 100.0,
+            "memory": 100.0,
+            "knowledge": 0.0
+          }
+        }
+      }
+    },
+    {
+      "cycle": 26,
+      "timestamp": "2026-01-22T14:31:08.541990",
+      "phases": {
+        "knowledge": {
+          "acquired": 2,
+          "total": 52
+        },
+        "learning": {
+          "epochs": 16,
+          "updates": 72,
+          "test_accuracy": 0.0
+        },
+        "evaluation": {
+          "score": 23.0,
+          "grade": "需改进 (Needs Improvement)",
+          "tests": {
+            "mmlu": 32.0,
+            "gsm8k": 10.0,
+            "arc": 27.0,
+            "hellaswag": 23.0
+          }
+        }
+      }
+    },
+    {
+      "cycle": 27,
+      "timestamp": "2026-01-22T15:02:22.883529",
+      "phases": {
+        "knowledge": {
+          "acquired": 2,
+          "total": 54
+        },
+        "learning": {
+          "epochs": 11,
+          "updates": 12,
+          "test_accuracy": 0.0
+        },
+        "evaluation": {
+          "score": 23.0,
+          "grade": "需改进 (Needs Improvement)",
+          "tests": {
+            "mmlu": 32.0,
+            "gsm8k": 10.0,
+            "arc": 27.0,
+            "hellaswag": 23.0
+          }
+        }
+      }
+    },
+    {
+      "cycle": 28,
+      "timestamp": "2026-01-22T15:49:48.127401",
+      "phases": {
+        "knowledge": {
+          "acquired": 2,
+          "total": 56
+        },
+        "learning": {
+          "epochs": 22,
+          "updates": 12,
+          "test_accuracy": 0.25
+        },
+        "evaluation": {
+          "score": 23.0,
+          "grade": "需改进 (Needs Improvement)",
+          "tests": {
+            "mmlu": 32.0,
+            "gsm8k": 10.0,
+            "arc": 27.0,
+            "hellaswag": 23.0
+          }
+        }
+      }
+    },
+    {
+      "cycle": 29,
+      "timestamp": "2026-01-22T16:41:30.851690",
+      "phases": {
+        "knowledge": {
+          "acquired": 2,
+          "total": 58
+        },
+        "learning": {
+          "epochs": 33,
+          "updates": 12,
+          "test_accuracy": 0.25
+        },
+        "evaluation": {
+          "score": 23.0,
+          "grade": "需改进 (Needs Improvement)",
+          "tests": {
+            "mmlu": 32.0,
+            "gsm8k": 10.0,
+            "arc": 27.0,
+            "hellaswag": 23.0
+          }
+        }
+      }
+    },
+    {
+      "cycle": 30,
+      "timestamp": "2026-01-22T17:28:44.195874",
+      "phases": {
+        "knowledge": {
+          "acquired": 2,
+          "total": 60
+        },
+        "learning": {
+          "epochs": 43,
+          "updates": 12,
+          "test_accuracy": 0.0
+        },
+        "evaluation": {
+          "score": 23.0,
+          "grade": "需改进 (Needs Improvement)",
+          "tests": {
+            "mmlu": 32.0,
+            "gsm8k": 10.0,
+            "arc": 27.0,
+            "hellaswag": 23.0
+          }
+        }
+      }
     }
-  ]
+  ],
+  "last_benchmark_gate": {
+    "passed": true,
+    "public_only": true,
+    "min_questions_per_benchmark": 100,
+    "multi_select_scoring": true,
+    "timestamp": "2026-01-22T17:46:08.835284"
+  }
 }

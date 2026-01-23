@@ -1,0 +1,30 @@
+FROM ubuntu:latest
+
+# Install dependencies
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    build-essential \
+    cmake \
+    git \
+    python3 \
+    python3-pip \
+    wget \
+    unzip \
+    && rm -rf /var/lib/apt/lists/*
+
+# Install ONNX Runtime
+RUN pip3 install onnxruntime
+
+# Set working directory
+WORKDIR /app
+
+# Copy source code
+COPY . .
+
+# Build the H2Q geometry kernel
+RUN mkdir build && cd build && cmake .. && make
+
+# Add a simple test to verify ONNX Runtime acceleration (example)
+RUN echo "import onnxruntime; print('ONNX Runtime version:', onnxruntime.__version__)" > test_onnx.py
+
+# Command to run the test (customize this to run an H2Q kernel example with ONNX)
+CMD ["python3", "test_onnx.py"]

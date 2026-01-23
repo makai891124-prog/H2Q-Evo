@@ -1,0 +1,15 @@
+{
+  "data_loading": {
+    "loader_type": "memory_mapped",
+    "data_path": "/path/to/your/data.npy",
+    "dtype": "float32"  
+  },
+  "processing_steps": [
+    {
+      "step": "some_processing",
+      "params": {
+        "param1": 1
+      }
+    }
+  ]
+}

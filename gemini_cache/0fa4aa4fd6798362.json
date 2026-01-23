@@ -1,0 +1,5 @@
+{
+  "timestamp": 1769073424.34725,
+  "response": "[\n  {\n    \"file_path\": \"h2q_project/state_manager.py\",\n    \"content\": \"import pickle\\nimport os\\n\\nclass StateManager:\\n    def __init__(self, state_file='state.pkl'):\\n        self.state_file = state_file\\n\\n    def save_state(self, state_data):\\n        try:\\n            with open(self.state_file, 'wb') as f:\\n                pickle.dump(state_data, f)\\n        except Exception as e:\\n            print(f\\\"Error saving state: {e}\\\")\\n\\n    def load_state(self):\\n        try:\\n            if os.path.exists(self.state_file):\\n                with open(self.state_file, 'rb') as f:\\n                    return pickle.load(f)\\n            else:\\n                return {}\\n        except Exception as e:\\n            print(f\\\"Error loading state: {e}\\\")\\n            return {}\\n\"\n  }\n]",
+  "model": "gemini-2.0-flash"
+}

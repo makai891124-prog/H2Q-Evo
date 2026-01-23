@@ -1,0 +1,21 @@
+import torch
+from torch.profiler import profile, record_function, ProfilerActivity
+
+
+def profile_model(model, input_data, with_stack=False):
+    with profile(activities=[ProfilerActivity.CPU, ProfilerActivity.CUDA],
+                 record_shapes=True, profile_memory=True, with_stack=with_stack) as prof:
+        with record_function("model_inference"): # Add a name for easy identification
+            model(input_data)
+
+    print(prof.key_averages().table(sort_by="cpu_time_total", row_limit=10)) # Adjust row_limit as needed
+    # Optional: Save the profile results to file
+    # prof.export_chrome_trace("trace.json")
+    return prof
+
+
+def analyze_layer_performance(prof):
+    # Example: Analyze time spent in different layers
+    print(prof.key_averages().table(sort_by="cuda_time_total", row_limit=10)) # Consider both cpu and cuda
+
+

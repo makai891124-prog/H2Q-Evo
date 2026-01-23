@@ -1,0 +1,5 @@
+{
+  "timestamp": 1769072289.6141372,
+  "response": "[\n  {\n    \"file_path\": \"h2q_project/training_utils.py\",\n    \"content\": \"import time\\nimport psutil\\nimport os\\n\\n\\ndef train(model, data_loader, optimizer, epochs=10):\\n    \\\"\\\"\\\"Simple training loop.\\\"\\\"\\\"\\n    print(\\\"Starting training...\\\")\\n    for epoch in range(epochs):\\n        start_time = time.time()\\n        for i, data in enumerate(data_loader):\\n            optimizer.zero_grad()\\n            loss = model(data)\\n            loss.backward()\\n            optimizer.step()\\n\\n            if i % 10 == 0:\\n                elapsed_time = time.time() - start_time\\n                print(f'Epoch {epoch+1}, Batch {i+1}, Loss: {loss.item():.4f}, Time: {elapsed_time:.2f}s')\\n                start_time = time.time()\\n\\n                # Memory monitoring\\n                process = psutil.Process(os.getpid())\\n                memory_usage = process.memory_info().rss / 1024 ** 2  # in MB\\n                print(f\\\"Memory Usage: {memory_usage:.2f} MB\\\")\\n\\n    print(\\\"Training finished!\\\")\\n\"\n  }\n]",
+  "model": "gemini-2.0-flash"
+}

@@ -1,0 +1,7 @@
+class Kernel:
+    def __init__(self):
+        pass
+
+    def execute_query(self, query: str) -> str:
+        """Executes a query against the H2Q system.  This is a stub and should be replaced with a real implementation."""
+        return f"Query '{query}' executed.  (This is a mock response.)"

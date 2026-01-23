@@ -1,0 +1,5 @@
+{
+  "timestamp": 1769075554.88658,
+  "response": "[\n  {\n    \"file_path\": \"h2q_project/Dockerfile\",\n    \"content\": \"FROM python:3.9-slim-buster\\n\\nWORKDIR /app\\n\\n# Install system dependencies\\nRUN apt-get update && apt-get install --no-install-recommends -y \\\\\\n    git \\\\\\n    && rm -rf /var/lib/apt/lists/*\\n\\n# Copy only requirements file first to leverage Docker cache\\nCOPY h2q_project/requirements.txt .\\n\\n# Install Python dependencies\\nRUN pip install --no-cache-dir -r requirements.txt\\n\\n# Copy the application code\\nCOPY h2q_project .\\n\\n# Set environment variables (example)\\nENV FLASK_APP=app.py\\nENV FLASK_RUN_HOST=0.0.0.0\\n\\n# Expose the port the app runs on\\nEXPOSE 5000\\n\\n# Run the application\\nCMD [\\\"flask\\\", \\\"run\\\"]\"\n  }\n]",
+  "model": "gemini-2.0-flash"
+}

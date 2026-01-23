@@ -1,0 +1,49 @@
+import time
+import datetime
+import psutil
+import json
+
+class Logger:
+    def __init__(self, log_file='application.log'):
+        self.log_file = log_file
+
+    def log(self, message, level='INFO'):
+        timestamp = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+        log_message = f'[{timestamp}] [{level}] {message}\n'
+        with open(self.log_file, 'a') as f:
+            f.write(log_message)
+
+    def log_operation(self, operation_name, start_time, end_time, resource_usage=None):
+        duration = end_time - start_time
+        log_data = {
+            'operation': operation_name,
+            'start_time': start_time.strftime('%Y-%m-%d %H:%M:%S.%f'),
+            'end_time': end_time.strftime('%Y-%m-%d %H:%M:%S.%f'),
+            'duration_seconds': duration.total_seconds(),
+            'resource_usage': resource_usage if resource_usage else {}
+        }
+        self.log(json.dumps(log_data), level='OPERATION')
+
+    def get_resource_usage(self):
+        cpu_usage = psutil.cpu_percent()
+        memory_usage = psutil.virtual_memory().percent
+        return {
+            'cpu_percent': cpu_usage,
+            'memory_percent': memory_usage
+        }
+
+
+# Example Usage (Can be placed in a main function or another appropriate location)
+if __name__ == '__main__':
+    logger = Logger()
+
+    # Simulate an operation
+    operation_name = 'Data Processing'
+    start_time = datetime.datetime.now()
+    time.sleep(1)  # Simulate some work
+    resource_usage = logger.get_resource_usage()
+    end_time = datetime.datetime.now()
+
+    logger.log_operation(operation_name, start_time, end_time, resource_usage)
+    logger.log('Application started')
+    logger.log('Application finished')

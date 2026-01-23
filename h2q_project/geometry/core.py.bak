@@ -1,0 +1,30 @@
+class GeometryCore:
+    def __init__(self, shape_factory):
+        self.shape_factory = shape_factory
+
+    def create_shape(self, shape_type, properties):
+        return self.shape_factory.create_shape(shape_type, properties)
+
+class ShapeFactory:
+    def create_shape(self, shape_type, properties):
+        if shape_type == "circle":
+            return Circle(properties)
+        elif shape_type == "rectangle":
+            return Rectangle(properties)
+        else:
+            raise ValueError("Unknown shape type")
+
+class Circle:
+    def __init__(self, properties):
+        self.radius = properties.get("radius", 1.0)
+
+    def area(self):
+        return 3.14159 * self.radius * self.radius
+
+class Rectangle:
+    def __init__(self, properties):
+        self.width = properties.get("width", 1.0)
+        self.height = properties.get("height", 1.0)
+
+    def area(self):
+        return self.width * self.height

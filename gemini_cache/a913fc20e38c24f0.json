@@ -1,0 +1,5 @@
+{
+  "timestamp": 1769074594.3318138,
+  "response": "```json\n{\n  \"selected\": [2, 3],\n  \"ranked\": [2, 3, 0, 1],\n  \"probs\": [0.05, 0.05, 0.7, 0.2]\n}\n```\n\n**Explanation:**\n\n* **`selected`: [2, 3]`**\n    * The correct answer is 40.  Kelly said Courtney overstated the audience by 20%. If Kelly is correct, Courtney’s number (48) is 120% of the true number.  So, the true number is 48 / 1.2 = 40.\n     Since 40 and 5 are the two closest, we select 2 and 3.\n\n* **`ranked`: [2, 3, 0, 1]`**\n    *  Ranks the options based on how likely they are to be the correct answer, in descending order of likelihood.  40 is ranked highest, then 5 since 5, 105 and 5600 are clearly wrong.\n\n* **`probs`: [0.05, 0.05, 0.7, 0.2]`**\n    *  Represents the probability of each option being correct.\n    *  '40' (index 2) has the highest probability (0.7).\n    * '5' (index 3) has the next highest probability (0.2).\n    *  '105' and '5600' have lower probabilities (0.05 each).\n    *  The probabilities sum to 1.0.\n",
+  "model": "gemini-2.0-flash"
+}

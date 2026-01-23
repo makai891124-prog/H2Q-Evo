@@ -1,0 +1,5 @@
+{
+  "timestamp": 1769071147.522521,
+  "response": "[\n  {\n    \"file_path\": \"h2q_project/Dockerfile\",\n    \"content\": \"FROM python:3.9-slim-buster\\n\\nWORKDIR /app\\n\\nCOPY requirements.txt .\\nRUN pip install --no-cache-dir -r requirements.txt\\n\\nCOPY . .\\n\\n# Expose the port your application uses\\nEXPOSE 8000\\n\\n# Set environment variables (optional)\\nENV FLASK_APP=app.py\\nENV FLASK_ENV=production\\n\\n# Define the command to run your application\\nCMD [\\\"python\\\", \\\"app.py\\\"]\\n\"\n  },\n  {\n    \"file_path\": \"h2q_project/app.py\",\n    \"content\": \"from flask import Flask\\n\\napp = Flask(__name__)\\n\\n@app.route('/')\\ndef hello_world():\\n    return 'Hello, World!'\\n\\nif __name__ == '__main__':\\n    app.run(debug=False, host='0.0.0.0', port=8000)\\n\"\n  },\n  {\n    \"file_path\": \"h2q_project/requirements.txt\",\n    \"content\": \"Flask\\n\"\n  },\n  {\n    \"file_path\": \"h2q_project/.dockerignore\",\n    \"content\": \"# Paths to exclude from the Docker image\\n__pycache__/\\n*.pyc\\n*.pyo\\n*.swp\\n*.swo\\n*.DS_Store\\n.git/\\n.gitignore\\n\"\n  }\n]",
+  "model": "gemini-2.0-flash"
+}

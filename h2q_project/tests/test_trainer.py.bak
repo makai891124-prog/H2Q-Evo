@@ -1,0 +1,89 @@
+import unittest
+import torch
+import torch.nn as nn
+from torch.utils.data import DataLoader, TensorDataset
+from h2q_project.trainer import Trainer  # Assuming trainer.py is in the same directory
+
+
+class DummyModel(nn.Module):
+    def __init__(self, input_size, output_size):
+        super().__init__()
+        self.linear = nn.Linear(input_size, output_size)
+
+    def forward(self, x):
+        return self.linear(x)
+
+
+class TestTrainer(unittest.TestCase):
+
+    def setUp(self):
+        # Create dummy data and dataloaders
+        self.input_size = 10
+        self.output_size = 5
+        self.batch_size = 32
+        self.num_epochs = 2
+
+        self.train_data = torch.randn(100, self.input_size)
+        self.train_labels = torch.randn(100, self.output_size)
+        self.train_dataset = TensorDataset(self.train_data, self.train_labels)
+        self.train_dataloader = DataLoader(self.train_dataset, batch_size=self.batch_size)
+
+        self.val_data = torch.randn(50, self.input_size)
+        self.val_labels = torch.randn(50, self.output_size)
+        self.val_dataset = TensorDataset(self.val_data, self.val_labels)
+        self.val_dataloader = DataLoader(self.val_dataset, batch_size=self.batch_size)
+
+        # Create a dummy model, optimizer, and criterion
+        self.model = DummyModel(self.input_size, self.output_size)
+        self.optimizer = torch.optim.Adam(self.model.parameters(), lr=0.001)
+        self.criterion = nn.MSELoss()
+
+        # Instantiate the Trainer
+        self.trainer = Trainer(
+            model=self.model,
+            optimizer=self.optimizer,
+            criterion=self.criterion,
+            train_dataloader=self.train_dataloader,
+            val_dataloader=self.val_dataloader
+        )
+
+    def test_train_one_epoch(self):
+        loss = self.trainer.train_one_epoch()
+        self.assertIsInstance(loss, float)
+        self.assertTrue(loss >= 0)
+
+    def test_validate_one_epoch(self):
+        loss = self.trainer.validate_one_epoch()
+        self.assertIsInstance(loss, float)
+        self.assertTrue(loss >= 0)
+
+    def test_train(self):
+        training_losses, validation_losses = self.trainer.train(self.num_epochs)
+        self.assertIsInstance(training_losses, list)
+        self.assertIsInstance(validation_losses, list)
+        self.assertEqual(len(training_losses), self.num_epochs)
+        self.assertEqual(len(validation_losses), self.num_epochs)
+
+        for loss in training_losses:
+            self.assertIsInstance(loss, float)
+            self.assertTrue(loss >= 0)
+
+        for loss in validation_losses:
+            self.assertIsInstance(loss, float)
+            self.assertTrue(loss >= 0)
+
+    def test_no_val_dataloader(self):
+        # Create a trainer without a validation dataloader
+        trainer = Trainer(
+            model=self.model,
+            optimizer=self.optimizer,
+            criterion=self.criterion,
+            train_dataloader=self.train_dataloader,
+            val_dataloader=None
+        )
+        val_loss = trainer.validate_one_epoch()
+        self.assertIsNone(val_loss)
+
+
+if __name__ == '__main__':
+    unittest.main()

@@ -1,0 +1,37 @@
+import unittest
+from h2q_project.reflection.self_reflection import SelfReflection
+from h2q_project.geometry.core import Point
+
+class TestSelfReflection(unittest.TestCase):
+
+    def test_reflection(self):
+        initial_point = Point(1, 1)
+        reflector = SelfReflection(initial_point)
+
+        vector = Point(1, 0)
+        new_point = reflector.reflect(vector)
+        self.assertEqual(new_point.x, 3)
+        self.assertEqual(new_point.y, 1)
+
+        vector2 = Point(0, 1)
+        new_point2 = reflector.reflect(vector2)
+        self.assertEqual(new_point2.x, 3)
+        self.assertEqual(new_point2.y, 3)
+
+    def test_history(self):
+        initial_point = Point(0, 0)
+        reflector = SelfReflection(initial_point)
+
+        vector1 = Point(1, 0)
+        reflector.reflect(vector1)
+        vector2 = Point(0, 1)
+        reflector.reflect(vector2)
+
+        history = reflector.get_history()
+        self.assertEqual(len(history), 3)
+        self.assertEqual(history[0], Point(0, 0))
+        self.assertEqual(history[1], Point(2, 0))
+        self.assertEqual(history[2], Point(2, 2))
+
+if __name__ == '__main__':
+    unittest.main()

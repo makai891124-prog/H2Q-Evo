@@ -1,0 +1,5 @@
+{
+  "timestamp": 1769074950.346205,
+  "response": "[\n  {\n    \"file_path\": \"h2q_project/Dockerfile\",\n    \"content\": \"FROM ubuntu:latest\\n\\n# Install dependencies\\nRUN apt-get update && apt-get install -y --no-install-recommends \\\\\\n    build-essential \\\\\\n    cmake \\\\\\n    git \\\\\\n    python3 \\\\\\n    python3-pip \\\\\\n    wget \\\\\\n    unzip \\\\\\n    && rm -rf /var/lib/apt/lists/*\\n\\n# Install ONNX Runtime\\nRUN pip3 install onnxruntime\\n\\n# Set working directory\\nWORKDIR /app\\n\\n# Copy source code\\nCOPY . .\\n\\n# Build the H2Q geometry kernel\\nRUN mkdir build && cd build && cmake .. && make\\n\\n# Add a simple test to verify ONNX Runtime acceleration (example)\\nRUN echo \\\"import onnxruntime; print('ONNX Runtime version:', onnxruntime.__version__)\\\" > test_onnx.py\\n\\n# Command to run the test (customize this to run an H2Q kernel example with ONNX)\\nCMD [\\\"python3\\\", \\\"test_onnx.py\\\"]\"\n  }\n]",
+  "model": "gemini-2.0-flash"
+}

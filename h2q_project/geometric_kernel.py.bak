@@ -1,0 +1,31 @@
+import numpy as np
+
+class GeometricKernel:
+    def __init__(self, gamma: float = 1.0):
+        self.gamma = gamma
+
+    def compute_similarity(self, x: np.ndarray, y: np.ndarray) -> float:
+        """Computes the geometric similarity between two vectors.
+
+        Args:
+            x: The first vector.
+            y: The second vector.
+
+        Returns:
+            The geometric similarity between the two vectors.
+        """
+        # Implementation of geometric similarity (example using Euclidean distance)
+        distance = np.linalg.norm(x - y)
+        return np.exp(-self.gamma * distance**2)
+
+    def apply(self, X: np.ndarray) -> np.ndarray:
+        """Applies the geometric kernel to a set of input vectors.
+
+        Args:
+            X: The input vectors.
+
+        Returns:
+            The transformed vectors.
+        """
+        # Placeholder implementation
+        return np.sum(X, axis=1) * self.gamma  # Example transformation

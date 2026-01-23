@@ -1,0 +1,9 @@
+# h2q_project/core.py
+
+def add(x, y):
+    return x + y
+
+def subtract(x, y):
+    return x - y
+
+# Add more core functions here

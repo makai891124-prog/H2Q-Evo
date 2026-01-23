@@ -1,0 +1,64 @@
+import tracemalloc
+import gc
+
+class MemoryProfiler:
+    def __init__(self, top_n=10):
+        self.top_n = top_n
+
+    def start(self):
+        tracemalloc.start()
+        gc.collect()
+
+    def stop(self):
+        snapshot = tracemalloc.take_snapshot()
+        tracemalloc.stop()
+        return snapshot
+
+    def get_top_memory_blocks(self, snapshot):
+        top_stats = snapshot.statistics('lineno')
+        print("[ Top {} lines ]".format(self.top_n))
+        for index, stat in enumerate(top_stats[:self.top_n]):
+            frame = stat.traceback[0]
+            print("#{} {}:{}: {:.1f} KiB".format(
+                index + 1, frame.filename, frame.lineno, stat.size / 1024
+            ))
+
+    def find_memory_leaks(self, snapshot_before, snapshot_after, top_n=10):
+        top_stats = snapshot_after.compare_to(snapshot_before, 'lineno')
+        print("[ Top {} differences ]".format(top_n))
+        for index, stat in enumerate(top_stats[:top_n]):
+            frame = stat.traceback[0]
+            print("#{} {}:{}: {:.1f} KiB (+{:.1f} KiB)".format(
+                index + 1, frame.filename, frame.lineno, stat.size_diff / 1024, stat.size / 1024
+            ))
+
+# Example usage (add to relevant parts of the code where memory analysis is needed)
+# profiler = MemoryProfiler()
+# profiler.start()
+# ... (code to be profiled) ...
+# snapshot = profiler.stop()
+# profiler.get_top_memory_blocks(snapshot)
+
+
+class DataStructureOptimizer:
+    def __init__(self):
+        pass
+
+    def optimize_list_to_set(self, data_list):
+        """Converts a list to a set if order is not important and uniqueness is desired."""
+        return set(data_list)
+
+    def optimize_dict_memory(self, data_dict):
+        """Reduces dictionary memory usage by using slots or specialized data structures if applicable."""
+        # This is a placeholder.  Real implementation depends on the specific dict and its usage.
+        # Example: If keys are integers within a small range, consider using a list instead of a dict.
+        return data_dict # No actual changes made here, needs customized implementation
+
+    def use_generators(self, data_iterable):
+        """Uses generators to process large datasets lazily, reducing memory consumption."""
+        for item in data_iterable:
+            yield item
+
+# Example usage:
+# optimizer = DataStructureOptimizer()
+# optimized_data = optimizer.optimize_list_to_set(my_list)

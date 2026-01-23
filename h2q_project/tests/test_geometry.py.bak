@@ -1,0 +1,67 @@
+import unittest
+from h2q_project.core.geometry import Point, LineSegment, Triangle, GeometryKernel, SelfReflection
+
+class TestGeometry(unittest.TestCase):
+
+    def test_point_distance(self):
+        p1 = Point(0, 0, 0)
+        p2 = Point(3, 4, 0)
+        self.assertAlmostEqual(p1.distance_to(p2), 5.0)
+
+    def test_line_segment_length(self):
+        p1 = Point(0, 0, 0)
+        p2 = Point(3, 4, 0)
+        line = LineSegment(p1, p2)
+        self.assertAlmostEqual(line.length(), 5.0)
+
+    def test_triangle_area(self):
+        p1 = Point(0, 0, 0)
+        p2 = Point(3, 0, 0)
+        p3 = Point(0, 4, 0)
+        triangle = Triangle(p1, p2, p3)
+        self.assertAlmostEqual(triangle.area(), 6.0)
+
+    def test_geometry_kernel_distance(self):
+        kernel = GeometryKernel()
+        p1 = Point(1, 2, 3)
+        p2 = Point(4, 6, 7)
+        distance = kernel.calculate_distance(p1, p2)
+        self.assertAlmostEqual(distance, 6.48074069840786)
+
+    def test_geometry_kernel_area(self):
+        kernel = GeometryKernel()
+        p1 = Point(0, 0, 0)
+        p2 = Point(3, 0, 0)
+        p3 = Point(0, 4, 0)
+        triangle = Triangle(p1, p2, p3)
+        area = kernel.calculate_area(triangle)
+        self.assertAlmostEqual(area, 6.0)
+
+    def test_self_reflection_methods(self):
+        kernel = GeometryKernel()
+        self_reflection = SelfReflection(kernel)
+        methods_reflection = self_reflection.reflect_on_methods()
+        self.assertIn('calculate_distance', methods_reflection)
+        self.assertIn('calculate_area', methods_reflection)
+
+    def test_self_reflection_distance(self):
+        kernel = GeometryKernel()
+        self_reflection = SelfReflection(kernel)
+        p1 = Point(1, 2, 3)
+        p2 = Point(4, 6, 7)
+        distance_reflection = self_reflection.reflect_on_distance_calculation(p1, p2)
+        self.assertIn('6.48074069840786', distance_reflection) # using the value from test_geometry_kernel_distance
+
+    def test_self_reflection_area(self):
+        kernel = GeometryKernel()
+        self_reflection = SelfReflection(kernel)
+        p1 = Point(0, 0, 0)
+        p2 = Point(3, 0, 0)
+        p3 = Point(0, 4, 0)
+        triangle = Triangle(p1, p2, p3)
+        area_reflection = self_reflection.reflect_on_area_calculation(triangle)
+        self.assertIn('6.0', area_reflection) # using the value from test_geometry_kernel_area
+
+
+if __name__ == '__main__':
+    unittest.main()

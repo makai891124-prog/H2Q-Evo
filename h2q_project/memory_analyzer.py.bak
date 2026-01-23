@@ -1,0 +1,56 @@
+import gc
+import tracemalloc
+import time
+
+class MemoryAnalyzer:
+    def __init__(self, interval=1, top_n=10):
+        self.interval = interval
+        self.top_n = top_n
+        self.running = False
+
+    def start(self):
+        self.running = True
+        tracemalloc.start()
+        print("Memory analyzer started.")
+        self.run()
+
+    def stop(self):
+        self.running = False
+        tracemalloc.stop()
+        print("Memory analyzer stopped.")
+
+    def run(self):
+        while self.running:
+            self.analyze()
+            time.sleep(self.interval)
+
+    def analyze(self):
+        snapshot = tracemalloc.take_snapshot()
+        top_stats = snapshot.statistics('lineno')
+
+        print("[ Top {} lines ]".format(self.top_n))
+        for stat in top_stats[:self.top_n]:
+            print(stat)
+
+        # Detect potential memory leaks (simplified)
+        gc.collect()
+        unreachable = gc.garbage
+        if unreachable:
+            print("Potential memory leaks detected!")
+            for obj in unreachable:
+                print(type(obj))
+
+
+if __name__ == '__main__':
+    # Example usage
+    analyzer = MemoryAnalyzer(interval=5, top_n=5)
+    analyzer.start()
+
+    # Simulate some memory allocation
+    data = []
+    for i in range(100000):
+        data.append(i * i)
+
+    time.sleep(10)
+    analyzer.stop()
+    del data

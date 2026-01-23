@@ -1,0 +1,5 @@
+{
+  "timestamp": 1769075385.995685,
+  "response": "[\n  {\n    \"task\": \"为 quaternion_ops.py 添加类型注解并优化数值稳定性\",\n    \"priority\": \"high\",\n    \"target_files\": [\n      \"h2q_project/quaternion_ops.py\"\n    ],\n    \"rationale\": \"这是最高优先级的 pending 任务，改进四元数运算的健壮性是 H2Q 项目的核心。\"\n  },\n  {\n    \"task\": \"优化 Docker 镜像，减少镜像大小，提升启动速度。考虑使用多阶段构建。\",\n    \"priority\": \"medium\",\n    \"target_files\": [\n      \"Dockerfile\"\n    ],\n    \"rationale\": \"在 6GB 内存限制下，优化 Docker 镜像至关重要。多阶段构建可以显著减少最终镜像的大小。\"\n  },\n  {\n    \"task\": \"实现基于 pytest 的单元测试框架，并为 quaternion_ops.py 添加测试用例。\",\n    \"priority\": \"high\",\n    \"target_files\": [\n      \"h2q_project/quaternion_ops.py\",\n      \"h2q_project/tests/test_quaternion_ops.py\"\n    ],\n    \"rationale\": \"为了保证 quaternion_ops.py 的数值稳定性和正确性，需要完善的单元测试。\"\n  },\n  {\n    \"task\": \"减少 evolution_system.py 中的内存占用，优化上下文加载策略，避免一次性加载所有文件。\",\n    \"priority\": \"medium\",\n    \"target_files\": [\n      \"h2q_project/evolution_system.py\"\n    ],\n    \"rationale\": \"evolution_system.py 运行时可能消耗大量内存，尤其是 get_project_context 函数。需要优化以适应 6GB 内存限制。\"\n  }\n]",
+  "model": "gemini-2.0-flash"
+}

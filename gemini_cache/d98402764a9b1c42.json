@@ -1,0 +1,5 @@
+{
+  "timestamp": 1769074136.677989,
+  "response": "```json\n{\n  \"selected\": [3, 2],\n  \"ranked\": [\n    3,\n    2,\n    1,\n    0\n  ],\n  \"probs\": [\n    0.05,\n    0.25,\n    0.30,\n    0.40\n  ]\n}\n```",
+  "model": "gemini-2.0-flash"
+}

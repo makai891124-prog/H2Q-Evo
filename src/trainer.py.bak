@@ -1,0 +1,75 @@
+import torch
+import torch.nn as nn
+import torch.optim as optim
+import os
+
+class Trainer:
+    def __init__(self, model, train_loader, val_loader, optimizer, criterion, device, output_dir, epochs=10, save_frequency=10):
+        self.model = model
+        self.train_loader = train_loader
+        self.val_loader = val_loader
+        self.optimizer = optimizer
+        self.criterion = criterion
+        self.device = device
+        self.output_dir = output_dir
+        self.epochs = epochs
+        self.save_frequency = save_frequency
+
+        os.makedirs(self.output_dir, exist_ok=True)
+
+    def train_epoch(self):
+        self.model.train()
+        running_loss = 0.0
+        for i, data in enumerate(self.train_loader):
+            inputs, labels = data
+            inputs = inputs.to(self.device)
+            labels = labels.to(self.device)
+
+            self.optimizer.zero_grad()
+
+            outputs = self.model(inputs)
+            loss = self.criterion(outputs, labels)
+            loss.backward()
+            self.optimizer.step()
+
+            running_loss += loss.item()
+
+        epoch_loss = running_loss / len(self.train_loader)
+        print(f'Training Loss: {epoch_loss:.4f}')
+        return epoch_loss
+
+
+    def validate_epoch(self):
+        self.model.eval()
+        running_loss = 0.0
+        with torch.no_grad():
+            for i, data in enumerate(self.val_loader):
+                inputs, labels = data
+                inputs = inputs.to(self.device)
+                labels = labels.to(self.device)
+
+                outputs = self.model(inputs)
+                loss = self.criterion(outputs, labels)
+
+                running_loss += loss.item()
+
+        epoch_loss = running_loss / len(self.val_loader)
+        print(f'Validation Loss: {epoch_loss:.4f}')
+        return epoch_loss
+
+    def save_model(self, epoch):
+        model_path = os.path.join(self.output_dir, f'model_epoch_{epoch}.pth')
+        torch.save(self.model.state_dict(), model_path)
+        print(f'Model saved to {model_path}')
+
+    def train(self):
+        for epoch in range(1, self.epochs + 1):
+            print(f'Epoch {epoch}/{self.epochs}')
+            train_loss = self.train_epoch()
+            val_loss = self.validate_epoch()
+
+            if epoch % self.save_frequency == 0:
+                self.save_model(epoch)
+
+        print('Finished Training')
+

@@ -1,0 +1,26 @@
+import unittest
+import numpy as np
+from h2q_project.fractal_generator import mandelbrot
+
+class TestFractalGenerator(unittest.TestCase):
+
+    def test_mandelbrot_inside(self):
+        c = 0 + 0j
+        max_iter = 256
+        result = mandelbrot(c, max_iter)
+        self.assertEqual(result, max_iter)
+
+    def test_mandelbrot_outside(self):
+        c = 2 + 2j
+        max_iter = 256
+        result = mandelbrot(c, max_iter)
+        self.assertLess(result, max_iter)
+
+    def test_mandelbrot_boundary(self):
+        c = 0.25 + 0j  # On the boundary of the cardioid
+        max_iter = 256
+        result = mandelbrot(c, max_iter)
+        self.assertGreater(result, 10) # should take a while to escape, at least 10 iterations
+
+if __name__ == '__main__':
+    unittest.main()

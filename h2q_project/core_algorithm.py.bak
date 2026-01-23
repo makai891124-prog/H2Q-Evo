@@ -1,0 +1,41 @@
+import numpy as np
+
+class CoreAlgorithm:
+    def __init__(self, data):
+        self.data = data
+
+    def process_data(self):
+        # Original implementation (memory intensive)
+        # processed_data = np.fft.fft(self.data)
+
+        # Optimized implementation (iterative processing)
+        processed_data = self.iterative_fft(self.data)
+
+        return processed_data
+
+    def iterative_fft(self, data):
+        N = len(data)
+        if N <= 1:
+            return data
+
+        even = self.iterative_fft(data[0::2])
+        odd = self.iterative_fft(data[1::2])
+
+        T = [np.exp(-2j * np.pi * k / N) * odd[k] for k in range(N//2)]
+        processed_data = [even[k] + T[k] for k in range(N//2)] + \
+                         [even[k] - T[k] for k in range(N//2)]
+
+        return processed_data
+
+    def process_large_data(self):
+        # Using a generator to process data in chunks
+        def data_generator(data, chunk_size):
+            for i in range(0, len(data), chunk_size):
+                yield data[i:i + chunk_size]
+
+        chunk_size = 10000  # Adjust chunk size based on available memory
+        results = []
+        for chunk in data_generator(self.data, chunk_size):
+            processed_chunk = self.iterative_fft(chunk)
+            results.extend(processed_chunk)
+        return results

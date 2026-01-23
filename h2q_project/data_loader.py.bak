@@ -1,0 +1,31 @@
+import pandas as pd
+
+class DataLoader:
+    def __init__(self, file_path):
+        self.file_path = file_path
+
+    def load_data(self, chunksize=1000):
+        """Loads data in chunks using a generator."""
+        try:
+            # Use pandas read_csv with chunksize for efficient memory usage
+            for chunk in pd.read_csv(self.file_path, chunksize=chunksize):
+                yield chunk
+        except FileNotFoundError:
+            print(f"Error: File not found at {self.file_path}")
+            yield pd.DataFrame()  # Return an empty DataFrame if the file doesn't exist
+        except Exception as e:
+            print(f"Error loading data: {e}")
+            yield pd.DataFrame() # Return an empty DataFrame if there's an error
+
+
+if __name__ == '__main__':
+    # Example usage (replace with your actual file path)
+    file_path = 'data/large_data.csv'  # Relative path to a sample data file
+    data_loader = DataLoader(file_path)
+
+    # Iterate through the data chunks
+    for i, chunk in enumerate(data_loader.load_data(chunksize=5000)): # Load with a chunksize of 5000 rows
+        print(f"Processing chunk {i + 1}")
+        # Process your data chunk here. For example:
+        print(f"Chunk shape: {chunk.shape}")
+        # break # only process first chunk for demonstration

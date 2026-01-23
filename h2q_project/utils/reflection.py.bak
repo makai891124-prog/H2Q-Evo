@@ -1,0 +1,60 @@
+import inspect
+import h2q_project.core.quaternion
+import h2q_project.core.fractal_geometry
+
+
+class ReflectionModule:
+    def __init__(self, feedback_mechanism=None):
+        self.feedback_mechanism = feedback_mechanism or self.default_feedback
+
+    def default_feedback(self, message):
+        print(f"[Reflection]: {message}")
+
+    def analyze_quaternion(self, quaternion):
+        validator = h2q_project.core.quaternion.QuaternionValidator()
+        is_valid = validator.validate(quaternion)
+        if not is_valid:
+            self.feedback_mechanism("Quaternion validation failed. Possible normalization issue.")
+
+    def analyze_fractal_image(self, image_data):
+        # Simple analysis - check for extreme value ranges.
+        min_val = image_data.min()
+        max_val = image_data.max()
+
+        if max_val - min_val < 1e-6:
+             self.feedback_mechanism("Fractal image data shows very little variation. Possible generation error.")
+
+
+
+    def reflect_on_execution(self, object, method_name, args, kwargs, result):
+        """Reflects on the execution of a method and provides feedback."""
+        if isinstance(object, h2q_project.core.quaternion.Quaternion):
+            self.analyze_quaternion(object)
+        elif isinstance(result, np.ndarray): # Assumes fractal generation returns a numpy array.
+            self.analyze_fractal_image(result)
+
+        # Add more specific reflection logic here based on the object and method.
+        # The goal is to identify potential issues and provide informative feedback.
+        # Example:
+        # if method_name == "generate_fractal" and result is None:
+        #     self.feedback_mechanism("Fractal generation returned None. Check parameters.")
+
+
+
+    def instrument_class(self, cls):
+        """Instruments a class to add reflection capabilities to its methods."""
+        for name, method in inspect.getmembers(cls, inspect.isfunction):
+            original_method = method
+
+            def wrapper(*args, **kwargs):
+                result = original_method(*args, **kwargs)
+                self.reflect_on_execution(args[0] if args else None, name, args, kwargs, result) # self is args[0]
+                return result
+
+            setattr(cls, name, wrapper)
+        return cls
+
+
+# Example usage:
+# reflection_module = ReflectionModule()
+# InstrumentedQuaternion = reflection_module.instrument_class(Quaternion)

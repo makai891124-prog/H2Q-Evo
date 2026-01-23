@@ -1,0 +1,5 @@
+{
+  "timestamp": 1769071292.072512,
+  "response": "[\n  {\n    \"task\": \"优化 quaternion_ops.py 的数值稳定性并添加详细的测试用例，确保在各种输入情况下四元数运算的正确性和稳定性。特别关注可能导致梯度爆炸或消失的极端情况。\",\n    \"priority\": \"high\",\n    \"target_files\": [\n      \"h2q_project/quaternion_ops.py\"\n    ],\n    \"rationale\": \"quaternion_ops.py 是核心模块，数值稳定性问题是高优先级。之前的代码生成失败可能源于缺乏清晰的数值稳定性测试，因此本次着重强调测试用例。\"\n  },\n  {\n    \"task\": \"为 Trainer 类添加自动混合精度训练 (AMP) 支持，并使用 PyTorch Profiler 分析训练性能，找出瓶颈并优化。\",\n    \"priority\": \"medium\",\n    \"target_files\": [\n      \"h2q_project/Trainer.py\"\n    ],\n    \"rationale\": \"Trainer 类统一训练流程后，可以通过 AMP 优化内存占用和训练速度。Profiler 可以帮助定位性能瓶颈，提高资源利用率。\"\n  },\n  {\n    \"task\": \"为 H2Q 项目实现一个简单的日志系统，记录训练过程中的关键指标（损失、精度等）和系统资源使用情况（CPU、内存、GPU）。\",\n    \"priority\": \"low\",\n    \"target_files\": [\n      \"h2q_project/utils/logger.py\",\n      \"h2q_project/Trainer.py\"\n    ],\n    \"rationale\": \"日志系统可以帮助监控训练过程，方便调试和分析。这是低成本但有价值的改进。\"\n  }\n]",
+  "model": "gemini-2.0-flash"
+}

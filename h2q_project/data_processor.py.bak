@@ -1,0 +1,81 @@
+import logging
+import time
+import tracemalloc
+
+class DataProcessor:
+    def __init__(self):
+        self.data = []
+        self.cache = {}
+        self.logger = logging.getLogger(__name__)
+
+    def load_data(self, file_path):
+        start_time = time.time()
+        tracemalloc.start()
+        try:
+            with open(file_path, 'r') as f:
+                # Simulate a large dataset
+                for i in range(100000):
+                    line = f.readline()
+                    if not line:
+                        break
+                    self.data.append(line.strip())
+
+        except FileNotFoundError:
+            self.logger.error(f"File not found: {file_path}")
+            return False
+        except Exception as e:
+            self.logger.exception(f"Error loading data from {file_path}: {e}")
+            return False
+        finally:
+            snapshot = tracemalloc.take_snapshot()
+            top_stats = snapshot.statistics('lineno')
+            self.logger.info("[LOAD_DATA] Top 10 memory using lines:")
+            for stat in top_stats[:10]:
+                self.logger.info(stat)
+            tracemalloc.stop()
+        end_time = time.time()
+        load_time = end_time - start_time
+        self.logger.info(f"Data loaded in {load_time} seconds.")
+        return True
+
+    def process_data(self):
+        start_time = time.time()
+        # Process the loaded data
+        for item in self.data:
+            # Simulate some processing
+            result = item.upper()
+            self.cache[item] = result  # Potential memory leak
+        end_time = time.time()
+        process_time = end_time - start_time
+        self.logger.info(f"Data processed in {process_time} seconds.")
+
+    def clear_cache(self):
+       # Clear the cache to free memory
+        self.cache.clear()
+        self.logger.info("Cache cleared.")
+
+    def analyze_memory_usage(self):
+        # Analyze memory usage using tracemalloc
+        tracemalloc.start()
+        snapshot_before = tracemalloc.take_snapshot()
+        self.load_data("large_data.txt")
+        self.process_data()
+        snapshot_after = tracemalloc.take_snapshot()
+
+        top_stats = snapshot_after.compare_to(snapshot_before, 'lineno')
+
+        print("[ANALYZE_MEMORY_USAGE] Top 10 differences in memory usage:")
+        for stat in top_stats[:10]:
+            print(stat)
+        tracemalloc.stop()
+
+    def run(self):
+        self.load_data("large_data.txt")
+        self.process_data()
+        # Important: Clean up the cache after processing to release memory
+        self.clear_cache()
+
+if __name__ == '__main__':
+    logging.basicConfig(level=logging.INFO)
+    processor = DataProcessor()
+    processor.run()

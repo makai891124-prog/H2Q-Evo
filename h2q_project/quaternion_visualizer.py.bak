@@ -1,0 +1,77 @@
+import numpy as np
+import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
+from scipy.spatial.transform import Rotation as R
+
+
+def quaternion_to_rotation_matrix(q):
+    """Converts a quaternion to a rotation matrix.
+
+    Args:
+        q (np.ndarray): A quaternion in the form [w, x, y, z].
+
+    Returns:
+        np.ndarray: A 3x3 rotation matrix.
+    """
+    return R.from_quat([q[1], q[2], q[3], q[0]]).as_matrix()
+
+
+def visualize_quaternion(q, ax=None):
+    """Visualizes a quaternion by showing its corresponding rotation of a coordinate frame.
+
+    Args:
+        q (np.ndarray): A quaternion in the form [w, x, y, z].
+        ax (matplotlib.axes._axes.Axes, optional): An existing axes object to plot on. If None, a new figure and axes are created. Defaults to None.
+
+    Returns:
+        matplotlib.axes._axes.Axes: The axes object used for the plot.
+    """
+    if ax is None:
+        fig = plt.figure()
+        ax = fig.add_subplot(111, projection='3d')
+
+    # Define the original coordinate frame
+    x_axis = np.array([1, 0, 0])
+    y_axis = np.array([0, 1, 0])
+    z_axis = np.array([0, 0, 1])
+
+    # Rotate the coordinate frame using the quaternion
+    rotation_matrix = quaternion_to_rotation_matrix(q)
+    rotated_x_axis = rotation_matrix @ x_axis
+    rotated_y_axis = rotation_matrix @ y_axis
+    rotated_z_axis = rotation_matrix @ z_axis
+
+    # Plot the original and rotated coordinate frames
+    origin = np.array([0, 0, 0])
+    ax.quiver(*origin, *x_axis, color='r', label='X', arrow_length_ratio=0.2)
+    ax.quiver(*origin, *y_axis, color='g', label='Y', arrow_length_ratio=0.2)
+    ax.quiver(*origin, *z_axis, color='b', label='Z', arrow_length_ratio=0.2)
+
+    ax.quiver(*origin, *rotated_x_axis, color='r', linestyle='--', arrow_length_ratio=0.2)
+    ax.quiver(*origin, *rotated_y_axis, color='g', linestyle='--', arrow_length_ratio=0.2)
+    ax.quiver(*origin, *rotated_z_axis, color='b', linestyle='--', arrow_length_ratio=0.2)
+
+    # Set axis limits and labels
+    ax.set_xlim([-1, 1])
+    ax.set_ylim([-1, 1])
+    ax.set_zlim([-1, 1])
+    ax.set_xlabel('X')
+    ax.set_ylabel('Y')
+    ax.set_zlabel('Z')
+    ax.set_title('Quaternion Visualization')
+    ax.legend()
+
+    return ax
+
+
+if __name__ == '__main__':
+    # Example usage:
+    # Create a sample quaternion (rotation of 90 degrees around the Z axis)
+    q = np.array([np.cos(np.pi/4), 0, 0, np.sin(np.pi/4)]) # w, x, y, z
+    
+    # Normalize the quaternion (important for correct rotations)
+    q = q / np.linalg.norm(q)
+
+    # Visualize the quaternion
+    ax = visualize_quaternion(q)
+    plt.show()

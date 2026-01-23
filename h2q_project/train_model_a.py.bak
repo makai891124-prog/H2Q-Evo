@@ -1,0 +1,31 @@
+from h2q_project.trainer import Trainer
+
+class ModelATrainer(Trainer):
+    def __init__(self, model, train_data, val_data, optimizer, loss_fn):
+        self.model = model
+        self.train_data = train_data
+        self.val_data = val_data
+        self.optimizer = optimizer
+        self.loss_fn = loss_fn
+
+    def train(self):
+        # Training loop for Model A
+        print("Training Model A...")
+        for epoch in range(10):
+            print(f"Epoch {epoch+1}")
+            # Simulate training steps
+            for i in range(len(self.train_data)):
+                loss = self.loss_fn(self.model(self.train_data[i]), self.val_data[i])
+                loss.backward()
+                self.optimizer.step()
+                self.optimizer.zero_grad()
+
+    def evaluate(self):
+        # Evaluation logic for Model A
+        print("Evaluating Model A...")
+        return 0.8  # Dummy accuracy value
+
+    def save_model(self, path):
+        # Save model logic for Model A
+        print(f"Saving Model A to {path}")
+        pass

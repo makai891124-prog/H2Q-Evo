@@ -1,0 +1,52 @@
+import torch
+import torch.nn as nn
+import torch.optim as optim
+from torch.utils.data import DataLoader
+
+class Trainer:
+    def __init__(self, model: nn.Module, train_dataloader: DataLoader, val_dataloader: DataLoader, optimizer: optim.Optimizer, criterion: nn.Module, device: str):
+        self.model = model
+        self.train_dataloader = train_dataloader
+        self.val_dataloader = val_dataloader
+        self.optimizer = optimizer
+        self.criterion = criterion
+        self.device = device
+
+        self.model.to(self.device)
+
+    def train_epoch(self):
+        self.model.train()
+        running_loss = 0.0
+        for inputs, labels in self.train_dataloader:
+            inputs, labels = inputs.to(self.device), labels.to(self.device)
+
+            self.optimizer.zero_grad()
+
+            outputs = self.model(inputs)
+            loss = self.criterion(outputs, labels)
+            loss.backward()
+            self.optimizer.step()
+
+            running_loss += loss.item()
+
+        return running_loss / len(self.train_dataloader)
+
+    def validate_epoch(self):
+        self.model.eval()
+        running_loss = 0.0
+        with torch.no_grad():
+            for inputs, labels in self.val_dataloader:
+                inputs, labels = inputs.to(self.device), labels.to(self.device)
+
+                outputs = self.model(inputs)
+                loss = self.criterion(outputs, labels)
+
+                running_loss += loss.item()
+
+        return running_loss / len(self.val_dataloader)
+
+    def train(self, num_epochs: int):
+        for epoch in range(num_epochs):
+            train_loss = self.train_epoch()
+            val_loss = self.validate_epoch()
+            print(f'Epoch {epoch+1}/{num_epochs}, Train Loss: {train_loss:.4f}, Val Loss: {val_loss:.4f}')

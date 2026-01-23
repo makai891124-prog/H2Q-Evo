@@ -1,0 +1,32 @@
+import torch
+import torch.nn as nn
+import torch.optim as optim
+
+class BaseTrainer:
+    def __init__(self, model, optimizer, criterion, device):
+        self.model = model
+        self.optimizer = optimizer
+        self.criterion = criterion
+        self.device = device
+
+    def train_step(self, data, target):
+        self.model.train()
+        self.optimizer.zero_grad()
+        output = self.model(data.to(self.device))
+        loss = self.criterion(output, target.to(self.device))
+        loss.backward()
+        self.optimizer.step()
+        return loss.item()
+
+    def evaluate(self, data_loader):
+        self.model.eval()
+        total_loss = 0.0
+        with torch.no_grad():
+            for data, target in data_loader:
+                output = self.model(data.to(self.device))
+                loss = self.criterion(output, target.to(self.device))
+                total_loss += loss.item() * data.size(0)
+        return total_loss / len(data_loader.dataset)
+
+    def save_model(self, path):
+        torch.save(self.model.state_dict(), path)

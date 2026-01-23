@@ -1,0 +1,9 @@
+from h2q_project.geometry.core import Point
+
+class Line:
+    def __init__(self, start: Point, end: Point):
+        self.start = start
+        self.end = end
+
+    def __repr__(self):
+        return f"Line(start={self.start}, end={self.end})"

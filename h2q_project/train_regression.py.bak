@@ -1,0 +1,48 @@
+import torch
+import torch.nn as nn
+import torch.optim as optim
+from torch.utils.data import DataLoader
+from h2q_project.datasets import RegressionDataset  # 确保这与您的实际位置匹配
+from h2q_project.models import SimpleRegressionModel  # 确保这与您的实际位置匹配
+from h2q_project.trainer import Trainer  # 导入 Trainer 类
+
+# 假设的超参数
+input_size = 10
+hidden_size = 20
+output_size = 1
+learning_rate = 0.001
+batch_size = 32
+num_epochs = 10
+
+class RegressionTrainer(Trainer):
+    def __init__(self, input_size, hidden_size, output_size, learning_rate, batch_size, num_epochs):
+        super().__init__(learning_rate, batch_size, num_epochs)
+        self.model = SimpleRegressionModel(input_size, hidden_size, output_size)
+        self.criterion = nn.MSELoss()
+        self.optimizer = optim.Adam(self.model.parameters(), lr=learning_rate)
+        self.dataset = RegressionDataset(num_samples=100, input_size=input_size)
+        self.dataloader = DataLoader(self.dataset, batch_size=batch_size, shuffle=True)
+
+    def train_step(self, data, target):
+        # 前向传播
+        outputs = self.model(data)
+        loss = self.criterion(outputs, target)
+
+        # 反向传播和优化
+        self.optimizer.zero_grad()
+        loss.backward()
+        self.optimizer.step()
+
+        return loss.item()
+
+    def run(self):
+        for epoch in range(self.num_epochs):
+            total_loss = 0.0
+            for i, (data, target) in enumerate(self.dataloader):
+                loss = self.train_step(data, target)
+                total_loss += loss
+            print(f'Epoch [{epoch+1}/{self.num_epochs}], Loss: {total_loss / len(self.dataloader):.4f}')
+
+if __name__ == '__main__':
+    trainer = RegressionTrainer(input_size, hidden_size, output_size, learning_rate, batch_size, num_epochs)
+    trainer.run()

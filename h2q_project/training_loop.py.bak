@@ -1,0 +1,44 @@
+import h2q_project.memory_analyzer
+
+def train(model, data, optimizer, loss_fn, epochs=10):
+    analyzer = h2q_project.memory_analyzer.MemoryAnalyzer()
+    analyzer.start_tracking()
+
+    for epoch in range(epochs):
+        analyzer.take_snapshot(f'Start of epoch {epoch}')
+
+        # Simulate training step
+        optimizer.zero_grad()
+        outputs = model(data)
+        loss = loss_fn(outputs, data)
+        loss.backward()
+        optimizer.step()
+
+        analyzer.take_snapshot(f'End of epoch {epoch}')
+
+    analyzer.stop_tracking()
+    analyzer.generate_report('training_memory_report.json')
+
+    print('Training completed.')
+
+
+if __name__ == '__main__':
+    # Dummy data and model for demonstration
+    import torch
+    import torch.nn as nn
+    import torch.optim as optim
+
+    class DummyModel(nn.Module):
+        def __init__(self):
+            super(DummyModel, self).__init__()
+            self.linear = nn.Linear(10, 10)
+
+        def forward(self, x):
+            return self.linear(x)
+
+    model = DummyModel()
+    data = torch.randn(1, 10)
+    optimizer = optim.Adam(model.parameters(), lr=0.01)
+    loss_fn = nn.MSELoss()
+
+    train(model, data, optimizer, loss_fn)

@@ -1,0 +1,124 @@
+import numpy as np
+
+class H2QKernel:
+    """Base class for H2Q kernels."""
+    def __init__(self):
+        pass
+
+    def compute(self, points1, points2):
+        """Computes the kernel matrix between two sets of points.
+
+        Args:
+            points1 (np.ndarray): (N, D) array of points.
+            points2 (np.ndarray): (M, D) array of points.
+
+        Returns:
+            np.ndarray: (N, M) kernel matrix.
+        """
+        raise NotImplementedError
+
+class GaussianKernel(H2QKernel):
+    """Gaussian (RBF) kernel.
+
+    Args:
+        sigma (float): Bandwidth parameter.
+    """
+    def __init__(self, sigma):
+        super().__init__()
+        self.sigma = sigma
+
+    def compute(self, points1, points2):
+        """Computes the Gaussian kernel matrix.
+
+        Args:
+            points1 (np.ndarray): (N, D) array of points.
+            points2 (np.ndarray): (M, D) array of points.
+
+        Returns:
+            np.ndarray: (N, M) kernel matrix.
+        """
+        # Efficiently compute pairwise squared distances
+        distances = np.sum(points1**2, axis=1, keepdims=True) + np.sum(points2**2, axis=1) - 2 * points1 @ points2.T
+        return np.exp(-distances / (2 * self.sigma**2))
+
+class LaplacianKernel(H2QKernel):
+    """Laplacian kernel.
+
+    Args:
+        sigma (float): Bandwidth parameter.
+    """
+    def __init__(self, sigma):
+        super().__init__()
+        self.sigma = sigma
+
+    def compute(self, points1, points2):
+        """Computes the Laplacian kernel matrix.
+
+        Args:
+            points1 (np.ndarray): (N, D) array of points.
+            points2 (np.ndarray): (M, D) array of points.
+
+        Returns:
+            np.ndarray: (N, M) kernel matrix.
+        """
+        distances = np.abs(np.expand_dims(points1, axis=1) - points2)
+        distances = np.sum(distances, axis=2)
+        return np.exp(-distances / self.sigma)
+
+
+class PolynomialKernel(H2QKernel):
+    """Polynomial kernel.
+
+    Args:
+        degree (int): Degree of the polynomial.
+        gamma (float): Scaling factor.
+        coef0 (float): Bias term.
+    """
+    def __init__(self, degree, gamma=1.0, coef0=1.0):
+        super().__init__()
+        self.degree = degree
+        self.gamma = gamma
+        self.coef0 = coef0
+
+    def compute(self, points1, points2):
+        """Computes the Polynomial kernel matrix.
+
+        Args:
+            points1 (np.ndarray): (N, D) array of points.
+            points2 (np.ndarray): (M, D) array of points.
+
+        Returns:
+            np.ndarray: (N, M) kernel matrix.
+        """
+        return (self.gamma * points1 @ points2.T + self.coef0) ** self.degree
+
+
+class KernelRegistry:
+    _kernels = {}
+
+    @classmethod
+    def register(cls, kernel_name):
+        def decorator(kernel_class):
+            cls._kernels[kernel_name] = kernel_class
+            return kernel_class
+        return decorator
+
+    @classmethod
+    def get_kernel(cls, kernel_name, **kwargs):
+        if kernel_name not in cls._kernels:
+            raise ValueError(f"Kernel '{kernel_name}' not found. Available kernels: {list(cls._kernels.keys())}")
+        return cls._kernels[kernel_name](**kwargs)
+
+
+# Register the kernels
+@KernelRegistry.register('gaussian')
+class RegisteredGaussianKernel(GaussianKernel):  # Added a registered class name
+    pass
+
+@KernelRegistry.register('laplacian')
+class RegisteredLaplacianKernel(LaplacianKernel):
+    pass
+
+@KernelRegistry.register('polynomial')
+class RegisteredPolynomialKernel(PolynomialKernel):
+    pass

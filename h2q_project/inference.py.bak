@@ -1,0 +1,35 @@
+import torch
+from h2q_project.model import SimpleNN
+from h2q_project.optimization_utils import optimize_model_for_inference
+from h2q_project.profiling_utils import profile_model
+
+def perform_inference(model, input_data):
+    model.eval()
+    with torch.no_grad():
+        output = model(input_data)
+    return output
+
+
+if __name__ == '__main__':
+    # Example Usage (replace with your actual data and setup)
+    input_size = 10
+    hidden_size = 5
+    num_classes = 2
+
+    # Load the trained model (replace with your actual loading mechanism)
+    model = SimpleNN(input_size, hidden_size, num_classes)
+    # Assume model is already trained and weights are loaded
+    # model.load_state_dict(torch.load("trained_model.pth")) # Example Loading
+
+    # Generate some dummy input data
+    input_data = torch.randn(1, input_size)
+
+    # Profile the model
+    profile = profile_model(model, input_data)
+
+    # Optimize the model for inference
+    optimized_model = optimize_model_for_inference(model)
+
+    # Perform inference
+    output = perform_inference(optimized_model, input_data)
+    print("Inference complete. Output:", output)

@@ -1,0 +1,18 @@
+def validate_data(data):
+    """Validates the input data.
+
+    Args:
+        data: The data to validate.
+
+    Returns:
+        True if the data is valid, False otherwise.
+    """
+    if not isinstance(data, dict):
+        return False
+    if 'name' not in data or not isinstance(data['name'], str):
+        return False
+    if 'age' not in data or not isinstance(data['age'], int):
+        return False
+    if data['age'] < 0:
+        return False
+    return True

@@ -1,0 +1,33 @@
+import numpy as np
+#from scipy.linalg import svd  # Replace scipy with numpy for lighter dependency
+
+class MyModel:
+    def __init__(self, n_components=2):
+        self.n_components = n_components
+        self.components = None
+
+    def fit(self, data):
+        # U, s, V = svd(data) # Use numpy's svd instead
+        U, s, V = np.linalg.svd(data)
+        self.components = V[:self.n_components]
+
+    def transform(self, data):
+        if self.components is None:
+            raise ValueError("Model not fitted yet. Call fit() first.")
+        return np.dot(data, self.components.T)
+
+    def inverse_transform(self, transformed_data):
+         if self.components is None:
+            raise ValueError("Model not fitted yet. Call fit() first.")
+         return np.dot(transformed_data, self.components)
+
+if __name__ == '__main__':
+    # Example Usage
+    data = np.random.rand(100, 10)
+    model = MyModel(n_components=3)
+    model.fit(data)
+    transformed_data = model.transform(data)
+    print("Original data shape:", data.shape)
+    print("Transformed data shape:", transformed_data.shape)
+    reconstructed_data = model.inverse_transform(transformed_data)
+    print("Reconstructed data shape:", reconstructed_data.shape)

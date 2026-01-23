@@ -6842,6 +6842,110 @@
       "status": "pending",
       "source": "ai",
       "retry_count": 0
+    },
+    {
+      "id": 1012,
+      "task": "Refactor the code to improve the modularity and maintainability of the core reasoning engine.  Specifically, identify tightly coupled components and introduce clear interfaces to decouple them. Focus on areas identified as bottlenecks during benchmark runs.",
+      "priority": "high",
+      "status": "pending",
+      "source": "ai",
+      "retry_count": 0
+    },
+    {
+      "id": 1013,
+      "task": "Implement a more robust error handling mechanism for API calls to external knowledge sources.  This should include retry logic with exponential backoff, and clear logging of failures.",
+      "priority": "medium",
+      "status": "pending",
+      "source": "ai",
+      "retry_count": 0
+    },
+    {
+      "id": 1014,
+      "task": "Optimize the algorithm for selecting relevant knowledge sources. Evaluate different ranking and filtering strategies to improve the accuracy and efficiency of knowledge retrieval during question answering.",
+      "priority": "high",
+      "status": "pending",
+      "source": "ai",
+      "retry_count": 0
+    },
+    {
+      "id": 1015,
+      "task": "Implement caching for frequently accessed data to reduce latency. Focus on caching knowledge retrieved from external sources that do not change frequently.",
+      "priority": "medium",
+      "status": "pending",
+      "source": "ai",
+      "retry_count": 0
+    },
+    {
+      "id": 1016,
+      "task": "Enhance the logging system to provide more detailed insights into the system's reasoning process. Include logging of intermediate steps, knowledge source selections, and confidence scores for each answer candidate.",
+      "priority": "low",
+      "status": "pending",
+      "source": "ai",
+      "retry_count": 0
+    },
+    {
+      "id": 1017,
+      "task": "Implement a mechanism to track and prevent redundant computations.  Identify computations that are performed repeatedly and cache the results for later reuse.",
+      "priority": "medium",
+      "status": "pending",
+      "source": "ai",
+      "retry_count": 0
+    },
+    {
+      "id": 1018,
+      "task": "Implement a better handling of multi-select scoring, as indicated by the 'multi_select_scoring' parameter being 'true' in the benchmark gate. Review the existing scoring mechanism and ensure it correctly awards partial credit for partially correct multi-select answers.",
+      "priority": "critical",
+      "status": "pending",
+      "source": "ai",
+      "retry_count": 0
+    },
+    {
+      "id": 1019,
+      "task": "优化代码，提升运行效率，减少资源占用，以提高基准评测分数。具体措施包括但不限于：代码重构、算法优化、数据结构优化等。",
+      "priority": "high",
+      "status": "pending",
+      "source": "ai",
+      "retry_count": 0
+    },
+    {
+      "id": 1020,
+      "task": "改进多选题评分逻辑，确保在`multi_select_scoring`模式下，答案选择的正确性判定更加精准。",
+      "priority": "high",
+      "status": "pending",
+      "source": "ai",
+      "retry_count": 0
+    },
+    {
+      "id": 1021,
+      "task": "检查并修复已知bug，特别是影响基准评测的问题，提高系统稳定性。",
+      "priority": "medium",
+      "status": "pending",
+      "source": "ai",
+      "retry_count": 0
+    },
+    {
+      "id": 1022,
+      "task": "添加更详细的日志记录，方便调试和性能分析，尤其关注基准评测过程中出现的问题。",
+      "priority": "low",
+      "status": "pending",
+      "source": "ai",
+      "retry_count": 0
+    },
+    {
+      "id": 1023,
+      "task": "Review并清理代码库，移除不必要的依赖和冗余代码，减小系统体积。",
+      "priority": "low",
+      "status": "pending",
+      "source": "ai",
+      "retry_count": 0
+    },
+    {
+      "id": 1024,
+      "task": "优化数据处理流程，提升数据加载和处理速度，尤其是在面对大量问题时。",
+      "priority": "medium",
+      "status": "pending",
+      "source": "ai",
+      "retry_count": 0
     }
   ],
   "history": [
@@ -10475,7 +10579,7 @@
       "timestamp": 1769076409.082874
     }
   ],
-  "last_task_id": 1011,
+  "last_task_id": 1024,
   "consecutive_failures": 0,
   "last_failure_ts": 1769076305.107579,
   "last_success_ts": 1769076409.08287

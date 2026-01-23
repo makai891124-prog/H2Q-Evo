@@ -1,0 +1,9 @@
+# Paths to exclude from the Docker image
+__pycache__/
+*.pyc
+*.pyo
+*.swp
+*.swo
+*.DS_Store
+.git/
+.gitignore

@@ -1,0 +1,27 @@
+import unittest
+import numpy as np
+from h2q_project.geometry.geometry_kernel import GeometryKernel
+
+class TestGeometryKernel(unittest.TestCase):
+
+    def test_euclidean_distance(self):
+        kernel = GeometryKernel()
+        point1 = [0, 0]
+        point2 = [3, 4]
+        distance = kernel.distance(point1, point2)
+        self.assertEqual(distance, 5.0)
+
+    def test_spherical_distance(self):
+        kernel = GeometryKernel(geometry_type='spherical')
+        point1 = [36.12, -86.67]  # Nashville
+        point2 = [33.94, -118.40] # Los Angeles
+        distance = kernel.distance(point1, point2)
+        self.assertAlmostEqual(distance, 2886.03, places=2) #Expected distance
+
+    def test_invalid_geometry_type(self):
+        with self.assertRaises(ValueError):
+            kernel = GeometryKernel(geometry_type='invalid')
+            kernel.distance([0, 0], [1, 1])
+
+if __name__ == '__main__':
+    unittest.main()

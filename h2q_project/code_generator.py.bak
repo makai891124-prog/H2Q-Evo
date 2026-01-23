@@ -1,0 +1,85 @@
+import os
+import subprocess
+
+class CodeGenerator:
+    def __init__(self, project_dir):
+        self.project_dir = project_dir
+
+    def generate_code(self, module_name, code_content):
+        module_path = os.path.join(self.project_dir, module_name + '.py')
+        try:
+            with open(module_path, 'w') as f:
+                f.write(code_content)
+            return module_path
+        except Exception as e:
+            print(f"Error generating code for module {module_name}: {e}")
+            return None
+
+    def run_tests(self, module_name):
+        test_file_path = os.path.join(self.project_dir, 'tests', f'test_{module_name}.py')
+        if not os.path.exists(test_file_path):
+            print(f"Test file not found: {test_file_path}")
+            return False
+
+        try:
+            # Use subprocess to run pytest
+            result = subprocess.run(['pytest', test_file_path], cwd=self.project_dir, capture_output=True, text=True)
+
+            # Print the output from pytest
+            print(result.stdout)
+            print(result.stderr)
+
+            # Check the return code
+            if result.returncode == 0:
+                print(f"Tests passed for module {module_name}")
+                return True
+            else:
+                print(f"Tests failed for module {module_name}")
+                return False
+        except Exception as e:
+            print(f"Error running tests for module {module_name}: {e}")
+            return False
+
+
+
+if __name__ == '__main__':
+    # Example Usage (for demonstration/testing)
+    project_directory = 'temp_project'
+    if not os.path.exists(project_directory):
+        os.makedirs(project_directory)
+        os.makedirs(os.path.join(project_directory, 'tests'))
+
+    generator = CodeGenerator(project_directory)
+
+    # Example module creation
+    module_name = 'example_module'
+    module_code = '''
+def add(a, b):
+    return a + b
+'''
+    module_path = generator.generate_code(module_name, module_code)
+
+    #Example test creation
+    test_code = f'''
+import pytest
+from {module_name} import add
+
+def test_add():
+    assert add(2, 3) == 5
+    assert add(-1, 1) == 0
+'''
+
+    test_file_path = os.path.join(project_directory, 'tests', f'test_{module_name}.py')
+
+    with open(test_file_path, 'w') as f:
+        f.write(test_code)
+
+
+    if module_path:
+        tests_passed = generator.run_tests(module_name)
+        if tests_passed:
+            print("Code generation and tests completed successfully!")
+        else:
+            print("Code generation successful, but tests failed.")
+    else:
+        print("Code generation failed.")

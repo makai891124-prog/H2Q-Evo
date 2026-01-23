@@ -1,0 +1,54 @@
+import unittest
+import numpy as np
+from h2q_project.quaternion import Quaternion
+
+class TestQuaternion(unittest.TestCase):
+
+    def test_creation(self):
+        q = Quaternion(1, 2, 3, 4)
+        self.assertEqual(q.w, 1)
+        self.assertEqual(q.x, 2)
+        self.assertEqual(q.y, 3)
+        self.assertEqual(q.z, 4)
+
+    def test_conjugate(self):
+        q = Quaternion(1, 2, 3, 4)
+        q_conj = q.conjugate()
+        self.assertEqual(q_conj.w, 1)
+        self.assertEqual(q_conj.x, -2)
+        self.assertEqual(q_conj.y, -3)
+        self.assertEqual(q_conj.z, -4)
+
+    def test_magnitude(self):
+        q = Quaternion(1, 2, 2, 1)
+        self.assertAlmostEqual(q.magnitude(), np.sqrt(10))
+
+    def test_normalize(self):
+        q = Quaternion(1, 2, 2, 1)
+        q_norm = q.normalize()
+        mag = np.sqrt(10)
+        self.assertAlmostEqual(q_norm.w, 1/mag)
+        self.assertAlmostEqual(q_norm.x, 2/mag)
+        self.assertAlmostEqual(q_norm.y, 2/mag)
+        self.assertAlmostEqual(q_norm.z, 1/mag)
+
+    def test_multiplication(self):
+        q1 = Quaternion(1, 2, 3, 4)
+        q2 = Quaternion(5, 6, 7, 8)
+        q_mult = q1 * q2
+        self.assertEqual(q_mult.w, -60)
+        self.assertEqual(q_mult.x, 12)
+        self.assertEqual(q_mult.y, 30)
+        self.assertEqual(q_mult.z, 24)
+
+    def test_rotation(self):
+        q = Quaternion.from_axis_angle(np.array([0, 0, 1]), np.pi/2)
+        v = np.array([1, 0, 0])
+        rotated_v = q.rotate(v)
+        self.assertAlmostEqual(rotated_v[0], 0)
+        self.assertAlmostEqual(rotated_v[1], 1)
+        self.assertAlmostEqual(rotated_v[2], 0)
+
+
+if __name__ == '__main__':
+    unittest.main()

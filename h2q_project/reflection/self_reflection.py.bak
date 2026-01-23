@@ -1,0 +1,32 @@
+from h2q_project.geometry.core import Point
+
+class SelfReflection:
+    def __init__(self, initial_point: Point):
+        self.current_point = initial_point
+        self.history = [initial_point]
+
+    def reflect(self, vector: Point) -> Point:
+        """Reflects the current point across the given vector.
+
+        Args:
+            vector: The vector to reflect across.
+
+        Returns:
+            The new reflected point.
+        """
+        # Simple reflection: new_point = current_point + 2 * vector
+        new_x = self.current_point.x + 2 * vector.x
+        new_y = self.current_point.y + 2 * vector.y
+        new_point = Point(new_x, new_y)
+
+        self.history.append(new_point)
+        self.current_point = new_point
+        return new_point
+
+    def get_history(self):
+        """Returns the history of points.
+
+        Returns:
+            A list of Point objects representing the reflection history.
+        """
+        return self.history

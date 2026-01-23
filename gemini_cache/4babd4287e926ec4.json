@@ -1,0 +1,5 @@
+{
+  "timestamp": 1769069197.640712,
+  "response": "[\n  {\n    \"file_path\": \"h2q_project/fractal_generator.py\",\n    \"content\": \"import numpy as np\\nfrom numba import njit\\n\\n@njit\\ndef mandelbrot_numpy(x_min, x_max, y_min, y_max, image, max_iter):\\n    pixel_width = (x_max - x_min) / image.shape[1]\\n    pixel_height = (y_max - y_min) / image.shape[0]\\n\\n    for x in range(image.shape[1]):\\n        for y in range(image.shape[0]):\\n            real = x_min + x * pixel_width\\n            imag = y_min + y * pixel_height\\n\\n            c = complex(real, imag)\\n            z = 0.0j\\n            for i in range(max_iter):\\n                z = z * z + c\\n                if (z.real * z.real + z.imag * z.imag) >= 4:\\n                    image[y, x] = i\\n                    break\\n\\n\\ndef generate_fractal(x_min, x_max, y_min, y_max, width=500, height=500, max_iter=256):\\n    image = np.zeros((height, width), dtype=np.uint8)\\n    mandelbrot_numpy(x_min, x_max, y_min, y_max, image, max_iter)\\n    return image\\n\"\n  }\n]",
+  "model": "gemini-2.0-flash"
+}

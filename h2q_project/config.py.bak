@@ -1,0 +1,11 @@
+class Config:
+    def __init__(self):
+        self.batch_size = 32
+        self.learning_rate = 0.001
+        self.epochs = 10
+        self.use_cuda = True
+        self.seed = 42
+        self.data_path = 'data/train.csv'
+        self.model_path = 'models/model.pth'
+        self.use_amp = True # Enable mixed precision training
+        self.grad_accumulation_steps = 2 # Accumulate gradients over 2 steps

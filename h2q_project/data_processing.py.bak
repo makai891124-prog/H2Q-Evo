@@ -1,0 +1,61 @@
+import pandas as pd
+
+class DataProcessor:
+
+    def __init__(self, file_path):
+        self.file_path = file_path
+        self.data = None
+
+    def load_data(self):
+        try:
+            self.data = pd.read_csv(self.file_path)
+        except FileNotFoundError:
+            print(f"Error: File not found at {self.file_path}")
+            self.data = None
+
+    def clean_data(self):
+        if self.data is not None:
+            self.data = self.data.dropna()
+            # Further cleaning steps can be added here
+
+    def process_data(self):
+        if self.data is not None:
+            # Example processing step: calculate the mean of a numerical column
+            if 'numerical_column' in self.data.columns:
+                mean_value = self.data['numerical_column'].mean()
+                print(f"Mean of numerical_column: {mean_value}")
+            else:
+                print("No column named 'numerical_column' found.")
+
+    def get_data(self):
+        return self.data
+
+    def save_data(self, output_file_path):
+        if self.data is not None:
+            self.data.to_csv(output_file_path, index=False)
+
+    def optimize_data_types(self):
+        """Optimize pandas DataFrame datatypes to reduce memory usage."""
+        if self.data is None:
+            return
+
+        for col in self.data.columns:
+            col_type = self.data[col].dtype
+            if col_type == 'int64':
+                self.data[col] = pd.to_numeric(self.data[col], downcast='integer')
+            elif col_type == 'float64':
+                self.data[col] = pd.to_numeric(self.data[col], downcast='float')
+            elif col_type == 'object': # For string columns
+                num_unique_values = len(self.data[col].unique())
+                num_total_values = len(self.data[col])
+                if num_unique_values / num_total_values < 0.5: #Heuristic to decide category or object
+                    self.data[col] = self.data[col].astype('category')
+
+#Example Usage:
+# data_processor = DataProcessor("input.csv")
+# data_processor.load_data()
+# data_processor.clean_data()
+# data_processor.optimize_data_types()
+# data_processor.process_data()
+# data = data_processor.get_data()
+# data_processor.save_data("output.csv")

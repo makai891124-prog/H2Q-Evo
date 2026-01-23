@@ -1,0 +1,55 @@
+import tensorflow as tf
+
+class GradientBasedOptimizer:
+    def __init__(self, learning_rate=0.01, beta1=0.9, beta2=0.999, epsilon=1e-07):
+        self.learning_rate = tf.Variable(learning_rate, trainable=False, dtype=tf.float32)
+        self.optimizer = tf.keras.optimizers.Adam(learning_rate=self.learning_rate, beta_1=beta1, beta_2=beta2, epsilon=epsilon)
+
+    def apply_gradients(self, grads_and_vars):
+        self.optimizer.apply_gradients(grads_and_vars)
+
+    def adjust_learning_rate(self, loss_history):
+        """Adjusts learning rate based on loss history."""
+        if len(loss_history) < 10:  # Need some history to make a decision
+            return
+
+        recent_losses = loss_history[-10:]
+        loss_change = recent_losses[-1] - recent_losses[0]
+
+        if loss_change > 0:  # Loss increased, reduce learning rate
+            self.learning_rate.assign(self.learning_rate * 0.5)
+            print(f"Learning rate decreased to {self.learning_rate.numpy()}")
+        elif loss_change < -0.001:  # Significant decrease in loss, increase learning rate
+            self.learning_rate.assign(self.learning_rate * 1.1)
+            print(f"Learning rate increased to {self.learning_rate.numpy()}")
+
+    def get_learning_rate(self):
+        return self.learning_rate.numpy()
+
+
+class NetworkAdaptor:
+    def __init__(self, model):
+        self.model = model
+        self.initial_num_layers = len(model.layers)
+
+    def adapt_network(self, performance_metric):
+        """Adapts the network structure based on a performance metric."""
+        if performance_metric < 0.8:  # Poor performance, add a layer
+            self.add_layer()
+            print("Adding a layer to the network.")
+        elif performance_metric > 0.95 and len(self.model.layers) > max(2, self.initial_num_layers):  #Good performance and more layers than initial, remove a layer
+            self.remove_layer()
+            print("Removing a layer from the network.")
+
+    def add_layer(self):
+        """Adds a dense layer to the network."""
+        # Assuming it's a sequential model for simplicity
+        new_layer = tf.keras.layers.Dense(units=32, activation='relu') # example layer
+        self.model.add(new_layer)
+
+    def remove_layer(self):
+         """Removes the last dense layer from the network."""
+         if len(self.model.layers) > 1:
+            self.model.pop()
+
+

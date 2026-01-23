@@ -1,0 +1,58 @@
+import torch
+import torch.nn as nn
+import torch.optim as optim
+from torch.utils.data import DataLoader, TensorDataset
+from sklearn.model_selection import train_test_split
+import numpy as np
+from h2q_project.mlp_model import SimpleMLP  # Corrected import path
+from h2q_project.trainer import Trainer
+
+# Generate synthetic data
+def generate_synthetic_data(num_samples, input_size, num_classes):
+    X = np.random.rand(num_samples, input_size).astype(np.float32)
+    y = np.random.randint(0, num_classes, num_samples).astype(np.int64)
+    return X, y
+
+# Hyperparameters
+input_size = 10
+num_classes = 5
+num_samples = 1000
+batch_size = 32
+learning_rate = 0.001
+epochs = 10
+
+# Generate data
+X, y = generate_synthetic_data(num_samples, input_size, num_classes)
+
+# Split data into training and validation sets
+X_train, X_val, y_train, y_val = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# Convert data to PyTorch tensors
+X_train = torch.tensor(X_train)
+X_val = torch.tensor(X_val)
+y_train = torch.tensor(y_train)
+y_val = torch.tensor(y_val)
+
+# Create datasets
+train_dataset = TensorDataset(X_train, y_train)
+val_dataset = TensorDataset(X_val, y_val)
+
+# Create data loaders
+train_dataloader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True)
+val_dataloader = DataLoader(val_dataset, batch_size=batch_size)
+
+# Device configuration
+device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+
+# Initialize model
+model = SimpleMLP(input_size=input_size, num_classes=num_classes).to(device)
+
+# Loss function and optimizer
+criterion = nn.CrossEntropyLoss()
+optimizer = optim.Adam(model.parameters(), lr=learning_rate)
+
+# Initialize Trainer
+trainer = Trainer(model, train_dataloader, val_dataloader, optimizer, criterion, device)
+
+# Train the model
+trainer.train(epochs)

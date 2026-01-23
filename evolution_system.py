@@ -64,6 +64,7 @@ class H2QNexus:
         })
         self._check_source_integrity()
         self._ensure_env()
+        self._update_task_gates()
 
     async def local_inference(self, prompt: str) -> str:
         logger.info("🧠 Using LOCAL H2Q BRAIN for inference...")
@@ -104,6 +105,7 @@ class H2QNexus:
                 # 简化版主循环
                 await asyncio.sleep(60) # 在本地模式下，主程序可以轮询得慢一点
                 logger.info("Supervisor check...")
+                self._update_task_gates()
                 # 实际的进化逻辑将由本地模型在后台自我触发（通过 Curiosity 模块）
                 # 这里我们保持主程序存活即可
         finally:
@@ -138,6 +140,34 @@ class H2QNexus:
     def _ensure_env(self):
         try: self.docker_client.images.get(Config.DOCKER_IMAGE)
         except: self.docker_client.api.build(path=".", tag=Config.DOCKER_IMAGE, rm=True)
+
+    def _update_task_gates(self):
+        gate_state = self._load_json("honest_evolution_state.json", {})
+        gate = gate_state.get("last_benchmark_gate", {})
+        passed = gate.get("passed", False)
+
+        self.state["benchmark_gate"] = {
+            "passed": passed,
+            "public_only": gate.get("public_only", True),
+            "min_questions_per_benchmark": gate.get("min_questions_per_benchmark", 0),
+            "multi_select_scoring": gate.get("multi_select_scoring", True),
+            "timestamp": gate.get("timestamp")
+        }
+
+        updated = False
+        todos = self.state.get("todo_list", [])
+        for task in todos:
+            status = task.get("status")
+            if not passed and status in ("pending", "in_progress", "ready"):
+                task["status"] = "blocked_by_gate"
+                updated = True
+            if passed and status == "blocked_by_gate":
+                task["status"] = "pending"
+                updated = True
+
+        if updated:
+            self.state["todo_list"] = todos
+            self._save_json(Config.STATE_FILE, self.state)
 
     def _extract_json(self, text):
         try:

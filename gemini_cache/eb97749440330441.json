@@ -1,0 +1,5 @@
+{
+  "timestamp": 1769068543.969609,
+  "response": "[\n  {\n    \"file_path\": \"h2q_project/monte_carlo.py\",\n    \"content\": \"import torch\\n\\ndef calculate_pi(samples: int) -> float:\\n    \\\"\\\"\\\"Calculates pi using Monte Carlo simulation.\\n\\n    Args:\\n        samples: The number of random samples to use.\\n\\n    Returns:\\n        An estimate of pi.\\n    \\\"\\\"\\\"\\n    x = torch.rand(samples)\\n    y = torch.rand(samples)\\n    inside = (x**2 + y**2) <= 1\\n    pi_estimate = 4 * inside.float().mean()\\n    return pi_estimate\\n\\nif __name__ == '__main__':\\n    num_samples = 1000000\\n    \\n    # Compile the function using torch.compile\\n    compiled_calculate_pi = torch.compile(calculate_pi)\\n    \\n    pi = compiled_calculate_pi(num_samples)\\n    print(f\\\"Estimated value of pi: {pi}\\\")\"\n  }\n]",
+  "model": "gemini-2.0-flash"
+}

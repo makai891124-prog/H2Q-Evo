@@ -1,0 +1,2 @@
+# This file is now deprecated. Use trainer.py instead.
+print("This file is deprecated. Please use trainer.py instead.")

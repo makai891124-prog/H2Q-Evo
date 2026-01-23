@@ -1,0 +1,46 @@
+import unittest
+from h2q_project.data_loader import DataLoader, LargeDataLoader
+import json
+
+class TestDataLoader(unittest.TestCase):
+
+    def setUp(self):
+        # Create a small example data file for testing
+        self.test_data = [{'id': 1, 'name': 'item1'}, {'id': 2, 'name': 'item2'}]
+        with open('data/test_data.json', 'w') as f:
+            json.dump(self.test_data, f)
+
+        #Create a line-delimited data file for generator testing
+        self.line_test_data = []
+        with open('data/line_test_data.json', 'w') as f:
+            for item in [{'id': 3, 'name': 'item3'}, {'id': 4, 'name': 'item4'}]:
+                f.write(json.dumps(item) + '\n')
+                self.line_test_data.append(item)
+
+
+        # Create a larger json for ijson test
+        self.ijson_data = [{'id': i, 'name': f'item{i}'} for i in range(5)]
+        with open('data/large_test_data.json', 'w') as f:
+            json.dump(self.ijson_data, f)
+
+
+    def test_load_data(self):
+        data_loader = DataLoader('data/test_data.json')
+        data = data_loader.load_data()
+        self.assertEqual(data, self.test_data)
+
+    def test_data_generator(self):
+        data_loader = DataLoader('data/line_test_data.json')
+        generator = data_loader.data_generator()
+        items = list(generator)
+        self.assertEqual(items, self.line_test_data)
+
+    def test_large_data_loader(self):
+        large_data_loader = LargeDataLoader('data/large_test_data.json')
+        stream = large_data_loader.stream_data()
+        items = list(stream)
+        self.assertEqual(items, self.ijson_data)
+
+
+if __name__ == '__main__':
+    unittest.main()

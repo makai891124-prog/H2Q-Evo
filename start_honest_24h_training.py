@@ -254,6 +254,13 @@ class HonestEvolution24HSystem:
                     "grade": eval_result["grade"],
                     "timestamp": datetime.now().isoformat()
                 })
+
+                gate = eval_result.get("benchmark_gate", {})
+                self.state["last_benchmark_gate"] = gate
+                if gate and not gate.get("passed", False):
+                    self._log("❌ 评测门禁未通过，暂停训练。")
+                    self.stop_requested = True
+                    raise RuntimeError("benchmark_gate_failed")
                 
                 cycle_result["phases"]["evaluation"] = {
                     "score": eval_result["overall_score"],

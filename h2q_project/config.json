@@ -1,0 +1,7 @@
+{
+  "data_path": "path/to/your/data.csv",
+  "model_type": "neural_network",
+  "epochs": 20,
+  "evaluation_metric": "f1_score",
+  "log_file": "training_log.txt"
+}

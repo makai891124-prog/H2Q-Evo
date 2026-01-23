@@ -1,0 +1,24 @@
+import numpy as np
+from h2q_project.quaternion import Quaternion
+
+def mandelbrot(q, max_iter):
+    c = q
+    for n in range(max_iter):
+        if abs(q.w*q.w + q.x*q.x + q.y*q.y + q.z*q.z) > 2:
+            return n
+        q = q * q + c
+    return max_iter
+
+def generate_fractal(width, height, x_min, x_max, y_min, y_max, max_iter):
+    image = np.zeros((height, width))
+    x_range = np.linspace(x_min, x_max, width)
+    y_range = np.linspace(y_min, y_max, height)
+
+    for i in range(height):
+        for j in range(width):
+            x = x_range[j]
+            y = y_range[i]
+            q = Quaternion(0, x, y, 0)
+            image[i, j] = mandelbrot(q, max_iter)
+
+    return image
