@@ -398,6 +398,17 @@ We welcome contributions from the community!
 
 **For detailed guidelines, see [CONTRIBUTING.md](./CONTRIBUTING.md)**
 
+## 🧾 审计报告 (2026-01-23)
+
+- 覆盖范围：对主分支可见代码与文档逐项核对，重点核查 README 所述功能/指标与实际实现、验证路径是否存在作弊或夸大。
+- 进化/自治闭环：当前自动改进逻辑仅在 [h2q_project/h2q/agi/heuristic_module_evolution.py](h2q_project/h2q/agi/heuristic_module_evolution.py) 内实现，验证仅是 `py_compile` + 可选 Docker 同步编译；未执行单元/集成测试，也未对行为或性能做基准判定，存在“形式通过但能力未提升”的软性作弊空间。
+- 训练/推理能力：README 声称的 706K tok/s、0.7MB 内存、CIFAR-10 88.78% 等性能与准确率未提供可复现实验脚本或公开日志；仓库内未发现对应的基准输出记录，无法独立佐证。
+- CLI 六命令：`h2q_cli` 目录存在入口与命令分发，但未发现覆盖率 74% 或 18/18 检查的可重复验证数据；缺少自动化验收脚本与报告来源。
+- 服务与基准：推理服务入口 [h2q_project/h2q_server.py](h2q_project/h2q_server.py) 存在，但 README 所述 `/generate` 等接口的行为级质量、延迟/吞吐未见可追溯基准脚本或 CI 结果。
+- 诚信与限制：自述“禁止硬编码与作弊”“公共基准验证”与当前实现不符——验证门槛仅语法层；允许通过环境变量关闭 Docker 验证；无强制的基准、单测或人工复核流程。
+- 状态披露：项目已在 [EVOLUTION_TOMBSTONE_REPORT.md](EVOLUTION_TOMBSTONE_REPORT.md) 说明未达成“AGI 自我催生”且进化循环已停止；evo_state.json 最新统计为 574 任务（488 成功 / 60 失败 / 26 待定）。
+- 结论：README 中的性能/验收/生产可用性描述无法在当前代码库中得到可重复验证；建议读者将其视为未审计宣称，运行前请先自行补充基准、测试与人工复核。
+
 ### 快速贡献流程 (Quick Contribution Flow)
 
 1. **Fork** the repository
