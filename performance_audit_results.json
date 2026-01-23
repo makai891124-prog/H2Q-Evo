@@ -1,0 +1,32 @@
+{
+  "timestamp": "2026-01-23 15:39:22",
+  "claims": {
+    "training_throughput": {
+      "claimed": 706000,
+      "actual": 13693.002379777123,
+      "achievement_rate": 1.9395187506766463,
+      "verified": "no"
+    },
+    "inference_latency": {
+      "claimed": 23.68,
+      "actual_mean": 885.2186699950835,
+      "actual_p50": 883.9165000154026,
+      "actual_p99": 975.0832399367937,
+      "verified": "no"
+    },
+    "peak_memory": {
+      "claimed": 0.7,
+      "actual_peak_mb": 0.01038360595703125,
+      "process_memory_mb": 489.515625,
+      "verified": "yes",
+      "note": "0.7MB仅为模型参数,不含Python运行时基础内存"
+    },
+    "cifar10_accuracy": {
+      "claimed": 88.78,
+      "script_exists": "yes",
+      "verified": "no",
+      "note": "需手动运行完整训练验证 (约1-2小时)",
+      "command": "PYTHONPATH=. python3 h2q_project/benchmarks/cifar10_classification.py --epochs 10"
+    }
+  }
+}
