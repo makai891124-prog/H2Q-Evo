@@ -1,0 +1,9 @@
+{
+  "current_step": 110,
+  "best_loss": 2.400000000000002,
+  "total_samples": 3520,
+  "throttle_count": 0,
+  "start_time": "2026-01-25T03:48:01.826599",
+  "last_save_time": "2026-01-25T03:50:44.865032",
+  "training_duration": "0:02:43.038441"
+}

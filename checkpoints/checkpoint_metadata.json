@@ -1,602 +1,602 @@
 {
-  "66100_1769281696": {
-    "version": "66100_1769281696",
-    "timestamp": 1769281696.869392,
-    "generation": 66100,
-    "accuracy": 0.896162350095579,
-    "loss": 0.10383764990442101,
+  "15400_1769283711": {
+    "version": "15400_1769283711",
+    "timestamp": 1769283711.094799,
+    "generation": 15400,
+    "accuracy": 0.8543830731946741,
+    "loss": 0.1456169268053259,
     "model_hash": "fa1b8aba91eb6e31",
     "data_hash": "3c20088282fe18fa",
     "config_hash": "44136fa355b3678a",
-    "size_bytes": 293,
-    "description": "自动检查点 - 步骤 66100"
+    "size_bytes": 291,
+    "description": "自动检查点 - 步骤 15400"
   },
-  "66200_1769281707": {
-    "version": "66200_1769281707",
-    "timestamp": 1769281707.772269,
-    "generation": 66200,
-    "accuracy": 0.896162350095579,
-    "loss": 0.10383764990442101,
+  "15500_1769283722": {
+    "version": "15500_1769283722",
+    "timestamp": 1769283722.04577,
+    "generation": 15500,
+    "accuracy": 0.8543830731946741,
+    "loss": 0.1456169268053259,
     "model_hash": "fa1b8aba91eb6e31",
     "data_hash": "3c20088282fe18fa",
     "config_hash": "44136fa355b3678a",
-    "size_bytes": 293,
-    "description": "自动检查点 - 步骤 66200"
+    "size_bytes": 291,
+    "description": "自动检查点 - 步骤 15500"
   },
-  "66300_1769281718": {
-    "version": "66300_1769281718",
-    "timestamp": 1769281718.623965,
-    "generation": 66300,
-    "accuracy": 0.896162350095579,
-    "loss": 0.10383764990442101,
+  "15600_1769283732": {
+    "version": "15600_1769283732",
+    "timestamp": 1769283732.9279559,
+    "generation": 15600,
+    "accuracy": 0.8543830731946741,
+    "loss": 0.1456169268053259,
     "model_hash": "fa1b8aba91eb6e31",
     "data_hash": "3c20088282fe18fa",
     "config_hash": "44136fa355b3678a",
-    "size_bytes": 293,
-    "description": "自动检查点 - 步骤 66300"
+    "size_bytes": 291,
+    "description": "自动检查点 - 步骤 15600"
   },
-  "66400_1769281729": {
-    "version": "66400_1769281729",
-    "timestamp": 1769281729.5500932,
-    "generation": 66400,
-    "accuracy": 0.896162350095579,
-    "loss": 0.10383764990442101,
+  "15700_1769283743": {
+    "version": "15700_1769283743",
+    "timestamp": 1769283743.865349,
+    "generation": 15700,
+    "accuracy": 0.8543830731946741,
+    "loss": 0.1456169268053259,
     "model_hash": "fa1b8aba91eb6e31",
     "data_hash": "3c20088282fe18fa",
     "config_hash": "44136fa355b3678a",
-    "size_bytes": 293,
-    "description": "自动检查点 - 步骤 66400"
+    "size_bytes": 291,
+    "description": "自动检查点 - 步骤 15700"
   },
-  "66500_1769281740": {
-    "version": "66500_1769281740",
-    "timestamp": 1769281740.355811,
-    "generation": 66500,
-    "accuracy": 0.896162350095579,
-    "loss": 0.10383764990442101,
+  "15800_1769283754": {
+    "version": "15800_1769283754",
+    "timestamp": 1769283754.8265998,
+    "generation": 15800,
+    "accuracy": 0.8543830731946741,
+    "loss": 0.1456169268053259,
     "model_hash": "fa1b8aba91eb6e31",
     "data_hash": "3c20088282fe18fa",
     "config_hash": "44136fa355b3678a",
-    "size_bytes": 293,
-    "description": "自动检查点 - 步骤 66500"
+    "size_bytes": 291,
+    "description": "自动检查点 - 步骤 15800"
   },
-  "66600_1769281751": {
-    "version": "66600_1769281751",
-    "timestamp": 1769281751.213742,
-    "generation": 66600,
-    "accuracy": 0.896162350095579,
-    "loss": 0.10383764990442101,
+  "15900_1769283765": {
+    "version": "15900_1769283765",
+    "timestamp": 1769283765.7509818,
+    "generation": 15900,
+    "accuracy": 0.8543830731946741,
+    "loss": 0.1456169268053259,
     "model_hash": "fa1b8aba91eb6e31",
     "data_hash": "3c20088282fe18fa",
     "config_hash": "44136fa355b3678a",
-    "size_bytes": 293,
-    "description": "自动检查点 - 步骤 66600"
+    "size_bytes": 291,
+    "description": "自动检查点 - 步骤 15900"
   },
-  "66700_1769281762": {
-    "version": "66700_1769281762",
-    "timestamp": 1769281762.0494878,
-    "generation": 66700,
-    "accuracy": 0.896162350095579,
-    "loss": 0.10383764990442101,
+  "16000_1769283776": {
+    "version": "16000_1769283776",
+    "timestamp": 1769283776.7043998,
+    "generation": 16000,
+    "accuracy": 0.8543830731946741,
+    "loss": 0.1456169268053259,
     "model_hash": "fa1b8aba91eb6e31",
     "data_hash": "3c20088282fe18fa",
     "config_hash": "44136fa355b3678a",
-    "size_bytes": 293,
-    "description": "自动检查点 - 步骤 66700"
+    "size_bytes": 291,
+    "description": "自动检查点 - 步骤 16000"
   },
-  "66800_1769281772": {
-    "version": "66800_1769281772",
-    "timestamp": 1769281772.912987,
-    "generation": 66800,
-    "accuracy": 0.896162350095579,
-    "loss": 0.10383764990442101,
+  "16100_1769283787": {
+    "version": "16100_1769283787",
+    "timestamp": 1769283787.604705,
+    "generation": 16100,
+    "accuracy": 0.8543830731946741,
+    "loss": 0.1456169268053259,
     "model_hash": "fa1b8aba91eb6e31",
     "data_hash": "3c20088282fe18fa",
     "config_hash": "44136fa355b3678a",
-    "size_bytes": 293,
-    "description": "自动检查点 - 步骤 66800"
+    "size_bytes": 291,
+    "description": "自动检查点 - 步骤 16100"
   },
-  "66900_1769281783": {
-    "version": "66900_1769281783",
-    "timestamp": 1769281783.87131,
-    "generation": 66900,
-    "accuracy": 0.896162350095579,
-    "loss": 0.10383764990442101,
+  "16200_1769283798": {
+    "version": "16200_1769283798",
+    "timestamp": 1769283798.5642939,
+    "generation": 16200,
+    "accuracy": 0.8543830731946741,
+    "loss": 0.1456169268053259,
     "model_hash": "fa1b8aba91eb6e31",
     "data_hash": "3c20088282fe18fa",
     "config_hash": "44136fa355b3678a",
-    "size_bytes": 293,
-    "description": "自动检查点 - 步骤 66900"
+    "size_bytes": 291,
+    "description": "自动检查点 - 步骤 16200"
   },
-  "67000_1769281794": {
-    "version": "67000_1769281794",
-    "timestamp": 1769281794.756225,
-    "generation": 67000,
-    "accuracy": 0.896162350095579,
-    "loss": 0.10383764990442101,
+  "16300_1769283809": {
+    "version": "16300_1769283809",
+    "timestamp": 1769283809.474855,
+    "generation": 16300,
+    "accuracy": 0.8543830731946741,
+    "loss": 0.1456169268053259,
     "model_hash": "fa1b8aba91eb6e31",
     "data_hash": "3c20088282fe18fa",
     "config_hash": "44136fa355b3678a",
-    "size_bytes": 293,
-    "description": "自动检查点 - 步骤 67000"
+    "size_bytes": 291,
+    "description": "自动检查点 - 步骤 16300"
   },
-  "67100_1769281805": {
-    "version": "67100_1769281805",
-    "timestamp": 1769281805.695266,
-    "generation": 67100,
-    "accuracy": 0.896162350095579,
-    "loss": 0.10383764990442101,
+  "16400_1769283820": {
+    "version": "16400_1769283820",
+    "timestamp": 1769283820.3945768,
+    "generation": 16400,
+    "accuracy": 0.8543830731946741,
+    "loss": 0.1456169268053259,
     "model_hash": "fa1b8aba91eb6e31",
     "data_hash": "3c20088282fe18fa",
     "config_hash": "44136fa355b3678a",
-    "size_bytes": 293,
-    "description": "自动检查点 - 步骤 67100"
+    "size_bytes": 291,
+    "description": "自动检查点 - 步骤 16400"
   },
-  "67200_1769281816": {
-    "version": "67200_1769281816",
-    "timestamp": 1769281816.6194198,
-    "generation": 67200,
-    "accuracy": 0.896162350095579,
-    "loss": 0.10383764990442101,
+  "16500_1769283831": {
+    "version": "16500_1769283831",
+    "timestamp": 1769283831.256516,
+    "generation": 16500,
+    "accuracy": 0.8543830731946741,
+    "loss": 0.1456169268053259,
     "model_hash": "fa1b8aba91eb6e31",
     "data_hash": "3c20088282fe18fa",
     "config_hash": "44136fa355b3678a",
-    "size_bytes": 293,
-    "description": "自动检查点 - 步骤 67200"
+    "size_bytes": 291,
+    "description": "自动检查点 - 步骤 16500"
   },
-  "67300_1769281827": {
-    "version": "67300_1769281827",
-    "timestamp": 1769281827.419727,
-    "generation": 67300,
-    "accuracy": 0.896162350095579,
-    "loss": 0.10383764990442101,
+  "16600_1769283842": {
+    "version": "16600_1769283842",
+    "timestamp": 1769283842.140373,
+    "generation": 16600,
+    "accuracy": 0.8543830731946741,
+    "loss": 0.1456169268053259,
     "model_hash": "fa1b8aba91eb6e31",
     "data_hash": "3c20088282fe18fa",
     "config_hash": "44136fa355b3678a",
-    "size_bytes": 293,
-    "description": "自动检查点 - 步骤 67300"
+    "size_bytes": 291,
+    "description": "自动检查点 - 步骤 16600"
   },
-  "67400_1769281838": {
-    "version": "67400_1769281838",
-    "timestamp": 1769281838.3198972,
-    "generation": 67400,
-    "accuracy": 0.896162350095579,
-    "loss": 0.10383764990442101,
+  "16700_1769283853": {
+    "version": "16700_1769283853",
+    "timestamp": 1769283853.05196,
+    "generation": 16700,
+    "accuracy": 0.8543830731946741,
+    "loss": 0.1456169268053259,
     "model_hash": "fa1b8aba91eb6e31",
     "data_hash": "3c20088282fe18fa",
     "config_hash": "44136fa355b3678a",
-    "size_bytes": 293,
-    "description": "自动检查点 - 步骤 67400"
+    "size_bytes": 291,
+    "description": "自动检查点 - 步骤 16700"
   },
-  "67500_1769281849": {
-    "version": "67500_1769281849",
-    "timestamp": 1769281849.243097,
-    "generation": 67500,
-    "accuracy": 0.896162350095579,
-    "loss": 0.10383764990442101,
+  "16800_1769283863": {
+    "version": "16800_1769283863",
+    "timestamp": 1769283863.971416,
+    "generation": 16800,
+    "accuracy": 0.8543830731946741,
+    "loss": 0.1456169268053259,
     "model_hash": "fa1b8aba91eb6e31",
     "data_hash": "3c20088282fe18fa",
     "config_hash": "44136fa355b3678a",
-    "size_bytes": 293,
-    "description": "自动检查点 - 步骤 67500"
+    "size_bytes": 291,
+    "description": "自动检查点 - 步骤 16800"
   },
-  "67600_1769281860": {
-    "version": "67600_1769281860",
-    "timestamp": 1769281860.111978,
-    "generation": 67600,
-    "accuracy": 0.896162350095579,
-    "loss": 0.10383764990442101,
+  "16900_1769283874": {
+    "version": "16900_1769283874",
+    "timestamp": 1769283874.890327,
+    "generation": 16900,
+    "accuracy": 0.8543830731946741,
+    "loss": 0.1456169268053259,
     "model_hash": "fa1b8aba91eb6e31",
     "data_hash": "3c20088282fe18fa",
     "config_hash": "44136fa355b3678a",
-    "size_bytes": 293,
-    "description": "自动检查点 - 步骤 67600"
+    "size_bytes": 291,
+    "description": "自动检查点 - 步骤 16900"
   },
-  "67700_1769281871": {
-    "version": "67700_1769281871",
-    "timestamp": 1769281871.0043461,
-    "generation": 67700,
-    "accuracy": 0.896162350095579,
-    "loss": 0.10383764990442101,
+  "17000_1769283885": {
+    "version": "17000_1769283885",
+    "timestamp": 1769283885.748203,
+    "generation": 17000,
+    "accuracy": 0.8543830731946741,
+    "loss": 0.1456169268053259,
     "model_hash": "fa1b8aba91eb6e31",
     "data_hash": "3c20088282fe18fa",
     "config_hash": "44136fa355b3678a",
-    "size_bytes": 293,
-    "description": "自动检查点 - 步骤 67700"
+    "size_bytes": 291,
+    "description": "自动检查点 - 步骤 17000"
   },
-  "67800_1769281881": {
-    "version": "67800_1769281881",
-    "timestamp": 1769281881.9314728,
-    "generation": 67800,
-    "accuracy": 0.896162350095579,
-    "loss": 0.10383764990442101,
+  "17100_1769283896": {
+    "version": "17100_1769283896",
+    "timestamp": 1769283896.634361,
+    "generation": 17100,
+    "accuracy": 0.8543830731946741,
+    "loss": 0.1456169268053259,
     "model_hash": "fa1b8aba91eb6e31",
     "data_hash": "3c20088282fe18fa",
     "config_hash": "44136fa355b3678a",
-    "size_bytes": 293,
-    "description": "自动检查点 - 步骤 67800"
+    "size_bytes": 291,
+    "description": "自动检查点 - 步骤 17100"
   },
-  "67900_1769281892": {
-    "version": "67900_1769281892",
-    "timestamp": 1769281892.8781052,
-    "generation": 67900,
-    "accuracy": 0.896162350095579,
-    "loss": 0.10383764990442101,
+  "17200_1769283907": {
+    "version": "17200_1769283907",
+    "timestamp": 1769283907.4229429,
+    "generation": 17200,
+    "accuracy": 0.8543830731946741,
+    "loss": 0.1456169268053259,
     "model_hash": "fa1b8aba91eb6e31",
     "data_hash": "3c20088282fe18fa",
     "config_hash": "44136fa355b3678a",
-    "size_bytes": 293,
-    "description": "自动检查点 - 步骤 67900"
+    "size_bytes": 291,
+    "description": "自动检查点 - 步骤 17200"
   },
-  "68000_1769281903": {
-    "version": "68000_1769281903",
-    "timestamp": 1769281903.8299851,
-    "generation": 68000,
-    "accuracy": 0.896162350095579,
-    "loss": 0.10383764990442101,
+  "17300_1769283918": {
+    "version": "17300_1769283918",
+    "timestamp": 1769283918.23933,
+    "generation": 17300,
+    "accuracy": 0.8543830731946741,
+    "loss": 0.1456169268053259,
     "model_hash": "fa1b8aba91eb6e31",
     "data_hash": "3c20088282fe18fa",
     "config_hash": "44136fa355b3678a",
-    "size_bytes": 293,
-    "description": "自动检查点 - 步骤 68000"
+    "size_bytes": 291,
+    "description": "自动检查点 - 步骤 17300"
   },
-  "68100_1769281914": {
-    "version": "68100_1769281914",
-    "timestamp": 1769281914.807403,
-    "generation": 68100,
-    "accuracy": 0.896162350095579,
-    "loss": 0.10383764990442101,
+  "17400_1769283929": {
+    "version": "17400_1769283929",
+    "timestamp": 1769283929.0069172,
+    "generation": 17400,
+    "accuracy": 0.8543830731946741,
+    "loss": 0.1456169268053259,
     "model_hash": "fa1b8aba91eb6e31",
     "data_hash": "3c20088282fe18fa",
     "config_hash": "44136fa355b3678a",
-    "size_bytes": 293,
-    "description": "自动检查点 - 步骤 68100"
+    "size_bytes": 291,
+    "description": "自动检查点 - 步骤 17400"
   },
-  "68200_1769281925": {
-    "version": "68200_1769281925",
-    "timestamp": 1769281925.7717052,
-    "generation": 68200,
-    "accuracy": 0.896162350095579,
-    "loss": 0.10383764990442101,
+  "17500_1769283939": {
+    "version": "17500_1769283939",
+    "timestamp": 1769283939.798503,
+    "generation": 17500,
+    "accuracy": 0.8543830731946741,
+    "loss": 0.1456169268053259,
     "model_hash": "fa1b8aba91eb6e31",
     "data_hash": "3c20088282fe18fa",
     "config_hash": "44136fa355b3678a",
-    "size_bytes": 293,
-    "description": "自动检查点 - 步骤 68200"
+    "size_bytes": 291,
+    "description": "自动检查点 - 步骤 17500"
   },
-  "68300_1769281936": {
-    "version": "68300_1769281936",
-    "timestamp": 1769281936.674725,
-    "generation": 68300,
-    "accuracy": 0.896162350095579,
-    "loss": 0.10383764990442101,
+  "17600_1769283950": {
+    "version": "17600_1769283950",
+    "timestamp": 1769283950.6141398,
+    "generation": 17600,
+    "accuracy": 0.8543830731946741,
+    "loss": 0.1456169268053259,
     "model_hash": "fa1b8aba91eb6e31",
     "data_hash": "3c20088282fe18fa",
     "config_hash": "44136fa355b3678a",
-    "size_bytes": 293,
-    "description": "自动检查点 - 步骤 68300"
+    "size_bytes": 291,
+    "description": "自动检查点 - 步骤 17600"
   },
-  "68400_1769281947": {
-    "version": "68400_1769281947",
-    "timestamp": 1769281947.581103,
-    "generation": 68400,
-    "accuracy": 0.896162350095579,
-    "loss": 0.10383764990442101,
+  "17700_1769283961": {
+    "version": "17700_1769283961",
+    "timestamp": 1769283961.414658,
+    "generation": 17700,
+    "accuracy": 0.8543830731946741,
+    "loss": 0.1456169268053259,
     "model_hash": "fa1b8aba91eb6e31",
     "data_hash": "3c20088282fe18fa",
     "config_hash": "44136fa355b3678a",
-    "size_bytes": 293,
-    "description": "自动检查点 - 步骤 68400"
+    "size_bytes": 291,
+    "description": "自动检查点 - 步骤 17700"
   },
-  "68500_1769281958": {
-    "version": "68500_1769281958",
-    "timestamp": 1769281958.503456,
-    "generation": 68500,
-    "accuracy": 0.896162350095579,
-    "loss": 0.10383764990442101,
+  "17800_1769283972": {
+    "version": "17800_1769283972",
+    "timestamp": 1769283972.1570199,
+    "generation": 17800,
+    "accuracy": 0.8543830731946741,
+    "loss": 0.1456169268053259,
     "model_hash": "fa1b8aba91eb6e31",
     "data_hash": "3c20088282fe18fa",
     "config_hash": "44136fa355b3678a",
-    "size_bytes": 293,
-    "description": "自动检查点 - 步骤 68500"
+    "size_bytes": 291,
+    "description": "自动检查点 - 步骤 17800"
   },
-  "68600_1769281969": {
-    "version": "68600_1769281969",
-    "timestamp": 1769281969.4536698,
-    "generation": 68600,
-    "accuracy": 0.896162350095579,
-    "loss": 0.10383764990442101,
+  "17900_1769283983": {
+    "version": "17900_1769283983",
+    "timestamp": 1769283983.082499,
+    "generation": 17900,
+    "accuracy": 0.8543830731946741,
+    "loss": 0.1456169268053259,
     "model_hash": "fa1b8aba91eb6e31",
     "data_hash": "3c20088282fe18fa",
     "config_hash": "44136fa355b3678a",
-    "size_bytes": 293,
-    "description": "自动检查点 - 步骤 68600"
+    "size_bytes": 291,
+    "description": "自动检查点 - 步骤 17900"
   },
-  "68700_1769281980": {
-    "version": "68700_1769281980",
-    "timestamp": 1769281980.4044778,
-    "generation": 68700,
-    "accuracy": 0.896162350095579,
-    "loss": 0.10383764990442101,
+  "18000_1769283993": {
+    "version": "18000_1769283993",
+    "timestamp": 1769283993.974599,
+    "generation": 18000,
+    "accuracy": 0.8543830731946741,
+    "loss": 0.1456169268053259,
     "model_hash": "fa1b8aba91eb6e31",
     "data_hash": "3c20088282fe18fa",
     "config_hash": "44136fa355b3678a",
-    "size_bytes": 293,
-    "description": "自动检查点 - 步骤 68700"
+    "size_bytes": 291,
+    "description": "自动检查点 - 步骤 18000"
   },
-  "68800_1769281991": {
-    "version": "68800_1769281991",
-    "timestamp": 1769281991.350285,
-    "generation": 68800,
-    "accuracy": 0.896162350095579,
-    "loss": 0.10383764990442101,
+  "18100_1769284004": {
+    "version": "18100_1769284004",
+    "timestamp": 1769284004.8974879,
+    "generation": 18100,
+    "accuracy": 0.8543830731946741,
+    "loss": 0.1456169268053259,
     "model_hash": "fa1b8aba91eb6e31",
     "data_hash": "3c20088282fe18fa",
     "config_hash": "44136fa355b3678a",
-    "size_bytes": 293,
-    "description": "自动检查点 - 步骤 68800"
+    "size_bytes": 291,
+    "description": "自动检查点 - 步骤 18100"
   },
-  "68900_1769282002": {
-    "version": "68900_1769282002",
-    "timestamp": 1769282002.2627761,
-    "generation": 68900,
-    "accuracy": 0.896162350095579,
-    "loss": 0.10383764990442101,
+  "18200_1769284015": {
+    "version": "18200_1769284015",
+    "timestamp": 1769284015.7746718,
+    "generation": 18200,
+    "accuracy": 0.8543830731946741,
+    "loss": 0.1456169268053259,
     "model_hash": "fa1b8aba91eb6e31",
     "data_hash": "3c20088282fe18fa",
     "config_hash": "44136fa355b3678a",
-    "size_bytes": 293,
-    "description": "自动检查点 - 步骤 68900"
+    "size_bytes": 291,
+    "description": "自动检查点 - 步骤 18200"
   },
-  "69000_1769282013": {
-    "version": "69000_1769282013",
-    "timestamp": 1769282013.1889842,
-    "generation": 69000,
-    "accuracy": 0.896162350095579,
-    "loss": 0.10383764990442101,
+  "18300_1769284026": {
+    "version": "18300_1769284026",
+    "timestamp": 1769284026.666889,
+    "generation": 18300,
+    "accuracy": 0.8543830731946741,
+    "loss": 0.1456169268053259,
     "model_hash": "fa1b8aba91eb6e31",
     "data_hash": "3c20088282fe18fa",
     "config_hash": "44136fa355b3678a",
-    "size_bytes": 293,
-    "description": "自动检查点 - 步骤 69000"
+    "size_bytes": 291,
+    "description": "自动检查点 - 步骤 18300"
   },
-  "69100_1769282024": {
-    "version": "69100_1769282024",
-    "timestamp": 1769282024.121751,
-    "generation": 69100,
-    "accuracy": 0.896162350095579,
-    "loss": 0.10383764990442101,
+  "18400_1769284037": {
+    "version": "18400_1769284037",
+    "timestamp": 1769284037.630841,
+    "generation": 18400,
+    "accuracy": 0.8543830731946741,
+    "loss": 0.1456169268053259,
     "model_hash": "fa1b8aba91eb6e31",
     "data_hash": "3c20088282fe18fa",
     "config_hash": "44136fa355b3678a",
-    "size_bytes": 293,
-    "description": "自动检查点 - 步骤 69100"
+    "size_bytes": 291,
+    "description": "自动检查点 - 步骤 18400"
   },
-  "69200_1769282035": {
-    "version": "69200_1769282035",
-    "timestamp": 1769282035.0147672,
-    "generation": 69200,
-    "accuracy": 0.896162350095579,
-    "loss": 0.10383764990442101,
+  "18500_1769284048": {
+    "version": "18500_1769284048",
+    "timestamp": 1769284048.439371,
+    "generation": 18500,
+    "accuracy": 0.8543830731946741,
+    "loss": 0.1456169268053259,
     "model_hash": "fa1b8aba91eb6e31",
     "data_hash": "3c20088282fe18fa",
     "config_hash": "44136fa355b3678a",
-    "size_bytes": 293,
-    "description": "自动检查点 - 步骤 69200"
+    "size_bytes": 291,
+    "description": "自动检查点 - 步骤 18500"
   },
-  "69300_1769282045": {
-    "version": "69300_1769282045",
-    "timestamp": 1769282045.9065259,
-    "generation": 69300,
-    "accuracy": 0.896162350095579,
-    "loss": 0.10383764990442101,
+  "18600_1769284059": {
+    "version": "18600_1769284059",
+    "timestamp": 1769284059.333765,
+    "generation": 18600,
+    "accuracy": 0.8543830731946741,
+    "loss": 0.1456169268053259,
     "model_hash": "fa1b8aba91eb6e31",
     "data_hash": "3c20088282fe18fa",
     "config_hash": "44136fa355b3678a",
-    "size_bytes": 293,
-    "description": "自动检查点 - 步骤 69300"
+    "size_bytes": 291,
+    "description": "自动检查点 - 步骤 18600"
   },
-  "69400_1769282056": {
-    "version": "69400_1769282056",
-    "timestamp": 1769282056.8237948,
-    "generation": 69400,
-    "accuracy": 0.896162350095579,
-    "loss": 0.10383764990442101,
+  "18700_1769284070": {
+    "version": "18700_1769284070",
+    "timestamp": 1769284070.1974678,
+    "generation": 18700,
+    "accuracy": 0.8543830731946741,
+    "loss": 0.1456169268053259,
     "model_hash": "fa1b8aba91eb6e31",
     "data_hash": "3c20088282fe18fa",
     "config_hash": "44136fa355b3678a",
-    "size_bytes": 293,
-    "description": "自动检查点 - 步骤 69400"
+    "size_bytes": 291,
+    "description": "自动检查点 - 步骤 18700"
   },
-  "69500_1769282067": {
-    "version": "69500_1769282067",
-    "timestamp": 1769282067.686502,
-    "generation": 69500,
-    "accuracy": 0.896162350095579,
-    "loss": 0.10383764990442101,
+  "18800_1769284081": {
+    "version": "18800_1769284081",
+    "timestamp": 1769284081.086487,
+    "generation": 18800,
+    "accuracy": 0.8543830731946741,
+    "loss": 0.1456169268053259,
     "model_hash": "fa1b8aba91eb6e31",
     "data_hash": "3c20088282fe18fa",
     "config_hash": "44136fa355b3678a",
-    "size_bytes": 293,
-    "description": "自动检查点 - 步骤 69500"
+    "size_bytes": 291,
+    "description": "自动检查点 - 步骤 18800"
   },
-  "69600_1769282078": {
-    "version": "69600_1769282078",
-    "timestamp": 1769282078.5656059,
-    "generation": 69600,
-    "accuracy": 0.896162350095579,
-    "loss": 0.10383764990442101,
+  "18900_1769284091": {
+    "version": "18900_1769284091",
+    "timestamp": 1769284091.9774568,
+    "generation": 18900,
+    "accuracy": 0.8543830731946741,
+    "loss": 0.1456169268053259,
     "model_hash": "fa1b8aba91eb6e31",
     "data_hash": "3c20088282fe18fa",
     "config_hash": "44136fa355b3678a",
-    "size_bytes": 293,
-    "description": "自动检查点 - 步骤 69600"
+    "size_bytes": 291,
+    "description": "自动检查点 - 步骤 18900"
   },
-  "69700_1769282089": {
-    "version": "69700_1769282089",
-    "timestamp": 1769282089.424254,
-    "generation": 69700,
-    "accuracy": 0.896162350095579,
-    "loss": 0.10383764990442101,
+  "19000_1769284102": {
+    "version": "19000_1769284102",
+    "timestamp": 1769284102.901099,
+    "generation": 19000,
+    "accuracy": 0.8543830731946741,
+    "loss": 0.1456169268053259,
     "model_hash": "fa1b8aba91eb6e31",
     "data_hash": "3c20088282fe18fa",
     "config_hash": "44136fa355b3678a",
-    "size_bytes": 293,
-    "description": "自动检查点 - 步骤 69700"
+    "size_bytes": 291,
+    "description": "自动检查点 - 步骤 19000"
   },
-  "69800_1769282100": {
-    "version": "69800_1769282100",
-    "timestamp": 1769282100.360906,
-    "generation": 69800,
-    "accuracy": 0.896162350095579,
-    "loss": 0.10383764990442101,
+  "19100_1769284113": {
+    "version": "19100_1769284113",
+    "timestamp": 1769284113.830347,
+    "generation": 19100,
+    "accuracy": 0.8543830731946741,
+    "loss": 0.1456169268053259,
     "model_hash": "fa1b8aba91eb6e31",
     "data_hash": "3c20088282fe18fa",
     "config_hash": "44136fa355b3678a",
-    "size_bytes": 293,
-    "description": "自动检查点 - 步骤 69800"
+    "size_bytes": 291,
+    "description": "自动检查点 - 步骤 19100"
   },
-  "69900_1769282111": {
-    "version": "69900_1769282111",
-    "timestamp": 1769282111.325953,
-    "generation": 69900,
-    "accuracy": 0.896162350095579,
-    "loss": 0.10383764990442101,
+  "19200_1769284124": {
+    "version": "19200_1769284124",
+    "timestamp": 1769284124.76237,
+    "generation": 19200,
+    "accuracy": 0.8543830731946741,
+    "loss": 0.1456169268053259,
     "model_hash": "fa1b8aba91eb6e31",
     "data_hash": "3c20088282fe18fa",
     "config_hash": "44136fa355b3678a",
-    "size_bytes": 293,
-    "description": "自动检查点 - 步骤 69900"
+    "size_bytes": 291,
+    "description": "自动检查点 - 步骤 19200"
   },
-  "70000_1769282122": {
-    "version": "70000_1769282122",
-    "timestamp": 1769282122.2569711,
-    "generation": 70000,
-    "accuracy": 0.896162350095579,
-    "loss": 0.10383764990442101,
+  "19300_1769284135": {
+    "version": "19300_1769284135",
+    "timestamp": 1769284135.6315992,
+    "generation": 19300,
+    "accuracy": 0.8543830731946741,
+    "loss": 0.1456169268053259,
     "model_hash": "fa1b8aba91eb6e31",
     "data_hash": "3c20088282fe18fa",
     "config_hash": "44136fa355b3678a",
-    "size_bytes": 293,
-    "description": "自动检查点 - 步骤 70000"
+    "size_bytes": 291,
+    "description": "自动检查点 - 步骤 19300"
   },
-  "70100_1769282133": {
-    "version": "70100_1769282133",
-    "timestamp": 1769282133.1782022,
-    "generation": 70100,
-    "accuracy": 0.896162350095579,
-    "loss": 0.10383764990442101,
+  "19400_1769284146": {
+    "version": "19400_1769284146",
+    "timestamp": 1769284146.480598,
+    "generation": 19400,
+    "accuracy": 0.9,
+    "loss": 0.1,
     "model_hash": "fa1b8aba91eb6e31",
     "data_hash": "3c20088282fe18fa",
     "config_hash": "44136fa355b3678a",
-    "size_bytes": 293,
-    "description": "自动检查点 - 步骤 70100"
+    "size_bytes": 291,
+    "description": "自动检查点 - 步骤 19400"
   },
-  "70200_1769282143": {
-    "version": "70200_1769282143",
-    "timestamp": 1769282143.949857,
-    "generation": 70200,
-    "accuracy": 0.896162350095579,
-    "loss": 0.10383764990442101,
+  "19500_1769284157": {
+    "version": "19500_1769284157",
+    "timestamp": 1769284157.440434,
+    "generation": 19500,
+    "accuracy": 0.9,
+    "loss": 0.1,
     "model_hash": "fa1b8aba91eb6e31",
     "data_hash": "3c20088282fe18fa",
     "config_hash": "44136fa355b3678a",
-    "size_bytes": 293,
-    "description": "自动检查点 - 步骤 70200"
+    "size_bytes": 291,
+    "description": "自动检查点 - 步骤 19500"
   },
-  "70300_1769282154": {
-    "version": "70300_1769282154",
-    "timestamp": 1769282154.7186491,
-    "generation": 70300,
-    "accuracy": 0.896162350095579,
-    "loss": 0.10383764990442101,
+  "19600_1769284168": {
+    "version": "19600_1769284168",
+    "timestamp": 1769284168.440653,
+    "generation": 19600,
+    "accuracy": 0.9,
+    "loss": 0.1,
     "model_hash": "fa1b8aba91eb6e31",
     "data_hash": "3c20088282fe18fa",
     "config_hash": "44136fa355b3678a",
-    "size_bytes": 293,
-    "description": "自动检查点 - 步骤 70300"
+    "size_bytes": 291,
+    "description": "自动检查点 - 步骤 19600"
   },
-  "70400_1769282165": {
-    "version": "70400_1769282165",
-    "timestamp": 1769282165.503565,
-    "generation": 70400,
-    "accuracy": 0.896162350095579,
-    "loss": 0.10383764990442101,
+  "19700_1769284179": {
+    "version": "19700_1769284179",
+    "timestamp": 1769284179.408344,
+    "generation": 19700,
+    "accuracy": 0.9,
+    "loss": 0.1,
     "model_hash": "fa1b8aba91eb6e31",
     "data_hash": "3c20088282fe18fa",
     "config_hash": "44136fa355b3678a",
-    "size_bytes": 293,
-    "description": "自动检查点 - 步骤 70400"
+    "size_bytes": 291,
+    "description": "自动检查点 - 步骤 19700"
   },
-  "70500_1769282176": {
-    "version": "70500_1769282176",
-    "timestamp": 1769282176.412407,
-    "generation": 70500,
-    "accuracy": 0.896162350095579,
-    "loss": 0.10383764990442101,
+  "19800_1769284190": {
+    "version": "19800_1769284190",
+    "timestamp": 1769284190.3389068,
+    "generation": 19800,
+    "accuracy": 0.9,
+    "loss": 0.1,
     "model_hash": "fa1b8aba91eb6e31",
     "data_hash": "3c20088282fe18fa",
     "config_hash": "44136fa355b3678a",
-    "size_bytes": 293,
-    "description": "自动检查点 - 步骤 70500"
+    "size_bytes": 291,
+    "description": "自动检查点 - 步骤 19800"
   },
-  "70600_1769282187": {
-    "version": "70600_1769282187",
-    "timestamp": 1769282187.36064,
-    "generation": 70600,
-    "accuracy": 0.896162350095579,
-    "loss": 0.10383764990442101,
+  "19900_1769284201": {
+    "version": "19900_1769284201",
+    "timestamp": 1769284201.257356,
+    "generation": 19900,
+    "accuracy": 0.9,
+    "loss": 0.1,
     "model_hash": "fa1b8aba91eb6e31",
     "data_hash": "3c20088282fe18fa",
     "config_hash": "44136fa355b3678a",
-    "size_bytes": 293,
-    "description": "自动检查点 - 步骤 70600"
+    "size_bytes": 291,
+    "description": "自动检查点 - 步骤 19900"
   },
-  "70700_1769282198": {
-    "version": "70700_1769282198",
-    "timestamp": 1769282198.2368672,
-    "generation": 70700,
-    "accuracy": 0.896162350095579,
-    "loss": 0.10383764990442101,
+  "20000_1769284212": {
+    "version": "20000_1769284212",
+    "timestamp": 1769284212.172676,
+    "generation": 20000,
+    "accuracy": 0.9,
+    "loss": 0.1,
     "model_hash": "fa1b8aba91eb6e31",
     "data_hash": "3c20088282fe18fa",
     "config_hash": "44136fa355b3678a",
-    "size_bytes": 293,
-    "description": "自动检查点 - 步骤 70700"
+    "size_bytes": 291,
+    "description": "自动检查点 - 步骤 20000"
   },
-  "70800_1769282209": {
-    "version": "70800_1769282209",
-    "timestamp": 1769282209.131544,
-    "generation": 70800,
-    "accuracy": 0.896162350095579,
-    "loss": 0.10383764990442101,
+  "20100_1769284223": {
+    "version": "20100_1769284223",
+    "timestamp": 1769284223.1102169,
+    "generation": 20100,
+    "accuracy": 0.9,
+    "loss": 0.1,
     "model_hash": "fa1b8aba91eb6e31",
     "data_hash": "3c20088282fe18fa",
     "config_hash": "44136fa355b3678a",
-    "size_bytes": 293,
-    "description": "自动检查点 - 步骤 70800"
+    "size_bytes": 291,
+    "description": "自动检查点 - 步骤 20100"
   },
-  "70900_1769282220": {
-    "version": "70900_1769282220",
-    "timestamp": 1769282220.023455,
-    "generation": 70900,
-    "accuracy": 0.896162350095579,
-    "loss": 0.10383764990442101,
+  "20200_1769284234": {
+    "version": "20200_1769284234",
+    "timestamp": 1769284234.031168,
+    "generation": 20200,
+    "accuracy": 0.9,
+    "loss": 0.1,
     "model_hash": "fa1b8aba91eb6e31",
     "data_hash": "3c20088282fe18fa",
     "config_hash": "44136fa355b3678a",
-    "size_bytes": 293,
-    "description": "自动检查点 - 步骤 70900"
+    "size_bytes": 291,
+    "description": "自动检查点 - 步骤 20200"
   },
-  "71000_1769282230": {
-    "version": "71000_1769282230",
-    "timestamp": 1769282230.8887181,
-    "generation": 71000,
-    "accuracy": 0.896162350095579,
-    "loss": 0.10383764990442101,
+  "20300_1769284245": {
+    "version": "20300_1769284245",
+    "timestamp": 1769284245.004887,
+    "generation": 20300,
+    "accuracy": 0.9,
+    "loss": 0.1,
     "model_hash": "fa1b8aba91eb6e31",
     "data_hash": "3c20088282fe18fa",
     "config_hash": "44136fa355b3678a",
-    "size_bytes": 293,
-    "description": "自动检查点 - 步骤 71000"
+    "size_bytes": 291,
+    "description": "自动检查点 - 步骤 20300"
   }
 }
