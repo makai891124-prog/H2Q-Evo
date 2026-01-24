@@ -1,19 +1,19 @@
 {
-  "timestamp": "2026-01-25T03:11:08.533449",
+  "timestamp": "2026-01-25T03:17:14.694305",
   "training_active": true,
-  "current_step": 338,
+  "current_step": 490,
   "current_epoch": 1,
   "best_accuracy": 0.0,
-  "best_loss": 1.361322958321493,
+  "best_loss": 1.3098309783837796,
   "system_health": "warning",
-  "cpu_percent": 38.6,
-  "memory_percent": 83.2,
+  "cpu_percent": 54.5,
+  "memory_percent": 83.6,
   "performance_metrics": {
-    "training_steps": 338,
-    "total_samples_processed": 635,
-    "average_loss": 1.5791481492874266,
+    "training_steps": 490,
+    "total_samples_processed": 8454,
+    "average_loss": 1.5633853075681414,
     "learning_rate": 0.001,
-    "throttle_events": 66,
+    "throttle_events": 60,
     "recovery_events": 0
   }
 }
