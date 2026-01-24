@@ -1,0 +1,12 @@
+{
+  "auto_start_training": true,
+  "auto_start_monitoring": true,
+  "health_check_interval": 30,
+  "backup_interval": 3600,
+  "max_training_steps": 10000,
+  "resource_limits": {
+    "cpu_percent": 95,
+    "memory_percent": 90,
+    "disk_percent": 95
+  }
+}

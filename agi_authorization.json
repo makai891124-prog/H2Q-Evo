@@ -1,0 +1,43 @@
+{
+  "timestamp": "2026-01-25T00:51:28.951525",
+  "system_permissions": {
+    "full_system_access": true,
+    "file_system_access": true,
+    "command_execution": true,
+    "process_management": true,
+    "network_access": true,
+    "package_installation": true,
+    "system_configuration": true,
+    "granted_at": "2026-01-25T00:51:28.951475",
+    "granted_by": "imymm",
+    "system_info": {
+      "platform": "macOS-26.2-arm64-arm-64bit",
+      "processor": "arm",
+      "architecture": [
+        "64bit",
+        ""
+      ],
+      "python_version": "3.12.2 (main, Dec 23 2025, 20:48:21) [Clang 17.0.0 (clang-1700.6.3.2)]",
+      "user": "imymm",
+      "hostname": "mac-mini",
+      "cpu_count": 10,
+      "memory_total": 17179869184,
+      "disk_total": 494384795648
+    }
+  },
+  "user_permissions": {
+    "can_read_files": true,
+    "can_write_files": true,
+    "can_execute_commands": true,
+    "can_install_packages": true,
+    "can_modify_system": true,
+    "can_access_network": true,
+    "can_manage_processes": true,
+    "resource_limits": {
+      "max_cpu_percent": 95,
+      "max_memory_percent": 90,
+      "max_disk_percent": 95,
+      "max_processes": 100
+    }
+  }
+}

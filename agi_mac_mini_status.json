@@ -1,0 +1,15 @@
+{
+  "timestamp": "2026-01-25T01:16:23.524259",
+  "streaming_running": true,
+  "training_active": true,
+  "current_step": 100,
+  "best_loss": Infinity,
+  "memory_usage_mb": 5482.53125,
+  "cpu_usage_percent": 0.0,
+  "streaming_efficiency": 0,
+  "issues": [
+    "内存使用过高: 5482.5MB"
+  ],
+  "platform": "Mac Mini M4",
+  "memory_limit": "4GB"
+}

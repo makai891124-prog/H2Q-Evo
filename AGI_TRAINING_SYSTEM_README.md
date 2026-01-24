@@ -1,93 +1,164 @@
-# H2Q-Evo AGI完整训练系统
+# H2Q-Evo AGI Mac Mini M4流式训练系统
 
-这是一个完整的AGI训练基础设施，集成了所有必要的训练前置组件，实现实时在线训练、热生成、连续操作和动态备份。
+这是一个专为Mac Mini M4优化的AGI训练基础设施，实现了4GB内存限制的流式训练，充分发挥边缘计算能力。
 
-## 系统组件
+## 🚀 Mac Mini M4优化特性
 
-### 1. AGI训练基础设施 (`agi_training_infrastructure.py`)
-- **系统环境监控**: 实时监控CPU、内存、磁盘和网络状态
-- **动态备份系统**: 自动备份系统状态，支持滚动备份和故障恢复
-- **训练数据管道**: 结构化数据加载和预处理
-- **热重载管理器**: 支持运行时更新组件
-- **资源管理器**: 监控和控制系统资源使用
-- **性能监控器**: 实时性能指标收集
+- **4GB内存限制**: 严格控制内存使用，避免内存交换到硬盘
+- **流式训练**: 单项流式结构，数据分块处理，不占用大量内存
+- **边缘计算**: 充分利用Mac Mini M4的神经引擎和统一内存架构
+- **实时监控**: 内置健康监控窗口，实时查看训练进度
+- **自动优化**: 根据系统状态动态调整训练参数
 
-### 2. AGI检查点系统 (`agi_checkpoint_system.py`)
-- **模型检查点管理器**: 保存和恢复训练状态
-- **版本管理**: 支持多版本检查点管理
-- **回滚管理器**: 自动故障恢复和回滚
-- **检查点导出/导入**: 支持检查点迁移
+## 📦 系统组件
 
-### 3. AGI容错系统 (`agi_fault_tolerance.py`)
-- **故障类型检测**: 自动识别不同类型的系统故障
-- **恢复策略**: 多种自动恢复策略（重启、回滚、重试等）
-- **健康检查**: 持续监控系统健康状态
-- **熔断器模式**: 防止故障级联
-- **进程监督**: 自动重启崩溃的进程
+### 1. Mac Mini流式训练系统 (`agi_mac_mini_streaming.py`)
+- **流式数据加载器**: 分块加载数据，避免内存溢出
+- **内存池管理**: 智能内存分配和回收
+- **轻量级模型**: 针对4GB内存优化的模型架构
+- **梯度累积**: 减少显存使用的小批量训练
+- **自动内存清理**: 实时监控和清理内存
 
-### 4. AGI实时训练系统 (`agi_realtime_training.py`)
-- **实时训练**: 持续的在线训练过程
-- **热生成**: 运行时生成新的训练组件
-- **环境感知**: 根据系统状态动态调整训练参数
-- **连续操作**: 7×24小时不间断运行
-- **动态备份**: 自动备份防止数据丢失
+### 2. 健康监控窗口 (`agi_health_monitor.py`)
+- **实时状态显示**: CPU、内存、磁盘使用率
+- **训练进度监控**: 步骤数、损失值、效率指标
+- **系统健康检查**: 自动检测和报告问题
+- **交互式界面**: 支持键盘操作的监控界面
 
-## 快速开始
+### 3. Mac Mini启动器 (`start_mac_mini_training.py`)
+- **系统要求检查**: 验证Mac Mini配置
+- **流式训练启动**: 优化启动参数
+- **后台监控**: 自动启动健康监控窗口
+- **优雅关闭**: 安全停止所有组件
 
-### 1. 安装依赖
+## 💻 Mac Mini M4硬件优化
 
+### 内存管理策略
+- **目标内存**: 4GB以内使用
+- **流式处理**: 数据分块加载处理
+- **内存池**: 预分配和重复使用内存
+- **垃圾回收**: 主动触发内存清理
+
+### CPU优化
+- **多核心利用**: 自动检测和使用所有CPU核心
+- **线程池**: 控制并发线程数量
+- **亲和性设置**: 优化CPU缓存使用
+
+### 存储优化
+- **SSD缓存**: 利用高速SSD进行数据缓存
+- **压缩存储**: 自动压缩检查点和备份
+- **智能预取**: 预测性数据加载
+
+## 🏃‍♂️ 快速开始
+
+### 1. 系统检查
 ```bash
-pip install torch numpy psutil asyncio
+python start_mac_mini_training.py --check-only
 ```
 
-### 2. 检查系统要求
-
+### 2. 启动完整流式训练系统
 ```bash
-python start_agi_training.py --check-only
+python start_mac_mini_training.py
 ```
 
-### 3. 启动完整训练系统
-
+### 3. 仅启动监控窗口
 ```bash
-python start_agi_training.py
+python start_mac_mini_training.py --monitor-only
 ```
 
-### 4. 监控训练状态
+### 4. 后台启动（无监控窗口）
+```bash
+python start_mac_mini_training.py --no-monitor
+```
 
-系统会自动创建以下监控文件：
-- `agi_system_status.json`: 实时状态
-- `agi_system_report.json`: 详细报告
-- `realtime_training_status.json`: 训练状态
+## 📊 监控和状态
 
-## 配置选项
+### 实时监控文件
+- `mac_mini_streaming_status.json`: 流式训练状态
+- `agi_mac_mini_status.json`: 系统运行状态
+- `agi_mac_mini_report.json`: 详细系统报告
 
-### 命令行参数
+### 监控窗口操作
+- **Q**: 退出监控
+- **R**: 刷新数据
+- **C**: 清屏
 
-- `--check-only`: 仅检查系统要求
-- `--config <file>`: 指定配置文件
-- `--log-level <level>`: 设置日志级别 (DEBUG, INFO, WARNING, ERROR)
+### 性能指标
+- **训练步骤**: 当前训练步数
+- **最佳损失**: 历史最佳损失值
+- **内存使用**: 实时内存占用
+- **流式效率**: 内存使用效率评分
 
-### 环境变量
+## ⚙️ 配置参数
 
-- `AGI_TRAINING_ENABLED`: 启用/禁用训练 (默认: true)
-- `AGI_HOT_GENERATION_ENABLED`: 启用/禁用热生成 (默认: true)
-- `AGI_CONTINUOUS_OPERATION`: 启用/禁用连续操作 (默认: true)
-- `AGI_DYNAMIC_BACKUP_ENABLED`: 启用/禁用动态备份 (默认: true)
-- `AGI_ENVIRONMENTAL_SENSING`: 启用/禁用环境感知 (默认: true)
+### 内存配置
+```python
+max_memory_gb = 4.0          # 最大内存使用4GB
+memory_buffer_gb = 0.5       # 0.5GB缓冲区
+streaming_batch_size = 1     # 流式批次大小
+micro_batch_size = 1         # 微批次大小
+```
 
-## 系统架构
+### 训练配置
+```python
+gradient_accumulation_steps = 4  # 梯度累积步数
+data_chunk_size = 100           # 数据块大小
+max_cached_chunks = 2           # 最大缓存块数
+```
+
+### 监控配置
+```python
+update_interval = 2             # 监控更新间隔（秒）
+resource_check_interval = 30    # 资源检查间隔（秒）
+```
+
+## 🔧 故障排除
+
+### 内存不足
+- 检查系统内存使用情况
+- 减少`data_chunk_size`参数
+- 增加`gradient_accumulation_steps`
+
+### 训练缓慢
+- 检查CPU使用率
+- 调整`num_worker_threads`参数
+- 启用`cpu_affinity`
+
+### 监控窗口问题
+- 确保终端支持curses
+- 使用`--no-monitor`参数启动
+- 检查Python curses模块安装
+
+## 📈 性能优化建议
+
+### 内存优化
+1. 定期清理临时文件
+2. 监控内存泄漏
+3. 调整数据块大小
+
+### CPU优化
+1. 避免过度线程化
+2. 利用多核心优势
+3. 优化数据预处理
+
+### 存储优化
+1. 使用SSD存储
+2. 定期清理旧检查点
+3. 启用数据压缩
+
+## 🔄 系统架构
 
 ```
-┌─────────────────────────────────────────────────────────────┐
-│                    AGI训练系统启动器                          │
-│                    start_agi_training.py                     │
-└─────────────────────┬───────────────────────────────────────┘
+┌─────────────────────────────────────────────────────┐
+│                Mac Mini M4流式训练系统                │
+│                start_mac_mini_training.py            │
+└─────────────────────┬─────────────────────────────────┘
                       │
            ┌──────────┴──────────┐
            │                     │
 ┌──────────▼─────────┐ ┌─────────▼──────────┐
-│  实时训练系统      │ │   容错系统         │
-│agi_realtime_training│ │agi_fault_tolerance│
+│   流式训练系统      │ │    健康监控窗口     │
+│agi_mac_mini_streaming│ │agi_health_monitor │
 └──────────┬─────────┘ └─────────┬──────────┘
            │                     │
            └──────────┬──────────┘
@@ -95,135 +166,48 @@ python start_agi_training.py
            ┌──────────▼──────────┐
            │                     │
 ┌──────────▼─────────┐ ┌─────────▼──────────┐
-│  训练基础设施      │ │   检查点系统       │
-│agi_training_infrastructure│ │agi_checkpoint_system│
-└────────────────────┘ └────────────────────┘
+│   训练基础设施      │ │    检查点系统      │
+│agi_training_infrastructure│ │agi_checkpoint_system │
+└──────────┬─────────┘ └─────────┬──────────┘
+           │                     │
+           └──────────┬──────────┘
+                      │
+           ┌──────────▼──────────┐
+           │   容错和恢复系统     │
+           │agi_fault_tolerance │
+           └─────────────────────┘
 ```
 
-## 监控和日志
+## 🛡️ 安全和稳定
 
-### 日志文件
-- `agi_training_system.log`: 主系统日志
-- `evolution.log`: 训练演化日志
-- `fault_alerts.txt`: 故障警报
+### 自动恢复
+- 内存不足时自动清理
+- 训练发散时回滚检查点
+- 网络错误时重试操作
 
-### 状态文件
-- `agi_system_status.json`: 系统运行状态
-- `agi_system_report.json`: 详细系统报告
-- `realtime_training_status.json`: 训练进度
+### 数据保护
+- 自动备份重要数据
+- 检查点定期保存
+- 优雅关闭保证数据完整性
 
-### 备份文件
-- `agi_backups/`: 系统状态备份
-- `checkpoints/`: 模型检查点
+### 资源控制
+- CPU使用率限制
+- 内存使用监控
+- 磁盘空间管理
 
-## 故障恢复
+## 📝 更新日志
 
-系统内置多种故障恢复机制：
+### v2.0.0 - Mac Mini M4优化版
+- ✨ 全新流式训练架构
+- 🧠 4GB内存限制优化
+- 📊 实时健康监控窗口
+- 🔄 自动参数调整
+- 💾 智能内存管理
 
-1. **自动重启**: 进程崩溃时自动重启
-2. **检查点回滚**: 训练发散时回滚到稳定状态
-3. **服务降级**: 资源不足时降低训练强度
-4. **熔断保护**: 防止故障级联影响
+## 🤝 贡献
 
-## 性能优化
+欢迎提交问题和改进建议！
 
-### 环境感知调节
-- CPU使用率 > 80%: 减少批次大小
-- 内存使用率 > 85%: 降低训练强度
-- 网络断开: 暂停外部数据同步
+## 📄 许可证
 
-### 资源管理
-- 自动调整学习率
-- 动态批次大小调节
-- 内存使用优化
-
-## 扩展开发
-
-### 添加新的健康检查
-
-```python
-from agi_fault_tolerance import get_fault_tolerance_manager
-
-ft_manager = get_fault_tolerance_manager()
-ft_manager.register_health_check("custom_check", your_check_function, interval=60)
-```
-
-### 自定义恢复策略
-
-```python
-from agi_fault_tolerance import RecoveryStrategy, FaultToleranceManager
-
-class CustomRecoveryManager(FaultToleranceManager):
-    def _custom_recovery(self, fault_record):
-        # 实现自定义恢复逻辑
-        pass
-```
-
-### 集成新的训练组件
-
-```python
-from agi_realtime_training import H2QRealtimeTrainer
-
-class CustomTrainer(H2QRealtimeTrainer):
-    def _perform_training_step(self):
-        # 实现自定义训练逻辑
-        pass
-```
-
-## 安全注意事项
-
-1. **数据备份**: 系统自动备份，但建议定期外部备份
-2. **权限控制**: 确保运行用户有适当的文件系统权限
-3. **网络安全**: 在生产环境中配置适当的网络安全措施
-4. **资源限制**: 监控系统资源使用，避免影响其他服务
-
-## 故障排除
-
-### 常见问题
-
-1. **模块导入错误**
-   - 检查Python路径和依赖安装
-   - 运行 `pip install -r requirements.txt`
-
-2. **权限错误**
-   - 检查文件和目录权限
-   - 确保用户有读写权限
-
-3. **内存不足**
-   - 减少批次大小
-   - 启用服务降级模式
-
-4. **训练不收敛**
-   - 检查数据质量
-   - 调整学习率
-   - 使用检查点回滚
-
-### 调试模式
-
-启用详细日志：
-
-```bash
-python start_agi_training.py --log-level DEBUG
-```
-
-## 贡献指南
-
-1. Fork项目
-2. 创建特性分支
-3. 提交更改
-4. 发起Pull Request
-
-## 许可证
-
-本项目采用MIT许可证。详见LICENSE文件。
-
-## 支持
-
-如有问题，请：
-1. 查看日志文件
-2. 检查系统状态文件
-3. 提交Issue到项目仓库
-
----
-
-**注意**: 这是一个复杂的AGI训练系统，请在有经验的开发者监督下运行。系统设计用于连续操作，包含自动恢复机制，但仍需要定期监控。
+本项目采用MIT许可证。

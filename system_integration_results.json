@@ -1,0 +1,110 @@
+{
+  "timestamp": "2026-01-25T02:08:56.083154",
+  "integration_tests": {
+    "dependencies": {
+      "status": "success",
+      "dependencies": {
+        "torch": "available",
+        "transformers": "available",
+        "accelerate": "available",
+        "peft": "available",
+        "datasets": "available",
+        "wandb": "available",
+        "numpy": "available",
+        "scipy": "available",
+        "psutil": "available",
+        "pathlib": "available",
+        "trl": "missing",
+        "google.genai": "available"
+      },
+      "missing_dependencies": [],
+      "version_conflicts": []
+    },
+    "initialization": {
+      "status": "success",
+      "components": {
+        "LogarithmicManifoldEncoder": "success",
+        "CompressedAGIEncoder": "success",
+        "AGIDataGenerator": "success",
+        "AGITrainingMonitor": "success",
+        "AGIEvolutionMonitor": "success",
+        "PersistentAGIConfig": "success",
+        "PersistentAGITrainer": "success"
+      },
+      "initialization_errors": [],
+      "fixes_applied": []
+    },
+    "communication": {
+      "status": "success",
+      "communication_tests": [
+        {
+          "test": "data_generator_to_encoder",
+          "status": "success",
+          "details": "成功处理51条数据"
+        },
+        {
+          "test": "trainer_to_monitor",
+          "status": "success",
+          "details": "训练器代数: 0, 监控器状态: {'timestamp': '2026-01-25T02:09:00.942378', 'is_running': False, 'process_info': None, 'memory_usage': {'total_gb': 16.0, 'used_gb': 5.235565185546875, 'available_gb': 2.8283843994140625, 'usage_percent': 82.3}, 'gpu_usage': None, 'evolution_state': {}, 'recent_logs': [], 'checkpoints': []}"
+        }
+      ],
+      "issues_found": []
+    },
+    "data_flow": {
+      "status": "warning",
+      "data_flow_tests": [],
+      "bottlenecks": [
+        "'LogarithmicManifoldEncoder' object has no attribute 'encode_with_continuity'"
+      ],
+      "performance_metrics": {
+        "data_generation": {
+          "samples": 51,
+          "time_seconds": 0.009226799011230469,
+          "samples_per_second": 5527.377364341085
+        }
+      }
+    },
+    "system_startup": {
+      "status": "success",
+      "startup_sequence": [
+        "manager_created",
+        "system_started",
+        "components_checked: 2/3",
+        "system_stopped"
+      ],
+      "startup_time": 2.021552801132202,
+      "errors_during_startup": []
+    },
+    "evolution_preparation": {
+      "status": "not_ready",
+      "evolution_readiness": {
+        "file_agi_persistent_evolution.py": "present",
+        "file_agi_system_manager.py": "present",
+        "file_enhanced_evolution_verifier.py": "present",
+        "config_agi_training_config.ini": "present",
+        "gemini_api": "configured",
+        "disk_space": "247.0GB_free",
+        "memory": "3.1GB_available"
+      },
+      "missing_requirements": [
+        "insufficient_memory"
+      ],
+      "recommendations": [
+        "增加系统内存，至少需要4GB可用内存",
+        "请先解决缺失的依赖项"
+      ]
+    }
+  },
+  "component_status": {},
+  "fixes_applied": [],
+  "overall_status": "unknown",
+  "integration_summary": {
+    "overall_status": "good",
+    "total_tests": 6,
+    "passed_tests": 4,
+    "failed_tests": 0,
+    "warnings": 1,
+    "critical_issues": [],
+    "ready_for_evolution": true
+  }
+}
