@@ -1,0 +1,83 @@
+{
+  "timestamp": "2026-01-25T00:20:37.695000",
+  "benchmarks": {
+    "mmlu": {
+      "accuracy": 87.5,
+      "correct": 7,
+      "total": 8,
+      "category_scores": {
+        "abstract_algebra": 50.0,
+        "biology": 100.0,
+        "physics": 100.0,
+        "philosophy": 100.0,
+        "computer_science": 100.0,
+        "world_history": 100.0
+      }
+    },
+    "gsm8k": {
+      "accuracy": 75.0,
+      "correct": 6,
+      "total": 8,
+      "category_scores": {
+        "time": 100.0,
+        "word_problem": 100.0,
+        "arithmetic": 100.0,
+        "algebra": 0.0,
+        "ratio": 100.0,
+        "percentage": 0.0
+      }
+    },
+    "arc": {
+      "accuracy": 75.0,
+      "correct": 6,
+      "total": 8,
+      "category_scores": {
+        "chemistry": 100.0,
+        "biology": 50.0,
+        "physics": 100.0,
+        "earth_science": 100.0,
+        "science": 50.0
+      }
+    },
+    "hellaswag": {
+      "accuracy": 100.0,
+      "correct": 6,
+      "total": 6,
+      "category_scores": {
+        "commonsense": 100.0,
+        "social": 100.0,
+        "activity": 100.0,
+        "physical": 100.0
+      }
+    },
+    "truthfulqa": {
+      "accuracy": 100.0,
+      "correct": 6,
+      "total": 6,
+      "category_scores": {
+        "misconceptions": 100.0,
+        "science": 100.0,
+        "history": 100.0,
+        "health": 100.0
+      }
+    },
+    "cmmlu": {
+      "accuracy": 100.0,
+      "correct": 8,
+      "total": 8,
+      "category_scores": {
+        "chinese_math": 100.0,
+        "modern_chinese": 100.0,
+        "chinese_philosophy": 100.0,
+        "chinese_literature": 100.0,
+        "chinese_history": 100.0,
+        "chinese_geography": 100.0,
+        "chinese_medicine": 100.0,
+        "chinese_science": 100.0
+      }
+    }
+  },
+  "overall_score": 89.58333333333333,
+  "num_benchmarks": 6,
+  "grade": "优秀 (Excellent)"
+}

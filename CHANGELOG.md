@@ -47,6 +47,11 @@
 - 新增指标追踪 (`get_metrics()`)
 - 生成令牌 ID 返回支持
 
+#### 运维与统一入口
+- 服务主入口: [h2q_project/h2q_server.py](h2q_project/h2q_server.py)
+- 统一健康审计入口: [tools/unified_audit.py](tools/unified_audit.py)
+- 移除遗留快照: h2q_project/h2q_server_refactored.py, test_refactored_server.py
+
 ### 🧪 测试覆盖
 
 - `tests/test_core_components.py`: 14 项核心组件测试

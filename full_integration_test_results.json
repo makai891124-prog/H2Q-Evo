@@ -1,0 +1,27 @@
+{
+  "timestamp": "cpu",
+  "math_modules": {
+    "unified_architecture": "ACTIVE",
+    "quaternion_ops": "FAILED",
+    "spectral_shift_tracker": "FAILED"
+  },
+  "system_modules": {
+    "fastapi_server": "FAILED",
+    "evolution_system": "FAILED",
+    "experiment_runner": "FAILED"
+  },
+  "perception_tests": {
+    "unified_perception": "FAILED",
+    "math_consistency": "SKIPPED"
+  },
+  "information_tests": {
+    "spectral_learning": "SKIPPED",
+    "system_integration": "SKIPPED"
+  },
+  "scores": {
+    "activation_rate": 0.16666666666666666,
+    "perception_rate": 0.0,
+    "information_rate": 0.0,
+    "overall_score": 0.05555555555555555
+  }
+}

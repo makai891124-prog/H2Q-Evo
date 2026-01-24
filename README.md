@@ -14,6 +14,10 @@
 
 为减少主目录文件拥挤，常用文档入口集中在 [docs/DOCUMENTATION_INDEX.md](docs/DOCUMENTATION_INDEX.md)。
 
+## 🚦 运行入口（统一）
+- 服务主入口: [h2q_project/h2q_server.py](h2q_project/h2q_server.py)
+- 统一健康审计: [tools/unified_audit.py](tools/unified_audit.py)（核心架构 + 集成 + orchestrator 配置 + 数学核心冒烟）
+
 ---
 
 ## 🌟 最新版本亮点 (v2.3.0)

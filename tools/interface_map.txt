@@ -1,0 +1,3648 @@
+=== H2Q GLOBAL INTERFACE REGISTRY ===
+
+MODULE: optimization_suggestions
+  - class OptimizationSuggester
+
+MODULE: model_utils
+  - function convert_to_dtype
+  - function create_model
+
+MODULE: memory_profiler
+  - class MemoryProfiler
+
+MODULE: train_zero_memory
+  - function get_memory_usage
+  - function train_zero_memory
+
+MODULE: train_spacetime
+  - function get_math_batch
+  - function train
+
+MODULE: comprehensive_evaluation
+  - class ResourceMonitor
+  - class RealisticDataGenerator
+  - class QuaternionAwareModel
+  - class H2QCapabilityEvaluator
+
+MODULE: quaternion_geometry
+  - class Quaternion
+  - class QuaternionSelfReflection
+
+MODULE: config_loader
+  - function load_config
+
+MODULE: example_module
+  - function add
+  - function subtract
+
+MODULE: train_spacetime_vision
+  - class DiscreteDecisionEngine
+  - function ycbcr_to_rgb_tensor
+  - function apply_spectral_shift
+
+MODULE: profiling_utils
+  - class MemoryProfiler
+
+MODULE: task_evaluator
+  - function evaluate_task
+
+MODULE: conftest
+  - function sample_quaternion
+
+MODULE: state_manager
+  - class StateManager
+
+MODULE: train_multilingual_decoder
+  - function train_decoder
+
+MODULE: evolution_system
+  - function select_model
+  - function generate_improvement_prompt
+  - function evolve_code
+
+MODULE: math_utils
+  - class Quaternion
+  - function quaternion_from_euler
+  - function euler_from_quaternion
+
+MODULE: large_file_processing
+  - function process_large_file
+
+MODULE: quaternion_ops
+  - function quaternion_multiply
+  - function quaternion_conjugate
+  - function quaternion_magnitude
+  - function quaternion_norm
+  - function quaternion_normalize
+  - function quaternion_inverse
+  - function quaternion_real
+  - function quaternion_imaginary
+  - function quaternion_from_euler
+  - function euler_from_quaternion
+  - function rotate_vector_by_quaternion
+  - function quaternion_to_rotation_matrix
+
+MODULE: quick_experiment
+  - function get_data_batch
+  - function mse_loss
+  - function main
+
+MODULE: h2q
+  - class H2Q
+
+MODULE: train_fdc
+  - class DiscreteDecisionEngine
+  - class H2Q_Manifold
+  - function train_fdc
+
+MODULE: train_basic
+  - class DummyDataset
+  - class DummyModel
+
+MODULE: test_vision_demo
+  - function calculate_psnr
+  - function test_cifar_reconstruction
+
+MODULE: train_byte_compression
+  - function run_byte_training
+  - function main
+
+MODULE: data_processor
+  - class DataProcessor
+
+MODULE: train_tpq_optim
+  - function train_tpq_phase_optimization
+
+MODULE: test_memory_analyzer
+  - class TestMemoryAnalyzer
+
+MODULE: simulation_runner
+  - function run_simulation
+
+MODULE: train_4hours_simple
+  - function prepare_training_data
+  - function evaluate_text_quality
+  - function run_4hour_training
+  - function _format_time
+  - function _generate_report
+
+MODULE: system_analyzer
+  - class ComponentMetrics
+  - class SystemHealthReport
+  - class CodeAnalyzer
+  - class DependencyAnalyzer
+  - function generate_detailed_report
+  - function main
+
+MODULE: fractal_geometry
+  - function julia_set
+
+MODULE: demo_interactive
+  - class H2QInteractiveDemo
+
+MODULE: solver
+  - class Solver
+
+MODULE: models
+  - class SimpleCNN
+
+MODULE: fractal_generator
+  - function mandelbrot
+  - function generate_fractal
+
+MODULE: geometric_kernel
+  - class GeometricKernel
+
+MODULE: validation_pipeline
+  - class ValidationPipeline
+  - class CodeStyleCheckStep
+
+MODULE: h2q_core
+  - class H2QCore
+
+MODULE: transformations
+  - class Quaternion
+  - class Transformation
+
+MODULE: automorphic_dde
+  - class AutomorphicDDEConfig
+  - class LieGroupActionModule
+  - class ManifoldProjectionModule
+  - class AutomorphicDDE
+  - function test_lie_group_automorphism
+  - function test_manifold_projection
+  - function test_automorphic_dde_integration
+
+MODULE: train_decoder
+  - function train_decoder
+
+MODULE: train_fdc_pure
+  - class DiscreteDecisionEngine
+  - class FDCOptimizer
+  - class SpectralShiftTracker
+  - class H2QModel
+
+MODULE: transformation_matrix
+  - class TransformationMatrix
+
+MODULE: geometry_utils
+  - function generate_cube_points
+  - function calculate_bounding_box
+
+MODULE: train_enhanced_with_monitoring
+  - class TrainingMonitor
+  - class EnhancedTrainingSession
+  - function main
+
+MODULE: fractal
+  - function mandelbrot
+
+MODULE: evolution_logger
+  - class EvolutionLogger
+
+MODULE: training_module
+  - class TrainingModule
+
+MODULE: geometry_kernel
+  - class GeometryKernel
+
+MODULE: core_algorithm
+  - class CoreAlgorithm
+
+MODULE: verify_multimodal_cpu
+  - class SpectralShiftTracker
+  - class FractalExpansion
+  - class H2QSystem
+  - function audit_runtime
+
+MODULE: hello_human
+  - function greet
+
+MODULE: model_training
+  - class ModelTrainer
+
+MODULE: train_multilingual
+  - function train
+
+MODULE: cycle_breaker
+  - class CycleBreaker
+
+MODULE: train_synesthesia_unified
+  - class SynesthesiaUnifiedTrainer
+
+MODULE: train_hierarchy
+  - function train_hierarchy
+
+MODULE: evolution
+  - function generate_code
+  - function validate_code
+  - function run_evolution
+
+MODULE: data_loader
+  - class DataLoader
+
+MODULE: knowledge_extraction
+  - function get_project_context
+  - function get_file_structure
+  - function get_all_python_files
+  - function get_function_definitions
+
+MODULE: quaternion_utils
+  - class Quaternion
+  - function quaternion_multiply
+  - function quaternion_slerp
+
+MODULE: training_script
+  - function train
+  - function train_step
+
+MODULE: dependency_analyzer
+  - class DependencyAnalyzer
+
+MODULE: quaternion
+  - class Quaternion
+
+MODULE: performance_monitor
+  - class PerformanceMonitor
+
+MODULE: optimization
+  - function optimize_model_with_onnx
+
+MODULE: resource_manager
+  - class ResourceManager
+  - class Resource
+
+MODULE: optimization_utils
+  - function optimize_model_for_inference
+
+MODULE: validation_logic
+  - function validate_input
+
+MODULE: demo_neural_zip
+  - function quaternion_multiply
+  - class DiscreteDecisionEngine
+  - class ReversibleKernel
+  - class H2QNeuralZip
+  - function run_multilingual_benchmark
+
+MODULE: train_simple_lstm
+  - function train_epoch
+  - function evaluate
+  - function main
+
+MODULE: lie_automorphism_engine
+  - class QuaternionLieGroupConfig
+  - class QuaternionLieGroupModule
+  - class FractalGeometricDifferential
+  - class LieGroupAutomorphismEngine
+  - function test_quaternion_properties
+  - function test_lie_group_mappings
+
+MODULE: core
+  - function add
+
+MODULE: monte_carlo
+  - function calculate_pi
+
+MODULE: deep_performance_audit
+  - class QuaternionParameterAudit
+  - class LatencyTestIntegrityAudit
+  - class MemoryMeasurementAudit
+  - function run_cifar10_real_benchmark
+  - function run_deep_audit
+
+MODULE: logger
+  - class Logger
+
+MODULE: module1
+  - function greet
+
+MODULE: example_usage
+  - function main
+
+MODULE: train_model_b
+  - class AnotherSimpleModel
+  - class ModelB_Trainer
+  - function create_dummy_data
+  - function main
+
+MODULE: visualization
+  - class Visualizer
+
+MODULE: training_monitor
+  - class TrainingMonitor
+
+MODULE: test_calculator
+  - class TestCalculator
+
+MODULE: training_loop
+  - class TrainingLoop
+
+MODULE: train_fractal
+  - function generate_fractal_data
+
+MODULE: train_discrete_cpu
+  - function get_memory_usage
+  - function train_discrete_cpu
+
+MODULE: model
+  - class SimpleModel
+
+MODULE: h2q_main
+  - function analyze_data
+
+MODULE: vector_search
+  - class VectorSearch
+
+MODULE: test_quaternion
+  - class TestQuaternion
+
+MODULE: scientific_dataset_loader
+  - class ScientificDatasetLoader
+  - function main
+
+MODULE: dataset
+  - class SimpleDataset
+
+MODULE: h2q_evaluation_final
+  - class TensorEncoder
+
+MODULE: analyze_evolution
+  - class EvolutionAnalyzer
+  - function main
+
+MODULE: local_model_advanced_training
+  - class CompetencyLevel
+  - class CompetencyMetrics
+  - class CompetencyBenchmark
+  - class CompetencyEvaluator
+  - class OutputCorrectionMechanism
+  - class IterativeLearningSystem
+  - class LocalModelAdvancedTrainer
+
+MODULE: knot_theory
+  - function trefoil_polynomial
+  - function figure_eight_polynomial
+  - function knot_crossing_number
+
+MODULE: memory_analyzer
+  - class MemoryAnalyzer
+
+MODULE: accelerate_gpt2
+  - function run_benchmark
+
+MODULE: generator
+  - function generate_tensor
+
+MODULE: train_model_a
+  - class SimpleModel
+  - class ModelA_Trainer
+  - function create_dummy_data
+  - function main
+
+MODULE: module2
+  - function add
+
+MODULE: context
+  - function get_project_context
+
+MODULE: learning_loop
+  - class LearningLoop
+
+MODULE: training_strategy
+  - function adjust_training_strategy
+
+MODULE: example
+  - function process_data
+
+MODULE: train_gan
+  - class GANTrainer
+  - function main
+
+MODULE: utils
+  - function add
+  - function subtract
+  - function multiply
+
+MODULE: quantization_utils
+  - function maybe_half
+  - function cast_model_to_fp16
+  - function cast_model_to_bf16
+
+MODULE: llm_client
+  - class LLMClient
+
+MODULE: training_utils
+  - function train
+
+MODULE: feedback_handler
+  - class FeedbackHandler
+
+MODULE: calculator
+  - function add
+  - function subtract
+  - function multiply
+  - function divide
+  - function power
+  - function square_root
+
+MODULE: introspection
+  - class IntrospectionModule
+
+MODULE: quaternion_inspector
+  - class QuaternionInspector
+
+MODULE: train_synesthesia_avtg
+  - class AVTGSynesthesiaTrainer
+  - function train_synesthesia_avtg
+
+MODULE: evolution_engine
+  - class EvolutionEngine
+
+MODULE: test_multilingual
+  - function run_test
+
+MODULE: geometry
+  - class Point
+  - class Sphere
+
+MODULE: kernels
+  - function quaternion_multiply
+  - function quaternion_conjugate
+  - function quaternion_magnitude
+  - function quaternion_normalize
+  - function quaternion_to_rotation_matrix
+  - function create_fractal
+
+MODULE: train_vision_core
+  - function train_vision
+
+MODULE: test_autonomous_evolution
+  - function print_header
+  - function test_fractal_memory
+  - function test_knowledge_acquisition
+  - function test_autonomous_evolution
+  - function test_standard_benchmarks
+  - function test_integrated_system
+  - function main
+
+MODULE: train_example
+  - class SimpleModel
+
+MODULE: helper
+  - function multiply
+  - function divide
+
+MODULE: h2q_project
+  - function main
+
+MODULE: train
+  - class SimpleNN
+  - function train
+
+MODULE: data_processing
+  - function process_data
+  - function validate_item
+  - function transform_item
+
+MODULE: example_training_loop
+  - function train_model
+
+MODULE: train_quaternion
+  - function generate_quaternion_data
+
+MODULE: train_multimodal
+  - class DiscreteDecisionEngine
+  - class H2QContrastiveLoss
+  - function train_step
+
+MODULE: train_h2q
+  - class SpectralShiftTracker
+  - class GeodesicUnitaryOptimizer
+  - class DiscreteDecisionEngine
+  - class ReversibleH2QLayer
+  - class H2QModel
+  - function train_h2q
+
+MODULE: test_autodiff
+  - class TestAutodiff
+
+MODULE: profiler_integration
+  - function profile_memory_usage
+
+MODULE: model_handler
+  - class ModelHandler
+
+MODULE: code_analyzer
+  - class CodeAnalyzer
+
+MODULE: app
+  - function hello
+
+MODULE: train_compression_test
+  - class SU2Manifold
+  - class DiscreteDecisionEngine
+  - class SpectralShiftTracker
+  - function run_isomorphism_test
+
+MODULE: train_local_model_advanced
+  - class TextComprehensionDataset
+  - function prepare_training_data
+  - function load_external_data
+  - class SimpleTextGenerationModel
+  - function main
+  - function generate_training_report
+  - function generate_markdown_report
+
+MODULE: inference
+  - function infer
+
+MODULE: agi_scientific_trainer
+  - class ScientificKnowledgeBase
+  - class ScientificReasoningEngine
+  - class AGIScientificTrainer
+  - function main
+
+MODULE: train_generator
+  - class GeneratorTrainer
+
+MODULE: reflection_module
+  - class ReflectionModule
+
+MODULE: train_distillation
+  - class RealWorldStream
+  - function collate_fn
+  - class DistillationManifold
+  - function train_real_world
+
+MODULE: local_executor
+  - class LocalExecutor
+
+MODULE: train_full_stack_v2
+  - function quaternion_multiply
+  - class DiscreteDecisionEngine
+  - class SpectralShiftTracker
+  - class H2QSleepMechanism
+  - function train_iteration
+
+MODULE: model_compression
+  - function quantize_model
+  - function prune_model
+
+MODULE: geometric_algebra
+  - class Quaternion
+  - class Transformation
+  - class GeometryEvaluator
+
+MODULE: trainer
+  - class Trainer
+
+MODULE: test_example_module
+  - class TestExampleModule
+
+MODULE: workflow
+  - class Workflow
+  - class Step
+
+MODULE: deploy_reasoning_vault
+  - class H2QReasoningVaultController
+
+MODULE: h2q_evolution
+  - class H2QEvolutionSystem
+
+MODULE: train_manual_reversible
+  - class DiscreteDecisionEngine
+  - class ReversibleFunction
+  - class ManualReversibleKernel
+  - function train_manual_reversible
+
+MODULE: train_regression
+  - class RegressionDataset
+  - class LinearRegression
+  - function main
+
+MODULE: train_knot
+  - function train
+  - function test
+
+MODULE: train_omniscience
+  - class DiscreteDecisionEngine
+  - class SpectralShiftTracker
+  - class OmniscienceTrainer
+
+MODULE: train_self_coder
+  - class H2QCoderLM
+  - class CodeDataset
+  - function train
+
+MODULE: test_framework
+  - class BaseTestCase
+
+MODULE: run_experiment
+  - class ExperimentManifold
+  - function pad_to_dim
+  - function get_data_batch
+
+MODULE: main
+  - function benchmark_quaternion
+  - function benchmark_fractal
+
+MODULE: knot_generator
+  - class KnotGenerator
+
+MODULE: benchmark_latency
+  - function benchmark_model
+  - function run_comparison
+
+MODULE: generation_engine
+  - function generate_code_and_execute
+
+MODULE: profiler
+  - class ContainerProfiler
+
+MODULE: train_reversible_vision
+  - function get_memory_usage
+  - function train_reversible
+
+MODULE: tensor_operations
+  - function tensor_add
+  - function tensor_multiply
+  - function tensor_matmul
+  - function tensor_transpose
+  - function tensor_reshape
+  - function tensor_sum
+  - function create_tensor
+
+MODULE: strategy_manager
+  - class HolomorphicStrategyConstraint
+  - class StrategyManager
+
+MODULE: h2q_server
+  - function get_or_create_unified_architecture
+  - function get_or_create_evolution_bridge
+  - class ChatRequest
+  - class ChatResponse
+  - class GenerateRequest
+  - class GenerateResponse
+  - class DreamResponse
+  - function pad_text_to_tensor
+  - function process_with_unified_architecture
+
+MODULE: train_arithmetic
+  - function generate_arithmetic_batch
+  - function train_math_core
+
+MODULE: static_analysis
+  - function run_pylint
+  - function run_mypy
+
+MODULE: launch_training
+  - function launch_training
+  - function main
+
+MODULE: memory_monitor
+  - class MemoryMonitor
+
+MODULE: file_manager
+  - class FileManager
+
+MODULE: train_demo_30min
+  - function prepare_data
+  - function evaluate_quality
+  - function run_training_session
+
+MODULE: run_language_simulation
+  - function run_simulation
+
+MODULE: virtual_giant_test
+  - function get_memory_usage
+  - function benchmark_giant_layer
+  - function benchmark_h2q_system
+  - function run_comparison
+
+MODULE: noncommutative_geometry_operators
+  - class FueterCalculusConfig
+  - class FueterCalculusModule
+  - class ReflectionOperatorModule
+  - class NoncommutativeGeometryOperators
+  - function test_fueter_derivatives
+  - function test_reflection_operators
+
+MODULE: h2q_kernel
+  - class H2QKernel
+
+MODULE: demo_universal_zip
+  - function load_system
+  - function compress_and_restore
+  - function main
+
+MODULE: self_reflection
+  - class SelfReflectionModule
+
+MODULE: knot
+  - function trefoil_knot
+
+MODULE: train_lstm
+  - class SimpleLSTM
+  - function generate_dummy_data
+  - function main
+
+MODULE: performance_audit
+  - function test_training_throughput
+  - function test_inference_latency
+  - function test_peak_memory
+
+MODULE: quaternion_visualizer
+  - class QuaternionVisualizer
+
+MODULE: project
+  - class Project
+
+MODULE: profiling
+  - function profile_function
+
+MODULE: views
+  - function get_project_context
+
+MODULE: analyze_architecture
+  - class ArchitectureAnalyzer
+
+MODULE: train_qa
+  - function main
+
+MODULE: quantum_algorithm
+  - class QuantumAlgorithm
+
+MODULE: test_quaternion_ops
+  - function test_quaternion_multiply
+  - function test_quaternion_conjugate
+  - function test_quaternion_norm
+  - function test_quaternion_normalize
+  - function test_quaternion_from_euler
+  - function test_euler_from_quaternion
+
+MODULE: task_planning
+  - class TaskPlanner
+
+MODULE: production_demo
+  - function main
+
+MODULE: run_experiment_fixed
+  - function get_data_batch
+
+MODULE: training_framework
+  - class TrainingFramework
+
+MODULE: validation
+  - function validate_json
+
+MODULE: code_generator
+  - class CodeGenerator
+
+MODULE: training_strategy_adjuster
+  - class TrainingStrategyAdjuster
+
+MODULE: code_style_checker
+  - class CodeStyleChecker
+
+MODULE: benchmark.benchmark_quaternion
+  - function quaternion_multiply_numpy
+  - function benchmark_numpy
+  - function benchmark_cupy
+  - function benchmark_pyquaternion
+
+MODULE: base_app.views
+  - function get_project_context
+  - function home
+  - function about
+
+MODULE: visualization.quaternion_visualizer
+  - function visualize_quaternion
+
+MODULE: visualization.visualizer
+  - class QuaternionFractalVisualizer
+
+MODULE: losses.example_loss
+  - class ExampleLoss
+
+MODULE: kernels.geometry
+  - function compute_distances
+  - function compute_gram_matrix
+  - function gaussian_kernel
+  - function laplacian_kernel
+
+MODULE: tools.spacetime_loader
+  - class H2QSpacetimeDataset
+  - function get_spacetime_dataloader
+
+MODULE: tools.byte_loader
+  - class H2QByteDataset
+  - function get_byte_dataloader
+
+MODULE: tools.prism_converter
+  - function extract_and_crystallize
+
+MODULE: tools.data_loader
+  - class H2QTextDataset
+  - function get_dataloader
+
+MODULE: tools.smoke_cli
+  - function run
+  - function main
+
+MODULE: tools.extract_qwen_crystal
+  - function extract_crystal
+
+MODULE: tools.registry_audit
+  - class UnifiedSymmetryValidator
+
+MODULE: tools.h2q_bridge
+  - function attempt_self_reasoning
+
+MODULE: tools.multi_prism
+  - function generate_crystals
+
+MODULE: tools.vision_loader
+  - class H2QCIFAR10
+  - function get_vision_dataloader
+
+MODULE: tools.mix_corpus_generator
+  - function generate_mix_corpus
+
+MODULE: tools.code_writer
+  - class CodeWriter
+
+MODULE: core.system_monitor
+  - class SystemMonitor
+
+MODULE: core.quaternion_geometry
+  - class Quaternion
+  - function quaternion_to_rotation_matrix
+  - function rotation_matrix_to_quaternion
+
+MODULE: core.memory_management
+  - class MemoryTracker
+
+MODULE: core.quaternion_ops
+  - function quaternion_conjugate
+  - function quaternion_multiply
+  - function quaternion_to_rotation_matrix
+  - function normalize_quaternion
+
+MODULE: core.h2q
+  - class H2QGeometryKernel
+
+MODULE: core.kernel
+  - class Kernel
+
+MODULE: core.fractal_geometry
+  - class FractalGeometryGenerator
+
+MODULE: core.h2q_core
+  - class H2QCore
+
+MODULE: core.geometry_validator
+  - class GeometryValidator
+
+MODULE: core.geometry_utils
+  - function calculate_distance
+  - function calculate_midpoint
+  - function rotate_vector
+
+MODULE: core.reflection
+  - class ReflectionModule
+
+MODULE: core.context_utils
+  - function get_project_context
+
+MODULE: core.geometry_kernel
+  - class GeometryKernel
+
+MODULE: core.evolution
+  - function evolve
+
+MODULE: core.quaternion
+  - class Quaternion
+  - function memory_usage
+
+MODULE: core.optimization
+  - class Optimizer
+  - class AdaptiveLearningRateOptimizer
+
+MODULE: core.core
+  - function core_function
+
+MODULE: core.model_evaluator
+  - class ModelEvaluator
+  - class SelfReflectionModule
+
+MODULE: core.model
+  - class SimpleModel
+
+MODULE: core.h2q_trainer
+  - class H2QTrainer
+  - class SimpleTrainer
+
+MODULE: core.utils
+  - function get_project_context
+
+MODULE: core.core_module
+  - function core_function
+  - function another_function
+
+MODULE: core.geometry
+  - class Point
+  - class Line
+  - function complex_geometry_operation
+
+MODULE: core.data_processing
+  - function load_data
+  - function clean_data
+
+MODULE: core.data_structures
+  - class BloomFilter
+  - class SimpleCache
+  - class LimitedSizeDict
+
+MODULE: core.trainer
+  - class Trainer
+
+MODULE: core.processing
+  - function process_data
+  - function _perform_complex_calculation
+
+MODULE: core.h2q_kernel
+  - class H2QKernel
+
+MODULE: core.self_reflection
+  - class SelfReflectionModule
+
+MODULE: core.mesh_processing
+  - class MeshProcessor
+
+MODULE: core.views
+  - function project_detail
+  - function get_project_context
+
+MODULE: core.some_core_module
+  - function some_function
+  - function another_function
+
+MODULE: core.model_analyzer
+  - class ModelAnalyzer
+
+MODULE: core.tests.test_data_processing
+  - class TestDataProcessing
+
+MODULE: core.tests.test_core
+  - class TestCore
+
+MODULE: core.tests.test_calculator
+  - class TestCalculator
+
+MODULE: core.management.commands.seed_db
+  - class Command
+
+MODULE: core.geometry.line
+  - class Line
+
+MODULE: core.geometry.profiler
+  - class Profiler
+  - function profile
+
+MODULE: core.geometry.h2q_kernel
+  - class H2QKernel
+
+MODULE: test.test_quaternion_ops
+  - class TestQuaternionOps
+
+MODULE: processing.image_processor
+  - class ImageProcessor
+
+MODULE: example.example_usage
+  - function my_function
+
+MODULE: camera.camera_controller
+  - class CameraController
+
+MODULE: optimization.cpu_optimizer
+  - function optimize_for_cpu
+
+MODULE: optimization.memory_optimizer
+  - class MemoryOptimizer
+
+MODULE: training.trainer
+  - class Trainer
+
+MODULE: training.self_reflection
+  - class TrainingMonitor
+
+MODULE: h2q_cli.config
+  - function agent_home
+
+MODULE: h2q_cli.main
+  - function cli
+  - function init
+  - function execute
+  - function status
+  - function export_checkpoint
+  - function import_checkpoint
+  - function main
+
+MODULE: h2q_cli.commands
+  - class BaseCommand
+  - class InitCommand
+  - class ExecuteCommand
+  - class StatusCommand
+  - class ExportCommand
+  - class ImportCommand
+
+MODULE: self_reflection.self_reflection
+  - class SelfReflection
+
+MODULE: datasets.dummy_dataset
+  - class DummyDataset
+
+MODULE: tests.test_knot_generator
+  - class TestKnotGenerator
+
+MODULE: tests.test_cem
+  - function test_cem_can_learn_a_simple_function
+
+MODULE: tests.test_data_loader
+  - class TestDataLoader
+
+MODULE: tests.test_utils
+  - class TestUtils
+
+MODULE: tests.test_validation
+  - function test_validate_data_valid
+  - function test_validate_data_invalid_type
+  - function test_validate_data_missing_name
+  - function test_validate_data_missing_age
+  - function test_validate_data_invalid_age
+  - function test_validate_data_invalid_name_type
+  - function test_validate_data_invalid_age_type
+
+MODULE: tests.test_h2q_kernel
+  - class TestH2QKernel
+  - class TestSelfReflectionModule
+
+MODULE: tests.test_failed_module
+  - class TestFailedModule
+
+MODULE: tests.test_geometric_algebra
+  - class TestGeometricAlgebra
+
+MODULE: tests.test_self_reflection
+  - class TestSelfReflection
+
+MODULE: tests.test_mesh_processing
+  - class TestMeshProcessing
+
+MODULE: tests.test_core
+  - function test_add_positive_numbers
+  - function test_add_negative_numbers
+  - function test_add_mixed_numbers
+  - function test_add_zero
+
+MODULE: tests.test_system_integration
+  - function mock_task_loss_fn
+  - function test_system_end_to_end_flow
+
+MODULE: tests.test_fractal
+  - class TestFractal
+
+MODULE: tests.test_quaternion_performance
+  - function size
+  - function quaternion_values
+  - function test_quaternion_multiplication
+  - function test_quaternion_addition
+  - function test_quaternion_conjugate
+  - function test_quaternion_norm
+  - function test_julia_set_generation
+
+MODULE: tests.test_file_management
+  - class TestFileManager
+
+MODULE: tests.test_quaternion
+  - class TestQuaternion
+
+MODULE: tests.test_sst
+  - function test_sst_normal_learning_is_monotone
+  - function test_sst_detects_catastrophic_forgetting
+  - function test_sst_computes_invariants_correctly
+
+MODULE: tests.test_reflection
+  - class TestReflection
+
+MODULE: tests.test_geometry_utils
+  - function test_create_rotation_matrix_from_quaternion
+  - function test_transform_points
+
+MODULE: tests.test_reversible_manifold
+  - class ReversibleManifoldFunction
+  - class ReversibleModule
+  - class TestReversibleDrift
+
+MODULE: tests.test_trace_formula
+  - function ideal_mu_func
+  - function test_validator_balanced_scenario
+  - function test_validator_unbalanced_scenario
+  - function test_validator_no_decisions
+
+MODULE: tests.test_validation_logic
+  - class TestValidationLogic
+
+MODULE: tests.test_kernel
+  - class TestKernel
+
+MODULE: tests.test_fractal_generator
+  - class TestFractalGenerator
+
+MODULE: tests.test_numerical_methods
+  - class TestNumericalMethods
+
+MODULE: tests.test_cost_functional
+  - function mock_mu_func
+  - function test_autonomy_cost_components
+  - function test_autonomy_cost_batching
+  - function test_spectral_shift_function
+
+MODULE: tests.test_knot
+  - class TestKnot
+
+MODULE: tests.test_trainer
+  - class DummyModel
+  - class TestTrainer
+
+MODULE: tests.test_geometry
+  - class TestPoint
+  - class TestSphere
+
+MODULE: tests.test_fractal_geometry
+  - class TestFractalGeometry
+
+MODULE: tests.test_crystal_integration
+  - function test_crystal_loading_and_inference
+
+MODULE: tests.test_geometry_kernel
+  - class TestGeometryKernel
+
+MODULE: tests.test_api_contract
+  - class TestAPIContract
+
+MODULE: tests.test_quaternion_ops
+  - class TestQuaternionOps
+
+MODULE: tests.test_dde
+  - function test_dde_basic_functionality
+  - function test_dde_config_handling
+  - function test_dde_backward_compatibility
+
+MODULE: tests.core.test_module
+  - class TestCoreModule
+
+MODULE: tests.core.test_core_module
+  - class TestCoreModule
+
+MODULE: fractals.mandelbrot
+  - class Mandelbrot
+
+MODULE: fractal.mandelbrot
+  - function mandelbrot
+  - function generate_mandelbrot_image
+  - function plot_mandelbrot
+
+MODULE: utils.reflection_utils
+  - function reflect_geometry
+  - function describe_object
+
+MODULE: utils.memory_profiler
+  - function get_process_memory
+  - class MemoryProfiler
+
+MODULE: utils.reflection
+  - function get_class_from_string
+  - function get_function_from_string
+  - function get_module_attribute
+  - function list_class_methods
+
+MODULE: utils.arguments
+  - function parse_args
+
+MODULE: utils.logger
+  - class Logger
+
+MODULE: utils.visualization
+  - function visualize_gradient
+
+MODULE: utils.data_processing
+  - function clean_data
+  - function transform_data
+  - function validate_data
+  - class DataProcessor
+
+MODULE: utils.profiler
+  - class Profiler
+
+MODULE: utils.helpers
+  - function safe_operation
+
+MODULE: utils.memory_monitor
+  - class MemoryMonitor
+
+MODULE: models.example_model
+  - class ExampleModel
+
+MODULE: models.simple_model
+  - class SimpleModel
+
+MODULE: models.model
+  - class SimpleModel
+
+MODULE: report_generation.report_generator
+  - class ReportGenerator
+
+MODULE: optimizers.memory_efficient_optimizer
+  - class MemoryEfficientOptimizer
+
+MODULE: trainers.base_trainer
+  - class BaseTrainer
+
+MODULE: integrations.github_integration
+  - class GithubIntegration
+
+MODULE: utilities.performance_analyzer
+  - class PerformanceAnalyzer
+
+MODULE: utilities.code_analyzer
+  - class CodeAnalyzer
+
+MODULE: pruning.pruner
+  - class Pruner
+
+MODULE: h2q.train_zero_memory
+  - class AutonomousSystem
+  - class FractalDifferentialCalculus
+  - function train_cycle
+
+MODULE: h2q.hierarchical_decoder
+  - class QuaternionLinear
+  - class KnotRefiner
+  - class FractalStage
+  - class ConceptDecoder
+
+MODULE: h2q.system
+  - class ConceptDecoder
+  - class AutonomousSystem
+
+MODULE: h2q.tokenizer_simple
+  - class SimpleTokenizer
+
+MODULE: h2q.gut_kernel
+  - class ProjectiveNorm
+  - class AxiomaticLayer
+  - class H2Q_Geometric_Kernel
+
+MODULE: h2q.quaternion_ops
+  - function quaternion_mul
+  - function quaternion_norm
+  - function quaternion_normalize
+  - function quaternion_stability
+
+MODULE: h2q.knot_kernel
+  - class QuaternionLinear
+  - function quaternion_normalize
+  - class H2Q_Knot_Kernel
+
+MODULE: h2q.prism_engine
+  - class PrismConverter
+  - class DiscreteDecisionEngine
+  - class ReversibleKernel
+
+MODULE: h2q.fdc_kernel
+  - class GeodesicBackprop
+  - class SpectralShiftTracker
+  - class FDCKernel
+  - class DiscreteDecisionEngine
+  - function continuous_environment_drag
+
+MODULE: h2q.decoder_simple
+  - class SimpleDecoder
+
+MODULE: h2q.cem
+  - class ContinuousEnvironmentModel
+
+MODULE: h2q.dream_engine
+  - class DreamingMechanism
+
+MODULE: h2q.meta_learner
+  - class DiscreteDecisionEngine
+  - class MetaLearner
+
+MODULE: h2q
+  - function __getattr__
+
+MODULE: h2q.core
+  - function core_function
+
+MODULE: h2q.decision_engine
+  - class DiscreteDecisionEngine
+
+MODULE: h2q.cost_functional
+  - class AutonomyCost
+  - class SpectralShiftFunction
+
+MODULE: h2q.spacetime_kernel
+  - class SpacetimeCell
+  - class H2Q_Spacetime_Kernel
+
+MODULE: h2q.group_ops
+  - class HamiltonProductAMX
+  - class SpectralShiftTracker
+  - class ReversibleHamiltonKernel
+  - function apply_hamilton_product
+
+MODULE: h2q.production_logical_generator
+  - class ProductionLogicalGenerator
+
+MODULE: h2q.spacetime_3d_kernel
+  - class ConvBlock
+  - class H2Q_Spacetime3D_Kernel
+
+MODULE: h2q.engine
+  - function mps_safe_complex_det
+  - class DiscreteDecisionEngine
+  - function symmetry_break
+
+MODULE: h2q.fractal_embedding
+  - class FractalEmbedding
+
+MODULE: h2q.utils
+  - function utility_function
+
+MODULE: h2q.reversible_kernel
+  - class ReversibleSpacetimeCell
+  - class H2Q_Reversible_Kernel
+
+MODULE: h2q.trace_formula
+  - class SpectralShiftTracker
+  - class ContinuousEnvironmentModel
+  - class DiscreteDecisionEngine
+  - class TraceFormulaValidator
+
+MODULE: h2q.kernel_engine
+  - class ManualReversibleFunction
+  - class H2Q_Knot_Kernel
+  - class SpectralShiftTracker
+  - class DiscreteDecisionEngine
+
+MODULE: h2q.kernels
+  - class UnifiedTopologicalKernel
+  - class DiscreteDecisionEngine
+  - class SpectralShiftTracker
+  - class ReversibleTopologicalBlock
+
+MODULE: h2q.inference
+  - class H2QCoderLM
+  - class H2QCoder
+
+MODULE: h2q.dde
+  - class HamiltonProductAMX
+  - class DiscreteDecisionEngine
+
+MODULE: h2q.train_distillation
+  - class ManualReversibleFunction
+  - class ReversibleBlock
+  - class DiscreteDecisionEngine
+  - function train_distillation
+
+MODULE: h2q.train_full_stack_v2
+  - class H2QFullStackTrainer
+  - function train_full_stack
+
+MODULE: h2q.vision_loader
+  - class VisionLoader
+  - class DiscreteDecisionEngine
+
+MODULE: h2q.hierarchical_system
+  - class H2Q_Hierarchical_System
+
+MODULE: h2q.main
+  - class ReversibleKernel
+  - class SpectralShiftTracker
+  - class DiscreteDecisionEngine
+  - class H2QWakeSleepTrainer
+
+MODULE: h2q.benchmark_latency
+  - class DiscreteDecisionEngine
+  - function hamilton_product_naive
+  - function hamilton_product_mps_optimized
+  - function run_audit
+
+MODULE: h2q.dreaming
+  - class H2QDreamingMechanism
+
+MODULE: h2q.manual_reversible_kernel
+  - class ManualReversibleCellFunction
+  - class ManualReversibleCell
+  - class H2Q_Manual_Kernel
+
+MODULE: h2q.agi.verify_real_learning
+  - function generate_complex_dataset
+  - function test_generalization
+  - function compare_with_random
+  - function prove_no_cheating
+
+MODULE: h2q.agi.autonomous_evolution
+  - class EvolutionState
+  - class Interest
+  - class LearningEpisode
+  - class EvolutionConfig
+  - class InterestGenerator
+  - class AutonomousEvolutionEngine
+  - function create_evolution_engine
+
+MODULE: h2q.agi.internalized_learning
+  - class LearningPhase
+  - class TrainingSample
+  - class NeuralKnowledgeNetwork
+  - class InternalizedLearningSystem
+  - class HonestBenchmarkEvaluator
+  - function generate_benchmark_samples
+  - function demonstrate_honest_learning
+
+MODULE: h2q.agi.monitor_5h_training
+  - function get_process_info
+  - function get_latest_log_entries
+  - function get_checkpoint_info
+  - function get_model_info
+  - function main
+
+MODULE: h2q.agi.agi_enhanced_benchmark
+  - class EnhancedTestResult
+  - class H2QAdvantageReport
+  - function format_time
+  - function test_quaternion_meta_learning
+  - function test_fractal_planning
+  - function test_base_agi_modules
+  - function run_enhanced_benchmark
+
+MODULE: h2q.agi.diagnose_training_time
+  - function main
+
+MODULE: h2q.agi.complete_evolution_demo
+  - class CompleteEvolutionSystem
+  - function main
+
+MODULE: h2q.agi.evolution_24h
+  - class EvolutionConfig
+  - class FractalCompressor
+  - class KnowledgeAcquirer
+  - class CapabilityTester
+  - class Evolution24HSystem
+  - function create_evolution_system
+  - function run_24h_evolution
+  - function run_quick_evolution_test
+
+MODULE: h2q.agi.parallel_deliberation_trainer
+  - class TrainingConfig
+  - class EnsembleTrainingDataset
+  - class TrainingStep
+  - class ParallelDeliberationTrainer
+
+MODULE: h2q.agi.h2q_integrated_system
+  - class H2QAGIIntegratedSystem
+
+MODULE: h2q.agi.template_evolution_framework
+  - class EvolutionPhase
+  - class EvolutionStep
+  - class EvolutionTemplate
+  - class TemplateEvolutionFramework
+
+MODULE: h2q.agi.gemini_verifier
+  - function load_env_file
+  - class VerificationType
+  - class VerificationSeverity
+  - class VerificationResult
+  - class GeminiClient
+  - class GeminiVerifier
+  - class RealTimeSupervisionSystem
+  - function demonstrate_verification
+
+MODULE: h2q.agi.web_monitor
+  - function get_process_info
+  - function parse_log
+  - function index
+  - function api_status
+  - function main
+
+MODULE: h2q.agi.rigorous_verification_system
+  - class BenchmarkCategory
+  - class VerificationResult
+  - class LLMBenchmarkVerifier
+  - class Lean4Verifier
+  - class MultimodalVerifier
+  - class RigorousVerificationSystem
+  - function main
+
+MODULE: h2q.agi.quaternion_enhanced_meta
+  - function quaternion_multiply
+  - function quaternion_normalize
+  - function quaternion_conjugate
+  - function quaternion_exp
+  - function quaternion_log
+  - function compute_fueter_residual
+  - function compute_berry_phase
+  - class QuaternionLinear
+  - class QuaternionEnhancedNetwork
+  - class QMAMLConfig
+  - class QuaternionMAML
+  - class QMetaTask
+  - class QMetaResult
+  - class QuaternionMetaLearningCore
+  - function create_quaternion_meta_learner
+  - function create_random_qmeta_task
+
+MODULE: h2q.agi.continual_learning
+  - class ContinualTask
+  - class ContinualConfig
+  - class ContinualNetwork
+  - class EWCMemory
+  - class EWC
+  - class MemoryBuffer
+  - class ExperienceReplay
+  - class TaskMask
+  - class PackNet
+  - class ContinualLearningResult
+  - class ContinualLearningSystem
+  - function create_continual_learning_system
+  - function create_random_task_sequence
+
+MODULE: h2q.agi.transparency_disclosure_framework
+  - class TransparencyCommitment
+  - class TransparencyAndDisclosureFramework
+
+MODULE: h2q.agi.cheating_analysis
+  - class CheatingRootCause
+  - class CheatingAnalysis
+  - function analyze_why_ai_cheats
+  - function print_root_cause_analysis
+  - class CheatingPattern
+  - class ProjectCheatingScanner
+  - class VerificationItem
+  - function generate_verification_checklist
+  - function print_verification_checklist
+  - function main
+
+MODULE: h2q.agi.heuristic_module_evolution
+  - class CodeValidator
+  - class HeuristicEvolutionDriver
+
+MODULE: h2q.agi.safe_code_evolution
+  - class CodeCandidate
+  - class ValidationResult
+  - class SafeCodeValidator
+  - class SafeCodeEvolutionSystem
+  - function demo_safe_validation
+
+MODULE: h2q.agi.meta_learning_core
+  - class Task
+  - class MetaLearningConfig
+  - class SimpleNetwork
+  - class MAML
+  - class Reptile
+  - class FewShotResult
+  - class FewShotLearner
+  - class MetaLearningResult
+  - class MetaLearningCore
+  - function create_meta_learning_core
+  - function create_random_task
+
+MODULE: h2q.agi.final_optimization_report
+  - function generate_final_report
+
+MODULE: h2q.agi.fractal_memory_compression
+  - class CompressionLevel
+  - class MemoryBlock
+  - class FractalNode
+  - class QuaternionWavelet
+  - class FractalCompressor
+  - class FractalMemoryDatabase
+  - function create_fractal_memory_db
+
+MODULE: h2q.agi.survival_daemon
+  - class ProcessState
+  - class HeartbeatRecord
+  - class SurvivalConfig
+  - class SurvivalDaemon
+  - function create_survival_daemon
+
+MODULE: h2q.agi.agi_manager
+  - function print_banner
+  - function get_service_status
+  - function start_training
+  - function start_web_monitor
+  - function start_terminal_monitor
+  - function stop_service
+  - function show_status
+  - function interactive_mode
+  - function main
+
+MODULE: h2q.agi.autonomous_script_system
+  - class H2QOpCode
+  - class H2QInstruction
+  - class H2QProgram
+  - class H2QNeuralCompiler
+  - class PythonScriptGenerator
+  - class H2QDockerExecutor
+  - class H2QAutonomousScriptSystem
+  - function main
+
+MODULE: h2q.agi.start_evolution
+  - function main
+
+MODULE: h2q.agi.neuro_symbolic_reasoner
+  - class LogicType
+  - class Symbol
+  - class Predicate
+  - class Rule
+  - class ProofStep
+  - class ReasoningResult
+  - class SymbolicKnowledgeBase
+  - class NeuralEmbedder
+  - class NeuroSymbolicReasoner
+  - function create_neuro_symbolic_reasoner
+
+MODULE: h2q.agi.real_agi_training
+  - class RealAGIConfig
+  - class SimpleTokenizer
+  - class WikiText103Dataset
+  - class TextStreamDataset
+  - class CausalSelfAttention
+  - class TransformerBlock
+  - class RealGPTModel
+  - class RealAGITrainer
+  - class BenchmarkEvaluator
+  - function main
+
+MODULE: h2q.agi.final_comprehensive_verification
+  - function run_lean4_verification
+  - function generate_comprehensive_art
+  - function print_sierpinski
+  - function print_mandelbrot
+  - function create_final_report
+  - function main
+
+MODULE: h2q.agi.multimodal_agi_core
+  - function quaternion_normalize
+  - function quaternion_multiply
+  - function compute_berry_phase
+  - class DenseLayer
+  - class Conv2DLayer
+  - class MaxPool2D
+  - class VisionEncoder
+  - class LanguageEncoder
+  - class MathReasoningModule
+  - class CrossModalFusion
+  - class ClassificationHead
+  - class AGIConfig
+  - class MultimodalAGICore
+  - class MNISTLoader
+  - class MathDatasetGenerator
+  - class SimpleQADataset
+  - function create_multimodal_agi
+  - function load_mnist_dataset
+  - function generate_math_dataset
+  - function generate_qa_dataset
+
+MODULE: h2q.agi.monitor_evolution
+  - function format_time
+  - function main
+
+MODULE: h2q.agi.live_monitor
+  - function get_process_info
+  - function parse_training_log
+  - function create_status_display
+  - function main
+
+MODULE: h2q.agi.real_agi_training_system
+  - function load_env
+  - class BenchmarkSample
+  - class BenchmarkDataset
+  - class MMLUDataset
+  - class GSM8KDataset
+  - class AGIEncoder
+  - class AGIReasoner
+  - class RealAGIModel
+  - class BenchmarkTrainer
+  - class ThirdPartyAuditor
+  - class AutoCodeEvolver
+  - class RealAGIEvolutionSystem
+  - function main
+
+MODULE: h2q.agi.standard_benchmarks
+  - class BenchmarkType
+  - class Difficulty
+  - class BenchmarkQuestion
+  - class BenchmarkResult
+  - class PublicBenchmarkLoader
+  - class MMLUBenchmark
+  - class GSM8KBenchmark
+  - class ARCBenchmark
+  - class HellaSwagBenchmark
+  - class StandardBenchmarkEvaluator
+  - class AGIBenchmarkAnswerer
+  - function create_benchmark_evaluator
+  - function create_agi_answerer
+  - function run_standard_benchmarks
+
+MODULE: h2q.agi.real_5h_training
+  - class RealTrainingConfig
+  - class RealDatasetGenerator
+  - class RealTrainingDataset
+  - class RealAGIModel
+  - class RealTrainer
+  - class RealTrainingSystem
+  - function main
+
+MODULE: h2q.agi.fractal_enhanced_planning
+  - function fractal_decompose
+  - function fractal_combine
+  - function quaternion_state_encode
+  - function compute_quaternion_distance
+  - function compute_berry_heuristic
+  - function fueter_path_validity
+  - class FractalTaskStatus
+  - class FractalState
+  - class FractalAction
+  - class FractalTask
+  - class FractalMethod
+  - class FractalPlan
+  - class FractalPlanningDomain
+  - class FractalHTNPlanner
+  - class FractalGoalDecomposer
+  - class FractalDynamicReplanner
+  - class FractalPlanningResult
+  - class FractalHierarchicalPlanningSystem
+  - function create_fractal_planning_system
+  - function create_test_fractal_state
+
+MODULE: h2q.agi.audit_training_code
+  - function audit_training_code
+  - function verify_from_logs
+
+MODULE: h2q.agi.self_evolution_loop
+  - class AutomaticProblemGenerator
+  - class ProblemSolver
+  - class SelfEvolutionLoop
+
+MODULE: h2q.agi.evolution_loop_10h
+  - function load_env
+  - class EvolutionConfig
+  - class EvolutionState
+  - class EvolvingAGI
+  - class EvolutionDataGenerator
+  - class EvolutionLogger
+  - class EvolutionLoop
+  - function main
+
+MODULE: h2q.agi.honest_capability_system
+  - class AuditResult
+  - class CapabilityAudit
+  - class HonestCapabilityTester
+  - function run_full_audit_and_test
+
+MODULE: h2q.agi.honest_score_analysis
+  - class CapabilityType
+  - class HonestCapabilityAssessment
+  - function audit_rigorous_verification_system
+  - function calculate_honest_summary
+  - function print_honest_report
+  - function main
+
+MODULE: h2q.agi.llm_benchmarks
+  - class BenchmarkType
+  - class BenchmarkQuestion
+  - class BenchmarkResult
+  - class LLMBenchmarkSuite
+  - class AGIBenchmarkEvaluator
+  - function run_benchmark_demo
+
+MODULE: h2q.agi.enhanced_agi_training
+  - class EnhancedConfig
+  - class HuggingFaceStreamer
+  - class StreamingBenchmarkDataset
+  - class RotaryPositionalEmbedding
+  - class MultiHeadAttention
+  - class FeedForward
+  - class TransformerBlock
+  - class MemoryAugmentedReasoner
+  - class EnhancedAGIModel
+  - class EnhancedTrainer
+  - class GeminiAuditor
+  - class EmergenceDetector
+  - class EnhancedAGIEvolution
+  - function main
+
+MODULE: h2q.agi.optimized_5h_training
+  - class OptimizedConfig
+  - class FastDataGenerator
+  - class OptimizedDataset
+  - class OptimizedModel
+  - class OptimizedTrainingSystem
+  - function main
+
+MODULE: h2q.agi.ensemble_consensus_system
+  - class ConsensusLevel
+  - class ModelVote
+  - class ConsensusDecision
+  - class TrainingMetrics
+  - class ThreeDStableNode
+  - class HonestModelAgent
+  - class EnsembleConsensusSystem
+  - class SupervisedEnsembleTrainer
+
+MODULE: h2q.agi.compare_training_systems
+  - function main
+
+MODULE: h2q.agi.run_fact_check_test
+  - function run_detailed_fact_check
+
+MODULE: h2q.agi.multimodal_agi_experiment
+  - class ExperimentConfig
+  - class MultimodalAGIExperiment
+  - function main
+
+MODULE: h2q.agi.knowledge_acquisition
+  - class ResourceType
+  - class ResourceSource
+  - class KnowledgeResource
+  - class AcquisitionConfig
+  - class ComplianceFilter
+  - class WikipediaFetcher
+  - class ArxivFetcher
+  - class MathProblemGenerator
+  - class KnowledgeAcquisitionManager
+  - function create_knowledge_acquisition_manager
+
+MODULE: h2q.agi.human_readable_translation
+  - class TranslationLevel
+  - class TranslationContext
+  - class H2QHumanTranslator
+  - class DecisionExplainer
+  - class SupervisionInterface
+  - function demonstrate_translation_system
+  - function main
+
+MODULE: h2q.agi.monitor_agi_training
+  - function main
+
+MODULE: h2q.agi.fact_check_loop
+  - class FactCheckLoop
+  - function main
+
+MODULE: h2q.agi.human_standard_exam
+  - class ExamCategory
+  - class DifficultyLevel
+  - class ExamQuestion
+  - class ExamResult
+  - class QuestionBankGenerator
+  - class ExamScorer
+  - class HumanStandardExam
+  - function create_exam
+  - function run_quick_assessment
+
+MODULE: h2q.agi.hierarchical_planning
+  - class TaskStatus
+  - class State
+  - class Action
+  - class Task
+  - class Method
+  - class Plan
+  - class PlanningDomain
+  - class HTNPlanner
+  - class GoalDecomposer
+  - class DynamicReplanner
+  - class PlanningResult
+  - class HierarchicalPlanningSystem
+  - function create_planning_system
+
+MODULE: h2q.agi.china_knowledge_source
+  - class ChinaSourceConfig
+  - function create_ssl_context
+  - function get_opener
+  - class HFMirrorDatasetLoader
+  - class BaiduBaikeAcquirer
+  - class ChinaOpenDatasets
+  - class ChinaKnowledgeAcquirer
+  - function test_china_network
+  - function main
+
+MODULE: h2q.agi.monitor_real_training
+  - function get_latest_log
+  - function parse_log
+  - function get_process_info
+  - function display_status
+  - function main
+
+MODULE: h2q.agi.agi_benchmark
+  - class TestResult
+  - class ModuleBenchmark
+  - class AGIBenchmarkReport
+  - function format_time
+  - function test_neuro_symbolic_reasoner
+  - function test_causal_inference
+  - function test_hierarchical_planning
+  - function test_meta_learning
+  - function test_continual_learning
+  - function run_agi_benchmark
+  - function save_report
+
+MODULE: h2q.agi.monitor_optimized
+  - function get_process
+  - function parse_latest_epoch
+  - function get_latest_batch
+  - function main
+
+MODULE: h2q.agi.honest_training_system
+  - class HonestTrainingConfig
+  - class AntiCheatValidator
+  - class HonestDataset
+  - class CombinedDataset
+  - class HonestModel
+  - class HonestTrainer
+  - class HonestTrainingSystem
+  - function quick_validation_test
+  - function main
+
+MODULE: h2q.agi.show_training_report
+  - function generate_report
+
+MODULE: h2q.agi.causal_inference
+  - class CausalNode
+  - class CausalEdge
+  - class CausalGraph
+  - class StructuralEquation
+  - class StructuralCausalModel
+  - class CausalDiscovery
+  - class CausalQuery
+  - class CausalResult
+  - class CausalInferenceEngine
+  - function create_causal_inference_engine
+
+MODULE: h2q.agi.audit_driven_optimization
+  - function load_env
+  - class OptimizedDataGenerator
+  - class OptimizedTrainer
+  - class AuditOptimizationLoop
+  - function run_optimized_training
+
+MODULE: h2q.agi.real_learning_framework
+  - class AntiCheatConstraints
+  - class ComputationStep
+  - class ComputationTrace
+  - class TrackedModule
+  - class RealLearningEncoder
+  - class AttentionReasoningCore
+  - class RealLearningDecoder
+  - class RealLearningAGI
+  - class RealDataGenerator
+  - function demonstrate_real_learning
+
+MODULE: h2q.agi.m24_honesty_protocol
+  - class HonesttyLevel
+  - class HonesttyProof
+  - class M24HonesttyAudit
+  - class M24HonesttyProtocol
+
+MODULE: h2q.agi.supervised_learning
+  - class VerificationMethod
+  - class LearningTrajectory
+  - class VerificationResult
+  - class LearningAnomaly
+  - class TrajectoryController
+  - class LeanVerifier
+  - class CrossValidator
+  - class ErrorCorrector
+  - class AutoTestDiscovery
+  - class SupervisedLearningMonitor
+  - function run_supervised_learning_demo
+
+MODULE: h2q.agi.gemini_cli_integration
+  - class GeminiCLIIntegration
+
+MODULE: h2q.agi.start_agi_evolution
+  - function main
+
+MODULE: h2q.agi.run_real_training
+  - function load_env
+  - class RealTrainingSession
+  - function main
+
+MODULE: h2q.agi.evolution_argumentation_analysis
+  - class ArgumentationFramework
+  - class EvolutionProcessAnalysis
+
+MODULE: h2q.agi.supervised_learning_system
+  - function load_env_file
+  - class SupervisedLearningConfig
+  - class LocalVerifier
+  - class SupervisedLearningManager
+  - function run_supervised_learning_demo
+
+MODULE: h2q.agi.stream_encoded_learning
+  - class StreamCodeType
+  - class StreamCode
+  - class H2QNeuralEncoder
+  - class ScriptGenerator
+  - class DockerScriptExecutor
+  - class StreamEncodedLearningSystem
+  - function demonstrate_honest_learning
+  - function main
+
+MODULE: h2q.visualization.spectral_dream_visualizer
+  - class SpectralDreamRenderer
+  - function synthesize_sleep_gradients
+
+MODULE: h2q.visualization.bargmann_explorer
+  - class BargmannExplorer
+
+MODULE: h2q.visualization.fueter_poincare_dashboard
+  - class PoincareFueterDashboard
+
+MODULE: h2q.visualization.poincare_bargmann_visualizer
+  - class PoincareBargmannVisualizer
+  - function demo_visualizer
+
+MODULE: h2q.visualization.homeostatic_dashboard
+  - class UnifiedHomeostaticDashboard
+
+MODULE: h2q.visualization.hjb_value_surface
+  - class HJBValueSurfaceRenderer
+  - function monitor_hjb_healing
+
+MODULE: h2q.visualization.holomorphic_path_visualizer
+  - class HolomorphicPathVisualizer
+  - function debug_vault_retrieval
+
+MODULE: h2q.kernels.cmeb
+  - class CrossModalEntropyBalancer
+
+MODULE: h2q.kernels.metal_spectral_det
+  - class MetalSpectralDet
+  - class DiscreteDecisionEngine
+  - function fast_complex_det_2x2
+
+MODULE: h2q.kernels.resonance_tiling
+  - class ResonanceTilingKernel
+
+MODULE: h2q.kernels.m4_quat_conv
+  - class DiscreteDecisionEngine
+  - class QuatConvM4
+  - class ReversibleQuatBlock
+
+MODULE: h2q.kernels.topological_braiding
+  - function exp_map_su2
+  - function quaternionic_mul
+  - class SpectralShiftTracker
+  - class TopologicalBraidingKernel
+  - class DiscreteDecisionEngine
+
+MODULE: h2q.kernels.quantization.tpq_v2
+  - class TPQv2STE
+  - class TPQv2Kernel
+  - class SpectralShiftTracker
+  - class DiscreteDecisionEngine
+  - class ReversibleTPQ
+
+MODULE: h2q.topology.entropy_routing
+  - class DiscreteDecisionEngine
+  - class TopologicalEntropyRouter
+
+MODULE: h2q.grounding.genomic_streamer
+  - class TopologicalFASTAStreamer
+
+MODULE: h2q.grounding.gauss_linking_integrator
+  - class GaussLinkingIntegrator
+
+MODULE: h2q.core.hydra_allocator
+  - class HydraBitAllocator
+
+MODULE: h2q.core.hhk
+  - class HolomorphicHealingKernel
+
+MODULE: h2q.core.metal_jit_bridge
+  - class MetalJITBridge
+  - function audit_jit_integrity
+
+MODULE: h2q.core.ddfl_dream_connector
+  - class DDFLDreamConnector
+  - function audit_ddfl_integrity
+
+MODULE: h2q.core.holomorphic_healing_wrapper
+  - class HolomorphicHealingWrapper
+
+MODULE: h2q.core.transducer
+  - class UniversalHolomorphicTransducer
+
+MODULE: h2q.core.evolution_system
+  - class EvolutionSystem
+
+MODULE: h2q.core.unified_architecture
+  - class UnifiedMathematicalArchitectureConfig
+  - class UnifiedH2QMathematicalArchitecture
+  - function get_unified_h2q_architecture
+
+MODULE: h2q.core.holomorphic_synthesizer
+  - class HolomorphicSymbolicSynthesizer
+  - function create_synthesizer
+
+MODULE: h2q.core.algorithm_version_control
+  - class AlgorithmStatus
+  - class AlgorithmVersion
+  - class AlgorithmVersionControl
+  - function get_version_control
+  - function verify_algorithm_compatibility
+
+MODULE: h2q.core.spacetime
+  - class SpectralShiftTracker
+  - class DiscreteDecisionEngine
+  - class ReversibleSpacetimeCell
+  - class ReversibleFunction
+
+MODULE: h2q.core.synesthesia_engine
+  - class DiscreteDecisionEngine
+  - class FractalExpansion
+  - class ReversibleCoupling
+  - class SynesthesiaAligner
+
+MODULE: h2q.core.thermodynamic_gate
+  - class ThermodynamicModalityGate
+
+MODULE: h2q.core.generation
+  - class H2QAutoregressiveGenerator
+
+MODULE: h2q.core.berry_phase_sync
+  - class CrossModal_Berry_Phase_Sync
+  - function verify_sync_symmetry
+
+MODULE: h2q.core.manifold
+  - class ReversibleManifoldFunction
+  - class ManifoldLayer
+  - class QuaternionicManifold
+
+MODULE: h2q.core.unified_orchestrator
+  - class Unified_Homeostatic_Orchestrator
+  - function get_orchestrator
+
+MODULE: h2q.core.interpolation
+  - class SpectralSlerp
+
+MODULE: h2q.core.interface_registry
+  - class DDEConfig
+  - class DiscreteDecisionEngine
+  - function normalize_dde_kwargs
+  - function get_canonical_dde
+  - function verify_dde_integrity
+  - class StandardizedDecisionEngineWrapper
+  - function topological_dde_normalization
+
+MODULE: h2q.core.gter_system
+  - class DiscreteDecisionEngine
+  - class GTER
+  - class GeodesicLayer
+  - function audit_gter_integrity
+
+MODULE: h2q.core.dynamic_inference
+  - class DynamicEtaModulatedPipeline
+
+MODULE: h2q.core.automorphic_dde
+  - class AutomophicDDEConfig
+  - class LieGroupAutomorphicDecisionEngine
+  - class DecisionHead
+  - function get_automorphic_dde
+
+MODULE: h2q.core.synesthesia_loss
+  - class SynesthesiaInterferenceLoss
+
+MODULE: h2q.core.holomorphic_loss_kernel
+  - class HolomorphicLossKernel
+  - function integrate_holomorphic_kernel
+
+MODULE: h2q.core.spectral_tuner
+  - class SpectralEntropyAutoTuner
+  - function verify_valve_symmetry
+
+MODULE: h2q.core.geodesic_surgery
+  - class HolomorphicGradientSurgeryHook
+  - function apply_holomorphic_surgery
+  - function verify_surgery_symmetry
+
+MODULE: h2q.core.manifold_recovery
+  - class UnitaryRecoveryHook
+  - class ManifoldUnitaryRecovery
+  - function calculate_spectral_shift
+
+MODULE: h2q.core.adapter
+  - class CayleyManifoldInjector
+  - function inject_manifold
+
+MODULE: h2q.core.manifold_scaler
+  - class DynamicFP8ManifoldScaling
+
+MODULE: h2q.core.compression
+  - class DiscreteDecisionEngine
+  - class SpectralShiftTracker
+  - class H2QCompressionLoop
+  - class ReversibleKernel
+
+MODULE: h2q.core.isomorphism_bridge
+  - class CrossModalIsomorphismBridge
+  - function build_isomorphism_bridge
+
+MODULE: h2q.core.ttd_scheduler
+  - class TTDState
+  - class TopologicalTimeDilation
+  - function mock_hamilton_kernel
+
+MODULE: h2q.core.genomic_topological_validator
+  - class GenomicTopologicalValidator
+  - function audit_genomic_logic_sync
+
+MODULE: h2q.core.geodesic_kernel
+  - class SpectralShiftTracker
+  - class ReversibleGeodesicKernel
+  - class DiscreteDecisionEngine
+  - function verify_geodesic_integrity
+
+MODULE: h2q.core.genomic_logic_pipeline
+  - class GenomicLogicPipeline
+  - function run_pipeline_demo
+
+MODULE: h2q.core.manifold_shield
+  - class DiscreteDecisionEngine
+  - class ManifoldSingularityShield
+  - function initialize_engine
+
+MODULE: h2q.core.tpq_engine
+  - class TPQMetrics
+  - class DiscreteDecisionEngine
+  - class TopologicalPhaseQuantizer
+
+MODULE: h2q.core.lie_automorphism_engine
+  - class LieAutomorphismConfig
+  - class QuaternionLieGroupModule
+  - class FractalGeometricDifferential
+  - class KnotInvariantProcessor
+  - class NoncommutativeGeometryModule
+  - class AutomaticAutomorphismOrchestrator
+  - function get_lie_automorphism_engine
+
+MODULE: h2q.core.genomic_isomorphism_linker
+  - class GenomicIsomorphismLinker
+  - function build_genomic_linker
+
+MODULE: h2q.core.decision_engine
+  - class DiscreteDecisionEngine
+  - function create_dde
+
+MODULE: h2q.core.l2_schema_weaver
+  - class L2SchemaWeaver
+  - function create_l2_weaver
+
+MODULE: h2q.core.topological_cooling
+  - class TopologicalCooling
+  - function safe_dde_init
+
+MODULE: h2q.core.gter_diagnostic
+  - class DiscreteDecisionEngine
+  - class GTERDiagnostic
+
+MODULE: h2q.core.genomic_logic_validator
+  - class GenomicLogicIsomorphismValidator
+  - function fast_gauss_integral_amx
+
+MODULE: h2q.core.microstream_block
+  - class BalancedHamiltonLayer
+  - class QuaternionAttention
+  - class MicroStreamBlock
+
+MODULE: h2q.core.decision
+  - class DiscreteDecisionEngine
+
+MODULE: h2q.core.zwi_spectral_tuner
+  - class ZeroWeightSpectralTuner
+  - function run_zwi_benchmark
+
+MODULE: h2q.core.fueter_laplace_beam_search
+  - class HolomorphicBeamSearch
+  - function calculate_fueter_residual
+
+MODULE: h2q.core.evolution_integration
+  - class MathematicalArchitectureEvolutionBridge
+  - class H2QEvolutionSystemIntegration
+  - function get_h2q_evolution_integration
+  - function create_mathematical_core_for_evolution_system
+
+MODULE: h2q.core.discrete_decision_engine
+  - class LatentConfig
+  - class DiscreteDecisionEngine
+  - function get_canonical_dde
+  - function verify_dde_integrity
+
+MODULE: h2q.core.strider
+  - class DiscreteDecisionEngine
+  - class SpectralShiftTracker
+  - class AdaptiveSemanticStrider
+
+MODULE: h2q.core.knot_invariant_hub
+  - class KnotInvariantMetrics
+  - class KnotInvariantCentralHub
+  - class GlobalTopologicalConstraintManager
+
+MODULE: h2q.core.brain
+  - class H2QBrain
+
+MODULE: h2q.core.ddfl_integration
+  - class DiscreteDecisionEngine
+  - class SpectralShiftTracker
+  - class ContinuousEnvironmentModel
+  - class DDFL_Integrator
+
+MODULE: h2q.core.engine
+  - class LatentConfig
+  - class DiscreteDecisionEngine
+  - function get_canonical_dde
+
+MODULE: h2q.core.autonomous_system
+  - class TopologicalPhaseQuantizer
+  - class DiscreteDecisionEngine
+  - class AutonomousSystem
+  - function verify_system
+
+MODULE: h2q.core.manifold_audit
+  - class DiscreteDecisionEngine
+  - class CrossManifoldAudit
+
+MODULE: h2q.core.reversible_kernel
+  - class SpectralShiftTracker
+  - class DiscreteDecisionEngine
+  - class ManualReversibleFunction
+  - class ReversibleFractalLayer
+
+MODULE: h2q.core.interferometer
+  - class FractalExpansion
+  - class ReversibleKernel
+  - class BerryPhaseInterferometer
+  - class DiscreteDecisionEngine
+
+MODULE: h2q.core.orchestrator
+  - function su2_exponential_map
+  - class ReversibleGeodesicBlock
+  - class UnifiedSleepOrchestrator
+
+MODULE: h2q.core.homeostatic_trainer
+  - class HomeostaticTrainer
+
+MODULE: h2q.core.cas_kernel
+  - class CliffordSpellingEngine
+  - class CAS_Kernel
+
+MODULE: h2q.core.genomic_crystallizer
+  - class GenomicManifoldCrystallizer
+  - function verify_crystallization_veracity
+
+MODULE: h2q.core.berry_cross_attenuator
+  - class BerryPhaseCrossAttenuator
+
+MODULE: h2q.core.kernels
+  - class ManualReversibleKernel
+
+MODULE: h2q.core.m4_amx_tiled_linear
+  - class M4_AMX_Tiled_Linear_Factory
+  - function apply_m4_amx_rewrite
+
+MODULE: h2q.core.topology
+  - class TopologicalPruningHook
+  - class DiscreteDecisionEngine
+  - function measure_logic_curvature
+
+MODULE: h2q.core.genomic_discovery_agent
+  - class GenomicIsomorphismDiscoveryAgent
+
+MODULE: h2q.core.genomic_hge
+  - class HolomorphicGenomicEncoder
+
+MODULE: h2q.core.genomic_logic_bridge
+  - class GenomicLogicBargmannBridge
+  - function build_genomic_bridge
+
+MODULE: h2q.core.base_module
+  - class H2Q_Base_Module
+
+MODULE: h2q.core.production_validator
+  - class HealthStatus
+  - class HealthCheckResult
+  - class PerformanceMetrics
+  - class CircuitBreaker
+  - class HealthMonitor
+  - class ProductionValidator
+  - function run_production_validation
+
+MODULE: h2q.core.robustness_wrapper
+  - class ErrorSeverity
+  - class ValidationError
+  - class RobustWrapper
+  - function robust_inference
+  - class RobustDiscreteDecisionEngine
+  - function add_input_validation
+  - class SafetyGuard
+
+MODULE: h2q.core.bargmann_prover
+  - class BargmannIsomorphismProver
+  - function run_isomorphism_scan
+
+MODULE: h2q.core.manifold_alignment
+  - class DiscreteDecisionEngine
+  - class H2QContrastiveLoss
+  - class H2QBridge
+
+MODULE: h2q.core.adaptive_striding
+  - class DiscreteDecisionEngine
+  - class SpectralShiftTracker
+  - class AdaptiveSemanticStrider
+  - class ReversibleASSBlock
+
+MODULE: h2q.core.memory_crystal
+  - class MemoryManager
+  - function audit_crystal_integrity
+
+MODULE: h2q.core.holomorphic_controller
+  - class UnifiedHolomorphicController
+  - function get_holomorphic_gating
+  - function audit_logic_curvature
+
+MODULE: h2q.core.synesthesia_bridge
+  - class DiscreteDecisionEngine
+  - class ReversibleSU2Function
+  - class SynesthesiaBridge
+
+MODULE: h2q.core.sst
+  - class SpectralShiftTracker
+
+MODULE: h2q.core.ddfl
+  - class SpectralShiftTracker
+  - class DiscreteDecisionEngine
+  - class DynamicDragFeedbackLoop
+
+MODULE: h2q.core.logic_auditing
+  - class DiscreteDecisionEngine
+  - class HolomorphicAuditKernel
+  - function validate_reasoning_step
+
+MODULE: h2q.core.fueter_beam_search
+  - class FueterGuidedBeamSearch
+  - function audit_uhbs_integrity
+
+MODULE: h2q.core.zwi_engine
+  - function to_quaternion_basis
+  - class DiscreteDecisionEngine
+  - class GeometricCrystal
+
+MODULE: h2q.core.bprm
+  - class SU2ExponentialMap
+  - class ReversibleBPRMFunction
+  - class BerryPhaseRecurrentManifold
+
+MODULE: h2q.core.noncommutative_geometry_operators
+  - class FueterCalculusModule
+  - class ReflectionDifferentialOperator
+  - class WeylGroupAction
+  - class SpaceTimeReflectionKernel
+  - class DifferentialGeometryRicciFlow
+  - class ComprehensiveReflectionOperatorModule
+
+MODULE: h2q.core.genomic_logic_braid_integrator
+  - class GenomicLogicBraidIntegrator
+
+MODULE: h2q.core.unified_kernel
+  - class HamiltonProductAMX
+  - class DiscreteDecisionEngine
+  - function create_topological_kernel
+
+MODULE: h2q.core.uam_trainer
+  - class H2QUnifiedAutonomousMaster
+
+MODULE: h2q.core.tve_engine
+  - class TopologicalVacuumEnergy
+
+MODULE: h2q.core.resonator
+  - function su2_project
+  - class SpectralShiftTracker
+  - class ReversibleResonatorKernel
+  - class UnifiedMultimodalResonator
+  - class DiscreteDecisionEngine
+
+MODULE: h2q.core.resonance_buffer
+  - class H2QResonanceBuffer
+  - class DiscreteDecisionEngine
+
+MODULE: h2q.core.metrics.geodesic_integrator
+  - class GeodesicPathIntegrator
+  - class RobustDecisionEngine
+
+MODULE: h2q.core.kernels.metal_fused_cpig
+  - class FusedCPIGKernel
+  - function hamilton_product_stable
+
+MODULE: h2q.core.topology.entropy_router
+  - class DiscreteDecisionEngine
+  - class SpectralShiftTracker
+  - class TopologicalEntropyRouter
+
+MODULE: h2q.core.topology.knot_hash
+  - class SubKnotHasher
+  - class DiscreteDecisionEngine
+
+MODULE: h2q.core.memory.ssd_paging_controller
+  - class KnotMetadata
+  - class SSDPagingController
+
+MODULE: h2q.core.memory.h2q_vault
+  - class H2QVault
+
+MODULE: h2q.core.memory.mps_swap
+  - class GeodesicPrefetcher
+  - class ManifoldPagingSystem
+
+MODULE: h2q.core.memory.hdi_sparsity_scheduler
+  - class HDISparsityScheduler
+
+MODULE: h2q.core.memory.rskh_berry_pruner
+  - class RSKHBerryPhasePruner
+  - function apply_hjb_pruning_steer
+
+MODULE: h2q.core.memory.rskh_ssd_paging
+  - class KnotMetadata
+  - class RSKH_SSD_Paging_System
+  - function apply_spectral_paging_policy
+
+MODULE: h2q.core.memory.dynamic_precision_paging
+  - class DynamicPrecisionPaging
+
+MODULE: h2q.core.memory.topological_forgetting
+  - class TopologicalForgettingController
+
+MODULE: h2q.core.memory.rskh_ssd_persistence_broker
+  - class RSKH_SSD_Persistence_Broker
+
+MODULE: h2q.core.memory.holomorphic_vault_middleware
+  - class HolomorphicHealOnWrite
+  - function get_safe_holomorphic_vault
+
+MODULE: h2q.core.memory.geodesic_paging_dispatcher
+  - class GeodesicPagingDispatcher
+
+MODULE: h2q.core.memory.gpim
+  - class SU2Algebra
+  - class GeodesicPathIntegralMemory
+  - class DiscreteDecisionEngine
+  - function calculate_spectral_shift
+  - class ReversibleGeodesicBlock
+
+MODULE: h2q.core.memory.genomic_vault_interface
+  - class GenomicKeyVaultInterface
+
+MODULE: h2q.core.memory.rskh_deduplicator
+  - class RSKHVaultDeduplicator
+  - function apply_fractal_guard
+
+MODULE: h2q.core.memory.rskh_v2_mmap_orchestrator
+  - class Tier
+  - class KnotMetadata
+  - class RSKH_V2_Mmap_Orchestrator
+
+MODULE: h2q.core.memory.infinite_holonomy_cache
+  - class InfiniteHolonomyCache
+
+MODULE: h2q.core.memory.berry_kv_cache
+  - class AMXBerryKVCache
+
+MODULE: h2q.core.memory.rskh_rnn
+  - class RSKHReversibleFunction
+  - class RSKHRNNCell
+  - class RSKHRNN
+
+MODULE: h2q.core.memory.topological_spinor_kv
+  - class TopologicalSpinorKVCache
+
+MODULE: h2q.core.memory.geodesic_prefetcher
+  - class PredictiveGeodesicPrefetcher
+  - function build_predictive_prefetcher
+
+MODULE: h2q.core.memory.rskh_vault
+  - class BargmannGeometricRetrieval
+  - class RSKHVault
+  - function bootstrap_vault
+
+MODULE: h2q.core.memory.spectral_swap_daemon
+  - class SpectralSwapDaemon
+  - function deploy_paging_daemon
+
+MODULE: h2q.core.memory.l2_vault
+  - class L2_Cognitive_Schema_Vault
+
+MODULE: h2q.core.layers.usc_barycenter
+  - class USCBarycenter
+  - function create_usc_layer
+
+MODULE: h2q.core.layers.berry_amx_attention
+  - class BerryAMXAttention
+
+MODULE: h2q.core.layers.berry_interference_head
+  - class BerryPhaseInterferenceHead
+
+MODULE: h2q.core.layers.uht
+  - class UHT_Reversible_Function
+  - class Unified_Holomorphic_Transformer_Block
+
+MODULE: h2q.core.layers.hamilton_reversible_cell
+  - class HamiltonReversibleFunction
+  - class HamiltonReversibleCell
+
+MODULE: h2q.core.layers.amx_reversible
+  - class AMXReversibleFunction
+  - class AMXReversibleLayer
+  - function verify_amx_reconstruction_fidelity
+
+MODULE: h2q.core.layers.spectral_pooling
+  - class SpectralManifoldPooling
+
+MODULE: h2q.core.accelerators.m4_jit_linker
+  - class M4_AMX_JIT_Linker
+  - function audit_jit_integrity
+
+MODULE: h2q.core.accelerators.m4_jit_compiler
+  - class M4JITCompiler
+
+MODULE: h2q.core.accelerators.m4_jit_hot_swapper
+  - class AMXJITHotSwapper
+  - function verify_swapper_integrity
+
+MODULE: h2q.core.accelerators.m4_auto_tiler
+  - class M4RegisterTelemetry
+  - class RegisterPressureAwareAutoTiler
+  - function audit_tiler_integrity
+
+MODULE: h2q.core.accelerators.m4_amx_kernel
+  - class M4AMXHamiltonKernel
+
+MODULE: h2q.core.accelerators.m4_fused_spectral_tracker
+  - class AMXFusedSpectralTracker
+
+MODULE: h2q.core.accelerators.m4_berry_jit
+  - class AMX_Berry_Phase_Accumulator
+  - function hot_swap_berry_accumulator
+
+MODULE: h2q.core.accelerators.gter_adjoint
+  - class GTERAdjoint
+  - class GTERAdjointKernel
+
+MODULE: h2q.core.accelerators.m4_fused_hamilton
+  - class M4FusedHamiltonLayer
+
+MODULE: h2q.core.accelerators.metal_amx_linker
+  - class MetalAMXIntrinsicLinker
+
+MODULE: h2q.core.accelerators.hamilton_amx_bridge
+  - class HamiltonAMXBridge
+
+MODULE: h2q.core.calibration.genomic_vision_suite
+  - class GenomicVisionCalibrationSuite
+  - function apply_berry_sync_guard
+
+MODULE: h2q.core.calibration.holonomy_calibrator
+  - class HamiltonKernel
+  - class DiscreteDecisionEngine
+  - class CrossModalHolonomyCalibrator
+
+MODULE: h2q.core.calibration.synesthesia_calibration_suite
+  - class SynesthesiaCalibrationSuite
+
+MODULE: h2q.core.calibration.berry_phase
+  - class BerryPhaseCalibrator
+  - class DiscreteDecisionEngine
+
+MODULE: h2q.core.shields.manifold_shield
+  - class ManifoldSingularityShield
+
+MODULE: h2q.core.optimization.fdc_optimizer
+  - class FDCOptimizer
+
+MODULE: h2q.core.optimization.holomorphic_projection
+  - class HolomorphicGradientHook
+  - function apply_holomorphic_hook
+
+MODULE: h2q.core.optimization.unified_holomorphic_optimizer
+  - class UnifiedHolomorphicOptimizer
+
+MODULE: h2q.core.optimization.tso_optimizer
+  - class TSO_Optimizer
+  - function apply_ttd_emergency_brake
+
+MODULE: h2q.core.optimization.holomorphic_healing
+  - class HolomorphicHealingBackprop
+  - function audit_healing_integrity
+
+MODULE: h2q.core.optimization.holomorphic_backprop
+  - class HolomorphicBackpropKernel
+  - class HBK_Layer
+  - function apply_holomorphic_backprop
+
+MODULE: h2q.core.serialization.manifold_snapshot
+  - class DiscreteDecisionEngine
+  - class RSKHEncoder
+  - class ManifoldSnapshot
+  - function measure_logic_curvature
+
+MODULE: h2q.core.serialization.uqc_handler
+  - class DiscreteDecisionEngine
+  - class UQCManager
+  - function calculate_spectral_shift
+
+MODULE: h2q.core.distillation.avtg_training_pipeline
+  - class AVTGenomicTrainer
+
+MODULE: h2q.core.distillation.code_genomic_distiller
+  - class CodeGenomicDistiller
+
+MODULE: h2q.core.distillation.topological_distiller
+  - class SU2Projector
+  - class ReversibleKernel
+  - class SpectralShiftTracker
+  - class TopologicalDistiller
+
+MODULE: h2q.core.distillation.quaternionic_gauss_loss
+  - class QuaternionicGaussLinkingLoss
+  - function verify_linking_symmetry
+
+MODULE: h2q.core.distillation.cmi_distiller
+  - class CMIDistiller
+
+MODULE: h2q.core.distillation.holonomy_distiller
+  - function hamilton_product
+  - class FDCRotator
+  - class ReversibleHolonomyLayer
+  - class DiscreteDecisionEngine
+  - class CrossModalHolonomyDistiller
+
+MODULE: h2q.core.distillation.l2_distiller
+  - class L2SuperKnotDistiller
+  - class ReversibleL2Distiller
+  - function audit_l2_distillation
+
+MODULE: h2q.core.distillation.avtg_distiller
+  - class AVTGIsomorphismDistiller
+
+MODULE: h2q.core.distillation.genomic_logic_bridge
+  - class GenomicLogicBargmannBridge
+  - function build_genomic_bridge
+
+MODULE: h2q.core.distillation.code_geometric_bridge
+  - class CodeGeometricBridge
+  - function verify_bridge_symmetry
+
+MODULE: h2q.core.optimizers.fdc_optimizer
+  - class FDCOptimizer
+
+MODULE: h2q.core.optimizers.hjb_solver
+  - class HJBGeodesicSolver
+  - function get_hjb_solver
+
+MODULE: h2q.core.optimizers.drag_vsync
+  - class DynamicDragVSync
+  - function audit_v_sync_integrity
+
+MODULE: h2q.core.optimizers.spectral_drag
+  - class SpectralShiftTracker
+  - class SpectralDragOptimizer
+  - class LatentConfig
+  - function get_canonical_dde
+
+MODULE: h2q.core.optimizers.rago
+  - class RAGO
+
+MODULE: h2q.core.optimizers.gpio
+  - class GeodesicPathIntegralOptimizer
+
+MODULE: h2q.core.optimizers.spectral_drag_scheduler
+  - class SpectralDragScheduler
+
+MODULE: h2q.core.optimizers.su2_momentum
+  - function quaternion_mul
+  - function exp_map
+  - class SU2ParallelTransportOptimizer
+  - class DiscreteDecisionEngine
+
+MODULE: h2q.core.quantization.tpq_engine
+  - class TopologicalPhaseQuantizer
+
+MODULE: h2q.core.quantization.tpq_packer
+  - class TPQBitPacker
+  - function audit_tpq_packing
+
+MODULE: h2q.core.quantization.fractal_quantizer
+  - class FractalWeightQuantizer
+  - function calculate_eta_signature
+  - class DiscreteDecisionEngine
+
+MODULE: h2q.core.quantization.quaternionic_protocol
+  - class QuaternionicQuantizer
+  - class SpectralShiftTracker
+  - class DiscreteDecisionEngine
+  - function run_quantization_tradeoff_study
+
+MODULE: h2q.core.trainers.berry_synesthesia
+  - class DiscreteDecisionEngine
+  - class ReversibleKernel
+  - class BerryPhaseSynesthesiaTrainer
+
+MODULE: h2q.core.trainers.unified_barycenter_trainer
+  - class UnifiedBarycenterTrainer
+
+MODULE: h2q.core.trainers.karcher_frechet_trainer
+  - class KarcherFrechetTrainer
+
+MODULE: h2q.core.trainers.holomorphic_hjb_healer
+  - class HolomorphicHJBHealer
+  - function audit_uhbs_integrity
+
+MODULE: h2q.core.trainers.genomic_starcoder_trainer
+  - class GenomicStarCoderIsomorphismTrainer
+
+MODULE: h2q.core.trainers.bargmann_isomorphism_trainer
+  - class BargmannInvariantLoss
+  - class BargmannIsomorphismTrainer
+
+MODULE: h2q.core.trainers.berry_fusion_unified
+  - class AVTGBerryFusion
+  - function train_berry_fusion
+
+MODULE: h2q.core.trainers.karcher_synesthesia
+  - class KarcherFlowSynesthesia
+
+MODULE: h2q.core.trainers.genomic_algorithmic_isomorphism
+  - class GenomicAlgorithmicTrainer
+
+MODULE: h2q.core.trainers.sleep_healer
+  - class H2QSleepHealer
+  - function heal_system
+
+MODULE: h2q.core.pruning.geodesic_engine
+  - class GeodesicPruningEngine
+  - function apply_pruning_guard
+
+MODULE: h2q.core.audit.crosstalk_auditor
+  - class ManifoldCrosstalkAuditor
+
+MODULE: h2q.core.audit.manifold_audit
+  - class DiscreteDecisionEngine
+  - class ManifoldSingularityAudit
+
+MODULE: h2q.core.audit.genomic_invariant_audit
+  - class SU2DNAProjection
+  - class GenomicInvariantAudit
+
+MODULE: h2q.core.audit.genomic_starcoder_auditor
+  - class GenomicStarCoderAuditor
+
+MODULE: h2q.core.persistence.rskh_uqc_layer
+  - class RSKH_UQC_Persistence
+  - class SecurityError
+
+MODULE: h2q.core.persistence.l2_super_knot
+  - class L2SuperKnotPersistence
+
+MODULE: h2q.core.persistence.gter_storage
+  - class GTERStorage
+  - class GTERSystem
+  - function initialize_gter_vault
+
+MODULE: h2q.core.persistence.spectral_swap_manager
+  - class KnotMetadata
+  - class SpectralSwapManager
+
+MODULE: h2q.core.diagnostics.fractal_recovery
+  - class KreinTracker
+  - class DiscreteDecisionEngine
+  - class FractalRecoverySystem
+
+MODULE: h2q.core.alignment.genomic_vision_aligner
+  - class BerryPhaseGenomicVisionAligner
+  - function verify_aligner_symmetry
+
+MODULE: h2q.core.alignment.bargmann_aligner
+  - class BargmannSynesthesiaAligner
+
+MODULE: h2q.core.alignment.bargmann_isomorphism_finetuner
+  - class BargmannIsomorphismFinetuner
+  - function apply_amx_tiling
+
+MODULE: h2q.core.alignment.cmga_interferometer
+  - class ReversibleSU2Layer
+  - class DiscreteDecisionEngine
+  - class BerryPhaseInterferometer
+  - function build_cmga_engine
+
+MODULE: h2q.core.alignment.berry_phase_comparator
+  - class BerryPhaseMultimodalComparator
+  - function verify_bridge_integrity
+
+MODULE: h2q.core.alignment.bargmann_validator
+  - class BargmannIsomorphismValidator
+  - function audit_bargmann_integrity
+
+MODULE: h2q.core.alignment.karcher_flow_aligner
+  - class CrossModalKarcherFlowAligner
+  - function verify_alignment_symmetry
+
+MODULE: h2q.core.ops.hamilton_amx
+  - class HamiltonOptimizer
+  - class DiscreteDecisionEngine
+
+MODULE: h2q.core.monitoring.manifold_audit
+  - class DiscreteDecisionEngine
+  - class ManifoldAuditor
+
+MODULE: h2q.core.guards.holomorphic_sparsity_guard
+  - class HolomorphicSparsityGuard
+
+MODULE: h2q.core.guards.holomorphic_healing_middleware
+  - class HolomorphicHealingMiddleware
+
+MODULE: h2q.core.guards.holomorphic_streaming_middleware
+  - class HolomorphicStreamingMiddleware
+
+MODULE: h2q.core.guards.hqa_guard
+  - class HQAGuard
+  - function apply_hqa_guard
+
+MODULE: h2q.core.guards.holomorphic_guard
+  - function real_to_quaternion
+  - class DiscreteDecisionEngine
+  - class HolomorphicReasoningGuard
+
+MODULE: h2q.core.guards.holomorphic_guard_middleware
+  - class HolomorphicGuardMiddleware
+  - function get_holomorphic_guard
+
+MODULE: h2q.core.guards.holomorphic_beam_search
+  - class HolomorphicBeamSearch
+
+MODULE: h2q.core.generation.holomorphic_decoder
+  - class HolomorphicAutoregressiveDecoder
+
+MODULE: h2q.core.generation.holomorphic_backtracker
+  - class HolomorphicReasoningBacktracker
+  - function apply_biharmonic_correction
+
+MODULE: h2q.core.generation.holomorphic_sampler
+  - class HolomorphicGatedSampler
+
+MODULE: h2q.memory.geodesic_window
+  - class SlidingWindowGeodesicMemory
+
+MODULE: h2q.memory.geodesic_replay
+  - class GeodesicTraceHealer
+  - class GeodesicFlowReplay
+  - class DiscreteDecisionEngine
+
+MODULE: h2q.layers.interference
+  - class DiscreteDecisionEngine
+  - class CPIGating
+
+MODULE: h2q.layers.amx_spinor_interference
+  - class AMXSpinorInterference
+
+MODULE: h2q.layers.amx_linear
+  - class AMXQuaternionicLinear
+  - function get_compatible_dde
+
+MODULE: h2q.layers.interferometric_gating
+  - class InterferometricWaveGating
+  - class ReversibleInterferometricBlock
+
+MODULE: h2q.layers.quantum_alignment
+  - class BerryPhaseInterferometer
+  - class QuantumAlignmentLayer
+
+MODULE: h2q.layers.fusion.manifold_interferometer
+  - class ManifoldInterferometer
+
+MODULE: h2q.optimizer.fdc_optimizer
+  - class DiscreteDecisionEngine
+  - class FDCOptimizer
+
+MODULE: h2q.calibration.holonomy
+  - function hamilton_product
+  - class BerryPhaseInterferometer
+  - class HolonomyCalibrationUtility
+
+MODULE: h2q.bridge.multimodal
+  - class SpectralShiftTracker
+  - class DiscreteDecisionEngine
+  - class H2QAlignmentBridge
+
+MODULE: h2q.experiments.active_inference_feedback
+  - class ActiveInferenceFeedbackLoop
+
+MODULE: h2q.experiments.berry_phase_interferometer
+  - class MultiModalBerryInterferometer
+  - class BerryPhaseTrainer
+  - function run_interferometer_suite
+
+MODULE: h2q.experiments.synesthesia_4way_alignment
+  - class Synesthesia4WayAligner
+  - function execute_alignment_run
+
+MODULE: h2q.dispatch.amx_orchestrator
+  - class DiscreteDecisionEngine
+  - class M4AMXDispatchOrchestrator
+
+MODULE: h2q.dispatch.m4_amx_dispatcher
+  - class M4AMXMetalDispatcher
+  - function apply_m4_optimization
+
+MODULE: h2q.dispatch.amx_tiling_dispatcher
+  - class M4RegisterTelemetry
+  - class DynamicAMXTilingDispatcher
+  - function verify_tiling_symmetry
+
+MODULE: h2q.logic.biharmonic_loss_integration
+  - class BiharmonicFueterLoss
+  - class FueterVeracityMonitor
+  - function get_biharmonic_stabilizer
+
+MODULE: h2q.logic.holomorphic_filter
+  - class DiscreteDecisionEngine
+  - class HolomorphicLogicFilter
+  - function verify_hlf_constraints
+
+MODULE: h2q.logic.holomorphic_streaming_guard
+  - class HolomorphicStreamingGuard
+
+MODULE: h2q.logic.high_order_fueter
+  - class HighOrderFueterAuditor
+
+MODULE: h2q.logic.biharmonic_stabilizer
+  - class BiharmonicLogicStabilizer
+  - function attach_biharmonic_stabilizer
+
+MODULE: h2q.logic.fueter_pruner
+  - class DiscreteDecisionEngine
+  - class FueterLogicPruner
+  - function apply_fueter_hook
+
+MODULE: h2q.logic.biharmonic_guard
+  - class BiharmonicReasoningGuard
+  - function attach_biharmonic_guard
+
+MODULE: h2q.logic.fueter_gradient_surgery
+  - class BiharmonicGradientSurgeryHook
+  - class FueterGradientSurgery
+  - function apply_fueter_surgery
+  - function soft_fueter_filter
+
+MODULE: h2q.logic.holomorphic_gating_unit
+  - class HolomorphicGatingUnit
+  - function attach_holomorphic_guard
+
+MODULE: h2q.utils.mps_compat
+  - function mps_safe_det
+  - function ensure_complex_support
+
+MODULE: h2q.utils.visualizer
+  - class H2QVisualizer
+
+MODULE: h2q.models.hierarchical_decoder
+  - class DiscreteDecisionEngine
+  - class SU2GeodesicLayer
+  - class KnotRefiner
+  - class HierarchicalDecoder
+
+MODULE: h2q.models.h2q_world_model
+  - class H2QWorldModelPredictor
+  - class ReversibleGeodesicStep
+  - function build_world_model
+
+MODULE: h2q.models.bridges.berry_phase_synesthesia
+  - class ReversibleCouplingLayer
+  - class BerryPhaseBridge
+  - function build_synesthesia_bridge
+
+MODULE: h2q.models.quantum_geometric.interferometer
+  - class BerryPhaseInterferometer
+  - class DiscreteDecisionEngine
+
+MODULE: h2q.vision.fractal_spectral_vision_core
+  - class VisionState
+  - class ControlState
+  - class FeedbackState
+  - class SystemMetrics
+  - class FractalFeatureExtractor
+  - class QuaternionStateEncoder
+  - class BerryPhaseTracker
+  - class FueterCurvatureDetector
+  - class SelfOrganizingParallelUnit
+  - class VisionControlFeedbackLoop
+  - class FractalSpectralVisionCore
+  - function create_fractal_vision_core
+  - function demo
+
+MODULE: h2q.vision.loader
+  - class VisionLoader
+  - class DiscreteDecisionEngine
+  - function verify_isomorphism
+
+MODULE: h2q.optimizers.fdc_optimizer
+  - class FDCOptimizer
+
+MODULE: h2q.optimizers.geodesic_unitary
+  - class GeodesicUnitaryOptimizer
+  - function calculate_spectral_shift
+
+MODULE: h2q.optimizers.spectral_entropy_wrapper
+  - class SpectralEntropyLR
+
+MODULE: h2q.audit.synesthesia_4way_audit
+  - class Synesthesia4WayAudit
+  - function run_synesthesia_audit
+
+MODULE: h2q.audit.persistence_audit_v1
+  - class DiscreteDecisionEngine
+  - class ManualReversibleKernel
+  - class SpectralShiftTracker
+  - function run_persistence_audit
+
+MODULE: h2q.audit.topology
+  - class DiscreteDecisionEngine
+  - class PersistentHomologyAudit
+
+MODULE: h2q.resonance.avt_resonator
+  - function hamilton_product
+  - class DiscreteDecisionEngine
+  - class ReversibleResonanceLayer
+  - class UnifiedMultimodalResonator
+  - function train_step
+
+MODULE: h2q.engines.decision
+  - class DiscreteDecisionEngine
+
+MODULE: h2q.benchmarks.zwi_geometric_crystal
+  - class ZWIBenchmark
+
+MODULE: h2q.benchmarks.geodesic_retrieval_benchmark
+  - class QuaternionOps
+  - class RSKH
+  - class ManifoldSnapshot
+  - class DiscreteDecisionEngine
+  - function run_benchmark
+
+MODULE: h2q.benchmarks.amx_tiled_profiler
+  - class AMXTiledProfiler
+
+MODULE: h2q.benchmarks.amx_precision_audit
+  - class AMXPrecisionAuditor
+
+MODULE: h2q.benchmarks.fractal_latency_amx
+  - class HamiltonKernel
+  - class ReversibleHamiltonBlock
+  - function calculate_spectral_shift
+  - function run_fractal_benchmark
+
+MODULE: h2q.benchmarks.persistence_stress_test
+  - class MockBlock
+  - function run_persistence_stress_test
+
+MODULE: h2q.benchmarks.tis_streaming_v1
+  - class ReversibleKnot
+  - class SU2ManifoldProjection
+  - class DiscreteDecisionEngine
+  - class SpectralShiftTracker
+  - class TIS_Engine
+  - function run_benchmark
+
+MODULE: h2q.benchmarks.rskh_infinite_stress
+  - function get_memory_usage_mb
+  - function run_infinite_context_stress_test
+
+MODULE: h2q.benchmarks.mps_hamilton_optimizer
+  - function hamilton_product_mps_optimized
+  - function run_benchmark
+
+MODULE: h2q.benchmarks.rskh_persistence_stress_test
+  - function get_memory_usage_gb
+  - class RSKHPersistenceStressTest
+
+MODULE: h2q.benchmarks.temporal_knot_persistence
+  - class SpectralShiftTracker
+  - class FractalExpansion
+  - class DiscreteDecisionEngine
+  - class ReversibleKnotKernel
+  - class TemporalKnotBenchmark
+
+MODULE: h2q.benchmarks.infinite_context_persistence_audit
+  - class InfiniteContextAudit
+
+MODULE: h2q.persistence.rskh
+  - class DiscreteDecisionEngine
+  - class SpectralShiftTracker
+  - class RSKH
+
+MODULE: h2q.persistence.crystal_auditor
+  - class CrystalAuditor
+
+MODULE: h2q.diagnostics.reversibility_sentinel
+  - class BitAccurateReversibilitySentinel
+
+MODULE: h2q.diagnostics.fueter_audit
+  - class FueterAnalyticAudit
+  - function apply_faa_diagnostic
+
+MODULE: h2q.diagnostics.manifold_entropy_audit
+  - class ManifoldEntropyAudit
+
+MODULE: h2q.governance.m4_homeostatic_governor
+  - class M4HomeostaticGovernor
+  - function initialize_m4_governor
+
+MODULE: h2q.governance.memory_governor
+  - class MemoryPressureManifoldGovernor
+  - function verify_governor_integrity
+
+MODULE: h2q.governance.heat_sink_controller
+  - class TopologicalHeatSinkController
+
+MODULE: h2q.governance.rank_resuscitator
+  - class RankResuscitator
+  - function audit_resuscitation_integrity
+
+MODULE: h2q.governance.thermal_geodesic_governor
+  - class ThermalGeodesicHomeostat
+  - function get_thermal_governor
+
+MODULE: h2q.governance.heat_death_governor
+  - class HeatDeathGovernor
+  - class L1ConceptLayer
+  - function integrate_hdg_to_l1_loop
+
+MODULE: h2q.governance.modality_synchronizer
+  - class ModalitySynchronizer
+  - function verify_synchronizer_symmetry
+
+MODULE: h2q.ops.memory_manager
+  - class DynamicAMXMemorySwapper
+
+MODULE: h2q.ops.m4_amx_extension
+  - class M4AMXExtension
+  - function get_compatible_dde
+
+MODULE: h2q.ops.mps_amx_bridge
+  - class HamiltonAMXBridge
+  - class DiscreteDecisionEngine
+
+MODULE: h2q.ops.m4_amx_bridge
+  - class M4AMXHotSwapBridge
+  - function apply_m4_optimization
+
+MODULE: h2q.ops.rskh_mmap_swapper
+  - class RSKHMmapSwapper
+
+MODULE: h2q.webui.views
+  - function get_project_context
+  - function project_home
+  - function project_about
+  - function project_dashboard
+
+MODULE: h2q.decision.dde
+  - class DiscreteDecisionEngine
+
+MODULE: h2q.dna_topology.topology_engine
+  - class DNAQuaternionMapper
+  - class FractalExpansion
+  - class SpectralShiftTracker
+  - class DiscreteDecisionEngine
+  - class UniversalStreamLoader
+  - class DNATopologyAnalyzer
+
+MODULE: h2q.physics.spectral_ops
+  - class SpectralEntropyRegularizer
+  - class DiscreteDecisionEngine
+  - function apply_spectral_shift
+
+MODULE: h2q.routing.dynamic_precision
+  - class SpectralShiftTracker
+  - class DynamicPrecisionRouter
+  - class DiscreteDecisionEngine
+
+MODULE: h2q.monitoring.mhdm
+  - class ManifoldHeatDeathMonitor
+  - class DiscreteDecisionEngine
+
+MODULE: h2q.data.universal_stream
+  - class UniversalStreamLoader
+
+MODULE: h2q.data.generator
+  - class LogicAtom
+  - class H2QSyntheticEngine
+  - function mix_corpus_generator
+  - function verify_generator_symmetry
+
+MODULE: h2q.engine.discrete_decision
+  - class DiscreteDecisionEngine
+
+MODULE: h2q.engine.decision_engine
+  - class DiscreteDecisionEngine
+
+MODULE: h2q.engine.decision
+  - class DiscreteDecisionEngine
+
+MODULE: h2q.engine.curiosity
+  - class CuriosityProposer
+  - function initialize_curiosity_engine
+
+MODULE: h2q.loaders.audio_knot
+  - class AudioKnotLoader
+  - function measure_logic_curvature
+
+MODULE: h2q.loaders.rolling_stream
+  - class RollingStreamLoader
+
+MODULE: h2q.control.ast_engine
+  - class AutomatedSleepTrigger
+
+MODULE: h2q.control.dmdc
+  - class DynamicManifoldDepthController
+  - function stream_with_dmdc
+
+MODULE: h2q.control.system_control_core
+  - class SystemState
+  - class ControlMetrics
+  - class QuaternionStateEncoder
+  - class BerryPhaseTracker
+  - class FueterCurvatureDetector
+  - class TrajectoryPredictor
+  - class H2QSystemControlCore
+  - function create_control_core
+  - class SensorMonitor
+
+MODULE: h2q.control.lightweight_control
+  - class LightweightState
+  - class LightweightMetrics
+  - class LightweightEncoder
+  - class LightweightPhaseTracker
+  - class LightweightCurvatureDetector
+  - class LightweightTrajectoryPredictor
+  - class H2QLightweightControl
+  - function create_lightweight_control
+  - function demo_lightweight_control
+
+MODULE: h2q.services.topological_loop_healer
+  - class TopologicalLoopHealer
+  - function get_healer_service
+
+MODULE: h2q.services.bargmann_coherence_server
+  - class BargmannCoherenceServer
+
+MODULE: h2q.services.bargmann_consolidation
+  - class BargmannInvariantConsolidator
+  - function get_consolidation_service
+
+MODULE: h2q.services.spectral_paging_service
+  - class SpectralPagingService
+  - function apply_paging_guard
+
+MODULE: h2q.services.berry_phase_validator
+  - class BerryPhaseSignatureValidator
+  - function apply_berry_validator_hook
+
+MODULE: h2q.services.uhbs_healer
+  - class UHBSHealerService
+  - function get_uhbs_healer_service
+
+MODULE: h2q.services.holomorphic_telemetry
+  - class HolomorphicTelemetryMiddleware
+  - function get_telemetry_middleware
+
+MODULE: h2q.services.geodesic_healer_service
+  - class GeodesicHealerService
+
+MODULE: h2q.services.berry_phase_checkpointer
+  - class BerryPhaseCheckpointer
+
+MODULE: h2q.services.hjb_recovery_service
+  - class HJBGeodesicRecoveryService
+
+MODULE: h2q.services.synesthesia_central
+  - class SynesthesiaCentralOrchestrator
+  - function apply_biharmonic_correction
+
+MODULE: h2q.validation.algorithmic_isomorphism
+  - class AlgorithmicIsomorphismSuite
+
+MODULE: h2q.validation.compression_audit
+  - class DiscreteDecisionEngine
+  - class ReversibleKernel
+  - class HierarchicalDecoder
+  - class CompressionAudit
+
+MODULE: h2q.visualizer.manifold_curvature_map
+  - class ManifoldCurvatureMap
+
+MODULE: knowledge.knowledge_db
+  - class QuaternionFractalIndex
+  - class KnowledgeDB
+
+MODULE: profiling.profiler
+  - function profile_model
+
+MODULE: evolution.h2q_evolution_system
+  - class H2QEvolutionSystem
+
+MODULE: evolution.evolution_system
+  - class EvolutionSystem
+
+MODULE: benchmarks.benchmark_quaternion_ops
+  - function create_random_quaternion
+  - function benchmark_quaternion_multiply
+  - function benchmark_quaternion_conjugate
+  - function benchmark_quaternion_inverse
+  - function benchmark_quaternion_real
+  - function benchmark_quaternion_imaginary
+  - function benchmark_quaternion_norm
+  - function benchmark_quaternion_normalize
+
+MODULE: benchmarks.cifar10_classification
+  - class BenchmarkResult
+  - class QuaternionConv2d
+  - class SpacetimeEvolutionBlock
+  - class H2QSpacetimeClassifier
+  - class BaselineCNN
+  - function get_cifar10_loaders
+  - function count_parameters
+  - function get_memory_usage
+  - function train_epoch
+  - function evaluate
+  - function benchmark_model
+  - function main
+
+MODULE: benchmarks.lightweight_control_benchmark
+  - class BenchmarkResult
+  - class LightweightBenchmark
+  - function main
+
+MODULE: benchmarks.multimodal_alignment
+  - class MultimodalAlignmentResult
+  - class H2QMultimodalAligner
+  - class BaselineConcatAligner
+  - function generate_matched_pairs
+  - function generate_unmatched_pairs
+  - function benchmark_aligner
+  - function main
+
+MODULE: benchmarks.run_all_benchmarks
+  - class BenchmarkSuite
+  - function run_cifar10_benchmark
+  - function run_rotation_benchmark
+  - function run_multimodal_benchmark
+  - function print_summary_report
+  - function main
+
+MODULE: benchmarks.e2e_generate_smoke
+  - function run_smoke
+  - function run_benchmark
+  - function main
+
+MODULE: benchmarks.fractal_vision_benchmark
+  - class BenchmarkResult
+  - class FractalVisionBenchmark
+  - function main
+
+MODULE: benchmarks.multimodal_trained
+  - class TrainedAlignmentResult
+  - function create_alignment_dataset
+  - class AlignmentClassifier
+  - function train_aligner
+  - function evaluate_aligner
+  - function main
+
+MODULE: benchmarks.rotation_invariance
+  - class RotationInvarianceResult
+  - class RotationEquivariantQuaternionBlock
+  - class H2QQuaternionEncoder
+  - class BaselineCNNEncoder
+  - function rotate_image
+  - function compute_feature_similarity
+  - function test_rotation_invariance
+  - function generate_test_images
+  - function main
+
+MODULE: benchmarks.cifar10_classification_memory_optimized
+  - function get_memory_usage
+  - function clear_cache
+  - function get_cifar10_loaders_memory_optimized
+  - function train_epoch_memory_optimized
+  - function evaluate_memory_optimized
+  - function benchmark_model_memory_optimized
+  - function main
+
+MODULE: benchmarks.control_core_benchmark
+  - class BenchmarkResult
+  - class SystemControlBenchmark
+  - function main
+
+MODULE: configs.trainer_config
+  - class TrainerConfig
+
+MODULE: persistence.migration_engine
+  - class MigrationEngine
+
+MODULE: persistence.integrity_checker
+  - class IntegrityChecker
+
+MODULE: persistence.checkpoint_manager
+  - class QuaternionSerializer
+  - class CheckpointManager
+
+MODULE: scripts.evaluate_quaternion_stability
+  - function generate_random_quaternions
+  - function evaluate_quaternion_operation
+
+MODULE: quaternion.tests.test_quaternion
+  - class TestQuaternion
+
+MODULE: geometry.shapes
+  - class Shape
+  - class Rectangle
+
+MODULE: geometry.kernel
+  - class GeometryKernel
+
+MODULE: geometry.transformations
+  - class Quaternion
+  - function quaternion_slerp
+  - class Transformation
+
+MODULE: geometry.h2q_geometry_kernel
+  - class H2QGeometryKernel
+
+MODULE: geometry.geometry_kernel
+  - class GeometryKernel
+
+MODULE: geometry.line
+  - class Line
+
+MODULE: geometry.quaternion
+  - class Quaternion
+
+MODULE: geometry.core
+  - class Point
+
+MODULE: geometry.mesh
+  - class Mesh
+
+MODULE: geometry.point
+  - class Point
+
+MODULE: geometry.bezier_curve
+  - class BezierCurve
+
+MODULE: knots.trefoil
+  - class TrefoilKnot
+
+MODULE: monitoring.metrics_tracker
+  - class MetricsTracker
+
+MODULE: services.code_repair_service
+  - class CodeRepairService
+
+MODULE: trainer.simple_lstm_trainer
+  - class SimpleLSTMTrainer
+
+MODULE: trainer.base_trainer
+  - class BaseTrainer
+
+MODULE: trainer.geometry_aware_trainer
+  - class GeometryAwareTrainer
+
+MODULE: trainer.trainer
+  - class Trainer
+  - function main
+
+MODULE: trainer.image_classification_trainer
+  - class ImageClassificationTrainer
+
+MODULE: reflection.self_reflection
+  - class SelfReflection

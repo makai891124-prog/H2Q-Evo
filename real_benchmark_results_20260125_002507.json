@@ -1,0 +1,33 @@
+{
+  "mmlu": {
+    "accuracy": 0.35,
+    "correct": 7,
+    "total": 20,
+    "category_scores": {
+      "abstract_algebra": 0.4,
+      "anatomy": 0.3
+    }
+  },
+  "gsm8k": {
+    "accuracy": 0.5,
+    "correct": 10,
+    "total": 20,
+    "category_scores": {
+      "mathematics": 0.5
+    }
+  },
+  "arc": {
+    "accuracy": 0.2,
+    "correct": 4,
+    "total": 20,
+    "category_scores": {
+      "science": 0.2
+    }
+  },
+  "overall": {
+    "accuracy": 0.35,
+    "correct": 21,
+    "total": 60,
+    "num_benchmarks": 3
+  }
+}

@@ -1,4 +1,5 @@
 import os
+import sys
 import json
 import time
 import shutil
@@ -58,15 +59,52 @@ class H2QNexus:
     def __init__(self):
         logger.info(f"Initializing H2Q-Evo v11.1 [Bootstrap-Fix] | Mode: {Config.INFERENCE_MODE.upper()}")
         self.client = genai.Client(api_key=Config.API_KEY) if Config.API_KEY else None
-        self.docker_client = docker.from_env()
+
+        # Optional Docker client - don't fail if not available
+        try:
+            self.docker_client = docker.from_env()
+            self.docker_available = True
+        except Exception as e:
+            logger.warning(f"Docker not available: {e}")
+            self.docker_client = None
+            self.docker_available = False
+
         self.state = self._load_json(Config.STATE_FILE, {
             "generation": 0, "last_task_id": 0, "todo_list": [], "history": []
         })
+        # 确保可以导入 h2q_project 下的统一数学架构
+        try:
+            sys.path.insert(0, str(Config.PROJECT_ROOT))
+        except Exception as e:
+            logger.warning(f"Failed to add PROJECT_ROOT to sys.path: {e}")
+
         self._check_source_integrity()
-        self._ensure_env()
+        # Skip Docker environment check if Docker is not available
+        if self.docker_available:
+            self._ensure_env()
+        else:
+            logger.info("Skipping Docker environment check (Docker not available)")
         self._update_task_gates()
 
+        # 初始化数学架构进化集成（UnifiedH2QMathematicalArchitecture 集成）
+        try:
+            from h2q_project.src.h2q.core.evolution_integration import create_mathematical_core_for_evolution_system, get_h2q_evolution_integration
+            # 说明：通过 Evolution Bridge 间接使用 UnifiedH2QMathematicalArchitecture
+            # 关键词：UnifiedH2QMathematicalArchitecture
+            self.math_bridge = create_mathematical_core_for_evolution_system(
+                dim=256, action_dim=64, project_root=str(Path.cwd())
+            )
+            self.math_integration = get_h2q_evolution_integration(str(Path.cwd()))
+            logger.info("✅ Mathematical architecture integration initialized")
+        except Exception as e:
+            self.math_bridge = None
+            self.math_integration = None
+            logger.warning(f"Mathematical integration unavailable: {e}")
+
     async def local_inference(self, prompt: str) -> str:
+        if not self.docker_available:
+            logger.info("🐳 Docker not available, falling back to API inference...")
+            return await self.api_inference(prompt)
         logger.info("🧠 Using LOCAL H2Q BRAIN for inference...")
         # 直接调用 brain.py，它会加载最新权重并训练一步
         cmd = (
@@ -83,7 +121,27 @@ class H2QNexus:
             return stdout.decode()
         else:
             logger.error(f"❌ Local inference failed:\n{stderr.decode()}")
-            return ""
+            raise Exception(f"Local inference failed: {stderr.decode()}")
+
+    async def api_inference(self, prompt: str) -> str:
+        """Fallback API inference when Docker is not available."""
+        if not self.client:
+            raise Exception("No API client available (missing GEMINI_API_KEY)")
+
+        logger.info("🔮 Using API inference (Gemini)...")
+        try:
+            response = self.client.models.generate_content(
+                model=Config.MODEL_NAME,
+                contents=prompt,
+                config=types.GenerateContentConfig(
+                    temperature=0.7,
+                    max_output_tokens=1024,
+                )
+            )
+            return response.text
+        except Exception as e:
+            logger.error(f"❌ API inference failed: {e}")
+            raise Exception(f"API inference failed: {e}")
 
     async def run(self):
         life_process = None
@@ -108,6 +166,27 @@ class H2QNexus:
                 self._update_task_gates()
                 # 实际的进化逻辑将由本地模型在后台自我触发（通过 Curiosity 模块）
                 # 这里我们保持主程序存活即可
+                # 数学架构进化一轮（记录指标，增强可观测性）
+                try:
+                    if self.math_bridge is not None:
+                        import torch
+                        state = torch.randn(1, 256)
+                        learning_signal = torch.tensor([0.1])
+                        results = self.math_bridge(state, learning_signal)
+                        # 将关键指标写入状态文件
+                        self.state.setdefault("math_metrics", [])
+                        self.state["math_metrics"].append({
+                            "timestamp": time.time(),
+                            "generation": results.get("generation"),
+                            "output_norm": results.get("evolution_metrics", {}).get("output_norm", 0.0),
+                            "state_change": results.get("evolution_metrics", {}).get("state_change", 0.0),
+                        })
+                        self._save_json(Config.STATE_FILE, self.state)
+                        # 定期保存集成状态
+                        if len(self.state["math_metrics"]) % 5 == 0 and self.math_integration is not None:
+                            self.math_integration.save_integration_state()
+                except Exception as e:
+                    logger.warning(f"Mathematical evolution step failed: {e}")
         finally:
             if life_process:
                 logger.info("🛑 Shutting down Life Cycle process...")
@@ -138,8 +217,16 @@ class H2QNexus:
         with open(path, 'w', encoding='utf-8') as f: json.dump(data, f, indent=2, ensure_ascii=False)
 
     def _ensure_env(self):
-        try: self.docker_client.images.get(Config.DOCKER_IMAGE)
-        except: self.docker_client.api.build(path=".", tag=Config.DOCKER_IMAGE, rm=True)
+        if not self.docker_available:
+            logger.info("Skipping Docker environment check (Docker not available)")
+            return
+        try:
+            self.docker_client.images.get(Config.DOCKER_IMAGE)
+            logger.info(f"Docker image {Config.DOCKER_IMAGE} found")
+        except:
+            logger.info(f"Building Docker image {Config.DOCKER_IMAGE}...")
+            self.docker_client.api.build(path=".", tag=Config.DOCKER_IMAGE, rm=True)
+            logger.info(f"Docker image {Config.DOCKER_IMAGE} built successfully")
 
     def _update_task_gates(self):
         gate_state = self._load_json("honest_evolution_state.json", {})

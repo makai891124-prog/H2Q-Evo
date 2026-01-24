@@ -1,0 +1,130 @@
+{
+  "mmlu": {
+    "dataset": "cais/mmlu",
+    "config": "all",
+    "sample_count": 3,
+    "fields": [
+      "question",
+      "subject",
+      "choices",
+      "answer"
+    ],
+    "field_types": {
+      "question": "<class 'str'>",
+      "subject": "<class 'str'>",
+      "choices": "<class 'list'>",
+      "answer": "<class 'int'>"
+    },
+    "samples": [
+      {
+        "index": 0,
+        "fields_content": {
+          "question": "Find the degree for the given field extension Q(sqrt(2), sqrt(3), sqrt(18)) over Q.",
+          "subject": "abstract_algebra",
+          "choices": "list with 4 items",
+          "answer": "1"
+        }
+      },
+      {
+        "index": 1,
+        "fields_content": {
+          "question": "Let p = (1, 2, 5, 4)(2, 3) in S_5 . Find the index of <p> in S_5.",
+          "subject": "abstract_algebra",
+          "choices": "list with 4 items",
+          "answer": "2"
+        }
+      },
+      {
+        "index": 2,
+        "fields_content": {
+          "question": "Find all zeros in the indicated finite field of the given polynomial with coefficients in that field",
+          "subject": "abstract_algebra",
+          "choices": "list with 4 items",
+          "answer": "3"
+        }
+      }
+    ]
+  },
+  "gsm8k": {
+    "dataset": "gsm8k",
+    "config": "main",
+    "sample_count": 3,
+    "fields": [
+      "question",
+      "answer"
+    ],
+    "field_types": {
+      "question": "<class 'str'>",
+      "answer": "<class 'str'>"
+    },
+    "samples": [
+      {
+        "index": 0,
+        "fields_content": {
+          "question": "Janet’s ducks lay 16 eggs per day. She eats three for breakfast every morning and bakes muffins for ",
+          "answer": "Janet sells 16 - 3 - 4 = <<16-3-4=9>>9 duck eggs a day.\nShe makes 9 * 2 = $<<9*2=18>>18 every day at"
+        }
+      },
+      {
+        "index": 1,
+        "fields_content": {
+          "question": "A robe takes 2 bolts of blue fiber and half that much white fiber.  How many bolts in total does it ",
+          "answer": "It takes 2/2=<<2/2=1>>1 bolt of white fiber\nSo the total amount of fabric is 2+1=<<2+1=3>>3 bolts of"
+        }
+      },
+      {
+        "index": 2,
+        "fields_content": {
+          "question": "Josh decides to try flipping a house.  He buys a house for $80,000 and then puts in $50,000 in repai",
+          "answer": "The cost of the house and repairs came out to 80,000+50,000=$<<80000+50000=130000>>130,000\nHe increa"
+        }
+      }
+    ]
+  },
+  "arc": {
+    "dataset": "ai2_arc",
+    "config": "ARC-Challenge",
+    "sample_count": 3,
+    "fields": [
+      "id",
+      "question",
+      "choices",
+      "answerKey"
+    ],
+    "field_types": {
+      "id": "<class 'str'>",
+      "question": "<class 'str'>",
+      "choices": "<class 'dict'>",
+      "answerKey": "<class 'str'>"
+    },
+    "samples": [
+      {
+        "index": 0,
+        "fields_content": {
+          "id": "Mercury_7175875",
+          "question": "An astronomer observes that a planet rotates faster after a meteorite impact. Which is the most like",
+          "choices": "dict with 2 items",
+          "answerKey": "C"
+        }
+      },
+      {
+        "index": 1,
+        "fields_content": {
+          "id": "Mercury_SC_409171",
+          "question": "A group of engineers wanted to know how different building designs would respond during an earthquak",
+          "choices": "dict with 2 items",
+          "answerKey": "B"
+        }
+      },
+      {
+        "index": 2,
+        "fields_content": {
+          "id": "Mercury_SC_408547",
+          "question": "The end result in the process of photosynthesis is the production of sugar and oxygen. Which step si",
+          "choices": "dict with 2 items",
+          "answerKey": "C"
+        }
+      }
+    ]
+  }
+}

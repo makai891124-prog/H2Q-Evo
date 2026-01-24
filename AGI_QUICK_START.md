@@ -32,6 +32,23 @@ python3 deploy_agi_final.py --hours 12 --download-data
 python3 deploy_agi_final.py --hours 4 --no-download
 ```
 
+### 本地快速验证与服务启动
+
+```bash
+# 最小实验（使用统一数学核心与内存守恒 orchestrator）
+PYTHONPATH=. python3 h2q_project/run_experiment.py
+
+# 启动推理服务 (FastAPI)
+PYTHONPATH=. uvicorn h2q_project.h2q_server:app --reload --host 0.0.0.0 --port 8000
+
+# 统一健康检查（核心架构 + 集成 + orchestrator 配置 + 数学核心冒烟）
+python3 tools/unified_audit.py
+
+# 入口说明
+# - 当前主入口: h2q_project/h2q_server.py
+# - 遗留文件: h2q_project/h2q_server_refactored.py 仅供参考，不再需要手动替换
+```
+
 ### 方式2: 分步执行
 
 ```bash
@@ -48,6 +65,10 @@ python3 agi_scientific_trainer.py \
 # 步骤3: 查看结果
 ls -lh agi_training_output/
 cat agi_training_output/agi_training_report_*.md
+cat agi_training_output/agi_training_results_*.json
+
+# 健康检查: 统一审计
+python3 tools/unified_audit.py
 ```
 
 ---

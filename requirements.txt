@@ -1,16 +1,8 @@
-# requirements.txt
-
-# This file lists the dependencies for the project.
-# It is automatically managed by pip.
-# To update dependencies, run: pip install -r requirements.txt
-
-# Updated based on security vulnerability scan and latest versions available as of 2024-01-01.
-# Replace with actual library names and versions.
-
-requests==2.31.0  # Example: Updated to address CVE-2023-XXXX vulnerability
-beautifulsoup4==4.12.2 # Example: Updated to latest minor version for bug fixes
-flask==2.3.3 # Example: Updated to latest patch version for security fixes
-pymongo==4.6.1 # Example: Updated to address potential injection vulnerabilities
-# Add other dependencies here and their versions.
-# Consult a vulnerability database or a dependency management tool like 'pip-audit' or 'safety' for specific vulnerabilities.
-# This is a placeholder, replace with actual dependencies and versions relevant to the project.
+torch
+fastapi
+uvicorn
+pydantic
+matplotlib
+python-dotenv
+docker
+requests
