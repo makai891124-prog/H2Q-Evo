@@ -1,16 +1,4 @@
 {
-  "64400_1769281322": {
-    "version": "64400_1769281322",
-    "timestamp": 1769281322.2243462,
-    "generation": 64400,
-    "accuracy": 0.9,
-    "loss": 0.1,
-    "model_hash": "fa1b8aba91eb6e31",
-    "data_hash": "3c20088282fe18fa",
-    "config_hash": "44136fa355b3678a",
-    "size_bytes": 291,
-    "description": "自动检查点 - 步骤 64400"
-  },
   "64500_1769281333": {
     "version": "64500_1769281333",
     "timestamp": 1769281333.0932212,
@@ -598,5 +586,17 @@
     "config_hash": "44136fa355b3678a",
     "size_bytes": 293,
     "description": "自动检查点 - 步骤 69300"
+  },
+  "69400_1769281866": {
+    "version": "69400_1769281866",
+    "timestamp": 1769281866.423997,
+    "generation": 69400,
+    "accuracy": 0.9,
+    "loss": 0.1,
+    "model_hash": "fa1b8aba91eb6e31",
+    "data_hash": "3c20088282fe18fa",
+    "config_hash": "44136fa355b3678a",
+    "size_bytes": 293,
+    "description": "自动检查点 - 步骤 69400"
   }
 }
