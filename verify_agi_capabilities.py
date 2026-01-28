@@ -77,14 +77,23 @@ def test_dde_smart_init():
         print(f"{Fore.CYAN}>>> DDE 当前签名: {sig}")
         
         params = {}
-        if 'latent_dim' in sig.parameters: params['latent_dim'] = 32
-        if 'num_actions' in sig.parameters: params['num_actions'] = 10
-        if 'dim' in sig.parameters: params['dim'] = 256
+        input_dim = 256
+        if 'state_dim' in sig.parameters:
+            params['state_dim'] = 256
+            input_dim = 256
+        if 'latent_dim' in sig.parameters:
+            params['latent_dim'] = 256
+            input_dim = 256
+        if 'dim' in sig.parameters:
+            params['dim'] = 256
+            input_dim = 256
+        if 'num_actions' in sig.parameters:
+            params['num_actions'] = 10
         
         dde = DiscreteDecisionEngine(**params)
         print(f"{Fore.GREEN}>>> DDE 实例化成功！")
         
-        dummy_input = torch.randn(1, 32)
+        dummy_input = torch.randn(1, input_dim)
         print(f"{Fore.YELLOW}>>> 正在测试前向传播 (Input: {dummy_input.shape})...")
         
         out = dde(dummy_input)

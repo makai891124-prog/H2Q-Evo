@@ -17,6 +17,7 @@ from dataclasses import dataclass, field
 from typing import List, Dict, Any, Optional, Tuple
 from enum import Enum
 import time
+import itertools
 import json
 from pathlib import Path
 
@@ -99,9 +100,20 @@ class PublicBenchmarkLoader:
             return self._load_humaneval(n)
         return []
 
+    def _safe_load_dataset(self, name: str, config: Optional[str], split: str):
+        """优先本地/常规加载，失败则流式回退。"""
+        try:
+            return self._load_dataset(name, config, split=split, cache_dir=self.cache_dir), False
+        except Exception:
+            ds = self._load_dataset(name, config, split=split, cache_dir=self.cache_dir, streaming=True)
+            return ds, True
+
     def _load_mmlu(self, n: int) -> List[BenchmarkQuestion]:
-        ds = self._load_dataset("cais/mmlu", "all", split="test", cache_dir=self.cache_dir)
-        items = ds.shuffle(seed=42).select(range(min(n, len(ds))))
+        ds, streaming = self._safe_load_dataset("cais/mmlu", "all", split="test")
+        if streaming:
+            items = list(itertools.islice(ds, n))
+        else:
+            items = ds.shuffle(seed=42).select(range(min(n, len(ds))))
         questions = []
         for idx, item in enumerate(items):
             questions.append(BenchmarkQuestion(
@@ -117,8 +129,11 @@ class PublicBenchmarkLoader:
         return questions
 
     def _load_gsm8k(self, n: int) -> List[BenchmarkQuestion]:
-        ds = self._load_dataset("gsm8k", "main", split="test", cache_dir=self.cache_dir)
-        items = ds.shuffle(seed=42).select(range(min(n, len(ds))))
+        ds, streaming = self._safe_load_dataset("gsm8k", "main", split="test")
+        if streaming:
+            items = list(itertools.islice(ds, n))
+        else:
+            items = ds.shuffle(seed=42).select(range(min(n, len(ds))))
         answers = [self._extract_final_answer(x["answer"]) for x in items]
         questions = []
         for idx, item in enumerate(items):
@@ -137,8 +152,11 @@ class PublicBenchmarkLoader:
         return questions
 
     def _load_arc(self, n: int) -> List[BenchmarkQuestion]:
-        ds = self._load_dataset("allenai/ai2_arc", "ARC-Challenge", split="test", cache_dir=self.cache_dir)
-        items = ds.shuffle(seed=42).select(range(min(n, len(ds))))
+        ds, streaming = self._safe_load_dataset("allenai/ai2_arc", "ARC-Challenge", split="test")
+        if streaming:
+            items = list(itertools.islice(ds, n))
+        else:
+            items = ds.shuffle(seed=42).select(range(min(n, len(ds))))
         questions = []
         for idx, item in enumerate(items):
             choices_obj = item.get("choices", {})
@@ -165,8 +183,11 @@ class PublicBenchmarkLoader:
         return questions
 
     def _load_hellaswag(self, n: int) -> List[BenchmarkQuestion]:
-        ds = self._load_dataset("hellaswag", split="validation", cache_dir=self.cache_dir)
-        items = ds.shuffle(seed=42).select(range(min(n, len(ds))))
+        ds, streaming = self._safe_load_dataset("hellaswag", None, split="validation")
+        if streaming:
+            items = list(itertools.islice(ds, n))
+        else:
+            items = ds.shuffle(seed=42).select(range(min(n, len(ds))))
         questions = []
         for idx, item in enumerate(items):
             ctx = item.get("ctx", "")
@@ -979,11 +1000,16 @@ def run_standard_benchmarks(agi_core=None,
                             answer_func: Optional[callable] = None,
                             public_only: bool = True) -> Dict[str, Any]:
     """运行标准基准测试（仅公开基准）."""
-    min_questions = 100 if public_only else 20
+    env_min = os.getenv("H2Q_PUBLIC_BENCH_MIN")
+    min_questions = int(env_min) if env_min and env_min.isdigit() else (100 if public_only else 20)
+    env_n = os.getenv("H2Q_PUBLIC_BENCH_N")
     if n_per_benchmark is None:
-        n_per_benchmark = min_questions
+        n_per_benchmark = int(env_n) if env_n and env_n.isdigit() else min_questions
     if n_per_benchmark < min_questions:
-        raise ValueError(f"题量不足：需要至少 {min_questions} 题用于分析。")
+        if os.getenv("H2Q_ALLOW_SMALL_PUBLIC_BENCH") == "1":
+            min_questions = n_per_benchmark
+        else:
+            raise ValueError(f"题量不足：需要至少 {min_questions} 题用于分析。")
     evaluator = create_benchmark_evaluator(public_only=public_only)
     answerer = create_agi_answerer(agi_core, answer_func=answer_func)
     

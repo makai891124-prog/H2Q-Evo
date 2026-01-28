@@ -251,9 +251,15 @@ class HonestCapabilityTester:
                 f"选项: {choices}\n"
                 f"要求: ranked按置信度降序，selected取前{k}个，probs长度等于选项数，且和为1。"
             )
-            result = gemini.query(prompt, use_cache=False)
-            if result.get("status") != "success":
-                return {"selected": [0]}
+            last_error = None
+            for attempt in range(3):
+                result = gemini.query(prompt, use_cache=True)
+                if result.get("status") == "success":
+                    break
+                last_error = result
+                time.sleep(1 + attempt * 2)
+            else:
+                return {"selected": [0], "error": str(last_error)}
             text = str(result.get("response", "")).strip()
             # 尝试提取JSON
             try:
@@ -290,12 +296,13 @@ class HonestCapabilityTester:
             raise RuntimeError("未提供公开基准答题函数（需要 GEMINI_API_KEY 或自定义 answer_func）。")
 
         print("\n📊 公开基准测试评估中 (多选/排序评分)...")
+        n_per_benchmark = int(os.getenv("H2Q_PUBLIC_BENCH_N", "100"))
         benchmark_report = run_standard_benchmarks(
             answer_func=self.answer_func,
-            n_per_benchmark=100,
+            n_per_benchmark=n_per_benchmark,
             public_only=True
         )
-        min_questions = 100
+        min_questions = int(os.getenv("H2Q_PUBLIC_BENCH_MIN", "100"))
         gate_passed = True
         for name, data in benchmark_report["results"].items():
             if data.get("total", 0) < min_questions:
