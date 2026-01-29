@@ -25,7 +25,7 @@ class FDCOptimizer(Optimizer):
         # Initialize Discrete Decision Engine for phase-deflection monitoring
         # Using canonical getter to avoid 'dim' keyword argument errors
         # Use a default latent_dim for monitoring purposes
-        self.dde = get_canonical_dde(latent_dim=256)
+        self.dde = get_canonical_dde(dim=256)
 
     @torch.no_grad()
     def step(self, closure=None):

@@ -67,7 +67,7 @@ class UnifiedMultimodalResonator(nn.Module):
         self.vision_proj = nn.Linear(3, dim * 4)   # YCbCr to Quaternions
         self.text_proj = nn.Embedding(256, dim * 4) # Bytes to Quaternions
         
-        self.decision_engine = DiscreteDecisionEngine(latent_dim=dim)
+        self.decision_engine = DiscreteDecisionEngine(dim=dim)
         self.spectral_tracker = nn.Parameter(torch.ones(1))
 
     def project_to_s3(self, x: torch.Tensor) -> torch.Tensor:

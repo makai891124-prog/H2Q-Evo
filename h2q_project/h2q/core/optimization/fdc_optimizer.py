@@ -25,7 +25,7 @@ class FDCOptimizer(Optimizer):
         
         # Initialize DDE with LatentConfig to avoid 'dim' keyword error
         # H2Q Manifold is 256-dim (64 knots * 4-atom quaternions)
-        config = LatentConfig(latent_dim=256)
+        config = LatentConfig(dim=256)
         self.dde = DiscreteDecisionEngine(config=config)
 
     @torch.no_grad()

@@ -1,0 +1,43 @@
+{
+  "timestamp": "2026-01-28T19:39:42.228301",
+  "is_honest_evaluation": true,
+  "tests": {
+    "mmlu": {
+      "score": 20.0,
+      "correct": 4.0,
+      "total": 20,
+      "method": "public_benchmark",
+      "is_honest": true
+    },
+    "gsm8k": {
+      "score": 25.0,
+      "correct": 5.0,
+      "total": 20,
+      "method": "public_benchmark",
+      "is_honest": true
+    },
+    "arc": {
+      "score": 25.0,
+      "correct": 5.0,
+      "total": 20,
+      "method": "public_benchmark",
+      "is_honest": true
+    },
+    "hellaswag": {
+      "score": 20.0,
+      "correct": 4.0,
+      "total": 20,
+      "method": "public_benchmark",
+      "is_honest": true
+    }
+  },
+  "benchmark_gate": {
+    "passed": true,
+    "public_only": true,
+    "min_questions_per_benchmark": 20,
+    "multi_select_scoring": true,
+    "timestamp": "2026-01-28T19:42:08.139238"
+  },
+  "overall_score": 22.5,
+  "grade": "需改进 (Needs Improvement)"
+}

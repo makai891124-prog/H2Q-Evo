@@ -16,7 +16,7 @@ class PoincareBargmannVisualizer:
         self.latent_dim = latent_dim
         
         # Initialize DDE using canonical registry to avoid 'dim' keyword errors
-        self.dde = get_canonical_dde(latent_dim=latent_dim)
+        self.dde = get_canonical_dde(dim=latent_dim)
         self.dde.to(device)
         
         # Visualization state

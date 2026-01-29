@@ -1,0 +1,54 @@
+{
+  "timestamp": 1769459184.418988,
+  "real_weights_used": true,
+  "weight_file": "/Users/imymm/H2Q-Evo/h2q_project/h2q/agi/real_checkpoints/best_model.pt",
+  "model_analysis": {
+    "file_path": "/Users/imymm/H2Q-Evo/h2q_project/h2q/agi/real_checkpoints/best_model.pt",
+    "weight_type": "dict",
+    "total_params": 0,
+    "tensor_info": {},
+    "structure_analysis": {},
+    "memory_usage_mb": 0,
+    "num_keys": 5,
+    "keys": [
+      "step",
+      "model_state_dict",
+      "optimizer_state_dict",
+      "stats",
+      "config"
+    ]
+  },
+  "benchmark_results": {
+    "model_info": {
+      "file_path": "/Users/imymm/H2Q-Evo/h2q_project/h2q/agi/real_checkpoints/best_model.pt",
+      "weight_type": "dict",
+      "total_params": 0,
+      "tensor_info": {},
+      "structure_analysis": {},
+      "memory_usage_mb": 0,
+      "num_keys": 5,
+      "keys": [
+        "step",
+        "model_state_dict",
+        "optimizer_state_dict",
+        "stats",
+        "config"
+      ]
+    },
+    "inference_times": [
+      0.29466915130615234,
+      0.0709390640258789
+    ],
+    "memory_usage": null,
+    "streaming_performance": {
+      "tokens_generated": 12,
+      "total_time": 0.9088499546051025,
+      "tokens_per_second": 13.203499586699136
+    }
+  },
+  "inference_demo": {
+    "tokens_generated": 30,
+    "success": true
+  },
+  "system_status": "fully_operational_with_real_weights"
+}

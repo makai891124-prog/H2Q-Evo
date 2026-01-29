@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-01-25T03:50:46.183843",
+  "timestamp": "2026-01-25T06:03:56.519076",
   "infrastructure_running": true,
   "training_running": true,
   "training_active": true,
@@ -8,8 +8,8 @@
   },
   "environment": {
     "cpu_percent": 0.0,
-    "memory_percent": 78.9,
-    "disk_percent": 4.4,
+    "memory_percent": 16.8,
+    "disk_percent": 3.9,
     "internet_connected": true
   },
   "network": {
@@ -18,19 +18,29 @@
   "training_status": {
     "training_active": true,
     "hot_generation_active": true,
-    "current_step": 111,
-    "best_loss": 2.400000000000002,
-    "best_accuracy": 0.0
+    "current_step": 4105,
+    "best_loss": 1.045042226711909,
+    "best_accuracy": 0.7150000000000005,
+    "geometric_metrics": {
+      "spectral_shift_eta_real": -0.02328496240079403,
+      "fractal_collapse_penalty": 0.26803794503211975,
+      "geometric_accuracy": 0.0,
+      "classification_f1": 0.0,
+      "classification_precision": 0.0,
+      "classification_recall": 0.0
+    }
   },
   "performance_metrics": {
-    "training_steps": 111,
-    "total_samples_processed": 3552,
-    "average_loss": 2.6000000000000023,
-    "learning_rate": 0.001,
+    "training_steps": 4105,
+    "total_samples_processed": 294752,
+    "average_loss": 1.045042226711909,
+    "learning_rate": 0.0001,
     "throttle_events": 0,
     "recovery_events": 0,
-    "memory_used_gb": 5.7983856201171875,
-    "cpu_usage": 0.0
+    "memory_used_gb": 2.15350341796875,
+    "cpu_usage": 0.0,
+    "geometric_convergence_rate": -0.02328496240079403,
+    "manifold_stability": 3.7308011336940896
   },
   "system_health": {
     "overall_health": "healthy"

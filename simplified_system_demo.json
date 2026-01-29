@@ -1,0 +1,15 @@
+{
+  "timestamp": 1769459096.42821,
+  "capabilities": {
+    "dimension_handling": true,
+    "mathematical_core": true,
+    "streaming_inference": true,
+    "local_conversion": true
+  },
+  "performance": {
+    "model_size_m": 11.451152,
+    "avg_inference_time": 0.0052662849426269535,
+    "tokens_generated": 20
+  },
+  "system_status": "operational"
+}

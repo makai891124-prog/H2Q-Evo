@@ -31,7 +31,7 @@ class RSKH_SSD_Persistence_Broker:
         self.target_reduction = target_reduction_gb * 1024**3
         
         # Initialize DDE for swap authorization (using LatentConfig to avoid 'dim' error)
-        config = LatentConfig(latent_dim=256, heads=8)
+        config = LatentConfig(dim=256, heads=8)
         self.dde = get_canonical_dde(config)
         
         self.knot_registry: Dict[str, str] = {}  # knot_id -> file_path

@@ -68,4 +68,4 @@ class DiscreteDecisionEngine(nn.Module):
             self.spectral_shift = torch.angle(det_s) / torch.pi
 
     def __repr__(self):
-        return f"DiscreteDecisionEngine(latent_dim={self.latent_dim}, num_concepts={self.num_concepts}, η={self.spectral_shift.item():.4f})"
+        return f"DiscreteDecisionEngine(dim={self.latent_dim}, num_concepts={self.num_concepts}, η={self.spectral_shift.item():.4f})"

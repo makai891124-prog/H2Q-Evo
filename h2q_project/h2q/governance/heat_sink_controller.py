@@ -26,7 +26,7 @@ class TopologicalHeatSinkController(nn.Module):
         
         # Correcting DDE initialization based on feedback: avoiding 'dim' keyword
         # Using LatentConfig as defined in h2q.core.discrete_decision_engine
-        config = LatentConfig(latent_dim=latent_dim)
+        config = LatentConfig(dim=latent_dim)
         self.dde = DiscreteDecisionEngine(config=config)
         self.sst = SpectralShiftTracker()
         

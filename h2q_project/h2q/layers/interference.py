@@ -47,7 +47,7 @@ class CPIGating(nn.Module):
         self.register_buffer("eta", torch.tensor(0.0))
         
         # Fixed DiscreteDecisionEngine call
-        self.decision_engine = DiscreteDecisionEngine(latent_dim=dim)
+        self.decision_engine = DiscreteDecisionEngine(dim=dim)
 
     def _to_spinors(self, x: torch.Tensor):
         # Reshape to complex spinors (B, N, H, D/2, 2)

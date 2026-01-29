@@ -99,7 +99,7 @@ class AVTGenomicTrainer:
 if __name__ == "__main__":
     # STABLE: Standardized config for Mac Mini M4
     m4_config = LatentConfig(
-        latent_dim=256, 
+        dim=256, 
         batch_size=4, 
         n_knots=64
     )

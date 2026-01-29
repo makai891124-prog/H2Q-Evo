@@ -67,7 +67,7 @@ class AutonomousSystem(nn.Module):
         
         # Components
         self.tpq = TopologicalPhaseQuantizer(self.num_quaternions)
-        self.decision_engine = DiscreteDecisionEngine(latent_dim=manifold_dim)
+        self.decision_engine = DiscreteDecisionEngine(dim=manifold_dim)
         
         # η-Signature Tracker (Spectral Shift)
         self.register_buffer('eta_history', torch.zeros(1))

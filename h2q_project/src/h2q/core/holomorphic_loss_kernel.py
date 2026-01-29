@@ -18,7 +18,7 @@ class HolomorphicLossKernel(nn.Module):
         
         # Initialize DDE via canonical factory to avoid 'dim' keyword errors found in registry
         # The DDE is used here to gate the loss based on the Spectral Shift Tracker (SST)
-        self.config = LatentConfig(latent_dim=256, num_clusters=64)
+        self.config = LatentConfig(dim=256, num_clusters=64)
         self.dde = get_canonical_dde(self.config)
 
     def _compute_discrete_fueter_operator(self, q_knot: torch.Tensor) -> torch.Tensor:

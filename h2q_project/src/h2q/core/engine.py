@@ -13,6 +13,12 @@ class LatentConfig:
     device: str = "mps" if torch.backends.mps.is_available() else "cpu"
     dtype: torch.dtype = torch.float32
     reversible: bool = True
+    n_choices: int = 3  # Number of decision choices
+    
+    @property
+    def latent_dim(self):
+        """Backward compatibility alias for dim."""
+        return self.dim
 
 class DiscreteDecisionEngine(nn.Module):
     """

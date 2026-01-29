@@ -54,7 +54,7 @@ class BargmannIsomorphismTrainer:
         
         # ELASTIC EXTENSION: Fix for 'dim' keyword error in DDE
         # Using get_canonical_dde to handle internal kwarg mapping
-        self.dde = get_canonical_dde(latent_dim=config.get('latent_dim', 256))
+        self.dde = get_canonical_dde(dim=config.get('latent_dim', 256))
         verify_dde_integrity(self.dde)
 
         self.sst = SpectralShiftTracker()

@@ -12,13 +12,10 @@ from typing import Dict, Any, Optional
 
 # 统一数学架构（用于特征增强与指标记录）
 try:
-    from h2q_project.src.h2q.core.unified_architecture import (
-        get_unified_h2q_architecture,
-        UnifiedH2QMathematicalArchitecture
-    )
-    _unified_arch: Optional[UnifiedH2QMathematicalArchitecture] = get_unified_h2q_architecture(dim=256, action_dim=64, device='cpu')
+    from das_core import create_das_based_architecture
+    _das_arch = create_das_based_architecture(dim=256)
 except Exception:
-    _unified_arch = None
+    _das_arch = None
 
 ORCHESTRATOR_CONFIG: Dict[str, Any] = {
     "memory_threshold_gb": 14.0,
@@ -30,7 +27,7 @@ try:
 except Exception:
     _orchestrator = None
 
-DDE_CONFIG = LatentConfig(latent_dim=256, n_choices=3, device="cpu")
+DDE_CONFIG = LatentConfig(dim=256, n_choices=3, device="cpu")
 _dde = get_canonical_dde(config=DDE_CONFIG)
 _sst = SpectralShiftTracker()
 _cumulative_eta = 0.0
@@ -104,14 +101,14 @@ for episode in range(2000):
     # a. 获取数据 (不变)
     context, y_true = get_data_batch()
 
-    # 使用统一数学架构进行特征增强与指标记录（可选）
-    if _unified_arch is not None:
+    # 使用DAS架构进行特征增强与指标记录（可选）
+    if _das_arch is not None:
         with torch.no_grad():
             enriched_input = pad_to_dim(context, 256)
-            enriched_output, info = _unified_arch(enriched_input)
-            # 记录数学指标
-            fueter_curv = info.get('holomorphic_consistency', {}).get('fueter_gradient_norm', 0.0)
-            integrity = info.get('global_integrity', 1.0)
+            das_result = _das_arch(enriched_input)
+            # 记录DAS指标
+            fueter_curv = das_result.get('invariant_distances', 0.0)
+            integrity = das_result.get('dimension', 3) / 8.0  # 简化的完整性度量
             history['fueter_curvature'].append(float(fueter_curv))
             history['math_integrity'].append(float(integrity))
     
@@ -186,15 +183,15 @@ for episode in range(2000):
     if episode % 200 == 0:
         # 我们打印 policy_loss 来监控优化过程
         extra = ""
-        if _unified_arch is not None:
-            extra = f", Integrity={history['math_integrity'][-1]:.3f}, Fueter={history['fueter_curvature'][-1]:.3f}"
+        if _das_arch is not None:
+            extra = f", Integrity={history['math_integrity'][-1]:.3f}, Invariant Distance={history['fueter_curvature'][-1]:.3f}"
         print(f"Episode {episode}: Task Loss={task_loss:.4f}, Policy Loss={policy_loss.item():.4f}, Autonomy Score={autonomy_choice:.2f}{extra}")
 
 # --- 6. 可视化结果 ---
 print("Experiment finished. Plotting results...")
-rows = 4 if _unified_arch is not None else 3
+rows = 4 if _das_arch is not None else 3
 fig, axs = plt.subplots(rows, 1, figsize=(10, 4 * rows))
-fig.suptitle('Autonomous System - First Experiment')
+fig.suptitle('DAS-Based Autonomous System - First Experiment')
 
 axs[0].plot(history['loss'])
 axs[0].set_title('Task Loss over Episodes')
@@ -212,9 +209,9 @@ axs[2].set_ylabel('Cumulative η')
 axs[2].set_xlabel('Episode')
 axs[2].grid(True)
 
-if _unified_arch is not None:
+if _das_arch is not None:
     axs[3].plot(history['math_integrity'])
-    axs[3].set_title('Mathematical Integrity (Unified Architecture)')
+    axs[3].set_title('Mathematical Integrity (DAS Architecture)')
     axs[3].set_ylabel('Integrity')
     axs[3].grid(True)
 

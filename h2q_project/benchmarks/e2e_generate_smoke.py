@@ -21,7 +21,7 @@ from h2q.decoder_simple import default_decoder
 
 def run_smoke(prompt: str = "hello h2q", max_new_tokens: int = 32) -> Dict[str, Any]:
     """Run single generation pass and return metrics."""
-    config = LatentConfig(latent_dim=256)
+    config = LatentConfig(dim=256)
     dde = get_canonical_dde(config=config)
     middleware = HolomorphicStreamingMiddleware(dde=dde, threshold=0.05)
 

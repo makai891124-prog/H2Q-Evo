@@ -20,7 +20,7 @@ class M4_AMX_JIT_Linker:
     def __init__(self, device: str = "mps"):
         self.device = torch.device(device)
         # Correctly initialize DDE using canonical method to avoid 'dim' keyword error
-        self.dde = get_canonical_dde(latent_dim=256) 
+        self.dde = get_canonical_dde(dim=256) 
         self.kernel_cache: Dict[str, Any] = {}
         
     def _generate_hamilton_msl(self, tile_size: int = 16) -> str:

@@ -21,7 +21,7 @@ class BerryPhaseInterferenceHead(nn.Module):
 
         # Correcting the DDE initialization to avoid 'dim' keyword error
         # Using LatentConfig as per h2q.core.discrete_decision_engine registry
-        config = LatentConfig(latent_dim=self.latent_dim)
+        config = LatentConfig(dim=self.latent_dim)
         self.dde = DiscreteDecisionEngine(config=config)
         self.sst = SpectralShiftTracker()
 

@@ -1,0 +1,39 @@
+{
+  "timestamp": "2026-01-29T17:26:43.072526",
+  "benchmark": "public_standard_benchmarks",
+  "local_server_url": "http://127.0.0.1:8000/chat",
+  "anti_cheat": {
+    "no_answer_key": true,
+    "no_dataset_leak": true,
+    "note": "仅提供问题与选项，不提供正确答案"
+  },
+  "results": {
+    "results": {
+      "mmlu": {
+        "accuracy": 0.4,
+        "correct": 2.0,
+        "total": 5,
+        "multi_select_accuracy": 0.4
+      },
+      "gsm8k": {
+        "accuracy": 0.2,
+        "correct": 1.0,
+        "total": 5,
+        "multi_select_accuracy": 0.2
+      },
+      "arc": {
+        "accuracy": 0.0,
+        "correct": 0.0,
+        "total": 5,
+        "multi_select_accuracy": 0.0
+      },
+      "hellaswag": {
+        "accuracy": 0.0,
+        "correct": 0.0,
+        "total": 5,
+        "multi_select_accuracy": 0.0
+      }
+    },
+    "report": "======================================================================\nH2Q AGI 标准人类基准测试报告\n======================================================================\n\n测试时间: 2026-01-29 17:26:43\n\n============================================================\n[MMLU]\n  总题数: 5\n  正确数(单选): 2.0\n  准确率(单选): 40.0%\n  多选评分: 40.0%\n  用时: 0.00s\n\n  与其他模型比较:\n    ❌ vs GPT-4: 86.4% (-46.4)\n    ❌ vs Claude-3: 86.8% (-46.8)\n    ❌ vs GPT-3.5: 70.0% (-30.0)\n    ❌ vs Llama-2-70B: 69.8% (-29.8)\n    ❌ vs Human-Expert: 89.8% (-49.8)\n    ✅ vs Human-Average: 34.5% (+5.5)\n\n  按学科:\n    college_physics: 100.0%\n    anatomy: 0.0%\n    high_school_statistics: 0.0%\n    miscellaneous: 0.0%\n    prehistory: 100.0%\n\n============================================================\n[GSM8K]\n  总题数: 5\n  正确数(单选): 1.0\n  准确率(单选): 20.0%\n  多选评分: 20.0%\n  用时: 0.00s\n\n  与其他模型比较:\n    ❌ vs GPT-4: 92.0% (-72.0)\n    ❌ vs Claude-3: 88.0% (-68.0)\n    ❌ vs GPT-3.5: 57.1% (-37.1)\n    ❌ vs Llama-2-70B: 56.8% (-36.8)\n    ❌ vs Human-Expert: 95.0% (-75.0)\n\n  按学科:\n    arithmetic: 20.0%\n\n============================================================\n[ARC]\n  总题数: 5\n  正确数(单选): 0.0\n  准确率(单选): 0.0%\n  多选评分: 0.0%\n  用时: 0.01s\n\n  与其他模型比较:\n    ❌ vs GPT-4: 96.3% (-96.3)\n    ❌ vs Claude-3: 96.4% (-96.4)\n    ❌ vs GPT-3.5: 85.2% (-85.2)\n    ❌ vs Llama-2-70B: 67.3% (-67.3)\n    ❌ vs Human-Expert: 95.0% (-95.0)\n\n  按学科:\n    science: 0.0%\n\n============================================================\n[HELLASWAG]\n  总题数: 5\n  正确数(单选): 0.0\n  准确率(单选): 0.0%\n  多选评分: 0.0%\n  用时: 0.00s\n\n  与其他模型比较:\n    ❌ vs GPT-4: 95.3% (-95.3)\n    ❌ vs Claude-3: 95.0% (-95.0)\n    ❌ vs GPT-3.5: 85.5% (-85.5)\n    ❌ vs Llama-2-70B: 87.3% (-87.3)\n    ❌ vs Human-Average: 95.6% (-95.6)\n\n  按学科:\n    commonsense: 0.0%\n\n============================================================\n总体评分(单选): 15.0%\n总题数: 20\n总正确(单选): 3.0\n等级: 需要提升 (Needs Improvement)\n======================================================================"
+  }
+}

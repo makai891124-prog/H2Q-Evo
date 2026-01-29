@@ -60,7 +60,7 @@ def run_isomorphism_test():
     BATCH_SIZE = 64
 
     # 2. VERIFY_SYMMETRY: Initialize DDE with correct 'dim'
-    dde = DiscreteDecisionEngine(dim=L1_DIM, latent_dim=MANIFOLD_DIM).to(device)
+    dde = DiscreteDecisionEngine(dim=L1_DIM, dim=MANIFOLD_DIM).to(device)
 
     # Simulate Vision and Text Manifold Projections (256-dim)
     # In a real run, these come from the Fractal Expansion Protocol

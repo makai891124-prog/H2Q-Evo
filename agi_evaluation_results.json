@@ -1,0 +1,36 @@
+{
+  "consciousness": {
+    "phi_mean": 0.0465,
+    "phi_std": 0.006,
+    "complexity_mean": 0.5049,
+    "complexity_std": 0.0604,
+    "self_model_accuracy_mean": 0.0351,
+    "self_model_accuracy_std": 0.0481,
+    "consciousness_stability": 0.9468
+  },
+  "learning": {
+    "learning_efficiency_mean": 0.0556,
+    "learning_efficiency_std": 0.0,
+    "learning_convergence_ratio": 0.9998,
+    "knowledge_patterns": 0
+  },
+  "goal_oriented": {
+    "goal_complexity_mean": 0.3,
+    "goal_diversity": 0.1,
+    "goal_progress_mean": 0.5,
+    "goal_progress_std": 0.0,
+    "active_goals": 3
+  },
+  "adaptability": {
+    "adaptability_mean": 0.0556,
+    "adaptability_trend": 0.0,
+    "environmental_robustness": 0.0556
+  },
+  "scores": {
+    "consciousness_score": 0.4068,
+    "learning_score": 0.0556,
+    "goal_score": 0.22,
+    "adaptability_score": 0.0556,
+    "overall_score": 0.4068
+  }
+}

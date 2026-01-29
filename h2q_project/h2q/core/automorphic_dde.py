@@ -190,7 +190,7 @@ class LieGroupAutomorphicDecisionEngine(nn.Module):
         
         return eta
     
-    def make_decision(self, state: torch.Tensor) -> Tuple[torch.Tensor, Dict[str, torch.Tensor]]:
+    def make_decision(self, state: torch.Tensor, temperature_override: Optional[float] = None) -> Tuple[torch.Tensor, Dict[str, torch.Tensor]]:
         """
         基于自动同构作用的决策制定
         """
@@ -219,7 +219,8 @@ class LieGroupAutomorphicDecisionEngine(nn.Module):
         decision_fused = torch.mean(decision_logits, dim=1)  # [batch, action_dim]
         
         # 5. 应用Gumbel-Softmax采样
-        action_probs = F.gumbel_softmax(decision_fused, tau=self.config.temperature, hard=True)
+        temperature = self.config.temperature if temperature_override is None else float(temperature_override)
+        action_probs = F.gumbel_softmax(decision_fused, tau=temperature, hard=True)
         
         # 6. 计算谱位移
         eta = self.compute_spectral_shift(state_transformed)
@@ -252,13 +253,14 @@ class LieGroupAutomorphicDecisionEngine(nn.Module):
             'topological_tear': topological_tear,
             'intermediates': auto_intermediates,
             'decision_logits': decision_fused,
+            'temperature': temperature,
         }
         
         return action_probs, results
     
-    def forward(self, state: torch.Tensor) -> Tuple[torch.Tensor, Dict[str, torch.Tensor]]:
+    def forward(self, state: torch.Tensor, temperature_override: Optional[float] = None) -> Tuple[torch.Tensor, Dict[str, torch.Tensor]]:
         """前向传播"""
-        return self.make_decision(state)
+        return self.make_decision(state, temperature_override=temperature_override)
 
 
 class DecisionHead(nn.Module):

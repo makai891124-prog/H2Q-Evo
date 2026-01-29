@@ -1,0 +1,185 @@
+{
+  "code_generation": [
+    {
+      "test_name": "simple_function",
+      "prompt": "Write a Python function to calculate factorial recursively",
+      "response_time": 20.837973833084106,
+      "success": true,
+      "quality_score": 1.0,
+      "output_length": 0,
+      "memory_used": 15.296875
+    },
+    {
+      "test_name": "class_implementation",
+      "prompt": "Create a Python class for a simple calculator with add, subtract, multiply, divide methods",
+      "response_time": 60.03114295005798,
+      "success": true,
+      "quality_score": 1.0,
+      "output_length": 0,
+      "memory_used": 10.390625
+    },
+    {
+      "test_name": "list_comprehension",
+      "prompt": "Write a list comprehension to filter even numbers from a list and square them",
+      "response_time": 2.221045970916748,
+      "success": true,
+      "quality_score": 1.0,
+      "output_length": 0,
+      "memory_used": 19.515625
+    },
+    {
+      "test_name": "file_operations",
+      "prompt": "Write Python code to read a text file, count word frequencies, and write results to another file",
+      "response_time": 60.01945090293884,
+      "success": true,
+      "quality_score": 1.0,
+      "output_length": 0,
+      "memory_used": 9.78125
+    },
+    {
+      "test_name": "api_simulation",
+      "prompt": "Create a simple REST API simulation using Flask with GET and POST endpoints",
+      "response_time": 9.658789873123169,
+      "success": true,
+      "quality_score": 1.0,
+      "output_length": 0,
+      "memory_used": 14.03125
+    }
+  ],
+  "mathematical_reasoning": [
+    {
+      "test_name": "algebraic_manipulation",
+      "prompt": "Solve for x: 2x + 3 = 7",
+      "expected_answer": "x = 2",
+      "difficulty": "basic",
+      "response_time": 52.29982900619507,
+      "success": true,
+      "accuracy_score": 0.5,
+      "memory_used": 13.828125
+    },
+    {
+      "test_name": "quadratic_equation",
+      "prompt": "Solve the quadratic equation: x² - 5x + 6 = 0",
+      "expected_answer": "x = 2 or x = 3",
+      "difficulty": "intermediate",
+      "response_time": 57.482343912124634,
+      "success": true,
+      "accuracy_score": 0.5,
+      "memory_used": 13.640625
+    },
+    {
+      "test_name": "system_of_equations",
+      "prompt": "Solve the system: 2x + y = 5, x - y = 1",
+      "expected_answer": "x = 2, y = 1",
+      "difficulty": "intermediate",
+      "response_time": 2.1762449741363525,
+      "success": true,
+      "accuracy_score": 0.5,
+      "memory_used": 18.5
+    },
+    {
+      "test_name": "calculus_derivative",
+      "prompt": "Find the derivative of f(x) = x³ + 2x² - x + 1",
+      "expected_answer": "f'(x) = 3x² + 4x - 1",
+      "difficulty": "advanced",
+      "response_time": 55.31236505508423,
+      "success": true,
+      "accuracy_score": 0.5,
+      "memory_used": 13.75
+    },
+    {
+      "test_name": "probability_calculation",
+      "prompt": "If you roll two fair dice, what is the probability of getting a sum of 7?",
+      "expected_answer": "6/36 = 1/6",
+      "difficulty": "intermediate",
+      "response_time": 40.21886110305786,
+      "success": true,
+      "accuracy_score": 0.5,
+      "memory_used": 13.8125
+    }
+  ],
+  "algorithmic_tasks": [
+    {
+      "test_name": "sorting_algorithm",
+      "prompt": "Explain and implement the quicksort algorithm in Python",
+      "expected_features": [
+        "algorithm_explanation",
+        "code_implementation",
+        "time_complexity"
+      ],
+      "response_time": 45.93281006813049,
+      "success": true,
+      "completeness_score": 0.0,
+      "output_length": 0,
+      "memory_used": 14.125
+    },
+    {
+      "test_name": "search_algorithm",
+      "prompt": "Implement binary search algorithm and explain when to use it",
+      "expected_features": [
+        "binary_search_code",
+        "use_cases",
+        "complexity_analysis"
+      ],
+      "response_time": 60.10153770446777,
+      "success": true,
+      "completeness_score": 0.0,
+      "output_length": 0,
+      "memory_used": 8.984375
+    },
+    {
+      "test_name": "dynamic_programming",
+      "prompt": "Solve the knapsack problem using dynamic programming",
+      "expected_features": [
+        "dp_table",
+        "optimal_solution",
+        "code_implementation"
+      ],
+      "response_time": 11.090123891830444,
+      "success": true,
+      "completeness_score": 0.0,
+      "output_length": 0,
+      "memory_used": 13.984375
+    },
+    {
+      "test_name": "graph_algorithm",
+      "prompt": "Implement breadth-first search (BFS) for graph traversal",
+      "expected_features": [
+        "bfs_implementation",
+        "queue_usage",
+        "visited_tracking"
+      ],
+      "response_time": 51.72694802284241,
+      "success": true,
+      "completeness_score": 0.0,
+      "output_length": 0,
+      "memory_used": 13.625
+    },
+    {
+      "test_name": "optimization_problem",
+      "prompt": "Find the maximum subarray sum using Kadane's algorithm",
+      "expected_features": [
+        "kadane_algorithm",
+        "linear_time_solution",
+        "edge_cases"
+      ],
+      "response_time": 39.9536452293396,
+      "success": true,
+      "completeness_score": 0.0,
+      "output_length": 0,
+      "memory_used": 13.515625
+    }
+  ],
+  "memory_usage": {
+    "peak_memory": 18.40625,
+    "average_memory": 9.3115625,
+    "memory_samples": 100
+  },
+  "performance_metrics": {
+    "total_benchmark_time": 569.0771298408508,
+    "tests_completed": 15,
+    "success_rate": 1.0,
+    "average_response_time": 37.93754083315532,
+    "memory_efficiency": 10.0
+  }
+}

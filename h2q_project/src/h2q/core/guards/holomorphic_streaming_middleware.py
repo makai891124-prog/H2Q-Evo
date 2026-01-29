@@ -28,7 +28,7 @@ class HolomorphicStreamingMiddleware(nn.Module):
     ):
         super().__init__()
         # Accept explicit DDE to match server usage; otherwise build canonical instance.
-        self.dde = dde if dde is not None else (get_canonical_dde(config) if config else get_canonical_dde())
+        self.dde = dde if dde is not None else (get_canonical_dde(dim=config.dim, device=config.device) if config else get_canonical_dde())
         self.auditor = HighOrderFueterAuditor()
         self.veracity_threshold = threshold
         self.manifold_history: List[torch.Tensor] = []

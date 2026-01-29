@@ -189,6 +189,10 @@ class KnotInvariantProcessor(nn.Module):
     def __init__(self, config: LieAutomorphismConfig):
         super().__init__()
         self.config = config
+
+        # 二进制流闭环签名投影
+        self.binary_signature_projector = nn.Linear(1, 1, bias=False)
+        self.binary_gate = nn.Parameter(torch.tensor(0.0, dtype=config.dtype))
         
         # Alexander多项式系数 (动态学习)
         self.alexander_poly_coeff = nn.Parameter(
@@ -228,7 +232,7 @@ class KnotInvariantProcessor(nn.Module):
         q_powers = q.unsqueeze(-1) ** powers
         return torch.sum(self.jones_poly_coeff * q_powers, dim=-1)
     
-    def knot_genus_signature(self, x: torch.Tensor) -> torch.Tensor:
+    def knot_genus_signature(self, x: torch.Tensor, binary_signature: Optional[torch.Tensor] = None) -> torch.Tensor:
         """
         纽结亏格与签名不变量
         返回拓扑不变量特征向量
@@ -245,6 +249,12 @@ class KnotInvariantProcessor(nn.Module):
             signature.to(device).to(dtype).unsqueeze(0).expand(x.shape[0], 1),
             x.mean(dim=1, keepdim=True)
         ], dim=1)
+
+        # 二进制闭环注入（轻量增量）
+        if binary_signature is not None:
+            sig = binary_signature.to(device=device, dtype=dtype).unsqueeze(-1)  # [B,1]
+            sig_delta = self.binary_signature_projector(sig) * torch.tanh(self.binary_gate)
+            invariants = invariants + sig_delta
         
         return invariants
 
@@ -336,7 +346,7 @@ class AutomaticAutomorphismOrchestrator(nn.Module):
             for _ in range(4)  # 4个主要模块
         ])
     
-    def compose_automorphisms(self, x: torch.Tensor) -> Tuple[torch.Tensor, Dict[str, torch.Tensor]]:
+    def compose_automorphisms(self, x: torch.Tensor, binary_signature: Optional[torch.Tensor] = None) -> Tuple[torch.Tensor, Dict[str, torch.Tensor]]:
         """
         组合所有自动同构变换
         返回变换后的张量与中间表示
@@ -367,8 +377,9 @@ class AutomaticAutomorphismOrchestrator(nn.Module):
         intermediate_states['fractal'] = x_fractal
         
         # 3. 纽结不变量计算
-        knot_invariants = self.knot_module.knot_genus_signature(x_expanded)
+        knot_invariants = self.knot_module.knot_genus_signature(x_expanded, binary_signature=binary_signature)
         intermediate_states['knot_invariants'] = knot_invariants
+        intermediate_states['binary_knot_signature'] = binary_signature
         
         # 4. 非交换几何反射
         x_reflected = x_expanded
@@ -386,9 +397,9 @@ class AutomaticAutomorphismOrchestrator(nn.Module):
         
         return combined_output, intermediate_states
     
-    def forward(self, x: torch.Tensor) -> Tuple[torch.Tensor, Dict[str, torch.Tensor]]:
+    def forward(self, x: torch.Tensor, binary_signature: Optional[torch.Tensor] = None) -> Tuple[torch.Tensor, Dict[str, torch.Tensor]]:
         """前向传播"""
-        return self.compose_automorphisms(x)
+        return self.compose_automorphisms(x, binary_signature=binary_signature)
 
 
 # 工厂函数

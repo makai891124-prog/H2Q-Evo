@@ -1,0 +1,25 @@
+{
+  "timestamp": 1769458027.7049549,
+  "system_memory": {
+    "total_gb": 16.0,
+    "available_gb": 3.2238616943359375,
+    "used_gb": 11.046127319335938,
+    "percentage": 79.9
+  },
+  "tests": {
+    "ollama_basic": true,
+    "deepseek_simple": {
+      "success": true,
+      "inference_time": 0.9520580768585205,
+      "output_length": 76,
+      "memory_delta_gb": 0.00372314453125,
+      "output": "Sure, here is a simple program that prints 'Hello World':\n\n```python\nprint(\""
+    },
+    "crystallization": {
+      "success": true,
+      "compression_ratio": 23.25014310246136,
+      "quality_score": 0.0,
+      "crystallization_time": 0.02282094955444336
+    }
+  }
+}

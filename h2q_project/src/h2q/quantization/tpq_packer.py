@@ -19,7 +19,7 @@ class TPQBitPacker(nn.Module):
         
         # Fix for Runtime Error: DiscreteDecisionEngine.__init__() got an unexpected keyword argument 'dim'
         # Using canonical registry to instantiate DDE with LatentConfig
-        config = LatentConfig(latent_dim=self.total_dim)
+        config = LatentConfig(dim=self.total_dim)
         self.dde = get_canonical_dde(config)
 
     @torch.no_grad()

@@ -1,0 +1,36 @@
+{
+  "training_duration": 0,
+  "total_steps": 1,
+  "knowledge_expansions": 0,
+  "learning_progress": {
+    "text_ratio": 0.0,
+    "visual_ratio": 0.0,
+    "hybrid_ratio": 0.0
+  },
+  "modality_distribution": {
+    "text": 0,
+    "code": 0,
+    "math": 0,
+    "reasoning": 0,
+    "technical": 0
+  },
+  "visual_learning_steps": 0,
+  "hybrid_learning_steps": 0,
+  "expander_stats": {
+    "api_calls": 0,
+    "cache_hits": 0,
+    "cache_misses": 0,
+    "errors": 0,
+    "last_reset": 1769632441.396885,
+    "hit_rate": 0,
+    "current_queue_size": 0,
+    "memory_cache_size": 0
+  },
+  "performance_metrics": {
+    "learning_efficiency": 0.0,
+    "modality_balance": 0.0,
+    "visual_processing_time": 0.0
+  },
+  "final_system_status": {},
+  "completion_time": "2026-01-29T04:34:04.856131"
+}

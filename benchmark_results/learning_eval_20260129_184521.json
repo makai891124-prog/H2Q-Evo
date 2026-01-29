@@ -1,0 +1,21 @@
+{
+  "timestamp": "2026-01-29T18:45:21.849334",
+  "dataset": "CIFAR10",
+  "train_split": 0.9,
+  "val_split": 0.1,
+  "regularization": {
+    "weight_decay": 0.0001,
+    "label_smoothing": 0.05,
+    "dropout": "model default",
+    "early_stopping": 2
+  },
+  "best_val_accuracy": 0.02,
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 2.3220862627029417,
+      "val_loss": 2.3089970111846925,
+      "val_accuracy": 0.02
+    }
+  ]
+}

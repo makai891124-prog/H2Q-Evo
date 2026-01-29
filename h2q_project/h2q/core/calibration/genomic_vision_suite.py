@@ -18,7 +18,7 @@ class GenomicVisionCalibrationSuite(nn.Module):
         
         # Use canonical DDE to avoid 'dim' keyword error identified in feedback
         # The registry handles the mapping of latent_dim to the internal engine configuration
-        self.dde = get_canonical_dde(latent_dim=latent_dim)
+        self.dde = get_canonical_dde(dim=latent_dim)
         self.sst = SpectralShiftTracker()
         
         # Core Aligner for SU(2) projections

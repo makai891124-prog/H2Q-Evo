@@ -9,7 +9,7 @@ class ModalitySynchronizer(nn.Module):
     Synchronizes Audio, Vision, and Text manifolds by enforcing parallel transport 
     and minimizing Berry Curvature variance across modalities.
     """
-    def __init__(self, latent_dim=256, dde_config=None):
+    def __init__(self, dim=256, dde_config=None):
         super().__init__()
         self.latent_dim = latent_dim
         

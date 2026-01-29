@@ -1,0 +1,96 @@
+{
+  "timestamp": 1769459585.379213,
+  "system_config": {
+    "deepseek_model": "deepseek-coder:6.7b",
+    "memory_limit_mb": 2048,
+    "benchmark_iterations": 50
+  },
+  "deepseek_benchmarks": [
+    {
+      "success": true,
+      "response": "Sure, here's the Python code for calculating factorial using recursion:\n\n```python\ndef factorial(n): \n    if n == 0 or n==1 : # base case of recursive function\n        return ",
+      "inference_time": 2.166015148162842,
+      "memory_used": 0,
+      "tokens_generated": 27,
+      "tokens_per_sec": 12.465286783843919,
+      "test_name": "test_1",
+      "prompt": "Write a Python function to calculate factorial recursively"
+    },
+    {
+      "success": true,
+      "response": "Here's an example of how this might look in Python:\n\n```python\nclass Calculator:\n    def __init__(self):\n        pass\n    \n    def add(self, num1, num2):\n       ",
+      "inference_time": 2.125670909881592,
+      "memory_used": 0,
+      "tokens_generated": 20,
+      "tokens_per_sec": 9.408794139782474,
+      "test_name": "test_2",
+      "prompt": "Create a simple calculator class with add, subtract, multiply, divide methods"
+    },
+    {
+      "success": true,
+      "response": "Sure, let's say you have a list of numbers as follows:\n```python\nnumbers = [1, 2, 3, 4, 5, 6]\n```\nYou can use the following code with",
+      "inference_time": 2.17360520362854,
+      "memory_used": 31.375,
+      "tokens_generated": 28,
+      "tokens_per_sec": 12.88182414785251,
+      "test_name": "test_3",
+      "prompt": "Write a list comprehension to filter even numbers and square them"
+    },
+    {
+      "success": true,
+      "response": "Creating a simple RESTful API with Flask requires setting up an instance of the Flask web server (which serves as our API), then defining routes for different HTTP methods that we want our app to respond to. \n\nHere'",
+      "inference_time": 2.2879831790924072,
+      "memory_used": 0,
+      "tokens_generated": 38,
+      "tokens_per_sec": 16.60851371078426,
+      "test_name": "test_4",
+      "prompt": "Create a REST API simulation using Flask"
+    },
+    {
+      "success": true,
+      "response": "Sure, here's an example of Python code that reads a text file and counts the occurrences of each word using a dictionary. This assumes words are separated by spaces or newline characters:\n\n```python\nfrom collections import defaultdict",
+      "inference_time": 2.1536920070648193,
+      "memory_used": 51.703125,
+      "tokens_generated": 37,
+      "tokens_per_sec": 17.179800955116985,
+      "test_name": "test_5",
+      "prompt": "Write code to read a file and count word frequencies"
+    }
+  ],
+  "crystallization_benchmarks": {
+    "model_name": "benchmark_model",
+    "original_quality": 0.5,
+    "compressed_quality": 0.5,
+    "quality_preservation": 1.0,
+    "compression_ratio": 1.0,
+    "memory_savings_mb": 0.0,
+    "success": true
+  },
+  "memory_optimization": {
+    "initial_memory_mb": 10310.453125,
+    "final_memory_mb": 9929.734375,
+    "memory_delta_mb": -380.71875,
+    "within_budget": false,
+    "budget_limit_mb": 2048,
+    "optimizations_applied": [
+      "垃圾回收: 0个对象",
+      "线程池优化"
+    ],
+    "system_memory_percent": 84.5
+  },
+  "integration_tests": {
+    "deepseek_available": true,
+    "memory_within_budget": false,
+    "crystallization_quality_ok": true,
+    "all_systems_operational": false
+  },
+  "summary": {
+    "total_tests": 5,
+    "successful_tests": 5,
+    "avg_inference_time": 2.18139328956604,
+    "avg_tokens_per_sec": 13.70884394747603,
+    "crystallization_quality": 1.0,
+    "memory_optimized": false,
+    "system_integrity": false
+  }
+}

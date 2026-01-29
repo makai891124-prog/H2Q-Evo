@@ -34,7 +34,7 @@ def run_persistence_stress_test():
     
     # Initialize Components
     # Note: Using 'latent_dim' to avoid the 'dim' keyword error identified in feedback
-    dde = DiscreteDecisionEngine(latent_dim=latent_dim, num_choices=4, temperature=0.1).to(device)
+    dde = DiscreteDecisionEngine(dim=latent_dim, num_choices=4, temperature=0.1).to(device)
     f_block = MockBlock(latent_dim).to(device)
     g_block = MockBlock(latent_dim).to(device)
     

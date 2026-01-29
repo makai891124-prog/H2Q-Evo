@@ -1,0 +1,24 @@
+{
+  "commonsense_reasoning": {
+    "score": 0.0,
+    "questions_tested": 3,
+    "description": "常识推理测试"
+  },
+  "logical_reasoning": {
+    "score": 0.0,
+    "puzzles_tested": 3,
+    "description": "逻辑推理测试"
+  },
+  "mathematical_ability": {
+    "score": 0.0,
+    "problems_tested": 3,
+    "description": "数学能力测试"
+  },
+  "language_understanding": {
+    "score": 0.001898756328349312,
+    "texts_tested": 3,
+    "description": "语言理解测试"
+  },
+  "overall_score": 0.000474689082087328,
+  "agi_threshold_met": false
+}

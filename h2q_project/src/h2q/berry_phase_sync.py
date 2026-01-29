@@ -19,7 +19,7 @@ class CrossModal_Berry_Phase_Sync(nn.Module):
         # Registry: USCBarycenter.__init__(input_dims, latent_dim, device)
         self.barycenter_engine = USCBarycenter(
             input_dims=[audio_dim, vision_dim, text_dim], 
-            latent_dim=latent_dim, 
+            dim=latent_dim, 
             device=device
         )
 

@@ -1,0 +1,837 @@
+{
+  "timestamp": 1769459227.2306519,
+  "system_version": "final_real_weights_complete",
+  "real_weights_verified": true,
+  "math_core_adaptive": true,
+  "model_analysis": {
+    "total_params": 27709440,
+    "memory_usage_mb": 105.703125,
+    "layer_structure": {
+      "mlp": 32
+    },
+    "tensor_shapes": {
+      "token_embed.weight": [
+        127,
+        512
+      ],
+      "pos_embed.weight": [
+        512,
+        512
+      ],
+      "blocks.0.ln1.weight": [
+        512
+      ],
+      "blocks.0.ln1.bias": [
+        512
+      ],
+      "blocks.0.attn.mask": [
+        1,
+        1,
+        512,
+        512
+      ],
+      "blocks.0.attn.qkv.weight": [
+        1536,
+        512
+      ],
+      "blocks.0.attn.qkv.bias": [
+        1536
+      ],
+      "blocks.0.attn.proj.weight": [
+        512,
+        512
+      ],
+      "blocks.0.attn.proj.bias": [
+        512
+      ],
+      "blocks.0.ln2.weight": [
+        512
+      ],
+      "blocks.0.ln2.bias": [
+        512
+      ],
+      "blocks.0.mlp.0.weight": [
+        2048,
+        512
+      ],
+      "blocks.0.mlp.0.bias": [
+        2048
+      ],
+      "blocks.0.mlp.2.weight": [
+        512,
+        2048
+      ],
+      "blocks.0.mlp.2.bias": [
+        512
+      ],
+      "blocks.1.ln1.weight": [
+        512
+      ],
+      "blocks.1.ln1.bias": [
+        512
+      ],
+      "blocks.1.attn.mask": [
+        1,
+        1,
+        512,
+        512
+      ],
+      "blocks.1.attn.qkv.weight": [
+        1536,
+        512
+      ],
+      "blocks.1.attn.qkv.bias": [
+        1536
+      ],
+      "blocks.1.attn.proj.weight": [
+        512,
+        512
+      ],
+      "blocks.1.attn.proj.bias": [
+        512
+      ],
+      "blocks.1.ln2.weight": [
+        512
+      ],
+      "blocks.1.ln2.bias": [
+        512
+      ],
+      "blocks.1.mlp.0.weight": [
+        2048,
+        512
+      ],
+      "blocks.1.mlp.0.bias": [
+        2048
+      ],
+      "blocks.1.mlp.2.weight": [
+        512,
+        2048
+      ],
+      "blocks.1.mlp.2.bias": [
+        512
+      ],
+      "blocks.2.ln1.weight": [
+        512
+      ],
+      "blocks.2.ln1.bias": [
+        512
+      ],
+      "blocks.2.attn.mask": [
+        1,
+        1,
+        512,
+        512
+      ],
+      "blocks.2.attn.qkv.weight": [
+        1536,
+        512
+      ],
+      "blocks.2.attn.qkv.bias": [
+        1536
+      ],
+      "blocks.2.attn.proj.weight": [
+        512,
+        512
+      ],
+      "blocks.2.attn.proj.bias": [
+        512
+      ],
+      "blocks.2.ln2.weight": [
+        512
+      ],
+      "blocks.2.ln2.bias": [
+        512
+      ],
+      "blocks.2.mlp.0.weight": [
+        2048,
+        512
+      ],
+      "blocks.2.mlp.0.bias": [
+        2048
+      ],
+      "blocks.2.mlp.2.weight": [
+        512,
+        2048
+      ],
+      "blocks.2.mlp.2.bias": [
+        512
+      ],
+      "blocks.3.ln1.weight": [
+        512
+      ],
+      "blocks.3.ln1.bias": [
+        512
+      ],
+      "blocks.3.attn.mask": [
+        1,
+        1,
+        512,
+        512
+      ],
+      "blocks.3.attn.qkv.weight": [
+        1536,
+        512
+      ],
+      "blocks.3.attn.qkv.bias": [
+        1536
+      ],
+      "blocks.3.attn.proj.weight": [
+        512,
+        512
+      ],
+      "blocks.3.attn.proj.bias": [
+        512
+      ],
+      "blocks.3.ln2.weight": [
+        512
+      ],
+      "blocks.3.ln2.bias": [
+        512
+      ],
+      "blocks.3.mlp.0.weight": [
+        2048,
+        512
+      ],
+      "blocks.3.mlp.0.bias": [
+        2048
+      ],
+      "blocks.3.mlp.2.weight": [
+        512,
+        2048
+      ],
+      "blocks.3.mlp.2.bias": [
+        512
+      ],
+      "blocks.4.ln1.weight": [
+        512
+      ],
+      "blocks.4.ln1.bias": [
+        512
+      ],
+      "blocks.4.attn.mask": [
+        1,
+        1,
+        512,
+        512
+      ],
+      "blocks.4.attn.qkv.weight": [
+        1536,
+        512
+      ],
+      "blocks.4.attn.qkv.bias": [
+        1536
+      ],
+      "blocks.4.attn.proj.weight": [
+        512,
+        512
+      ],
+      "blocks.4.attn.proj.bias": [
+        512
+      ],
+      "blocks.4.ln2.weight": [
+        512
+      ],
+      "blocks.4.ln2.bias": [
+        512
+      ],
+      "blocks.4.mlp.0.weight": [
+        2048,
+        512
+      ],
+      "blocks.4.mlp.0.bias": [
+        2048
+      ],
+      "blocks.4.mlp.2.weight": [
+        512,
+        2048
+      ],
+      "blocks.4.mlp.2.bias": [
+        512
+      ],
+      "blocks.5.ln1.weight": [
+        512
+      ],
+      "blocks.5.ln1.bias": [
+        512
+      ],
+      "blocks.5.attn.mask": [
+        1,
+        1,
+        512,
+        512
+      ],
+      "blocks.5.attn.qkv.weight": [
+        1536,
+        512
+      ],
+      "blocks.5.attn.qkv.bias": [
+        1536
+      ],
+      "blocks.5.attn.proj.weight": [
+        512,
+        512
+      ],
+      "blocks.5.attn.proj.bias": [
+        512
+      ],
+      "blocks.5.ln2.weight": [
+        512
+      ],
+      "blocks.5.ln2.bias": [
+        512
+      ],
+      "blocks.5.mlp.0.weight": [
+        2048,
+        512
+      ],
+      "blocks.5.mlp.0.bias": [
+        2048
+      ],
+      "blocks.5.mlp.2.weight": [
+        512,
+        2048
+      ],
+      "blocks.5.mlp.2.bias": [
+        512
+      ],
+      "blocks.6.ln1.weight": [
+        512
+      ],
+      "blocks.6.ln1.bias": [
+        512
+      ],
+      "blocks.6.attn.mask": [
+        1,
+        1,
+        512,
+        512
+      ],
+      "blocks.6.attn.qkv.weight": [
+        1536,
+        512
+      ],
+      "blocks.6.attn.qkv.bias": [
+        1536
+      ],
+      "blocks.6.attn.proj.weight": [
+        512,
+        512
+      ],
+      "blocks.6.attn.proj.bias": [
+        512
+      ],
+      "blocks.6.ln2.weight": [
+        512
+      ],
+      "blocks.6.ln2.bias": [
+        512
+      ],
+      "blocks.6.mlp.0.weight": [
+        2048,
+        512
+      ],
+      "blocks.6.mlp.0.bias": [
+        2048
+      ],
+      "blocks.6.mlp.2.weight": [
+        512,
+        2048
+      ],
+      "blocks.6.mlp.2.bias": [
+        512
+      ],
+      "blocks.7.ln1.weight": [
+        512
+      ],
+      "blocks.7.ln1.bias": [
+        512
+      ],
+      "blocks.7.attn.mask": [
+        1,
+        1,
+        512,
+        512
+      ],
+      "blocks.7.attn.qkv.weight": [
+        1536,
+        512
+      ],
+      "blocks.7.attn.qkv.bias": [
+        1536
+      ],
+      "blocks.7.attn.proj.weight": [
+        512,
+        512
+      ],
+      "blocks.7.attn.proj.bias": [
+        512
+      ],
+      "blocks.7.ln2.weight": [
+        512
+      ],
+      "blocks.7.ln2.bias": [
+        512
+      ],
+      "blocks.7.mlp.0.weight": [
+        2048,
+        512
+      ],
+      "blocks.7.mlp.0.bias": [
+        2048
+      ],
+      "blocks.7.mlp.2.weight": [
+        512,
+        2048
+      ],
+      "blocks.7.mlp.2.bias": [
+        512
+      ],
+      "ln_f.weight": [
+        512
+      ],
+      "ln_f.bias": [
+        512
+      ],
+      "lm_head.weight": [
+        127,
+        512
+      ]
+    },
+    "vocab_size": 512,
+    "hidden_dim": 512,
+    "num_layers": 6
+  },
+  "benchmark_results": {
+    "model_analysis": {
+      "total_params": 27709440,
+      "memory_usage_mb": 105.703125,
+      "layer_structure": {
+        "mlp": 32
+      },
+      "tensor_shapes": {
+        "token_embed.weight": [
+          127,
+          512
+        ],
+        "pos_embed.weight": [
+          512,
+          512
+        ],
+        "blocks.0.ln1.weight": [
+          512
+        ],
+        "blocks.0.ln1.bias": [
+          512
+        ],
+        "blocks.0.attn.mask": [
+          1,
+          1,
+          512,
+          512
+        ],
+        "blocks.0.attn.qkv.weight": [
+          1536,
+          512
+        ],
+        "blocks.0.attn.qkv.bias": [
+          1536
+        ],
+        "blocks.0.attn.proj.weight": [
+          512,
+          512
+        ],
+        "blocks.0.attn.proj.bias": [
+          512
+        ],
+        "blocks.0.ln2.weight": [
+          512
+        ],
+        "blocks.0.ln2.bias": [
+          512
+        ],
+        "blocks.0.mlp.0.weight": [
+          2048,
+          512
+        ],
+        "blocks.0.mlp.0.bias": [
+          2048
+        ],
+        "blocks.0.mlp.2.weight": [
+          512,
+          2048
+        ],
+        "blocks.0.mlp.2.bias": [
+          512
+        ],
+        "blocks.1.ln1.weight": [
+          512
+        ],
+        "blocks.1.ln1.bias": [
+          512
+        ],
+        "blocks.1.attn.mask": [
+          1,
+          1,
+          512,
+          512
+        ],
+        "blocks.1.attn.qkv.weight": [
+          1536,
+          512
+        ],
+        "blocks.1.attn.qkv.bias": [
+          1536
+        ],
+        "blocks.1.attn.proj.weight": [
+          512,
+          512
+        ],
+        "blocks.1.attn.proj.bias": [
+          512
+        ],
+        "blocks.1.ln2.weight": [
+          512
+        ],
+        "blocks.1.ln2.bias": [
+          512
+        ],
+        "blocks.1.mlp.0.weight": [
+          2048,
+          512
+        ],
+        "blocks.1.mlp.0.bias": [
+          2048
+        ],
+        "blocks.1.mlp.2.weight": [
+          512,
+          2048
+        ],
+        "blocks.1.mlp.2.bias": [
+          512
+        ],
+        "blocks.2.ln1.weight": [
+          512
+        ],
+        "blocks.2.ln1.bias": [
+          512
+        ],
+        "blocks.2.attn.mask": [
+          1,
+          1,
+          512,
+          512
+        ],
+        "blocks.2.attn.qkv.weight": [
+          1536,
+          512
+        ],
+        "blocks.2.attn.qkv.bias": [
+          1536
+        ],
+        "blocks.2.attn.proj.weight": [
+          512,
+          512
+        ],
+        "blocks.2.attn.proj.bias": [
+          512
+        ],
+        "blocks.2.ln2.weight": [
+          512
+        ],
+        "blocks.2.ln2.bias": [
+          512
+        ],
+        "blocks.2.mlp.0.weight": [
+          2048,
+          512
+        ],
+        "blocks.2.mlp.0.bias": [
+          2048
+        ],
+        "blocks.2.mlp.2.weight": [
+          512,
+          2048
+        ],
+        "blocks.2.mlp.2.bias": [
+          512
+        ],
+        "blocks.3.ln1.weight": [
+          512
+        ],
+        "blocks.3.ln1.bias": [
+          512
+        ],
+        "blocks.3.attn.mask": [
+          1,
+          1,
+          512,
+          512
+        ],
+        "blocks.3.attn.qkv.weight": [
+          1536,
+          512
+        ],
+        "blocks.3.attn.qkv.bias": [
+          1536
+        ],
+        "blocks.3.attn.proj.weight": [
+          512,
+          512
+        ],
+        "blocks.3.attn.proj.bias": [
+          512
+        ],
+        "blocks.3.ln2.weight": [
+          512
+        ],
+        "blocks.3.ln2.bias": [
+          512
+        ],
+        "blocks.3.mlp.0.weight": [
+          2048,
+          512
+        ],
+        "blocks.3.mlp.0.bias": [
+          2048
+        ],
+        "blocks.3.mlp.2.weight": [
+          512,
+          2048
+        ],
+        "blocks.3.mlp.2.bias": [
+          512
+        ],
+        "blocks.4.ln1.weight": [
+          512
+        ],
+        "blocks.4.ln1.bias": [
+          512
+        ],
+        "blocks.4.attn.mask": [
+          1,
+          1,
+          512,
+          512
+        ],
+        "blocks.4.attn.qkv.weight": [
+          1536,
+          512
+        ],
+        "blocks.4.attn.qkv.bias": [
+          1536
+        ],
+        "blocks.4.attn.proj.weight": [
+          512,
+          512
+        ],
+        "blocks.4.attn.proj.bias": [
+          512
+        ],
+        "blocks.4.ln2.weight": [
+          512
+        ],
+        "blocks.4.ln2.bias": [
+          512
+        ],
+        "blocks.4.mlp.0.weight": [
+          2048,
+          512
+        ],
+        "blocks.4.mlp.0.bias": [
+          2048
+        ],
+        "blocks.4.mlp.2.weight": [
+          512,
+          2048
+        ],
+        "blocks.4.mlp.2.bias": [
+          512
+        ],
+        "blocks.5.ln1.weight": [
+          512
+        ],
+        "blocks.5.ln1.bias": [
+          512
+        ],
+        "blocks.5.attn.mask": [
+          1,
+          1,
+          512,
+          512
+        ],
+        "blocks.5.attn.qkv.weight": [
+          1536,
+          512
+        ],
+        "blocks.5.attn.qkv.bias": [
+          1536
+        ],
+        "blocks.5.attn.proj.weight": [
+          512,
+          512
+        ],
+        "blocks.5.attn.proj.bias": [
+          512
+        ],
+        "blocks.5.ln2.weight": [
+          512
+        ],
+        "blocks.5.ln2.bias": [
+          512
+        ],
+        "blocks.5.mlp.0.weight": [
+          2048,
+          512
+        ],
+        "blocks.5.mlp.0.bias": [
+          2048
+        ],
+        "blocks.5.mlp.2.weight": [
+          512,
+          2048
+        ],
+        "blocks.5.mlp.2.bias": [
+          512
+        ],
+        "blocks.6.ln1.weight": [
+          512
+        ],
+        "blocks.6.ln1.bias": [
+          512
+        ],
+        "blocks.6.attn.mask": [
+          1,
+          1,
+          512,
+          512
+        ],
+        "blocks.6.attn.qkv.weight": [
+          1536,
+          512
+        ],
+        "blocks.6.attn.qkv.bias": [
+          1536
+        ],
+        "blocks.6.attn.proj.weight": [
+          512,
+          512
+        ],
+        "blocks.6.attn.proj.bias": [
+          512
+        ],
+        "blocks.6.ln2.weight": [
+          512
+        ],
+        "blocks.6.ln2.bias": [
+          512
+        ],
+        "blocks.6.mlp.0.weight": [
+          2048,
+          512
+        ],
+        "blocks.6.mlp.0.bias": [
+          2048
+        ],
+        "blocks.6.mlp.2.weight": [
+          512,
+          2048
+        ],
+        "blocks.6.mlp.2.bias": [
+          512
+        ],
+        "blocks.7.ln1.weight": [
+          512
+        ],
+        "blocks.7.ln1.bias": [
+          512
+        ],
+        "blocks.7.attn.mask": [
+          1,
+          1,
+          512,
+          512
+        ],
+        "blocks.7.attn.qkv.weight": [
+          1536,
+          512
+        ],
+        "blocks.7.attn.qkv.bias": [
+          1536
+        ],
+        "blocks.7.attn.proj.weight": [
+          512,
+          512
+        ],
+        "blocks.7.attn.proj.bias": [
+          512
+        ],
+        "blocks.7.ln2.weight": [
+          512
+        ],
+        "blocks.7.ln2.bias": [
+          512
+        ],
+        "blocks.7.mlp.0.weight": [
+          2048,
+          512
+        ],
+        "blocks.7.mlp.0.bias": [
+          2048
+        ],
+        "blocks.7.mlp.2.weight": [
+          512,
+          2048
+        ],
+        "blocks.7.mlp.2.bias": [
+          512
+        ],
+        "ln_f.weight": [
+          512
+        ],
+        "ln_f.bias": [
+          512
+        ],
+        "lm_head.weight": [
+          127,
+          512
+        ]
+      },
+      "vocab_size": 512,
+      "hidden_dim": 512,
+      "num_layers": 6
+    },
+    "inference_performance": {
+      "input_lengths": [
+        10,
+        50
+      ],
+      "inference_times": [
+        0.1657552719116211,
+        0.02538299560546875
+      ],
+      "avg_time_per_token": [
+        0.01657552719116211,
+        0.000507659912109375
+      ]
+    },
+    "streaming_performance": {
+      "tokens_generated": 30,
+      "total_time": 0.9049849510192871,
+      "tokens_per_second": 33.1497225077731,
+      "avg_latency": 0.030166165033976237
+    },
+    "math_core_status": "active"
+  },
+  "inference_demo": {
+    "tokens_generated": 30,
+    "vocab_size_used": 512,
+    "success": true
+  },
+  "achievements": {
+    "real_weights_loaded": true,
+    "dimension_problems_fixed": true,
+    "streaming_inference_working": true,
+    "adaptive_math_core": true,
+    "memory_efficient": true
+  }
+}

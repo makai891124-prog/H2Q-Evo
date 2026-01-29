@@ -27,7 +27,7 @@ class L2SuperKnotPersistence(nn.Module):
         
         # FIX: Addressing 'DiscreteDecisionEngine.__init__() got an unexpected keyword argument 'dim''
         # Using LatentConfig as per h2q.core.discrete_decision_engine registry
-        config = LatentConfig(latent_dim=l2_dim)
+        config = LatentConfig(dim=l2_dim)
         self.dde = get_canonical_dde(config)
         
         self.to(device)

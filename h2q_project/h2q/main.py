@@ -62,7 +62,7 @@ class H2QWakeSleepTrainer:
         self.device = torch.device("mps" if torch.backends.mps.is_available() else "cpu")
         
         # Stable Code: Core Architecture
-        self.dde = DiscreteDecisionEngine(num_actions=action_dim, latent_dim=manifold_dim).to(self.device)
+        self.dde = DiscreteDecisionEngine(num_actions=action_dim, dim=manifold_dim).to(self.device)
         self.rev_kernel = ReversibleKernel(dim=manifold_dim).to(self.device)
         self.tracker = SpectralShiftTracker()
         

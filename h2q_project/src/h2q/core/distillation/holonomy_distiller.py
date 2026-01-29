@@ -79,7 +79,7 @@ class CrossModalHolonomyDistiller(nn.Module):
         self.text_proj = nn.Embedding(256, 4)
         
         self.rotator = FDCRotator(feature_dim)
-        self.decision_engine = DiscreteDecisionEngine(latent_dim=feature_dim)
+        self.decision_engine = DiscreteDecisionEngine(dim=feature_dim)
         
     def compute_spectral_shift(self, S: torch.Tensor) -> torch.Tensor:
         """η = (1/π) arg{det(S)}"""

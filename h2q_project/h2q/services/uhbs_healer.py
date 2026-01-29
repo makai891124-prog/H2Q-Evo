@@ -18,7 +18,7 @@ class UHBSHealerService(nn.Module):
         self.latent_dim = latent_dim
         
         # Initialize components via canonical registry to avoid 'dim' kwarg errors
-        self.dde = get_canonical_dde(latent_dim=latent_dim)
+        self.dde = get_canonical_dde(dim=latent_dim)
         self.beam_search = HolomorphicBeamSearch(beam_width=beam_width)
         self.hjb_solver = HJBGeodesicSolver()
         self.audit_kernel = HolomorphicAuditKernel()
@@ -91,4 +91,4 @@ class UHBSHealerService(nn.Module):
         return torch.stack(outputs)
 
 def get_uhbs_healer_service(latent_dim: int, device: str = "mps") -> UHBSHealerService:
-    return UHBSHealerService(latent_dim=latent_dim, device=device)
+    return UHBSHealerService(dim=latent_dim, device=device)

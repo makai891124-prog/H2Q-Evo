@@ -9,7 +9,7 @@ class ProductionLogicalGenerator(nn.Module):
     H2Q Production Generator with Holomorphic Guard Integration.
     Performs real-time logical pruning based on Fueter curvature (Df).
     """
-    def __init__(self, latent_dim=256, vocab_size=1024, threshold=0.05, device="mps"):
+    def __init__(self, dim=256, vocab_size=1024, threshold=0.05, device="mps"):
         super().__init__()
         self.device = torch.device(device if torch.backends.mps.is_available() else "cpu")
         self.latent_dim = latent_dim
@@ -19,7 +19,7 @@ class ProductionLogicalGenerator(nn.Module):
         # Note: We ensure DDE initialization inside the generator matches the registry
         # to avoid the 'unexpected keyword argument dim' error.
         self.generator = H2QAutoregressiveGenerator(
-            latent_dim=latent_dim, 
+            dim=latent_dim, 
             vocab_size=vocab_size, 
             device=self.device
         )
@@ -27,7 +27,7 @@ class ProductionLogicalGenerator(nn.Module):
         # 2. Initialize Holomorphic Guard Middleware
         # healing_factor=0.1 allows for slight manifold correction without total collapse
         self.guard = HolomorphicGuardMiddleware(
-            latent_dim=latent_dim,
+            dim=latent_dim,
             threshold=threshold,
             healing_factor=0.1,
             device=self.device
@@ -84,7 +84,7 @@ if __name__ == "__main__":
     device = "mps" if torch.backends.mps.is_available() else "cpu"
     
     # Initialize System
-    model = ProductionLogicalGenerator(latent_dim=256, vocab_size=5000, threshold=0.05, device=device)
+    model = ProductionLogicalGenerator(dim=256, vocab_size=5000, threshold=0.05, device=device)
     
     # Mock Seed Atom (S³ Manifold Coordinate)
     seed = torch.randn(1, 256)

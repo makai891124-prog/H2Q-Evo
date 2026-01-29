@@ -55,7 +55,7 @@ class KnotRefiner(nn.Module):
     def __init__(self, in_channels: int, out_channels: int):
         super().__init__()
         # Rigid Construction: Symmetry between input and manifold expansion
-        self.dde = DiscreteDecisionEngine(latent_dim=in_channels)
+        self.dde = DiscreteDecisionEngine(dim=in_channels)
         self.geodesic = SU2GeodesicLayer(channels=in_channels)
         
         self.upsample = nn.ConvTranspose2d(in_channels, out_channels, kernel_size=4, stride=2, padding=1)

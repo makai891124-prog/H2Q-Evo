@@ -1,0 +1,36 @@
+{
+  "os": "macOS-26.2-arm64-arm-64bit",
+  "python": "CPython 3.12.2",
+  "startedAt": "2026-01-28T10:15:27.170585Z",
+  "program": "/Users/imymm/H2Q-Evo/start_agi_evolution.py",
+  "codePath": "start_agi_evolution.py",
+  "codePathLocal": "start_agi_evolution.py",
+  "git": {
+    "remote": "git@github.com:makai891124-prog/H2Q-Evo.git",
+    "commit": "fd23ef64591d3fdfbae8c7ea063fdfa756c50569"
+  },
+  "email": "ma.kai891124@gmail.com",
+  "root": "/Users/imymm/H2Q-Evo",
+  "host": "mac-mini",
+  "executable": "/Users/imymm/.pyenv/versions/3.12.2/bin/python3",
+  "cpu_count": 10,
+  "cpu_count_logical": 10,
+  "disk": {
+    "/": {
+      "total": "494384795648",
+      "used": "355096588288"
+    }
+  },
+  "memory": {
+    "total": "17179869184"
+  },
+  "apple": {
+    "name": "Apple M4",
+    "ecpuCores": 6,
+    "pcpuCores": 4,
+    "gpuCores": 10,
+    "memoryGb": 16,
+    "ramTotalBytes": "17179869184"
+  },
+  "writerId": "lbta4i4rmdw8o2cavc81gu7m8m18ui1e"
+}

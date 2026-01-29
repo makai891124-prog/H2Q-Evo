@@ -1,0 +1,23 @@
+FROM deepseek-coder:33b
+
+# H2Q-Evo 加速配置
+PARAMETER temperature 0.7
+PARAMETER top_p 0.9
+PARAMETER top_k 40
+PARAMETER num_ctx 4096
+PARAMETER repeat_penalty 1.1
+
+# 内存优化参数
+PARAMETER num_thread 4
+PARAMETER num_gpu 1
+PARAMETER main_gpu 0
+
+# H2Q 流式推理配置
+PARAMETER rope_scaling yarn
+PARAMETER yarn_ext_factor 1.0
+PARAMETER yarn_attn_factor 1.0
+
+SYSTEM "You are running on H2Q-Evo accelerated infrastructure with enhanced memory efficiency and streaming inference capabilities."
+
+# 模板配置保持不变
+TEMPLATE [INST] { .System } { .Prompt } [/INST]

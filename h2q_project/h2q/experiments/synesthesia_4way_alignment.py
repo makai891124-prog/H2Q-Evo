@@ -13,7 +13,7 @@ class Synesthesia4WayAligner(nn.Module):
     H2Q Synesthesia Aligner: Executes 4-way topological alignment across 
     Audio, Vision, Text, and Genomic manifolds.
     """
-    def __init__(self, latent_dim=256):
+    def __init__(self, dim=256):
         super().__init__()
         self.latent_dim = latent_dim
         
@@ -22,10 +22,10 @@ class Synesthesia4WayAligner(nn.Module):
         self.sst = SpectralShiftTracker()
         
         # USCBarycenter: Identifies the Fréchet mean on the SU(2) manifold
-        self.barycenter = USCBarycenter(num_modalities=4, latent_dim=latent_dim)
+        self.barycenter = USCBarycenter(num_modalities=4, dim=latent_dim)
         
         # BerryPhaseSync: Aligns geometric phases to identify shared invariants
-        self.sync = CrossModal_Berry_Phase_Sync(latent_dim=latent_dim)
+        self.sync = CrossModal_Berry_Phase_Sync(dim=latent_dim)
         
         # DNA Mapper: Specialized for non-coding genomic sequences
         self.dna_mapper = DNAQuaternionMapper()
@@ -78,7 +78,7 @@ def execute_alignment_run():
     device = torch.device("mps" if torch.backends.mps.is_available() else "cpu")
     print(f"[M24-CW] Initializing 4-Way Alignment on {device}...")
 
-    aligner = Synesthesia4WayAligner(latent_dim=256).to(device)
+    aligner = Synesthesia4WayAligner(dim=256).to(device)
     
     # Synthetic Atoms for Verification (Rigid Construction)
     B = 8

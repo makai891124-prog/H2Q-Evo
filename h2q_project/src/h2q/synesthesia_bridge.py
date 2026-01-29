@@ -114,7 +114,7 @@ class SynesthesiaBridge(nn.Module):
 # [STABLE] Verification Block for M4 Silicon
 if __name__ == "__main__":
     device = torch.device("mps" if torch.backends.mps.is_available() else "cpu")
-    bridge = SynesthesiaBridge(latent_dim=256).to(device)
+    bridge = SynesthesiaBridge(dim=256).to(device)
     
     # Mock Data: Vision (YCbCr) and Text (Bytes)
     mock_vision = torch.randn(8, 10, 3).to(device)

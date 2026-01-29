@@ -1,0 +1,156 @@
+{
+  "timestamp": 1769460234.845154,
+  "system_info": {
+    "model_type": "236B Compressed Local Model",
+    "compression_ratio": 100.0,
+    "mathematical_core": false,
+    "device": "cpu"
+  },
+  "memory_before": {
+    "total_gb": 16.0,
+    "available_gb": 6.5828094482421875,
+    "used_gb": 8.443878173828125,
+    "percentage": 58.9
+  },
+  "test_results": [
+    {
+      "test_name": "递归阶乘函数",
+      "prompt": "Write a Python function to calculate factorial recursively",
+      "generated_text": "remove",
+      "inference_time": 0.08419609069824219,
+      "tokens_generated": 30,
+      "quality_scores": {
+        "coherence": 0.3,
+        "relevance": 0.0,
+        "correctness": 0.4,
+        "completeness": 0.4,
+        "creativity": 1.0
+      },
+      "overall_quality": 0.33999999999999997,
+      "expected_features": [
+        "def",
+        "factorial",
+        "if",
+        "return",
+        "recursive"
+      ],
+      "found_features": [],
+      "feature_coverage": 0.0
+    },
+    {
+      "test_name": "计算器类",
+      "prompt": "Create a simple calculator class with add, subtract, multiply, divide methods",
+      "generated_text": "",
+      "inference_time": 0.07929706573486328,
+      "tokens_generated": 30,
+      "quality_scores": {
+        "coherence": 0.3,
+        "relevance": 0.0,
+        "correctness": 0.4,
+        "completeness": 0.4,
+        "creativity": 0.0
+      },
+      "overall_quality": 0.24,
+      "expected_features": [
+        "class",
+        "def",
+        "self",
+        "return"
+      ],
+      "found_features": [],
+      "feature_coverage": 0.0
+    },
+    {
+      "test_name": "列表推导式",
+      "prompt": "Write a list comprehension to filter even numbers and square them",
+      "generated_text": "app",
+      "inference_time": 0.07918286323547363,
+      "tokens_generated": 30,
+      "quality_scores": {
+        "coherence": 0.3,
+        "relevance": 0.0,
+        "correctness": 0.4,
+        "completeness": 0.4,
+        "creativity": 1.0
+      },
+      "overall_quality": 0.33999999999999997,
+      "expected_features": [
+        "for",
+        "if",
+        "even",
+        "square"
+      ],
+      "found_features": [],
+      "feature_coverage": 0.0
+    },
+    {
+      "test_name": "Flask REST API",
+      "prompt": "Create a REST API simulation using Flask",
+      "generated_text": "",
+      "inference_time": 0.07746219635009766,
+      "tokens_generated": 30,
+      "quality_scores": {
+        "coherence": 0.3,
+        "relevance": 0.0,
+        "correctness": 0.4,
+        "completeness": 0.4,
+        "creativity": 0.0
+      },
+      "overall_quality": 0.24,
+      "expected_features": [
+        "flask",
+        "app",
+        "route",
+        "jsonify"
+      ],
+      "found_features": [],
+      "feature_coverage": 0.0
+    },
+    {
+      "test_name": "词频统计",
+      "prompt": "Write code to read a file and count word frequencies",
+      "generated_text": "",
+      "inference_time": 0.07747602462768555,
+      "tokens_generated": 30,
+      "quality_scores": {
+        "coherence": 0.3,
+        "relevance": 0.0,
+        "correctness": 0.4,
+        "completeness": 0.4,
+        "creativity": 0.0
+      },
+      "overall_quality": 0.24,
+      "expected_features": [
+        "open",
+        "read",
+        "split",
+        "dict",
+        "count"
+      ],
+      "found_features": [],
+      "feature_coverage": 0.0
+    }
+  ],
+  "quality_metrics": {
+    "average_quality_score": 0.27999999999999997,
+    "quality_variance": 0.0023999999999999994,
+    "quality_std": 0.04898979485566356,
+    "min_quality": 0.24,
+    "max_quality": 0.33999999999999997,
+    "total_tests": 5,
+    "passed_tests": 0
+  },
+  "performance_metrics": {
+    "total_time": 0.3981461524963379,
+    "average_inference_time": 0.07952284812927246,
+    "total_tokens_generated": 150,
+    "average_tokens_per_second": 376.7460744239634,
+    "memory_delta_mb": 14.84375
+  },
+  "memory_after": {
+    "total_gb": 16.0,
+    "available_gb": 6.5660400390625,
+    "used_gb": 8.4583740234375,
+    "percentage": 59.0
+  }
+}

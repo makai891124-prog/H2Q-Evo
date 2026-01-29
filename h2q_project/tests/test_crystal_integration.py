@@ -16,7 +16,7 @@ def test_crystal_loading_and_inference():
     
     # 2. 初始化 DDE (几何版)
     # 我们使用标准的 256 维空间
-    dde = get_canonical_dde(latent_dim=256, n_choices=256)
+    dde = get_canonical_dde(dim=256, n_choices=256)
     print("✅ DDE 引擎初始化完成")
 
     # 3. 加载记忆晶体

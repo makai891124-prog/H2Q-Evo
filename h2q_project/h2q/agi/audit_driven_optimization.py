@@ -772,7 +772,7 @@ def run_optimized_training():
     model = RealLearningAGI(
         input_dim=256,
         hidden_dim=512,
-        latent_dim=128,
+        dim=128,
         output_dim=256
     )
     

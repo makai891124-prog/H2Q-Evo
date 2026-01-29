@@ -10,6 +10,8 @@ import math
 from typing import Dict, List, Tuple, Optional
 from dataclasses import dataclass
 
+from .binary_knot_codec import BinaryKnotReEncoder, binary_knot_enabled
+
 
 @dataclass
 class KnotInvariantMetrics:
@@ -29,10 +31,23 @@ class KnotInvariantCentralHub(nn.Module):
     维护全局拓扑守恒量
     """
     
-    def __init__(self, dim: int = 256, knot_genus: int = 3):
+    def __init__(self, dim: int = 256, knot_genus: int = 3, vocab_size: int = 50000,
+                 enable_binary_knot: Optional[bool] = None):
         super().__init__()
         self.dim = dim
         self.knot_genus = knot_genus
+
+        # 二进制流纽结再编码（可选）
+        if enable_binary_knot is None:
+            enable_binary_knot = binary_knot_enabled()
+        self.enable_binary_knot = enable_binary_knot
+        self.binary_knot = BinaryKnotReEncoder(
+            vocab_size=vocab_size,
+            bit_width=16,
+            knot_dim=128,
+            hidden_dim=dim
+        )
+        self.binary_knot_gate = nn.Parameter(torch.tensor(0.0))
         
         # Alexander多项式系数
         self.alexander_coeffs = nn.Parameter(torch.randn(dim, dtype=torch.float32) / math.sqrt(dim))
@@ -273,10 +288,20 @@ class KnotInvariantCentralHub(nn.Module):
         
         return constraints
     
-    def forward(self, x: torch.Tensor) -> Tuple[torch.Tensor, Dict[str, torch.Tensor]]:
+    def forward(self, x: torch.Tensor, input_ids: Optional[torch.Tensor] = None) -> Tuple[torch.Tensor, Dict[str, torch.Tensor]]:
         """
         前向传播：应用纽结不变量约束
         """
+        # 二进制流纽结再编码闭环（可选）
+        binary_signature = None
+        if self.enable_binary_knot and input_ids is not None:
+            binary_feat = self.binary_knot(input_ids)  # [B, S, dim]
+            if binary_feat.numel() > 0:
+                pooled = binary_feat.mean(dim=1)  # [B, dim]
+                gate = torch.tanh(self.binary_knot_gate)
+                x = x + gate * pooled
+                binary_signature = pooled.mean(dim=1)  # [B]
+
         # 计算不变量
         invariants = self.compute_all_invariants()
         
@@ -295,6 +320,7 @@ class KnotInvariantCentralHub(nn.Module):
             'constraints': constraints,
             'total_violation': total_constraint_violation,
             'corrected_state': x_corrected,
+            'binary_knot_signature': binary_signature,
         }
         
         return x_corrected, results
@@ -327,7 +353,7 @@ class GlobalTopologicalConstraintManager(nn.Module):
             torch.eye(num_systems, dtype=torch.float32)
         )
     
-    def enforce_global_consistency(self, states: List[torch.Tensor]) -> Tuple[List[torch.Tensor], Dict]:
+    def enforce_global_consistency(self, states: List[torch.Tensor], input_ids: Optional[List[torch.Tensor]] = None) -> Tuple[List[torch.Tensor], Dict]:
         """
         强制执行全局拓扑一致性
         """
@@ -335,9 +361,25 @@ class GlobalTopologicalConstraintManager(nn.Module):
         all_constraints = {}
         
         for i, (state, hub) in enumerate(zip(states, self.knot_hubs)):
-            corrected, results = hub(state)
+            ids = None
+            if input_ids is not None and i < len(input_ids):
+                ids = input_ids[i]
+            corrected, results = hub(state, input_ids=ids)
             corrected_states.append(corrected)
             all_constraints[f'system_{i}'] = results
+
+        # 基于闭环签名更新全局权重
+        if input_ids is not None and len(all_constraints) > 0:
+            signatures = []
+            for i in range(len(states)):
+                sig = all_constraints.get(f'system_{i}', {}).get('binary_knot_signature')
+                if sig is not None:
+                    signatures.append(sig.abs().mean())
+            if signatures:
+                sig_stack = torch.stack(signatures)
+                weights = torch.sigmoid(sig_stack)
+                self.global_constraint_weights.data = weights / (weights.sum() + 1e-8)
+                all_constraints['binary_signature_weights'] = self.global_constraint_weights.clone()
         
         # 检查系统间相容性
         compatibility_score = torch.tensor(0.0, device=states[0].device)

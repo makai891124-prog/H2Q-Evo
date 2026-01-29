@@ -13,7 +13,7 @@ class BargmannIsomorphismFinetuner(nn.Module):
     Uses the Bargmann Invariant to identify topological equivalence between 
     biological sequences and computational algorithms on the SU(2) manifold.
     """
-    def __init__(self, latent_dim=256, device="mps"):
+    def __init__(self, dim=256, device="mps"):
         super().__init__()
         self.device = device
         self.latent_dim = latent_dim

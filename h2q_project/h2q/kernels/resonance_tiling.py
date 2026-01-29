@@ -17,7 +17,7 @@ class ResonanceTilingKernel(nn.Module):
         self.device = device
 
         # Fixed: Using 'latent_dim' to match h2q/engine/discrete_decision.py registry
-        self.decision_engine = DiscreteDecisionEngine(latent_dim=manifold_dim)
+        self.decision_engine = DiscreteDecisionEngine(dim=manifold_dim)
         
         # Weights for the additive coupling functions f and g
         # Quaternionic weights stored as [num_tiles, tile_size, tile_size, 4]

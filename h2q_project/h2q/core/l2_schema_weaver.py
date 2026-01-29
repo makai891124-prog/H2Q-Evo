@@ -123,4 +123,4 @@ class L2SchemaWeaver(nn.Module):
         torch.save(crystal, path)
 
 def create_l2_weaver(latent_dim: int = 256) -> L2SchemaWeaver:
-    return L2SchemaWeaver(latent_dim=latent_dim)
+    return L2SchemaWeaver(dim=latent_dim)

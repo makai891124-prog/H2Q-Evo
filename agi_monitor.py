@@ -2,6 +2,7 @@
 """
 H2Q-Evo AGI健康监控窗口
 提供实时系统状态监控和可视化界面
+包含真实AGI目标验证和审计基准验收
 """
 
 import os
@@ -10,6 +11,7 @@ import json
 import time
 import curses
 import threading
+import subprocess
 from pathlib import Path
 from datetime import datetime, timedelta
 import psutil
@@ -29,6 +31,98 @@ class AGIMonitor:
         self.status_file = Path("agi_unified_status.json")
         self.report_file = Path("agi_system_report.json")
         self.training_status_file = Path("realtime_training_status.json")
+
+        # AGI目标定义 - 基于真实几何指标
+        self.agi_targets = {
+            'geometric_accuracy': 0.9,      # SU(2)流形推理准确率
+            'spectral_shift_eta': 0.5,      # 谱移认知进展
+            'fractal_collapse_penalty': 0.1, # 流形稳定性阈值
+            'classification_f1': 0.85,      # 多域学习能力
+            'manifold_stability': 5.0       # 流形稳定性目标
+        }
+
+        # 审计基准状态
+        self.audit_triggered = False
+        self.audit_results = {}
+
+    def check_agi_targets_achieved(self):
+        """检查是否达到AGI目标 - 基于真实几何指标"""
+        try:
+            training = self.status_data.get('training_status', {})
+            geometric = self.status_data.get('geometric_metrics', {})
+
+            # 获取当前指标
+            geometric_accuracy = geometric.get('geometric_accuracy', 0)
+            spectral_shift_eta = geometric.get('spectral_shift_eta_real', 0)
+            fractal_penalty = geometric.get('fractal_collapse_penalty', 1.0)
+            classification_f1 = geometric.get('classification_f1', 0)
+
+            perf = self.status_data.get('performance_metrics', {})
+            manifold_stability = perf.get('manifold_stability', 0)
+
+            # 检查所有目标是否达到
+            targets_achieved = {
+                'geometric_accuracy': geometric_accuracy >= self.agi_targets['geometric_accuracy'],
+                'spectral_shift_eta': spectral_shift_eta >= self.agi_targets['spectral_shift_eta'],
+                'fractal_collapse_penalty': fractal_penalty <= self.agi_targets['fractal_collapse_penalty'],
+                'classification_f1': classification_f1 >= self.agi_targets['classification_f1'],
+                'manifold_stability': manifold_stability >= self.agi_targets['manifold_stability']
+            }
+
+            all_achieved = all(targets_achieved.values())
+
+            return {
+                'achieved': all_achieved,
+                'current_values': {
+                    'geometric_accuracy': geometric_accuracy,
+                    'spectral_shift_eta': spectral_shift_eta,
+                    'fractal_collapse_penalty': fractal_penalty,
+                    'classification_f1': classification_f1,
+                    'manifold_stability': manifold_stability
+                },
+                'targets': self.agi_targets.copy(),
+                'individual_status': targets_achieved
+            }
+
+        except Exception as e:
+            print(f"AGI目标检查失败: {e}")
+            return {'achieved': False, 'error': str(e)}
+
+    def trigger_audit_benchmark(self):
+        """触发审计基准验收 - 基于真实AGI能力"""
+        if self.audit_triggered:
+            return False  # 已经触发过
+
+        try:
+            print("🎯 AGI目标已达到！正在启动审计基准验收...")
+            self.audit_triggered = True
+
+            # 运行审计基准脚本
+            audit_script = Path("audit_agi_performance.py")
+            if audit_script.exists():
+                result = subprocess.run([
+                    sys.executable, str(audit_script)
+                ], capture_output=True, text=True, timeout=300)
+
+                if result.returncode == 0:
+                    # 解析审计结果
+                    try:
+                        self.audit_results = json.loads(result.stdout)
+                        print("✅ 审计基准验收完成！")
+                        return True
+                    except json.JSONDecodeError:
+                        print("❌ 审计结果解析失败")
+                        return False
+                else:
+                    print(f"❌ 审计基准运行失败: {result.stderr}")
+                    return False
+            else:
+                print("❌ 审计脚本不存在")
+                return False
+
+        except Exception as e:
+            print(f"审计基准触发失败: {e}")
+            return False
 
     def start_monitoring(self):
         """启动监控"""
@@ -73,6 +167,7 @@ class AGIMonitor:
                 self._draw_header(stdscr, width)
                 y_pos = self._draw_system_status(stdscr, width) or 10
                 y_pos = self._draw_training_status(stdscr, y_pos, width) or y_pos + 5
+                y_pos = self._draw_agi_targets_status(stdscr, y_pos, width) or y_pos + 5
                 y_pos = self._draw_performance_metrics(stdscr, y_pos, width) or y_pos + 5
                 y_pos = self._draw_fault_status(stdscr, y_pos, width) or y_pos + 5
                 self._draw_footer(stdscr, y_pos, width)
@@ -105,15 +200,86 @@ class AGIMonitor:
                 time.sleep(5)
 
     def _update_status(self):
-        """更新状态数据"""
+        """更新状态数据 - 只读取真实训练数据，剔除任何模拟数据"""
         try:
-            # 只读取统一状态文件
-            if self.status_file.exists():
-                with open(self.status_file, 'r', encoding='utf-8') as f:
-                    self.status_data = json.load(f)
-                # print(f"DEBUG: 状态已更新 - 步骤: {self.status_data.get('training_status', {}).get('current_step', 0)}")
+            # 只读取实时训练状态文件 - 这是唯一真实的数据源
+            if self.training_status_file.exists():
+                with open(self.training_status_file, 'r', encoding='utf-8') as f:
+                    training_data = json.load(f)
+
+                # 验证数据真实性 - 检查是否有训练进程在运行
+                training_process_running = self._verify_training_process_real()
+
+                if not training_process_running:
+                    print("⚠️ 警告: 未检测到真实训练进程，数据可能不是最新的")
+                    # 仍然显示数据，但标记为可能过时
+                    training_data['data_freshness'] = 'stale'
+                else:
+                    training_data['data_freshness'] = 'fresh'
+
+                # 初始化状态数据，只使用真实训练数据
+                self.status_data = {}
+
+                # 直接使用训练数据作为主要数据源
+                self.status_data.update(training_data)
+
+                # 重新组织数据结构以保持兼容性
+                self.status_data['training_status'] = {
+                    'training_active': training_data.get('training_active', False),
+                    'current_step': training_data.get('current_step', 0),
+                    'current_epoch': training_data.get('current_epoch', 0),
+                    'best_accuracy': training_data.get('best_accuracy', 0),
+                    'best_loss': training_data.get('best_loss', float('inf')),
+                    'system_health': training_data.get('system_health', 'unknown'),
+                    'data_freshness': training_data.get('data_freshness', 'unknown')
+                }
+
+                # 几何指标直接来自训练数据
+                self.status_data['geometric_metrics'] = training_data.get('geometric_metrics', {})
+
+                # 性能指标直接来自训练数据
+                self.status_data['performance_metrics'] = training_data.get('performance_metrics', {})
+
+                # 环境信息来自训练数据
+                self.status_data['environment'] = {
+                    'cpu_percent': training_data.get('cpu_percent', 0),
+                    'memory_percent': training_data.get('memory_percent', 0),
+                    'disk_percent': 0,  # 暂时设为0，因为训练数据中没有
+                    'internet_connected': True  # 假设连接正常
+                }
+
+                # 网络状态
+                self.status_data['network'] = {
+                    'internet_connected': True
+                }
+
+                # 基础设施状态 - 基于训练进程状态
+                self.status_data['infrastructure_status'] = {
+                    'infrastructure_running': training_process_running
+                }
+
+                # 系统健康
+                self.status_data['system_health'] = {
+                    'overall_health': training_data.get('system_health', 'unknown')
+                }
+
+                # print(f"✅ 真实训练数据已更新 - 步骤: {training_data.get('current_step', 0)} - 数据新鲜度: {training_data.get('data_freshness', 'unknown')}")
             else:
-                print(f"警告: 状态文件不存在 - {self.status_file}")
+                print(f"❌ 错误: 实时训练状态文件不存在 - {self.training_status_file}")
+                print("无法获取真实训练数据")
+                self.status_data = {}
+
+            # 检查AGI目标是否达到 - 只基于真实数据
+            agi_status = self.check_agi_targets_achieved()
+            if agi_status.get('achieved', False) and not self.audit_triggered:
+                self.trigger_audit_benchmark()
+
+            # 添加AGI状态到数据
+            self.status_data['agi_targets_status'] = agi_status
+            self.status_data['audit_status'] = {
+                'triggered': self.audit_triggered,
+                'results': self.audit_results
+            }
 
             # 添加到历史
             self.history_data.append({
@@ -126,7 +292,39 @@ class AGIMonitor:
                 self.history_data = self.history_data[-self.max_history:]
 
         except Exception as e:
-            print(f"更新状态失败: {e}")
+            print(f"❌ 更新真实训练数据失败: {e}")
+            self.status_data = {}
+
+    def _verify_training_process_real(self):
+        """验证训练进程的真实性 - 确保数据来自真实训练"""
+        try:
+            import subprocess
+
+            # 检查是否有真实的训练进程在运行
+            result = subprocess.run(
+                ['pgrep', '-f', 'memory_safe_training_launcher'],
+                capture_output=True,
+                text=True
+            )
+
+            if result.returncode == 0 and result.stdout.strip():
+                # 找到训练进程，直接验证进程存在性
+                pid = result.stdout.strip().split('\n')[0].strip()
+
+                # 简单检查：进程是否存在
+                check_result = subprocess.run(
+                    ['kill', '-0', pid],  # 发送信号0来检查进程是否存在
+                    capture_output=True
+                )
+
+                if check_result.returncode == 0:
+                    return True
+
+            return False
+
+        except Exception as e:
+            print(f"验证训练进程失败: {e}")
+            return False
 
     def _draw_header(self, stdscr, width):
         """绘制头部"""
@@ -202,57 +400,143 @@ class AGIMonitor:
         return y + 1  # 返回下一个y位置
 
     def _draw_training_status(self, stdscr, y_pos, width):
-        """绘制训练状态"""
+        """绘制训练状态 - 只显示真实的核心几何指标"""
         if width < 20:  # 最小宽度检查
             return y_pos
 
         try:
-            stdscr.addstr(y_pos, 0, "训练状态 / Training Status", curses.color_pair(5) | curses.A_BOLD)
+            stdscr.addstr(y_pos, 0, "Real Training Status", curses.color_pair(5) | curses.A_BOLD)
             y_pos += 1
 
             training = self.status_data.get('training_status', {})
+
+            # 数据新鲜度指示器
+            data_freshness = training.get('data_freshness', 'unknown')
+            if data_freshness == 'fresh':
+                freshness_indicator = "🟢 LIVE DATA"
+                freshness_color = curses.color_pair(1)
+            elif data_freshness == 'stale':
+                freshness_indicator = "🟡 STALE DATA"
+                freshness_color = curses.color_pair(2)
+            else:
+                freshness_indicator = "🔴 UNKNOWN"
+                freshness_color = curses.color_pair(3)
+
+            if y_pos < stdscr.getmaxyx()[0] - 1:
+                stdscr.addstr(y_pos, 0, f"Data Status: {freshness_indicator}", freshness_color)
+                y_pos += 1
 
             # 训练运行状态
             training_active = training.get('training_active', False)
             training_color = curses.color_pair(1) if training_active else curses.color_pair(2)
             if y_pos < stdscr.getmaxyx()[0] - 1:
-                stdscr.addstr(y_pos, 0, f"训练状态: {'运行中' if training_active else '已停止'}", training_color)
-                y_pos += 1
-
-            # 热生成状态
-            hot_gen_active = training.get('hot_generation_active', False)
-            hot_gen_color = curses.color_pair(1) if hot_gen_active else curses.color_pair(2)
-            if y_pos < stdscr.getmaxyx()[0] - 1:
-                stdscr.addstr(y_pos, 0, f"热生成: {'运行中' if hot_gen_active else '已停止'}", hot_gen_color)
+                stdscr.addstr(y_pos, 0, f"Training: {'ACTIVE' if training_active else 'INACTIVE'}", training_color)
                 y_pos += 1
 
             # 训练步骤
             current_step = training.get('current_step', 0)
             if y_pos < stdscr.getmaxyx()[0] - 1:
-                stdscr.addstr(y_pos, 0, f"训练步骤: {current_step:,}", curses.color_pair(6))
+                stdscr.addstr(y_pos, 0, f"Step: {current_step:,}", curses.color_pair(6))
                 y_pos += 1
 
-            # 最佳损失
-            best_loss = training.get('best_loss', float('inf'))
+            # 只显示真实的核心几何指标
+            geometric = self.status_data.get('geometric_metrics', {})
+
+            # 谱移η实部 - 核心SU(2)指标
             if y_pos < stdscr.getmaxyx()[0] - 1:
-                if best_loss != float('inf'):
-                    stdscr.addstr(y_pos, 0, f"最佳损失: {best_loss:.6f}", curses.color_pair(6))
-                else:
-                    stdscr.addstr(y_pos, 0, "最佳损失: N/A", curses.color_pair(6))
+                eta_real = geometric.get('spectral_shift_eta_real', 0)
+                eta_color = curses.color_pair(1) if abs(eta_real) > 0.01 else curses.color_pair(6)
+                stdscr.addstr(y_pos, 0, f"Spectral η Real: {eta_real:.6f}", eta_color)
                 y_pos += 1
 
-            # 最佳准确率
-            best_accuracy = training.get('best_accuracy', 0)
+            # 分形坍缩惩罚 - 核心几何稳定性指标
             if y_pos < stdscr.getmaxyx()[0] - 1:
-                stdscr.addstr(y_pos, 0, f"最佳准确率: {best_accuracy:.4f}", curses.color_pair(6))
+                collapse_penalty = geometric.get('fractal_collapse_penalty', 0)
+                collapse_color = curses.color_pair(1) if collapse_penalty < 0.5 else curses.color_pair(2)
+                stdscr.addstr(y_pos, 0, f"Fractal Collapse: {collapse_penalty:.6f}", collapse_color)
                 y_pos += 1
+
+            # 几何准确率 - 基于谱移的推理能力
+            if y_pos < stdscr.getmaxyx()[0] - 1:
+                geom_acc = geometric.get('geometric_accuracy', 0)
+                geom_color = curses.color_pair(1) if geom_acc > 0.01 else curses.color_pair(6)
+                stdscr.addstr(y_pos, 0, f"Geometric Acc: {geom_acc:.6f}", geom_color)
+                y_pos += 1
+
+            # 移除非核心指标（损失、准确率等没有支撑的数据）
+            # 这些指标基于随机数据生成，没有真实意义
 
         except curses.error:
             pass  # 忽略绘制错误
 
         return y_pos + 1
 
-    def _draw_performance_metrics(self, stdscr, y_pos, width):
+    def _draw_agi_targets_status(self, stdscr, y_pos, width):
+        """绘制AGI目标状态"""
+        if width < 20:  # 最小宽度检查
+            return y_pos
+
+        try:
+            stdscr.addstr(y_pos, 0, "AGI目标状态 / AGI Targets Status", curses.color_pair(5) | curses.A_BOLD)
+            y_pos += 1
+
+            agi_status = self.status_data.get('agi_targets_status', {})
+            current_values = agi_status.get('current_values', {})
+            targets = agi_status.get('targets', {})
+            individual_status = agi_status.get('individual_status', {})
+
+            # AGI目标达成状态
+            achieved = agi_status.get('achieved', False)
+            overall_color = curses.color_pair(1) if achieved else curses.color_pair(2)
+            if y_pos < stdscr.getmaxyx()[0] - 1:
+                stdscr.addstr(y_pos, 0, f"AGI目标达成: {'✅ 已达成' if achieved else '⏳ 进行中'}", overall_color)
+                y_pos += 1
+
+            # 显示各个指标
+            metrics = [
+                ('几何准确率', 'geometric_accuracy', '.4f'),
+                ('谱移η实部', 'spectral_shift_eta', '.4f'),
+                ('分形坍缩惩罚', 'fractal_collapse_penalty', '.4f'),
+                ('分类F1分数', 'classification_f1', '.4f'),
+                ('流形稳定性', 'manifold_stability', '.2f')
+            ]
+
+            for metric_name, metric_key, format_str in metrics:
+                if y_pos >= stdscr.getmaxyx()[0] - 1:
+                    break
+
+                current_val = current_values.get(metric_key, 0)
+                target_val = targets.get(metric_key, 0)
+                status = individual_status.get(metric_key, False)
+
+                status_icon = "✅" if status else "❌"
+                color = curses.color_pair(1) if status else curses.color_pair(3)
+
+                if metric_key == 'fractal_collapse_penalty':
+                    # 对于坍缩惩罚，越小越好
+                    status_icon = "✅" if current_val <= target_val else "❌"
+                    color = curses.color_pair(1) if current_val <= target_val else curses.color_pair(3)
+                else:
+                    # 其他指标越大越好
+                    status_icon = "✅" if current_val >= target_val else "❌"
+                    color = curses.color_pair(1) if current_val >= target_val else curses.color_pair(3)
+
+                stdscr.addstr(y_pos, 0, f"{status_icon} {metric_name}: {current_val:{format_str}}/{target_val:{format_str}}", color)
+                y_pos += 1
+
+            # 审计基准状态
+            audit_status = self.status_data.get('audit_status', {})
+            audit_triggered = audit_status.get('triggered', False)
+            audit_color = curses.color_pair(1) if audit_triggered else curses.color_pair(6)
+
+            if y_pos < stdscr.getmaxyx()[0] - 1:
+                stdscr.addstr(y_pos, 0, f"审计基准: {'✅ 已触发' if audit_triggered else '⏳ 等待中'}", audit_color)
+                y_pos += 1
+
+        except curses.error:
+            pass  # 忽略绘制错误
+
+        return y_pos + 1
         """绘制性能指标"""
         if width < 20:  # 最小宽度检查
             return y_pos
@@ -292,6 +576,67 @@ class AGIMonitor:
             throttle_color = curses.color_pair(2) if throttle_events > 0 else curses.color_pair(6)
             if y_pos < stdscr.getmaxyx()[0] - 1:
                 stdscr.addstr(y_pos, 0, f"节流事件: {throttle_events}", throttle_color)
+                y_pos += 1
+
+        except curses.error:
+            pass  # 忽略绘制错误
+
+        return y_pos + 1
+
+    def _draw_performance_metrics(self, stdscr, y_pos, width):
+        """绘制性能指标 - 显示真实训练性能数据"""
+        if width < 20:  # 最小宽度检查
+            return y_pos
+
+        try:
+            stdscr.addstr(y_pos, 0, "性能指标 / Performance Metrics", curses.color_pair(5) | curses.A_BOLD)
+            y_pos += 1
+
+            perf = self.status_data.get('performance_metrics', {})
+
+            # 训练样本数
+            total_samples = perf.get('total_samples_processed', 0)
+            if y_pos < stdscr.getmaxyx()[0] - 1:
+                stdscr.addstr(y_pos, 0, f"处理样本数: {total_samples:,}", curses.color_pair(6))
+                y_pos += 1
+
+            # 平均损失
+            avg_loss = perf.get('average_loss', 0)
+            if y_pos < stdscr.getmaxyx()[0] - 1:
+                stdscr.addstr(y_pos, 0, f"平均损失: {avg_loss:.6f}", curses.color_pair(6))
+                y_pos += 1
+
+            # 学习率
+            learning_rate = perf.get('learning_rate', 0)
+            if y_pos < stdscr.getmaxyx()[0] - 1:
+                stdscr.addstr(y_pos, 0, f"学习率: {learning_rate:.6f}", curses.color_pair(6))
+                y_pos += 1
+
+            # 节流和恢复事件
+            throttle_events = perf.get('throttle_events', 0)
+            recovery_events = perf.get('recovery_events', 0)
+            if y_pos < stdscr.getmaxyx()[0] - 1:
+                throttle_color = curses.color_pair(2) if throttle_events > 0 else curses.color_pair(1)
+                stdscr.addstr(y_pos, 0, f"节流事件: {throttle_events}", throttle_color)
+                y_pos += 1
+
+            if y_pos < stdscr.getmaxyx()[0] - 1:
+                recovery_color = curses.color_pair(2) if recovery_events > 0 else curses.color_pair(1)
+                stdscr.addstr(y_pos, 0, f"恢复事件: {recovery_events}", recovery_color)
+                y_pos += 1
+
+            # 几何收敛率
+            convergence_rate = perf.get('geometric_convergence_rate', 0)
+            if y_pos < stdscr.getmaxyx()[0] - 1:
+                conv_color = curses.color_pair(1) if convergence_rate > 0.01 else curses.color_pair(6)
+                stdscr.addstr(y_pos, 0, f"几何收敛率: {convergence_rate:.6f}", conv_color)
+                y_pos += 1
+
+            # 流形稳定性
+            manifold_stability = perf.get('manifold_stability', 0)
+            if y_pos < stdscr.getmaxyx()[0] - 1:
+                stab_color = curses.color_pair(1) if manifold_stability > 3.0 else curses.color_pair(6)
+                stdscr.addstr(y_pos, 0, f"流形稳定性: {manifold_stability:.4f}", stab_color)
                 y_pos += 1
 
         except curses.error:
@@ -400,6 +745,27 @@ def print_text_monitor():
             print(f"训练状态: {'运行中' if training.get('training_active', False) else '已停止'}")
             print(f"训练步骤: {training.get('current_step', 0):,}")
             print(f"最佳损失: {training.get('best_loss', 'N/A')}")
+
+            # AGI目标状态
+            agi_status = monitor.status_data.get('agi_targets_status', {})
+            print(f"\nAGI目标状态:")
+            if agi_status.get('achieved', False):
+                print("🎯 AGI目标: ✅ 已达成")
+            else:
+                print("🎯 AGI目标: ⏳ 进行中")
+
+            current_values = agi_status.get('current_values', {})
+            targets = agi_status.get('targets', {})
+            print(f"  几何准确率: {current_values.get('geometric_accuracy', 0):.4f}/{targets.get('geometric_accuracy', 0):.4f}")
+            print(f"  谱移η实部: {current_values.get('spectral_shift_eta', 0):.4f}/{targets.get('spectral_shift_eta', 0):.4f}")
+            print(f"  分形坍缩惩罚: {current_values.get('fractal_collapse_penalty', 0):.4f}/{targets.get('fractal_collapse_penalty', 0):.4f}")
+            print(f"  分类F1分数: {current_values.get('classification_f1', 0):.4f}/{targets.get('classification_f1', 0):.4f}")
+            print(f"  流形稳定性: {current_values.get('manifold_stability', 0):.2f}/{targets.get('manifold_stability', 0):.2f}")
+
+            # 审计基准状态
+            audit_status = monitor.status_data.get('audit_status', {})
+            audit_triggered = audit_status.get('triggered', False)
+            print(f"审计基准: {'✅ 已触发' if audit_triggered else '⏳ 等待中'}")
 
             # 健康状态
             health = monitor.status_data.get('system_health', {})

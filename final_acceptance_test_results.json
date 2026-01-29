@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-01-25T02:06:01.475093",
+  "timestamp": "2026-01-27T20:38:28.025005",
   "test_suite": "H2Q-Evo Final Acceptance",
   "tests": {
     "core_algorithm_verification": {
@@ -77,17 +77,31 @@
         "training_monitor": {
           "status": "success",
           "monitor_state": {
-            "timestamp": "2026-01-25T02:06:03.927490",
+            "timestamp": "2026-01-27T20:38:31.281266",
             "is_running": false,
             "process_info": null,
             "memory_usage": {
               "total_gb": 16.0,
-              "used_gb": 5.576019287109375,
-              "available_gb": 2.9069061279296875,
-              "usage_percent": 81.8
+              "used_gb": 11.542831420898438,
+              "available_gb": 2.04278564453125,
+              "usage_percent": 87.2
             },
             "gpu_usage": null,
-            "evolution_state": {},
+            "evolution_state": {
+              "generation": 0,
+              "start_time": "2026-01-25T02:37:08.499620",
+              "last_evolution_time": "2026-01-25T02:37:08.499624",
+              "best_fitness": 0.0,
+              "current_fitness": 0.0,
+              "total_training_steps": 0,
+              "total_training_time": 0,
+              "average_loss": 0.0,
+              "learning_curve": [],
+              "model_versions": [],
+              "best_model_path": null,
+              "evolution_history": [],
+              "fitness_history": []
+            },
             "recent_logs": [],
             "checkpoints": []
           }
@@ -108,9 +122,9 @@
               "evolution_monitor": false
             },
             "system_resources": {
-              "cpu_percent": 25.5,
-              "memory_percent": 82.8,
-              "disk_percent": 4.4
+              "cpu_percent": 20.6,
+              "memory_percent": 90.5,
+              "disk_percent": 8.3
             },
             "current_generation": 1068
           }
@@ -126,14 +140,14 @@
       ],
       "metrics": {
         "memory_usage": {
-          "before": 82.8,
-          "after": 82.8,
+          "before": 90.5,
+          "after": 90.5,
           "delta": 0.0
         },
         "inference_speed": {
-          "total_time": 0.01246786117553711,
-          "average_time": 0.0012467861175537109,
-          "samples_per_second": 802.0621868665621
+          "total_time": 0.012555122375488281,
+          "average_time": 0.0012555122375488281,
+          "samples_per_second": 796.4876566654007
         },
         "compression_ratio": {
           "algorithm_compression": 0.85,

@@ -334,7 +334,7 @@ def train():
     device = torch.device('cpu')
     
     # 模型初始化
-    model = H2QTopologicalLearner(input_dim=3, latent_dim=64, num_steps=10).to(device)
+    model = H2QTopologicalLearner(input_dim=3, dim=64, num_steps=10).to(device)
     optimizer = torch.optim.Adam(model.parameters(), lr=0.001)
     
     # 数据

@@ -17,7 +17,7 @@ class DDFLDreamConnector(nn.Module):
         
         # Foundational Components from Registry
         self.cem = ContinuousEnvironmentModel(energy_dim=energy_dim, hidden_dim=latent_dim // 2)
-        self.dream_mech = DreamingMechanism(latent_dim=latent_dim, delta=delta_base)
+        self.dream_mech = DreamingMechanism(dim=latent_dim, delta=delta_base)
         self.tracker = SpectralShiftTracker()
         
         # State persistence for volatility tracking

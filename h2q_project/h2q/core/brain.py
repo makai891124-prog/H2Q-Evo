@@ -11,14 +11,25 @@ try:
     from h2q.data.universal_stream import UniversalStreamLoader
     from h2q.knot_kernel import H2Q_Knot_Kernel
 except ImportError as e:
-    # Fallback Mocks
+    # Fallback Mocks with DAS integration
+    import sys
+    sys.path.insert(0, '/app/h2q_project')
+    from das_core import create_das_based_architecture
+
     class H2Q_Knot_Kernel(nn.Module):
         def __init__(self, vocab_size=257, max_dim=256):
             super().__init__()
             self.emb = nn.Embedding(vocab_size, max_dim)
+            self.das_arch = create_das_based_architecture(dim=max_dim)
             self.head = nn.Linear(max_dim, vocab_size)
+
         def forward(self, x):
-            return self.head(self.emb(x)), torch.tensor(0.0)
+            # 使用DAS架构增强嵌入
+            emb = self.emb(x)
+            das_result = self.das_arch(emb.view(-1, emb.size(-1)))
+            enhanced_emb = das_result.get('output', emb.view(-1, emb.size(-1))).view(emb.shape)
+            return self.head(enhanced_emb), torch.tensor(0.0)
+
     class UniversalStreamLoader:
         def __iter__(self):
             yield {"l0_indices": torch.randint(0, 256, (1, 512))}

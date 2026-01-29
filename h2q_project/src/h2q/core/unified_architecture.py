@@ -93,7 +93,7 @@ class UnifiedH2QMathematicalArchitecture(nn.Module):
         # 4. 李群自动同构DDE
         if config.enable_dde_integration:
             self.automorphic_dde = get_automorphic_dde(
-                latent_dim=config.dim,
+                dim=config.dim,
                 action_dim=config.action_dim,
                 device=config.device
             )

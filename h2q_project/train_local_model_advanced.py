@@ -222,7 +222,7 @@ def main():
     
     # 尝试加载现有的模型
     try:
-        config_dde = LatentConfig(latent_dim=256, n_choices=64)
+        config_dde = LatentConfig(dim=256, n_choices=64)
         base_model = get_canonical_dde(config=config_dde)
         logger.info("✓ 成功加载 H2Q DiscreteDecisionEngine 模型")
     except:

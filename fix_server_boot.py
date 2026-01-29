@@ -26,7 +26,7 @@ app = FastAPI(title="H2Q AGI Server", version="1.1.0")
 # --- 核心模型初始化 ---
 if HAS_CORE:
     # 使用 AI 进化后的参数
-    dde = DiscreteDecisionEngine(latent_dim=32, num_actions=10)
+    dde = DiscreteDecisionEngine(dim=32, num_actions=10)
     dreamer = H2QSyntheticEngine()
 else:
     dde = None

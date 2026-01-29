@@ -26,6 +26,7 @@ from .knot_invariant_hub import (
     GlobalTopologicalConstraintManager,
     KnotInvariantCentralHub
 )
+from .multimodal_binary_flow import MultimodalBinaryFlowEncoder
 
 
 @dataclass
@@ -49,6 +50,10 @@ class UnifiedMathematicalArchitectureConfig:
     enable_reflection_operators: bool = True
     enable_knot_constraints: bool = True
     enable_dde_integration: bool = True
+    enable_binary_knot: bool = True
+    enable_multimodal_binary_flow: bool = True
+    knot_vocab_size: int = 50000
+    multimodal_dim: int = 256
 
 
 class UnifiedH2QMathematicalArchitecture(nn.Module):
@@ -84,11 +89,19 @@ class UnifiedH2QMathematicalArchitecture(nn.Module):
         
         # 3. 纽结不变量中央处理
         if config.enable_knot_constraints:
-            self.knot_hub = KnotInvariantCentralHub(config.dim, config.knot_genus)
+            self.knot_hub = KnotInvariantCentralHub(
+                config.dim,
+                config.knot_genus,
+                vocab_size=config.knot_vocab_size,
+                enable_binary_knot=config.enable_binary_knot
+            )
             self.global_topology_manager = GlobalTopologicalConstraintManager(
                 num_systems=1,
                 dim=config.dim
             )
+
+        # 二进制闭环签名投影（用于DDE反馈）
+        self.binary_signature_projector = nn.Linear(1, config.dim)
         
         # 4. 李群自动同构DDE
         if config.enable_dde_integration:
@@ -96,6 +109,13 @@ class UnifiedH2QMathematicalArchitecture(nn.Module):
                 latent_dim=config.dim,
                 action_dim=config.action_dim,
                 device=config.device
+            )
+
+        # 5. 多模态位流编码器
+        if config.enable_multimodal_binary_flow:
+            self.multimodal_binary_flow = MultimodalBinaryFlowEncoder(
+                dim=config.multimodal_dim,
+                flow_dim=config.dim
             )
         
         # ============ 集成控制 ============
@@ -134,12 +154,12 @@ class UnifiedH2QMathematicalArchitecture(nn.Module):
             weights[k] = v / (total + 1e-8)
         return weights
     
-    def process_through_lie_automorphism(self, x: torch.Tensor) -> Tuple[torch.Tensor, Dict]:
+    def process_through_lie_automorphism(self, x: torch.Tensor, binary_signature: Optional[torch.Tensor] = None) -> Tuple[torch.Tensor, Dict]:
         """通过李群自动同构"""
         if not self.config.enable_lie_automorphism:
             return x, {}
         
-        output, intermediates = self.lie_automorphism(x)
+        output, intermediates = self.lie_automorphism(x, binary_signature=binary_signature)
         return output, intermediates
     
     def process_through_reflection(self, x: torch.Tensor) -> Tuple[torch.Tensor, Dict]:
@@ -150,23 +170,40 @@ class UnifiedH2QMathematicalArchitecture(nn.Module):
         output, results = self.reflection_ops(x)
         return output, results
     
-    def process_through_knot_constraints(self, x: torch.Tensor) -> Tuple[torch.Tensor, Dict]:
+    def process_through_knot_constraints(self, x: torch.Tensor, input_ids: Optional[torch.Tensor] = None) -> Tuple[torch.Tensor, Dict]:
         """通过纽结不变量约束"""
         if not self.config.enable_knot_constraints:
             return x, {}
         
-        corrected, results = self.knot_hub(x)
+        corrected, results = self.knot_hub(x, input_ids=input_ids)
         return corrected, results
     
-    def process_through_dde(self, x: torch.Tensor) -> Tuple[torch.Tensor, Dict]:
+    def process_through_dde(self, x: torch.Tensor, binary_signature: Optional[torch.Tensor] = None) -> Tuple[torch.Tensor, Dict]:
         """通过自动同构DDE"""
         if not self.config.enable_dde_integration:
             return x, {}
+
+        temperature_override = None
+        if binary_signature is not None:
+            sig = binary_signature.unsqueeze(-1)  # [B,1]
+            sig_proj = self.binary_signature_projector(sig).to(x.dtype)
+            x = x + 0.01 * sig_proj
+
+            # 温度调控：闭环签名越大，温度越低（更确定）
+            sig_mean = sig.abs().mean().item()
+            base_temp = float(self.automorphic_dde.config.temperature)
+            temperature_override = max(0.1, min(1.0, base_temp / (1.0 + 0.5 * sig_mean)))
         
-        action_probs, results = self.automorphic_dde(x)
+        action_probs, results = self.automorphic_dde(x, temperature_override=temperature_override)
         return action_probs, results
     
-    def unified_forward_pass(self, x: torch.Tensor) -> Tuple[torch.Tensor, Dict[str, Any]]:
+    def unified_forward_pass(
+        self,
+        x: torch.Tensor,
+        input_ids: Optional[torch.Tensor] = None,
+        images: Optional[torch.Tensor] = None,
+        videos: Optional[torch.Tensor] = None
+    ) -> Tuple[torch.Tensor, Dict[str, Any]]:
         """
         统一前向传播
         所有数学模块并行作用，然后融合结果
@@ -178,29 +215,58 @@ class UnifiedH2QMathematicalArchitecture(nn.Module):
         intermediates = {}
         module_outputs = {}
         
+        # ============ 多模态位流预处理 ============
+        multimodal_signature = None
+        multimodal_signature_scalar = None
+        if self.config.enable_multimodal_binary_flow and (images is not None or videos is not None):
+            img_sig, vid_sig = self.multimodal_binary_flow(images=images, videos=videos)
+            multimodal_signature = self.multimodal_binary_flow.fuse_signature(img_sig, vid_sig)
+            if multimodal_signature is not None:
+                x = x + 0.01 * multimodal_signature.to(dtype=x.dtype)
+                multimodal_signature_scalar = multimodal_signature.mean(dim=1)
+
         # ============ 并行处理 ============
         
-        # 1. 李群自动同构
-        if self.config.enable_lie_automorphism:
-            lie_output, lie_inter = self.process_through_lie_automorphism(x)
-            module_outputs['lie_automorphism'] = lie_output
-            intermediates['lie_automorphism'] = lie_inter
-        
-        # 2. 反射算子
+        # 1. 反射算子
         if self.config.enable_reflection_operators:
             ref_output, ref_inter = self.process_through_reflection(x)
             module_outputs['reflection'] = ref_output
             intermediates['reflection'] = ref_inter
         
-        # 3. 纽结约束
+        # 2. 纽结约束
         if self.config.enable_knot_constraints:
-            knot_output, knot_inter = self.process_through_knot_constraints(x)
+            knot_output, knot_inter = self.process_through_knot_constraints(x, input_ids=input_ids)
             module_outputs['knot_constraints'] = knot_output
             intermediates['knot_constraints'] = knot_inter
+
+            # 全局拓扑一致性闭环
+            if hasattr(self, "global_topology_manager"):
+                corrected_states, global_constraints = self.global_topology_manager.enforce_global_consistency(
+                    [knot_output],
+                    input_ids=[input_ids] if input_ids is not None else None
+                )
+                intermediates['global_topology'] = global_constraints
+                module_outputs['global_topology'] = corrected_states[0]
         
+        # 3. 李群自动同构（接收二进制闭环签名）
+        binary_signature = None
+        if self.config.enable_knot_constraints and 'knot_constraints' in intermediates:
+            binary_signature = intermediates['knot_constraints'].get('binary_knot_signature')
+
+        if multimodal_signature_scalar is not None:
+            if binary_signature is None:
+                binary_signature = multimodal_signature_scalar
+            else:
+                binary_signature = binary_signature + multimodal_signature_scalar
+
+        if self.config.enable_lie_automorphism:
+            lie_output, lie_inter = self.process_through_lie_automorphism(x, binary_signature=binary_signature)
+            module_outputs['lie_automorphism'] = lie_output
+            intermediates['lie_automorphism'] = lie_inter
+
         # 4. DDE决策
         if self.config.enable_dde_integration:
-            dde_output, dde_inter = self.process_through_dde(x)
+            dde_output, dde_inter = self.process_through_dde(x, binary_signature=binary_signature)
             module_outputs['dde'] = dde_output
             intermediates['dde'] = dde_inter
         
@@ -248,6 +314,16 @@ class UnifiedH2QMathematicalArchitecture(nn.Module):
         
         # ============ 构建结果 ============
         
+        binary_signature = None
+        if self.config.enable_knot_constraints and 'knot_constraints' in intermediates:
+            binary_signature = intermediates['knot_constraints'].get('binary_knot_signature')
+
+        if multimodal_signature_scalar is not None:
+            if binary_signature is None:
+                binary_signature = multimodal_signature_scalar
+            else:
+                binary_signature = binary_signature + multimodal_signature_scalar
+
         results = {
             'fused_output': fused_output,
             'module_outputs': module_outputs,
@@ -255,6 +331,8 @@ class UnifiedH2QMathematicalArchitecture(nn.Module):
             'fusion_weights': fusion_weights,
             'enabled_modules': enabled_modules,
             'global_manifold_state': self.global_manifold_state.clone(),
+            'binary_knot_signature': binary_signature,
+            'multimodal_signature': multimodal_signature,
         }
         
         # ============ 统计更新 ============
@@ -284,9 +362,15 @@ class UnifiedH2QMathematicalArchitecture(nn.Module):
         
         return fused_output, results
     
-    def forward(self, x: torch.Tensor) -> Tuple[torch.Tensor, Dict[str, Any]]:
+    def forward(
+        self,
+        x: torch.Tensor,
+        input_ids: Optional[torch.Tensor] = None,
+        images: Optional[torch.Tensor] = None,
+        videos: Optional[torch.Tensor] = None
+    ) -> Tuple[torch.Tensor, Dict[str, Any]]:
         """前向传播"""
-        return self.unified_forward_pass(x)
+        return self.unified_forward_pass(x, input_ids=input_ids, images=images, videos=videos)
     
     def get_system_report(self) -> Dict[str, Any]:
         """获取系统报告"""

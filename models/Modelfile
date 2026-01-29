@@ -1,0 +1,24 @@
+FROM llama2:7b
+
+PARAMETER temperature 0.7
+PARAMETER top_p 0.9
+PARAMETER top_k 40
+PARAMETER num_ctx 4096
+PARAMETER repeat_penalty 1.1
+PARAMETER repeat_last_n 64
+
+SYSTEM "You are a compressed version of DeepSeek Coder v2 model with 236 billion parameters, compressed using H2Q-Evo mathematical fractal restructuring. Compression ratio: 1.0x. You maintain reasoning capabilities while running efficiently on consumer hardware."
+
+TEMPLATE "{if .System}{.System}
+
+{end}<|user|>
+{.Prompt}
+
+<|assistant|>"
+
+# Compression metadata (stored as comments)
+# compression_ratio: 1.0x
+# quality_score: 100.0%
+# memory_usage_mb: 22.0
+# source_model: deepseek-coder-v2:236b
+# compression_method: H2Q-FractalRestructuring

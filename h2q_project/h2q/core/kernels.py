@@ -13,8 +13,8 @@ class ManualReversibleKernel(nn.Module):
         super().__init__()
         # Split dim for the two-stream reversible architecture
         half_dim = dim // 2
-        self.f_engine = DiscreteDecisionEngine(latent_dim=half_dim)
-        self.g_engine = DiscreteDecisionEngine(latent_dim=half_dim)
+        self.f_engine = DiscreteDecisionEngine(dim=half_dim)
+        self.g_engine = DiscreteDecisionEngine(dim=half_dim)
 
     def forward(self, x1, x2):
         # RIGID CONSTRUCTION: y1 = x1 + F(x2); y2 = x2 + G(y1)

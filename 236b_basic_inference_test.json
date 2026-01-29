@@ -1,0 +1,24 @@
+{
+  "timestamp": 1769460271.726697,
+  "memory_before": {
+    "total_gb": 16.0,
+    "available_gb": 6.6953582763671875,
+    "used_gb": 8.327651977539062,
+    "percentage": 58.2
+  },
+  "memory_after": {
+    "total_gb": 16.0,
+    "available_gb": 6.6909027099609375,
+    "used_gb": 8.339553833007812,
+    "percentage": 58.2
+  },
+  "inference_tests_count": 3,
+  "streaming_tokens_generated": 10,
+  "streaming_time": 0.023849010467529297,
+  "performance_summary": {
+    "avg_inference_time": 0.0030826727549235025,
+    "total_inference_time": 0.009248018264770508,
+    "memory_delta_mb": 12.1875,
+    "model_loaded": true
+  }
+}

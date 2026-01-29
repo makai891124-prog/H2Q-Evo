@@ -1,0 +1,26 @@
+{
+  "training_stats": {
+    "start_time": "2026-01-29 04:34:15.846161",
+    "total_steps": 151,
+    "knowledge_expansions": 0,
+    "api_calls": 0,
+    "learning_metrics": [],
+    "modality_usage": {
+      "text": 0,
+      "code": 0,
+      "math": 0,
+      "reasoning": 0,
+      "technical": 0
+    },
+    "text_learning_steps": 151,
+    "visual_learning_steps": 0,
+    "hybrid_learning_steps": 0,
+    "perception_fusion_score": 0.0,
+    "binary_control_accuracy": 0.0,
+    "visual_processing_time": 0.0,
+    "learning_efficiency": 0.5,
+    "modality_balance": 0.9897070467141726
+  },
+  "system_status": {},
+  "timestamp": "2026-01-29T04:35:10.646961"
+}

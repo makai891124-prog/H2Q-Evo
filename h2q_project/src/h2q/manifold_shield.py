@@ -79,4 +79,4 @@ class ManifoldSingularityShield:
 # [STABLE] Integration Utility
 def initialize_engine(dim: int = 256) -> DiscreteDecisionEngine:
     """Factory function to ensure correct initialization."""
-    return DiscreteDecisionEngine(input_dim=dim, latent_dim=dim)
+    return DiscreteDecisionEngine(input_dim=dim, dim=dim)

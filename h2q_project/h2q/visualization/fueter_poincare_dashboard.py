@@ -12,9 +12,9 @@ class PoincareFueterDashboard:
     Maps SU(2) quaternionic states to hyperbolic space to visualize Berry Phase 
     accumulation and logic curvature (Df).
     """
-    def __init__(self, latent_dim=256, device="cpu"):
+    def __init__(self, dim=256, device="cpu"):
         # Rigid Construction: Fix 'dim' unexpected keyword argument by using canonical registry
-        dde_params = normalize_dde_kwargs(latent_dim=latent_dim)
+        dde_params = normalize_dde_kwargs(dim=latent_dim)
         self.dde = get_canonical_dde(**dde_params)
         
         self.device = device

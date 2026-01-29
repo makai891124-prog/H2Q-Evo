@@ -1,0 +1,53 @@
+{
+  "training_duration": "0:00:22.595815",
+  "total_steps": 71,
+  "knowledge_expansions": 0,
+  "modality_distribution": {
+    "text": 0,
+    "code": 0,
+    "math": 0,
+    "reasoning": 0,
+    "technical": 0
+  },
+  "expander_stats": {
+    "api_calls": 0,
+    "cache_hits": 0,
+    "cache_misses": 0,
+    "errors": 0,
+    "last_reset": 1769630561.88273,
+    "hit_rate": 0,
+    "current_queue_size": 0,
+    "memory_cache_size": 0
+  },
+  "final_system_status": {
+    "step_count": 71,
+    "runtime": 0,
+    "consciousness_level": {
+      "integrated_information": 0.08194465190172195,
+      "neural_complexity": 0.6062491536140442,
+      "self_model_accuracy": 0.5215568542480469,
+      "metacognitive_awareness": 0.45057979226112366,
+      "emotional_valence": 0.6325666308403015,
+      "temporal_binding": -0.07531989365816116
+    },
+    "goal_status": {
+      "active_goals_count": 1,
+      "completed_goals_count": 70,
+      "goal_types": {
+        "GoalType.LEARNING": 12,
+        "GoalType.EXPLORATION": 1,
+        "GoalType.OPTIMIZATION": 19,
+        "GoalType.CREATION": 0,
+        "GoalType.UNDERSTANDING": 0,
+        "GoalType.SOCIAL": 19,
+        "GoalType.ETHICAL": 0,
+        "GoalType.TECHNICAL": 20
+      }
+    },
+    "learning_status": {
+      "learning_steps": 0,
+      "knowledge_domains": 0
+    }
+  },
+  "completion_time": "2026-01-29T04:03:04.501854"
+}

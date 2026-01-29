@@ -1,0 +1,101 @@
+{
+  "timestamp": 1769503598.297708,
+  "system_info": {
+    "memory_total_gb": 16.0,
+    "memory_available_gb": 2.875518798828125,
+    "memory_used_gb": 9.146987915039062,
+    "memory_percentage": 82.0,
+    "cpu_percentage": 8.9,
+    "gpu_available": false,
+    "gpu_count": 0,
+    "gpu_memory_allocated": 0,
+    "gpu_memory_reserved": 0
+  },
+  "results": {
+    "core_machine": {
+      "architecture": "core_machine",
+      "status": "success",
+      "total_time": 2.030482053756714,
+      "avg_encoding_time": 0.31688515345255536,
+      "memory_delta_mb": 145.046875,
+      "cpu_overhead": 3.9000000000000004,
+      "gpu_memory_delta_mb": 0,
+      "compression_ratio": 46.0,
+      "max_depth": 3,
+      "uses_quaternion_mapping": true,
+      "uses_wordnet": true,
+      "uses_fractal_structure": true
+    },
+    "general_transformer": {
+      "architecture": "general_transformer",
+      "status": "success",
+      "total_time": 440.32697105407715,
+      "avg_generation_time": 0.23218743006388345,
+      "memory_delta_mb": -2946.03125,
+      "cpu_overhead": -3.9000000000000004,
+      "gpu_memory_delta_mb": 0,
+      "model_size_mb": 74.5433464050293,
+      "uses_quaternion_mapping": false,
+      "uses_wordnet": false,
+      "uses_fractal_structure": false
+    },
+    "deepseek": {
+      "architecture": "deepseek_api",
+      "status": "success",
+      "total_time": 7.3881659507751465,
+      "api_response_time": 6.356298923492432,
+      "memory_delta_mb": 3551.53125,
+      "cpu_overhead": -1.8000000000000007,
+      "model_hosted_remotely": true,
+      "uses_quaternion_mapping": false,
+      "uses_wordnet": false,
+      "uses_fractal_structure": false,
+      "connected": true,
+      "response_time": 6.356298923492432,
+      "model_name": "deepseek-coder:6.7b",
+      "model_size_gb": 3.5649486845359206,
+      "generated_text": "Your function definition is incomplete, it seems like you forgot the body of the function (the code "
+    }
+  },
+  "analysis": {
+    "summary": {
+      "successful_architectures": [
+        "core_machine",
+        "general_transformer",
+        "deepseek"
+      ],
+      "success_rate": 1.0
+    },
+    "performance_comparison": {
+      "core_machine_vs_general": {
+        "speed_ratio": 1.3647816910905486,
+        "core_machine_faster": false
+      }
+    },
+    "resource_efficiency": {
+      "core_machine": {
+        "memory_efficiency": 145.046875,
+        "cpu_efficiency": 3.9000000000000004,
+        "gpu_efficiency": 0
+      },
+      "general_transformer": {
+        "memory_efficiency": -2946.03125,
+        "cpu_efficiency": -3.9000000000000004,
+        "gpu_efficiency": 0
+      },
+      "deepseek": {
+        "memory_efficiency": 3551.53125,
+        "cpu_efficiency": -1.8000000000000007,
+        "gpu_efficiency": 0
+      }
+    },
+    "capability_analysis": {
+      "core_machine_uses_advanced_features": true,
+      "general_architecture_simple": true,
+      "deepseek_hosted_remotely": true
+    },
+    "recommendations": [
+      "核心机架构提供了先进的数学建模能力，适合需要复杂概念理解的任务"
+    ]
+  }
+}

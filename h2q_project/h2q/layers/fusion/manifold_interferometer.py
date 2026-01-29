@@ -12,7 +12,7 @@ class ManifoldInterferometer(nn.Module):
     Architecture: SU(2) Group Theory / 256-dim Quaternionic Manifold
     Memory: O(1) via Reversible Additive Coupling
     """
-    def __init__(self, latent_dim=256, mps_device="mps"):
+    def __init__(self, dim=256, mps_device="mps"):
         super().__init__()
         self.latent_dim = latent_dim
         self.num_quaternions = latent_dim // 4

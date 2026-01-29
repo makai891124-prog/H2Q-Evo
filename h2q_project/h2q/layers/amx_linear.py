@@ -124,4 +124,4 @@ def get_compatible_dde(dim, num_actions):
         return DiscreteDecisionEngine(config)
     except TypeError:
         # Fallback to direct arg init (v1.0)
-        return DiscreteDecisionEngine(latent_dim=dim, num_choices=num_actions)
+        return DiscreteDecisionEngine(dim=dim, num_choices=num_actions)

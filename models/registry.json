@@ -1,0 +1,8 @@
+{
+  "test_model": {
+    "name": "test_model",
+    "format": "pkl",
+    "size_mb": 100,
+    "simulated": true
+  }
+}

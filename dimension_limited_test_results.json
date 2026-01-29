@@ -1,0 +1,314 @@
+{
+  "test_type": "dimension_limited_evolution",
+  "timestamp": 1769289420.9354398,
+  "metrics": [
+    {
+      "step": 1,
+      "compactness": 0.9479166666666666,
+      "diversity": 6.667788664499919,
+      "best_compactness": 0.9479166666666666,
+      "spectral_eta": 0.0,
+      "fold_info": {
+        "original_dim": 64,
+        "effective_dim": 36,
+        "fold_ratio": 1.0,
+        "norm_mean": 1.0,
+        "distribution_entropy": 4.156566619873047
+      },
+      "timestamp": 0.027634859085083008
+    },
+    {
+      "step": 2,
+      "compactness": 0.9895833333333334,
+      "diversity": 6.620522711012099,
+      "best_compactness": 0.9895833333333334,
+      "spectral_eta": 0.0,
+      "fold_info": {
+        "original_dim": 64,
+        "effective_dim": 36,
+        "fold_ratio": 1.0,
+        "norm_mean": 1.0,
+        "distribution_entropy": 4.1566009521484375
+      },
+      "timestamp": 0.04517507553100586
+    },
+    {
+      "step": 3,
+      "compactness": 0.9583333333333334,
+      "diversity": 6.6640879313151045,
+      "best_compactness": 0.9895833333333334,
+      "spectral_eta": 0.0,
+      "fold_info": {
+        "original_dim": 64,
+        "effective_dim": 36,
+        "fold_ratio": 1.0,
+        "norm_mean": 1.0,
+        "distribution_entropy": 4.156591415405273
+      },
+      "timestamp": 0.06251907348632812
+    },
+    {
+      "step": 4,
+      "compactness": 0.9791666666666666,
+      "diversity": 6.6343527634938555,
+      "best_compactness": 0.9895833333333334,
+      "spectral_eta": 0.0,
+      "fold_info": {
+        "original_dim": 64,
+        "effective_dim": 36,
+        "fold_ratio": 1.0,
+        "norm_mean": 1.0,
+        "distribution_entropy": 4.1565470695495605
+      },
+      "timestamp": 0.08001589775085449
+    },
+    {
+      "step": 5,
+      "compactness": 0.9791666666666666,
+      "diversity": 6.639005422592163,
+      "best_compactness": 0.9895833333333334,
+      "spectral_eta": 0.0,
+      "fold_info": {
+        "original_dim": 64,
+        "effective_dim": 36,
+        "fold_ratio": 1.0,
+        "norm_mean": 1.0,
+        "distribution_entropy": 4.156548500061035
+      },
+      "timestamp": 0.09697985649108887
+    },
+    {
+      "step": 6,
+      "compactness": 1.0,
+      "diversity": 6.639736519919501,
+      "best_compactness": 1.0,
+      "spectral_eta": 0.0,
+      "fold_info": {
+        "original_dim": 64,
+        "effective_dim": 36,
+        "fold_ratio": 1.0,
+        "norm_mean": 1.0,
+        "distribution_entropy": 4.156558036804199
+      },
+      "timestamp": 0.11402082443237305
+    },
+    {
+      "step": 7,
+      "compactness": 0.9479166666666666,
+      "diversity": 6.635819435119629,
+      "best_compactness": 1.0,
+      "spectral_eta": 0.0,
+      "fold_info": {
+        "original_dim": 64,
+        "effective_dim": 36,
+        "fold_ratio": 1.0,
+        "norm_mean": 1.0,
+        "distribution_entropy": 4.156548500061035
+      },
+      "timestamp": 0.13183093070983887
+    },
+    {
+      "step": 8,
+      "compactness": 0.96875,
+      "diversity": 6.667436387803819,
+      "best_compactness": 1.0,
+      "spectral_eta": 0.0,
+      "fold_info": {
+        "original_dim": 64,
+        "effective_dim": 36,
+        "fold_ratio": 1.0,
+        "norm_mean": 1.0,
+        "distribution_entropy": 4.156534194946289
+      },
+      "timestamp": 0.14975309371948242
+    },
+    {
+      "step": 9,
+      "compactness": 0.9583333333333334,
+      "diversity": 6.647091362211438,
+      "best_compactness": 1.0,
+      "spectral_eta": 0.0,
+      "fold_info": {
+        "original_dim": 64,
+        "effective_dim": 37,
+        "fold_ratio": 1.0,
+        "norm_mean": 1.0,
+        "distribution_entropy": 4.156513214111328
+      },
+      "timestamp": 0.16724610328674316
+    },
+    {
+      "step": 10,
+      "compactness": 0.9479166666666666,
+      "diversity": 6.666764948103164,
+      "best_compactness": 1.0,
+      "spectral_eta": 0.0,
+      "fold_info": {
+        "original_dim": 64,
+        "effective_dim": 36,
+        "fold_ratio": 1.0,
+        "norm_mean": 1.0,
+        "distribution_entropy": 4.156524658203125
+      },
+      "timestamp": 0.18436503410339355
+    },
+    {
+      "step": 11,
+      "compactness": 0.96875,
+      "diversity": 6.615663872824775,
+      "best_compactness": 1.0,
+      "spectral_eta": 0.0,
+      "fold_info": {
+        "original_dim": 64,
+        "effective_dim": 36,
+        "fold_ratio": 1.0,
+        "norm_mean": 1.0,
+        "distribution_entropy": 4.156524658203125
+      },
+      "timestamp": 0.20122075080871582
+    },
+    {
+      "step": 12,
+      "compactness": 0.9791666666666666,
+      "diversity": 6.640241622924805,
+      "best_compactness": 1.0,
+      "spectral_eta": 0.0,
+      "fold_info": {
+        "original_dim": 64,
+        "effective_dim": 36,
+        "fold_ratio": 1.0,
+        "norm_mean": 1.0,
+        "distribution_entropy": 4.156590938568115
+      },
+      "timestamp": 0.21869778633117676
+    },
+    {
+      "step": 13,
+      "compactness": 0.9583333333333334,
+      "diversity": 6.663981172773574,
+      "best_compactness": 1.0,
+      "spectral_eta": 0.0,
+      "fold_info": {
+        "original_dim": 64,
+        "effective_dim": 36,
+        "fold_ratio": 1.0,
+        "norm_mean": 1.0,
+        "distribution_entropy": 4.156543731689453
+      },
+      "timestamp": 0.23594284057617188
+    },
+    {
+      "step": 14,
+      "compactness": 0.9791666666666666,
+      "diversity": 6.649557405047947,
+      "best_compactness": 1.0,
+      "spectral_eta": 0.0,
+      "fold_info": {
+        "original_dim": 64,
+        "effective_dim": 36,
+        "fold_ratio": 1.0,
+        "norm_mean": 1.0,
+        "distribution_entropy": 4.156528472900391
+      },
+      "timestamp": 0.2530858516693115
+    },
+    {
+      "step": 15,
+      "compactness": 0.96875,
+      "diversity": 6.6530136532253685,
+      "best_compactness": 1.0,
+      "spectral_eta": 0.0,
+      "fold_info": {
+        "original_dim": 64,
+        "effective_dim": 36,
+        "fold_ratio": 1.0,
+        "norm_mean": 1.0,
+        "distribution_entropy": 4.156545639038086
+      },
+      "timestamp": 0.2699129581451416
+    },
+    {
+      "step": 16,
+      "compactness": 0.9791666666666666,
+      "diversity": 6.667976988686455,
+      "best_compactness": 1.0,
+      "spectral_eta": 0.0,
+      "fold_info": {
+        "original_dim": 64,
+        "effective_dim": 36,
+        "fold_ratio": 1.0,
+        "norm_mean": 1.0,
+        "distribution_entropy": 4.156589508056641
+      },
+      "timestamp": 0.2869439125061035
+    },
+    {
+      "step": 17,
+      "compactness": 0.9270833333333334,
+      "diversity": 6.6151173379686155,
+      "best_compactness": 1.0,
+      "spectral_eta": 0.0,
+      "fold_info": {
+        "original_dim": 64,
+        "effective_dim": 36,
+        "fold_ratio": 1.0,
+        "norm_mean": 1.0,
+        "distribution_entropy": 4.156578063964844
+      },
+      "timestamp": 0.3043508529663086
+    },
+    {
+      "step": 18,
+      "compactness": 0.96875,
+      "diversity": 6.659134070078532,
+      "best_compactness": 1.0,
+      "spectral_eta": 0.0,
+      "fold_info": {
+        "original_dim": 64,
+        "effective_dim": 36,
+        "fold_ratio": 1.0,
+        "norm_mean": 1.0,
+        "distribution_entropy": 4.156554222106934
+      },
+      "timestamp": 0.32136988639831543
+    },
+    {
+      "step": 19,
+      "compactness": 0.9791666666666666,
+      "diversity": 6.6514820257822675,
+      "best_compactness": 1.0,
+      "spectral_eta": 0.0,
+      "fold_info": {
+        "original_dim": 64,
+        "effective_dim": 36,
+        "fold_ratio": 1.0,
+        "norm_mean": 1.0,
+        "distribution_entropy": 4.156562328338623
+      },
+      "timestamp": 0.3381989002227783
+    },
+    {
+      "step": 20,
+      "compactness": 0.9479166666666666,
+      "diversity": 6.630298508538139,
+      "best_compactness": 1.0,
+      "spectral_eta": 0.0,
+      "fold_info": {
+        "original_dim": 64,
+        "effective_dim": 36,
+        "fold_ratio": 1.0,
+        "norm_mean": 1.0,
+        "distribution_entropy": 4.156545639038086
+      },
+      "timestamp": 0.3549790382385254
+    }
+  ],
+  "statistics": {
+    "avg_compactness": 0.9666666666666666,
+    "max_compactness": 1.0,
+    "avg_diversity": 6.646453640196059,
+    "avg_spectral_eta": 0.0,
+    "evolution_stability": 0.977491961414791,
+    "fold_effectiveness": 1.0
+  }
+}

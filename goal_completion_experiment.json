@@ -1,0 +1,28 @@
+{
+  "steps": 200,
+  "completed_count": 1,
+  "completed_goals": [
+    {
+      "id": "goal_0",
+      "type": "learning",
+      "description": "追求learning目标，复杂度0.3",
+      "complexity": 0.3,
+      "created_time": 1769598897.161611,
+      "progress": 0.8529853969812393,
+      "intrinsic_reward": 0.3672227025032043,
+      "completed_time": 1769598897.1972249,
+      "completion_evidence": {
+        "progress": 0.8529853969812393,
+        "policy_loss": 0.0,
+        "value_loss": 0.0,
+        "type": "learning",
+        "description": "追求learning目标，复杂度0.3",
+        "reason": "progress>=0.85 & learning_metrics_ok"
+      },
+      "goal_vector_shape": [
+        256
+      ]
+    }
+  ],
+  "timestamp": 1769598897.1974
+}

@@ -91,7 +91,7 @@ class ReversibleL2Distiller(nn.Module):
     """
     def __init__(self, dim: int = 256):
         super().__init__()
-        self.distiller = L2SuperKnotDistiller(latent_dim=dim)
+        self.distiller = L2SuperKnotDistiller(dim=dim)
 
     def forward(self, x1: torch.Tensor, x2: torch.Tensor) -> Tuple[torch.Tensor, torch.Tensor]:
         # Additive coupling for reversibility

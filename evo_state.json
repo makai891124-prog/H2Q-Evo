@@ -10612,6 +10612,36 @@
       "generation": 1,
       "output_norm": 21319288832.0,
       "state_change": 21319288832.0
+    },
+    {
+      "timestamp": 1769524738.2961438,
+      "generation": 1,
+      "output_norm": 19003181056.0,
+      "state_change": 19003181056.0
+    },
+    {
+      "timestamp": 1769524798.373585,
+      "generation": 2,
+      "output_norm": 17125570560.0,
+      "state_change": 17125570560.0
+    },
+    {
+      "timestamp": 1769524858.45218,
+      "generation": 3,
+      "output_norm": 19428384768.0,
+      "state_change": 19428384768.0
+    }
+  ],
+  "evolution_metrics_history": [
+    {
+      "generation": 1,
+      "capability_improvement_loss": 0.5253141522407532,
+      "knowledge_integration_loss": 0.0,
+      "emergent_capability_loss": Infinity,
+      "stability_loss": Infinity,
+      "total_evolution_loss": Infinity,
+      "evolution_efficiency_score": 0.0,
+      "timestamp": 1769524738.296052
     }
   ]
 }

@@ -240,7 +240,7 @@ class SupervisedLearningManager:
         self.model = RealLearningAGI(
             input_dim=self.config.input_dim,
             hidden_dim=self.config.hidden_dim,
-            latent_dim=self.config.latent_dim,
+            dim=self.config.latent_dim,
             output_dim=self.config.output_dim,
             num_attention_heads=self.config.num_attention_heads,
             num_attention_layers=self.config.num_attention_layers

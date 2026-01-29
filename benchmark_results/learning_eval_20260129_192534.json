@@ -1,0 +1,33 @@
+{
+  "timestamp": "2026-01-29T19:25:37.982598",
+  "dataset": "CIFAR10",
+  "train_split": 0.9,
+  "val_split": 0.1,
+  "regularization": {
+    "weight_decay": 0.0001,
+    "label_smoothing": 0.05,
+    "dropout": "model default",
+    "early_stopping": 2
+  },
+  "best_val_accuracy": 0.102,
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 2.3015185260772704,
+      "val_loss": 2.303431625366211,
+      "val_accuracy": 0.102
+    },
+    {
+      "epoch": 2,
+      "train_loss": 2.3033752250671387,
+      "val_loss": 2.3020839500427246,
+      "val_accuracy": 0.102
+    },
+    {
+      "epoch": 3,
+      "train_loss": 2.3049464559555055,
+      "val_loss": 2.3013868598937988,
+      "val_accuracy": 0.102
+    }
+  ]
+}

@@ -14,7 +14,7 @@ class AVTGBerryFusion(nn.Module):
     Unified Cross-Modal Berry Phase Fusion Engine.
     Entangles Audio, Vision, Text, and Genomic (AVT-G) signatures into a 256-D quaternionic knot.
     """
-    def __init__(self, latent_dim=256):
+    def __init__(self, dim=256):
         super().__init__()
         self.latent_dim = latent_dim
         self.num_quats = latent_dim // 4  # 64-knot clusters

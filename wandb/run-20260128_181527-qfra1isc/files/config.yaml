@@ -1,0 +1,67 @@
+_wandb:
+    value:
+        cli_version: 0.24.0
+        e:
+            lbta4i4rmdw8o2cavc81gu7m8m18ui1e:
+                apple:
+                    ecpuCores: 6
+                    gpuCores: 10
+                    memoryGb: 16
+                    name: Apple M4
+                    pcpuCores: 4
+                    ramTotalBytes: "17179869184"
+                codePath: start_agi_evolution.py
+                codePathLocal: start_agi_evolution.py
+                cpu_count: 10
+                cpu_count_logical: 10
+                disk:
+                    /:
+                        total: "494384795648"
+                        used: "355096588288"
+                email: ma.kai891124@gmail.com
+                executable: /Users/imymm/.pyenv/versions/3.12.2/bin/python3
+                git:
+                    commit: fd23ef64591d3fdfbae8c7ea063fdfa756c50569
+                    remote: git@github.com:makai891124-prog/H2Q-Evo.git
+                host: mac-mini
+                memory:
+                    total: "17179869184"
+                os: macOS-26.2-arm64-arm-64bit
+                program: /Users/imymm/H2Q-Evo/start_agi_evolution.py
+                python: CPython 3.12.2
+                root: /Users/imymm/H2Q-Evo
+                startedAt: "2026-01-28T10:15:27.170585Z"
+                writerId: lbta4i4rmdw8o2cavc81gu7m8m18ui1e
+        m: []
+        python_version: 3.12.2
+        t:
+            "1":
+                - 1
+                - 5
+                - 11
+                - 41
+                - 49
+                - 51
+                - 53
+                - 71
+                - 95
+                - 98
+            "2":
+                - 1
+                - 5
+                - 11
+                - 41
+                - 49
+                - 51
+                - 53
+                - 71
+                - 95
+                - 98
+            "3":
+                - 13
+                - 24
+            "4": 3.12.2
+            "5": 0.24.0
+            "6": 4.57.5
+            "12": 0.24.0
+            "13": darwin-arm64

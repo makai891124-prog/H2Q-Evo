@@ -1,0 +1,79 @@
+{
+  "timestamp": 1769451864.230638,
+  "demo_config": {
+    "target_model": "deepseek-coder",
+    "target_hardware": "Mac Mini M4 16GB"
+  },
+  "results": {
+    "crystallization": {
+      "model_name": "test_deepseek-coder",
+      "original_size_mb": 215.47772216796875,
+      "compressed_size_mb": 0.32672119140625,
+      "compression_ratio": 659.5155987296843,
+      "quality_score": 0.0,
+      "compression_time_seconds": 0.060112953186035156,
+      "memory_usage_mb": 350.375,
+      "spectral_stability": 0.566116678927626,
+      "mathematical_integrity": 0.0
+    },
+    "inference": {
+      "total_tests": 3,
+      "successful_tests": 0,
+      "avg_inference_time": 0.0009818871815999348,
+      "results": [
+        {
+          "prompt": "Write a Python function to calculate fibonacci numbers:",
+          "success": false,
+          "inference_time": 0.0013959407806396484,
+          "response_length": 0,
+          "error": "Ollama服务未运行"
+        },
+        {
+          "prompt": "Explain quantum computing in simple terms:",
+          "success": false,
+          "inference_time": 0.0009028911590576172,
+          "response_length": 0,
+          "error": "Ollama服务未运行"
+        },
+        {
+          "prompt": "What are the benefits of H2Q mathematical architecture?",
+          "success": false,
+          "inference_time": 0.0006468296051025391,
+          "response_length": 0,
+          "error": "Ollama服务未运行"
+        }
+      ]
+    },
+    "resource_optimization": {
+      "initial_status": {
+        "current_usage": {
+          "cpu_percent": 13.7,
+          "memory_mb": 10777.21875,
+          "gpu_memory_mb": 0.0
+        },
+        "limits": {
+          "cpu_percent": 80.0,
+          "memory_mb": 2048,
+          "gpu_memory_mb": 1024
+        },
+        "utilization_percent": {
+          "cpu": 17.125,
+          "memory": 526.2313842773438,
+          "gpu": 0.0
+        },
+        "active_tasks": 0,
+        "queued_tasks": 0,
+        "adaptation_factors": {
+          "cpu_boost": 1.05,
+          "memory_boost": 0.95,
+          "gpu_boost": 1.05
+        },
+        "monitoring_active": true
+      },
+      "optimization": {
+        "success": false,
+        "reason": "insufficient_history"
+      }
+    }
+  }
+}

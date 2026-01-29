@@ -183,7 +183,7 @@ try:
     from h2q.core.discrete_decision_engine import get_canonical_dde
     from h2q.core.engine import LatentConfig
     
-    config = LatentConfig(latent_dim=256)
+    config = LatentConfig(dim=256)
     dde = get_canonical_dde(config=config)
     
     print(f"  ✅ 离散决策引擎 (DDE): 初始化成功")
@@ -246,7 +246,7 @@ try:
     from h2q.core.engine import LatentConfig
     from h2q.core.discrete_decision_engine import get_canonical_dde
     
-    config = LatentConfig(latent_dim=256)
+    config = LatentConfig(dim=256)
     dde = get_canonical_dde(config=config)
     
     # 构造输入
@@ -314,7 +314,7 @@ try:
     from h2q.core.discrete_decision_engine import get_canonical_dde
     from h2q.core.engine import LatentConfig
     
-    config = LatentConfig(latent_dim=256)
+    config = LatentConfig(dim=256)
     dde = get_canonical_dde(config=config)
     middleware = HolomorphicStreamingMiddleware(dde=dde, threshold=0.05)
     
@@ -343,7 +343,7 @@ try:
     from h2q.core.discrete_decision_engine import get_canonical_dde
     from h2q.core.engine import LatentConfig
     
-    config = LatentConfig(latent_dim=256)
+    config = LatentConfig(dim=256)
     dde = get_canonical_dde(config=config)
     
     latencies = []
@@ -408,7 +408,7 @@ try:
     from h2q.core.discrete_decision_engine import get_canonical_dde
     from h2q.core.engine import LatentConfig
     
-    config = LatentConfig(latent_dim=256)
+    config = LatentConfig(dim=256)
     dde = get_canonical_dde(config=config)
     
     batch_size = 64

@@ -44,7 +44,7 @@ class GeometricCrystal(nn.Module):
         self.register_buffer('state_psi', torch.randn(dim) / (dim ** 0.5))
         
         # Fixed Decision Engine
-        self.decision_engine = DiscreteDecisionEngine(latent_dim=dim)
+        self.decision_engine = DiscreteDecisionEngine(dim=dim)
         self.to(device)
 
     def _apply_geodesic_flow(self, state: torch.Tensor, shift: torch.Tensor) -> torch.Tensor:

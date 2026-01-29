@@ -1,9 +1,31 @@
 {
-  "current_step": 110,
-  "best_loss": 2.400000000000002,
-  "total_samples": 3520,
+  "current_step": 4098,
+  "best_loss": 1.045042226711909,
+  "best_accuracy": 0.7150000000000005,
+  "total_samples": 294080,
   "throttle_count": 0,
-  "start_time": "2026-01-25T03:48:01.826599",
-  "last_save_time": "2026-01-25T03:50:44.865032",
-  "training_duration": "0:02:43.038441"
+  "start_time": "2026-01-25T03:56:06.368204",
+  "last_save_time": "2026-01-25T06:03:43.692578",
+  "training_duration": "2:07:37.324386",
+  "h2q_trainer_state": {
+    "current_step": 4098,
+    "best_loss": 1.045042226711909,
+    "best_accuracy": 0.7150000000000005
+  },
+  "latest_metrics": {
+    "loss": 1.3971038659413655,
+    "accuracy": 0.0,
+    "best_loss": 1.045042226711909,
+    "best_accuracy": 0.7150000000000005,
+    "eta_real": -0.025478895753622055,
+    "collapse_penalty": 0.2679666578769684,
+    "classification_metrics": {
+      "accuracy": 0.0,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0
+    },
+    "advanced_spectral": true,
+    "stability_score": -0.025478895753622055
+  }
 }

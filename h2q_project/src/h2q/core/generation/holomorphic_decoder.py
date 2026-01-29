@@ -29,7 +29,7 @@ class HolomorphicAutoregressiveDecoder(nn.Module):
 
         # Initialize DDE using canonical factory to avoid 'dim' kwarg errors
         # as identified in the Veracity Compact audit.
-        self.dde = get_canonical_dde(latent_dim=latent_dim)
+        self.dde = get_canonical_dde(dim=latent_dim)
         
         # Audit kernel for calculating Discrete Fueter Operator (Df)
         self.audit_kernel = HolomorphicAuditKernel(dim=latent_dim)

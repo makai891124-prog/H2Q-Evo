@@ -66,4 +66,4 @@ class H2Q_Base_Module(nn.Module):
         return next(self.parameters()).device if list(self.parameters()) else torch.device('cpu')
 
     def __repr__(self) -> str:
-        return f"{self.__class__.__name__}(latent_dim={self.config.latent_dim})"
+        return f"{self.__class__.__name__}(dim={self.config.latent_dim})"

@@ -139,7 +139,7 @@ def verify_automorphic_dde():
     device = "cpu"
     
     # 创建DDE
-    dde = get_automorphic_dde(latent_dim=256, action_dim=64, device=device)
+    dde = get_automorphic_dde(dim=256, action_dim=64, device=device)
     
     # 测试状态
     state = torch.randn(4, 256, device=device)

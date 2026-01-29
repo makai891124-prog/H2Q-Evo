@@ -1,0 +1,102 @@
+{
+  "timestamp": "2026-01-28 21:12:56",
+  "tests": {
+    "quaternion_operations": {
+      "name": "quaternion_operations",
+      "status": "✓ PASS",
+      "details": {
+        "quaternion_multiplication": {
+          "product_norm": 1.0,
+          "expected": 1.0,
+          "error": 0.0,
+          "passes": true
+        },
+        "log_exp_recovery": {
+          "recovery_error": 4.470348358154297e-08,
+          "expected": 0.0,
+          "passes": true
+        }
+      }
+    },
+    "fractal_tree_encoding": {
+      "name": "fractal_tree_encoding",
+      "status": "✓ PASS",
+      "details": {
+        "encoding": {
+          "samples": 10,
+          "average_path_length": 8.0,
+          "encoding_time_ms": 6.790876388549805,
+          "average_time_per_sample_ms": 0.6790876388549805
+        },
+        "path_validity": {
+          "max_depth": 8,
+          "max_path_length": 8,
+          "all_valid": true,
+          "passes": true
+        }
+      }
+    },
+    "das_invariants": {
+      "name": "das_invariants",
+      "status": "✓ PASS",
+      "details": {
+        "tree_balance": {
+          "score": 1.0,
+          "passes": true
+        },
+        "split_quality": {
+          "score": 1.0,
+          "passes": true
+        },
+        "metric_stability": {
+          "score": 0.989382228103375,
+          "passes": true
+        },
+        "average_invariant_score": 0.996460742701125
+      }
+    },
+    "speedup_benchmark": {
+      "name": "speedup_benchmark",
+      "status": "⚠ WARNING: 未达到预期加速",
+      "details": {
+        "timing": {
+          "standard_forward_time_ms": 0.2188563346862793,
+          "fusion_forward_time_ms": 0.2216935157775879,
+          "actual_speedup": 0.9872022369199334,
+          "theoretical_speedup": 100.0
+        },
+        "efficiency_ratio": 0.009872022369199334
+      },
+      "m24_verdict": "⚠ 未观察到加速（需要优化）"
+    },
+    "information_preservation": {
+      "name": "information_preservation",
+      "status": "✓ PASS",
+      "details": {
+        "reconstruction": {
+          "average_relative_error": 0.0,
+          "preservation_rate": 1.0,
+          "expected_min_preservation": 0.85,
+          "passes": true
+        }
+      }
+    },
+    "integration_compatibility": {
+      "name": "integration_compatibility",
+      "status": "✓ PASS",
+      "details": {
+        "shape_compatibility": {
+          "output_shape": [
+            4,
+            256
+          ],
+          "expected_shape": [
+            4,
+            256
+          ],
+          "compatible": true
+        }
+      }
+    }
+  }
+}

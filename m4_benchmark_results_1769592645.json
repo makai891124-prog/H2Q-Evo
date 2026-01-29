@@ -1,0 +1,68 @@
+{
+  "timestamp": 1769592645.039031,
+  "config": {
+    "model_path": "models/das_optimized_deepseek-coder-v2-236b.pth",
+    "max_memory_gb": 12.0,
+    "use_amx": true,
+    "quantization": "fp16",
+    "chunk_size": 512,
+    "m24_verified": true
+  },
+  "benchmark_results": [
+    {
+      "model_name": "DAS-DeepSeek-M4-Optimized",
+      "task_name": "mathematical_reasoning",
+      "score": 1.0,
+      "latency_sec": 0.2866249084472656,
+      "memory_usage_gb": 0.066162109375,
+      "throughput_tokens_sec": 69.7776062392696,
+      "m24_compliance": true,
+      "timestamp": 1769592644.252759
+    },
+    {
+      "model_name": "DAS-DeepSeek-M4-Optimized",
+      "task_name": "code_generation",
+      "score": 0.5,
+      "latency_sec": 0.2599000930786133,
+      "memory_usage_gb": 0.0166778564453125,
+      "throughput_tokens_sec": 76.95264654618842,
+      "m24_compliance": true,
+      "timestamp": 1769592644.5128682
+    },
+    {
+      "model_name": "DAS-DeepSeek-M4-Optimized",
+      "task_name": "logical_reasoning",
+      "score": 0.5,
+      "latency_sec": 0.26234912872314453,
+      "memory_usage_gb": -0.0397491455078125,
+      "throughput_tokens_sec": 76.23429167590596,
+      "m24_compliance": true,
+      "timestamp": 1769592644.775394
+    },
+    {
+      "model_name": "DAS-DeepSeek-M4-Optimized",
+      "task_name": "creative_writing",
+      "score": 0.75,
+      "latency_sec": 0.26325297355651855,
+      "memory_usage_gb": 0.004547119140625,
+      "throughput_tokens_sec": 75.97255115413213,
+      "m24_compliance": true,
+      "timestamp": 1769592645.038795
+    }
+  ],
+  "summary": {
+    "average_score": 0.6875,
+    "average_latency_sec": 0.2680317759513855,
+    "average_throughput_tokens_sec": 74.73427390387403,
+    "peak_memory_gb": 6.7146453857421875,
+    "m24_compliance": true,
+    "total_tasks": 4
+  },
+  "system_info": {
+    "platform": "darwin",
+    "python_version": "3.12.2 (main, Dec 23 2025, 20:48:21) [Clang 17.0.0 (clang-1700.6.3.2)]",
+    "torch_version": "2.9.1",
+    "cpu_info": "Apple M4",
+    "memory_gb": 16.0
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "timestamp": 1769458988.5512671,
+  "dimension_fixes": {
+    "case_1": {
+      "success": true,
+      "input_shape": [
+        2,
+        10
+      ],
+      "output_shape": [
+        2,
+        10,
+        256
+      ],
+      "alignment_method": "intelligent_padding"
+    },
+    "case_2": {
+      "success": false,
+      "error": "Adaptive pool MPS: input sizes must be divisible by output sizes. Non-divisible input sizes are not implemented on MPS device yet. For now, you can manually transfer tensor to cpu in this case. Please refer to [this issue](https://github.com/pytorch/pytorch/issues/96056)"
+    },
+    "case_3": {
+      "success": true,
+      "input_shape": [
+        2,
+        10,
+        256
+      ],
+      "output_shape": [
+        2,
+        10,
+        256
+      ],
+      "alignment_method": "no_change"
+    }
+  },
+  "streaming_test": {
+    "interface_created": true,
+    "tokens_generated": 20
+  }
+}

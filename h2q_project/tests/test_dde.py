@@ -10,7 +10,7 @@ def test_dde_basic_functionality():
     action_dim = 4
 
     # Create DDE with new API
-    dde = get_canonical_dde(latent_dim=context_dim, n_choices=action_dim)
+    dde = get_canonical_dde(dim=context_dim, n_choices=action_dim)
 
     # Test forward pass
     context = torch.randn(1, context_dim)
@@ -41,7 +41,7 @@ def test_dde_config_handling():
     assert dde.config.temperature == 0.5
 
     # Test with LatentConfig object
-    config_obj = LatentConfig(latent_dim=64, n_choices=16)
+    config_obj = LatentConfig(dim=64, n_choices=16)
     dde2 = DiscreteDecisionEngine(config=config_obj)
     assert dde2.config.latent_dim == 64
     assert dde2.config.n_choices == 16

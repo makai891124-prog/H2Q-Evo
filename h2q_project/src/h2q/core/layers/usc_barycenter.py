@@ -21,7 +21,7 @@ class USCBarycenter(nn.Module):
         try:
             self.dde = get_canonical_dde()
         except Exception:
-            config = LatentConfig(latent_dim=manifold_dim)
+            config = LatentConfig(dim=manifold_dim)
             self.dde = DiscreteDecisionEngine(config)
             
         self.amx_optimizer = HamiltonOptimizer()

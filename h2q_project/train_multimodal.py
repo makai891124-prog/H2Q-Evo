@@ -81,5 +81,5 @@ def train_step(model, data, optimizer, device="mps"):
 if __name__ == "__main__":
     # Example instantiation honoring the Veracity Compact
     # Fixes the 'dim' keyword error reported in feedback
-    dde = DiscreteDecisionEngine(latent_dim=256)
+    dde = DiscreteDecisionEngine(dim=256)
     print("H2Q Multimodal Trainer Initialized. DDE Symmetry Verified.")

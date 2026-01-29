@@ -99,7 +99,7 @@ class RealTrainingSession:
         self.model = RealLearningAGI(
             input_dim=256,
             hidden_dim=512,
-            latent_dim=128,
+            dim=128,
             output_dim=256,
             num_attention_heads=4,
             num_attention_layers=3

@@ -1,0 +1,66 @@
+{
+  "training_duration": "0:00:29.712473",
+  "total_steps": 27,
+  "knowledge_expansions": 0,
+  "multimodal_expansions": 0,
+  "api_calls": 0,
+  "final_system_status": {
+    "step_count": 27,
+    "runtime": 26.84907579421997,
+    "consciousness_level": {
+      "integrated_information": 0.08786175400018692,
+      "neural_complexity": 0.5762584209442139,
+      "self_model_accuracy": 0.523645281791687,
+      "metacognitive_awareness": 0.5689285397529602
+    },
+    "learning_status": {
+      "performance_trends": {
+        "status": "insufficient_data",
+        "message": "需要更多数据进行趋势分析"
+      },
+      "current_learning_rates": {
+        "policy": 0.0003,
+        "value": 0.0003,
+        "long_term_value": 0.00015,
+        "meta": 0.0001
+      },
+      "experience_buffer_sizes": {
+        "prioritized": 27,
+        "total": 27,
+        "short_term": 1,
+        "long_term": 26
+      },
+      "knowledge_base_size": 0,
+      "knowledge_clusters": 0,
+      "current_batch_size": 64,
+      "convergence_metrics": {
+        "policy_loss_std": null,
+        "value_loss_std": null,
+        "entropy_mean": null,
+        "learning_stability": "learning"
+      }
+    },
+    "goal_status": {
+      "total_goals": 27,
+      "completed_goals": 26,
+      "active_goals": 1,
+      "completion_rate": 0.9629629629629629,
+      "type_distribution": {
+        "learning": 7,
+        "exploration": 0,
+        "optimization": 10,
+        "creation": 0,
+        "understanding": 0,
+        "social": 0,
+        "ethical": 0,
+        "technical": 10
+      },
+      "average_complexity": 0.6704974580597429,
+      "most_common_type": "optimization"
+    },
+    "knowledge_base_size": 0,
+    "experience_buffer_size": 27
+  },
+  "expansion_history": [],
+  "completion_time": "2026-01-29T03:55:27.772487"
+}

@@ -44,7 +44,7 @@ class BerryPhaseSynesthesiaTrainer(nn.Module):
     """
     [EXPERIMENTAL] Synchronizes Vision and Text manifolds via SU(2) Geometric Phase.
     """
-    def __init__(self, latent_dim=256, device="mps"):
+    def __init__(self, dim=256, device="mps"):
         super().__init__()
         self.latent_dim = latent_dim
         self.device = torch.device(device if torch.backends.mps.is_available() else "cpu")

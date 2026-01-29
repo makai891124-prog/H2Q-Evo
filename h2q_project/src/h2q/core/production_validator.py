@@ -227,7 +227,7 @@ class ProductionValidator:
         def check_model_loading():
             try:
                 from h2q.core.discrete_decision_engine import DiscreteDecisionEngine, LatentConfig
-                config = LatentConfig(latent_dim=256, n_choices=64)
+                config = LatentConfig(dim=256, n_choices=64)
                 model = DiscreteDecisionEngine(config=config)
                 return HealthCheckResult(
                     component_name="model_loading",
@@ -250,7 +250,7 @@ class ProductionValidator:
         def check_inference_performance():
             try:
                 from h2q.core.discrete_decision_engine import DiscreteDecisionEngine, LatentConfig
-                config = LatentConfig(latent_dim=256, n_choices=64)
+                config = LatentConfig(dim=256, n_choices=64)
                 model = DiscreteDecisionEngine(config=config)
                 model.eval()
                 
@@ -326,7 +326,7 @@ class ProductionValidator:
         def check_mathematical_integrity():
             try:
                 from h2q.core.discrete_decision_engine import DiscreteDecisionEngine, LatentConfig
-                config = LatentConfig(latent_dim=256, n_choices=64)
+                config = LatentConfig(dim=256, n_choices=64)
                 model = DiscreteDecisionEngine(config=config)
                 
                 # 测试数学运算的正确性

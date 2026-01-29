@@ -46,7 +46,7 @@ def patch_server(args):
     
     # 1. 处理维度参数
     if 'latent_dim' in args:
-        params.append("latent_dim=32")
+        params.append("dim=32")
     elif 'dim' in args:
         params.append("dim=32") # 假设 latent 对应 dim
     elif 'context_dim' in args:

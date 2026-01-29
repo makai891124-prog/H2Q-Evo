@@ -12,7 +12,7 @@ class MultiModalBerryInterferometer(nn.Module):
     Measures geometric phase interference (Pancharatnam-Berry phase) between 
     Audio, Vision, and Text manifolds to prove semantic isomorphism.
     """
-    def __init__(self, latent_dim=256):
+    def __init__(self, dim=256):
         super().__init__()
         self.latent_dim = latent_dim
         # Fix: Using get_canonical_dde to avoid 'dim' keyword argument error

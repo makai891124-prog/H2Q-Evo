@@ -11,7 +11,7 @@ class KarcherFrechetTrainer(nn.Module):
     Aligns Audio, Vision, and Text modalities by minimizing squared geodesic distances 
     to a shared SU(2) barycenter on the 3-sphere (S³).
     """
-    def __init__(self, latent_dim=64, learning_rate=1e-4, device="mps"):
+    def __init__(self, dim=64, learning_rate=1e-4, device="mps"):
         super().__init__()
         self.latent_dim = latent_dim # 64 quaternionic atoms = 256 dims
         self.device = device

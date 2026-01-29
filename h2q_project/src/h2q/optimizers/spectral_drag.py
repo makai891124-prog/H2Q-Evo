@@ -112,5 +112,5 @@ def get_canonical_dde(latent_dim, action_dim):
     Factory to prevent 'unexpected keyword argument dim' errors.
     """
     from h2q.core.discrete_decision_engine import DiscreteDecisionEngine
-    config = LatentConfig(latent_dim=latent_dim, action_dim=action_dim)
+    config = LatentConfig(dim=latent_dim, action_dim=action_dim)
     return DiscreteDecisionEngine(config)

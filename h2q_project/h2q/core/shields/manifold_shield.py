@@ -10,7 +10,7 @@ class ManifoldSingularityShield(nn.Module):
     Triggers Fractal Noise Injection (h ± δ) to prevent dimensional collapse 
     when the effective rank of the SU(2) manifold falls below the 128-dim threshold.
     """
-    def __init__(self, latent_dim=256, rank_threshold=128, delta_scale=1e-3):
+    def __init__(self, dim=256, rank_threshold=128, delta_scale=1e-3):
         super().__init__()
         self.latent_dim = latent_dim
         self.rank_threshold = rank_threshold

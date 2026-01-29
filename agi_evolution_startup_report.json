@@ -1,0 +1,35 @@
+{
+  "timestamp": "2026-01-28T18:15:34.354800",
+  "startup_config": {
+    "timestamp": "2026-01-28T18:15:20.738792",
+    "evolution_mode": "continuous",
+    "max_generations": 1000,
+    "checkpoint_interval": 50,
+    "monitoring_enabled": true,
+    "api_integration": true,
+    "local_inference": true
+  },
+  "overall_status": "running",
+  "active_services": [
+    {
+      "pid": 71023,
+      "command": "/Users/imymm/.pyenv/versions/3.12.2/bin/python3 start_agi_evolution.py"
+    },
+    {
+      "pid": 71198,
+      "command": "/Users/imymm/.pyenv/versions/3.12.2/bin/python3 -m uvicorn h2q_project.h2q_server:app --reload --hos..."
+    }
+  ],
+  "next_steps": [
+    "监控训练进度: tail -f evolution.log",
+    "查看API状态: curl http://localhost:8000/health",
+    "检查训练指标: python3 analyze_agi_performance.py",
+    "启动本地推理: python3 evolution_system.py --local-inference"
+  ],
+  "monitoring_commands": [
+    "ps aux | grep python",
+    "docker ps | grep h2q",
+    "tail -f agi_persistent_training/logs/training.log",
+    "tail -f evolution_logs/evolution_monitor.log"
+  ]
+}

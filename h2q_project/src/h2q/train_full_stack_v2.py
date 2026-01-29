@@ -12,9 +12,9 @@ class H2QFullStackTrainer:
     H2Q Full Stack Trainer v2.1
     Integrates Dynamic Manifold Depth Control (DMDC) for 16GB RAM stability.
     """
-    def __init__(self, latent_dim=256, initial_depth=4):
+    def __init__(self, dim=256, initial_depth=4):
         # 0.1 No Deception: Using LatentConfig to avoid 'dim' keyword error
-        self.config = LatentConfig(latent_dim=latent_dim)
+        self.config = LatentConfig(dim=latent_dim)
         self.dde = DiscreteDecisionEngine(config=self.config)
         
         self.sst = SpectralShiftTracker()

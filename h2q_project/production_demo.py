@@ -47,7 +47,7 @@ def main():
     vc = get_version_control()
     
     # 创建配置
-    config = LatentConfig(latent_dim=256, n_choices=64, temperature=1.0)
+    config = LatentConfig(dim=256, n_choices=64, temperature=1.0)
     
     # 创建模型
     base_model = get_canonical_dde(config=config)

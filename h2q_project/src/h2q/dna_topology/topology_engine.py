@@ -77,7 +77,7 @@ class DNATopologyAnalyzer:
         self.expander = FractalExpansion()
         self.tracker = SpectralShiftTracker()
         # FIX: Initializing with 'latent_dim' instead of 'dim'
-        self.engine = DiscreteDecisionEngine(latent_dim=256)
+        self.engine = DiscreteDecisionEngine(dim=256)
 
     def analyze(self):
         loader = UniversalStreamLoader("GenomicBenchmarks")

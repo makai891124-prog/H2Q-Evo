@@ -21,7 +21,7 @@ class UnifiedBarycenterTrainer(nn.Module):
         self.device = torch.device(device if torch.cuda.is_available() or device == "mps" else "cpu")
         
         # FIX: Using get_canonical_dde to avoid 'dim' keyword error identified in feedback
-        config = LatentConfig(latent_dim=self.dim, precision="topological")
+        config = LatentConfig(dim=self.dim, precision="topological")
         self.dde = get_canonical_dde(config)
         
         self.sst = SpectralShiftTracker()

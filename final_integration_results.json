@@ -1,0 +1,26 @@
+{
+  "timestamp": 1769460021.962237,
+  "system_config": {
+    "compression_ratio": 100.0,
+    "memory_limit_gb": 8.0,
+    "mathematical_core_enabled": true
+  },
+  "benchmark_results": {
+    "model_size_mb": 37.64752197265625,
+    "inference_times": [
+      0.13840103149414062,
+      0.20611023902893066,
+      0.17172670364379883
+    ],
+    "memory_usage": null,
+    "streaming_performance": {
+      "tokens_generated": 20,
+      "total_time": 0.3105788230895996,
+      "tokens_per_second": 64.39589087576056
+    }
+  },
+  "inference_demo": {
+    "tokens_generated": 30,
+    "success": true
+  }
+}

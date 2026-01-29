@@ -100,7 +100,7 @@ class H2QModel(nn.Module):
         # RIGID CONSTRUCTION: Symmetry between input and manifold expansion
         self.manifold_projection = nn.Linear(input_dim, input_dim)
         # FIX: Corrected instantiation of DiscreteDecisionEngine
-        self.decision_engine = DiscreteDecisionEngine(latent_dim=input_dim)
+        self.decision_engine = DiscreteDecisionEngine(dim=input_dim)
         self.rev_layer = ReversibleH2QLayer(input_dim)
         self.tracker = SpectralShiftTracker()
 

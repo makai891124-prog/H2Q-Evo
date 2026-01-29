@@ -321,7 +321,7 @@ if __name__ == "__main__":
     # 注册示例算法
     from h2q.core.discrete_decision_engine import DiscreteDecisionEngine, LatentConfig
     
-    config = LatentConfig(latent_dim=256, n_choices=64)
+    config = LatentConfig(dim=256, n_choices=64)
     dde = DiscreteDecisionEngine(config=config)
     
     vc.register_algorithm(

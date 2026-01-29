@@ -1,0 +1,71 @@
+{
+  "training_duration": "0:00:22.357582",
+  "total_steps": 98,
+  "knowledge_expansions": 1,
+  "api_calls": 0,
+  "final_system_status": {
+    "step_count": 99,
+    "runtime": 19.37617325782776,
+    "consciousness_level": {
+      "integrated_information": 0.044182512909173965,
+      "neural_complexity": 0.598853588104248,
+      "self_model_accuracy": 0.6212215423583984,
+      "metacognitive_awareness": 0.45381614565849304
+    },
+    "learning_status": {
+      "performance_trends": {
+        "status": "insufficient_data",
+        "message": "需要更多数据进行趋势分析"
+      },
+      "current_learning_rates": {
+        "policy": 0.0003,
+        "value": 0.0003,
+        "long_term_value": 0.00015,
+        "meta": 0.0001
+      },
+      "experience_buffer_sizes": {
+        "prioritized": 99,
+        "total": 99,
+        "short_term": 1,
+        "long_term": 98
+      },
+      "knowledge_base_size": 0,
+      "knowledge_clusters": 0,
+      "current_batch_size": 64,
+      "convergence_metrics": {
+        "policy_loss_std": null,
+        "value_loss_std": null,
+        "entropy_mean": null,
+        "learning_stability": "learning"
+      }
+    },
+    "goal_status": {
+      "total_goals": 98,
+      "completed_goals": 97,
+      "active_goals": 1,
+      "completion_rate": 0.9897959183673469,
+      "type_distribution": {
+        "learning": 1,
+        "exploration": 0,
+        "optimization": 38,
+        "creation": 0,
+        "understanding": 0,
+        "social": 22,
+        "ethical": 0,
+        "technical": 37
+      },
+      "average_complexity": 0.6356831458416757,
+      "most_common_type": "optimization"
+    },
+    "knowledge_base_size": 0,
+    "experience_buffer_size": 99
+  },
+  "expansion_history": [
+    {
+      "topic": "artificial_intelligence",
+      "timestamp": "2026-01-29T03:53:26.868428",
+      "expansion_type": "local_fallback"
+    }
+  ],
+  "completion_time": "2026-01-29T03:53:37.866317"
+}

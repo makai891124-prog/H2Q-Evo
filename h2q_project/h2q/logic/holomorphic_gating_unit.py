@@ -8,7 +8,7 @@ class HolomorphicGatingUnit(nn.Module):
     HGU: Dampens logical paths where the quaternionic field exhibits high divergence (topological tears).
     Utilizes the Discrete Fueter Operator to calculate logic curvature.
     """
-    def __init__(self, latent_dim=256, threshold=0.05, dampening_strength=20.0):
+    def __init__(self, dim=256, threshold=0.05, dampening_strength=20.0):
         super().__init__()
         self.latent_dim = latent_dim
         self.threshold = threshold

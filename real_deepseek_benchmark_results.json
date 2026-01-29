@@ -1,0 +1,25 @@
+{
+  "timestamp": 1769458115.306933,
+  "model": "deepseek-coder:6.7b",
+  "system_memory": {
+    "total_gb": 16.0,
+    "available_gb": 2.541534423828125,
+    "used_gb": 10.45062255859375,
+    "percentage": 84.1
+  },
+  "tests": {
+    "basic_inference": {
+      "success": true,
+      "inference_time": 2.4131901264190674,
+      "output_length": 172,
+      "output": "Sure, here is a simple recursive implementation of the factorial function in Python:\n\n```python\ndef factorial(n):\n    if n == 0 or n == 1:  # base case\n        return 1\n   "
+    },
+    "crystallization": {
+      "success": true,
+      "original_params": 5560,
+      "compression_ratio": 3.9572953736654806,
+      "quality_score": 0.0,
+      "crystallization_time": 0.021832942962646484
+    }
+  }
+}

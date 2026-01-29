@@ -15,11 +15,16 @@ from tqdm import tqdm
 import time
 import argparse
 from dataclasses import dataclass
-from typing import Dict, Any, Tuple
+from typing import Dict, Any, Tuple, Optional
 import sys
 import os
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+try:
+    from h2q_project.h2q.core.knot_invariant_hub import KnotInvariantCentralHub
+except Exception:
+    KnotInvariantCentralHub = None
 
 
 @dataclass
@@ -128,9 +133,12 @@ class H2QSpacetimeClassifier(nn.Module):
     4. Classification head with dropout
     """
     
-    def __init__(self, num_classes: int = 10, hidden_dim: int = 256, depth: int = 4):
+    def __init__(self, num_classes: int = 10, hidden_dim: int = 256, depth: int = 4,
+                 fast_binary: bool = False, enable_color_knot: bool = False, color_knot_dim: int = 64):
         super().__init__()
         self.hidden_dim = hidden_dim
+        self.fast_binary = fast_binary
+        self.enable_color_knot = enable_color_knot and (KnotInvariantCentralHub is not None)
         
         # YCbCr projection matrix (BT.601)
         ycbcr_matrix = torch.tensor([
@@ -188,6 +196,34 @@ class H2QSpacetimeClassifier(nn.Module):
             nn.Dropout(0.1),
             nn.Linear(hidden_dim, num_classes)
         )
+
+        # 颜色建模 + 纽结约束（轻量闭环）
+        self.color_pool = nn.AdaptiveAvgPool2d(1)
+        self.color_project = nn.Linear(3, color_knot_dim)
+        self.color_knot = KnotInvariantCentralHub(color_knot_dim, knot_genus=3) if self.enable_color_knot else None
+        self.color_fuse = nn.Linear(color_knot_dim, channels)
+
+        # 二进制流式快速路径（多尺度编码）
+        self.binary_pool_2 = nn.AvgPool2d(2)
+        self.binary_pool_4 = nn.AvgPool2d(4)
+        self.binary_pool_8 = nn.AvgPool2d(8)
+        binary_hidden = max(128, hidden_dim)
+        binary_in = 3 * (16 * 16 + 8 * 8 + 4 * 4)
+        self.binary_fc = nn.Sequential(
+            nn.Linear(binary_in, binary_hidden),
+            nn.GELU(),
+            nn.Linear(binary_hidden, binary_hidden),
+            nn.GELU(),
+            nn.Linear(binary_hidden, binary_hidden),
+            nn.GELU(),
+        )
+        self.binary_head = nn.Sequential(
+            nn.Linear(binary_hidden, binary_hidden),
+            nn.GELU(),
+            nn.Linear(binary_hidden, binary_hidden // 2),
+            nn.GELU(),
+            nn.Linear(binary_hidden // 2, num_classes)
+        )
     
     def rgb_to_ycbcr(self, x: torch.Tensor) -> torch.Tensor:
         """Convert RGB to YCbCr color space."""
@@ -196,7 +232,27 @@ class H2QSpacetimeClassifier(nn.Module):
         ycbcr = torch.matmul(x_flat, self.ycbcr_proj.t())
         return ycbcr.permute(0, 2, 1).view(b, 3, h, w)
     
-    def forward(self, x: torch.Tensor) -> torch.Tensor:
+    def forward(self, x: torch.Tensor, fast_binary_override: Optional[bool] = None) -> torch.Tensor:
+        use_fast = self.fast_binary if fast_binary_override is None else fast_binary_override
+        # 二进制流式快速路径
+        if use_fast:
+            p2 = self.binary_pool_2(x)
+            p4 = self.binary_pool_4(x)
+            p8 = self.binary_pool_8(x)
+            b2 = (p2 > 0).float().view(p2.size(0), -1)
+            b4 = (p4 > 0).float().view(p4.size(0), -1)
+            b8 = (p8 > 0).float().view(p8.size(0), -1)
+            flat = torch.cat([b2, b4, b8], dim=1)
+            h = self.binary_fc(flat)
+            # 颜色建模增强（快速路径也保留颜色信息）
+            if self.enable_color_knot:
+                color = self.rgb_to_ycbcr(x)
+                color_vec = self.color_pool(color).flatten(1)
+                color_feat = F.gelu(self.color_project(color_vec))
+                color_corr, _ = self.color_knot(color_feat)
+                h = h + 0.05 * F.gelu(color_corr)
+            return self.binary_head(h)
+
         # 1. Stem processing
         h = self.stem(x)
         
@@ -215,6 +271,15 @@ class H2QSpacetimeClassifier(nn.Module):
         
         # 4. Global pooling and classification
         h = self.pool(h).flatten(1)
+
+        # 颜色建模 + 纽结约束
+        if self.enable_color_knot:
+            color = self.rgb_to_ycbcr(x)
+            color_vec = self.color_pool(color).flatten(1)
+            color_feat = F.gelu(self.color_project(color_vec))
+            color_corr, _ = self.color_knot(color_feat)
+            color_corr = self.color_fuse(F.gelu(color_corr))
+            h = h + 0.05 * color_corr
         return self.classifier(h)
 
 
@@ -294,7 +359,8 @@ def get_memory_usage() -> float:
 
 
 def train_epoch(model: nn.Module, loader: DataLoader, optimizer: optim.Optimizer,
-                criterion: nn.Module, device: torch.device) -> float:
+                criterion: nn.Module, device: torch.device, fast_binary_override: Optional[bool] = None,
+                dual_train: bool = False, align_alpha: float = 0.5, align_beta: float = 0.5) -> float:
     """Train for one epoch."""
     model.train()
     total_loss = 0.0
@@ -303,8 +369,22 @@ def train_epoch(model: nn.Module, loader: DataLoader, optimizer: optim.Optimizer
         inputs, targets = inputs.to(device), targets.to(device)
         
         optimizer.zero_grad()
-        outputs = model(inputs)
-        loss = criterion(outputs, targets)
+        if dual_train and hasattr(model, "forward"):
+            outputs_std = model(inputs, fast_binary_override=False)
+            outputs_fast = model(inputs, fast_binary_override=True)
+            loss_std = criterion(outputs_std, targets)
+            loss_fast = criterion(outputs_fast, targets)
+            # 分支一致性（KL）
+            p_std = F.log_softmax(outputs_std, dim=1)
+            p_fast = F.softmax(outputs_fast, dim=1)
+            loss_kl = F.kl_div(p_std, p_fast, reduction="batchmean")
+            loss = loss_std + align_alpha * loss_fast + align_beta * loss_kl
+        else:
+            if hasattr(model, "forward") and fast_binary_override is not None:
+                outputs = model(inputs, fast_binary_override=fast_binary_override)
+            else:
+                outputs = model(inputs)
+            loss = criterion(outputs, targets)
         loss.backward()
         optimizer.step()
         
@@ -314,7 +394,7 @@ def train_epoch(model: nn.Module, loader: DataLoader, optimizer: optim.Optimizer
 
 
 def evaluate(model: nn.Module, loader: DataLoader, criterion: nn.Module,
-             device: torch.device) -> Tuple[float, float]:
+             device: torch.device, fast_binary_override: Optional[bool] = None) -> Tuple[float, float]:
     """Evaluate model accuracy and loss."""
     model.eval()
     total_loss = 0.0
@@ -324,7 +404,10 @@ def evaluate(model: nn.Module, loader: DataLoader, criterion: nn.Module,
     with torch.no_grad():
         for inputs, targets in loader:
             inputs, targets = inputs.to(device), targets.to(device)
-            outputs = model(inputs)
+            if hasattr(model, "forward") and fast_binary_override is not None:
+                outputs = model(inputs, fast_binary_override=fast_binary_override)
+            else:
+                outputs = model(inputs)
             loss = criterion(outputs, targets)
             
             total_loss += loss.item()
@@ -337,7 +420,12 @@ def evaluate(model: nn.Module, loader: DataLoader, criterion: nn.Module,
 
 def benchmark_model(model: nn.Module, model_name: str, train_loader: DataLoader,
                     test_loader: DataLoader, device: torch.device,
-                    epochs: int = 10, lr: float = 1e-3) -> BenchmarkResult:
+                    epochs: int = 10, lr: float = 1e-3,
+                    train_fast_binary: Optional[bool] = None,
+                    eval_fast_binary: Optional[bool] = None,
+                    dual_train: bool = False,
+                    align_alpha: float = 0.5,
+                    align_beta: float = 0.5) -> BenchmarkResult:
     """Full training and evaluation benchmark."""
     model = model.to(device)
     params = count_parameters(model)
@@ -355,17 +443,27 @@ def benchmark_model(model: nn.Module, model_name: str, train_loader: DataLoader,
     start_time = time.time()
     
     for epoch in range(epochs):
-        train_loss = train_epoch(model, train_loader, optimizer, criterion, device)
+        train_loss = train_epoch(
+            model,
+            train_loader,
+            optimizer,
+            criterion,
+            device,
+            fast_binary_override=train_fast_binary,
+            dual_train=dual_train,
+            align_alpha=align_alpha,
+            align_beta=align_beta,
+        )
         scheduler.step()
         
         if (epoch + 1) % 5 == 0 or epoch == epochs - 1:
-            acc, test_loss = evaluate(model, test_loader, criterion, device)
+            acc, test_loss = evaluate(model, test_loader, criterion, device, fast_binary_override=eval_fast_binary)
             print(f"Epoch {epoch+1}/{epochs} | Train Loss: {train_loss:.4f} | Test Acc: {acc:.2f}%")
     
     train_time = time.time() - start_time
     
     # Final evaluation
-    final_acc, final_loss = evaluate(model, test_loader, criterion, device)
+    final_acc, final_loss = evaluate(model, test_loader, criterion, device, fast_binary_override=eval_fast_binary)
     memory = get_memory_usage()
     
     # Throughput measurement
@@ -375,7 +473,10 @@ def benchmark_model(model: nn.Module, model_name: str, train_loader: DataLoader,
         torch.cuda.synchronize() if torch.cuda.is_available() else None
         t0 = time.perf_counter()
         for _ in range(10):
-            _ = model(dummy)
+            if eval_fast_binary is not None:
+                _ = model(dummy, fast_binary_override=eval_fast_binary)
+            else:
+                _ = model(dummy)
         torch.cuda.synchronize() if torch.cuda.is_available() else None
         throughput = 1000 / (time.perf_counter() - t0)
     
@@ -397,6 +498,15 @@ def main():
     parser.add_argument("--lr", type=float, default=1e-3, help="Learning rate")
     parser.add_argument("--hidden-dim", type=int, default=256, help="Hidden dimension")
     parser.add_argument("--depth", type=int, default=4, help="Model depth")
+    parser.add_argument("--fast-binary", action="store_true", help="Enable binary fast path")
+    parser.add_argument("--color-knot", action="store_true", help="Enable color knot enhancement")
+    parser.add_argument("--color-knot-dim", type=int, default=64, help="Color knot feature dim")
+    parser.add_argument("--hybrid", action="store_true", help="Train standard, eval fast-binary")
+    parser.add_argument("--skip-baseline", action="store_true", help="Skip baseline CNN")
+    parser.add_argument("--train-fast-binary", action="store_true", help="Train with fast-binary path")
+    parser.add_argument("--dual-train", action="store_true", help="Train both paths with alignment loss")
+    parser.add_argument("--align-alpha", type=float, default=0.5, help="Fast path CE weight")
+    parser.add_argument("--align-beta", type=float, default=0.5, help="KL alignment weight")
     args = parser.parse_args()
     
     # Device selection
@@ -418,19 +528,33 @@ def main():
     
     # 1. H2Q Spacetime Classifier
     h2q_model = H2QSpacetimeClassifier(
-        num_classes=10, hidden_dim=args.hidden_dim, depth=args.depth
+        num_classes=10,
+        hidden_dim=args.hidden_dim,
+        depth=args.depth,
+        fast_binary=args.fast_binary,
+        enable_color_knot=args.color_knot,
+        color_knot_dim=args.color_knot_dim
     )
+    train_fast = True if args.train_fast_binary else (False if args.hybrid else (True if args.fast_binary else None))
+    eval_fast = True if args.hybrid or args.fast_binary else None
     results.append(benchmark_model(
-        h2q_model, "H2Q-Spacetime", train_loader, test_loader, device,
-        epochs=args.epochs, lr=args.lr
+        h2q_model, "H2Q-Spacetime-Hybrid" if args.hybrid else ("H2Q-Spacetime-Binary" if args.fast_binary else "H2Q-Spacetime"),
+        train_loader, test_loader, device,
+        epochs=args.epochs, lr=args.lr,
+        train_fast_binary=train_fast,
+        eval_fast_binary=eval_fast,
+        dual_train=args.dual_train,
+        align_alpha=args.align_alpha,
+        align_beta=args.align_beta
     ))
     
     # 2. Baseline CNN
-    baseline_model = BaselineCNN(num_classes=10, hidden_dim=args.hidden_dim)
-    results.append(benchmark_model(
-        baseline_model, "Baseline-CNN", train_loader, test_loader, device,
-        epochs=args.epochs, lr=args.lr
-    ))
+    if not args.skip_baseline:
+        baseline_model = BaselineCNN(num_classes=10, hidden_dim=args.hidden_dim)
+        results.append(benchmark_model(
+            baseline_model, "Baseline-CNN", train_loader, test_loader, device,
+            epochs=args.epochs, lr=args.lr
+        ))
     
     # Print comparison
     print("\n" + "="*80)

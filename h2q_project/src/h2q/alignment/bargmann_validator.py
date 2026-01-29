@@ -10,7 +10,7 @@ class BargmannIsomorphismValidator(nn.Module):
     Computes loop path integrals across Audio-Vision-Text-Genomic (AVTG) manifolds.
     Verifies semantic persistence via closed-loop holonomy checks in SU(2).
     """
-    def __init__(self, latent_dim=256, device="mps"):
+    def __init__(self, dim=256, device="mps"):
         super().__init__()
         self.latent_dim = latent_dim
         self.device = torch.device(device if torch.has_mps else "cpu")

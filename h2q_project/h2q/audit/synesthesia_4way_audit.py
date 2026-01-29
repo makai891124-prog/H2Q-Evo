@@ -27,7 +27,7 @@ class Synesthesia4WayAudit(nn.Module):
         # Registry: USCBarycenter(input_dims, latent_dim, device)
         self.usc_barycenter = USCBarycenter(
             input_dims=[manifold_dim, manifold_dim, manifold_dim, manifold_dim], 
-            latent_dim=manifold_dim, 
+            dim=manifold_dim, 
             device=device
         )
 

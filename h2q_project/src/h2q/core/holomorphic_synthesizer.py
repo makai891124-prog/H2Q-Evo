@@ -11,7 +11,7 @@ class HolomorphicSymbolicSynthesizer(nn.Module):
     Constructs logical proofs as monogenic surfaces on the SU(2) manifold.
     Enforces a 4th-order Fueter-Laplace hard constraint to prevent branch divergence.
     """
-    def __init__(self, latent_dim=256, device="mps"):
+    def __init__(self, dim=256, device="mps"):
         super().__init__()
         self.latent_dim = latent_dim
         self.device = device
@@ -104,6 +104,6 @@ class HolomorphicSymbolicSynthesizer(nn.Module):
         }
 
 # Experimental: Standardized Decision Engine Wrapper to handle signature drift
-def create_synthesizer(latent_dim=256):
+def create_synthesizer(dim=256):
     device = "mps" if torch.backends.mps.is_available() else "cpu"
-    return HolomorphicSymbolicSynthesizer(latent_dim=latent_dim, device=device)
+    return HolomorphicSymbolicSynthesizer(dim=latent_dim, device=device)

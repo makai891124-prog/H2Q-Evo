@@ -17,7 +17,7 @@ class H2QDreamingMechanism(nn.Module):
         
         # Correcting DDE initialization based on Registry feedback
         # Using LatentConfig to avoid 'dim' keyword error in DiscreteDecisionEngine
-        config = LatentConfig(latent_dim=latent_dim, num_knots=num_knots)
+        config = LatentConfig(dim=latent_dim, num_knots=num_knots)
         self.dde = get_canonical_dde(config)
         self.sst = SpectralShiftTracker()
         

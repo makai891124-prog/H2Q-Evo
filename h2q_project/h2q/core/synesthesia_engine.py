@@ -58,7 +58,7 @@ class SynesthesiaAligner(nn.Module):
         self.text_fractal = FractalExpansion(input_atoms=1)
         
         self.reversible_manifold = ReversibleCoupling(dim=256)
-        self.decision_engine = DiscreteDecisionEngine(latent_dim=256)
+        self.decision_engine = DiscreteDecisionEngine(dim=256)
         
         # Spectral Shift Tracker (η) state
         self.register_buffer("eta", torch.tensor(0.0))

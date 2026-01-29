@@ -46,7 +46,7 @@ class TopologicalBraidingKernel(nn.Module):
     [EXPERIMENTAL] Multi-modal fusion layer entangling Vision (YCbCr) and Text (Byte-stream).
     Implements Reversible Kernels with Geodesic Flow in su(2).
     """
-    def __init__(self, dim=256, latent_dim=64):
+    def __init__(self, dim=256, dim=64):
         super().__init__()
         self.dim = dim
         self.latent_dim = latent_dim # 64 * 4 = 256

@@ -1,0 +1,348 @@
+{
+  "timestamp": 1769458962.76596,
+  "dimension_alignment": {
+    "success": true,
+    "input_shape": [
+      2,
+      10
+    ],
+    "output_shape": [
+      2,
+      10,
+      256
+    ]
+  },
+  "weight_analysis": {
+    "total_parameters": 573784,
+    "layer_types": {
+      "other": 64
+    },
+    "tensor_shapes": {
+      "spelling_kernel.emb.weight": [
+        257,
+        4
+      ],
+      "spelling_kernel.expanders.0.r_weight": [
+        1,
+        1
+      ],
+      "spelling_kernel.expanders.0.i_weight": [
+        1,
+        1
+      ],
+      "spelling_kernel.expanders.0.j_weight": [
+        1,
+        1
+      ],
+      "spelling_kernel.expanders.0.k_weight": [
+        1,
+        1
+      ],
+      "spelling_kernel.expanders.1.r_weight": [
+        2,
+        2
+      ],
+      "spelling_kernel.expanders.1.i_weight": [
+        2,
+        2
+      ],
+      "spelling_kernel.expanders.1.j_weight": [
+        2,
+        2
+      ],
+      "spelling_kernel.expanders.1.k_weight": [
+        2,
+        2
+      ],
+      "spelling_kernel.expanders.2.r_weight": [
+        4,
+        4
+      ],
+      "spelling_kernel.expanders.2.i_weight": [
+        4,
+        4
+      ],
+      "spelling_kernel.expanders.2.j_weight": [
+        4,
+        4
+      ],
+      "spelling_kernel.expanders.2.k_weight": [
+        4,
+        4
+      ],
+      "spelling_kernel.expanders.3.r_weight": [
+        8,
+        8
+      ],
+      "spelling_kernel.expanders.3.i_weight": [
+        8,
+        8
+      ],
+      "spelling_kernel.expanders.3.j_weight": [
+        8,
+        8
+      ],
+      "spelling_kernel.expanders.3.k_weight": [
+        8,
+        8
+      ],
+      "spelling_kernel.expanders.4.r_weight": [
+        16,
+        16
+      ],
+      "spelling_kernel.expanders.4.i_weight": [
+        16,
+        16
+      ],
+      "spelling_kernel.expanders.4.j_weight": [
+        16,
+        16
+      ],
+      "spelling_kernel.expanders.4.k_weight": [
+        16,
+        16
+      ],
+      "spelling_kernel.expanders.5.r_weight": [
+        32,
+        32
+      ],
+      "spelling_kernel.expanders.5.i_weight": [
+        32,
+        32
+      ],
+      "spelling_kernel.expanders.5.j_weight": [
+        32,
+        32
+      ],
+      "spelling_kernel.expanders.5.k_weight": [
+        32,
+        32
+      ],
+      "spelling_kernel.layers.0.r_weight": [
+        64,
+        64
+      ],
+      "spelling_kernel.layers.0.i_weight": [
+        64,
+        64
+      ],
+      "spelling_kernel.layers.0.j_weight": [
+        64,
+        64
+      ],
+      "spelling_kernel.layers.0.k_weight": [
+        64,
+        64
+      ],
+      "spelling_kernel.layers.1.r_weight": [
+        64,
+        64
+      ],
+      "spelling_kernel.layers.1.i_weight": [
+        64,
+        64
+      ],
+      "spelling_kernel.layers.1.j_weight": [
+        64,
+        64
+      ],
+      "spelling_kernel.layers.1.k_weight": [
+        64,
+        64
+      ],
+      "spelling_kernel.layers.2.r_weight": [
+        64,
+        64
+      ],
+      "spelling_kernel.layers.2.i_weight": [
+        64,
+        64
+      ],
+      "spelling_kernel.layers.2.j_weight": [
+        64,
+        64
+      ],
+      "spelling_kernel.layers.2.k_weight": [
+        64,
+        64
+      ],
+      "spelling_kernel.layers.3.r_weight": [
+        64,
+        64
+      ],
+      "spelling_kernel.layers.3.i_weight": [
+        64,
+        64
+      ],
+      "spelling_kernel.layers.3.j_weight": [
+        64,
+        64
+      ],
+      "spelling_kernel.layers.3.k_weight": [
+        64,
+        64
+      ],
+      "spelling_kernel.layers.4.r_weight": [
+        64,
+        64
+      ],
+      "spelling_kernel.layers.4.i_weight": [
+        64,
+        64
+      ],
+      "spelling_kernel.layers.4.j_weight": [
+        64,
+        64
+      ],
+      "spelling_kernel.layers.4.k_weight": [
+        64,
+        64
+      ],
+      "spelling_kernel.layers.5.r_weight": [
+        64,
+        64
+      ],
+      "spelling_kernel.layers.5.i_weight": [
+        64,
+        64
+      ],
+      "spelling_kernel.layers.5.j_weight": [
+        64,
+        64
+      ],
+      "spelling_kernel.layers.5.k_weight": [
+        64,
+        64
+      ],
+      "spelling_kernel.head.weight": [
+        257,
+        256
+      ],
+      "pooler.compressor.weight": [
+        256,
+        4,
+        8
+      ],
+      "pooler.compressor.bias": [
+        256
+      ],
+      "pooler.gate.weight": [
+        256,
+        256
+      ],
+      "pooler.gate.bias": [
+        256
+      ],
+      "concept_layers.0.weight": [
+        256,
+        256
+      ],
+      "concept_layers.0.bias": [
+        256
+      ],
+      "concept_layers.1.weight": [
+        256,
+        256
+      ],
+      "concept_layers.1.bias": [
+        256
+      ],
+      "concept_layers.2.weight": [
+        256,
+        256
+      ],
+      "concept_layers.2.bias": [
+        256
+      ],
+      "concept_layers.3.weight": [
+        256,
+        256
+      ],
+      "concept_layers.3.bias": [
+        256
+      ],
+      "head.weight": [
+        256,
+        256
+      ],
+      "head.bias": [
+        256
+      ]
+    },
+    "memory_usage_gb": 0.002137511968612671,
+    "dimensionality_info": {
+      "spelling_kernel.emb.weight": 2,
+      "spelling_kernel.expanders.0.r_weight": 2,
+      "spelling_kernel.expanders.0.i_weight": 2,
+      "spelling_kernel.expanders.0.j_weight": 2,
+      "spelling_kernel.expanders.0.k_weight": 2,
+      "spelling_kernel.expanders.1.r_weight": 2,
+      "spelling_kernel.expanders.1.i_weight": 2,
+      "spelling_kernel.expanders.1.j_weight": 2,
+      "spelling_kernel.expanders.1.k_weight": 2,
+      "spelling_kernel.expanders.2.r_weight": 2,
+      "spelling_kernel.expanders.2.i_weight": 2,
+      "spelling_kernel.expanders.2.j_weight": 2,
+      "spelling_kernel.expanders.2.k_weight": 2,
+      "spelling_kernel.expanders.3.r_weight": 2,
+      "spelling_kernel.expanders.3.i_weight": 2,
+      "spelling_kernel.expanders.3.j_weight": 2,
+      "spelling_kernel.expanders.3.k_weight": 2,
+      "spelling_kernel.expanders.4.r_weight": 2,
+      "spelling_kernel.expanders.4.i_weight": 2,
+      "spelling_kernel.expanders.4.j_weight": 2,
+      "spelling_kernel.expanders.4.k_weight": 2,
+      "spelling_kernel.expanders.5.r_weight": 2,
+      "spelling_kernel.expanders.5.i_weight": 2,
+      "spelling_kernel.expanders.5.j_weight": 2,
+      "spelling_kernel.expanders.5.k_weight": 2,
+      "spelling_kernel.layers.0.r_weight": 2,
+      "spelling_kernel.layers.0.i_weight": 2,
+      "spelling_kernel.layers.0.j_weight": 2,
+      "spelling_kernel.layers.0.k_weight": 2,
+      "spelling_kernel.layers.1.r_weight": 2,
+      "spelling_kernel.layers.1.i_weight": 2,
+      "spelling_kernel.layers.1.j_weight": 2,
+      "spelling_kernel.layers.1.k_weight": 2,
+      "spelling_kernel.layers.2.r_weight": 2,
+      "spelling_kernel.layers.2.i_weight": 2,
+      "spelling_kernel.layers.2.j_weight": 2,
+      "spelling_kernel.layers.2.k_weight": 2,
+      "spelling_kernel.layers.3.r_weight": 2,
+      "spelling_kernel.layers.3.i_weight": 2,
+      "spelling_kernel.layers.3.j_weight": 2,
+      "spelling_kernel.layers.3.k_weight": 2,
+      "spelling_kernel.layers.4.r_weight": 2,
+      "spelling_kernel.layers.4.i_weight": 2,
+      "spelling_kernel.layers.4.j_weight": 2,
+      "spelling_kernel.layers.4.k_weight": 2,
+      "spelling_kernel.layers.5.r_weight": 2,
+      "spelling_kernel.layers.5.i_weight": 2,
+      "spelling_kernel.layers.5.j_weight": 2,
+      "spelling_kernel.layers.5.k_weight": 2,
+      "spelling_kernel.head.weight": 2,
+      "pooler.compressor.weight": 3,
+      "pooler.compressor.bias": 1,
+      "pooler.gate.weight": 2,
+      "pooler.gate.bias": 1,
+      "concept_layers.0.weight": 2,
+      "concept_layers.0.bias": 1,
+      "concept_layers.1.weight": 2,
+      "concept_layers.1.bias": 1,
+      "concept_layers.2.weight": 2,
+      "concept_layers.2.bias": 1,
+      "concept_layers.3.weight": 2,
+      "concept_layers.3.bias": 1,
+      "head.weight": 2,
+      "head.bias": 1
+    }
+  },
+  "distillation": {
+    "success": true,
+    "student_model_created": true
+  },
+  "streaming": {
+    "interface_created": true,
+    "test_tokens_generated": 20
+  }
+}

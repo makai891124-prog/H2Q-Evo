@@ -108,7 +108,7 @@ class CrossModalHolonomyCalibrator(nn.Module):
 
 if __name__ == "__main__":
     # Validation on Mac Mini M4 constraints
-    calibrator = CrossModalHolonomyCalibrator(latent_dim=256)
+    calibrator = CrossModalHolonomyCalibrator(dim=256)
     t = torch.randn(1, 256)
     v = torch.randn(1, 256)
     a = torch.randn(1, 256)

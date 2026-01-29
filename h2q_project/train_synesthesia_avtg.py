@@ -14,7 +14,7 @@ class AVTGSynesthesiaTrainer(nn.Module):
     Unified 4-way modality alignment (Audio, Vision, Text, Genomic).
     Uses USCBarycenter to find the semantic manifold center and Karcher Flow to minimize geodesic distance.
     """
-    def __init__(self, latent_dim=256):
+    def __init__(self, dim=256):
         super().__init__()
         self.latent_dim = latent_dim
         self.device = torch.device("mps" if torch.backends.mps.is_available() else "cpu")

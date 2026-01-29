@@ -9,7 +9,7 @@ class HamiltonProductAMX(nn.Module):
     Integrates Knot (Persistence), Spacetime (Geodesic), and GUT (Symmetry) logic.
     Optimized for Apple Silicon M4 (MPS) using SU(2) Group Theory.
     """
-    def __init__(self, dim=256, latent_dim=64):
+    def __init__(self, dim=256, dim=64):
         super().__init__()
         self.dim = dim
         self.latent_dim = latent_dim
@@ -103,5 +103,5 @@ class DiscreteDecisionEngine(nn.Module):
 def create_topological_kernel(config):
     return HamiltonProductAMX(
         dim=config.get('dim', 256),
-        latent_dim=config.get('latent_dim', 64)
+        dim=config.get('latent_dim', 64)
     )

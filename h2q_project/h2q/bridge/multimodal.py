@@ -40,7 +40,7 @@ class H2QAlignmentBridge(nn.Module):
     Synthesizes Vision (YCbCr) and Text (Byte-stream) manifolds using SU(2) symmetry.
     Optimized for Mac Mini M4 (MPS) constraints.
     """
-    def __init__(self, latent_dim=256):
+    def __init__(self, dim=256):
         super().__init__()
         self.latent_dim = latent_dim
         

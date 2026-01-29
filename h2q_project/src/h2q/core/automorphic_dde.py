@@ -288,7 +288,7 @@ def get_automorphic_dde(
 ) -> LieGroupAutomorphicDecisionEngine:
     """获取李群自动同构DDE"""
     config = AutomophicDDEConfig(
-        latent_dim=latent_dim,
+        dim=latent_dim,
         action_dim=action_dim,
         device=device
     )

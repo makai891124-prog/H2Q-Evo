@@ -1,5 +1,5 @@
 {
-  "timestamp": 1769074304.6694431,
-  "response": "```json\n{\n  \"selected\": [\n    \"9.0 s\",\n    \"10.5 s\"\n  ],\n  \"ranked\": [\n    \"9.0 s\",\n    \"10.5 s\",\n    \"12.0 s\",\n    \"15.5 s\"\n  ],\n  \"probs\": [\n    0.45,\n    0.30,\n    0.15,\n    0.10\n  ]\n}\n```",
+  "timestamp": 1769599698.768955,
+  "response": "```json\n{\n  \"selected\": [1, 0],\n  \"ranked\": [1, 0, 2, 3],\n  \"probs\": [\n    0.3,\n    0.4,\n    0.15,\n    0.15\n  ]\n}\n```",
   "model": "gemini-2.0-flash"
 }

@@ -1,0 +1,37 @@
+{
+  "text_generation": {
+    "score": 0.3,
+    "input": "hello world",
+    "output": "hello world world world world world world world world world world world world world world world world world world world",
+    "success": true
+  },
+  "concept_understanding": {
+    "score": 0.9998000000050524,
+    "concepts_tested": [
+      "machine learning",
+      "artificial intelligence",
+      "neural network"
+    ],
+    "success": true
+  },
+  "mathematical_reasoning": {
+    "score": 1.0,
+    "problems_tested": [
+      "2 + 2",
+      "3 * 4",
+      "10 - 5"
+    ],
+    "success": true
+  },
+  "code_generation": {
+    "score": 0.0,
+    "prompts_tested": [
+      "def hello",
+      "class Test",
+      "print("
+    ],
+    "success": true
+  },
+  "overall_score": 0.5899500000012631,
+  "capabilities_demonstrated": false
+}
