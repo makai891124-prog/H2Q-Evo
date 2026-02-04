@@ -2,6 +2,11 @@
 from __future__ import annotations
 
 import time
+import logging
+import subprocess
+import sys
+import inspect
+import ast
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Tuple
 import numpy as np
@@ -10,16 +15,35 @@ from .learning_loop import LearningLoop
 from .strategy_manager import StrategyManager
 from .feedback_handler import FeedbackHandler
 from .knowledge.knowledge_db import KnowledgeDB
+from .precision_gated_executor import PrecisionGatedExecutor
 
 
 class LocalExecutor:
-    """Lightweight local executor with learning hooks."""
+    """Lightweight local executor with learning hooks and precision gating."""
 
-    def __init__(self) -> None:
+    def __init__(self, enable_precision_gating: bool = True) -> None:
         self.learning_loop = LearningLoop()
         self.strategy_mgr = StrategyManager()
         self.feedback_handler = FeedbackHandler()
         self.knowledge_db: Optional[KnowledgeDB] = None
+
+        self._logger = logging.getLogger(__name__)
+
+        # Model hierarchy strategy
+        self.model_small = "deepseek-coder:6.7b"
+        self.model_code = "deepseek-coder-v2-236b-compressed"
+        self.model_logic = "deepseek-coder:33b"
+        self._model_router = _LocalModelRouter(self)
+        
+        # Initialize precision-gated executor (DAS Meta-Theory)
+        self.enable_precision_gating = enable_precision_gating
+        self.precision_gated_executor: Optional[PrecisionGatedExecutor] = None
+        if enable_precision_gating:
+            self.precision_gated_executor = PrecisionGatedExecutor(
+                base_executor=self,
+                enable_cot=True,
+                llm_client=self._model_router,
+            )
         
         # Quaternion task classifiers (anchor points in semantic manifold)
         # Format: (w, x, y, z) representing each task type
@@ -34,6 +58,34 @@ class LocalExecutor:
         self.knowledge_db = KnowledgeDB(home / "knowledge")
 
     def execute(self, task: str, strategy: str = "auto") -> Dict[str, Any]:
+        """
+        Execute task with optional precision gating (DAS Meta-Theory).
+        
+        If precision gating is enabled, uses entropy-based routing:
+        - High entropy (Wave state) -> Chain-of-Thought reasoning
+        - Low entropy (Particle state) -> Direct output
+        - Medium entropy (Coherence) -> Standard verified execution
+        
+        Args:
+            task: Task string to execute
+            strategy: Execution strategy ("auto", "direct", "cot")
+            
+        Returns:
+            Dictionary with output, confidence, and execution metadata
+        """
+        # Route through precision gated executor if enabled
+        if self.precision_gated_executor:
+            return self.precision_gated_executor.execute_with_precision_gating(
+                task=task,
+                strategy=strategy,
+                generate_antithesis=True,
+            )
+        
+        # Fallback: Standard execution without precision gating
+        return self._execute_direct(task, strategy)
+    
+    def _execute_direct(self, task: str, strategy: str = "auto") -> Dict[str, Any]:
+        """Direct execution without precision gating (legacy path)."""
         start = time.time()
         try:
             task_info = self._analyze_task(task)
@@ -90,6 +142,15 @@ class LocalExecutor:
         if not self.knowledge_db:
             return {"total_experiences": 0, "domains": []}
         return self.knowledge_db.get_stats()
+    
+    def get_precision_gating_stats(self) -> Dict[str, Any]:
+        """Get statistics about precision gating execution (DAS Meta-Theory)."""
+        if not self.precision_gated_executor:
+            return {"enabled": False}
+        
+        stats = self.precision_gated_executor.get_execution_statistics()
+        stats["enabled"] = True
+        return stats
 
     def _analyze_task(self, task: str) -> Dict[str, Any]:
         return {
@@ -173,11 +234,116 @@ class LocalExecutor:
         return [token for token in task.split() if len(token) > 1]
 
     def _run_inference(self, task: str, strategy: str) -> str:
+        model = self._select_model_for_task(task)
+        return self._infer_with_model(model, task, strategy)
+
+    def _select_model_for_task(self, task: str) -> str:
+        lower = task.lower()
+        if any(k in lower for k in ["code", "python", "script", "函数", "写代码", "实现"]):
+            return self.model_code
+        if any(k in lower for k in ["prove", "logic", "推理", "证明", "theorem", "therefore", "if", "then"]):
+            return self.model_logic
+        return self.model_small
+
+    def _infer_with_model(self, model: str, prompt: str, strategy: str) -> str:
         try:
             from .h2q_server import inference_api  # type: ignore
-            return str(inference_api(task))
+            sig = inspect.signature(inference_api)
+            kwargs = {}
+            if "model" in sig.parameters:
+                kwargs["model"] = model
+            if "max_tokens" in sig.parameters:
+                kwargs["max_tokens"] = 512
+            if "temperature" in sig.parameters:
+                kwargs["temperature"] = 0.2
+            return str(inference_api(prompt, **kwargs))
         except Exception:
-            return f"Processed: {task[:80]} (strategy={strategy})"
+            return f"Processed: {prompt[:80]} (strategy={strategy}, model={model})"
+
+    def execute_code_safely(self, code: str) -> str:
+        """
+        Local subprocess fallback for code execution.
+        Security note: only allow standard libs (math, pandas, numpy).
+        """
+        if not self._code_imports_allowed(code):
+            return "Execution blocked: non-standard imports detected."
+
+        self._logger.warning("Docker unavailable. Using local subprocess fallback.")
+        try:
+            completed = subprocess.run(
+                [sys.executable, "-"],
+                input=code,
+                text=True,
+                capture_output=True,
+                check=False,
+                timeout=10,
+            )
+            stdout = completed.stdout.strip()
+            stderr = completed.stderr.strip()
+            if stderr:
+                return f"STDOUT:\n{stdout}\nSTDERR:\n{stderr}".strip()
+            return stdout
+        except Exception as exc:
+            return f"Execution error: {exc}"
+
+    def execute_code(self, tool_path: str) -> str:
+        """
+        Execute a tool file. If Docker is unavailable, run on bare metal.
+        """
+        docker_client = getattr(self, "docker_client", None)
+        if docker_client is None:
+            self._logger.warning("[DAS] Running code on bare metal...")
+            try:
+                completed = subprocess.run(
+                    ["python3", tool_path],
+                    capture_output=True,
+                    text=True,
+                    timeout=30,
+                    check=False,
+                )
+                return completed.stdout.strip()
+            except Exception as exc:
+                return f"Execution error: {exc}"
+
+        return "Execution skipped: Docker client available but not used in this demo."
+
+    def _code_imports_allowed(self, code: str) -> bool:
+        allowed = {"math", "numpy", "pandas"}
+        try:
+            tree = ast.parse(code)
+        except SyntaxError:
+            return False
+
+        for node in ast.walk(tree):
+            if isinstance(node, ast.Import):
+                for alias in node.names:
+                    if alias.name.split(".")[0] not in allowed:
+                        return False
+            if isinstance(node, ast.ImportFrom):
+                if node.module and node.module.split(".")[0] not in allowed:
+                    return False
+        return True
+
+
+class _LocalModelRouter:
+    """Route prompts to local models based on DAS hierarchy."""
+
+    def __init__(self, executor: LocalExecutor) -> None:
+        self.executor = executor
+
+    def generate(self, prompt: str, **kwargs: Any) -> Dict[str, Any]:
+        lower = prompt.lower()
+        if "answer briefly" in lower:
+            model = self.executor.model_small
+        elif "generate a minimal python script" in lower or "python" in lower or "script" in lower:
+            model = self.executor.model_code
+        elif any(k in lower for k in ["prove", "logic", "推理", "证明", "theorem", "therefore", "if", "then"]):
+            model = self.executor.model_logic
+        else:
+            model = self.executor.model_small
+
+        text = self.executor._infer_with_model(model, prompt, strategy="auto")
+        return {"text": text}
 
     @staticmethod
     def _compute_confidence(output: str, task_info: Dict[str, Any]) -> float:

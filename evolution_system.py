@@ -8,6 +8,8 @@ import asyncio
 import logging
 import ast
 import subprocess
+import inspect
+import numpy as np
 from pathlib import Path
 from typing import Dict, Any, Optional, List
 
@@ -18,6 +20,15 @@ from google import genai
 from google.genai import types
 import docker
 import aiofiles
+
+try:
+    from h2q_project.fractal_memory import FractalMemory
+    from h2q_project.tool_synthesizer import ToolSynthesizer
+    from h2q_project.precision_gated_executor import PrecisionGatedExecutor
+except Exception:
+    FractalMemory = None
+    ToolSynthesizer = None
+    PrecisionGatedExecutor = None
 
 # DAS和M24核心导入
 from h2q_project.das_core import DASCore
@@ -134,6 +145,140 @@ class H2QNexus:
         except Exception as e:
             self.deepseek_integration = None
             logger.warning(f"DeepSeek Integration unavailable: {e}")
+
+        # --- DAS Cycle Integration ---
+        self.custom_tools: Dict[str, Any] = {}
+        self._llm_wrapper = self._build_sync_llm_wrapper()
+
+        if FractalMemory is not None:
+            self.fractal_memory = FractalMemory()
+        else:
+            self.fractal_memory = None
+
+        if ToolSynthesizer is not None:
+            self.tool_synthesizer = ToolSynthesizer(
+                llm_client=self._llm_wrapper,
+                toolbox_register=self._register_tool,
+            )
+        else:
+            self.tool_synthesizer = None
+
+        if PrecisionGatedExecutor is not None:
+            self.precision_executor = PrecisionGatedExecutor(llm_client=self._llm_wrapper)
+        else:
+            self.precision_executor = None
+
+    def _build_sync_llm_wrapper(self):
+        class _LLMWrapper:
+            def __init__(self, outer):
+                self.outer = outer
+
+            def generate(self, prompt: str, **kwargs: Any) -> Dict[str, Any]:
+                return {"text": self.outer._sync_generate(prompt, **kwargs)}
+
+        return _LLMWrapper(self)
+
+    def _sync_generate(self, prompt: str, **kwargs: Any) -> str:
+        if not self.client:
+            return ""
+
+        temperature = kwargs.get("temperature", 0.2)
+        max_tokens = kwargs.get("max_tokens", 512)
+        response = self.client.models.generate_content(
+            model=Config.MODEL_NAME,
+            contents=prompt,
+            config=types.GenerateContentConfig(
+                temperature=temperature,
+                max_output_tokens=max_tokens,
+            )
+        )
+        return response.text
+
+    def _register_tool(self, tool_name: str, tool_fn: Any) -> None:
+        self.custom_tools[tool_name] = tool_fn
+
+    def _semantic_vector(self, task: str) -> np.ndarray:
+        tokens = task.lower().split()
+        length_score = len(tokens)
+        math_score = sum(1 for t in tokens if any(k in t for k in ["math", "计算", "solve", "equation", "+", "-", "*", "/"]))
+        logic_score = sum(1 for t in tokens if any(k in t for k in ["prove", "logic", "推理", "证明", "therefore", "if", "then"]))
+        return np.array([length_score, math_score, logic_score], dtype=np.float64)
+
+    def _execute_custom_tool(self, tool_name: str, query: str) -> Optional[Any]:
+        try:
+            from h2q_project import custom_tools  # type: ignore
+        except Exception:
+            try:
+                import custom_tools  # type: ignore
+            except Exception:
+                return None
+
+        if not hasattr(custom_tools, tool_name):
+            return None
+
+        tool_fn = getattr(custom_tools, tool_name)
+        try:
+            sig = inspect.signature(tool_fn)
+            if len(sig.parameters) == 0:
+                return tool_fn()
+            return tool_fn(query)
+        except Exception as e:
+            logger.warning(f"Tool execution failed: {e}")
+            return None
+
+    async def run_das_cycle(self, query: str) -> Dict[str, Any]:
+        """
+        DAS Cycle:
+        Wake -> Recall -> Fast Path -> Precision Check -> Expansion -> Closure
+        """
+        logger.info("[DAS] Wake Up: Loading FractalMemory & ToolSynthesizer")
+        if self.fractal_memory is None or self.tool_synthesizer is None or self.precision_executor is None:
+            return {"error": "DAS components unavailable"}
+
+        semantic_vec = self._semantic_vector(query)
+        recall = self.fractal_memory.retrieve(query, semantic_vec, top_k=1)
+
+        if recall:
+            logger.info("[DAS] Memory Hit -> Using Stored Tool/Logic")
+            memory_item = recall[0]
+            check = self.precision_executor.execute_with_precision_gating(query)
+            if not check.get("probe", {}).get("is_high_entropy", True):
+                return {
+                    "output": memory_item.solution,
+                    "source": "memory",
+                    "check": check,
+                }
+
+        logger.info("[DAS] Memory Miss -> Coding New Tool")
+        synthesis = self.tool_synthesizer.synthesize(query)
+        if not synthesis.success:
+            return {"error": synthesis.error or "tool_synthesis_failed"}
+
+        logger.info("[DAS] Tool Verified -> Executing")
+        tool_output = self._execute_custom_tool(synthesis.tool_name, query)
+
+        check = self.precision_executor.execute_with_precision_gating(str(tool_output))
+        if not check.get("probe", {}).get("is_high_entropy", True):
+            logger.info("[DAS] Memory Updated")
+            self.fractal_memory.store(
+                task=query,
+                solution=str(tool_output),
+                confidence=0.9,
+                semantic_vec=semantic_vec,
+            )
+            return {
+                "output": tool_output,
+                "source": "synthesized_tool",
+                "tool_name": synthesis.tool_name,
+                "check": check,
+            }
+
+        return {
+            "output": tool_output,
+            "source": "synthesized_tool_unverified",
+            "tool_name": synthesis.tool_name,
+            "check": check,
+        }
 
     async def local_inference(self, prompt: str) -> str:
         if not self.docker_available:
@@ -357,6 +502,22 @@ class H2QNexus:
         """
         if not self.das_agi_system:
             return {"error": "DAS AGI系统不可用"}
+
+
+def process(prompt: str) -> Dict[str, Any]:
+    """
+    Synchronous wrapper to run a single DAS cycle.
+
+    Returns:
+        Result dict from run_das_cycle.
+    """
+    nexus = H2QNexus()
+    try:
+        return asyncio.run(nexus.run_das_cycle(prompt))
+    except RuntimeError:
+        # If already inside an event loop, fallback to creating a new task
+        loop = asyncio.get_event_loop()
+        return loop.run_until_complete(nexus.run_das_cycle(prompt))
 
         return self.das_agi_system.get_system_status()
 

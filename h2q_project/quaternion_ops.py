@@ -38,6 +38,38 @@ def quaternion_conjugate(q):
     return np.array([w, -x, -y, -z], dtype=np.float64)
 
 
+def quaternion_slerp(q1, q2, t):
+    """
+    Spherical linear interpolation between two quaternions.
+
+    Args:
+        q1, q2: Quaternions [w, x, y, z]
+        t: Interpolation factor in [0, 1]
+
+    Returns:
+        Interpolated unit quaternion.
+    """
+    q1 = quaternion_normalize(q1)
+    q2 = quaternion_normalize(q2)
+
+    dot = float(np.dot(q1, q2))
+    if dot < 0.0:
+        q2 = -q2
+        dot = -dot
+
+    dot = np.clip(dot, -1.0, 1.0)
+    if dot > 0.9995:
+        result = q1 + t * (q2 - q1)
+        return quaternion_normalize(result)
+
+    theta_0 = np.arccos(dot)
+    theta = theta_0 * t
+    q3 = q2 - q1 * dot
+    q3 = quaternion_normalize(q3)
+
+    return q1 * np.cos(theta) + q3 * np.sin(theta)
+
+
 def quaternion_magnitude(q):
     """Compute |q| for quaternion q."""
     w, x, y, z = q
