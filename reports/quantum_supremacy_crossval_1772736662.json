@@ -1,0 +1,447 @@
+{
+  "config": {
+    "worker_counts": [
+      1,
+      2,
+      4
+    ],
+    "cv_repeats": 3,
+    "advantage_threshold": 5.0
+  },
+  "scale_results": [
+    {
+      "label": "RSA-100",
+      "digits": 100,
+      "bits": 333,
+      "tasks": 800,
+      "seq_mean_s": 0.006540979666662376,
+      "seq_std_s": 1.739662759691335e-05,
+      "par_results": {
+        "1": {
+          "pure_mean_s": 0.13966608666665556,
+          "pure_std_s": 0.0035854734460254696,
+          "snap_mean_s": 0.1716660866666556,
+          "snap_std_s": 0.0035854734460254696,
+          "speedup_over_seq": 0.04683298446153139
+        },
+        "2": {
+          "pure_mean_s": 0.13964648099999977,
+          "pure_std_s": 0.0012224008203724503,
+          "snap_mean_s": 0.1716464809999998,
+          "snap_std_s": 0.0012224008203724503,
+          "speedup_over_seq": 0.04683955957803467
+        },
+        "4": {
+          "pure_mean_s": 0.13686078733333792,
+          "pure_std_s": 0.0023994250229813744,
+          "snap_mean_s": 0.16886078733333795,
+          "snap_std_s": 0.0023994250229813744,
+          "speedup_over_seq": 0.04779294196760082
+        }
+      },
+      "best_workers": 4,
+      "best_parallel_pure_mean_s": 0.13686078733333792,
+      "best_parallel_pure_std_s": 0.0023994250229813744,
+      "best_parallel_with_snap_mean_s": 0.16886078733333795,
+      "best_parallel_with_snap_std_s": 0.0023994250229813744,
+      "parallel_speedup": 0.04779294196760082,
+      "timefold_overhead_fraction": 0.2338142328675991,
+      "ft_quantum_runtime_h": 0.0028720251,
+      "classical_pure_h": 3.8016885370371645e-05,
+      "classical_with_snap_h": 4.6905774259260545e-05,
+      "quantum_vs_classical_pure": 0.013236961393677112,
+      "quantum_vs_classical_with_snap": 0.01633195136743775,
+      "worker_speedups": {
+        "1": 0.04683298446153139,
+        "2": 0.04683955957803467,
+        "4": 0.04779294196760082
+      }
+    },
+    {
+      "label": "RSA-129",
+      "digits": 129,
+      "bits": 429,
+      "tasks": 700,
+      "seq_mean_s": 0.007240822666669071,
+      "seq_std_s": 5.983722061400509e-05,
+      "par_results": {
+        "1": {
+          "pure_mean_s": 0.12437846499998766,
+          "pure_std_s": 0.0034766236242595606,
+          "snap_mean_s": 0.15237846499998767,
+          "snap_std_s": 0.0034766236242595606,
+          "speedup_over_seq": 0.058216047823630795
+        },
+        "2": {
+          "pure_mean_s": 0.12112174300000333,
+          "pure_std_s": 0.002379781579058032,
+          "snap_mean_s": 0.14912174300000336,
+          "snap_std_s": 0.002379781579058032,
+          "speedup_over_seq": 0.05978136119349663
+        },
+        "4": {
+          "pure_mean_s": 0.12220560566667397,
+          "pure_std_s": 0.00038683066685650384,
+          "snap_mean_s": 0.15020560566667399,
+          "snap_std_s": 0.00038683066685650384,
+          "speedup_over_seq": 0.05925114995476575
+        }
+      },
+      "best_workers": 2,
+      "best_parallel_pure_mean_s": 0.12112174300000333,
+      "best_parallel_pure_std_s": 0.002379781579058032,
+      "best_parallel_with_snap_mean_s": 0.14912174300000336,
+      "best_parallel_with_snap_std_s": 0.002379781579058032,
+      "parallel_speedup": 0.05978136119349663,
+      "timefold_overhead_fraction": 0.2311723667979188,
+      "ft_quantum_runtime_h": 0.006140834699999999,
+      "classical_pure_h": 3.3644928611112035e-05,
+      "classical_with_snap_h": 4.142270638888982e-05,
+      "quantum_vs_classical_pure": 0.005478885241954492,
+      "quantum_vs_classical_with_snap": 0.0067454521107513,
+      "worker_speedups": {
+        "1": 0.058216047823630795,
+        "2": 0.05978136119349663,
+        "4": 0.05925114995476575
+      }
+    },
+    {
+      "label": "RSA-250",
+      "digits": 250,
+      "bits": 831,
+      "tasks": 520,
+      "seq_mean_s": 0.01281911766667084,
+      "seq_std_s": 4.6954095500910434e-05,
+      "par_results": {
+        "1": {
+          "pure_mean_s": 0.09725917433335478,
+          "pure_std_s": 0.0012866644000691268,
+          "snap_mean_s": 0.11925917433335478,
+          "snap_std_s": 0.0012866644000691268,
+          "speedup_over_seq": 0.13180368591998787
+        },
+        "2": {
+          "pure_mean_s": 0.09422700266668471,
+          "pure_std_s": 0.0006098376665051845,
+          "snap_mean_s": 0.11622700266668472,
+          "snap_std_s": 0.0006098376665051845,
+          "speedup_over_seq": 0.1360450540066178
+        },
+        "4": {
+          "pure_mean_s": 0.09455339500001021,
+          "pure_std_s": 0.0012745363498664574,
+          "snap_mean_s": 0.11655339500001022,
+          "snap_std_s": 0.0012745363498664574,
+          "speedup_over_seq": 0.13557543509325556
+        }
+      },
+      "best_workers": 2,
+      "best_parallel_pure_mean_s": 0.09422700266668471,
+      "best_parallel_pure_std_s": 0.0006098376665051845,
+      "best_parallel_with_snap_mean_s": 0.11622700266668472,
+      "best_parallel_with_snap_std_s": 0.0006098376665051845,
+      "parallel_speedup": 0.1360450540066178,
+      "timefold_overhead_fraction": 0.2334787202965803,
+      "ft_quantum_runtime_h": 0.04463325929999999,
+      "classical_pure_h": 2.617416740741242e-05,
+      "classical_with_snap_h": 3.228527851852353e-05,
+      "quantum_vs_classical_pure": 0.000586427426943755,
+      "quantum_vs_classical_with_snap": 0.0007233457521333993,
+      "worker_speedups": {
+        "1": 0.13180368591998787,
+        "2": 0.1360450540066178,
+        "4": 0.13557543509325556
+      }
+    },
+    {
+      "label": "RSA-512",
+      "digits": 512,
+      "bits": 1701,
+      "tasks": 400,
+      "seq_mean_s": 0.03153487300001719,
+      "seq_std_s": 0.00020775625856903483,
+      "par_results": {
+        "1": {
+          "pure_mean_s": 0.07568702433335754,
+          "pure_std_s": 0.0007660274916459328,
+          "snap_mean_s": 0.09168702433335754,
+          "snap_std_s": 0.0007660274916459328,
+          "speedup_over_seq": 0.4166483393656002
+        },
+        "2": {
+          "pure_mean_s": 0.07722088933333755,
+          "pure_std_s": 0.00027421138010619723,
+          "snap_mean_s": 0.09322088933333755,
+          "snap_std_s": 0.00027421138010619723,
+          "speedup_over_seq": 0.4083723105530599
+        },
+        "4": {
+          "pure_mean_s": 0.07963213366663997,
+          "pure_std_s": 0.0009684343557037342,
+          "snap_mean_s": 0.09563213366663997,
+          "snap_std_s": 0.0009684343557037342,
+          "speedup_over_seq": 0.3960068824983399
+        }
+      },
+      "best_workers": 1,
+      "best_parallel_pure_mean_s": 0.07568702433335754,
+      "best_parallel_pure_std_s": 0.0007660274916459328,
+      "best_parallel_with_snap_mean_s": 0.09168702433335754,
+      "best_parallel_with_snap_std_s": 0.0007660274916459328,
+      "parallel_speedup": 0.4166483393656002,
+      "timefold_overhead_fraction": 0.21139686942281227,
+      "ft_quantum_runtime_h": 0.4921675101,
+      "classical_pure_h": 2.102417342593265e-05,
+      "classical_with_snap_h": 2.5468617870377096e-05,
+      "quantum_vs_classical_pure": 4.2717515875155796e-05,
+      "quantum_vs_classical_with_snap": 5.174786500068302e-05,
+      "worker_speedups": {
+        "1": 0.4166483393656002,
+        "2": 0.4083723105530599,
+        "4": 0.3960068824983399
+      }
+    },
+    {
+      "label": "RSA-768",
+      "digits": 768,
+      "bits": 2552,
+      "tasks": 280,
+      "seq_mean_s": 0.04582114200002252,
+      "seq_std_s": 7.53656332498152e-05,
+      "par_results": {
+        "1": {
+          "pure_mean_s": 0.07583113100001053,
+          "pure_std_s": 0.0014768669783750588,
+          "snap_mean_s": 0.08783113100001053,
+          "snap_std_s": 0.0014768669783750588,
+          "speedup_over_seq": 0.6042523881124252
+        },
+        "2": {
+          "pure_mean_s": 0.0581663693333212,
+          "pure_std_s": 0.0012030838777913947,
+          "snap_mean_s": 0.0701663693333212,
+          "snap_std_s": 0.0012030838777913947,
+          "speedup_over_seq": 0.787760049753929
+        },
+        "4": {
+          "pure_mean_s": 0.06310804533336523,
+          "pure_std_s": 0.001516448592504541,
+          "snap_mean_s": 0.07510804533336522,
+          "snap_std_s": 0.001516448592504541,
+          "speedup_over_seq": 0.7260744926890784
+        }
+      },
+      "best_workers": 2,
+      "best_parallel_pure_mean_s": 0.0581663693333212,
+      "best_parallel_pure_std_s": 0.0012030838777913947,
+      "best_parallel_with_snap_mean_s": 0.0701663693333212,
+      "best_parallel_with_snap_std_s": 0.0012030838777913947,
+      "parallel_speedup": 0.787760049753929,
+      "timefold_overhead_fraction": 0.20630477950642304,
+      "ft_quantum_runtime_h": 1.6620420608,
+      "classical_pure_h": 1.6157324814811446e-05,
+      "classical_with_snap_h": 1.9490658148144776e-05,
+      "quantum_vs_classical_pure": 9.72136939003478e-06,
+      "quantum_vs_classical_with_snap": 1.1726934358546396e-05,
+      "worker_speedups": {
+        "1": 0.6042523881124252,
+        "2": 0.787760049753929,
+        "4": 0.7260744926890784
+      }
+    },
+    {
+      "label": "RSA-1024",
+      "digits": 1024,
+      "bits": 3402,
+      "tasks": 200,
+      "seq_mean_s": 0.053200457999954175,
+      "seq_std_s": 6.922024443804483e-05,
+      "par_results": {
+        "1": {
+          "pure_mean_s": 0.07794345900000128,
+          "pure_std_s": 0.00036744307222119746,
+          "snap_mean_s": 0.08594345900000129,
+          "snap_std_s": 0.00036744307222119746,
+          "speedup_over_seq": 0.6825519252353593
+        },
+        "2": {
+          "pure_mean_s": 0.053575541666684025,
+          "pure_std_s": 0.0010273017582128842,
+          "snap_mean_s": 0.06157554166668403,
+          "snap_std_s": 0.0010273017582128877,
+          "speedup_over_seq": 0.9929989757441297
+        },
+        "4": {
+          "pure_mean_s": 0.05456567233333468,
+          "pure_std_s": 0.0016082636761634063,
+          "snap_mean_s": 0.06256567233333468,
+          "snap_std_s": 0.0016082636761634104,
+          "speedup_over_seq": 0.9749803443263635
+        }
+      },
+      "best_workers": 2,
+      "best_parallel_pure_mean_s": 0.053575541666684025,
+      "best_parallel_pure_std_s": 0.0010273017582128842,
+      "best_parallel_with_snap_mean_s": 0.06157554166668403,
+      "best_parallel_with_snap_std_s": 0.0010273017582128877,
+      "parallel_speedup": 0.9929989757441297,
+      "timefold_overhead_fraction": 0.1493218687320302,
+      "ft_quantum_runtime_h": 3.9373400808,
+      "classical_pure_h": 1.4882094907412229e-05,
+      "classical_with_snap_h": 1.7104317129634454e-05,
+      "quantum_vs_classical_pure": 3.779733170620213e-06,
+      "quantum_vs_classical_with_snap": 4.344129990965665e-06,
+      "worker_speedups": {
+        "1": 0.6825519252353593,
+        "2": 0.9929989757441297,
+        "4": 0.9749803443263635
+      }
+    },
+    {
+      "label": "RSA-2048",
+      "digits": 2048,
+      "bits": 6804,
+      "tasks": 120,
+      "seq_mean_s": 0.10509166799996213,
+      "seq_std_s": 0.00016465607662362748,
+      "par_results": {
+        "1": {
+          "pure_mean_s": 0.1286042123333194,
+          "pure_std_s": 0.00882283048403677,
+          "snap_mean_s": 0.1346042123333194,
+          "snap_std_s": 0.00882283048403677,
+          "speedup_over_seq": 0.817171273733889
+        },
+        "2": {
+          "pure_mean_s": 0.08003397333330516,
+          "pure_std_s": 0.0018955739943890765,
+          "snap_mean_s": 0.08603397333330516,
+          "snap_std_s": 0.0018955739943890765,
+          "speedup_over_seq": 1.313088225200354
+        },
+        "4": {
+          "pure_mean_s": 0.061186692000016286,
+          "pure_std_s": 0.0010221028938356567,
+          "snap_mean_s": 0.0671866920000163,
+          "snap_std_s": 0.0010221028938356567,
+          "speedup_over_seq": 1.717557602230468
+        }
+      },
+      "best_workers": 4,
+      "best_parallel_pure_mean_s": 0.061186692000016286,
+      "best_parallel_pure_std_s": 0.0010221028938356567,
+      "best_parallel_with_snap_mean_s": 0.0671866920000163,
+      "best_parallel_with_snap_std_s": 0.0010221028938356567,
+      "parallel_speedup": 1.717557602230468,
+      "timefold_overhead_fraction": 0.09806053904660209,
+      "ft_quantum_runtime_h": 31.4987206464,
+      "classical_pure_h": 1.6996303333337856e-05,
+      "classical_with_snap_h": 1.866297000000453e-05,
+      "quantum_vs_classical_pure": 5.395871001916508e-07,
+      "quantum_vs_classical_with_snap": 5.92499302099037e-07,
+      "worker_speedups": {
+        "1": 0.817171273733889,
+        "2": 1.313088225200354,
+        "4": 1.717557602230468
+      }
+    }
+  ],
+  "amdahl_fit": {
+    "p_serial": 1.0,
+    "max_speedup": 1.0,
+    "r2": NaN,
+    "overhead_dominated": true,
+    "note": "All measured speedups < 1.0: process-startup overhead dominates compute time. Amdahl's law model is not applicable; fit is meaningless."
+  },
+  "mean_speedups_per_workers": {
+    "1": 0.39392523495034626,
+    "2": 0.5349836480042317,
+    "4": 0.5796055498228389
+  },
+  "threshold_projection": {
+    "power_law_exponent": 1.6136874201736935,
+    "power_law_coefficient": 7.987299001965489e-10,
+    "rows": [
+      {
+        "digits": 100,
+        "bits": 333,
+        "classical_1000tasks_h": 2.609359812115116e-06,
+        "ft_quantum_best_h": 0.0028720251,
+        "classical_per_quantum_ratio": 0.0009085435263483999,
+        "quantum_faster": false
+      },
+      {
+        "digits": 250,
+        "bits": 831,
+        "classical_1000tasks_h": 1.1413553678001073e-05,
+        "ft_quantum_best_h": 0.04463325929999999,
+        "classical_per_quantum_ratio": 0.0002557185797542927,
+        "quantum_faster": false
+      },
+      {
+        "digits": 512,
+        "bits": 1701,
+        "classical_1000tasks_h": 3.6261381903183953e-05,
+        "ft_quantum_best_h": 0.4921675101,
+        "classical_per_quantum_ratio": 7.36769111309608e-05,
+        "quantum_faster": false
+      },
+      {
+        "digits": 1024,
+        "bits": 3402,
+        "classical_1000tasks_h": 0.00011097180956262281,
+        "ft_quantum_best_h": 3.9373400808,
+        "classical_per_quantum_ratio": 2.818446140930637e-05,
+        "quantum_faster": false
+      },
+      {
+        "digits": 2048,
+        "bits": 6804,
+        "classical_1000tasks_h": 0.0003396104028931594,
+        "ft_quantum_best_h": 31.4987206464,
+        "classical_per_quantum_ratio": 1.0781720524638945e-05,
+        "quantum_faster": false
+      },
+      {
+        "digits": 4096,
+        "bits": 13607,
+        "classical_1000tasks_h": 0.001039196798130222,
+        "ft_quantum_best_h": 307.91959727747775,
+        "classical_per_quantum_ratio": 3.3748965876756562e-06,
+        "quantum_faster": false
+      },
+      {
+        "digits": 8192,
+        "bits": 27214,
+        "classical_1000tasks_h": 0.003180285558010366,
+        "ft_quantum_best_h": 2463.356778219822,
+        "classical_per_quantum_ratio": 1.2910373300893271e-06,
+        "quantum_faster": false
+      },
+      {
+        "digits": 16384,
+        "bits": 54427,
+        "classical_1000tasks_h": 0.009732436034219328,
+        "ft_quantum_best_h": 19705.76802974792,
+        "classical_per_quantum_ratio": 4.938876789540604e-07,
+        "quantum_faster": false
+      }
+    ],
+    "crossover_digits": null,
+    "notes": "Crossover (quantum faster than classical at 1000 tasks): 未发现交叉点"
+  },
+  "verdict": {
+    "cv_repeats": 3,
+    "max_workers": 4,
+    "amdahl_p_serial": 1.0,
+    "amdahl_max_speedup": 1.0,
+    "amdahl_r2": NaN,
+    "avg_timefold_overhead_fraction": 0.1947927680957094,
+    "advantage_cases_without_timefold": 0,
+    "advantage_cases_with_timefold": 0,
+    "total_cases": 7,
+    "has_real_quantum_advantage_pure": false,
+    "has_real_quantum_advantage_with_snap": false,
+    "quantum_advantage_threshold_digits": null
+  }
+}

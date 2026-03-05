@@ -15,6 +15,9 @@ on:
       - '.github/workflows/das-validation-ci.yml'
   workflow_dispatch:
 
+permissions:
+  contents: read
+
 jobs:
   validate-and-plot:
     runs-on: ubuntu-latest
