@@ -1,0 +1,111 @@
+{
+  "hardware": {
+    "name": "Superconducting-like calibrated profile",
+    "t1_us": 120.0,
+    "t2_us": 90.0,
+    "single_gate_ns": 35.0,
+    "two_qubit_gate_ns": 280.0,
+    "readout_ns": 450.0,
+    "reset_ns": 600.0,
+    "f1q": 0.9992,
+    "f2q": 0.991
+  },
+  "experiments": [
+    {
+      "n_qubits": 4,
+      "search_space": 16,
+      "target_index": 9,
+      "grover_iterations": 3,
+      "success_probability": 0.04919016974212523,
+      "classical_expected_queries": 8.5,
+      "quantum_expected_queries": 60.98779523891082,
+      "query_speedup_over_classical": 0.13937214760268815,
+      "quantum_single_run_time_us": 53.27,
+      "quantum_expected_time_us": 1082.9399507922599,
+      "classical_expected_time_us": 71.4,
+      "time_speedup_over_classical": 0.06593163355711923,
+      "timing_model": {
+        "prep_ns": 140.0,
+        "oracle_ns": 8400.0,
+        "diffuser_ns": 8960.0,
+        "prep_depol": 0.0008000000000000229,
+        "oracle_depol": 0.12681791392978825,
+        "diffuser_depol": 0.12960874537392175
+      }
+    },
+    {
+      "n_qubits": 5,
+      "search_space": 32,
+      "target_index": 19,
+      "grover_iterations": 4,
+      "success_probability": 0.020044568275480068,
+      "classical_expected_queries": 16.5,
+      "quantum_expected_queries": 199.555308202526,
+      "query_speedup_over_classical": 0.08268384413635528,
+      "quantum_single_run_time_us": 98.105,
+      "quantum_expected_time_us": 4894.343377802204,
+      "classical_expected_time_us": 194.04,
+      "time_speedup_over_classical": 0.039645767577331965,
+      "timing_model": {
+        "prep_ns": 175.0,
+        "oracle_ns": 11760.0,
+        "diffuser_ns": 12460.0,
+        "prep_depol": 0.0008000000000000229,
+        "oracle_depol": 0.14246446373008037,
+        "diffuser_depol": 0.1452052862655665
+      }
+    },
+    {
+      "n_qubits": 6,
+      "search_space": 64,
+      "target_index": 38,
+      "grover_iterations": 6,
+      "success_probability": 0.011623421346386765,
+      "classical_expected_queries": 32.5,
+      "quantum_expected_queries": 516.199131150412,
+      "query_speedup_over_classical": 0.06296019895959498,
+      "quantum_single_run_time_us": 187.74,
+      "quantum_expected_time_us": 16151.870813696392,
+      "classical_expected_time_us": 491.4,
+      "time_speedup_over_classical": 0.030423720302623074,
+      "timing_model": {
+        "prep_ns": 210.0,
+        "oracle_ns": 15120.0,
+        "diffuser_ns": 15960.0,
+        "prep_depol": 0.0008000000000000229,
+        "oracle_depol": 0.15018228355650964,
+        "diffuser_depol": 0.1528984386891764
+      }
+    },
+    {
+      "n_qubits": 7,
+      "search_space": 128,
+      "target_index": 76,
+      "grover_iterations": 9,
+      "success_probability": 0.007185702793763131,
+      "classical_expected_queries": 64.5,
+      "quantum_expected_queries": 1252.4870925376426,
+      "query_speedup_over_classical": 0.05149753668863577,
+      "quantum_single_run_time_us": 342.755,
+      "quantum_expected_time_us": 47699.57926697107,
+      "classical_expected_time_us": 1191.96,
+      "time_speedup_over_classical": 0.0249888996573468,
+      "timing_model": {
+        "prep_ns": 245.0,
+        "oracle_ns": 18480.0,
+        "diffuser_ns": 19460.0,
+        "prep_depol": 0.0008000000000000229,
+        "oracle_depol": 0.15783064300450111,
+        "diffuser_depol": 0.16052235274097382
+      }
+    }
+  ],
+  "conclusion": {
+    "mean_query_speedup": 0.08412843184681855,
+    "mean_time_speedup": 0.040247505273605266,
+    "min_success_probability": 0.007185702793763131,
+    "credible_advantage_case_count": 0,
+    "total_case_count": 4,
+    "has_credible_quantum_advantage": false
+  }
+}

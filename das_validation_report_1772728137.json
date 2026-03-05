@@ -1,0 +1,127 @@
+{
+  "meta": {
+    "timestamp": 1772728137,
+    "monte_carlo_samples": 20000,
+    "seed": 42,
+    "model": "DAS quaternion shockwave validator"
+  },
+  "data_paths": {
+    "manifest": "data/experimental_sources/sha256_manifest.json",
+    "neutrino_csv": "data/experimental_sources/neutrino_pdg2024.csv",
+    "qgem_csv": "data/experimental_sources/qgem_arxiv2502.csv"
+  },
+  "source_validation": {
+    "checks": {
+      "manifest_exists": true,
+      "neutrino_csv_exists": true,
+      "qgem_csv_exists": true,
+      "neutrino_hash_match": true,
+      "qgem_hash_match": true,
+      "neutrino_rows_nonempty": true,
+      "qgem_rows_nonempty": true,
+      "neutrino_source_url_doi": true,
+      "qgem_source_url_arxiv": true
+    },
+    "hash_checks": {
+      "data/experimental_sources/neutrino_pdg2024.csv": {
+        "expected": "e35a37265c50e1736ba233be781075c149ae175b787fa2e67cb7ee4de61042d2",
+        "actual": "e35a37265c50e1736ba233be781075c149ae175b787fa2e67cb7ee4de61042d2",
+        "match": true
+      },
+      "data/experimental_sources/qgem_arxiv2502.csv": {
+        "expected": "6fe2cb44d3e995335f26c6c9120e86c0f10505a4da2c142c728bed97faafa5ab",
+        "actual": "6fe2cb44d3e995335f26c6c9120e86c0f10505a4da2c142c728bed97faafa5ab",
+        "match": true
+      }
+    },
+    "pass_rate": 1.0,
+    "all_passed": true
+  },
+  "neutrino_consistency_mc": {
+    "lambda_hat_eV": 0.025296946306924303,
+    "mean_predicted_delta_m21_sq": 7.411454706461728e-05,
+    "mean_observed_delta_m21_sq": 7.41079314231569e-05,
+    "mae": 2.8554341961326278e-06,
+    "rmse": 3.5860036199533514e-06,
+    "within_1sigma_rate": 0.44525,
+    "within_2sigma_rate": 0.75795,
+    "zscore_mean": 0.0031503054573335846,
+    "zscore_std": 1.7076178654821956,
+    "source_url": "https://doi.org/10.1103/PhysRevD.110.030001",
+    "source_label": "PDG Review of Particle Physics 2024"
+  },
+  "qgem_scan_and_mc": {
+    "center": {
+      "omega_rad_s": 1.8091623746272705,
+      "witness_das": -0.4848774163619066,
+      "witness_baseline": 0.0004995003331667303
+    },
+    "scan": {
+      "gamma_min": 0.001,
+      "gamma_max": 0.1,
+      "tau_min": 1.0,
+      "tau_max": 1.0,
+      "das_negative_ratio": 1.0,
+      "baseline_negative_ratio": 0.0
+    },
+    "monte_carlo": {
+      "samples": 20000,
+      "das_mean": -0.14855144091508032,
+      "das_std": 0.15857501674681776,
+      "das_p5": -0.4729887054852001,
+      "das_p95": 0.004995728166661453,
+      "das_negative_probability": 0.9321,
+      "das_negative_probability_ci95": [
+        0.9286134232134972,
+        0.9355865767865029
+      ],
+      "baseline_mean": 0.010251311372846265,
+      "baseline_std": 0.011548442947869105,
+      "baseline_p5": 0.0006336326564407496,
+      "baseline_p95": 0.036795383965861385,
+      "baseline_negative_probability": 0.0,
+      "baseline_negative_probability_ci95": [
+        0.0,
+        0.0
+      ],
+      "negative_probability_margin": 0.9321,
+      "mean_difference_das_minus_baseline": -0.1588027522879266,
+      "mean_difference_ci95": [
+        -0.1609918344673465,
+        -0.15661367010850663
+      ],
+      "cohen_d": -1.4124684737713666
+    },
+    "source_url": "https://arxiv.org/abs/2502.12474",
+    "source_label": "arXiv:2502.12474"
+  },
+  "isomorphism_structure_tests": {
+    "roundtrip_max_error": 1.3877787807814457e-17,
+    "roundtrip_pass_rate": 1.0,
+    "additivity_max_error": 1.3877787807814457e-17,
+    "additivity_pass_rate": 1.0,
+    "scaling_max_error": 1.3877787807814457e-17,
+    "scaling_pass_rate": 1.0,
+    "order_preservation_rate": 1.0,
+    "witness_affine_max_error": 2.220446049250313e-16,
+    "witness_affine_pass_rate": 1.0
+  },
+  "strict_thresholds": {
+    "min_abs_cohen_d": 1.0,
+    "min_negative_probability_margin": 0.25,
+    "max_diff_ci95_high": -0.005,
+    "min_sigma2_coverage": 0.9,
+    "max_abs_neutrino_z_mean": 0.25,
+    "min_iso_pass_rate": 0.9999
+  },
+  "verdict": {
+    "source_valid": true,
+    "qgem_beats_baseline": true,
+    "effect_size_pass": true,
+    "negative_probability_margin_pass": true,
+    "ci_separation_pass": true,
+    "neutrino_consistency_pass": false,
+    "isomorphism_structure_pass": true,
+    "decision_grade_ready": false
+  }
+}

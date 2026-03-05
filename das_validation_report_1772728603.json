@@ -1,0 +1,249 @@
+{
+  "meta": {
+    "timestamp": 1772728603,
+    "monte_carlo_samples": 30000,
+    "seed": 42,
+    "model": "DAS quaternion shockwave validator",
+    "precision_eps": 1e-18
+  },
+  "data_paths": {
+    "manifest": "data/experimental_sources/sha256_manifest.json",
+    "neutrino_csv": "data/experimental_sources/neutrino_pdg2024.csv",
+    "qgem_csv": "data/experimental_sources/qgem_arxiv2502.csv",
+    "qgem_external_csv": "data/experimental_sources/qgem_bose2017_reference.csv"
+  },
+  "source_validation": {
+    "checks": {
+      "manifest_exists": true,
+      "neutrino_csv_exists": true,
+      "qgem_csv_exists": true,
+      "qgem_external_csv_exists": true,
+      "neutrino_hash_match": true,
+      "qgem_hash_match": true,
+      "qgem_external_hash_match": true,
+      "neutrino_rows_nonempty": true,
+      "qgem_rows_nonempty": true,
+      "qgem_external_rows_nonempty": true,
+      "neutrino_source_url_doi": true,
+      "qgem_source_url_arxiv": true,
+      "qgem_external_source_url_arxiv": true
+    },
+    "hash_checks": {
+      "data/experimental_sources/neutrino_pdg2024.csv": {
+        "expected": "e35a37265c50e1736ba233be781075c149ae175b787fa2e67cb7ee4de61042d2",
+        "actual": "e35a37265c50e1736ba233be781075c149ae175b787fa2e67cb7ee4de61042d2",
+        "match": true
+      },
+      "data/experimental_sources/qgem_arxiv2502.csv": {
+        "expected": "6fe2cb44d3e995335f26c6c9120e86c0f10505a4da2c142c728bed97faafa5ab",
+        "actual": "6fe2cb44d3e995335f26c6c9120e86c0f10505a4da2c142c728bed97faafa5ab",
+        "match": true
+      },
+      "data/experimental_sources/qgem_bose2017_reference.csv": {
+        "expected": "665d95d2852346517a1465c42d25cf771611cb2b0d355f8b442c5472f3b0e96e",
+        "actual": "665d95d2852346517a1465c42d25cf771611cb2b0d355f8b442c5472f3b0e96e",
+        "match": true
+      }
+    },
+    "pass_rate": 1.0,
+    "all_passed": true
+  },
+  "neutrino_consistency_covariance": {
+    "lambda_hat_eV": 0.02530639678309977,
+    "lambda_std_eV": 0.0005665960844543225,
+    "lambda_wls_eV": 0.025296946306924303,
+    "covariance_matrix": [
+      [
+        0.00013883064347649282,
+        3.711532109379494e-09
+      ],
+      [
+        3.711532109379494e-09,
+        4.409999999999999e-12
+      ]
+    ],
+    "mean_predicted_delta_m21_sq": 7.419513958409499e-05,
+    "mean_observed_delta_m21_sq": 7.410603015063016e-05,
+    "mae": 3.764722899715715e-06,
+    "rmse": 4.711352217207837e-06,
+    "within_1sigma_rate": 0.7014666666666667,
+    "within_2sigma_rate": 0.9627666666666667,
+    "zscore_mean": 0.018188859620960063,
+    "zscore_std": 0.9615008388167458,
+    "source_url": "https://doi.org/10.1103/PhysRevD.110.030001",
+    "source_label": "PDG Review of Particle Physics 2024"
+  },
+  "qgem_scan_and_mc": {
+    "center": {
+      "omega_rad_s": 1.8091623746272705,
+      "witness_das": -0.484877416361907,
+      "witness_baseline": 0.000499500333167
+    },
+    "scan": {
+      "gamma_min": 0.001,
+      "gamma_max": 0.1,
+      "tau_min": 1.0,
+      "tau_max": 1.0,
+      "das_negative_ratio": 1.0,
+      "baseline_negative_ratio": 0.0
+    },
+    "monte_carlo": {
+      "samples": 30000,
+      "das_mean": -0.14896126554209102,
+      "das_std": 0.1590195321238206,
+      "das_p5": -0.4727077235848722,
+      "das_p95": 0.0049103270746173955,
+      "das_negative_probability": 0.9319666666666667,
+      "das_negative_probability_ci95": [
+        0.9290616387951031,
+        0.9347610832243963
+      ],
+      "baseline_mean": 0.010213330977500235,
+      "baseline_std": 0.011617084817974983,
+      "baseline_p5": 0.0006303641213429,
+      "baseline_p95": 0.03647408335848524,
+      "baseline_negative_probability": 0.0,
+      "baseline_negative_probability_ci95": [
+        1.3552527156068805e-20,
+        0.00012803223300477719
+      ],
+      "negative_probability_margin": 0.9319666666666667,
+      "mean_difference_das_minus_baseline": -0.15917459651959126,
+      "mean_difference_ci95": [
+        -0.1609657701175512,
+        -0.15738342292163132
+      ],
+      "cohen_d": -1.4118066485300356,
+      "snr": 0.9367326192209884
+    },
+    "source_url": "https://arxiv.org/abs/2502.12474",
+    "source_label": "arXiv:2502.12474"
+  },
+  "qgem_noise_robustness": {
+    "sweep": [
+      {
+        "noise_sigma": 0.001,
+        "negative_probability": 1.0,
+        "negative_probability_ci95": [
+          0.9998719677669952,
+          1.0
+        ],
+        "mean_witness": -0.48487553269695843,
+        "std_witness": 0.000238044255199752
+      },
+      {
+        "noise_sigma": 0.003,
+        "negative_probability": 1.0,
+        "negative_probability_ci95": [
+          0.9998719677669952,
+          1.0
+        ],
+        "mean_witness": -0.4848720136048449,
+        "std_witness": 0.0007214438508141174
+      },
+      {
+        "noise_sigma": 0.01,
+        "negative_probability": 1.0,
+        "negative_probability_ci95": [
+          0.9998719677669952,
+          1.0
+        ],
+        "mean_witness": -0.4847618782407921,
+        "std_witness": 0.0023933849027785157
+      },
+      {
+        "noise_sigma": 0.03,
+        "negative_probability": 1.0,
+        "negative_probability_ci95": [
+          0.9998719677669952,
+          1.0
+        ],
+        "mean_witness": -0.4839950088933885,
+        "std_witness": 0.007261023760301244
+      },
+      {
+        "noise_sigma": 0.1,
+        "negative_probability": 1.0,
+        "negative_probability_ci95": [
+          0.9998719677669952,
+          1.0
+        ],
+        "mean_witness": -0.47480959573093107,
+        "std_witness": 0.0283235037114842
+      }
+    ],
+    "robustness_index": 1.0
+  },
+  "qgem_cross_validation": {
+    "loo_mape": 0.36148246002226936,
+    "loo_errors": [
+      0.18181818181821582,
+      0.10554159678512309,
+      0.18181818181820272,
+      0.9767518796675357
+    ],
+    "external_predictions": [
+      {
+        "scenario": "original_proposal_scale",
+        "observed_delta_x_m": 0.0002,
+        "predicted_delta_x_m": 0.5328063980622242,
+        "pred_over_obs": 2664.031990311121
+      }
+    ],
+    "trend_consistency_rate": 1.0,
+    "fitted_coefficients": {
+      "bias": -0.5044897368394148,
+      "log_gamma": 0.5206963425791139,
+      "log_dmin": 5.176146677776226,
+      "log_mass": -1.3450870354264484
+    }
+  },
+  "isomorphism_structure_tests": {
+    "roundtrip_max_error": 1.3877787807814457e-17,
+    "roundtrip_pass_rate": 1.0,
+    "additivity_max_error": 1.3877787807814457e-17,
+    "additivity_pass_rate": 1.0,
+    "scaling_max_error": 1.3877787807814457e-17,
+    "scaling_pass_rate": 1.0,
+    "order_preservation_rate": 1.0,
+    "witness_affine_max_error": 2.220446049250313e-16,
+    "witness_affine_pass_rate": 1.0
+  },
+  "strict_thresholds": {
+    "min_abs_cohen_d": 1.2,
+    "min_negative_probability_margin": 0.3,
+    "max_diff_ci95_high": -0.01,
+    "min_sigma2_coverage": 0.8,
+    "max_abs_neutrino_z_mean": 0.25,
+    "min_iso_pass_rate": 0.9999,
+    "min_noise_robustness_index": 0.75,
+    "max_crossval_mape": 0.45,
+    "min_trend_consistency_rate": 0.95
+  },
+  "confidence": {
+    "isomorphic_confidence_score": 0.906345837748964,
+    "components": {
+      "effect": 0.7059033242650178,
+      "probability_margin": 1.0,
+      "ci_separation": 1.0,
+      "neutrino_coverage": 1.0,
+      "noise_robustness": 1.0,
+      "cross_validation": 0.6385175399777306,
+      "isomorphism": 1.0
+    }
+  },
+  "verdict": {
+    "source_valid": true,
+    "qgem_beats_baseline": true,
+    "effect_size_pass": true,
+    "negative_probability_margin_pass": true,
+    "ci_separation_pass": true,
+    "neutrino_consistency_pass": true,
+    "noise_robustness_pass": true,
+    "cross_validation_pass": true,
+    "isomorphism_structure_pass": true,
+    "physics_ready": true,
+    "isomorphism_ready": true,
+    "decision_grade_ready": true
+  }
+}

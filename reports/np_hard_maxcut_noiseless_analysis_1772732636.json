@@ -1,0 +1,209 @@
+{
+  "setup": {
+    "problem": "MAX-CUT (NP-hard)",
+    "noise_mode": "disabled",
+    "target_ratio": 0.9,
+    "instances": [
+      {
+        "name": "ER(n=8,p=0.35,seed=7)",
+        "n": 8,
+        "seed": 7,
+        "edge_count": 11
+      },
+      {
+        "name": "ER(n=8,p=0.35,seed=19)",
+        "n": 8,
+        "seed": 19,
+        "edge_count": 10
+      },
+      {
+        "name": "ER(n=10,p=0.35,seed=7)",
+        "n": 10,
+        "seed": 7,
+        "edge_count": 18
+      },
+      {
+        "name": "ER(n=10,p=0.35,seed=19)",
+        "n": 10,
+        "seed": 19,
+        "edge_count": 13
+      },
+      {
+        "name": "ER(n=12,p=0.35,seed=7)",
+        "n": 12,
+        "seed": 7,
+        "edge_count": 22
+      },
+      {
+        "name": "ER(n=12,p=0.35,seed=19)",
+        "n": 12,
+        "seed": 19,
+        "edge_count": 25
+      },
+      {
+        "name": "ER(n=14,p=0.35,seed=7)",
+        "n": 14,
+        "seed": 7,
+        "edge_count": 26
+      },
+      {
+        "name": "ER(n=14,p=0.35,seed=19)",
+        "n": 14,
+        "seed": 19,
+        "edge_count": 30
+      }
+    ]
+  },
+  "results": [
+    {
+      "n": 8,
+      "seed": 7,
+      "edge_count": 11,
+      "opt_cut": 10.0,
+      "ideal_qaoa_ratio": 0.7490609761511285,
+      "target_ratio": 0.9,
+      "p_target_ideal": 0.29038556382396113,
+      "p_target_classical_random": 0.0390625,
+      "exp_samples_quantum": 3.443697361643723,
+      "exp_samples_classical_random": 25.6,
+      "sampling_speedup_over_random": 7.433870433893405,
+      "exhaustive_vs_quantum_eval_speedup": 74.33870433893405
+    },
+    {
+      "n": 8,
+      "seed": 19,
+      "edge_count": 10,
+      "opt_cut": 9.0,
+      "ideal_qaoa_ratio": 0.7391598896307614,
+      "target_ratio": 0.9,
+      "p_target_ideal": 0.0762304885188432,
+      "p_target_classical_random": 0.0078125,
+      "exp_samples_quantum": 13.118110869154574,
+      "exp_samples_classical_random": 128.0,
+      "sampling_speedup_over_random": 9.75750253041193,
+      "exhaustive_vs_quantum_eval_speedup": 19.51500506082386
+    },
+    {
+      "n": 10,
+      "seed": 7,
+      "edge_count": 18,
+      "opt_cut": 14.0,
+      "ideal_qaoa_ratio": 0.8190956323470555,
+      "target_ratio": 0.9,
+      "p_target_ideal": 0.24830109354447172,
+      "p_target_classical_random": 0.03125,
+      "exp_samples_quantum": 4.027368489301059,
+      "exp_samples_classical_random": 32.0,
+      "sampling_speedup_over_random": 7.945634993423094,
+      "exhaustive_vs_quantum_eval_speedup": 254.260319789539
+    },
+    {
+      "n": 10,
+      "seed": 19,
+      "edge_count": 13,
+      "opt_cut": 12.0,
+      "ideal_qaoa_ratio": 0.7428555537919963,
+      "target_ratio": 0.9,
+      "p_target_ideal": 0.18166391501135254,
+      "p_target_classical_random": 0.01171875,
+      "exp_samples_quantum": 5.504670533702348,
+      "exp_samples_classical_random": 85.33333333333333,
+      "sampling_speedup_over_random": 15.501987414302082,
+      "exhaustive_vs_quantum_eval_speedup": 186.023848971625
+    },
+    {
+      "n": 12,
+      "seed": 7,
+      "edge_count": 22,
+      "opt_cut": 18.0,
+      "ideal_qaoa_ratio": 0.7903351878209602,
+      "target_ratio": 0.9,
+      "p_target_ideal": 0.1878058475531791,
+      "p_target_classical_random": 0.01123046875,
+      "exp_samples_quantum": 5.324647837266302,
+      "exp_samples_classical_random": 89.04347826086956,
+      "sampling_speedup_over_random": 16.722885903865688,
+      "exhaustive_vs_quantum_eval_speedup": 769.2527515778216
+    },
+    {
+      "n": 12,
+      "seed": 19,
+      "edge_count": 25,
+      "opt_cut": 18.0,
+      "ideal_qaoa_ratio": 0.8566581814515248,
+      "target_ratio": 0.9,
+      "p_target_ideal": 0.2999120698921941,
+      "p_target_classical_random": 0.03857421875,
+      "exp_samples_quantum": 3.3343106209745357,
+      "exp_samples_classical_random": 25.924050632911392,
+      "sampling_speedup_over_random": 7.7749356853065,
+      "exhaustive_vs_quantum_eval_speedup": 1228.439838278427
+    },
+    {
+      "n": 14,
+      "seed": 7,
+      "edge_count": 26,
+      "opt_cut": 21.0,
+      "ideal_qaoa_ratio": 0.7931662545254982,
+      "target_ratio": 0.9,
+      "p_target_ideal": 0.16738479039270568,
+      "p_target_classical_random": 0.00830078125,
+      "exp_samples_quantum": 5.974258459528341,
+      "exp_samples_classical_random": 120.47058823529412,
+      "sampling_speedup_over_random": 20.16494416025066,
+      "exhaustive_vs_quantum_eval_speedup": 2742.43240579409
+    },
+    {
+      "n": 14,
+      "seed": 19,
+      "edge_count": 30,
+      "opt_cut": 24.0,
+      "ideal_qaoa_ratio": 0.7814310582909473,
+      "target_ratio": 0.9,
+      "p_target_ideal": 0.1069752942781114,
+      "p_target_classical_random": 0.0054931640625,
+      "exp_samples_quantum": 9.347952784315114,
+      "exp_samples_classical_random": 182.04444444444445,
+      "sampling_speedup_over_random": 19.474258016139746,
+      "exhaustive_vs_quantum_eval_speedup": 1752.683221452577
+    }
+  ],
+  "scale_summary": [
+    {
+      "n": 8,
+      "mean_sampling_speedup": 8.595686482152669,
+      "mean_exhaustive_speedup": 46.92685469987896,
+      "mean_ideal_ratio": 0.7441104328909449,
+      "min_ideal_ratio": 0.7391598896307614
+    },
+    {
+      "n": 10,
+      "mean_sampling_speedup": 11.723811203862589,
+      "mean_exhaustive_speedup": 220.142084380582,
+      "mean_ideal_ratio": 0.7809755930695259,
+      "min_ideal_ratio": 0.7428555537919963
+    },
+    {
+      "n": 12,
+      "mean_sampling_speedup": 12.248910794586093,
+      "mean_exhaustive_speedup": 998.8462949281243,
+      "mean_ideal_ratio": 0.8234966846362426,
+      "min_ideal_ratio": 0.7903351878209602
+    },
+    {
+      "n": 14,
+      "mean_sampling_speedup": 19.819601088195203,
+      "mean_exhaustive_speedup": 2247.5578136233335,
+      "mean_ideal_ratio": 0.7872986564082227,
+      "min_ideal_ratio": 0.7814310582909473
+    }
+  ],
+  "trend_metrics": {
+    "sampling_log_slope_per_qubit": 0.12750238940616188,
+    "sampling_log_intercept": 1.123721427831093,
+    "exhaustive_log_slope_per_qubit": 0.6559677940565776,
+    "exhaustive_log_intercept": -1.2488798146560278,
+    "has_positive_sampling_scaling": true,
+    "has_positive_exhaustive_scaling": true
+  }
+}

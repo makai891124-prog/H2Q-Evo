@@ -1,0 +1,46 @@
+{
+  "meta": {
+    "timestamp": 1772729518,
+    "latest_report": "das_validation_report_1772728603.json",
+    "continuous_metrics": "continuous_artifacts/das_continuous_metrics_1772729345.json",
+    "baseline_reports": [
+      "das_validation_report_1772727737.json",
+      "das_validation_report_1772728137.json"
+    ]
+  },
+  "comparison_scores": {
+    "阶段A: 公式型验证": 75.8332419471843,
+    "阶段B: 严格门槛验证": 55.351969231284315,
+    "阶段C: 多方可信验证(当前)": 96.71601573039835
+  },
+  "current_evidence_scores": {
+    "文献与来源可信": 89.15552619933192,
+    "统计显著性": 100.0,
+    "物理一致性": 96.25383350995857,
+    "噪声鲁棒性": 100.0,
+    "连续运行稳定性": 98.17071894270128
+  },
+  "current_key_metrics": {
+    "confidence": 0.906345837748964,
+    "cohen_d_abs": 1.4118066485300356,
+    "negative_probability_margin": 0.9319666666666667,
+    "neutrino_within_2sigma": 0.9627666666666667,
+    "noise_robustness": 1.0,
+    "crossval_component": 0.6385175399777306,
+    "continuous_ready_rate": 1.0,
+    "continuous_confidence_std": 0.0003658562114597427,
+    "continuous_stability_score": 0.9817071894270128
+  },
+  "multi_party_trust_sources": [
+    "PDG 2024 (DOI:10.1103/PhysRevD.110.030001)",
+    "arXiv:2502.12474",
+    "arXiv:1707.06050",
+    "内部连续运行统计(continuous_artifacts)",
+    "SHA256 数据完整性校验(manifest)"
+  ],
+  "limitations": [
+    "外部历史QGEM参考点数量仍偏少，跨域外推误差需要更多公开表格压缩。",
+    "当前价值评分虽为数据驱动，但仍包含评分规则设计假设。"
+  ],
+  "plot": "reports/DAS_量子价值对比图_1772729518.png"
+}

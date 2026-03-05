@@ -1,0 +1,80 @@
+{
+  "meta": {
+    "timestamp": 1772727737,
+    "monte_carlo_samples": 20000,
+    "seed": 42,
+    "model": "DAS quaternion shockwave validator"
+  },
+  "source_validation": {
+    "checks": {
+      "juno_schema": true,
+      "qgem_schema": true,
+      "juno_range": true,
+      "qgem_range": true,
+      "juno_source_id": true,
+      "qgem_source_id": true,
+      "juno_hash": true,
+      "qgem_hash": true
+    },
+    "pass_rate": 1.0,
+    "all_passed": true
+  },
+  "neutrino_consistency_mc": {
+    "lambda_hat_eV": 0.02519988328507965,
+    "mean_predicted_delta_m21_sq": 7.501065891043677e-05,
+    "mean_observed_delta_m21_sq": 7.500453224180394e-05,
+    "mae": 1.944953288316587e-06,
+    "rmse": 2.4420841678669583e-06,
+    "within_1sigma_rate": 0.37915,
+    "within_2sigma_rate": 0.67505,
+    "zscore_mean": 0.005105557194028745,
+    "zscore_std": 2.0350637355016943
+  },
+  "qgem_scan_and_mc": {
+    "center": {
+      "omega_rad_s": 0.030152706243787842,
+      "witness_das": -0.009973747528779886,
+      "witness_baseline": 0.004950331673311159
+    },
+    "scan": {
+      "gamma_min": 0.001,
+      "gamma_max": 0.5,
+      "tau_min": 0.1,
+      "tau_max": 2.0,
+      "das_negative_ratio": 0.55,
+      "baseline_negative_ratio": 0.0
+    },
+    "monte_carlo": {
+      "samples": 20000,
+      "das_mean": -0.01013812810929299,
+      "das_std": 0.0034240350446322443,
+      "das_p5": -0.016102473536433702,
+      "das_p95": -0.004962259544365428,
+      "das_negative_probability": 0.9999,
+      "baseline_mean": 0.004936023394128223,
+      "baseline_std": 0.0011135488120526142,
+      "baseline_p5": 0.0031719173795120626,
+      "baseline_p95": 0.006847749316843009,
+      "baseline_negative_probability": 0.0,
+      "mean_difference_das_minus_baseline": -0.015074151503421212,
+      "cohen_d": -5.9206227358150505
+    }
+  },
+  "isomorphism_structure_tests": {
+    "roundtrip_max_error": 1.3877787807814457e-17,
+    "roundtrip_pass_rate": 1.0,
+    "additivity_max_error": 1.3877787807814457e-17,
+    "additivity_pass_rate": 1.0,
+    "scaling_max_error": 1.3877787807814457e-17,
+    "scaling_pass_rate": 1.0,
+    "order_preservation_rate": 1.0,
+    "witness_affine_max_error": 2.220446049250313e-16,
+    "witness_affine_pass_rate": 1.0
+  },
+  "verdict": {
+    "source_valid": true,
+    "qgem_beats_baseline": true,
+    "isomorphism_structure_pass": true,
+    "decision_grade_ready": true
+  }
+}

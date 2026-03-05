@@ -1,0 +1,337 @@
+{
+  "scenarios": [
+    {
+      "hardware": {
+        "name": "Current-NISQ",
+        "t1_us": 120.0,
+        "t2_us": 90.0,
+        "single_gate_ns": 35.0,
+        "two_qubit_gate_ns": 280.0,
+        "readout_ns": 450.0,
+        "reset_ns": 600.0,
+        "f1q": 0.9992,
+        "f2q": 0.991
+      },
+      "experiments": [
+        {
+          "n_qubits": 4,
+          "search_space": 16,
+          "target_index": 9,
+          "grover_iterations": 3,
+          "success_probability": 0.5739395863231509,
+          "classical_expected_queries": 8.5,
+          "quantum_expected_queries": 5.2270309828583255,
+          "query_speedup_over_classical": 1.6261621612489274,
+          "quantum_single_run_time_us": 12.95,
+          "quantum_expected_time_us": 22.563350409338437,
+          "classical_expected_time_us": 14.28,
+          "time_speedup_over_classical": 0.6328847330266096,
+          "timing_model": {
+            "prep_ns": 140.0,
+            "oracle_ns": 1680.0,
+            "diffuser_ns": 2240.0,
+            "prep_depol": 0.0008000000000000229,
+            "oracle_depol": 0.013469579283030941,
+            "diffuser_depol": 0.016622690372520066
+          }
+        },
+        {
+          "n_qubits": 5,
+          "search_space": 32,
+          "target_index": 19,
+          "grover_iterations": 4,
+          "success_probability": 0.3472292959817711,
+          "classical_expected_queries": 16.5,
+          "quantum_expected_queries": 11.519765314416306,
+          "query_speedup_over_classical": 1.4323208459248058,
+          "quantum_single_run_time_us": 21.945,
+          "quantum_expected_time_us": 63.20031245621646,
+          "classical_expected_time_us": 36.96,
+          "time_speedup_over_classical": 0.5848072353377197,
+          "timing_model": {
+            "prep_ns": 175.0,
+            "oracle_ns": 2240.0,
+            "diffuser_ns": 2940.0,
+            "prep_depol": 0.0008000000000000229,
+            "oracle_depol": 0.014361073196395457,
+            "diffuser_depol": 0.017511334926872957
+          }
+        },
+        {
+          "n_qubits": 6,
+          "search_space": 64,
+          "target_index": 38,
+          "grover_iterations": 6,
+          "success_probability": 0.13892617662390966,
+          "classical_expected_queries": 32.5,
+          "quantum_expected_queries": 43.18840513579195,
+          "query_speedup_over_classical": 0.7525167900461773,
+          "quantum_single_run_time_us": 39.9,
+          "quantum_expected_time_us": 287.20289415301653,
+          "classical_expected_time_us": 91.0,
+          "time_speedup_over_classical": 0.31684917475628516,
+          "timing_model": {
+            "prep_ns": 210.0,
+            "oracle_ns": 2800.0,
+            "diffuser_ns": 3640.0,
+            "prep_depol": 0.0008000000000000229,
+            "oracle_depol": 0.014954954864430103,
+            "diffuser_depol": 0.018103318452859507
+          }
+        },
+        {
+          "n_qubits": 7,
+          "search_space": 128,
+          "target_index": 76,
+          "grover_iterations": 9,
+          "success_probability": 0.0349197066568798,
+          "classical_expected_queries": 64.5,
+          "quantum_expected_queries": 257.73412384112453,
+          "query_speedup_over_classical": 0.2502578977076386,
+          "quantum_single_run_time_us": 70.595,
+          "quantum_expected_time_us": 2021.6378302849096,
+          "classical_expected_time_us": 216.72,
+          "time_speedup_over_classical": 0.10720021002449169,
+          "timing_model": {
+            "prep_ns": 245.0,
+            "oracle_ns": 3360.0,
+            "diffuser_ns": 4340.0,
+            "prep_depol": 0.0008000000000000229,
+            "oracle_depol": 0.015378936961072176,
+            "diffuser_depol": 0.018525945434015423
+          }
+        }
+      ],
+      "conclusion": {
+        "mean_query_speedup": 1.0153144237318874,
+        "mean_time_speedup": 0.4104353382862766,
+        "min_success_probability": 0.0349197066568798,
+        "credible_advantage_case_count": 0,
+        "total_case_count": 4,
+        "has_credible_quantum_advantage": false
+      }
+    },
+    {
+      "hardware": {
+        "name": "High-Fidelity-SC",
+        "t1_us": 500.0,
+        "t2_us": 350.0,
+        "single_gate_ns": 20.0,
+        "two_qubit_gate_ns": 100.0,
+        "readout_ns": 350.0,
+        "reset_ns": 400.0,
+        "f1q": 0.9998,
+        "f2q": 0.9985
+      },
+      "experiments": [
+        {
+          "n_qubits": 4,
+          "search_space": 16,
+          "target_index": 9,
+          "grover_iterations": 3,
+          "success_probability": 0.8934777812710964,
+          "classical_expected_queries": 8.5,
+          "quantum_expected_queries": 3.3576660358941246,
+          "query_speedup_over_classical": 2.5315203802681063,
+          "quantum_single_run_time_us": 5.39,
+          "quantum_expected_time_us": 6.032606644489777,
+          "classical_expected_time_us": 5.1,
+          "time_speedup_over_classical": 0.8454056928539131,
+          "timing_model": {
+            "prep_ns": 80.0,
+            "oracle_ns": 600.0,
+            "diffuser_ns": 920.0,
+            "prep_depol": 0.00019999999999997797,
+            "oracle_depol": 0.0022491560389437115,
+            "diffuser_depol": 0.003047117285836287
+          }
+        },
+        {
+          "n_qubits": 5,
+          "search_space": 32,
+          "target_index": 19,
+          "grover_iterations": 4,
+          "success_probability": 0.8643926987241805,
+          "classical_expected_queries": 16.5,
+          "quantum_expected_queries": 4.627526361460351,
+          "query_speedup_over_classical": 3.565619882237244,
+          "quantum_single_run_time_us": 8.85,
+          "quantum_expected_time_us": 10.238402074731026,
+          "classical_expected_time_us": 13.2,
+          "time_speedup_over_classical": 1.2892636862326758,
+          "timing_model": {
+            "prep_ns": 100.0,
+            "oracle_ns": 800.0,
+            "diffuser_ns": 1200.0,
+            "prep_depol": 0.00019999999999997797,
+            "oracle_depol": 0.0023989197838863996,
+            "diffuser_depol": 0.0031967612557216585
+          }
+        },
+        {
+          "n_qubits": 6,
+          "search_space": 64,
+          "target_index": 38,
+          "grover_iterations": 6,
+          "success_probability": 0.7544852377080143,
+          "classical_expected_queries": 32.5,
+          "quantum_expected_queries": 7.952441877096075,
+          "query_speedup_over_classical": 4.086795037585078,
+          "quantum_single_run_time_us": 15.75,
+          "quantum_expected_time_us": 20.875159927377197,
+          "classical_expected_time_us": 32.5,
+          "time_speedup_over_classical": 1.5568743000324106,
+          "timing_model": {
+            "prep_ns": 120.0,
+            "oracle_ns": 1000.0,
+            "diffuser_ns": 1480.0,
+            "prep_depol": 0.00019999999999997797,
+            "oracle_depol": 0.0024987497915623935,
+            "diffuser_depol": 0.0032965114233474146
+          }
+        },
+        {
+          "n_qubits": 7,
+          "search_space": 128,
+          "target_index": 76,
+          "grover_iterations": 9,
+          "success_probability": 0.5919154760025259,
+          "classical_expected_queries": 64.5,
+          "quantum_expected_queries": 15.204873609288082,
+          "query_speedup_over_classical": 4.242060911351436,
+          "quantum_single_run_time_us": 27.53,
+          "quantum_expected_time_us": 46.510018940411214,
+          "classical_expected_time_us": 77.4,
+          "time_speedup_over_classical": 1.664157567838558,
+          "timing_model": {
+            "prep_ns": 140.0,
+            "oracle_ns": 1200.0,
+            "diffuser_ns": 1760.0,
+            "prep_depol": 0.00019999999999997797,
+            "oracle_depol": 0.0025700508235201314,
+            "diffuser_depol": 0.003367755431589625
+          }
+        }
+      ],
+      "conclusion": {
+        "mean_query_speedup": 3.606499052860466,
+        "mean_time_speedup": 1.3389253117393893,
+        "min_success_probability": 0.5919154760025259,
+        "credible_advantage_case_count": 3,
+        "total_case_count": 4,
+        "has_credible_quantum_advantage": true
+      }
+    },
+    {
+      "hardware": {
+        "name": "Best-Calibrated-SC",
+        "t1_us": 800.0,
+        "t2_us": 600.0,
+        "single_gate_ns": 18.0,
+        "two_qubit_gate_ns": 80.0,
+        "readout_ns": 300.0,
+        "reset_ns": 350.0,
+        "f1q": 0.9999,
+        "f2q": 0.9992
+      },
+      "experiments": [
+        {
+          "n_qubits": 4,
+          "search_space": 16,
+          "target_index": 9,
+          "grover_iterations": 3,
+          "success_probability": 0.9255780137378431,
+          "classical_expected_queries": 8.5,
+          "quantum_expected_queries": 3.2412178719380296,
+          "query_speedup_over_classical": 2.6224710389238886,
+          "quantum_single_run_time_us": 4.466,
+          "quantum_expected_time_us": 4.825093005358413,
+          "classical_expected_time_us": 4.08,
+          "time_speedup_over_classical": 0.8455795557658754,
+          "timing_model": {
+            "prep_ns": 72.0,
+            "oracle_ns": 480.0,
+            "diffuser_ns": 768.0,
+            "prep_depol": 9.999999999998899e-05,
+            "oracle_depol": 0.001199759967990377,
+            "diffuser_depol": 0.0015992201399839256
+          }
+        },
+        {
+          "n_qubits": 5,
+          "search_space": 32,
+          "target_index": 19,
+          "grover_iterations": 4,
+          "success_probability": 0.9271991576730244,
+          "classical_expected_queries": 16.5,
+          "quantum_expected_queries": 4.31406776731628,
+          "query_speedup_over_classical": 3.8246965254012255,
+          "quantum_single_run_time_us": 7.3,
+          "quantum_expected_time_us": 7.873173675352211,
+          "classical_expected_time_us": 10.56,
+          "time_speedup_over_classical": 1.3412634390448135,
+          "timing_model": {
+            "prep_ns": 90.0,
+            "oracle_ns": 640.0,
+            "diffuser_ns": 1000.0,
+            "prep_depol": 9.999999999998899e-05,
+            "oracle_depol": 0.0012796927672228398,
+            "diffuser_depol": 0.0016791209708922894
+          }
+        },
+        {
+          "n_qubits": 6,
+          "search_space": 64,
+          "target_index": 38,
+          "grover_iterations": 6,
+          "success_probability": 0.8634285270081327,
+          "classical_expected_queries": 32.5,
+          "quantum_expected_queries": 6.949040728119799,
+          "query_speedup_over_classical": 4.676904521294052,
+          "quantum_single_run_time_us": 12.95,
+          "quantum_expected_time_us": 14.9983462381919,
+          "classical_expected_time_us": 26.0,
+          "time_speedup_over_classical": 1.733524455769224,
+          "timing_model": {
+            "prep_ns": 108.0,
+            "oracle_ns": 800.0,
+            "diffuser_ns": 1232.0,
+            "prep_depol": 9.999999999998899e-05,
+            "oracle_depol": 0.0013329777461644765,
+            "diffuser_depol": 0.0017323846390391306
+          }
+        },
+        {
+          "n_qubits": 7,
+          "search_space": 128,
+          "target_index": 76,
+          "grover_iterations": 9,
+          "success_probability": 0.7583552049781371,
+          "classical_expected_queries": 64.5,
+          "quantum_expected_queries": 11.867789580556073,
+          "query_speedup_over_classical": 5.434878969009983,
+          "quantum_single_run_time_us": 22.592,
+          "quantum_expected_time_us": 29.7907891337692,
+          "classical_expected_time_us": 61.92,
+          "time_speedup_over_classical": 2.07849478984801,
+          "timing_model": {
+            "prep_ns": 126.0,
+            "oracle_ns": 960.0,
+            "diffuser_ns": 1464.0,
+            "prep_depol": 9.999999999998899e-05,
+            "oracle_depol": 0.0013710367048319627,
+            "diffuser_depol": 0.0017704283764066187
+          }
+        }
+      ],
+      "conclusion": {
+        "mean_query_speedup": 4.139737763657287,
+        "mean_time_speedup": 1.4997155601069807,
+        "min_success_probability": 0.7583552049781371,
+        "credible_advantage_case_count": 3,
+        "total_case_count": 4,
+        "has_credible_quantum_advantage": true
+      }
+    }
+  ]
+}

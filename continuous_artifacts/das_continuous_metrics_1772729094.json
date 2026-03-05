@@ -1,0 +1,62 @@
+[
+  {
+    "run_index": 1,
+    "runtime_ts": 1772729094,
+    "seed": 20260306,
+    "confidence": 0.9062093587636203,
+    "cohen_d": -1.4098959427352236,
+    "negative_probability_margin": 0.9295,
+    "das_negative_probability": 0.9295,
+    "neutrino_within_2sigma": 0.96175,
+    "noise_robustness_index": 1.0,
+    "physics_ready": true,
+    "isomorphism_ready": true,
+    "decision_grade_ready": true,
+    "source_validation_passed": true
+  },
+  {
+    "run_index": 2,
+    "runtime_ts": 1772729094,
+    "seed": 20260307,
+    "confidence": 0.9055546770126329,
+    "cohen_d": -1.4007303982214,
+    "negative_probability_margin": 0.92975,
+    "das_negative_probability": 0.92975,
+    "neutrino_within_2sigma": 0.963125,
+    "noise_robustness_index": 1.0,
+    "physics_ready": true,
+    "isomorphism_ready": true,
+    "decision_grade_ready": true,
+    "source_validation_passed": true
+  },
+  {
+    "run_index": 3,
+    "runtime_ts": 1772729094,
+    "seed": 20260308,
+    "confidence": 0.9065213406495152,
+    "cohen_d": -1.4142636891377522,
+    "negative_probability_margin": 0.930875,
+    "das_negative_probability": 0.930875,
+    "neutrino_within_2sigma": 0.960125,
+    "noise_robustness_index": 1.0,
+    "physics_ready": true,
+    "isomorphism_ready": true,
+    "decision_grade_ready": true,
+    "source_validation_passed": true
+  },
+  {
+    "run_index": 4,
+    "runtime_ts": 1772729094,
+    "seed": 20260309,
+    "confidence": 0.9070503720380538,
+    "cohen_d": -1.4216701285772946,
+    "negative_probability_margin": 0.932125,
+    "das_negative_probability": 0.932125,
+    "neutrino_within_2sigma": 0.96275,
+    "noise_robustness_index": 1.0,
+    "physics_ready": true,
+    "isomorphism_ready": true,
+    "decision_grade_ready": true,
+    "source_validation_passed": true
+  }
+]

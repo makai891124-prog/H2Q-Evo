@@ -1,0 +1,51 @@
+name: DAS Validation CI
+
+on:
+  push:
+    paths:
+      - 'das_experimental_validator.py'
+      - 'tools/das_ci_monitor.py'
+      - 'data/experimental_sources/**'
+      - '.github/workflows/das-validation-ci.yml'
+  pull_request:
+    paths:
+      - 'das_experimental_validator.py'
+      - 'tools/das_ci_monitor.py'
+      - 'data/experimental_sources/**'
+      - '.github/workflows/das-validation-ci.yml'
+  workflow_dispatch:
+
+jobs:
+  validate-and-plot:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install plotting dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install numpy matplotlib
+
+      - name: Run DAS statistical validation
+        run: |
+          python das_experimental_validator.py
+
+      - name: Run drift monitor and generate trend plots
+        run: |
+          python tools/das_ci_monitor.py --workspace . --output-dir ci_artifacts --fail-on-regression
+
+      - name: Upload CI artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: das-validation-artifacts
+          path: |
+            ci_artifacts/**
+            das_validation_report_*.json
+            DAS_MODEL_VALUE_ANALYSIS_REPORT_*.md
