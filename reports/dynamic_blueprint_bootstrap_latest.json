@@ -1,0 +1,221 @@
+{
+  "meta": {
+    "created_at_utc": "2026-03-06T07:12:47.914566+00:00",
+    "cycles": 1,
+    "max_actions_per_cycle": 4,
+    "state_file": "/Users/imymm/H2Q-Evo/reports/dynamic_blueprint_state_latest.json",
+    "allow_model_solver": false,
+    "enable_release_gate_cycle": false
+  },
+  "summary": {
+    "overall_ok": true,
+    "cycle_count": 1,
+    "module_stats": {
+      "interactive_bfs": {
+        "runs": 1,
+        "success": 1,
+        "fail": 0,
+        "last_ok": true,
+        "last_run_utc": "2026-03-06T07:12:47.829856+00:00"
+      },
+      "capability_registry": {
+        "runs": 1,
+        "success": 1,
+        "fail": 0,
+        "last_ok": true,
+        "last_run_utc": "2026-03-06T07:12:47.861095+00:00"
+      },
+      "public_alignment": {
+        "runs": 1,
+        "success": 1,
+        "fail": 0,
+        "last_ok": true,
+        "last_run_utc": "2026-03-06T07:12:47.886882+00:00"
+      },
+      "regression_guard": {
+        "runs": 1,
+        "success": 1,
+        "fail": 0,
+        "last_ok": true,
+        "last_run_utc": "2026-03-06T07:12:47.911834+00:00"
+      }
+    }
+  },
+  "cycles": [
+    {
+      "cycle": 1,
+      "created_at_utc": "2026-03-06T07:12:47.914560+00:00",
+      "context_before": {
+        "scores": {
+          "breadth": 1.0,
+          "horizon": 1.0,
+          "robustness": 0.8263247863247863,
+          "alignment_overall": 0.9327934472934473,
+          "interactive_success": 1.0
+        },
+        "gaps": {
+          "breadth": 0.0,
+          "horizon": 0.0,
+          "robustness": 0.0,
+          "alignment": 0.0,
+          "interactive": 0.0
+        },
+        "regression": {
+          "warn": false,
+          "fail": false
+        },
+        "sources": {
+          "release_gate": "/Users/imymm/H2Q-Evo/reports/release_gate_latest.json",
+          "capability": "/Users/imymm/H2Q-Evo/reports/capability_registry_latest.json",
+          "alignment": "/Users/imymm/H2Q-Evo/reports/public_alignment_report_latest.json",
+          "interactive": "/Users/imymm/H2Q-Evo/reports/interactive_reasoning_benchmark_latest.json",
+          "regression": "/Users/imymm/H2Q-Evo/reports/nightly_regression_guard_latest.json"
+        }
+      },
+      "context_after": {
+        "scores": {
+          "breadth": 1.0,
+          "horizon": 1.0,
+          "robustness": 0.8263247863247863,
+          "alignment_overall": 0.8744971509971511,
+          "interactive_success": 1.0
+        },
+        "gaps": {
+          "breadth": 0.0,
+          "horizon": 0.0,
+          "robustness": 0.0,
+          "alignment": 0.0,
+          "interactive": 0.0
+        },
+        "regression": {
+          "warn": false,
+          "fail": false
+        },
+        "sources": {
+          "release_gate": "/Users/imymm/H2Q-Evo/reports/release_gate_latest.json",
+          "capability": "/Users/imymm/H2Q-Evo/reports/capability_registry_latest.json",
+          "alignment": "/Users/imymm/H2Q-Evo/reports/public_alignment_report_latest.json",
+          "interactive": "/Users/imymm/H2Q-Evo/reports/interactive_reasoning_benchmark_latest.json",
+          "regression": "/Users/imymm/H2Q-Evo/reports/nightly_regression_guard_latest.json"
+        }
+      },
+      "selected_blueprints": [
+        {
+          "blueprint_id": "interactive_bfs",
+          "title": "Refresh interactive baseline",
+          "priority": 1.1,
+          "hard_gate": true
+        },
+        {
+          "blueprint_id": "capability_registry",
+          "title": "Recompute capability registry",
+          "priority": 1.0,
+          "hard_gate": true
+        },
+        {
+          "blueprint_id": "public_alignment",
+          "title": "Refresh public alignment map",
+          "priority": 1.0,
+          "hard_gate": true
+        },
+        {
+          "blueprint_id": "regression_guard",
+          "title": "Check day-over-day regression",
+          "priority": 1.0,
+          "hard_gate": true
+        }
+      ],
+      "actions": [
+        {
+          "blueprint_id": "interactive_bfs",
+          "title": "Refresh interactive baseline",
+          "category": "reasoning",
+          "reason": "Maintain stable benchmark baseline for downstream gates.",
+          "priority": 1.1,
+          "hard_gate": true,
+          "expected_glob": "interactive_reasoning_benchmark_latest.json",
+          "expected_ok": true,
+          "action_ok": true,
+          "run": {
+            "cmd": [
+              "/Users/imymm/H2Q-Evo/.venv/bin/python",
+              "tools/run_interactive_reasoning_benchmark.py",
+              "--solver",
+              "bfs",
+              "--min-success-rate",
+              "0.85"
+            ],
+            "returncode": 0,
+            "stdout_tail": "Interactive reasoning benchmark completed\nJSON: /Users/imymm/H2Q-Evo/reports/interactive_reasoning_benchmark_1772781167.json\nMD: /Users/imymm/H2Q-Evo/reports/interactive_reasoning_benchmark_1772781167.md\n",
+            "stderr_tail": ""
+          }
+        },
+        {
+          "blueprint_id": "capability_registry",
+          "title": "Recompute capability registry",
+          "category": "governance",
+          "reason": "Refresh breadth/horizon/robustness evidence after new runs.",
+          "priority": 1.0,
+          "hard_gate": true,
+          "expected_glob": "capability_registry_latest.json",
+          "expected_ok": true,
+          "action_ok": true,
+          "run": {
+            "cmd": [
+              "/Users/imymm/H2Q-Evo/.venv/bin/python",
+              "tools/capability_registry.py"
+            ],
+            "returncode": 0,
+            "stdout_tail": "Capability registry generated\nJSON: /Users/imymm/H2Q-Evo/reports/capability_registry_1772781167.json\nLatest: /Users/imymm/H2Q-Evo/reports/capability_registry_latest.json\n",
+            "stderr_tail": ""
+          }
+        },
+        {
+          "blueprint_id": "public_alignment",
+          "title": "Refresh public alignment map",
+          "category": "alignment",
+          "reason": "Update ARC/SWE/METR proxy alignment for external comparability.",
+          "priority": 1.0,
+          "hard_gate": true,
+          "expected_glob": "public_alignment_report_latest.json",
+          "expected_ok": true,
+          "action_ok": true,
+          "run": {
+            "cmd": [
+              "/Users/imymm/H2Q-Evo/.venv/bin/python",
+              "tools/public_alignment_report.py"
+            ],
+            "returncode": 0,
+            "stdout_tail": "Public alignment report generated\nJSON: /Users/imymm/H2Q-Evo/reports/public_alignment_report_1772781167.json\nMD: /Users/imymm/H2Q-Evo/reports/public_alignment_report_1772781167.md\n",
+            "stderr_tail": ""
+          }
+        },
+        {
+          "blueprint_id": "regression_guard",
+          "title": "Check day-over-day regression",
+          "category": "safety-gate",
+          "reason": "Fail fast when alignment or robustness drifts downward.",
+          "priority": 1.0,
+          "hard_gate": true,
+          "expected_glob": "nightly_regression_guard_latest.json",
+          "expected_ok": true,
+          "action_ok": true,
+          "run": {
+            "cmd": [
+              "/Users/imymm/H2Q-Evo/.venv/bin/python",
+              "tools/nightly_regression_guard.py",
+              "--warn-drop",
+              "0.02",
+              "--fail-drop",
+              "0.05"
+            ],
+            "returncode": 0,
+            "stdout_tail": "Nightly regression guard completed\nJSON: /Users/imymm/H2Q-Evo/reports/nightly_regression_guard_1772781167.json\nMD: /Users/imymm/H2Q-Evo/reports/nightly_regression_guard_1772781167.md\n",
+            "stderr_tail": ""
+          }
+        }
+      ],
+      "cycle_ok": true
+    }
+  ]
+}

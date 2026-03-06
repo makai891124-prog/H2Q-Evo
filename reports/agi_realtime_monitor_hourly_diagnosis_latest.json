@@ -1,0 +1,224 @@
+{
+  "hours": [
+    {
+      "hour_utc": "2026-03-06T04:00:00Z",
+      "rounds": 8,
+      "success_rounds": 8,
+      "assist_tokens": 31852,
+      "failed_entries": 0,
+      "fail_status_counts": {},
+      "fail_assist_reason_counts": {},
+      "success_rate": 1.0,
+      "token_efficiency": 3981.5,
+      "top_fail_status": [
+        "none",
+        0
+      ],
+      "top_fail_assist_reason": [
+        "none",
+        0
+      ]
+    },
+    {
+      "hour_utc": "2026-03-06T05:00:00Z",
+      "rounds": 7,
+      "success_rounds": 7,
+      "assist_tokens": 25405,
+      "failed_entries": 0,
+      "fail_status_counts": {},
+      "fail_assist_reason_counts": {},
+      "success_rate": 1.0,
+      "token_efficiency": 3629.285714285714,
+      "top_fail_status": [
+        "none",
+        0
+      ],
+      "top_fail_assist_reason": [
+        "none",
+        0
+      ]
+    },
+    {
+      "hour_utc": "2026-03-06T06:00:00Z",
+      "rounds": 8,
+      "success_rounds": 8,
+      "assist_tokens": 33860,
+      "failed_entries": 0,
+      "fail_status_counts": {},
+      "fail_assist_reason_counts": {},
+      "success_rate": 1.0,
+      "token_efficiency": 4232.5,
+      "top_fail_status": [
+        "none",
+        0
+      ],
+      "top_fail_assist_reason": [
+        "none",
+        0
+      ]
+    },
+    {
+      "hour_utc": "2026-03-06T07:00:00Z",
+      "rounds": 16,
+      "success_rounds": 16,
+      "assist_tokens": 61489,
+      "failed_entries": 0,
+      "fail_status_counts": {},
+      "fail_assist_reason_counts": {},
+      "success_rate": 1.0,
+      "token_efficiency": 3843.0625,
+      "top_fail_status": [
+        "none",
+        0
+      ],
+      "top_fail_assist_reason": [
+        "none",
+        0
+      ]
+    },
+    {
+      "hour_utc": "2026-03-06T08:00:00Z",
+      "rounds": 4,
+      "success_rounds": 4,
+      "assist_tokens": 20560,
+      "failed_entries": 0,
+      "fail_status_counts": {},
+      "fail_assist_reason_counts": {},
+      "success_rate": 1.0,
+      "token_efficiency": 5140.0,
+      "top_fail_status": [
+        "none",
+        0
+      ],
+      "top_fail_assist_reason": [
+        "none",
+        0
+      ]
+    },
+    {
+      "hour_utc": "2026-03-06T09:00:00Z",
+      "rounds": 4,
+      "success_rounds": 4,
+      "assist_tokens": 20239,
+      "failed_entries": 0,
+      "fail_status_counts": {},
+      "fail_assist_reason_counts": {},
+      "success_rate": 1.0,
+      "token_efficiency": 5059.75,
+      "top_fail_status": [
+        "none",
+        0
+      ],
+      "top_fail_assist_reason": [
+        "none",
+        0
+      ]
+    },
+    {
+      "hour_utc": "2026-03-06T10:00:00Z",
+      "rounds": 1,
+      "success_rounds": 1,
+      "assist_tokens": 5076,
+      "failed_entries": 0,
+      "fail_status_counts": {},
+      "fail_assist_reason_counts": {},
+      "success_rate": 1.0,
+      "token_efficiency": 5076.0,
+      "top_fail_status": [
+        "none",
+        0
+      ],
+      "top_fail_assist_reason": [
+        "none",
+        0
+      ]
+    }
+  ],
+  "trends": [
+    {
+      "from_hour": "2026-03-06T04:00:00Z",
+      "to_hour": "2026-03-06T05:00:00Z",
+      "success_rate_delta": 0.0,
+      "token_efficiency_delta": -352.2142857142858,
+      "top_fail_status": [
+        "none",
+        0
+      ],
+      "top_fail_assist_reason": [
+        "none",
+        0
+      ]
+    },
+    {
+      "from_hour": "2026-03-06T05:00:00Z",
+      "to_hour": "2026-03-06T06:00:00Z",
+      "success_rate_delta": 0.0,
+      "token_efficiency_delta": 603.2142857142858,
+      "top_fail_status": [
+        "none",
+        0
+      ],
+      "top_fail_assist_reason": [
+        "none",
+        0
+      ]
+    },
+    {
+      "from_hour": "2026-03-06T06:00:00Z",
+      "to_hour": "2026-03-06T07:00:00Z",
+      "success_rate_delta": 0.0,
+      "token_efficiency_delta": -389.4375,
+      "top_fail_status": [
+        "none",
+        0
+      ],
+      "top_fail_assist_reason": [
+        "none",
+        0
+      ]
+    },
+    {
+      "from_hour": "2026-03-06T07:00:00Z",
+      "to_hour": "2026-03-06T08:00:00Z",
+      "success_rate_delta": 0.0,
+      "token_efficiency_delta": 1296.9375,
+      "top_fail_status": [
+        "none",
+        0
+      ],
+      "top_fail_assist_reason": [
+        "none",
+        0
+      ]
+    },
+    {
+      "from_hour": "2026-03-06T08:00:00Z",
+      "to_hour": "2026-03-06T09:00:00Z",
+      "success_rate_delta": 0.0,
+      "token_efficiency_delta": -80.25,
+      "top_fail_status": [
+        "none",
+        0
+      ],
+      "top_fail_assist_reason": [
+        "none",
+        0
+      ]
+    },
+    {
+      "from_hour": "2026-03-06T09:00:00Z",
+      "to_hour": "2026-03-06T10:00:00Z",
+      "success_rate_delta": 0.0,
+      "token_efficiency_delta": 16.25,
+      "top_fail_status": [
+        "none",
+        0
+      ],
+      "top_fail_assist_reason": [
+        "none",
+        0
+      ]
+    }
+  ],
+  "recent_hours": 8
+}

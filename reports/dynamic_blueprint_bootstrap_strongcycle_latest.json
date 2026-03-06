@@ -1,0 +1,274 @@
+{
+  "meta": {
+    "created_at_utc": "2026-03-06T07:29:03.813414+00:00",
+    "cycles": 1,
+    "max_actions_per_cycle": 3,
+    "state_file": "/Users/imymm/H2Q-Evo/reports/dynamic_blueprint_state_latest.json",
+    "enable_module_synthesis": true,
+    "enable_release_gate_cycle": true,
+    "strong_release_gate_cycle": true,
+    "allow_model_solver": false
+  },
+  "summary": {
+    "overall_ok": true,
+    "cycle_count": 1,
+    "strategy": {
+      "updated_at_utc": "2026-03-06T07:26:02.760563+00:00",
+      "observed_runs": 3,
+      "ok_rate": 1.0,
+      "fail_streak": 0,
+      "max_actions_per_cycle": 3,
+      "interactive_target": 0.86,
+      "alignment_target": 0.81,
+      "warn_drop": 0.018000000000000002,
+      "fail_drop": 0.045000000000000005
+    },
+    "module_stats": {
+      "interactive_bfs": {
+        "runs": 4,
+        "success": 4,
+        "fail": 0,
+        "last_ok": true,
+        "last_run_utc": "2026-03-06T07:29:03.782968+00:00"
+      },
+      "capability_registry": {
+        "runs": 4,
+        "success": 4,
+        "fail": 0,
+        "last_ok": true,
+        "last_run_utc": "2026-03-06T07:29:03.811622+00:00"
+      },
+      "public_alignment": {
+        "runs": 3,
+        "success": 3,
+        "fail": 0,
+        "last_ok": true,
+        "last_run_utc": "2026-03-06T07:21:56.998010+00:00"
+      },
+      "regression_guard": {
+        "runs": 1,
+        "success": 1,
+        "fail": 0,
+        "last_ok": true,
+        "last_run_utc": "2026-03-06T07:12:47.911834+00:00"
+      },
+      "release_gate": {
+        "runs": 1,
+        "success": 1,
+        "fail": 0,
+        "last_ok": true,
+        "last_run_utc": "2026-03-06T07:29:03.734471+00:00"
+      }
+    }
+  },
+  "cycles": [
+    {
+      "cycle": 1,
+      "created_at_utc": "2026-03-06T07:29:03.813406+00:00",
+      "context_before": {
+        "scores": {
+          "breadth": 1.0,
+          "horizon": 1.0,
+          "robustness": 0.8263247863247863,
+          "alignment_overall": 0.8887564102564102,
+          "interactive_success": 1.0
+        },
+        "gaps": {
+          "breadth": 0.0,
+          "horizon": 0.0,
+          "robustness": 0.0,
+          "alignment": 0.0,
+          "interactive": 0.0
+        },
+        "regression": {
+          "warn": false,
+          "fail": false
+        }
+      },
+      "context_after": {
+        "scores": {
+          "breadth": 1.0,
+          "horizon": 1.0,
+          "robustness": 0.8467826086956523,
+          "alignment_overall": 0.8887564102564102,
+          "interactive_success": 1.0
+        },
+        "gaps": {
+          "breadth": 0.0,
+          "horizon": 0.0,
+          "robustness": 0.0,
+          "alignment": 0.0,
+          "interactive": 0.0
+        },
+        "regression": {
+          "warn": false,
+          "fail": false
+        }
+      },
+      "selected_blueprints": [
+        {
+          "blueprint_id": "release_gate",
+          "title": "Re-evaluate integrated release gate",
+          "priority": 1.15,
+          "hard_gate": true
+        },
+        {
+          "blueprint_id": "interactive_bfs",
+          "title": "Refresh interactive baseline",
+          "priority": 1.1,
+          "hard_gate": true
+        },
+        {
+          "blueprint_id": "capability_registry",
+          "title": "Recompute capability registry",
+          "priority": 1.0,
+          "hard_gate": true
+        }
+      ],
+      "actions": [
+        {
+          "blueprint_id": "release_gate",
+          "title": "Re-evaluate integrated release gate",
+          "category": "gate",
+          "reason": "Run full integrated gate when hard metrics remain weak.",
+          "priority": 1.15,
+          "hard_gate": true,
+          "expected_glob": "release_gate_latest.json",
+          "expected_ok": true,
+          "action_ok": true,
+          "attempts": [
+            {
+              "phase": "gate",
+              "ok": true,
+              "run": {
+                "cmd": [
+                  "/Users/imymm/H2Q-Evo/.venv/bin/python",
+                  "tools/release_gate.py",
+                  "--profile",
+                  "quick",
+                  "--lookback-rounds",
+                  "48",
+                  "--assist-provider",
+                  "deepseek",
+                  "--assist-key-file",
+                  "secrets/deepseek_api_key.txt",
+                  "--min-breadth",
+                  "0.6",
+                  "--min-horizon",
+                  "0.8",
+                  "--min-robustness",
+                  "0.6"
+                ],
+                "returncode": 0,
+                "stdout_tail": "Release gate completed\nGate OK: True\nJSON: /Users/imymm/H2Q-Evo/reports/release_gate_1772782143.json\nMD: /Users/imymm/H2Q-Evo/reports/release_gate_1772782143.md\n",
+                "stderr_tail": ""
+              }
+            }
+          ],
+          "run": {
+            "cmd": [
+              "/Users/imymm/H2Q-Evo/.venv/bin/python",
+              "tools/release_gate.py",
+              "--profile",
+              "quick",
+              "--lookback-rounds",
+              "48",
+              "--assist-provider",
+              "deepseek",
+              "--assist-key-file",
+              "secrets/deepseek_api_key.txt",
+              "--min-breadth",
+              "0.6",
+              "--min-horizon",
+              "0.8",
+              "--min-robustness",
+              "0.6"
+            ],
+            "returncode": 0,
+            "stdout_tail": "Release gate completed\nGate OK: True\nJSON: /Users/imymm/H2Q-Evo/reports/release_gate_1772782143.json\nMD: /Users/imymm/H2Q-Evo/reports/release_gate_1772782143.md\n",
+            "stderr_tail": ""
+          }
+        },
+        {
+          "blueprint_id": "interactive_bfs",
+          "title": "Refresh interactive baseline",
+          "category": "reasoning",
+          "reason": "Maintain stable benchmark baseline for downstream gates.",
+          "priority": 1.1,
+          "hard_gate": true,
+          "expected_glob": "interactive_reasoning_benchmark_latest.json",
+          "expected_ok": true,
+          "action_ok": true,
+          "attempts": [
+            {
+              "phase": "single",
+              "ok": true,
+              "run": {
+                "cmd": [
+                  "/Users/imymm/H2Q-Evo/.venv/bin/python",
+                  "tools/run_interactive_reasoning_benchmark.py",
+                  "--solver",
+                  "bfs",
+                  "--min-success-rate",
+                  "0.86"
+                ],
+                "returncode": 0,
+                "stdout_tail": "Interactive reasoning benchmark completed\nJSON: /Users/imymm/H2Q-Evo/reports/interactive_reasoning_benchmark_1772782143.json\nMD: /Users/imymm/H2Q-Evo/reports/interactive_reasoning_benchmark_1772782143.md\n",
+                "stderr_tail": ""
+              }
+            }
+          ],
+          "run": {
+            "cmd": [
+              "/Users/imymm/H2Q-Evo/.venv/bin/python",
+              "tools/run_interactive_reasoning_benchmark.py",
+              "--solver",
+              "bfs",
+              "--min-success-rate",
+              "0.86"
+            ],
+            "returncode": 0,
+            "stdout_tail": "Interactive reasoning benchmark completed\nJSON: /Users/imymm/H2Q-Evo/reports/interactive_reasoning_benchmark_1772782143.json\nMD: /Users/imymm/H2Q-Evo/reports/interactive_reasoning_benchmark_1772782143.md\n",
+            "stderr_tail": ""
+          }
+        },
+        {
+          "blueprint_id": "capability_registry",
+          "title": "Recompute capability registry",
+          "category": "governance",
+          "reason": "Refresh breadth/horizon/robustness evidence after new runs.",
+          "priority": 1.0,
+          "hard_gate": true,
+          "expected_glob": "capability_registry_latest.json",
+          "expected_ok": true,
+          "action_ok": true,
+          "attempts": [
+            {
+              "phase": "single",
+              "ok": true,
+              "run": {
+                "cmd": [
+                  "/Users/imymm/H2Q-Evo/.venv/bin/python",
+                  "tools/capability_registry.py"
+                ],
+                "returncode": 0,
+                "stdout_tail": "Capability registry generated\nJSON: /Users/imymm/H2Q-Evo/reports/capability_registry_1772782143.json\nLatest: /Users/imymm/H2Q-Evo/reports/capability_registry_latest.json\n",
+                "stderr_tail": ""
+              }
+            }
+          ],
+          "run": {
+            "cmd": [
+              "/Users/imymm/H2Q-Evo/.venv/bin/python",
+              "tools/capability_registry.py"
+            ],
+            "returncode": 0,
+            "stdout_tail": "Capability registry generated\nJSON: /Users/imymm/H2Q-Evo/reports/capability_registry_1772782143.json\nLatest: /Users/imymm/H2Q-Evo/reports/capability_registry_latest.json\n",
+            "stderr_tail": ""
+          }
+        }
+      ],
+      "cycle_ok": true
+    }
+  ]
+}
