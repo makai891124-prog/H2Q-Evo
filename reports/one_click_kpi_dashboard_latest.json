@@ -1,0 +1,21 @@
+{
+  "generated_at_utc": "2026-03-06T17:46:34.531798+00:00",
+  "sources": {
+    "session": "/Users/imymm/H2Q-Evo/reports/trusted_local_agi_chat_session_1772818268.json",
+    "release_gate": "/Users/imymm/H2Q-Evo/reports/deepseek_assisted_release_gate_latest.json"
+  },
+  "kpis": {
+    "strict_json_attempt_count": 0,
+    "hard_fail_count": 1,
+    "fallback_ratio_self_eval": 1.0,
+    "teacher_assist_dependency_ratio": 1.0
+  },
+  "supporting": {
+    "self_eval_total": 1,
+    "self_eval_fallback_count": 1,
+    "assist_provider": "deepseek",
+    "assist_enabled": true,
+    "assist_calls": 6,
+    "assist_success_calls": 6
+  }
+}

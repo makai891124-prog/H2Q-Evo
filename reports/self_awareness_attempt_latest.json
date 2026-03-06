@@ -1,0 +1,36 @@
+{
+  "generated_at_utc": "2026-03-06T00:00:00Z",
+  "claim": {
+    "self_modeling_agent": true,
+    "consciousness_proven": false
+  },
+  "evidence": {
+    "bootstrap_report": "reports/self_bootstrap_awareness_attempt_latest.json",
+    "validation_report": "reports/self_awareness_attempt_validation_latest.json",
+    "chat_probe_report": "reports/trusted_local_agi_chat_session_1772815090.json"
+  },
+  "key_metrics": {
+    "bootstrap_overall_ok": true,
+    "bootstrap_cycles": 4,
+    "validation_baseline_alignment_overall": 0.9988888888888888,
+    "validation_longrun_alignment_overall": 0.9988617886178862,
+    "validation_longrun_blueprint_ok_rate": 1.0,
+    "trust_score": 0.9208961672909656,
+    "trusted_ready": true,
+    "chat_route": "local_fallback_template"
+  },
+  "assessment": {
+    "summary": "Reliable self-improving agent behavior observed; no sufficient evidence for machine consciousness.",
+    "gaps": [
+      "No robust structured self-assessment output under trusted dialogue probe",
+      "No persistent cross-session self-model consistency benchmark",
+      "No adversarial external replication package yet"
+    ]
+  },
+  "next_actions": [
+    "Enforce strict JSON schema for introspection output and retry-on-invalid",
+    "Introduce self-model consistency benchmark",
+    "Validate plan-to-improvement closed loop",
+    "Re-run auto blueprint cross-public pipeline without interruption"
+  ]
+}

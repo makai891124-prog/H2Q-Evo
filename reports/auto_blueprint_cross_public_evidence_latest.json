@@ -1,0 +1,16 @@
+{
+  "generated_at_utc": "2026-03-06T17:09:34.334757+00:00",
+  "objective": "auto_blueprint_cross_public_reproducibility",
+  "source_reports_dir": "/Users/imymm/H2Q-Evo/reports",
+  "evidence_dir": "/Users/imymm/H2Q-Evo/reports/auto_blueprint_cross_public_evidence_latest",
+  "files": [
+    "auto_blueprint_cross_public_latest.json",
+    "agi_cross_public_validation_latest.json",
+    "release_gate_post_longrun_latest.json",
+    "public_alignment_post_longrun_latest.json",
+    "dynamic_blueprint_bootstrap_longrun_latest.json",
+    "auto_blueprint_cross_public_pipeline_blueprint.log",
+    "auto_blueprint_cross_public_pipeline_validation.log",
+    "auto_blueprint_cross_public_validation_latest.md"
+  ]
+}

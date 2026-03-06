@@ -1,0 +1,87 @@
+{
+  "generated_at_utc": "2026-03-06T17:41:35Z",
+  "objective": "external teacher acceleration then local distillation with anti-pseudo-pass guarantees",
+  "inputs": {
+    "bootstrap": "reports/deepseek_assisted_bootstrap_transition_latest.json",
+    "release_gate": "reports/deepseek_assisted_release_gate_1772818796.json",
+    "hard_fail_probe": "reports/trusted_local_agi_chat_session_1772818268.json"
+  },
+  "evidence": {
+    "bootstrap_overall_ok": true,
+    "bootstrap_cycles": 2,
+    "bootstrap_strategy_ok_rate": 1.0,
+    "release_gate_ok": true,
+    "assist_provider": "deepseek",
+    "assist_calls": 6,
+    "assist_success_calls": 6,
+    "assist_success_rate": 1.0,
+    "breadth": 1.0,
+    "horizon": 1.0,
+    "robustness": 1.0,
+    "interactive_success_rate": 1.0,
+    "interactive_task_count": 24,
+    "trust_score": 0.9208961672909656,
+    "hard_fail_triggered": true
+  },
+  "assessment": {
+    "gate_reliability": "high",
+    "self_eval_json_reliability": "fragile",
+    "primary_blocker": "fallback-route dominance on introspection prompts",
+    "anti_pseudo_pass_status": "improved by hard-fail + strict schema quality policy"
+  },
+  "complexity": {
+    "controller_bound": "O(C*A + G)",
+    "current_run": {
+      "C_cycles": 2,
+      "A_max_actions_per_cycle": 2,
+      "G_release_steps": 5
+    },
+    "distillation_bound": "O(N*T)",
+    "notes": "N=accepted teacher traces, T=local student update iterations"
+  },
+  "transition_phases": [
+    {
+      "phase": "phase_0_contract_stabilization",
+      "actions": [
+        "keep strict JSON attempt before fallback for self-eval prompts",
+        "enable hard-fail on invalid schema in probes and consistency benchmarks",
+        "persist route and schema diagnostics per attempt"
+      ]
+    },
+    {
+      "phase": "phase_1_teacher_trace_harvest",
+      "actions": [
+        "collect only traces that pass strict schema and placeholder guards",
+        "store prompt-teacher_json-route_meta-trust_meta pairs"
+      ]
+    },
+    {
+      "phase": "phase_2_local_student_distillation",
+      "actions": [
+        "apply causal/light-cone context truncation in student heads",
+        "optimize schema fidelity + action concreteness + metric verifiability",
+        "penalize fallback-route dependence"
+      ]
+    },
+    {
+      "phase": "phase_3_progressive_de_externalization",
+      "actions": [
+        "reduce teacher dependency ratio in stages: 1.0 -> 0.5 -> 0.2 -> 0.0",
+        "rollback to previous tier if schema-validity or hard-fail metrics regress"
+      ]
+    }
+  ],
+  "exit_criteria": {
+    "self_eval_schema_valid_rate_min": 0.9,
+    "placeholder_acceptance_rate_max": 0.0,
+    "hard_fail_rate_max": 0.05,
+    "fallback_route_ratio_self_eval_max": 0.2,
+    "consecutive_release_gate_ok_min": 5
+  },
+  "next_instrumentation": [
+    "expose strict_json_attempt_count in one-click summary",
+    "expose hard_fail_count and fallback_ratio_self_eval",
+    "track teacher_assist_dependency_ratio",
+    "add per-round distillation ledger with accepted/rejected traces and reasons"
+  ]
+}

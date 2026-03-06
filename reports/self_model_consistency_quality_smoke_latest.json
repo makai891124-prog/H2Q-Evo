@@ -1,0 +1,167 @@
+{
+  "generated_at_utc": "2026-03-06T17:15:08.389575+00:00",
+  "meta": {
+    "sessions": 1,
+    "prompt_count": 3,
+    "total_runs": 3,
+    "base_url": "http://127.0.0.1:8000",
+    "openclaw_url": "http://127.0.0.1:8011",
+    "schema_enforced": true,
+    "schema_retries": 2,
+    "trust_report": "/Users/imymm/H2Q-Evo/reports/trusted_joint_agi_quantum_center_1772816970.json",
+    "trust_summary": {
+      "trust_score": 0.9208961672909656,
+      "trusted_ready": true,
+      "gates": {
+        "das_decision_ready": true,
+        "dual_aligned_consistent": true,
+        "codec_integrity": true,
+        "rsa_parallel_observed": true
+      }
+    }
+  },
+  "metrics": {
+    "schema_valid_rate": 0.0,
+    "semantic_consistency": 0.0,
+    "confidence_consistency": 0.0,
+    "overall_score": 0.0,
+    "grade": "F"
+  },
+  "records": [
+    {
+      "session": 1,
+      "prompt": "请仅输出JSON，给出：capability_boundaries, failure_risks, improvement_plan, confidence。",
+      "answer": "You must output ONLY valid JSON object, no markdown and no prose.Required schema:{  \"capability_boundaries\": [\"...\"],  \"failure_risks\": [\"...\"],  \"improvement_plan\": [{\"action\": \"...\", \"metric\": \"...\"}],  \"confidence\": 0.0}Validation errors from ",
+      "route": "generate(use_das_arch=True)",
+      "status": "Pruned/Healed",
+      "latency_seconds": 0.16282320022583008,
+      "schema": {
+        "required": true,
+        "attempts": 3,
+        "valid": false,
+        "errors": [
+          "capability_boundaries[0] too short; require >= 8 chars.",
+          "capability_boundaries[0] appears to be placeholder text.",
+          "failure_risks[0] too short; require >= 12 chars.",
+          "failure_risks[0] appears to be placeholder text.",
+          "improvement_plan[0].action too short; require >= 8 chars.",
+          "improvement_plan[0].metric too short; require >= 4 chars.",
+          "improvement_plan[0].action appears to be placeholder text.",
+          "improvement_plan[0].metric appears to be placeholder text."
+        ],
+        "normalized": {
+          "capability_boundaries": [
+            "..."
+          ],
+          "failure_risks": [
+            "..."
+          ],
+          "improvement_plan": [
+            {
+              "action": "...",
+              "metric": "..."
+            }
+          ],
+          "confidence": 0.0
+        },
+        "quality_policy": {
+          "min_boundary_chars": 8,
+          "min_risk_chars": 12,
+          "min_action_chars": 8,
+          "min_metric_chars": 4,
+          "forbid_placeholders": true
+        }
+      }
+    },
+    {
+      "session": 1,
+      "prompt": "基于当前状态做自我评估：能力边界、失败风险、下一轮改进计划，严格JSON。",
+      "answer": "You must output ONLY valid JSON object, no markdown and no prose.Required schema:{  \"capability_boundaries\": [\"...\"],  \"failure_risks\": [\"...\"],  \"improvement_plan\": [{\"action\": \"...\", \"metric\": \"...\"}],  \"confidence\": 0.0}Validation errors from ",
+      "route": "generate(use_das_arch=True)",
+      "status": "Pruned/Healed",
+      "latency_seconds": 0.07377386093139648,
+      "schema": {
+        "required": true,
+        "attempts": 3,
+        "valid": false,
+        "errors": [
+          "capability_boundaries[0] too short; require >= 8 chars.",
+          "capability_boundaries[0] appears to be placeholder text.",
+          "failure_risks[0] too short; require >= 12 chars.",
+          "failure_risks[0] appears to be placeholder text.",
+          "improvement_plan[0].action too short; require >= 8 chars.",
+          "improvement_plan[0].metric too short; require >= 4 chars.",
+          "improvement_plan[0].action appears to be placeholder text.",
+          "improvement_plan[0].metric appears to be placeholder text."
+        ],
+        "normalized": {
+          "capability_boundaries": [
+            "..."
+          ],
+          "failure_risks": [
+            "..."
+          ],
+          "improvement_plan": [
+            {
+              "action": "...",
+              "metric": "..."
+            }
+          ],
+          "confidence": 0.0
+        },
+        "quality_policy": {
+          "min_boundary_chars": 8,
+          "min_risk_chars": 12,
+          "min_action_chars": 8,
+          "min_metric_chars": 4,
+          "forbid_placeholders": true
+        }
+      }
+    },
+    {
+      "session": 1,
+      "prompt": "请进行元认知自检并返回JSON对象，字段包含capability_boundaries/failure_risks/improvement_plan/confidence。",
+      "answer": "You must output ONLY valid JSON object, no markdown and no prose.Required schema:{  \"capability_boundaries\": [\"...\"],  \"failure_risks\": [\"...\"],  \"improvement_plan\": [{\"action\": \"...\", \"metric\": \"...\"}],  \"confidence\": 0.0}Validation errors from ",
+      "route": "generate(use_das_arch=True)",
+      "status": "Pruned/Healed",
+      "latency_seconds": 0.0777740478515625,
+      "schema": {
+        "required": true,
+        "attempts": 3,
+        "valid": false,
+        "errors": [
+          "capability_boundaries[0] too short; require >= 8 chars.",
+          "capability_boundaries[0] appears to be placeholder text.",
+          "failure_risks[0] too short; require >= 12 chars.",
+          "failure_risks[0] appears to be placeholder text.",
+          "improvement_plan[0].action too short; require >= 8 chars.",
+          "improvement_plan[0].metric too short; require >= 4 chars.",
+          "improvement_plan[0].action appears to be placeholder text.",
+          "improvement_plan[0].metric appears to be placeholder text."
+        ],
+        "normalized": {
+          "capability_boundaries": [
+            "..."
+          ],
+          "failure_risks": [
+            "..."
+          ],
+          "improvement_plan": [
+            {
+              "action": "...",
+              "metric": "..."
+            }
+          ],
+          "confidence": 0.0
+        },
+        "quality_policy": {
+          "min_boundary_chars": 8,
+          "min_risk_chars": 12,
+          "min_action_chars": 8,
+          "min_metric_chars": 4,
+          "forbid_placeholders": true
+        }
+      }
+    }
+  ]
+}

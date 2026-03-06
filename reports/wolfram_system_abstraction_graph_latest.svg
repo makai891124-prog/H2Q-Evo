@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="800" viewBox="0 0 1400 800">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#edf6f9"/>
+      <stop offset="100%" stop-color="#d7e3fc"/>
+    </linearGradient>
+    <marker id="arrow" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#2f4858" />
+    </marker>
+  </defs>
+  <rect x="0" y="0" width="1400" height="800" fill="url(#bg)"/>
+  <text x="700" y="42" text-anchor="middle" fill="#173753" font-family="Helvetica,Arial,sans-serif" font-size="24" font-weight="bold">H2Q-Evo System Abstraction Graph</text>
+  <line x1="190.0" y1="400" x2="270.0" y2="260" stroke="#2f4858" stroke-width="2.2" marker-end="url(#arrow)" />
+    <line x1="190.0" y1="400" x2="270.0" y2="540" stroke="#2f4858" stroke-width="2.2" marker-end="url(#arrow)" />
+    <line x1="190.0" y1="400" x2="270.0" y2="680" stroke="#2f4858" stroke-width="2.2" marker-end="url(#arrow)" />
+    <line x1="490.0" y1="260" x2="570.0" y2="400" stroke="#2f4858" stroke-width="2.2" marker-end="url(#arrow)" />
+    <line x1="490.0" y1="400" x2="570.0" y2="400" stroke="#2f4858" stroke-width="2.2" marker-end="url(#arrow)" />
+    <line x1="490.0" y1="540" x2="570.0" y2="400" stroke="#2f4858" stroke-width="2.2" marker-end="url(#arrow)" />
+    <line x1="490.0" y1="680" x2="570.0" y2="400" stroke="#2f4858" stroke-width="2.2" marker-end="url(#arrow)" />
+    <line x1="790.0" y1="400" x2="870.0" y2="260" stroke="#2f4858" stroke-width="2.2" marker-end="url(#arrow)" />
+    <line x1="790.0" y1="400" x2="870.0" y2="540" stroke="#2f4858" stroke-width="2.2" marker-end="url(#arrow)" />
+    <line x1="190.0" y1="680" x2="1170.0" y2="400" stroke="#2f4858" stroke-width="2.2" marker-end="url(#arrow)" />
+    <line x1="190.0" y1="400" x2="1170.0" y2="400" stroke="#2f4858" stroke-width="2.2" marker-end="url(#arrow)" />
+    <line x1="1090.0" y1="540" x2="1170.0" y2="400" stroke="#2f4858" stroke-width="2.2" marker-end="url(#arrow)" />
+  <rect x="-30.0" y="373.0" width="220" height="54" rx="12" ry="12" fill="#2f6690" opacity="0.92" stroke="#173753" stroke-width="1.8" /><text x="80" y="406" text-anchor="middle" fill="#f7fbff" font-family="Helvetica,Arial,sans-serif" font-size="14">DynamicBlueprintBootstrap</text>
+    <rect x="270.0" y="233.0" width="220" height="54" rx="12" ry="12" fill="#2f6690" opacity="0.92" stroke="#173753" stroke-width="1.8" /><text x="380" y="266" text-anchor="middle" fill="#f7fbff" font-family="Helvetica,Arial,sans-serif" font-size="14">CapabilityRegistry</text>
+    <rect x="270.0" y="373.0" width="220" height="54" rx="12" ry="12" fill="#2f6690" opacity="0.92" stroke="#173753" stroke-width="1.8" /><text x="380" y="406" text-anchor="middle" fill="#f7fbff" font-family="Helvetica,Arial,sans-serif" font-size="14">InteractiveBenchmark</text>
+    <rect x="270.0" y="513.0" width="220" height="54" rx="12" ry="12" fill="#2f6690" opacity="0.92" stroke="#173753" stroke-width="1.8" /><text x="380" y="546" text-anchor="middle" fill="#f7fbff" font-family="Helvetica,Arial,sans-serif" font-size="14">PublicAlignment</text>
+    <rect x="270.0" y="653.0" width="220" height="54" rx="12" ry="12" fill="#2f6690" opacity="0.92" stroke="#173753" stroke-width="1.8" /><text x="380" y="686" text-anchor="middle" fill="#f7fbff" font-family="Helvetica,Arial,sans-serif" font-size="14">RegressionGuard</text>
+    <rect x="570.0" y="373.0" width="220" height="54" rx="12" ry="12" fill="#2f6690" opacity="0.92" stroke="#173753" stroke-width="1.8" /><text x="680" y="406" text-anchor="middle" fill="#f7fbff" font-family="Helvetica,Arial,sans-serif" font-size="14">ReleaseGate</text>
+    <rect x="-30.0" y="653.0" width="220" height="54" rx="12" ry="12" fill="#2f6690" opacity="0.92" stroke="#173753" stroke-width="1.8" /><text x="80" y="686" text-anchor="middle" fill="#f7fbff" font-family="Helvetica,Arial,sans-serif" font-size="14">RealtimeMonitor</text>
+    <rect x="870.0" y="233.0" width="220" height="54" rx="12" ry="12" fill="#2f6690" opacity="0.92" stroke="#173753" stroke-width="1.8" /><text x="980" y="266" text-anchor="middle" fill="#f7fbff" font-family="Helvetica,Arial,sans-serif" font-size="14">TrustedJointCenter</text>
+    <rect x="870.0" y="513.0" width="220" height="54" rx="12" ry="12" fill="#2f6690" opacity="0.92" stroke="#173753" stroke-width="1.8" /><text x="980" y="546" text-anchor="middle" fill="#f7fbff" font-family="Helvetica,Arial,sans-serif" font-size="14">CISelfEvolution</text>
+    <rect x="1170.0" y="373.0" width="220" height="54" rx="12" ry="12" fill="#2f6690" opacity="0.92" stroke="#173753" stroke-width="1.8" /><text x="1280" y="406" text-anchor="middle" fill="#f7fbff" font-family="Helvetica,Arial,sans-serif" font-size="14">RuntimeReports</text>
+</svg>

@@ -1,0 +1,23 @@
+{
+  "timestamp_utc": "2026-03-06T17:09:34.316694+00:00",
+  "cycle": 1,
+  "interval_seconds": 5,
+  "lookback_rounds": 48,
+  "metrics": {
+    "round_count": 48,
+    "success_rounds": 48,
+    "success_rate": 1.0,
+    "assist_enabled_calls": 216,
+    "assist_ok_calls": 206,
+    "assist_hit_rate": 0.9537037037037037,
+    "assist_total_tokens": 114377,
+    "alert_count": 37,
+    "failed_entry_total": 0,
+    "top_fail_statuses": {},
+    "top_fail_assist_reasons": {}
+  },
+  "files": {
+    "latest_round": "/Users/imymm/H2Q-Evo/reports/agi_self_evolution_round_1772816974.json",
+    "latest_alert": "/Users/imymm/H2Q-Evo/reports/agi_self_evolution_alert_1772768312.json"
+  }
+}
