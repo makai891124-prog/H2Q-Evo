@@ -1,7 +1,7 @@
 {
   "meta": {
-    "created_at_utc": "2026-03-06T18:39:39.230223+00:00",
-    "lookback_rounds": 48,
+    "created_at_utc": "2026-03-06T18:41:50.677930+00:00",
+    "lookback_rounds": 64,
     "docker_image": "h2q-sandbox",
     "allow_missing_docker": false,
     "assist_provider": "deepseek",
@@ -14,19 +14,19 @@
   "steps": {
     "trusted_center": {
       "cmd": [
-        "/Users/imymm/.pyenv/versions/3.12.2/bin/python3.12",
+        "/Users/imymm/H2Q-Evo/.venv/bin/python",
         "tools/trusted_joint_agi_quantum_center.py",
         "--profile",
         "quick",
         "--skip-rsa"
       ],
       "returncode": 0,
-      "stdout_tail": "Trusted joint AGI-quantized center completed\nData: reports/trusted_joint_agi_quantum_center_1772822246.json\nReport: reports/trusted_joint_agi_quantum_center_1772822246.md\n",
+      "stdout_tail": "Trusted joint AGI-quantized center completed\nData: reports/trusted_joint_agi_quantum_center_1772822385.json\nReport: reports/trusted_joint_agi_quantum_center_1772822385.md\n",
       "stderr_tail": ""
     },
     "daemon_round": {
       "cmd": [
-        "/Users/imymm/.pyenv/versions/3.12.2/bin/python3.12",
+        "/Users/imymm/H2Q-Evo/.venv/bin/python",
         "tools/agi_self_evolution_daemon.py",
         "--rounds",
         "1",
@@ -37,7 +37,7 @@
         "--goal-mode",
         "basic",
         "--basic-lock-rounds",
-        "48",
+        "64",
         "--external-goal-limit",
         "2",
         "--assist-provider",
@@ -76,46 +76,46 @@
         "8.0"
       ],
       "returncode": 0,
-      "stdout_tail": "Round 1 report: /Users/imymm/H2Q-Evo/reports/agi_self_evolution_round_1772822378.json\nDaily report JSON: /Users/imymm/H2Q-Evo/reports/agi_self_evolution_daily_1772822378.json\nDaily report MD: /Users/imymm/H2Q-Evo/reports/AGI自我进化日报_1772822378.md\n",
+      "stdout_tail": "Round 1 report: /Users/imymm/H2Q-Evo/reports/agi_self_evolution_round_1772822510.json\nDaily report JSON: /Users/imymm/H2Q-Evo/reports/agi_self_evolution_daily_1772822510.json\nDaily report MD: /Users/imymm/H2Q-Evo/reports/AGI自我进化日报_1772822510.md\n",
       "stderr_tail": ""
     },
     "monitor_snapshot": {
       "cmd": [
-        "/Users/imymm/.pyenv/versions/3.12.2/bin/python3.12",
+        "/Users/imymm/H2Q-Evo/.venv/bin/python",
         "tools/agi_realtime_monitor.py",
         "--interval-seconds",
         "5",
         "--cycles",
         "1",
         "--lookback-rounds",
-        "48"
+        "64"
       ],
       "returncode": 0,
-      "stdout_tail": "[monitor] cycle=1 success_rate=100.00% assist_hit_rate=97.44% tokens=125507 alerts=37\n",
+      "stdout_tail": "[monitor] cycle=1 success_rate=100.00% assist_hit_rate=98.04% tokens=164884 alerts=37\n",
       "stderr_tail": ""
     },
     "unified_framework": {
       "cmd": [
-        "/Users/imymm/.pyenv/versions/3.12.2/bin/python3.12",
+        "/Users/imymm/H2Q-Evo/.venv/bin/python",
         "tools/unified_system_framework.py"
       ],
       "returncode": 0,
-      "stdout_tail": "Unified framework generated\nJSON: /Users/imymm/H2Q-Evo/reports/unified_system_framework_1772822379.json\nMD:   /Users/imymm/H2Q-Evo/reports/unified_system_framework_1772822379.md\nLatest JSON: /Users/imymm/H2Q-Evo/reports/unified_system_framework_latest.json\nLatest MD:   /Users/imymm/H2Q-Evo/reports/unified_system_framework_latest.md\n",
+      "stdout_tail": "Unified framework generated\nJSON: /Users/imymm/H2Q-Evo/reports/unified_system_framework_1772822510.json\nMD:   /Users/imymm/H2Q-Evo/reports/unified_system_framework_1772822510.md\nLatest JSON: /Users/imymm/H2Q-Evo/reports/unified_system_framework_latest.json\nLatest MD:   /Users/imymm/H2Q-Evo/reports/unified_system_framework_latest.md\n",
       "stderr_tail": ""
     },
     "capability_registry": {
       "cmd": [
-        "/Users/imymm/.pyenv/versions/3.12.2/bin/python3.12",
+        "/Users/imymm/H2Q-Evo/.venv/bin/python",
         "tools/capability_registry.py"
       ],
       "returncode": 0,
-      "stdout_tail": "Capability registry generated\nJSON: /Users/imymm/H2Q-Evo/reports/capability_registry_1772822379.json\nLatest: /Users/imymm/H2Q-Evo/reports/capability_registry_latest.json\n",
+      "stdout_tail": "Capability registry generated\nJSON: /Users/imymm/H2Q-Evo/reports/capability_registry_1772822510.json\nLatest: /Users/imymm/H2Q-Evo/reports/capability_registry_latest.json\n",
       "stderr_tail": ""
     }
   },
   "evidence": {
-    "trusted_center": "/Users/imymm/H2Q-Evo/reports/trusted_joint_agi_quantum_center_1772822246.json",
-    "round": "/Users/imymm/H2Q-Evo/reports/agi_self_evolution_round_1772822378.json",
+    "trusted_center": "/Users/imymm/H2Q-Evo/reports/trusted_joint_agi_quantum_center_1772822385.json",
+    "round": "/Users/imymm/H2Q-Evo/reports/agi_self_evolution_round_1772822510.json",
     "monitor": "/Users/imymm/H2Q-Evo/reports/agi_realtime_monitor_latest.json",
     "framework": "/Users/imymm/H2Q-Evo/reports/unified_system_framework_latest.json",
     "capability_registry": "/Users/imymm/H2Q-Evo/reports/capability_registry_latest.json",
@@ -137,7 +137,7 @@
     "assist_gate_ok": true,
     "breadth": 1.0,
     "horizon": 1.0,
-    "robustness": 0.997948717948718,
+    "robustness": 0.9984313725490196,
     "breadth_ok": true,
     "horizon_ok": true,
     "robustness_ok": true,

@@ -2,14 +2,14 @@
   "hours": [
     {
       "hour_utc": "2026-03-06T15:00:00Z",
-      "rounds": 24,
-      "success_rounds": 24,
-      "assist_tokens": 56558,
+      "rounds": 19,
+      "success_rounds": 19,
+      "assist_tokens": 46323,
       "failed_entries": 0,
       "fail_status_counts": {},
       "fail_assist_reason_counts": {},
       "success_rate": 1.0,
-      "token_efficiency": 2356.5833333333335,
+      "token_efficiency": 2438.0526315789475,
       "top_fail_status": [
         "none",
         0
@@ -56,6 +56,25 @@
         "none",
         0
       ]
+    },
+    {
+      "hour_utc": "2026-03-06T18:00:00Z",
+      "rounds": 21,
+      "success_rounds": 21,
+      "assist_tokens": 59401,
+      "failed_entries": 0,
+      "fail_status_counts": {},
+      "fail_assist_reason_counts": {},
+      "success_rate": 1.0,
+      "token_efficiency": 2828.6190476190477,
+      "top_fail_status": [
+        "none",
+        0
+      ],
+      "top_fail_assist_reason": [
+        "none",
+        0
+      ]
     }
   ],
   "trends": [
@@ -63,7 +82,7 @@
       "from_hour": "2026-03-06T15:00:00Z",
       "to_hour": "2026-03-06T16:00:00Z",
       "success_rate_delta": 0.0,
-      "token_efficiency_delta": 326.871212121212,
+      "token_efficiency_delta": 245.40191387559798,
       "top_fail_status": [
         "none",
         0
@@ -78,6 +97,20 @@
       "to_hour": "2026-03-06T17:00:00Z",
       "success_rate_delta": 0.0,
       "token_efficiency_delta": -403.3006993006993,
+      "top_fail_status": [
+        "none",
+        0
+      ],
+      "top_fail_assist_reason": [
+        "none",
+        0
+      ]
+    },
+    {
+      "from_hour": "2026-03-06T17:00:00Z",
+      "to_hour": "2026-03-06T18:00:00Z",
+      "success_rate_delta": 0.0,
+      "token_efficiency_delta": 548.4652014652015,
       "top_fail_status": [
         "none",
         0

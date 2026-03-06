@@ -1,0 +1,81 @@
+{
+  "generated_at_utc": "2026-03-06T18:21:17.978722+00:00",
+  "target_weakness": "structured_self_evaluation_and_cross_session_consistency",
+  "baseline": {
+    "schema_valid_rate": 0.0,
+    "overall_score": 0.0,
+    "report": "/Users/imymm/H2Q-Evo/reports/self_model_consistency_baseline_latest.json"
+  },
+  "post": {
+    "schema_valid_rate": 0.0,
+    "overall_score": 0.0,
+    "report": "/Users/imymm/H2Q-Evo/reports/self_model_consistency_post_latest.json"
+  },
+  "delta": {
+    "schema_valid_rate": 0.0,
+    "overall_score": 0.0
+  },
+  "weakness_reduced": true,
+  "task_runs": [
+    {
+      "task": "baseline_self_model_consistency",
+      "run": {
+        "cmd": [
+          "/Users/imymm/H2Q-Evo/.venv/bin/python",
+          "tools/run_self_model_consistency_benchmark.py",
+          "--sessions",
+          "8",
+          "--schema-retries",
+          "0",
+          "--output-prefix",
+          "self_model_consistency_baseline"
+        ],
+        "returncode": 0,
+        "stdout_tail": "JSON: /Users/imymm/H2Q-Evo/reports/self_model_consistency_baseline_1772821273.json\nMD: /Users/imymm/H2Q-Evo/reports/self_model_consistency_baseline_1772821273.md\nLatest JSON: /Users/imymm/H2Q-Evo/reports/self_model_consistency_baseline_latest.json\nLatest MD: /Users/imymm/H2Q-Evo/reports/self_model_consistency_baseline_latest.md",
+        "stderr_tail": "",
+        "log": "/Users/imymm/H2Q-Evo/reports/local_distillation_longrun_1772821271_baseline.log"
+      },
+      "predicted_effect": "Establish baseline weakness for structured self-evaluation output."
+    },
+    {
+      "task": "schema_repair_probe",
+      "run": {
+        "cmd": [
+          "/Users/imymm/H2Q-Evo/.venv/bin/python",
+          "tools/trusted_local_agi_chat.py",
+          "--profile",
+          "quick",
+          "--skip-rsa",
+          "--self-eval-max-retries",
+          "2",
+          "--no-auto-start-server"
+        ],
+        "returncode": 0,
+        "stdout_tail": "== Stage 3: Interactive trusted conversation ==\n\nTrusted Local AGI Chat Ready\nTrust report: /Users/imymm/H2Q-Evo/reports/trusted_joint_agi_quantum_center_1772820924.json\nTrust score: 0.9209 | trusted_ready=True\nCommands: /help  /status  /exit\n\nYou > Assistant > ```python\ndef solve_task(task: str) -> dict:\n    \"\"\"Task-aware local fallback for coding requests.\"\"\"\n    return {\n        \"task\": task,\n        \"implementation\": \"先给最小可运行版本，再补测试与边界\",\n        \"checks\": [\"功能正确\", \"边界覆盖\", \"异常路径\"],\n    }\n```\n[route=local_fallback_template, status=Fallback, curvature=None, eta=None, latency=0.14s]\n[schema.required=true, schema.valid=False, schema.attempts=3]\n\nYou > Session saved: /Users/imymm/H2Q-Evo/reports/trusted_local_agi_chat_session_1772821274.json",
+        "stderr_tail": "",
+        "log": "/Users/imymm/H2Q-Evo/reports/local_distillation_longrun_1772821271_schema_probe.log"
+      },
+      "predicted_effect": "Activate strict schema retry path on introspection dialogue."
+    },
+    {
+      "task": "post_self_model_consistency",
+      "run": {
+        "cmd": [
+          "/Users/imymm/H2Q-Evo/.venv/bin/python",
+          "tools/run_self_model_consistency_benchmark.py",
+          "--sessions",
+          "8",
+          "--schema-retries",
+          "2",
+          "--output-prefix",
+          "self_model_consistency_post"
+        ],
+        "returncode": 0,
+        "stdout_tail": "JSON: /Users/imymm/H2Q-Evo/reports/self_model_consistency_post_1772821277.json\nMD: /Users/imymm/H2Q-Evo/reports/self_model_consistency_post_1772821277.md\nLatest JSON: /Users/imymm/H2Q-Evo/reports/self_model_consistency_post_latest.json\nLatest MD: /Users/imymm/H2Q-Evo/reports/self_model_consistency_post_latest.md",
+        "stderr_tail": "",
+        "log": "/Users/imymm/H2Q-Evo/reports/local_distillation_longrun_1772821271_post.log"
+      },
+      "predicted_effect": "Increase schema validity and overall consistency score."
+    }
+  ]
+}

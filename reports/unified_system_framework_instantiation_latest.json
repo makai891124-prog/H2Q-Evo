@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at_utc": "2026-03-06T17:01:54.172285+00:00",
+    "generated_at_utc": "2026-03-06T18:26:35.651213+00:00",
     "framework_version": "v1",
     "workspace_root": "/Users/imymm/H2Q-Evo"
   },
@@ -8,7 +8,7 @@
     "executed": true,
     "result": {
       "returncode": 0,
-      "stdout_tail": "Trusted joint AGI-quantized center completed\nData: reports/trusted_joint_agi_quantum_center_1772816514.json\nReport: reports/trusted_joint_agi_quantum_center_1772816514.md\n",
+      "stdout_tail": "Trusted joint AGI-quantized center completed\nData: reports/trusted_joint_agi_quantum_center_1772821595.json\nReport: reports/trusted_joint_agi_quantum_center_1772821595.md\n",
       "stderr_tail": ""
     }
   },
@@ -138,51 +138,51 @@
     {
       "capability_id": "svc_local_infer",
       "evidence_glob": "agi_self_evolution_round_*.json",
-      "evidence_path": "/Users/imymm/H2Q-Evo/reports/agi_self_evolution_round_1772816512.json",
+      "evidence_path": "/Users/imymm/H2Q-Evo/reports/agi_self_evolution_round_1772821577.json",
       "evidence_exists": true,
-      "evidence_mtime_utc": "2026-03-06T17:01:52.134935+00:00"
+      "evidence_mtime_utc": "2026-03-06T18:26:17.186257+00:00"
     },
     {
       "capability_id": "trust_joint_center",
       "evidence_glob": "trusted_joint_agi_quantum_center_*.json",
-      "evidence_path": "/Users/imymm/H2Q-Evo/reports/trusted_joint_agi_quantum_center_1772816514.json",
+      "evidence_path": "/Users/imymm/H2Q-Evo/reports/trusted_joint_agi_quantum_center_1772821595.json",
       "evidence_exists": true,
-      "evidence_mtime_utc": "2026-03-06T17:01:54.049213+00:00"
+      "evidence_mtime_utc": "2026-03-06T18:26:35.534082+00:00"
     },
     {
       "capability_id": "self_evolution_loop",
       "evidence_glob": "agi_self_evolution_round_*.json",
-      "evidence_path": "/Users/imymm/H2Q-Evo/reports/agi_self_evolution_round_1772816512.json",
+      "evidence_path": "/Users/imymm/H2Q-Evo/reports/agi_self_evolution_round_1772821577.json",
       "evidence_exists": true,
-      "evidence_mtime_utc": "2026-03-06T17:01:52.134935+00:00"
+      "evidence_mtime_utc": "2026-03-06T18:26:17.186257+00:00"
     },
     {
       "capability_id": "external_assist",
       "evidence_glob": "agi_self_evolution_daily_*.json",
-      "evidence_path": "/Users/imymm/H2Q-Evo/reports/agi_self_evolution_daily_1772816512.json",
+      "evidence_path": "/Users/imymm/H2Q-Evo/reports/agi_self_evolution_daily_1772821577.json",
       "evidence_exists": true,
-      "evidence_mtime_utc": "2026-03-06T17:01:52.138407+00:00"
+      "evidence_mtime_utc": "2026-03-06T18:26:17.188185+00:00"
     },
     {
       "capability_id": "docker_consistency",
       "evidence_glob": "agi_self_evolution_round_*.json",
-      "evidence_path": "/Users/imymm/H2Q-Evo/reports/agi_self_evolution_round_1772816512.json",
+      "evidence_path": "/Users/imymm/H2Q-Evo/reports/agi_self_evolution_round_1772821577.json",
       "evidence_exists": true,
-      "evidence_mtime_utc": "2026-03-06T17:01:52.134935+00:00"
+      "evidence_mtime_utc": "2026-03-06T18:26:17.186257+00:00"
     },
     {
       "capability_id": "realtime_monitor",
       "evidence_glob": "agi_realtime_monitor_latest.json",
       "evidence_path": "/Users/imymm/H2Q-Evo/reports/agi_realtime_monitor_latest.json",
       "evidence_exists": true,
-      "evidence_mtime_utc": "2026-03-06T17:01:52.374988+00:00"
+      "evidence_mtime_utc": "2026-03-06T18:17:59.273088+00:00"
     },
     {
       "capability_id": "hourly_diagnosis",
       "evidence_glob": "agi_realtime_monitor_hourly_diagnosis_latest.json",
       "evidence_path": "/Users/imymm/H2Q-Evo/reports/agi_realtime_monitor_hourly_diagnosis_latest.json",
       "evidence_exists": true,
-      "evidence_mtime_utc": "2026-03-06T17:01:52.375180+00:00"
+      "evidence_mtime_utc": "2026-03-06T18:17:59.273390+00:00"
     },
     {
       "capability_id": "quantum_crossval",
@@ -210,9 +210,9 @@
     "availability": 1.0,
     "consistency": 1.0,
     "observability": 1.0,
-    "control": 1.0,
+    "control": 0.8333333333333333,
     "budget_penalty": 0.0,
-    "overall_score": 1.0,
+    "overall_score": 0.9666666666666667,
     "grade": "A",
     "signals": {
       "acceptance_ok": true,
@@ -220,13 +220,13 @@
       "trust_ok": true,
       "monitor_ok": true,
       "hourly_ok": true,
-      "assist_rate": 1.0,
-      "assist_tokens": 3495,
+      "assist_rate": 0.6666666666666666,
+      "assist_tokens": 7068,
       "monitor_success_rate": 1.0
     }
   },
   "recommendations": [
-    "Current integrated framework is stable; next step is adding deterministic regression suites per capability.",
+    "Improve external assist reliability: enforce retry with bounded backoff and classify provider-side failures explicitly.",
     "Create a CI profile that runs: trust center quick + one daemon round + docker consistency + monitor snapshot generation."
   ]
 }

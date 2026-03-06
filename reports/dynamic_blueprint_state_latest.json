@@ -383,15 +383,49 @@
         "warn_drop": 0.018000000000000002,
         "fail_drop": 0.045000000000000005
       }
+    },
+    {
+      "timestamp_utc": "2026-03-06T18:17:59.445027+00:00",
+      "overall_ok": true,
+      "cycles": 8,
+      "max_actions_per_cycle": 2,
+      "strategy": {
+        "updated_at_utc": "2026-03-06T17:57:51.353555+00:00",
+        "observed_runs": 8,
+        "ok_rate": 1.0,
+        "fail_streak": 0,
+        "max_actions_per_cycle": 2,
+        "interactive_target": 0.86,
+        "alignment_target": 0.81,
+        "warn_drop": 0.018000000000000002,
+        "fail_drop": 0.045000000000000005
+      }
+    },
+    {
+      "timestamp_utc": "2026-03-06T18:39:39.294210+00:00",
+      "overall_ok": true,
+      "cycles": 6,
+      "max_actions_per_cycle": 2,
+      "strategy": {
+        "updated_at_utc": "2026-03-06T18:26:43.300722+00:00",
+        "observed_runs": 8,
+        "ok_rate": 1.0,
+        "fail_streak": 0,
+        "max_actions_per_cycle": 2,
+        "interactive_target": 0.86,
+        "alignment_target": 0.81,
+        "warn_drop": 0.018000000000000002,
+        "fail_drop": 0.045000000000000005
+      }
     }
   ],
   "module_stats": {
     "interactive_bfs": {
-      "runs": 51,
-      "success": 51,
+      "runs": 65,
+      "success": 65,
       "fail": 0,
       "last_ok": true,
-      "last_run_utc": "2026-03-06T17:37:20.666092+00:00"
+      "last_run_utc": "2026-03-06T18:39:39.287166+00:00"
     },
     "capability_registry": {
       "runs": 4,
@@ -415,15 +449,15 @@
       "last_run_utc": "2026-03-06T07:12:47.911834+00:00"
     },
     "release_gate": {
-      "runs": 49,
-      "success": 48,
+      "runs": 63,
+      "success": 62,
       "fail": 1,
       "last_ok": true,
-      "last_run_utc": "2026-03-06T17:37:20.617250+00:00"
+      "last_run_utc": "2026-03-06T18:39:39.236189+00:00"
     }
   },
   "strategy": {
-    "updated_at_utc": "2026-03-06T17:31:36.022311+00:00",
+    "updated_at_utc": "2026-03-06T18:26:43.300722+00:00",
     "observed_runs": 8,
     "ok_rate": 1.0,
     "fail_streak": 0,

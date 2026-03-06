@@ -1,10 +1,10 @@
 # Public Alignment Report
 
-- created_at_utc: `2026-03-06T17:01:55.629059+00:00`
-- overall: `0.999`
+- created_at_utc: `2026-03-06T18:26:36.920980+00:00`
+- overall: `0.957`
 - arc_agi: `1.000` (target `0.750`)
-- swe_bench: `1.000` (target `0.500`)
-- metr_horizon: `0.998` (target `0.550`)
+- swe_bench: `0.918` (target `0.500`)
+- metr_horizon: `0.952` (target `0.550`)
 
 ## Sources
 

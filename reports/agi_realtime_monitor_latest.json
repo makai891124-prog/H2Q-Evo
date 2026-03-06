@@ -1,23 +1,23 @@
 {
-  "timestamp_utc": "2026-03-06T17:39:56.377614+00:00",
+  "timestamp_utc": "2026-03-06T18:41:50.573746+00:00",
   "cycle": 1,
   "interval_seconds": 5,
-  "lookback_rounds": 48,
+  "lookback_rounds": 64,
   "metrics": {
-    "round_count": 48,
-    "success_rounds": 48,
+    "round_count": 64,
+    "success_rounds": 64,
     "success_rate": 1.0,
-    "assist_enabled_calls": 210,
-    "assist_ok_calls": 210,
-    "assist_hit_rate": 1.0,
-    "assist_total_tokens": 115718,
+    "assist_enabled_calls": 306,
+    "assist_ok_calls": 300,
+    "assist_hit_rate": 0.9803921568627451,
+    "assist_total_tokens": 164884,
     "alert_count": 37,
     "failed_entry_total": 0,
     "top_fail_statuses": {},
     "top_fail_assist_reasons": {}
   },
   "files": {
-    "latest_round": "/Users/imymm/H2Q-Evo/reports/agi_self_evolution_round_1772818796.json",
+    "latest_round": "/Users/imymm/H2Q-Evo/reports/agi_self_evolution_round_1772822510.json",
     "latest_alert": "/Users/imymm/H2Q-Evo/reports/agi_self_evolution_alert_1772768312.json"
   }
 }

@@ -1,34 +1,15 @@
 {
   "hours": [
     {
-      "hour_utc": "2026-03-06T14:00:00Z",
-      "rounds": 7,
-      "success_rounds": 7,
-      "assist_tokens": 16751,
-      "failed_entries": 0,
-      "fail_status_counts": {},
-      "fail_assist_reason_counts": {},
-      "success_rate": 1.0,
-      "token_efficiency": 2393.0,
-      "top_fail_status": [
-        "none",
-        0
-      ],
-      "top_fail_assist_reason": [
-        "none",
-        0
-      ]
-    },
-    {
       "hour_utc": "2026-03-06T15:00:00Z",
-      "rounds": 28,
-      "success_rounds": 28,
-      "assist_tokens": 63337,
+      "rounds": 11,
+      "success_rounds": 11,
+      "assist_tokens": 23515,
       "failed_entries": 0,
       "fail_status_counts": {},
       "fail_assist_reason_counts": {},
       "success_rate": 1.0,
-      "token_efficiency": 2262.035714285714,
+      "token_efficiency": 2137.7272727272725,
       "top_fail_status": [
         "none",
         0
@@ -59,14 +40,33 @@
     },
     {
       "hour_utc": "2026-03-06T17:00:00Z",
-      "rounds": 2,
-      "success_rounds": 2,
-      "assist_tokens": 3495,
+      "rounds": 13,
+      "success_rounds": 13,
+      "assist_tokens": 29642,
       "failed_entries": 0,
       "fail_status_counts": {},
       "fail_assist_reason_counts": {},
       "success_rate": 1.0,
-      "token_efficiency": 1747.5,
+      "token_efficiency": 2280.153846153846,
+      "top_fail_status": [
+        "none",
+        0
+      ],
+      "top_fail_assist_reason": [
+        "none",
+        0
+      ]
+    },
+    {
+      "hour_utc": "2026-03-06T18:00:00Z",
+      "rounds": 13,
+      "success_rounds": 13,
+      "assist_tokens": 37269,
+      "failed_entries": 0,
+      "fail_status_counts": {},
+      "fail_assist_reason_counts": {},
+      "success_rate": 1.0,
+      "token_efficiency": 2866.846153846154,
       "top_fail_status": [
         "none",
         0
@@ -79,24 +79,10 @@
   ],
   "trends": [
     {
-      "from_hour": "2026-03-06T14:00:00Z",
-      "to_hour": "2026-03-06T15:00:00Z",
-      "success_rate_delta": 0.0,
-      "token_efficiency_delta": -130.96428571428578,
-      "top_fail_status": [
-        "none",
-        0
-      ],
-      "top_fail_assist_reason": [
-        "none",
-        0
-      ]
-    },
-    {
       "from_hour": "2026-03-06T15:00:00Z",
       "to_hour": "2026-03-06T16:00:00Z",
       "success_rate_delta": 0.0,
-      "token_efficiency_delta": 421.4188311688313,
+      "token_efficiency_delta": 545.727272727273,
       "top_fail_status": [
         "none",
         0
@@ -110,7 +96,21 @@
       "from_hour": "2026-03-06T16:00:00Z",
       "to_hour": "2026-03-06T17:00:00Z",
       "success_rate_delta": 0.0,
-      "token_efficiency_delta": -935.9545454545455,
+      "token_efficiency_delta": -403.3006993006993,
+      "top_fail_status": [
+        "none",
+        0
+      ],
+      "top_fail_assist_reason": [
+        "none",
+        0
+      ]
+    },
+    {
+      "from_hour": "2026-03-06T17:00:00Z",
+      "to_hour": "2026-03-06T18:00:00Z",
+      "success_rate_delta": 0.0,
+      "token_efficiency_delta": 586.6923076923076,
       "top_fail_status": [
         "none",
         0

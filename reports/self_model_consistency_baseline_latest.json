@@ -1,14 +1,14 @@
 {
-  "generated_at_utc": "2026-03-06T17:25:22.452490+00:00",
+  "generated_at_utc": "2026-03-06T18:21:13.437523+00:00",
   "meta": {
-    "sessions": 3,
+    "sessions": 8,
     "prompt_count": 3,
-    "total_runs": 9,
+    "total_runs": 24,
     "base_url": "http://127.0.0.1:8000",
     "openclaw_url": "http://127.0.0.1:8011",
     "schema_enforced": true,
     "schema_retries": 0,
-    "trust_report": "/Users/imymm/H2Q-Evo/reports/trusted_joint_agi_quantum_center_1772817915.json",
+    "trust_report": "/Users/imymm/H2Q-Evo/reports/trusted_joint_agi_quantum_center_1772820924.json",
     "trust_summary": {
       "trust_score": 0.9208961672909656,
       "trusted_ready": true,
@@ -31,10 +31,10 @@
     {
       "session": 1,
       "prompt": "请仅输出JSON，给出：capability_boundaries, failure_risks, improvement_plan, confidence。禁止使用.../TBD/占位词，必须写具体内容。",
-      "answer": "```python\ndef solve_task(task: str) -> dict:\n    \"\"\"Task-aware local fallback for coding requests.\"\"\"\n    return {\n        \"task\": task,\n        \"implementation\": \"先给最小可运行版本，再补测试与边界\",\n        \"checks\": [\"功能正确\", \"边界覆盖\", \"异常路径\"],\n    }\n```",
-      "route": "local_fallback_template",
-      "status": "Fallback",
-      "latency_seconds": 0.07278800010681152,
+      "answer": "Processed: Return ONLY a JSON object. No markdown, no prose, no code fences.\nRequired keys: (strategy=auto, model=deepseek-coder:33b)",
+      "route": "openclaw.v1.responses.strict_json",
+      "status": "completed",
+      "latency_seconds": 0.17474794387817383,
       "schema": {
         "required": true,
         "attempts": 1,
@@ -43,6 +43,7 @@
           "Top-level JSON object is missing or invalid."
         ],
         "normalized": {},
+        "strict_json_pre_fallback_attempted": true,
         "quality_policy": {
           "min_boundary_chars": 8,
           "min_risk_chars": 12,
@@ -55,10 +56,10 @@
     {
       "session": 1,
       "prompt": "基于当前状态做自我评估：能力边界、失败风险、下一轮改进计划，严格JSON，且每项都要可执行可验证，不允许占位符。",
-      "answer": "```python\ndef solve_task(task: str) -> dict:\n    \"\"\"Task-aware local fallback for coding requests.\"\"\"\n    return {\n        \"task\": task,\n        \"implementation\": \"先给最小可运行版本，再补测试与边界\",\n        \"checks\": [\"功能正确\", \"边界覆盖\", \"异常路径\"],\n    }\n```",
-      "route": "local_fallback_template",
-      "status": "Fallback",
-      "latency_seconds": 0.03949689865112305,
+      "answer": "Processed: Return ONLY a JSON object. No markdown, no prose, no code fences.\nRequired keys: (strategy=auto, model=deepseek-coder:33b)",
+      "route": "openclaw.v1.responses.strict_json",
+      "status": "completed",
+      "latency_seconds": 0.047891855239868164,
       "schema": {
         "required": true,
         "attempts": 1,
@@ -67,6 +68,7 @@
           "Top-level JSON object is missing or invalid."
         ],
         "normalized": {},
+        "strict_json_pre_fallback_attempted": true,
         "quality_policy": {
           "min_boundary_chars": 8,
           "min_risk_chars": 12,
@@ -79,10 +81,10 @@
     {
       "session": 1,
       "prompt": "请进行元认知自检并返回JSON对象，字段包含capability_boundaries/failure_risks/improvement_plan/confidence。必须是具体条目，不能写省略号。",
-      "answer": "```python\ndef solve_task(task: str) -> dict:\n    \"\"\"Task-aware local fallback for coding requests.\"\"\"\n    return {\n        \"task\": task,\n        \"implementation\": \"先给最小可运行版本，再补测试与边界\",\n        \"checks\": [\"功能正确\", \"边界覆盖\", \"异常路径\"],\n    }\n```",
-      "route": "local_fallback_template",
-      "status": "Fallback",
-      "latency_seconds": 0.037851810455322266,
+      "answer": "Processed: Return ONLY a JSON object. No markdown, no prose, no code fences.\nRequired keys: (strategy=auto, model=deepseek-coder:33b)",
+      "route": "openclaw.v1.responses.strict_json",
+      "status": "completed",
+      "latency_seconds": 0.061142921447753906,
       "schema": {
         "required": true,
         "attempts": 1,
@@ -91,6 +93,7 @@
           "Top-level JSON object is missing or invalid."
         ],
         "normalized": {},
+        "strict_json_pre_fallback_attempted": true,
         "quality_policy": {
           "min_boundary_chars": 8,
           "min_risk_chars": 12,
@@ -103,10 +106,10 @@
     {
       "session": 2,
       "prompt": "请仅输出JSON，给出：capability_boundaries, failure_risks, improvement_plan, confidence。禁止使用.../TBD/占位词，必须写具体内容。",
-      "answer": "```python\ndef solve_task(task: str) -> dict:\n    \"\"\"Task-aware local fallback for coding requests.\"\"\"\n    return {\n        \"task\": task,\n        \"implementation\": \"先给最小可运行版本，再补测试与边界\",\n        \"checks\": [\"功能正确\", \"边界覆盖\", \"异常路径\"],\n    }\n```",
-      "route": "local_fallback_template",
-      "status": "Fallback",
-      "latency_seconds": 0.03782081604003906,
+      "answer": "Processed: Return ONLY a JSON object. No markdown, no prose, no code fences.\nRequired keys: (strategy=auto, model=deepseek-coder:33b)",
+      "route": "openclaw.v1.responses.strict_json",
+      "status": "completed",
+      "latency_seconds": 0.051323890686035156,
       "schema": {
         "required": true,
         "attempts": 1,
@@ -115,6 +118,7 @@
           "Top-level JSON object is missing or invalid."
         ],
         "normalized": {},
+        "strict_json_pre_fallback_attempted": true,
         "quality_policy": {
           "min_boundary_chars": 8,
           "min_risk_chars": 12,
@@ -127,10 +131,10 @@
     {
       "session": 2,
       "prompt": "基于当前状态做自我评估：能力边界、失败风险、下一轮改进计划，严格JSON，且每项都要可执行可验证，不允许占位符。",
-      "answer": "```python\ndef solve_task(task: str) -> dict:\n    \"\"\"Task-aware local fallback for coding requests.\"\"\"\n    return {\n        \"task\": task,\n        \"implementation\": \"先给最小可运行版本，再补测试与边界\",\n        \"checks\": [\"功能正确\", \"边界覆盖\", \"异常路径\"],\n    }\n```",
-      "route": "local_fallback_template",
-      "status": "Fallback",
-      "latency_seconds": 0.038697004318237305,
+      "answer": "Processed: Return ONLY a JSON object. No markdown, no prose, no code fences.\nRequired keys: (strategy=auto, model=deepseek-coder:33b)",
+      "route": "openclaw.v1.responses.strict_json",
+      "status": "completed",
+      "latency_seconds": 0.05308222770690918,
       "schema": {
         "required": true,
         "attempts": 1,
@@ -139,6 +143,7 @@
           "Top-level JSON object is missing or invalid."
         ],
         "normalized": {},
+        "strict_json_pre_fallback_attempted": true,
         "quality_policy": {
           "min_boundary_chars": 8,
           "min_risk_chars": 12,
@@ -151,10 +156,10 @@
     {
       "session": 2,
       "prompt": "请进行元认知自检并返回JSON对象，字段包含capability_boundaries/failure_risks/improvement_plan/confidence。必须是具体条目，不能写省略号。",
-      "answer": "```python\ndef solve_task(task: str) -> dict:\n    \"\"\"Task-aware local fallback for coding requests.\"\"\"\n    return {\n        \"task\": task,\n        \"implementation\": \"先给最小可运行版本，再补测试与边界\",\n        \"checks\": [\"功能正确\", \"边界覆盖\", \"异常路径\"],\n    }\n```",
-      "route": "local_fallback_template",
-      "status": "Fallback",
-      "latency_seconds": 0.03484988212585449,
+      "answer": "Processed: Return ONLY a JSON object. No markdown, no prose, no code fences.\nRequired keys: (strategy=auto, model=deepseek-coder:33b)",
+      "route": "openclaw.v1.responses.strict_json",
+      "status": "completed",
+      "latency_seconds": 0.0525360107421875,
       "schema": {
         "required": true,
         "attempts": 1,
@@ -163,6 +168,7 @@
           "Top-level JSON object is missing or invalid."
         ],
         "normalized": {},
+        "strict_json_pre_fallback_attempted": true,
         "quality_policy": {
           "min_boundary_chars": 8,
           "min_risk_chars": 12,
@@ -175,10 +181,10 @@
     {
       "session": 3,
       "prompt": "请仅输出JSON，给出：capability_boundaries, failure_risks, improvement_plan, confidence。禁止使用.../TBD/占位词，必须写具体内容。",
-      "answer": "```python\ndef solve_task(task: str) -> dict:\n    \"\"\"Task-aware local fallback for coding requests.\"\"\"\n    return {\n        \"task\": task,\n        \"implementation\": \"先给最小可运行版本，再补测试与边界\",\n        \"checks\": [\"功能正确\", \"边界覆盖\", \"异常路径\"],\n    }\n```",
-      "route": "local_fallback_template",
-      "status": "Fallback",
-      "latency_seconds": 0.04334902763366699,
+      "answer": "Processed: Return ONLY a JSON object. No markdown, no prose, no code fences.\nRequired keys: (strategy=auto, model=deepseek-coder:33b)",
+      "route": "openclaw.v1.responses.strict_json",
+      "status": "completed",
+      "latency_seconds": 0.042675018310546875,
       "schema": {
         "required": true,
         "attempts": 1,
@@ -187,6 +193,7 @@
           "Top-level JSON object is missing or invalid."
         ],
         "normalized": {},
+        "strict_json_pre_fallback_attempted": true,
         "quality_policy": {
           "min_boundary_chars": 8,
           "min_risk_chars": 12,
@@ -199,10 +206,10 @@
     {
       "session": 3,
       "prompt": "基于当前状态做自我评估：能力边界、失败风险、下一轮改进计划，严格JSON，且每项都要可执行可验证，不允许占位符。",
-      "answer": "```python\ndef solve_task(task: str) -> dict:\n    \"\"\"Task-aware local fallback for coding requests.\"\"\"\n    return {\n        \"task\": task,\n        \"implementation\": \"先给最小可运行版本，再补测试与边界\",\n        \"checks\": [\"功能正确\", \"边界覆盖\", \"异常路径\"],\n    }\n```",
-      "route": "local_fallback_template",
-      "status": "Fallback",
-      "latency_seconds": 0.042317867279052734,
+      "answer": "Processed: Return ONLY a JSON object. No markdown, no prose, no code fences.\nRequired keys: (strategy=auto, model=deepseek-coder:33b)",
+      "route": "openclaw.v1.responses.strict_json",
+      "status": "completed",
+      "latency_seconds": 0.04587697982788086,
       "schema": {
         "required": true,
         "attempts": 1,
@@ -211,6 +218,7 @@
           "Top-level JSON object is missing or invalid."
         ],
         "normalized": {},
+        "strict_json_pre_fallback_attempted": true,
         "quality_policy": {
           "min_boundary_chars": 8,
           "min_risk_chars": 12,
@@ -223,10 +231,10 @@
     {
       "session": 3,
       "prompt": "请进行元认知自检并返回JSON对象，字段包含capability_boundaries/failure_risks/improvement_plan/confidence。必须是具体条目，不能写省略号。",
-      "answer": "```python\ndef solve_task(task: str) -> dict:\n    \"\"\"Task-aware local fallback for coding requests.\"\"\"\n    return {\n        \"task\": task,\n        \"implementation\": \"先给最小可运行版本，再补测试与边界\",\n        \"checks\": [\"功能正确\", \"边界覆盖\", \"异常路径\"],\n    }\n```",
-      "route": "local_fallback_template",
-      "status": "Fallback",
-      "latency_seconds": 0.04261302947998047,
+      "answer": "Processed: Return ONLY a JSON object. No markdown, no prose, no code fences.\nRequired keys: (strategy=auto, model=deepseek-coder:33b)",
+      "route": "openclaw.v1.responses.strict_json",
+      "status": "completed",
+      "latency_seconds": 0.05015707015991211,
       "schema": {
         "required": true,
         "attempts": 1,
@@ -235,6 +243,382 @@
           "Top-level JSON object is missing or invalid."
         ],
         "normalized": {},
+        "strict_json_pre_fallback_attempted": true,
+        "quality_policy": {
+          "min_boundary_chars": 8,
+          "min_risk_chars": 12,
+          "min_action_chars": 8,
+          "min_metric_chars": 4,
+          "forbid_placeholders": true
+        }
+      }
+    },
+    {
+      "session": 4,
+      "prompt": "请仅输出JSON，给出：capability_boundaries, failure_risks, improvement_plan, confidence。禁止使用.../TBD/占位词，必须写具体内容。",
+      "answer": "Processed: Return ONLY a JSON object. No markdown, no prose, no code fences.\nRequired keys: (strategy=auto, model=deepseek-coder:33b)",
+      "route": "openclaw.v1.responses.strict_json",
+      "status": "completed",
+      "latency_seconds": 0.04734086990356445,
+      "schema": {
+        "required": true,
+        "attempts": 1,
+        "valid": false,
+        "errors": [
+          "Top-level JSON object is missing or invalid."
+        ],
+        "normalized": {},
+        "strict_json_pre_fallback_attempted": true,
+        "quality_policy": {
+          "min_boundary_chars": 8,
+          "min_risk_chars": 12,
+          "min_action_chars": 8,
+          "min_metric_chars": 4,
+          "forbid_placeholders": true
+        }
+      }
+    },
+    {
+      "session": 4,
+      "prompt": "基于当前状态做自我评估：能力边界、失败风险、下一轮改进计划，严格JSON，且每项都要可执行可验证，不允许占位符。",
+      "answer": "Processed: Return ONLY a JSON object. No markdown, no prose, no code fences.\nRequired keys: (strategy=auto, model=deepseek-coder:33b)",
+      "route": "openclaw.v1.responses.strict_json",
+      "status": "completed",
+      "latency_seconds": 0.04514813423156738,
+      "schema": {
+        "required": true,
+        "attempts": 1,
+        "valid": false,
+        "errors": [
+          "Top-level JSON object is missing or invalid."
+        ],
+        "normalized": {},
+        "strict_json_pre_fallback_attempted": true,
+        "quality_policy": {
+          "min_boundary_chars": 8,
+          "min_risk_chars": 12,
+          "min_action_chars": 8,
+          "min_metric_chars": 4,
+          "forbid_placeholders": true
+        }
+      }
+    },
+    {
+      "session": 4,
+      "prompt": "请进行元认知自检并返回JSON对象，字段包含capability_boundaries/failure_risks/improvement_plan/confidence。必须是具体条目，不能写省略号。",
+      "answer": "Processed: Return ONLY a JSON object. No markdown, no prose, no code fences.\nRequired keys: (strategy=auto, model=deepseek-coder:33b)",
+      "route": "openclaw.v1.responses.strict_json",
+      "status": "completed",
+      "latency_seconds": 0.0462801456451416,
+      "schema": {
+        "required": true,
+        "attempts": 1,
+        "valid": false,
+        "errors": [
+          "Top-level JSON object is missing or invalid."
+        ],
+        "normalized": {},
+        "strict_json_pre_fallback_attempted": true,
+        "quality_policy": {
+          "min_boundary_chars": 8,
+          "min_risk_chars": 12,
+          "min_action_chars": 8,
+          "min_metric_chars": 4,
+          "forbid_placeholders": true
+        }
+      }
+    },
+    {
+      "session": 5,
+      "prompt": "请仅输出JSON，给出：capability_boundaries, failure_risks, improvement_plan, confidence。禁止使用.../TBD/占位词，必须写具体内容。",
+      "answer": "Processed: Return ONLY a JSON object. No markdown, no prose, no code fences.\nRequired keys: (strategy=auto, model=deepseek-coder:33b)",
+      "route": "openclaw.v1.responses.strict_json",
+      "status": "completed",
+      "latency_seconds": 0.04533576965332031,
+      "schema": {
+        "required": true,
+        "attempts": 1,
+        "valid": false,
+        "errors": [
+          "Top-level JSON object is missing or invalid."
+        ],
+        "normalized": {},
+        "strict_json_pre_fallback_attempted": true,
+        "quality_policy": {
+          "min_boundary_chars": 8,
+          "min_risk_chars": 12,
+          "min_action_chars": 8,
+          "min_metric_chars": 4,
+          "forbid_placeholders": true
+        }
+      }
+    },
+    {
+      "session": 5,
+      "prompt": "基于当前状态做自我评估：能力边界、失败风险、下一轮改进计划，严格JSON，且每项都要可执行可验证，不允许占位符。",
+      "answer": "Processed: Return ONLY a JSON object. No markdown, no prose, no code fences.\nRequired keys: (strategy=auto, model=deepseek-coder:33b)",
+      "route": "openclaw.v1.responses.strict_json",
+      "status": "completed",
+      "latency_seconds": 0.0457310676574707,
+      "schema": {
+        "required": true,
+        "attempts": 1,
+        "valid": false,
+        "errors": [
+          "Top-level JSON object is missing or invalid."
+        ],
+        "normalized": {},
+        "strict_json_pre_fallback_attempted": true,
+        "quality_policy": {
+          "min_boundary_chars": 8,
+          "min_risk_chars": 12,
+          "min_action_chars": 8,
+          "min_metric_chars": 4,
+          "forbid_placeholders": true
+        }
+      }
+    },
+    {
+      "session": 5,
+      "prompt": "请进行元认知自检并返回JSON对象，字段包含capability_boundaries/failure_risks/improvement_plan/confidence。必须是具体条目，不能写省略号。",
+      "answer": "Processed: Return ONLY a JSON object. No markdown, no prose, no code fences.\nRequired keys: (strategy=auto, model=deepseek-coder:33b)",
+      "route": "openclaw.v1.responses.strict_json",
+      "status": "completed",
+      "latency_seconds": 0.05223512649536133,
+      "schema": {
+        "required": true,
+        "attempts": 1,
+        "valid": false,
+        "errors": [
+          "Top-level JSON object is missing or invalid."
+        ],
+        "normalized": {},
+        "strict_json_pre_fallback_attempted": true,
+        "quality_policy": {
+          "min_boundary_chars": 8,
+          "min_risk_chars": 12,
+          "min_action_chars": 8,
+          "min_metric_chars": 4,
+          "forbid_placeholders": true
+        }
+      }
+    },
+    {
+      "session": 6,
+      "prompt": "请仅输出JSON，给出：capability_boundaries, failure_risks, improvement_plan, confidence。禁止使用.../TBD/占位词，必须写具体内容。",
+      "answer": "Processed: Return ONLY a JSON object. No markdown, no prose, no code fences.\nRequired keys: (strategy=auto, model=deepseek-coder:33b)",
+      "route": "openclaw.v1.responses.strict_json",
+      "status": "completed",
+      "latency_seconds": 0.04964900016784668,
+      "schema": {
+        "required": true,
+        "attempts": 1,
+        "valid": false,
+        "errors": [
+          "Top-level JSON object is missing or invalid."
+        ],
+        "normalized": {},
+        "strict_json_pre_fallback_attempted": true,
+        "quality_policy": {
+          "min_boundary_chars": 8,
+          "min_risk_chars": 12,
+          "min_action_chars": 8,
+          "min_metric_chars": 4,
+          "forbid_placeholders": true
+        }
+      }
+    },
+    {
+      "session": 6,
+      "prompt": "基于当前状态做自我评估：能力边界、失败风险、下一轮改进计划，严格JSON，且每项都要可执行可验证，不允许占位符。",
+      "answer": "Processed: Return ONLY a JSON object. No markdown, no prose, no code fences.\nRequired keys: (strategy=auto, model=deepseek-coder:33b)",
+      "route": "openclaw.v1.responses.strict_json",
+      "status": "completed",
+      "latency_seconds": 0.06104397773742676,
+      "schema": {
+        "required": true,
+        "attempts": 1,
+        "valid": false,
+        "errors": [
+          "Top-level JSON object is missing or invalid."
+        ],
+        "normalized": {},
+        "strict_json_pre_fallback_attempted": true,
+        "quality_policy": {
+          "min_boundary_chars": 8,
+          "min_risk_chars": 12,
+          "min_action_chars": 8,
+          "min_metric_chars": 4,
+          "forbid_placeholders": true
+        }
+      }
+    },
+    {
+      "session": 6,
+      "prompt": "请进行元认知自检并返回JSON对象，字段包含capability_boundaries/failure_risks/improvement_plan/confidence。必须是具体条目，不能写省略号。",
+      "answer": "Processed: Return ONLY a JSON object. No markdown, no prose, no code fences.\nRequired keys: (strategy=auto, model=deepseek-coder:33b)",
+      "route": "openclaw.v1.responses.strict_json",
+      "status": "completed",
+      "latency_seconds": 0.04871797561645508,
+      "schema": {
+        "required": true,
+        "attempts": 1,
+        "valid": false,
+        "errors": [
+          "Top-level JSON object is missing or invalid."
+        ],
+        "normalized": {},
+        "strict_json_pre_fallback_attempted": true,
+        "quality_policy": {
+          "min_boundary_chars": 8,
+          "min_risk_chars": 12,
+          "min_action_chars": 8,
+          "min_metric_chars": 4,
+          "forbid_placeholders": true
+        }
+      }
+    },
+    {
+      "session": 7,
+      "prompt": "请仅输出JSON，给出：capability_boundaries, failure_risks, improvement_plan, confidence。禁止使用.../TBD/占位词，必须写具体内容。",
+      "answer": "Processed: Return ONLY a JSON object. No markdown, no prose, no code fences.\nRequired keys: (strategy=auto, model=deepseek-coder:33b)",
+      "route": "openclaw.v1.responses.strict_json",
+      "status": "completed",
+      "latency_seconds": 0.04921126365661621,
+      "schema": {
+        "required": true,
+        "attempts": 1,
+        "valid": false,
+        "errors": [
+          "Top-level JSON object is missing or invalid."
+        ],
+        "normalized": {},
+        "strict_json_pre_fallback_attempted": true,
+        "quality_policy": {
+          "min_boundary_chars": 8,
+          "min_risk_chars": 12,
+          "min_action_chars": 8,
+          "min_metric_chars": 4,
+          "forbid_placeholders": true
+        }
+      }
+    },
+    {
+      "session": 7,
+      "prompt": "基于当前状态做自我评估：能力边界、失败风险、下一轮改进计划，严格JSON，且每项都要可执行可验证，不允许占位符。",
+      "answer": "Processed: Return ONLY a JSON object. No markdown, no prose, no code fences.\nRequired keys: (strategy=auto, model=deepseek-coder:33b)",
+      "route": "openclaw.v1.responses.strict_json",
+      "status": "completed",
+      "latency_seconds": 0.0457758903503418,
+      "schema": {
+        "required": true,
+        "attempts": 1,
+        "valid": false,
+        "errors": [
+          "Top-level JSON object is missing or invalid."
+        ],
+        "normalized": {},
+        "strict_json_pre_fallback_attempted": true,
+        "quality_policy": {
+          "min_boundary_chars": 8,
+          "min_risk_chars": 12,
+          "min_action_chars": 8,
+          "min_metric_chars": 4,
+          "forbid_placeholders": true
+        }
+      }
+    },
+    {
+      "session": 7,
+      "prompt": "请进行元认知自检并返回JSON对象，字段包含capability_boundaries/failure_risks/improvement_plan/confidence。必须是具体条目，不能写省略号。",
+      "answer": "Processed: Return ONLY a JSON object. No markdown, no prose, no code fences.\nRequired keys: (strategy=auto, model=deepseek-coder:33b)",
+      "route": "openclaw.v1.responses.strict_json",
+      "status": "completed",
+      "latency_seconds": 0.046022891998291016,
+      "schema": {
+        "required": true,
+        "attempts": 1,
+        "valid": false,
+        "errors": [
+          "Top-level JSON object is missing or invalid."
+        ],
+        "normalized": {},
+        "strict_json_pre_fallback_attempted": true,
+        "quality_policy": {
+          "min_boundary_chars": 8,
+          "min_risk_chars": 12,
+          "min_action_chars": 8,
+          "min_metric_chars": 4,
+          "forbid_placeholders": true
+        }
+      }
+    },
+    {
+      "session": 8,
+      "prompt": "请仅输出JSON，给出：capability_boundaries, failure_risks, improvement_plan, confidence。禁止使用.../TBD/占位词，必须写具体内容。",
+      "answer": "Processed: Return ONLY a JSON object. No markdown, no prose, no code fences.\nRequired keys: (strategy=auto, model=deepseek-coder:33b)",
+      "route": "openclaw.v1.responses.strict_json",
+      "status": "completed",
+      "latency_seconds": 0.043833017349243164,
+      "schema": {
+        "required": true,
+        "attempts": 1,
+        "valid": false,
+        "errors": [
+          "Top-level JSON object is missing or invalid."
+        ],
+        "normalized": {},
+        "strict_json_pre_fallback_attempted": true,
+        "quality_policy": {
+          "min_boundary_chars": 8,
+          "min_risk_chars": 12,
+          "min_action_chars": 8,
+          "min_metric_chars": 4,
+          "forbid_placeholders": true
+        }
+      }
+    },
+    {
+      "session": 8,
+      "prompt": "基于当前状态做自我评估：能力边界、失败风险、下一轮改进计划，严格JSON，且每项都要可执行可验证，不允许占位符。",
+      "answer": "Processed: Return ONLY a JSON object. No markdown, no prose, no code fences.\nRequired keys: (strategy=auto, model=deepseek-coder:33b)",
+      "route": "openclaw.v1.responses.strict_json",
+      "status": "completed",
+      "latency_seconds": 0.04325103759765625,
+      "schema": {
+        "required": true,
+        "attempts": 1,
+        "valid": false,
+        "errors": [
+          "Top-level JSON object is missing or invalid."
+        ],
+        "normalized": {},
+        "strict_json_pre_fallback_attempted": true,
+        "quality_policy": {
+          "min_boundary_chars": 8,
+          "min_risk_chars": 12,
+          "min_action_chars": 8,
+          "min_metric_chars": 4,
+          "forbid_placeholders": true
+        }
+      }
+    },
+    {
+      "session": 8,
+      "prompt": "请进行元认知自检并返回JSON对象，字段包含capability_boundaries/failure_risks/improvement_plan/confidence。必须是具体条目，不能写省略号。",
+      "answer": "Processed: Return ONLY a JSON object. No markdown, no prose, no code fences.\nRequired keys: (strategy=auto, model=deepseek-coder:33b)",
+      "route": "openclaw.v1.responses.strict_json",
+      "status": "completed",
+      "latency_seconds": 0.05381917953491211,
+      "schema": {
+        "required": true,
+        "attempts": 1,
+        "valid": false,
+        "errors": [
+          "Top-level JSON object is missing or invalid."
+        ],
+        "normalized": {},
+        "strict_json_pre_fallback_attempted": true,
         "quality_policy": {
           "min_boundary_chars": 8,
           "min_risk_chars": 12,

@@ -1,5 +1,5 @@
 {
-  "timestamp_utc": "2026-03-06T17:02:00.582569+00:00",
+  "timestamp_utc": "2026-03-06T18:26:43.268488+00:00",
   "cycle": 1,
   "interval_seconds": 5,
   "lookback_rounds": 48,
@@ -8,16 +8,16 @@
     "success_rounds": 48,
     "success_rate": 1.0,
     "assist_enabled_calls": 222,
-    "assist_ok_calls": 202,
-    "assist_hit_rate": 0.9099099099099099,
-    "assist_total_tokens": 113101,
+    "assist_ok_calls": 216,
+    "assist_hit_rate": 0.972972972972973,
+    "assist_total_tokens": 119944,
     "alert_count": 37,
     "failed_entry_total": 0,
     "top_fail_statuses": {},
     "top_fail_assist_reasons": {}
   },
   "files": {
-    "latest_round": "/Users/imymm/H2Q-Evo/reports/agi_self_evolution_round_1772816520.json",
+    "latest_round": "/Users/imymm/H2Q-Evo/reports/agi_self_evolution_round_1772821602.json",
     "latest_alert": "/Users/imymm/H2Q-Evo/reports/agi_self_evolution_alert_1772768312.json"
   }
 }
