@@ -17,7 +17,7 @@ class STQ_QuantumSimulator:
         # 根据平行双量子比特设定，计算纠缠角频率
         self.omega = (self.G * self.mass**2) / (self.d_min * self.hbar) 
         
-    def dual_complex_evolution(self, time_steps, gamma_decoherence, Lambda_threshold):
+    def dual_complex_evolution(self, time_steps, gamma_decoherence, Lambda_threshold, formula_mode="legacy"):
         """
         核心演化：不使用薛定谔方程，而是使用 STQ-TN 的共轭激波方程
         Z1(t+1) = Z1(t) - W * conj(Z2(t))
@@ -50,8 +50,13 @@ class STQ_QuantumSimulator:
             
             # 4. 计算拓扑纠缠见证者 (映射 QGEM 的 PPT Witness)
             # 在 STQ-TN 中，Witness等价于系统未被截断的共轭残余项
-            # 理论 QGEM 公式：<W> = 1/4 - 1/4 * e^(-gamma*t) * [e^(-gamma*t) - 2*sin(omega*t)]
-            W_val = 0.25 - 0.25 * damping_factor * (damping_factor - 2 * np.sin(self.omega * t))
+            # 两种见证者口径：
+            # legacy:  1/4 - 1/4 * e^(-γt) * (e^(-γt) - 2 sin(ωt))
+            # aligned: 1/4 - 1/4 * e^(-γt) * (e^(-γt) + 2 sin(ωt))
+            if formula_mode == "aligned":
+                W_val = 0.25 - 0.25 * damping_factor * (damping_factor + 2 * np.sin(self.omega * t))
+            else:
+                W_val = 0.25 - 0.25 * damping_factor * (damping_factor - 2 * np.sin(self.omega * t))
             
             # 如果触发截断，<W> 强行归零（纠缠破裂）
             if E_k > Lambda_threshold:
@@ -61,16 +66,20 @@ class STQ_QuantumSimulator:
             
         return W_witness_simulated
 
-# 运行模拟
-simulator = STQ_QuantumSimulator(mass_kg=1e-14, distance_m=35e-6)
-time_array = np.linspace(0, 2.0, 200)
+def _demo():
+    simulator = STQ_QuantumSimulator(mass_kg=1e-14, distance_m=35e-6)
+    time_array = np.linspace(0, 2.0, 200)
 
-# 测试两种不同的物理环境
-# 条件A: 极低退相干 (类似理想量子真空, gamma = 1e-3 Hz)
-W_ideal = simulator.dual_complex_evolution(time_array, gamma_decoherence=1e-3, Lambda_threshold=100.0)
+    W_ideal = simulator.dual_complex_evolution(
+        time_array, gamma_decoherence=1e-3, Lambda_threshold=100.0, formula_mode="legacy"
+    )
+    W_collapsed = simulator.dual_complex_evolution(
+        time_array, gamma_decoherence=0.5, Lambda_threshold=1.5, formula_mode="legacy"
+    )
 
-# 条件B: 高退相干或算力溢出 (触发激波截断, gamma = 0.5 Hz)
-W_collapsed = simulator.dual_complex_evolution(time_array, gamma_decoherence=0.5, Lambda_threshold=1.5)
+    print(f"理想态纠缠见证者极值 (负值代表成功纠缠): {min(W_ideal):.4f}")
+    print(f"坍缩态纠缠见证者极值 (激波截断后失去纠缠): {min(W_collapsed):.4f}")
 
-print(f"理想态纠缠见证者极值 (负值代表成功纠缠): {min(W_ideal):.4f}")
-print(f"坍缩态纠缠见证者极值 (激波截断后失去纠缠): {min(W_collapsed):.4f}")
+
+if __name__ == "__main__":
+    _demo()

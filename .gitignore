@@ -81,4 +81,32 @@ logs/
 
 # ============ 生成的知识工件与打包 ============
 knowledge_artifacts/
-knowledge_artifacts_bundle.jsonlPROJECT_CODE_CONSOLIDATED.md
+knowledge_artifacts_bundle.jsonl
+PROJECT_CODE_CONSOLIDATED.md
+
+# ============ reports 运行产物（前缀黑/白名单） ============
+# black-list: 高频时间戳产物
+reports/AGI*_[0-9]*.md
+reports/agi_self_evolution_round_*.json
+reports/agi_self_evolution_daily_*.json
+reports/agi_self_evolution_alert_*.json
+reports/agi_realtime_monitor_*.jsonl
+reports/unified_system_framework_*.json
+reports/unified_system_framework_*.md
+reports/release_gate_*.json
+reports/release_gate_*.md
+reports/dynamic_blueprint_bootstrap_*.json
+reports/dynamic_blueprint_bootstrap_*.md
+reports/public_alignment_report_*.json
+reports/public_alignment_report_*.md
+reports/nightly_regression_guard_*.json
+reports/nightly_regression_guard_*.md
+reports/interactive_reasoning_benchmark_*.json
+reports/interactive_reasoning_benchmark_*.md
+reports/trusted_joint_agi_quantum_center_*.json
+reports/trusted_joint_agi_quantum_center_*.md
+reports/trusted_local_agi_server_*.log
+
+# white-list: 保留规范化“latest”产物用于审阅
+!reports/*_latest.json
+!reports/*_latest.md

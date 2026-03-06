@@ -5,12 +5,16 @@ on:
     paths:
       - 'das_experimental_validator.py'
       - 'tools/das_ci_monitor.py'
+      - 'tools/dual_conjugate_joint_tuning.py'
+      - 'tools/industrial_realtime_codec.py'
       - 'data/experimental_sources/**'
       - '.github/workflows/das-validation-ci.yml'
   pull_request:
     paths:
       - 'das_experimental_validator.py'
       - 'tools/das_ci_monitor.py'
+      - 'tools/dual_conjugate_joint_tuning.py'
+      - 'tools/industrial_realtime_codec.py'
       - 'data/experimental_sources/**'
       - '.github/workflows/das-validation-ci.yml'
   workflow_dispatch:
@@ -40,6 +44,42 @@ jobs:
         run: |
           python das_experimental_validator.py
 
+      - name: Run dual-conjugate joint tuning report
+        run: |
+          python tools/dual_conjugate_joint_tuning.py
+
+      - name: Run industrial codec regression benchmark
+        run: |
+          mkdir -p ci_artifacts
+          python - <<'PY'
+          import json
+          import time
+          from pathlib import Path
+
+          from tools.industrial_realtime_codec import benchmark_on_files
+
+          files = [
+              Path("das_experimental_validator.py"),
+              Path("tools/dual_conjugate_joint_tuning.py"),
+              Path("tools/industrial_realtime_codec.py"),
+              Path(".github/workflows/das-validation-ci.yml"),
+          ]
+          files = [p for p in files if p.exists()]
+
+          out_dir = Path("ci_artifacts") / f"codec_regression_roundtrip_{int(time.time())}"
+          result = benchmark_on_files(files, out_dir)
+
+          summary = result["summary"]
+          if summary["file_count"] == 0:
+              raise SystemExit("No codec regression files found")
+          if not summary["all_checksum_match"]:
+              raise SystemExit("Codec regression checksum mismatch")
+
+          out_path = Path("ci_artifacts") / "codec_regression.json"
+          out_path.write_text(json.dumps(result, ensure_ascii=False, indent=2), encoding="utf-8")
+          print(json.dumps(summary, ensure_ascii=False, indent=2))
+          PY
+
       - name: Run drift monitor and generate trend plots
         run: |
           python tools/das_ci_monitor.py --workspace . --output-dir ci_artifacts --fail-on-regression
@@ -52,3 +92,5 @@ jobs:
             ci_artifacts/**
             das_validation_report_*.json
             DAS_MODEL_VALUE_ANALYSIS_REPORT_*.md
+            reports/dual_conjugate_joint_tuning_*.json
+            reports/双复数共轭联调与工业压缩验证报告_*.md

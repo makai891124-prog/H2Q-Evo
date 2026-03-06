@@ -1,0 +1,191 @@
+name: AGI Self Evolution CI
+
+on:
+  schedule:
+    - cron: '0 */6 * * *'
+  workflow_dispatch:
+  push:
+    paths:
+      - 'tools/agi_self_evolution_daemon.py'
+      - 'tools/release_gate.py'
+      - 'tools/unified_system_framework.py'
+      - 'tools/capability_registry.py'
+      - 'tools/run_interactive_reasoning_benchmark.py'
+      - 'tools/math_ablation_runner.py'
+      - 'tools/public_alignment_report.py'
+      - 'tools/nightly_regression_guard.py'
+      - 'tools/dynamic_blueprint_bootstrap.py'
+      - 'tools/trusted_local_agi_chat.py'
+      - 'tools/trusted_joint_agi_quantum_center.py'
+      - 'tools/agi_realtime_monitor.py'
+      - 'benchmarks/interactive_reasoning/**'
+      - 'Dockerfile'
+      - '.github/workflows/agi-self-evolution-ci.yml'
+  pull_request:
+    paths:
+      - 'tools/agi_self_evolution_daemon.py'
+      - 'tools/release_gate.py'
+      - 'tools/unified_system_framework.py'
+      - 'tools/capability_registry.py'
+      - 'tools/run_interactive_reasoning_benchmark.py'
+      - 'tools/math_ablation_runner.py'
+      - 'tools/public_alignment_report.py'
+      - 'tools/nightly_regression_guard.py'
+      - 'tools/dynamic_blueprint_bootstrap.py'
+      - 'tools/trusted_local_agi_chat.py'
+      - 'tools/trusted_joint_agi_quantum_center.py'
+      - 'tools/agi_realtime_monitor.py'
+      - 'benchmarks/interactive_reasoning/**'
+      - 'Dockerfile'
+      - '.github/workflows/agi-self-evolution-ci.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  self-evolution:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install numpy
+
+      - name: Run dynamic blueprint focused tests
+        run: |
+          python -m pytest -q -o addopts='' tests/test_dynamic_blueprint_bootstrap.py
+
+      - name: Build docker image for consistency gate
+        run: |
+          docker build -t h2q-sandbox .
+
+      - name: Validate DeepSeek key for assist gate
+        env:
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+        run: |
+          if [ -z "${DEEPSEEK_API_KEY}" ]; then
+            echo "DEEPSEEK_API_KEY is required for release gate assist validation."
+            exit 1
+          fi
+
+      - name: Run interactive reasoning benchmark (nightly hard gate)
+        if: github.event_name == 'schedule'
+        run: |
+          python tools/run_interactive_reasoning_benchmark.py \
+            --task-file benchmarks/interactive_reasoning/tasks_v1.json \
+            --min-success-rate 0.85
+
+      - name: Run unified release gate
+        env:
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+        run: |
+          EXTRA=""
+          MIN_BREADTH="0.30"
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            EXTRA="--allow-missing-docker"
+          fi
+          if [ "${{ github.event_name }}" = "schedule" ]; then
+            MIN_BREADTH="0.70"
+          fi
+          python tools/release_gate.py \
+            --profile quick \
+            --lookback-rounds 48 \
+            --assist-provider deepseek \
+            --assist-key-file secrets/deepseek_api_key.txt \
+            --assist-min-calls 1 \
+            --assist-min-success-rate 0.10 \
+            --min-breadth ${MIN_BREADTH} \
+            --min-horizon 0.80 \
+            --min-robustness 0.60 \
+            ${EXTRA}
+
+      - name: Run math ablation report (nightly)
+        if: github.event_name == 'schedule'
+        run: |
+          python tools/math_ablation_runner.py
+
+      - name: Run public alignment report (nightly)
+        if: github.event_name == 'schedule'
+        run: |
+          python tools/public_alignment_report.py
+
+      - name: Run nightly regression guard (day-over-day)
+        if: github.event_name == 'schedule'
+        run: |
+          python tools/nightly_regression_guard.py \
+            --warn-drop 0.02 \
+            --fail-drop 0.05
+
+      - name: Run dynamic blueprint bootstrap cycle (nightly)
+        if: github.event_name == 'schedule'
+        env:
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+        run: |
+          python tools/dynamic_blueprint_bootstrap.py \
+            --cycles 1 \
+            --max-actions-per-cycle 4 \
+            --interactive-target 0.85 \
+            --alignment-target 0.80 \
+            --enable-module-synthesis \
+            --enable-release-gate-cycle \
+            --strong-release-gate-cycle \
+            --release-gate-retries 2
+
+      - name: Upload release-gate artifacts
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: agi-release-gate-artifacts
+          path: |
+            reports/agi_self_evolution_round_*.json
+            reports/agi_self_evolution_daily_*.json
+            reports/AGI自我进化日报_*.md
+            reports/agi_self_evolution_alert_*.json
+            reports/agi_realtime_monitor_latest.json
+            reports/agi_realtime_monitor_latest.md
+            reports/agi_realtime_monitor_hourly_diagnosis_latest.json
+            reports/agi_realtime_monitor_hourly_diagnosis_latest.md
+            reports/unified_system_framework_*.json
+            reports/unified_system_framework_*.md
+            reports/unified_system_framework_latest.json
+            reports/unified_system_framework_latest.md
+            reports/release_gate_*.json
+            reports/release_gate_*.md
+            reports/release_gate_latest.json
+            reports/release_gate_latest.md
+            reports/capability_registry_*.json
+            reports/capability_registry_latest.json
+            reports/interactive_reasoning_benchmark_*.json
+            reports/interactive_reasoning_benchmark_*.md
+            reports/interactive_reasoning_benchmark_latest.json
+            reports/interactive_reasoning_benchmark_latest.md
+            reports/math_ablation_*.json
+            reports/math_ablation_*.md
+            reports/math_ablation_latest.json
+            reports/math_ablation_latest.md
+            reports/public_alignment_report_*.json
+            reports/public_alignment_report_*.md
+            reports/public_alignment_report_latest.json
+            reports/public_alignment_report_latest.md
+            reports/nightly_regression_guard_*.json
+            reports/nightly_regression_guard_*.md
+            reports/nightly_regression_guard_latest.json
+            reports/nightly_regression_guard_latest.md
+            reports/dynamic_blueprint_bootstrap_*.json
+            reports/dynamic_blueprint_bootstrap_*.md
+            reports/dynamic_blueprint_bootstrap_latest.json
+            reports/dynamic_blueprint_bootstrap_latest.md
+            reports/dynamic_blueprint_state_latest.json
+            reports/trusted_joint_agi_quantum_center_*.json
+            reports/trusted_joint_agi_quantum_center_*.md
+            reports/trusted_local_agi_server_*.log

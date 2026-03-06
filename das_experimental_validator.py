@@ -5,6 +5,13 @@ from pathlib import Path
 
 import numpy as np
 
+try:
+    from STQ_QuantumSimulator import STQ_QuantumSimulator
+    from tools.quantum_gate_isomorphism_validator import witness_from_quantum_gates
+except ImportError:
+    STQ_QuantumSimulator = None
+    witness_from_quantum_gates = None
+
 
 class DASExperimentalValidator:
     """Decision-grade validator with source checks, robust statistics, and value analysis."""
@@ -512,7 +519,78 @@ class DASExperimentalValidator:
             "witness_affine_pass_rate": float(np.mean(affine_err < tol)),
         }
 
-    def _compute_confidence_score(self, neutrino_stats, qgem_stats, noise_stats, cross_stats, iso_stats):
+    def run_dual_conjugate_consistency(self):
+        if STQ_QuantumSimulator is None or witness_from_quantum_gates is None:
+            return {
+                "available": False,
+                "reason": "STQ_QuantumSimulator or quantum_gate_isomorphism_validator import failed",
+            }
+
+        sim = STQ_QuantumSimulator(mass_kg=1.0e-14, distance_m=35e-6)
+        omega = float(sim.omega)
+
+        gammas = np.logspace(-3, -1, 15)
+        taus = np.linspace(0.2, 2.0, 15)
+
+        gate_vals = []
+        aligned_vals = []
+        legacy_vals = []
+
+        for g in gammas:
+            for t in taus:
+                w_gate = witness_from_quantum_gates(omega, float(g), float(t), sign=1.0)
+                w_aligned = sim.dual_complex_evolution(
+                    [float(t)],
+                    float(g),
+                    Lambda_threshold=100.0,
+                    formula_mode="aligned",
+                )[0]
+                w_legacy = sim.dual_complex_evolution(
+                    [float(t)],
+                    float(g),
+                    Lambda_threshold=100.0,
+                    formula_mode="legacy",
+                )[0]
+
+                gate_vals.append(float(w_gate))
+                aligned_vals.append(float(w_aligned))
+                legacy_vals.append(float(w_legacy))
+
+        q = np.asarray(gate_vals, dtype=np.float64)
+        a = np.asarray(aligned_vals, dtype=np.float64)
+        l = np.asarray(legacy_vals, dtype=np.float64)
+
+        idx = np.arange(len(q))
+        folds = np.array_split(idx, 4)
+        fold_rows = []
+        for i, test_idx in enumerate(folds):
+            fold_rows.append(
+                {
+                    "fold": i + 1,
+                    "aligned_mae": float(np.mean(np.abs(a[test_idx] - q[test_idx]))),
+                    "legacy_mae": float(np.mean(np.abs(l[test_idx] - q[test_idx]))),
+                    "aligned_corr": float(np.corrcoef(a[test_idx], q[test_idx])[0, 1]),
+                    "legacy_corr": float(np.corrcoef(l[test_idx], q[test_idx])[0, 1]),
+                }
+            )
+
+        return {
+            "available": True,
+            "sample_count": int(len(q)),
+            "aligned": {
+                "mae": float(np.mean(np.abs(a - q))),
+                "corr": float(np.corrcoef(a, q)[0, 1]),
+                "neg_sign_agreement": float(np.mean((a < 0.0) == (q < 0.0))),
+            },
+            "legacy": {
+                "mae": float(np.mean(np.abs(l - q))),
+                "corr": float(np.corrcoef(l, q)[0, 1]),
+            },
+            "best_mode": "aligned" if np.mean(np.abs(a - q)) < np.mean(np.abs(l - q)) else "legacy",
+            "cross_validation": fold_rows,
+        }
+
+    def _compute_confidence_score(self, neutrino_stats, qgem_stats, noise_stats, cross_stats, iso_stats, dual_stats):
         mc = qgem_stats["monte_carlo"]
 
         components = {
@@ -531,6 +609,11 @@ class DASExperimentalValidator:
                 / 3.0,
                 1.0,
             ),
+            "dual_conjugate_alignment": (
+                min(1.0, max(0.0, dual_stats["aligned"]["corr"]))
+                if dual_stats.get("available")
+                else 0.0
+            ),
         }
         score = float(np.mean(list(components.values())))
         return score, components
@@ -542,6 +625,7 @@ class DASExperimentalValidator:
         noise_stats = self.run_qgem_noise_robustness()
         cross_stats = self.run_qgem_cross_validation()
         isomorphism_stats = self.run_isomorphism_structure_tests()
+        dual_stats = self.run_dual_conjugate_consistency()
 
         mc = qgem_stats["monte_carlo"]
 
@@ -555,7 +639,18 @@ class DASExperimentalValidator:
             "min_noise_robustness_index": 0.75,
             "max_crossval_mape": 0.45,
             "min_trend_consistency_rate": 0.95,
+            "max_aligned_mae": 0.08,
+            "min_aligned_corr": 0.80,
+            "min_aligned_sign_agreement": 0.80,
         }
+
+        dual_pass = bool(
+            dual_stats.get("available")
+            and dual_stats.get("best_mode") == "aligned"
+            and dual_stats["aligned"]["mae"] <= strict_thresholds["max_aligned_mae"]
+            and dual_stats["aligned"]["corr"] >= strict_thresholds["min_aligned_corr"]
+            and dual_stats["aligned"]["neg_sign_agreement"] >= strict_thresholds["min_aligned_sign_agreement"]
+        )
 
         verdict = {
             "source_valid": source_validation["all_passed"],
@@ -580,6 +675,7 @@ class DASExperimentalValidator:
                 and isomorphism_stats["additivity_pass_rate"] >= strict_thresholds["min_iso_pass_rate"]
                 and isomorphism_stats["scaling_pass_rate"] >= strict_thresholds["min_iso_pass_rate"]
             ),
+            "dual_conjugate_aligned_pass": dual_pass,
         }
 
         # Dual decision heads.
@@ -592,12 +688,13 @@ class DASExperimentalValidator:
             and verdict["neutrino_consistency_pass"]
             and verdict["noise_robustness_pass"]
             and verdict["cross_validation_pass"]
+            and verdict["dual_conjugate_aligned_pass"]
         )
         verdict["isomorphism_ready"] = bool(verdict["isomorphism_structure_pass"])
         verdict["decision_grade_ready"] = bool(verdict["physics_ready"] and verdict["isomorphism_ready"])
 
         confidence_score, confidence_components = self._compute_confidence_score(
-            neutrino_stats, qgem_stats, noise_stats, cross_stats, isomorphism_stats
+            neutrino_stats, qgem_stats, noise_stats, cross_stats, isomorphism_stats, dual_stats
         )
 
         report = {
@@ -620,6 +717,7 @@ class DASExperimentalValidator:
             "qgem_noise_robustness": noise_stats,
             "qgem_cross_validation": cross_stats,
             "isomorphism_structure_tests": isomorphism_stats,
+            "dual_conjugate_consistency": dual_stats,
             "strict_thresholds": strict_thresholds,
             "confidence": {
                 "isomorphic_confidence_score": confidence_score,
@@ -645,6 +743,7 @@ class DASExperimentalValidator:
         noise = report["qgem_noise_robustness"]
         neu = report["neutrino_consistency_covariance"]
         mc = report["qgem_scan_and_mc"]["monte_carlo"]
+        dual = report.get("dual_conjugate_consistency", {})
 
         lines = [
             "# DAS Model Value Analysis Report",
@@ -672,11 +771,17 @@ class DASExperimentalValidator:
             "- High-precision numerical path (longdouble + stable exponential clipping) improves truncation stability.",
             "- Environment noise robustness is quantified via phase/decoherence/timing jitter sweep.",
             "- Cross-validation includes both in-domain scenarios and historical external reference data.",
+            "- Aligned dual-conjugate witness is now a first-class decision criterion in the validator chain.",
             "",
             "## Risk and Limits",
             "",
             f"- Cross-validation MAPE: `{cv['loo_mape']:.4f}`",
             f"- Noise robustness index: `{noise['robustness_index']:.4f}`",
+            (
+                f"- Aligned dual-conjugate MAE/Corr: `{dual['aligned']['mae']:.4f}` / `{dual['aligned']['corr']:.4f}`"
+                if dual.get("available")
+                else "- Aligned dual-conjugate consistency unavailable in this run."
+            ),
             "- External reference rows are sparse; confidence should improve with additional published tabular data.",
             "",
             "## Practical Value Judgment",
@@ -704,6 +809,7 @@ class DASExperimentalValidator:
         noise = report["qgem_noise_robustness"]
         cv = report["qgem_cross_validation"]
         iso = report["isomorphism_structure_tests"]
+        dual = report.get("dual_conjugate_consistency", {})
         vd = report["verdict"]
         conf = report["confidence"]
 
@@ -733,6 +839,15 @@ class DASExperimentalValidator:
             f"additivity={iso['additivity_pass_rate']:.3f}, "
             f"scaling={iso['scaling_pass_rate']:.3f}"
         )
+        if dual.get("available"):
+            print(
+                "Dual-conjugate aligned check: "
+                f"best_mode={dual['best_mode']} | "
+                f"aligned_mae={dual['aligned']['mae']:.3f} | "
+                f"aligned_corr={dual['aligned']['corr']:.3f}"
+            )
+        else:
+            print("Dual-conjugate aligned check: unavailable")
         print(
             "Decision heads: "
             f"physics_ready={vd['physics_ready']} | "
