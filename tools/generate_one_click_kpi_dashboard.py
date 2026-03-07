@@ -219,6 +219,38 @@ def _collect_formal_assessment_summary() -> Dict[str, Any]:
         }
 
 
+def _collect_systemic_joint_summary() -> Dict[str, Any]:
+    joint_path = REPORTS / "systemic_platform_joint_capability_latest.json"
+    if not joint_path.exists():
+        return {
+            "source": None,
+            "available": False,
+        }
+
+    try:
+        payload = _load_json(joint_path)
+        agg = payload.get("aggregate_effectiveness") or {}
+        cv = payload.get("cross_validation") or {}
+        conclusion = payload.get("conclusion") or {}
+        return {
+            "source": str(joint_path),
+            "available": True,
+            "generated_at_utc": payload.get("generated_at_utc"),
+            "self_problem": payload.get("self_problem"),
+            "aggregate_score": float(agg.get("score", 0.0) or 0.0),
+            "cv_min_score": float(cv.get("min_score", 0.0) or 0.0),
+            "cv_std_score": float(cv.get("std_score", 0.0) or 0.0),
+            "all_steps_ok": bool(conclusion.get("all_steps_ok", False)),
+            "robust_claim": bool(conclusion.get("robust_claim", False)),
+            "statement": conclusion.get("statement"),
+        }
+    except Exception:
+        return {
+            "source": str(joint_path),
+            "available": False,
+        }
+
+
 def _safe_ratio(num: float, den: float) -> float:
     if den <= 0:
         return 0.0
@@ -403,6 +435,7 @@ def main() -> int:
     distill_kpis = _collect_distillation_metrics()
     distill_compare = _collect_distillation_robustness_compare(target_sessions=[30, 50])
     formal_summary = _collect_formal_assessment_summary()
+    systemic_summary = _collect_systemic_joint_summary()
 
     payload: Dict[str, Any] = {
         "generated_at_utc": datetime.now(timezone.utc).isoformat(),
@@ -412,6 +445,7 @@ def main() -> int:
             "distillation_pipeline": distill_kpis["pipeline_source"],
             "distilled_benchmark": distill_kpis["distilled_benchmark_source"],
             "formal_assessment": formal_summary.get("source"),
+            "systemic_joint_assessment": systemic_summary.get("source"),
         },
         "kpis": {
             "strict_json_attempt_count": int(session_kpis["strict_json_attempt_count"]),
@@ -421,6 +455,8 @@ def main() -> int:
             "distilled_schema_valid_rate": float(distill_kpis["distilled_schema_valid_rate"]),
             "distill_schema_valid_rate_delta": float(distill_kpis["delta_schema_valid_rate"]),
             "distill_schema_valid_rate_positive": bool(distill_kpis["schema_valid_rate_positive"]),
+            "systemic_joint_score": float(systemic_summary.get("aggregate_score", 0.0) or 0.0),
+            "systemic_joint_robust_claim": bool(systemic_summary.get("robust_claim", False)),
         },
         "supporting": {
             "self_eval_total": int(session_kpis["self_eval_total"]),
@@ -434,6 +470,7 @@ def main() -> int:
             "distill_adapter_enabled": bool(distill_kpis["distill_adapter_enabled"]),
             "distill_robustness_compare": distill_compare,
             "formal_assessment_summary": formal_summary,
+            "systemic_joint_summary": systemic_summary,
         },
     }
 
@@ -473,6 +510,7 @@ def main() -> int:
         f"- distillation_pipeline: `{payload['sources']['distillation_pipeline']}`",
         f"- distilled_benchmark: `{payload['sources']['distilled_benchmark']}`",
         f"- formal_assessment: `{payload['sources']['formal_assessment']}`",
+        f"- systemic_joint_assessment: `{payload['sources']['systemic_joint_assessment']}`",
         "",
         "## KPI Metrics",
         f"- strict_json_attempt_count: `{k['strict_json_attempt_count']}`",
@@ -482,6 +520,8 @@ def main() -> int:
         f"- distilled_schema_valid_rate: `{k['distilled_schema_valid_rate']:.6f}`",
         f"- distill_schema_valid_rate_delta: `{k['distill_schema_valid_rate_delta']:+.6f}`",
         f"- distill_schema_valid_rate_positive: `{k['distill_schema_valid_rate_positive']}`",
+        f"- systemic_joint_score: `{k['systemic_joint_score']:.6f}`",
+        f"- systemic_joint_robust_claim: `{k['systemic_joint_robust_claim']}`",
         "",
         "## Quick Visual",
         "- fallback_ratio_self_eval",
@@ -490,6 +530,8 @@ def main() -> int:
         f"  `{_bar(k['teacher_assist_dependency_ratio'])}`",
         "- distilled_schema_valid_rate",
         f"  `{_bar(k['distilled_schema_valid_rate'])}`",
+        "- systemic_joint_score",
+        f"  `{_bar(k['systemic_joint_score'])}`",
         "",
         "## Trend Chart",
         "![One-Click KPI Trend](one_click_kpi_dashboard_latest.png)",
@@ -554,6 +596,22 @@ def main() -> int:
             f"baseline_alignment={float(pub.get('baseline_alignment_overall', 0.0)):.6f}, "
             f"longrun_alignment={float(pub.get('longrun_alignment_overall', 0.0)):.6f}"
         )
+
+    systemic = payload["supporting"].get("systemic_joint_summary") or {}
+    lines.extend([
+        "",
+        "## Systemic Joint Capability Summary",
+        f"- available: `{bool(systemic.get('available', False))}`",
+        f"- generated_at_utc: `{systemic.get('generated_at_utc')}`",
+        f"- self_problem: `{systemic.get('self_problem')}`",
+        f"- aggregate_score: `{float(systemic.get('aggregate_score', 0.0)):.6f}`",
+        f"- cv_min_score: `{float(systemic.get('cv_min_score', 0.0)):.6f}`",
+        f"- cv_std_score: `{float(systemic.get('cv_std_score', 0.0)):.6f}`",
+        f"- all_steps_ok: `{bool(systemic.get('all_steps_ok', False))}`",
+        f"- robust_claim: `{bool(systemic.get('robust_claim', False))}`",
+    ])
+    if systemic.get("statement"):
+        lines.append(f"- statement: {systemic.get('statement')}")
 
     out_md.write_text("\n".join(lines) + "\n", encoding="utf-8")
     shutil.copy2(out_md, latest_md)

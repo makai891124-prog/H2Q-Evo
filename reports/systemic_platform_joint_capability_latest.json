@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-03-07T12:07:34.597837+00:00",
+  "generated_at_utc": "2026-03-07T12:24:10.660383+00:00",
   "self_problem": "evidence_consistency_under_multi_controller_collaboration",
   "solution_strategy": {
     "controllers": [
@@ -38,7 +38,7 @@
         "systemic_joint_blueprint"
       ],
       "returncode": 0,
-      "stdout_tail": "Dynamic blueprint bootstrap completed\nJSON: /Users/imymm/H2Q-Evo/reports/systemic_joint_blueprint_1772884925.json\nMD: /Users/imymm/H2Q-Evo/reports/systemic_joint_blueprint_1772884925.md\nLatest JSON: /Users/imymm/H2Q-Evo/reports/systemic_joint_blueprint_latest.json\nLatest MD: /Users/imymm/H2Q-Evo/reports/systemic_joint_blueprint_latest.md",
+      "stdout_tail": "Dynamic blueprint bootstrap completed\nJSON: /Users/imymm/H2Q-Evo/reports/systemic_joint_blueprint_1772885953.json\nMD: /Users/imymm/H2Q-Evo/reports/systemic_joint_blueprint_1772885953.md\nLatest JSON: /Users/imymm/H2Q-Evo/reports/systemic_joint_blueprint_latest.json\nLatest MD: /Users/imymm/H2Q-Evo/reports/systemic_joint_blueprint_latest.md",
       "stderr_tail": ""
     },
     {
@@ -53,7 +53,7 @@
         "systemic_joint_validation"
       ],
       "returncode": 0,
-      "stdout_tail": "Summary JSON: /Users/imymm/H2Q-Evo/reports/systemic_joint_validation_1772884925.json\nLatest Summary JSON: /Users/imymm/H2Q-Evo/reports/systemic_joint_validation_latest.json\nPublic Validation MD: /Users/imymm/H2Q-Evo/reports/agi_system_instantiation_public_validation_1772884925.md\nLatest Public Validation MD: /Users/imymm/H2Q-Evo/reports/agi_system_instantiation_public_validation_latest.md\nStability MD: /Users/imymm/H2Q-Evo/reports/agi_system_instantiation_stability_1772884925.md\nLatest Stability MD: /Users/imymm/H2Q-Evo/reports/agi_system_instantiation_stability_latest.md",
+      "stdout_tail": "Summary JSON: /Users/imymm/H2Q-Evo/reports/systemic_joint_validation_1772885953.json\nLatest Summary JSON: /Users/imymm/H2Q-Evo/reports/systemic_joint_validation_latest.json\nPublic Validation MD: /Users/imymm/H2Q-Evo/reports/agi_system_instantiation_public_validation_1772885953.md\nLatest Public Validation MD: /Users/imymm/H2Q-Evo/reports/agi_system_instantiation_public_validation_latest.md\nStability MD: /Users/imymm/H2Q-Evo/reports/agi_system_instantiation_stability_1772885953.md\nLatest Stability MD: /Users/imymm/H2Q-Evo/reports/agi_system_instantiation_stability_latest.md",
       "stderr_tail": ""
     },
     {
@@ -63,7 +63,7 @@
         "tools/run_distill_evolution_public_formal_assessment.py"
       ],
       "returncode": 0,
-      "stdout_tail": "JSON: /Users/imymm/H2Q-Evo/reports/distill_evo_public_formal_assessment_1772885253.json\nLatest JSON: /Users/imymm/H2Q-Evo/reports/distill_evo_public_formal_assessment_latest.json\nMD: /Users/imymm/H2Q-Evo/reports/distill_evo_public_formal_assessment_1772885253.md\nLatest MD: /Users/imymm/H2Q-Evo/reports/distill_evo_public_formal_assessment_latest.md\nLean: /Users/imymm/H2Q-Evo/reports/distill_evolution_logic_closure_1772885253.lean\nLean latest: /Users/imymm/H2Q-Evo/reports/distill_evolution_logic_closure_latest.lean\nLean compile success: True",
+      "stdout_tail": "JSON: /Users/imymm/H2Q-Evo/reports/distill_evo_public_formal_assessment_1772886250.json\nLatest JSON: /Users/imymm/H2Q-Evo/reports/distill_evo_public_formal_assessment_latest.json\nMD: /Users/imymm/H2Q-Evo/reports/distill_evo_public_formal_assessment_1772886250.md\nLatest MD: /Users/imymm/H2Q-Evo/reports/distill_evo_public_formal_assessment_latest.md\nLean: /Users/imymm/H2Q-Evo/reports/distill_evolution_logic_closure_1772886250.lean\nLean latest: /Users/imymm/H2Q-Evo/reports/distill_evolution_logic_closure_latest.lean\nLean compile success: True",
       "stderr_tail": ""
     },
     {
@@ -73,7 +73,7 @@
         "tools/run_research_aggregation_cross_validation.py"
       ],
       "returncode": 0,
-      "stdout_tail": "JSON: /Users/imymm/H2Q-Evo/reports/research_aggregation_cross_validation_1772885254.json\nLatest JSON: /Users/imymm/H2Q-Evo/reports/research_aggregation_cross_validation_latest.json\nMD: /Users/imymm/H2Q-Evo/reports/research_aggregation_cross_validation_1772885254.md\nLatest MD: /Users/imymm/H2Q-Evo/reports/research_aggregation_cross_validation_latest.md\nProof MD: /Users/imymm/H2Q-Evo/reports/research_aggregation_cross_validation_proof_note_1772885254.md\nLatest Proof MD: /Users/imymm/H2Q-Evo/reports/research_aggregation_cross_validation_proof_note_latest.md\nAggregate score: 0.978739\nLOO min score: 0.971652\nRobust claim: True",
+      "stdout_tail": "JSON: /Users/imymm/H2Q-Evo/reports/research_aggregation_cross_validation_1772886250.json\nLatest JSON: /Users/imymm/H2Q-Evo/reports/research_aggregation_cross_validation_latest.json\nMD: /Users/imymm/H2Q-Evo/reports/research_aggregation_cross_validation_1772886250.md\nLatest MD: /Users/imymm/H2Q-Evo/reports/research_aggregation_cross_validation_latest.md\nProof MD: /Users/imymm/H2Q-Evo/reports/research_aggregation_cross_validation_proof_note_1772886250.md\nLatest Proof MD: /Users/imymm/H2Q-Evo/reports/research_aggregation_cross_validation_proof_note_latest.md\nAggregate score: 0.978739\nLOO min score: 0.971652\nRobust claim: True",
       "stderr_tail": ""
     }
   ],
@@ -84,11 +84,11 @@
     "kpi": "/Users/imymm/H2Q-Evo/reports/one_click_kpi_dashboard_latest.json"
   },
   "aggregate_effectiveness": {
-    "score": 0.9903960745753946,
+    "score": 0.9887909377077577,
     "components": [
       {
         "name": "gate_alignment",
-        "value": 0.999878767431399,
+        "value": 0.9945283112059428,
         "weight": 0.3,
         "source": "/Users/imymm/H2Q-Evo/reports/systemic_joint_validation_latest.json"
       },
@@ -132,7 +132,7 @@
       },
       {
         "left_out": "formal_closure",
-        "score": 0.9879950932192433,
+        "score": 0.9859886721346972,
         "kept": [
           "gate_alignment",
           "research_aggregate",
@@ -142,7 +142,7 @@
       },
       {
         "left_out": "research_aggregate",
-        "score": 0.9942818443627669,
+        "score": 0.9921416618725845,
         "kept": [
           "gate_alignment",
           "formal_closure",
@@ -152,7 +152,7 @@
       },
       {
         "left_out": "research_cv_floor",
-        "score": 0.9937039076855754,
+        "score": 0.9918155113707084,
         "kept": [
           "gate_alignment",
           "formal_closure",
@@ -162,7 +162,7 @@
       },
       {
         "left_out": "distill_schema_signal",
-        "score": 0.9893289717504384,
+        "score": 0.987545486341953,
         "kept": [
           "gate_alignment",
           "formal_closure",
@@ -171,10 +171,10 @@
         ]
       }
     ],
-    "min_score": 0.9863320633513927,
-    "max_score": 0.9942818443627669,
-    "mean_score": 0.9903283760738834,
-    "std_score": 0.003144444575124786
+    "min_score": 0.9859886721346972,
+    "max_score": 0.9921416618725845,
+    "mean_score": 0.9887646790142671,
+    "std_score": 0.002676634275480472
   },
   "conclusion": {
     "all_steps_ok": true,
