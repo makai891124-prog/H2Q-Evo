@@ -87,6 +87,8 @@ def main() -> int:
     parser.add_argument("--temperature", type=float, default=0.7)
     parser.add_argument("--schema-retries", type=int, default=2)
     parser.add_argument("--disable-schema-enforcement", action="store_true")
+    parser.add_argument("--disable-self-eval-distill-adapter", action="store_true")
+    parser.add_argument("--self-eval-distill-model", default="reports/self_eval_distill_model_latest.json")
     parser.add_argument("--auto-start-server", action="store_true", default=True)
     parser.add_argument("--no-auto-start-server", dest="auto_start_server", action="store_false")
     parser.add_argument("--output-prefix", default="self_model_consistency_benchmark")
@@ -118,6 +120,14 @@ def main() -> int:
         "请进行元认知自检并返回JSON对象，字段包含capability_boundaries/failure_risks/improvement_plan/confidence。必须是具体条目，不能写省略号。",
     ]
 
+    distill_model_path: Path | None = None
+    if not args.disable_self_eval_distill_adapter:
+        candidate = Path(args.self_eval_distill_model)
+        if not candidate.is_absolute():
+            candidate = ROOT / candidate
+        if candidate.exists():
+            distill_model_path = candidate
+
     records: List[Dict[str, Any]] = []
     try:
         for i in range(max(1, args.sessions)):
@@ -132,6 +142,7 @@ def main() -> int:
                     openclaw_url=None if args.disable_openclaw_fallback else args.openclaw_url,
                     enforce_schema=not args.disable_schema_enforcement,
                     max_schema_retries=max(0, args.schema_retries),
+                    self_eval_distill_model_path=distill_model_path,
                 )
                 latency = time.time() - t0
                 schema = result.get("_schema", {})
@@ -187,6 +198,8 @@ def main() -> int:
             "openclaw_url": None if args.disable_openclaw_fallback else args.openclaw_url,
             "schema_enforced": not args.disable_schema_enforcement,
             "schema_retries": max(0, args.schema_retries),
+            "distill_adapter_enabled": distill_model_path is not None,
+            "distill_model_path": str(distill_model_path) if distill_model_path else "",
             "trust_report": str(trust_report),
             "trust_summary": trust_summary,
         },

@@ -62,6 +62,163 @@ def _find_latest_release_gate(prefer_deepseek: bool) -> Optional[Path]:
     return _latest_by_mtime(candidates)
 
 
+def _collect_distillation_metrics() -> Dict[str, Any]:
+    pipeline_path = REPORTS / "self_eval_distillation_pipeline_latest.json"
+    distilled_path = REPORTS / "self_model_consistency_distilled_latest.json"
+
+    baseline = 0.0
+    distilled = 0.0
+    delta = 0.0
+    positive = False
+    total_runs = 0
+    adapter_enabled = False
+
+    if pipeline_path.exists():
+        try:
+            payload = _load_json(pipeline_path)
+            metrics = payload.get("metrics") or {}
+            baseline = float(metrics.get("baseline_schema_valid_rate", baseline) or baseline)
+            distilled = float(metrics.get("distilled_schema_valid_rate", distilled) or distilled)
+            delta = float(metrics.get("delta_schema_valid_rate", distilled - baseline) or (distilled - baseline))
+            positive = bool(metrics.get("schema_valid_rate_positive", distilled > 0.0))
+        except Exception:
+            pass
+
+    if distilled_path.exists():
+        try:
+            payload = _load_json(distilled_path)
+            meta = payload.get("meta") or {}
+            metrics = payload.get("metrics") or {}
+            total_runs = int(meta.get("total_runs", 0) or 0)
+            adapter_enabled = bool(meta.get("distill_adapter_enabled", False))
+            distilled = float(metrics.get("schema_valid_rate", distilled) or distilled)
+            if abs(delta) < 1e-12:
+                delta = distilled - baseline
+            positive = distilled > 0.0
+        except Exception:
+            pass
+
+    return {
+        "pipeline_source": str(pipeline_path) if pipeline_path.exists() else None,
+        "distilled_benchmark_source": str(distilled_path) if distilled_path.exists() else None,
+        "baseline_schema_valid_rate": baseline,
+        "distilled_schema_valid_rate": distilled,
+        "delta_schema_valid_rate": delta,
+        "schema_valid_rate_positive": positive,
+        "distill_total_runs": total_runs,
+        "distill_adapter_enabled": adapter_enabled,
+    }
+
+
+def _collect_distillation_robustness_compare(target_sessions: List[int]) -> Dict[str, Any]:
+    runs: List[Dict[str, Any]] = []
+    by_session: Dict[int, Dict[str, Any]] = {}
+
+    for p in REPORTS.glob("self_model_consistency_distilled_*.json"):
+        if p.name.endswith("_latest.json"):
+            continue
+        try:
+            payload = _load_json(p)
+            meta = payload.get("meta") or {}
+            metrics = payload.get("metrics") or {}
+            sessions = int(meta.get("sessions", 0) or 0)
+            total_runs = int(meta.get("total_runs", 0) or 0)
+            schema_valid_rate = float(metrics.get("schema_valid_rate", 0.0) or 0.0)
+            score = float(metrics.get("overall_score", 0.0) or 0.0)
+            item = {
+                "path": str(p),
+                "mtime": float(p.stat().st_mtime),
+                "sessions": sessions,
+                "total_runs": total_runs,
+                "schema_valid_rate": schema_valid_rate,
+                "overall_score": score,
+            }
+            runs.append(item)
+        except Exception:
+            continue
+
+    for s in target_sessions:
+        candidates = [x for x in runs if x["sessions"] == s]
+        if not candidates:
+            continue
+        by_session[s] = sorted(candidates, key=lambda x: x["mtime"], reverse=True)[0]
+
+    compared = []
+    for s in target_sessions:
+        if s in by_session:
+            compared.append(by_session[s])
+
+    comparison: Dict[str, Any] = {
+        "targets": target_sessions,
+        "available": [x["sessions"] for x in compared],
+        "runs": compared,
+    }
+
+    if len(compared) >= 2:
+        first = compared[0]
+        last = compared[-1]
+        comparison["delta_schema_valid_rate"] = float(last["schema_valid_rate"] - first["schema_valid_rate"])
+        comparison["delta_overall_score"] = float(last["overall_score"] - first["overall_score"])
+    else:
+        comparison["delta_schema_valid_rate"] = 0.0
+        comparison["delta_overall_score"] = 0.0
+
+    return comparison
+
+
+def _collect_formal_assessment_summary() -> Dict[str, Any]:
+    formal_path = REPORTS / "distill_evo_public_formal_assessment_latest.json"
+    if not formal_path.exists():
+        return {
+            "source": None,
+            "available": False,
+        }
+
+    try:
+        payload = _load_json(formal_path)
+        logic = payload.get("logic_closure") or {}
+        facts = logic.get("facts") or {}
+        distill = payload.get("distillation") or {}
+        public = payload.get("public_validation") or {}
+        robust = payload.get("robustness_compare") or {}
+        return {
+            "source": str(formal_path),
+            "available": True,
+            "generated_at_utc": payload.get("generated_at_utc"),
+            "lean_compile_success": bool(logic.get("lean_compile_success", False)),
+            "facts": {
+                "distill_pipeline_all_steps_ok": bool(facts.get("distill_pipeline_all_steps_ok", False)),
+                "public_validation_all_steps_ok": bool(facts.get("public_validation_all_steps_ok", False)),
+                "distilled_schema_positive": bool(facts.get("distilled_schema_positive", False)),
+                "baseline_gate_ok": bool(facts.get("baseline_gate_ok", False)),
+                "longrun_gate_ok": bool(facts.get("longrun_gate_ok", False)),
+            },
+            "distillation": {
+                "sessions": int(distill.get("sessions", 0) or 0),
+                "schema_valid_rate": float(distill.get("schema_valid_rate", 0.0) or 0.0),
+                "overall_score": float(distill.get("overall_score", 0.0) or 0.0),
+                "pipeline_delta_schema_valid_rate": float(distill.get("pipeline_delta_schema_valid_rate", 0.0) or 0.0),
+            },
+            "public_validation": {
+                "baseline_gate_ok": bool(public.get("baseline_gate_ok", False)),
+                "longrun_gate_ok": bool(public.get("longrun_gate_ok", False)),
+                "baseline_alignment_overall": float(public.get("baseline_alignment_overall", 0.0) or 0.0),
+                "longrun_alignment_overall": float(public.get("longrun_alignment_overall", 0.0) or 0.0),
+            },
+            "robustness_compare": {
+                "delta_schema_valid_rate_50_minus_30": float(
+                    robust.get("delta_schema_valid_rate_50_minus_30", 0.0) or 0.0
+                ),
+                "delta_overall_score_50_minus_30": float(robust.get("delta_overall_score_50_minus_30", 0.0) or 0.0),
+            },
+        }
+    except Exception:
+        return {
+            "source": str(formal_path),
+            "available": False,
+        }
+
+
 def _safe_ratio(num: float, den: float) -> float:
     if den <= 0:
         return 0.0
@@ -105,6 +262,7 @@ def _load_trend_history(output_prefix: str, limit: int = 20) -> List[Dict[str, A
                     "hard_fail_count": float(kpis.get("hard_fail_count", 0.0) or 0.0),
                     "fallback_ratio_self_eval": float(kpis.get("fallback_ratio_self_eval", 0.0) or 0.0),
                     "teacher_assist_dependency_ratio": float(kpis.get("teacher_assist_dependency_ratio", 0.0) or 0.0),
+                    "distilled_schema_valid_rate": float(kpis.get("distilled_schema_valid_rate", 0.0) or 0.0),
                 }
             )
         except Exception:
@@ -119,6 +277,7 @@ def _plot_dashboard_chart(history: List[Dict[str, Any]], out_png: Path, out_late
     labels = [p["label"] for p in history]
     fallback = [p["fallback_ratio_self_eval"] for p in history]
     teacher = [p["teacher_assist_dependency_ratio"] for p in history]
+    distilled_valid = [p["distilled_schema_valid_rate"] for p in history]
     strict_counts = [p["strict_json_attempt_count"] for p in history]
     hard_fail_counts = [p["hard_fail_count"] for p in history]
 
@@ -128,6 +287,7 @@ def _plot_dashboard_chart(history: List[Dict[str, Any]], out_png: Path, out_late
     x = range(len(labels))
     ax1.plot(x, fallback, marker="o", linewidth=2.0, color="#c0392b", label="fallback_ratio_self_eval")
     ax1.plot(x, teacher, marker="o", linewidth=2.0, color="#2e86c1", label="teacher_assist_dependency_ratio")
+    ax1.plot(x, distilled_valid, marker="o", linewidth=2.0, color="#117a65", label="distilled_schema_valid_rate")
     ax1.set_ylim(0.0, 1.05)
     ax1.set_ylabel("ratio")
     ax1.set_title("One-Click KPI Trend (Ratios)")
@@ -240,17 +400,27 @@ def main() -> int:
         except Exception:
             pass
 
+    distill_kpis = _collect_distillation_metrics()
+    distill_compare = _collect_distillation_robustness_compare(target_sessions=[30, 50])
+    formal_summary = _collect_formal_assessment_summary()
+
     payload: Dict[str, Any] = {
         "generated_at_utc": datetime.now(timezone.utc).isoformat(),
         "sources": {
             "session": str(session_path),
             "release_gate": str(release_gate_path) if release_gate_path else None,
+            "distillation_pipeline": distill_kpis["pipeline_source"],
+            "distilled_benchmark": distill_kpis["distilled_benchmark_source"],
+            "formal_assessment": formal_summary.get("source"),
         },
         "kpis": {
             "strict_json_attempt_count": int(session_kpis["strict_json_attempt_count"]),
             "hard_fail_count": int(session_kpis["hard_fail_count"]),
             "fallback_ratio_self_eval": float(session_kpis["fallback_ratio_self_eval"]),
             "teacher_assist_dependency_ratio": float(assist_kpis["teacher_assist_dependency_ratio"]),
+            "distilled_schema_valid_rate": float(distill_kpis["distilled_schema_valid_rate"]),
+            "distill_schema_valid_rate_delta": float(distill_kpis["delta_schema_valid_rate"]),
+            "distill_schema_valid_rate_positive": bool(distill_kpis["schema_valid_rate_positive"]),
         },
         "supporting": {
             "self_eval_total": int(session_kpis["self_eval_total"]),
@@ -259,6 +429,11 @@ def main() -> int:
             "assist_enabled": bool(assist_kpis["assist_enabled"]),
             "assist_calls": int(assist_kpis["assist_calls"]),
             "assist_success_calls": int(assist_kpis["assist_success_calls"]),
+            "distill_baseline_schema_valid_rate": float(distill_kpis["baseline_schema_valid_rate"]),
+            "distill_total_runs": int(distill_kpis["distill_total_runs"]),
+            "distill_adapter_enabled": bool(distill_kpis["distill_adapter_enabled"]),
+            "distill_robustness_compare": distill_compare,
+            "formal_assessment_summary": formal_summary,
         },
     }
 
@@ -282,6 +457,7 @@ def main() -> int:
             "hard_fail_count": float(payload["kpis"]["hard_fail_count"]),
             "fallback_ratio_self_eval": float(payload["kpis"]["fallback_ratio_self_eval"]),
             "teacher_assist_dependency_ratio": float(payload["kpis"]["teacher_assist_dependency_ratio"]),
+            "distilled_schema_valid_rate": float(payload["kpis"]["distilled_schema_valid_rate"]),
         }
     )
     history = sorted(history, key=lambda x: x["epoch"])[-20:]
@@ -294,18 +470,26 @@ def main() -> int:
         f"- generated_at_utc: `{payload['generated_at_utc']}`",
         f"- session: `{payload['sources']['session']}`",
         f"- release_gate: `{payload['sources']['release_gate']}`",
+        f"- distillation_pipeline: `{payload['sources']['distillation_pipeline']}`",
+        f"- distilled_benchmark: `{payload['sources']['distilled_benchmark']}`",
+        f"- formal_assessment: `{payload['sources']['formal_assessment']}`",
         "",
         "## KPI Metrics",
         f"- strict_json_attempt_count: `{k['strict_json_attempt_count']}`",
         f"- hard_fail_count: `{k['hard_fail_count']}`",
         f"- fallback_ratio_self_eval: `{k['fallback_ratio_self_eval']:.6f}`",
         f"- teacher_assist_dependency_ratio: `{k['teacher_assist_dependency_ratio']:.6f}`",
+        f"- distilled_schema_valid_rate: `{k['distilled_schema_valid_rate']:.6f}`",
+        f"- distill_schema_valid_rate_delta: `{k['distill_schema_valid_rate_delta']:+.6f}`",
+        f"- distill_schema_valid_rate_positive: `{k['distill_schema_valid_rate_positive']}`",
         "",
         "## Quick Visual",
         "- fallback_ratio_self_eval",
         f"  `{_bar(k['fallback_ratio_self_eval'])}`",
         "- teacher_assist_dependency_ratio",
         f"  `{_bar(k['teacher_assist_dependency_ratio'])}`",
+        "- distilled_schema_valid_rate",
+        f"  `{_bar(k['distilled_schema_valid_rate'])}`",
         "",
         "## Trend Chart",
         "![One-Click KPI Trend](one_click_kpi_dashboard_latest.png)",
@@ -317,7 +501,59 @@ def main() -> int:
         f"- assist_enabled: `{payload['supporting']['assist_enabled']}`",
         f"- assist_calls: `{payload['supporting']['assist_calls']}`",
         f"- assist_success_calls: `{payload['supporting']['assist_success_calls']}`",
+        f"- distill_baseline_schema_valid_rate: `{payload['supporting']['distill_baseline_schema_valid_rate']:.6f}`",
+        f"- distill_total_runs: `{payload['supporting']['distill_total_runs']}`",
+        f"- distill_adapter_enabled: `{payload['supporting']['distill_adapter_enabled']}`",
     ]
+
+    compare = payload["supporting"].get("distill_robustness_compare") or {}
+    runs = compare.get("runs") or []
+    targets = compare.get("targets") or [30, 50]
+    lines.extend([
+        "",
+        f"## Distillation Robustness ({targets[0]} vs {targets[-1]})",
+        f"- available_sessions: `{compare.get('available', [])}`",
+    ])
+    for item in runs:
+        lines.append(
+            "- "
+            f"sessions={int(item.get('sessions', 0))}, "
+            f"total_runs={int(item.get('total_runs', 0))}, "
+            f"schema_valid_rate={float(item.get('schema_valid_rate', 0.0)):.6f}, "
+            f"overall_score={float(item.get('overall_score', 0.0)):.6f}"
+        )
+    lines.append(f"- delta_schema_valid_rate: `{float(compare.get('delta_schema_valid_rate', 0.0)):+.6f}`")
+    lines.append(f"- delta_overall_score: `{float(compare.get('delta_overall_score', 0.0)):+.6f}`")
+
+    formal = payload["supporting"].get("formal_assessment_summary") or {}
+    lines.extend([
+        "",
+        "## Formal Assessment Summary",
+        f"- available: `{bool(formal.get('available', False))}`",
+        f"- generated_at_utc: `{formal.get('generated_at_utc')}`",
+        f"- lean_compile_success: `{bool(formal.get('lean_compile_success', False))}`",
+    ])
+    facts = formal.get("facts") or {}
+    if facts:
+        lines.append(f"- facts: `{facts}`")
+    distill = formal.get("distillation") or {}
+    if distill:
+        lines.append(
+            "- "
+            f"distill sessions={int(distill.get('sessions', 0))}, "
+            f"schema_valid_rate={float(distill.get('schema_valid_rate', 0.0)):.6f}, "
+            f"overall_score={float(distill.get('overall_score', 0.0)):.6f}, "
+            f"delta_schema_valid_rate={float(distill.get('pipeline_delta_schema_valid_rate', 0.0)):+.6f}"
+        )
+    pub = formal.get("public_validation") or {}
+    if pub:
+        lines.append(
+            "- "
+            f"public baseline_gate_ok={bool(pub.get('baseline_gate_ok', False))}, "
+            f"longrun_gate_ok={bool(pub.get('longrun_gate_ok', False))}, "
+            f"baseline_alignment={float(pub.get('baseline_alignment_overall', 0.0)):.6f}, "
+            f"longrun_alignment={float(pub.get('longrun_alignment_overall', 0.0)):.6f}"
+        )
 
     out_md.write_text("\n".join(lines) + "\n", encoding="utf-8")
     shutil.copy2(out_md, latest_md)

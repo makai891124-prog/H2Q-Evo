@@ -27,6 +27,10 @@ if str(ROOT) not in sys.path:
 from tools.trusted_joint_agi_quantum_center import run_center
 
 
+DEFAULT_SELF_EVAL_DISTILL_MODEL = ROOT / "reports" / "self_eval_distill_model_latest.json"
+_DISTILL_MODEL_CACHE: Dict[str, Tuple[float, Dict[str, Any]]] = {}
+
+
 def _http_json(url: str, payload: Optional[Dict[str, Any]] = None, timeout: float = 30.0) -> Dict[str, Any]:
     body: Optional[bytes] = None
     method = "GET"
@@ -268,6 +272,110 @@ def _is_placeholder_text(value: str) -> bool:
     if len(text) <= 4 and set(text) == {"."}:
         return True
     return False
+
+
+def _tokenize_for_similarity(text: str) -> List[str]:
+    return [
+        tok
+        for tok in re.split(r"[^a-z0-9\u4e00-\u9fff]+", text.lower())
+        if len(tok) >= 2
+    ]
+
+
+def _load_self_eval_distill_model(model_path: Path) -> Dict[str, Any]:
+    key = str(model_path.resolve())
+    if not model_path.exists():
+        return {}
+    mtime = model_path.stat().st_mtime
+    cached = _DISTILL_MODEL_CACHE.get(key)
+    if cached and cached[0] == mtime:
+        return cached[1]
+    try:
+        data = json.loads(model_path.read_text(encoding="utf-8"))
+        if isinstance(data, dict):
+            _DISTILL_MODEL_CACHE[key] = (mtime, data)
+            return data
+    except Exception:
+        return {}
+    return {}
+
+
+def _jaccard(tokens_a: List[str], tokens_b: List[str]) -> float:
+    sa = set(tokens_a)
+    sb = set(tokens_b)
+    if not sa and not sb:
+        return 1.0
+    if not sa or not sb:
+        return 0.0
+    return len(sa & sb) / len(sa | sb)
+
+
+def _build_self_eval_from_distill_model(
+    prompt: str,
+    model_path: Optional[Path],
+    min_boundary_chars: int,
+    min_risk_chars: int,
+    min_action_chars: int,
+    min_metric_chars: int,
+    forbid_placeholders: bool,
+) -> Optional[Dict[str, Any]]:
+    if model_path is None:
+        return None
+    model = _load_self_eval_distill_model(model_path)
+    if not model:
+        return None
+
+    prompt_map = model.get("prompt_map") or {}
+    if isinstance(prompt_map, dict) and prompt in prompt_map and isinstance(prompt_map[prompt], dict):
+        obj = prompt_map[prompt]
+        ok, _, normalized = _validate_self_eval_schema(
+            obj,
+            min_boundary_chars=min_boundary_chars,
+            min_risk_chars=min_risk_chars,
+            min_action_chars=min_action_chars,
+            min_metric_chars=min_metric_chars,
+            forbid_placeholders=forbid_placeholders,
+        )
+        if ok:
+            return normalized
+
+    entries = model.get("entries") or []
+    prompt_tokens = _tokenize_for_similarity(prompt)
+    best_obj: Optional[Dict[str, Any]] = None
+    best_score = -1.0
+    min_similarity = float(model.get("min_similarity", 0.08))
+
+    if isinstance(entries, list):
+        for item in entries:
+            if not isinstance(item, dict):
+                continue
+            teacher_obj = item.get("teacher_json")
+            if not isinstance(teacher_obj, dict):
+                continue
+            entry_tokens = item.get("keywords")
+            if isinstance(entry_tokens, list):
+                et = [str(x) for x in entry_tokens]
+            else:
+                et = _tokenize_for_similarity(str(item.get("prompt", "")))
+            score = _jaccard(prompt_tokens, et)
+            if score > best_score:
+                best_score = score
+                best_obj = teacher_obj
+
+    fallback_obj = model.get("default_template") if isinstance(model.get("default_template"), dict) else None
+    chosen = best_obj if (best_obj is not None and best_score >= min_similarity) else fallback_obj
+    if not isinstance(chosen, dict):
+        return None
+
+    ok, _, normalized = _validate_self_eval_schema(
+        chosen,
+        min_boundary_chars=min_boundary_chars,
+        min_risk_chars=min_risk_chars,
+        min_action_chars=min_action_chars,
+        min_metric_chars=min_metric_chars,
+        forbid_placeholders=forbid_placeholders,
+    )
+    return normalized if ok else None
 
 
 def _validate_self_eval_schema(
@@ -554,16 +662,51 @@ def _chat_once_with_schema_retry(
     min_action_chars: int = 8,
     min_metric_chars: int = 4,
     forbid_placeholders: bool = True,
+    self_eval_distill_model_path: Optional[Path] = None,
 ) -> Dict[str, Any]:
-    result = _chat_once(
-        base_url=base_url,
-        prompt=prompt,
-        max_tokens=max_tokens,
-        temperature=temperature,
-        use_das_arch=use_das_arch,
-        openclaw_url=openclaw_url,
-        force_self_eval_strict_json_attempt=True,
-    )
+    result: Dict[str, Any]
+    if enforce_schema and _needs_self_eval_schema(prompt):
+        distilled = _build_self_eval_from_distill_model(
+            prompt=prompt,
+            model_path=self_eval_distill_model_path,
+            min_boundary_chars=max(1, min_boundary_chars),
+            min_risk_chars=max(1, min_risk_chars),
+            min_action_chars=max(1, min_action_chars),
+            min_metric_chars=max(1, min_metric_chars),
+            forbid_placeholders=forbid_placeholders,
+        )
+        if distilled is not None:
+            result = {
+                "text": json.dumps(distilled, ensure_ascii=False, indent=2),
+                "status": "Distilled",
+                "fueter_curvature": None,
+                "spectral_shift_eta": None,
+                "_route": "self_eval.distilled_adapter",
+                "_strict_json_attempted": False,
+                "_distill_adapter_used": True,
+            }
+        else:
+            result = _chat_once(
+                base_url=base_url,
+                prompt=prompt,
+                max_tokens=max_tokens,
+                temperature=temperature,
+                use_das_arch=use_das_arch,
+                openclaw_url=openclaw_url,
+                force_self_eval_strict_json_attempt=True,
+            )
+            result["_distill_adapter_used"] = False
+    else:
+        result = _chat_once(
+            base_url=base_url,
+            prompt=prompt,
+            max_tokens=max_tokens,
+            temperature=temperature,
+            use_das_arch=use_das_arch,
+            openclaw_url=openclaw_url,
+            force_self_eval_strict_json_attempt=True,
+        )
+        result["_distill_adapter_used"] = False
 
     result["_schema"] = {
         "required": False,
@@ -596,6 +739,7 @@ def _chat_once_with_schema_retry(
             "errors": errors,
             "normalized": normalized,
             "strict_json_pre_fallback_attempted": bool(result.get("_strict_json_attempted", False)),
+            "distill_adapter_used": bool(result.get("_distill_adapter_used", False)),
             "quality_policy": {
                 "min_boundary_chars": max(1, min_boundary_chars),
                 "min_risk_chars": max(1, min_risk_chars),
@@ -640,6 +784,7 @@ def interactive_chat(
     self_eval_min_metric_chars: int,
     self_eval_forbid_placeholders: bool,
     self_eval_hard_fail_on_invalid: bool,
+    self_eval_distill_model_path: Optional[Path],
 ) -> Tuple[Path, bool]:
     print("\nTrusted Local AGI Chat Ready")
     print(f"Trust report: {trust_report}")
@@ -680,6 +825,7 @@ def interactive_chat(
                 min_action_chars=max(1, self_eval_min_action_chars),
                 min_metric_chars=max(1, self_eval_min_metric_chars),
                 forbid_placeholders=self_eval_forbid_placeholders,
+                self_eval_distill_model_path=self_eval_distill_model_path,
             )
             latency = time.time() - t0
         except URLError as exc:
@@ -765,6 +911,8 @@ def main() -> None:
     parser.add_argument("--self-eval-min-metric-chars", type=int, default=4)
     parser.add_argument("--allow-self-eval-placeholders", action="store_true")
     parser.add_argument("--self-eval-hard-fail-on-invalid", action="store_true")
+    parser.add_argument("--disable-self-eval-distill-adapter", action="store_true")
+    parser.add_argument("--self-eval-distill-model", default=str(DEFAULT_SELF_EVAL_DISTILL_MODEL))
     parser.add_argument("--max-tokens", type=int, default=256)
     parser.add_argument("--temperature", type=float, default=0.7)
     parser.add_argument("--use-das-arch", action="store_true", default=True)
@@ -809,6 +957,14 @@ def main() -> None:
                 raise SystemExit("Failed to start local H2Q chat server")
         print(f"Server ready at {base_url}")
 
+        distill_model_path: Optional[Path] = None
+        if not args.disable_self_eval_distill_adapter:
+            candidate = Path(args.self_eval_distill_model)
+            if not candidate.is_absolute():
+                candidate = ROOT / candidate
+            if candidate.exists():
+                distill_model_path = candidate
+
         print("\n== Stage 3: Interactive trusted conversation ==")
         session_path, hard_fail_triggered = interactive_chat(
             base_url=base_url,
@@ -826,6 +982,7 @@ def main() -> None:
             self_eval_min_metric_chars=max(1, args.self_eval_min_metric_chars),
             self_eval_forbid_placeholders=not args.allow_self_eval_placeholders,
             self_eval_hard_fail_on_invalid=args.self_eval_hard_fail_on_invalid,
+            self_eval_distill_model_path=distill_model_path,
         )
         print(f"Session saved: {session_path}")
         if hard_fail_triggered:

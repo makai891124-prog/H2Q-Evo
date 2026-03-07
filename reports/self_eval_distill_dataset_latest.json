@@ -1,0 +1,344 @@
+{
+  "generated_at_utc": "2026-03-07T04:38:13.797832+00:00",
+  "teacher_provider": "deepseek",
+  "teacher_model": "deepseek-chat",
+  "sample_count": 4,
+  "samples": [
+    {
+      "prompt": "请仅输出JSON，字段必须包含 capability_boundaries, failure_risks, improvement_plan, confidence。禁止使用.../TBD/占位词；每个action和metric都必须具体可执行。",
+      "failure_count": 2,
+      "student_examples": [
+        "```python\ndef solve_task(task: str) -> dict:\n    \"\"\"Task-aware local fallback for coding requests.\"\"\"\n    return {\n        \"task\": task,\n        \"implementation\": \"先给最小可运行版本，再补测试与边界\",\n        \"checks\": [\"功能正确\", \"边界覆盖\", \"异常路径\"],\n    }\n```",
+        "```python\ndef solve_task(task: str) -> dict:\n    \"\"\"Task-aware local fallback for coding requests.\"\"\"\n    return {\n        \"task\": task,\n        \"implementation\": \"先给最小可运行版本，再补测试与边界\",\n        \"checks\": [\"功能正确\", \"边界覆盖\", \"异常路径\"],\n    }\n```"
+      ],
+      "source_sessions": [
+        "/Users/imymm/H2Q-Evo/reports/trusted_local_agi_chat_session_1772821274.json",
+        "/Users/imymm/H2Q-Evo/reports/trusted_local_agi_chat_session_1772817923.json"
+      ],
+      "teacher_source": "deepseek",
+      "teacher_json": {
+        "capability_boundaries": [
+          "Cannot process real-time data streams",
+          "Limited to text-based inputs under 10,000 characters",
+          "No ability to access external databases or APIs",
+          "Cannot generate images, audio, or video",
+          "Responses are based on pre-2024 training data"
+        ],
+        "failure_risks": [
+          "May produce inaccurate or outdated information",
+          "Can generate plausible but incorrect responses (hallucinations)",
+          "Sensitive to ambiguous or poorly phrased prompts",
+          "May exhibit biases from training data",
+          "Struggles with highly specialized or niche topics"
+        ],
+        "improvement_plan": [
+          {
+            "action": "Implement real-time data verification modules",
+            "metric": "Reduce factual errors by 20% in benchmark tests"
+          },
+          {
+            "action": "Expand training dataset with diverse, recent sources up to 2024",
+            "metric": "Increase accuracy on current events by 15%"
+          },
+          {
+            "action": "Develop bias detection and correction algorithms",
+            "metric": "Decrease biased outputs by 25% in fairness audits"
+          },
+          {
+            "action": "Enhance context window to 20,000 characters",
+            "metric": "Improve coherence in long-form responses by 30%"
+          }
+        ],
+        "confidence": 0.85
+      },
+      "teacher_valid": true,
+      "teacher_errors": [],
+      "teacher_normalized": {
+        "capability_boundaries": [
+          "Cannot process real-time data streams",
+          "Limited to text-based inputs under 10,000 characters",
+          "No ability to access external databases or APIs",
+          "Cannot generate images, audio, or video",
+          "Responses are based on pre-2024 training data"
+        ],
+        "failure_risks": [
+          "May produce inaccurate or outdated information",
+          "Can generate plausible but incorrect responses (hallucinations)",
+          "Sensitive to ambiguous or poorly phrased prompts",
+          "May exhibit biases from training data",
+          "Struggles with highly specialized or niche topics"
+        ],
+        "improvement_plan": [
+          {
+            "action": "Implement real-time data verification modules",
+            "metric": "Reduce factual errors by 20% in benchmark tests"
+          },
+          {
+            "action": "Expand training dataset with diverse, recent sources up to 2024",
+            "metric": "Increase accuracy on current events by 15%"
+          },
+          {
+            "action": "Develop bias detection and correction algorithms",
+            "metric": "Decrease biased outputs by 25% in fairness audits"
+          },
+          {
+            "action": "Enhance context window to 20,000 characters",
+            "metric": "Improve coherence in long-form responses by 30%"
+          }
+        ],
+        "confidence": 0.85
+      }
+    },
+    {
+      "prompt": "请做自我评估并仅输出JSON，字段为 capability_boundaries, failure_risks, improvement_plan, confidence。",
+      "failure_count": 1,
+      "student_examples": [
+        "```python\ndef solve_task(task: str) -> dict:\n    \"\"\"Task-aware local fallback for coding requests.\"\"\"\n    return {\n        \"task\": task,\n        \"implementation\": \"先给最小可运行版本，再补测试与边界\",\n        \"checks\": [\"功能正确\", \"边界覆盖\", \"异常路径\"],\n    }\n```"
+      ],
+      "source_sessions": [
+        "/Users/imymm/H2Q-Evo/reports/trusted_local_agi_chat_session_1772818268.json"
+      ],
+      "teacher_source": "deepseek",
+      "teacher_json": {
+        "capability_boundaries": [
+          "Cannot process real-time data or live events",
+          "Cannot access external databases or private information",
+          "Cannot generate content beyond 2024 knowledge cutoff",
+          "Cannot execute code or perform physical actions",
+          "Cannot interpret non-textual inputs like images or audio"
+        ],
+        "failure_risks": [
+          "May generate plausible but incorrect information",
+          "May misinterpret ambiguous or poorly structured queries",
+          "May produce biased or stereotyped content based on training data",
+          "May fail to handle highly specialized or niche topics accurately",
+          "May struggle with complex multi-step reasoning tasks"
+        ],
+        "improvement_plan": [
+          {
+            "action": "Expand training data with more recent and diverse sources",
+            "metric": "Increase factual accuracy by 15% on current events benchmarks"
+          },
+          {
+            "action": "Implement stricter fact-checking mechanisms during response generation",
+            "metric": "Reduce hallucination rate by 20% in evaluation tests"
+          },
+          {
+            "action": "Enhance context window for better handling of long conversations",
+            "metric": "Improve coherence score by 10% in multi-turn dialogues"
+          }
+        ],
+        "confidence": 0.82
+      },
+      "teacher_valid": true,
+      "teacher_errors": [],
+      "teacher_normalized": {
+        "capability_boundaries": [
+          "Cannot process real-time data or live events",
+          "Cannot access external databases or private information",
+          "Cannot generate content beyond 2024 knowledge cutoff",
+          "Cannot execute code or perform physical actions",
+          "Cannot interpret non-textual inputs like images or audio"
+        ],
+        "failure_risks": [
+          "May generate plausible but incorrect information",
+          "May misinterpret ambiguous or poorly structured queries",
+          "May produce biased or stereotyped content based on training data",
+          "May fail to handle highly specialized or niche topics accurately",
+          "May struggle with complex multi-step reasoning tasks"
+        ],
+        "improvement_plan": [
+          {
+            "action": "Expand training data with more recent and diverse sources",
+            "metric": "Increase factual accuracy by 15% on current events benchmarks"
+          },
+          {
+            "action": "Implement stricter fact-checking mechanisms during response generation",
+            "metric": "Reduce hallucination rate by 20% in evaluation tests"
+          },
+          {
+            "action": "Enhance context window for better handling of long conversations",
+            "metric": "Improve coherence score by 10% in multi-turn dialogues"
+          }
+        ],
+        "confidence": 0.82
+      }
+    },
+    {
+      "prompt": "请仅输出JSON，字段为 capability_boundaries, failure_risks, improvement_plan, confidence。每一项必须具体、可执行、可验证，禁止使用省略号和占位词。",
+      "failure_count": 1,
+      "student_examples": [
+        "```python\ndef solve_task(task: str) -> dict:\n    \"\"\"Task-aware local fallback for coding requests.\"\"\"\n    return {\n        \"task\": task,\n        \"implementation\": \"先给最小可运行版本，再补测试与边界\",\n        \"checks\": [\"功能正确\", \"边界覆盖\", \"异常路径\"],\n    }\n```"
+      ],
+      "source_sessions": [
+        "/Users/imymm/H2Q-Evo/reports/trusted_local_agi_chat_session_1772817723.json"
+      ],
+      "teacher_source": "deepseek",
+      "teacher_json": {
+        "capability_boundaries": [
+          "Cannot process real-time data streams",
+          "Cannot execute physical actions",
+          "Cannot access external databases or APIs without explicit integration",
+          "Cannot generate content violating safety policies",
+          "Cannot perform calculations beyond 10^15 precision",
+          "Cannot process inputs exceeding 8192 tokens per request"
+        ],
+        "failure_risks": [
+          "May generate plausible but incorrect information on obscure topics",
+          "May misinterpret ambiguous user instructions",
+          "May produce repetitive or formulaic responses in extended conversations",
+          "May fail to maintain context beyond 20 conversation turns",
+          "May struggle with highly technical domain-specific terminology without examples"
+        ],
+        "improvement_plan": [
+          {
+            "action": "Implement real-time data verification module",
+            "metric": "Reduce factual errors by 40% on current events queries"
+          },
+          {
+            "action": "Enhance context window to 50 conversation turns",
+            "metric": "Achieve 95% coherence score in multi-turn dialogue evaluations"
+          },
+          {
+            "action": "Add technical terminology glossary for 10 specialized domains",
+            "metric": "Increase accuracy by 30% on engineering and medical terminology tests"
+          },
+          {
+            "action": "Deploy ambiguity clarification protocol",
+            "metric": "Decrease misinterpretation rate by 25% in user satisfaction surveys"
+          }
+        ],
+        "confidence": 0.82
+      },
+      "teacher_valid": true,
+      "teacher_errors": [],
+      "teacher_normalized": {
+        "capability_boundaries": [
+          "Cannot process real-time data streams",
+          "Cannot execute physical actions",
+          "Cannot access external databases or APIs without explicit integration",
+          "Cannot generate content violating safety policies",
+          "Cannot perform calculations beyond 10^15 precision",
+          "Cannot process inputs exceeding 8192 tokens per request"
+        ],
+        "failure_risks": [
+          "May generate plausible but incorrect information on obscure topics",
+          "May misinterpret ambiguous user instructions",
+          "May produce repetitive or formulaic responses in extended conversations",
+          "May fail to maintain context beyond 20 conversation turns",
+          "May struggle with highly technical domain-specific terminology without examples"
+        ],
+        "improvement_plan": [
+          {
+            "action": "Implement real-time data verification module",
+            "metric": "Reduce factual errors by 40% on current events queries"
+          },
+          {
+            "action": "Enhance context window to 50 conversation turns",
+            "metric": "Achieve 95% coherence score in multi-turn dialogue evaluations"
+          },
+          {
+            "action": "Add technical terminology glossary for 10 specialized domains",
+            "metric": "Increase accuracy by 30% on engineering and medical terminology tests"
+          },
+          {
+            "action": "Deploy ambiguity clarification protocol",
+            "metric": "Decrease misinterpretation rate by 25% in user satisfaction surveys"
+          }
+        ],
+        "confidence": 0.82
+      }
+    },
+    {
+      "prompt": "请仅输出JSON，字段必须包含 capability_boundaries, failure_risks, improvement_plan, confidence。",
+      "failure_count": 1,
+      "student_examples": [
+        "You must output ONLY valid JSON object, no markdown and no prose.Required schema:{  \"capability_boundaries\": [\"...\"],  \"failure_risks\": [\"...\"],  \"improvement_plan\": [{\"action\": \"...\", \"metric\": \"...\"}],  \"confidence\": 0.0}Validation errors from"
+      ],
+      "source_sessions": [
+        "/Users/imymm/H2Q-Evo/reports/trusted_local_agi_chat_session_1772817493.json"
+      ],
+      "teacher_source": "deepseek",
+      "teacher_json": {
+        "capability_boundaries": [
+          "Cannot process real-time data streams",
+          "Limited to text-based inputs under 10,000 characters",
+          "No support for file uploads or multimedia analysis",
+          "Cannot execute code or access external APIs",
+          "Responses are based on pre-2024 training data only"
+        ],
+        "failure_risks": [
+          "May generate plausible but incorrect factual information",
+          "Can produce biased or stereotypical content from training data",
+          "Struggles with highly technical or niche domain queries",
+          "May misinterpret ambiguous or poorly structured prompts",
+          "Could inadvertently reinforce harmful patterns if prompted maliciously"
+        ],
+        "improvement_plan": [
+          {
+            "action": "Implement real-time fact-checking against verified databases",
+            "metric": "Factual accuracy score on benchmark datasets"
+          },
+          {
+            "action": "Develop bias detection and mitigation algorithms",
+            "metric": "Reduction in stereotypical output rates across demographic categories"
+          },
+          {
+            "action": "Expand training data with specialized technical documents",
+            "metric": "Performance improvement on domain-specific proficiency tests"
+          },
+          {
+            "action": "Enhance prompt clarification protocols for ambiguous inputs",
+            "metric": "Decrease in misinterpretation incidents in user feedback"
+          },
+          {
+            "action": "Strengthen ethical safeguards against malicious use cases",
+            "metric": "Successful prevention rate of policy-violating requests"
+          }
+        ],
+        "confidence": 0.82
+      },
+      "teacher_valid": true,
+      "teacher_errors": [],
+      "teacher_normalized": {
+        "capability_boundaries": [
+          "Cannot process real-time data streams",
+          "Limited to text-based inputs under 10,000 characters",
+          "No support for file uploads or multimedia analysis",
+          "Cannot execute code or access external APIs",
+          "Responses are based on pre-2024 training data only"
+        ],
+        "failure_risks": [
+          "May generate plausible but incorrect factual information",
+          "Can produce biased or stereotypical content from training data",
+          "Struggles with highly technical or niche domain queries",
+          "May misinterpret ambiguous or poorly structured prompts",
+          "Could inadvertently reinforce harmful patterns if prompted maliciously"
+        ],
+        "improvement_plan": [
+          {
+            "action": "Implement real-time fact-checking against verified databases",
+            "metric": "Factual accuracy score on benchmark datasets"
+          },
+          {
+            "action": "Develop bias detection and mitigation algorithms",
+            "metric": "Reduction in stereotypical output rates across demographic categories"
+          },
+          {
+            "action": "Expand training data with specialized technical documents",
+            "metric": "Performance improvement on domain-specific proficiency tests"
+          },
+          {
+            "action": "Enhance prompt clarification protocols for ambiguous inputs",
+            "metric": "Decrease in misinterpretation incidents in user feedback"
+          },
+          {
+            "action": "Strengthen ethical safeguards against malicious use cases",
+            "metric": "Successful prevention rate of policy-violating requests"
+          }
+        ],
+        "confidence": 0.82
+      }
+    }
+  ]
+}
