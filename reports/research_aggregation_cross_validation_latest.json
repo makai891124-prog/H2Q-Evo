@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-03-07T11:42:50.992303+00:00",
+  "generated_at_utc": "2026-03-07T12:07:34.579606+00:00",
   "sources": {
     "distill_pipeline": "/Users/imymm/H2Q-Evo/reports/self_eval_distillation_pipeline_latest.json",
     "distill_benchmark": "/Users/imymm/H2Q-Evo/reports/self_model_consistency_distilled_latest.json",

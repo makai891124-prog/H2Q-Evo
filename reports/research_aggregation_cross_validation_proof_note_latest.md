@@ -1,6 +1,6 @@
 # Research Aggregation Formal Proof Note
 
-- generated_at_utc: `2026-03-07T11:42:50.992303+00:00`
+- generated_at_utc: `2026-03-07T12:07:34.579606+00:00`
 - aggregate_score: `0.978739`
 - loo_min_score: `0.971652`
 - loo_std_score: `0.008393`
