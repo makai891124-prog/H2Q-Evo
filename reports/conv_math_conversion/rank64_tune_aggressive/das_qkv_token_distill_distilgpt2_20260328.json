@@ -1,0 +1,60 @@
+{
+  "model_id": "distilgpt2",
+  "device": "cpu",
+  "layer_idx": 0,
+  "head_idx": 0,
+  "qkv_distillation": {
+    "loss_initial": 1.890160322189331,
+    "loss_final": 0.09768129140138626,
+    "q_cosine": 0.9636847376823425,
+    "k_cosine": 0.982259213924408,
+    "v_cosine": 0.9698272943496704,
+    "q_mae": 0.12111421674489975,
+    "k_mae": 0.13564640283584595,
+    "v_mae": 0.027160530909895897
+  },
+  "token_distillation": {
+    "loss_initial": 1.9947870969772339,
+    "loss_final": 0.0011356472969055176,
+    "cosine": 0.9998790621757507,
+    "mae": 0.5529144406318665,
+    "top1_match": 0.6975806355476379,
+    "top5_overlap": 0.5588709677419355,
+    "temperature_start": 1.3,
+    "temperature_end": 0.18,
+    "topk": 8,
+    "ranking_weight": 0.65,
+    "mse_weight": 0.05,
+    "kl_weight": 0.29999999999999993,
+    "ranking_margin": 0.12
+  },
+  "token_table_size": 2048,
+  "memory": {
+    "dense_params": 1572864,
+    "das_params": 180291,
+    "param_compression_ratio": 8.724029485664841,
+    "dense_param_bytes": 6291456,
+    "das_param_bytes": 721164
+  },
+  "latency_ms": {
+    "dense": {
+      "mean_ms": 0.5203368333241087,
+      "std_ms": 0.005314175726020297,
+      "p50_ms": 0.5175624992261874,
+      "p90_ms": 0.5249999994703103
+    },
+    "das": {
+      "mean_ms": 0.19242915004724637,
+      "std_ms": 0.005992423517704961,
+      "p50_ms": 0.1914374988700729,
+      "p90_ms": 0.19558300118660554
+    },
+    "speedup_ratio": 2.7040437126929704
+  },
+  "acceptance": {
+    "qkv_head_alignment": false,
+    "token_table_alignment": false,
+    "speedup_observed": true
+  },
+  "timestamp": "2026-03-28 16:36:53"
+}
