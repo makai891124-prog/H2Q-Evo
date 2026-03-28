@@ -1,0 +1,81 @@
+{
+  "model_id": "sshleifer/tiny-gpt2",
+  "device": "cpu",
+  "rank": 2,
+  "embedding": {
+    "shape": [
+      50257,
+      2
+    ],
+    "rel_l2_error": 0.5583080649375916,
+    "compression_ratio_estimate": 0.6666357160859011
+  },
+  "lm_head": {
+    "shape": [
+      50257,
+      2
+    ],
+    "rel_l2_error": 0.5583080649375916,
+    "compression_ratio_estimate": 0.6666357160859011
+  },
+  "middleware_alignment": {
+    "avg_cosine_last_logits": 0.6000006675720215,
+    "avg_top1_match": 0.8,
+    "avg_top5_overlap": 0.8,
+    "per_prompt": [
+      {
+        "prompt": "Hello, my name is",
+        "cosine_last_logits": 1.000001072883606,
+        "top1_match": 1.0,
+        "top5_overlap": 1.0,
+        "orig_top1_token": 16046,
+        "conv_top1_token": 16046
+      },
+      {
+        "prompt": "The quick brown fox",
+        "cosine_last_logits": 1.0000014305114746,
+        "top1_match": 1.0,
+        "top5_overlap": 1.0,
+        "orig_top1_token": 5087,
+        "conv_top1_token": 5087
+      },
+      {
+        "prompt": "深度学习的核心思想是",
+        "cosine_last_logits": 1.0000004768371582,
+        "top1_match": 1.0,
+        "top5_overlap": 1.0,
+        "orig_top1_token": 5087,
+        "conv_top1_token": 5087
+      },
+      {
+        "prompt": "def fibonacci(n):",
+        "cosine_last_logits": -1.0000004768371582,
+        "top1_match": 0.0,
+        "top5_overlap": 0.0,
+        "orig_top1_token": 16046,
+        "conv_top1_token": 5087
+      },
+      {
+        "prompt": "In geometry, a manifold is",
+        "cosine_last_logits": 1.0000008344650269,
+        "top1_match": 1.0,
+        "top5_overlap": 1.0,
+        "orig_top1_token": 16046,
+        "conv_top1_token": 16046
+      }
+    ]
+  },
+  "consistency_assessment": {
+    "usable_for_inference": false,
+    "note": "This reflects a small-model pilot under embedding/lm_head conversion only."
+  },
+  "boundary": {
+    "not_full_model_equivalence": true,
+    "conversion_scope": "embedding + lm_head",
+    "requires_further_validation": [
+      "full-layer conversion",
+      "long-context generation stability",
+      "task-level benchmarks"
+    ]
+  }
+}

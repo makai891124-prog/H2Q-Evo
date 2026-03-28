@@ -1,0 +1,81 @@
+{
+  "model_id": "distilgpt2",
+  "device": "cpu",
+  "rank": 128,
+  "embedding": {
+    "shape": [
+      50257,
+      768
+    ],
+    "rel_l2_error": 0.6275379657745361,
+    "compression_ratio_estimate": 4.3097423659615295
+  },
+  "lm_head": {
+    "shape": [
+      50257,
+      768
+    ],
+    "rel_l2_error": 0.6275379657745361,
+    "compression_ratio_estimate": 4.3097423659615295
+  },
+  "middleware_alignment": {
+    "avg_cosine_last_logits": 0.9982327938079834,
+    "avg_top1_match": 0.0,
+    "avg_top5_overlap": 0.04,
+    "per_prompt": [
+      {
+        "prompt": "Hello, my name is",
+        "cosine_last_logits": 0.9978394508361816,
+        "top1_match": 0.0,
+        "top5_overlap": 0.0,
+        "orig_top1_token": 449,
+        "conv_top1_token": 326
+      },
+      {
+        "prompt": "The quick brown fox",
+        "cosine_last_logits": 0.998408854007721,
+        "top1_match": 0.0,
+        "top5_overlap": 0.2,
+        "orig_top1_token": 274,
+        "conv_top1_token": 546
+      },
+      {
+        "prompt": "深度学习的核心思想是",
+        "cosine_last_logits": 0.9982249140739441,
+        "top1_match": 0.0,
+        "top5_overlap": 0.0,
+        "orig_top1_token": 162,
+        "conv_top1_token": 960
+      },
+      {
+        "prompt": "def fibonacci(n):",
+        "cosine_last_logits": 0.9984095096588135,
+        "top1_match": 0.0,
+        "top5_overlap": 0.0,
+        "orig_top1_token": 12900,
+        "conv_top1_token": 546
+      },
+      {
+        "prompt": "In geometry, a manifold is",
+        "cosine_last_logits": 0.9982812404632568,
+        "top1_match": 0.0,
+        "top5_overlap": 0.0,
+        "orig_top1_token": 257,
+        "conv_top1_token": 546
+      }
+    ]
+  },
+  "consistency_assessment": {
+    "usable_for_inference": false,
+    "note": "This reflects a small-model pilot under embedding/lm_head conversion only."
+  },
+  "boundary": {
+    "not_full_model_equivalence": true,
+    "conversion_scope": "embedding + lm_head",
+    "requires_further_validation": [
+      "full-layer conversion",
+      "long-context generation stability",
+      "task-level benchmarks"
+    ]
+  }
+}
