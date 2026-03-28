@@ -1,31 +1,41 @@
 {
   "model_id": "sshleifer/tiny-gpt2",
   "device": "cpu",
+  "conversion_mode": "permute_exact",
+  "conversion_meta": {
+    "enabled": true,
+    "type": "hidden_permutation_isomorphism",
+    "seed": 17
+  },
   "rank": 2,
+  "calibration": {
+    "enabled": false,
+    "reason": "exact isomorphism mode does not require calibration"
+  },
   "embedding": {
     "shape": [
       50257,
       2
     ],
-    "rel_l2_error": 0.5583080649375916,
-    "compression_ratio_estimate": 0.6666357160859011
+    "rel_l2_error": 0.0,
+    "compression_ratio_estimate": 1.0
   },
   "lm_head": {
     "shape": [
       50257,
       2
     ],
-    "rel_l2_error": 0.5583080649375916,
-    "compression_ratio_estimate": 0.6666357160859011
+    "rel_l2_error": 0.0,
+    "compression_ratio_estimate": 1.0
   },
   "middleware_alignment": {
-    "avg_cosine_last_logits": 0.6000006675720215,
-    "avg_top1_match": 0.8,
-    "avg_top5_overlap": 0.8,
+    "avg_cosine_last_logits": 1.000000524520874,
+    "avg_top1_match": 1.0,
+    "avg_top5_overlap": 1.0,
     "per_prompt": [
       {
         "prompt": "Hello, my name is",
-        "cosine_last_logits": 1.000001072883606,
+        "cosine_last_logits": 1.0000011920928955,
         "top1_match": 1.0,
         "top5_overlap": 1.0,
         "orig_top1_token": 16046,
@@ -33,14 +43,6 @@
       },
       {
         "prompt": "The quick brown fox",
-        "cosine_last_logits": 1.0000014305114746,
-        "top1_match": 1.0,
-        "top5_overlap": 1.0,
-        "orig_top1_token": 5087,
-        "conv_top1_token": 5087
-      },
-      {
-        "prompt": "深度学习的核心思想是",
         "cosine_last_logits": 1.0000004768371582,
         "top1_match": 1.0,
         "top5_overlap": 1.0,
@@ -48,16 +50,24 @@
         "conv_top1_token": 5087
       },
       {
-        "prompt": "def fibonacci(n):",
-        "cosine_last_logits": -1.0000004768371582,
-        "top1_match": 0.0,
-        "top5_overlap": 0.0,
-        "orig_top1_token": 16046,
+        "prompt": "深度学习的核心思想是",
+        "cosine_last_logits": 1.000000238418579,
+        "top1_match": 1.0,
+        "top5_overlap": 1.0,
+        "orig_top1_token": 5087,
         "conv_top1_token": 5087
       },
       {
+        "prompt": "def fibonacci(n):",
+        "cosine_last_logits": 1.000000238418579,
+        "top1_match": 1.0,
+        "top5_overlap": 1.0,
+        "orig_top1_token": 16046,
+        "conv_top1_token": 16046
+      },
+      {
         "prompt": "In geometry, a manifold is",
-        "cosine_last_logits": 1.0000008344650269,
+        "cosine_last_logits": 1.0000004768371582,
         "top1_match": 1.0,
         "top5_overlap": 1.0,
         "orig_top1_token": 16046,
@@ -66,12 +76,12 @@
     ]
   },
   "consistency_assessment": {
-    "usable_for_inference": false,
-    "note": "This reflects a small-model pilot under embedding/lm_head conversion only."
+    "usable_for_inference": true,
+    "note": "Exact mode is mathematically function-preserving; approx mode is embedding/lm_head pilot."
   },
   "boundary": {
-    "not_full_model_equivalence": true,
-    "conversion_scope": "embedding + lm_head",
+    "not_full_model_equivalence": false,
+    "conversion_scope": "full hidden-basis isomorphism",
     "requires_further_validation": [
       "full-layer conversion",
       "long-context generation stability",

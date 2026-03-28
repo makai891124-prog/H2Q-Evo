@@ -1,77 +1,88 @@
 {
   "model_id": "distilgpt2",
   "device": "cpu",
-  "rank": 128,
+  "conversion_mode": "permute_exact",
+  "conversion_meta": {
+    "enabled": true,
+    "type": "hidden_permutation_isomorphism",
+    "seed": 17,
+    "involution": true
+  },
+  "rank": 64,
+  "calibration": {
+    "enabled": false,
+    "reason": "exact isomorphism mode does not require calibration"
+  },
   "embedding": {
     "shape": [
       50257,
       768
     ],
-    "rel_l2_error": 0.6275379657745361,
-    "compression_ratio_estimate": 4.3097423659615295
+    "rel_l2_error": 0.0,
+    "compression_ratio_estimate": 1.0
   },
   "lm_head": {
     "shape": [
       50257,
       768
     ],
-    "rel_l2_error": 0.6275379657745361,
-    "compression_ratio_estimate": 4.3097423659615295
+    "rel_l2_error": 0.0,
+    "compression_ratio_estimate": 1.0
   },
   "middleware_alignment": {
-    "avg_cosine_last_logits": 0.9982327938079834,
-    "avg_top1_match": 0.0,
-    "avg_top5_overlap": 0.04,
+    "avg_cosine_last_logits": 1.0000003814697265,
+    "avg_top1_match": 1.0,
+    "avg_top5_overlap": 1.0,
     "per_prompt": [
       {
         "prompt": "Hello, my name is",
-        "cosine_last_logits": 0.9978394508361816,
-        "top1_match": 0.0,
-        "top5_overlap": 0.0,
+        "cosine_last_logits": 1.0000007152557373,
+        "top1_match": 1.0,
+        "top5_overlap": 1.0,
         "orig_top1_token": 449,
-        "conv_top1_token": 326
+        "conv_top1_token": 449
       },
       {
         "prompt": "The quick brown fox",
-        "cosine_last_logits": 0.998408854007721,
-        "top1_match": 0.0,
-        "top5_overlap": 0.2,
+        "cosine_last_logits": 1.0000004768371582,
+        "top1_match": 1.0,
+        "top5_overlap": 1.0,
         "orig_top1_token": 274,
-        "conv_top1_token": 546
+        "conv_top1_token": 274
       },
       {
         "prompt": "深度学习的核心思想是",
-        "cosine_last_logits": 0.9982249140739441,
-        "top1_match": 0.0,
-        "top5_overlap": 0.0,
+        "cosine_last_logits": 1.0000017881393433,
+        "top1_match": 1.0,
+        "top5_overlap": 1.0,
         "orig_top1_token": 162,
-        "conv_top1_token": 960
+        "conv_top1_token": 162
       },
       {
         "prompt": "def fibonacci(n):",
-        "cosine_last_logits": 0.9984095096588135,
-        "top1_match": 0.0,
-        "top5_overlap": 0.0,
+        "cosine_last_logits": 0.9999995231628418,
+        "top1_match": 1.0,
+        "top5_overlap": 1.0,
         "orig_top1_token": 12900,
-        "conv_top1_token": 546
+        "conv_top1_token": 12900
       },
       {
         "prompt": "In geometry, a manifold is",
-        "cosine_last_logits": 0.9982812404632568,
-        "top1_match": 0.0,
-        "top5_overlap": 0.0,
+        "cosine_last_logits": 0.9999994039535522,
+        "top1_match": 1.0,
+        "top5_overlap": 1.0,
         "orig_top1_token": 257,
-        "conv_top1_token": 546
+        "conv_top1_token": 257
       }
     ]
   },
   "consistency_assessment": {
-    "usable_for_inference": false,
-    "note": "This reflects a small-model pilot under embedding/lm_head conversion only."
+    "usable_for_inference": true,
+    "note": "Exact mode is mathematically function-preserving; approx mode is embedding/lm_head pilot."
   },
   "boundary": {
-    "not_full_model_equivalence": true,
-    "conversion_scope": "embedding + lm_head",
+    "not_full_model_equivalence": false,
+    "conversion_scope": "full hidden-basis isomorphism",
     "requires_further_validation": [
       "full-layer conversion",
       "long-context generation stability",
