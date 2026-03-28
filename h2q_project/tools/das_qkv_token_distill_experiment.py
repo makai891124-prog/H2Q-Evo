@@ -313,6 +313,10 @@ def distill_token_mapper(
     ranking_weight: float,
     mse_weight: float,
     ranking_margin: float,
+    hard_neg_k: int,
+    hard_neg_weight: float,
+    stage_split: float,
+    stage1_rank_scale: float,
     device: torch.device,
 ) -> tuple[DASTokenMapper, dict[str, Any]]:
     mapper = DASTokenMapper(
@@ -336,11 +340,20 @@ def distill_token_mapper(
     k = max(1, min(int(topk), teacher_norm.shape[-1] // 2 if teacher_norm.shape[-1] > 1 else 1))
     rank_w = float(max(0.0, ranking_weight))
     mse_w = float(min(max(0.0, mse_weight), 1.0))
-    kl_w = max(0.0, 1.0 - mse_w - rank_w)
+    hard_k = max(1, min(int(hard_neg_k), teacher_norm.shape[-1] // 2 if teacher_norm.shape[-1] > 1 else 1))
+    hard_w = float(max(0.0, hard_neg_weight))
+    kl_w = max(0.0, 1.0 - mse_w - rank_w - hard_w)
+    split = float(min(max(0.05, stage_split), 0.95))
+    stage1_scale = float(min(max(0.05, stage1_rank_scale), 1.0))
 
     for step in range(steps):
         alpha = float(step) / float(max(steps - 1, 1))
         cur_t = t_start + (t_end - t_start) * alpha
+        in_stage1 = alpha < split
+
+        cur_rank_w = rank_w * (stage1_scale if in_stage1 else 1.0)
+        cur_hard_w = hard_w * (stage1_scale if in_stage1 else 1.0)
+        cur_margin = float(ranking_margin) * (0.8 if in_stage1 else 1.0)
 
         pred = mapper(hidden)
         pred_norm = (pred - mu) / sigma
@@ -355,9 +368,22 @@ def distill_token_mapper(
         pred_pos = pred_norm.gather(dim=-1, index=pos_idx)
         pred_neg = pred_norm.gather(dim=-1, index=neg_idx)
         pair_margin = pred_pos.unsqueeze(-1) - pred_neg.unsqueeze(-2)
-        loss_rank = F.relu(float(ranking_margin) - pair_margin).mean()
+        loss_rank = F.relu(cur_margin - pair_margin).mean()
 
-        loss = kl_w * loss_kl + mse_w * loss_mse + rank_w * loss_rank
+        student_hard_idx = torch.topk(pred_norm.detach(), k=hard_k, dim=-1).indices
+        pred_hard_neg = pred_norm.gather(dim=-1, index=student_hard_idx)
+        hard_margin = pred_pos.unsqueeze(-1) - pred_hard_neg.unsqueeze(-2)
+        loss_hard = F.relu(cur_margin - hard_margin).mean()
+
+        total_w = kl_w + mse_w + cur_rank_w + cur_hard_w
+        if total_w <= 1e-8:
+            total_w = 1.0
+        n_kl = kl_w / total_w
+        n_mse = mse_w / total_w
+        n_rank = cur_rank_w / total_w
+        n_hard = cur_hard_w / total_w
+
+        loss = n_kl * loss_kl + n_mse * loss_mse + n_rank * loss_rank + n_hard * loss_hard
         opt.zero_grad(set_to_none=True)
         loss.backward()
         torch.nn.utils.clip_grad_norm_(mapper.parameters(), max_norm=1.0)
@@ -382,9 +408,13 @@ def distill_token_mapper(
         "temperature_end": float(t_end),
         "topk": int(k),
         "ranking_weight": float(rank_w),
+        "hard_neg_k": int(hard_k),
+        "hard_neg_weight": float(hard_w),
         "mse_weight": float(mse_w),
         "kl_weight": float(kl_w),
         "ranking_margin": float(ranking_margin),
+        "stage_split": float(split),
+        "stage1_rank_scale": float(stage1_scale),
     }
     return mapper, metrics
 
@@ -483,6 +513,10 @@ def parse_args() -> argparse.Namespace:
     p.add_argument("--ranking-weight", type=float, default=0.35)
     p.add_argument("--mse-weight", type=float, default=0.15)
     p.add_argument("--ranking-margin", type=float, default=0.20)
+    p.add_argument("--hard-neg-k", type=int, default=6)
+    p.add_argument("--hard-neg-weight", type=float, default=0.15)
+    p.add_argument("--stage-split", type=float, default=0.45)
+    p.add_argument("--stage1-rank-scale", type=float, default=0.35)
     p.add_argument("--output-dir", type=str, default="reports/conv_math_conversion")
     p.add_argument("--seed", type=int, default=20260328)
     return p.parse_args()
@@ -529,6 +563,10 @@ def main() -> None:
         ranking_weight=args.ranking_weight,
         mse_weight=args.mse_weight,
         ranking_margin=args.ranking_margin,
+        hard_neg_k=args.hard_neg_k,
+        hard_neg_weight=args.hard_neg_weight,
+        stage_split=args.stage_split,
+        stage1_rank_scale=args.stage1_rank_scale,
         device=device,
     )
 

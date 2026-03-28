@@ -52,6 +52,10 @@ def _run_trial(
     ranking_weight: float,
     mse_weight: float,
     ranking_margin: float,
+    hard_neg_k: int,
+    hard_neg_weight: float,
+    stage_split: float,
+    stage1_rank_scale: float,
 ) -> TrialResult:
     trial_dir = out_dir / f"rank_{rank}_seed_{seed}"
     trial_dir.mkdir(parents=True, exist_ok=True)
@@ -83,6 +87,14 @@ def _run_trial(
         str(mse_weight),
         "--ranking-margin",
         str(ranking_margin),
+        "--hard-neg-k",
+        str(hard_neg_k),
+        "--hard-neg-weight",
+        str(hard_neg_weight),
+        "--stage-split",
+        str(stage_split),
+        "--stage1-rank-scale",
+        str(stage1_rank_scale),
         "--seed",
         str(seed),
         "--output-dir",
@@ -145,6 +157,10 @@ def parse_args() -> argparse.Namespace:
     p.add_argument("--ranking-weight", type=float, default=0.35)
     p.add_argument("--mse-weight", type=float, default=0.15)
     p.add_argument("--ranking-margin", type=float, default=0.20)
+    p.add_argument("--hard-neg-k", type=int, default=6)
+    p.add_argument("--hard-neg-weight", type=float, default=0.15)
+    p.add_argument("--stage-split", type=float, default=0.45)
+    p.add_argument("--stage1-rank-scale", type=float, default=0.35)
     p.add_argument("--output-dir", type=str, default="reports/conv_math_conversion/das_pareto_audit")
     p.add_argument("--python-exe", type=str, default=sys.executable)
     return p.parse_args()
@@ -177,6 +193,10 @@ def main() -> None:
                 ranking_weight=args.ranking_weight,
                 mse_weight=args.mse_weight,
                 ranking_margin=args.ranking_margin,
+                hard_neg_k=args.hard_neg_k,
+                hard_neg_weight=args.hard_neg_weight,
+                stage_split=args.stage_split,
+                stage1_rank_scale=args.stage1_rank_scale,
             )
             trials.append(t)
 
@@ -229,6 +249,10 @@ def main() -> None:
             "ranking_weight": args.ranking_weight,
             "mse_weight": args.mse_weight,
             "ranking_margin": args.ranking_margin,
+            "hard_neg_k": args.hard_neg_k,
+            "hard_neg_weight": args.hard_neg_weight,
+            "stage_split": args.stage_split,
+            "stage1_rank_scale": args.stage1_rank_scale,
         },
         "rows": rows,
         "pareto_front": pareto,
@@ -251,13 +275,17 @@ def main() -> None:
     lines.append(f"- ranks: `{ranks}`")
     lines.append(f"- seeds: `{seeds}`")
     lines.append(
-        "- distill hparams: `temp={:.2f}->{:.2f}, topk={}, rank_w={:.2f}, mse_w={:.2f}, margin={:.2f}`".format(
+        "- distill hparams: `temp={:.2f}->{:.2f}, topk={}, rank_w={:.2f}, mse_w={:.2f}, margin={:.2f}, hard_k={}, hard_w={:.2f}, split={:.2f}, stage1={:.2f}`".format(
             args.temperature,
             args.temperature_end,
             args.topk,
             args.ranking_weight,
             args.mse_weight,
             args.ranking_margin,
+            args.hard_neg_k,
+            args.hard_neg_weight,
+            args.stage_split,
+            args.stage1_rank_scale,
         )
     )
     lines.append("")
