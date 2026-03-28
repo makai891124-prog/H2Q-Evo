@@ -1,0 +1,72 @@
+{
+  "format_version": "das_token_structure_v1",
+  "structure_file": "reports/conv_math_conversion/sota_smallmodel_smollm2_360m/das_token_structure_HuggingFaceTB__SmolLM2-360M_20260328.pt",
+  "model_id": "HuggingFaceTB/SmolLM2-360M",
+  "layer_idx": 0,
+  "head_idx": 0,
+  "token_table_size": 2048,
+  "metrics": {
+    "model_id": "HuggingFaceTB/SmolLM2-360M",
+    "device": "cpu",
+    "layer_idx": 0,
+    "head_idx": 0,
+    "qkv_distillation": {
+      "loss_initial": 1.75429105758667,
+      "loss_final": 0.05691370740532875,
+      "q_cosine": 0.9800792932510376,
+      "k_cosine": 0.9798536896705627,
+      "v_cosine": 0.9735636115074158,
+      "q_mae": 0.06272905319929123,
+      "k_mae": 0.10486728698015213,
+      "v_mae": 0.006123560480773449
+    },
+    "token_distillation": {
+      "loss_initial": 2.4280595779418945,
+      "loss_final": 0.027946623042225838,
+      "cosine": 0.9669825434684753,
+      "mae": 0.9493075609207153,
+      "top1_match": 0.53125,
+      "top5_overlap": 0.5669642857142857,
+      "temperature_start": 1.35,
+      "temperature_end": 0.12,
+      "topk": 10,
+      "ranking_weight": 0.75,
+      "hard_neg_k": 12,
+      "hard_neg_weight": 0.45,
+      "mse_weight": 0.03,
+      "kl_weight": 0.0,
+      "ranking_margin": 0.08,
+      "stage_split": 0.4,
+      "stage1_rank_scale": 0.25
+    },
+    "token_table_size": 2048,
+    "memory": {
+      "dense_params": 1966080,
+      "das_params": 96291,
+      "param_compression_ratio": 20.41810761130324,
+      "dense_param_bytes": 7864320,
+      "das_param_bytes": 385164
+    },
+    "latency_ms": {
+      "dense": {
+        "mean_ms": 0.5839270003586231,
+        "std_ms": 0.02399650696667166,
+        "p50_ms": 0.5727710013161413,
+        "p90_ms": 0.6129169996711425
+      },
+      "das": {
+        "mean_ms": 0.15879521633905824,
+        "std_ms": 0.006737463672882171,
+        "p50_ms": 0.15793749844306149,
+        "p90_ms": 0.16729200433474034
+      },
+      "speedup_ratio": 3.6772329407696196
+    },
+    "acceptance": {
+      "qkv_head_alignment": true,
+      "token_table_alignment": false,
+      "speedup_observed": true
+    },
+    "timestamp": "2026-03-28 22:02:05"
+  }
+}

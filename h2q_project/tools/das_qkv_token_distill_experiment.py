@@ -181,35 +181,84 @@ def _collect_teacher_batch(
     if attention_mask is not None:
         attention_mask = attention_mask.to(device)
 
-    block = teacher.transformer.h[layer_idx]
-    c_attn = block.attn.c_attn
-
     cache: dict[str, torch.Tensor] = {}
 
-    def _hook(_m, hook_in, hook_out):
-        # hook_in[0]: [B,T,C], hook_out: [B,T,3C]
-        cache["x"] = hook_in[0].detach()
-        cache["y"] = hook_out.detach()
+    # Family A: GPT2-like fused c_attn projection.
+    if hasattr(teacher, "transformer") and hasattr(teacher.transformer, "h"):
+        block = teacher.transformer.h[layer_idx]
+        c_attn = block.attn.c_attn
 
-    h = c_attn.register_forward_hook(_hook)
-    with torch.no_grad():
-        out = teacher(input_ids=input_ids, attention_mask=attention_mask, output_hidden_states=True)
-    h.remove()
+        def _hook_cattn(_m, hook_in, hook_out):
+            cache["x"] = hook_in[0].detach()
+            cache["y"] = hook_out.detach()
 
-    x = cache["x"]
-    y = cache["y"]
-    bsz, seqlen, three_c = y.shape
-    c = three_c // 3
-    n_head = teacher.config.n_head
-    d_head = c // n_head
+        h = c_attn.register_forward_hook(_hook_cattn)
+        with torch.no_grad():
+            out = teacher(input_ids=input_ids, attention_mask=attention_mask, output_hidden_states=True)
+        h.remove()
 
-    q_all = y[..., :c]
-    k_all = y[..., c : 2 * c]
-    v_all = y[..., 2 * c :]
+        x = cache["x"]
+        y = cache["y"]
+        bsz, seqlen, three_c = y.shape
+        c = three_c // 3
+        n_head = int(getattr(teacher.config, "n_head", getattr(teacher.config, "num_attention_heads", 1)))
+        d_head = c // max(n_head, 1)
 
-    q = q_all.view(bsz, seqlen, n_head, d_head)[..., head_idx, :]
-    k = k_all.view(bsz, seqlen, n_head, d_head)[..., head_idx, :]
-    v = v_all.view(bsz, seqlen, n_head, d_head)[..., head_idx, :]
+        q_all = y[..., :c]
+        k_all = y[..., c : 2 * c]
+        v_all = y[..., 2 * c :]
+
+        q = q_all.view(bsz, seqlen, n_head, d_head)[..., head_idx, :]
+        k = k_all.view(bsz, seqlen, n_head, d_head)[..., head_idx, :]
+        v = v_all.view(bsz, seqlen, n_head, d_head)[..., head_idx, :]
+    else:
+        # Family B: Decoder-only models with explicit q_proj/k_proj/v_proj (Llama/Qwen/SmolLM style).
+        model_body = getattr(teacher, "model", None)
+        if model_body is None or not hasattr(model_body, "layers"):
+            raise RuntimeError("Unsupported model architecture for QKV hook collection")
+
+        layer = model_body.layers[layer_idx]
+        self_attn = layer.self_attn
+        q_proj = self_attn.q_proj
+        k_proj = self_attn.k_proj
+        v_proj = self_attn.v_proj
+
+        def _hook_q(_m, hook_in, hook_out):
+            cache["x"] = hook_in[0].detach()
+            cache["q"] = hook_out.detach()
+
+        def _hook_k(_m, _hook_in, hook_out):
+            cache["k"] = hook_out.detach()
+
+        def _hook_v(_m, _hook_in, hook_out):
+            cache["v"] = hook_out.detach()
+
+        hq = q_proj.register_forward_hook(_hook_q)
+        hk = k_proj.register_forward_hook(_hook_k)
+        hv = v_proj.register_forward_hook(_hook_v)
+        with torch.no_grad():
+            out = teacher(input_ids=input_ids, attention_mask=attention_mask, output_hidden_states=True)
+        hq.remove()
+        hk.remove()
+        hv.remove()
+
+        x = cache["x"]
+        q_all = cache["q"]
+        k_all = cache["k"]
+        v_all = cache["v"]
+
+        bsz, seqlen, c_q = q_all.shape
+        n_head = int(getattr(teacher.config, "num_attention_heads", getattr(teacher.config, "n_head", 1)))
+        n_kv_head = int(getattr(teacher.config, "num_key_value_heads", n_head))
+        d_head = c_q // max(n_head, 1)
+
+        q_head_idx = int(max(0, min(head_idx, n_head - 1)))
+        kv_group = max(1, n_head // max(n_kv_head, 1))
+        kv_head_idx = int(max(0, min(q_head_idx // kv_group, n_kv_head - 1)))
+
+        q = q_all.view(bsz, seqlen, n_head, d_head)[..., q_head_idx, :]
+        k = k_all.view(bsz, seqlen, n_kv_head, d_head)[..., kv_head_idx, :]
+        v = v_all.view(bsz, seqlen, n_kv_head, d_head)[..., kv_head_idx, :]
 
     hidden_final = out.hidden_states[-1].detach()  # [B,T,C]
     logits = out.logits.detach()  # [B,T,V]

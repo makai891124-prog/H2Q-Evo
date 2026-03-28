@@ -1,0 +1,21 @@
+{
+  "structure": "reports/conv_math_conversion/sota_smallmodel_smollm2_360m/das_token_structure_HuggingFaceTB__SmolLM2-360M_20260328.pt",
+  "device": "cpu",
+  "model_id": "HuggingFaceTB/SmolLM2-360M",
+  "layer_idx": 0,
+  "head_idx": 0,
+  "token_table_size": 2048,
+  "qkv_config": {
+    "in_dim": 960,
+    "head_dim": 64,
+    "rank": 16,
+    "num_rotors": 3
+  },
+  "token_mapper_config": {
+    "hidden_dim": 960,
+    "token_table_size": 2048,
+    "rank": 32,
+    "num_rotors": 3
+  },
+  "format_version": "das_token_structure_v1"
+}
