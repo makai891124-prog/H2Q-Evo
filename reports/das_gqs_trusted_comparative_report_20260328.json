@@ -1,0 +1,143 @@
+{
+  "report_date": "2026-03-28",
+  "scope": {
+    "claim_supported": "architecture-equivalent computational acceleration on defined tasks",
+    "claim_not_supported": "hardware-level quantum advantage reproduction under public same-scale same-protocol conditions"
+  },
+  "methodology_references": [
+    {
+      "name": "SPEC CPU2017 Run and Reporting Rules",
+      "type": "benchmark governance",
+      "focus": [
+        "reproducibility",
+        "fair comparison",
+        "full disclosure"
+      ]
+    },
+    {
+      "name": "MLPerf Inference Rules",
+      "type": "benchmark protocol",
+      "focus": [
+        "consistency",
+        "replicability",
+        "anti-benchmark-detection",
+        "scenario metrics"
+      ]
+    },
+    {
+      "name": "MLPerf Results Messaging Guidelines",
+      "type": "reporting compliance",
+      "focus": [
+        "unverified labeling",
+        "compatible-only comparison",
+        "clear disclosure"
+      ]
+    },
+    {
+      "name": "Public RCS/XEB references",
+      "type": "scientific external anchor",
+      "focus": [
+        "53q/20 cycles",
+        "60q/24 cycles",
+        "cross-entropy benchmark context"
+      ]
+    }
+  ],
+  "data_sources": [
+    "reports/das_gqs_supremacy_benchmark_report.json",
+    "reports/das_gqs_rcs_subset_stats.json",
+    "reports/das_gqs_public_rcs_xeb_unified_report.json"
+  ],
+  "results": {
+    "overlap_qubits": [
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27
+    ],
+    "speedup": {
+      "min": 374.5462947314303,
+      "max": 117879.91937796137,
+      "geomean": 15489.75507658794,
+      "median_approx": 23133.82478656171
+    },
+    "memory_compression": {
+      "min": 17772.474576271186,
+      "max": 1677721.6,
+      "geomean": 171538.97243814036
+    },
+    "scaling_boundary": {
+      "max_baseline_qubits": 27,
+      "max_das_tested_qubits": 30,
+      "state_space_gain_factor": 8
+    },
+    "equivalence": {
+      "rcs_subset_tost_pass_rate": 1.0,
+      "mae_min": 2.716458458386783e-18,
+      "mae_max": 2.8825428500640715e-16,
+      "equivalence_margin": 1e-9,
+      "alpha": 0.05
+    },
+    "public_gap": {
+      "public_max_qubits": 60,
+      "local_max_qubits_public_unified": 18,
+      "qubit_gap": 42
+    }
+  },
+  "engineering_significance": {
+    "level": "high",
+    "evidence": [
+      "orders-of-magnitude speedup in overlap region",
+      "orders-of-magnitude memory reduction",
+      "feasible qubit range extension under fixed memory cap"
+    ]
+  },
+  "academic_significance": {
+    "level": "medium-high",
+    "evidence": [
+      "TOST+CI+error metrics jointly support equivalence claim",
+      "multi-n, multi-seed, multi-sample validation",
+      "explicit non-extrapolation boundary maintained"
+    ]
+  },
+  "strict_trust_statement": {
+    "classification": "unverified_non_mlcommons_submission",
+    "required_external_label_if_published": "Result not verified by MLCommons Association.",
+    "forbidden_statement": "do not claim public same-scale hardware-level quantum advantage reproduction"
+  },
+  "algorithm_open_source_disclosure": {
+    "status": "fully_disclosed_in_repo",
+    "core_paths": [
+      "h2q_project/das_gqs/batch_sampling.py",
+      "h2q_project/das_gqs/batch_report.py",
+      "h2q_project/das_gqs/rcs_subset_stat_benchmark.py",
+      "h2q_project/das_gqs/public_rcs_xeb_unified_analysis.py",
+      "h2q_project/das_gqs/supremacy_benchmark.py"
+    ],
+    "key_functions": [
+      "resolve_batch_sampling_compute_plan",
+      "estimate_chsh_batch",
+      "noise_robustness_report",
+      "_tost_equivalence",
+      "fetch_public_rcs_xeb_table",
+      "build_gap_summary"
+    ],
+    "black_box_components": false
+  },
+  "explicit_boundaries": {
+    "task_scope": "claims apply to defined DAS-GQS task suite only",
+    "scale_scope": "local unified public-comparison analysis reaches n=18 while public references include 53/60 qubits",
+    "metric_scope": "local xeb_proxy is a consistency proxy and not a full public-hardware XEB procedure",
+    "compliance_scope": "unverified result; must not be represented as official MLCommons verified result",
+    "engineering_scope": "compute-plan cache and autotune behavior are hardware/runtime dependent"
+  },
+  "final_verdict": {
+    "equivalent_acceleration_claim": "supported_strongly_within_scope",
+    "engineering_value": "high",
+    "academic_value": "medium_high_with_scale_limitations"
+  }
+}
