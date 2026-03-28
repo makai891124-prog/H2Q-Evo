@@ -51,6 +51,15 @@ pip install -r requirements.txt
 python example_infer.py
 ```
 
+## GitHub open-source package
+
+This same release package is also uploaded in the GitHub repository under:
+
+- `releases/das-smollm2-360m-das-v1/`
+- `reports/conv_math_conversion/sota_smallmodel_smollm2_360m/`
+
+For reproducibility, keep the weight file, manifest, and loader in the same directory.
+
 ## Notes
 
 - This package is a DAS distilled structure package, not a full original Transformer checkpoint.
