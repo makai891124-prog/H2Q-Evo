@@ -1,4 +1,7 @@
 torch
+numpy
+scipy
+click
 fastapi
 uvicorn
 pydantic
