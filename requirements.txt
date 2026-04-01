@@ -1,4 +1,6 @@
 torch
+numpy
+click
 fastapi
 uvicorn
 pydantic
