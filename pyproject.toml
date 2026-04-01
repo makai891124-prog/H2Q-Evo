@@ -73,10 +73,10 @@ Repository = "https://github.com/yourusername/H2Q-Evo"
 "Discussions" = "https://github.com/yourusername/H2Q-Evo/discussions"
 
 [project.scripts]
-h2q = "h2q_cli.main:main"
+h2q = "h2q_project.h2q_cli.main:main"
 
 [project.entry-points."console_scripts"]
-h2q = "h2q_cli.main:main"
+h2q = "h2q_project.h2q_cli.main:main"
 
 [tool.setuptools]
 target-version = ["py38", "py39", "py310", "py311"]
