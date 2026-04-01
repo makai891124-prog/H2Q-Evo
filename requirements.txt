@@ -1,7 +1,7 @@
 torch
-numpy
-click
-scipy
+numpy>=1.19
+click>=8.0
+scipy>=1.7
 fastapi
 uvicorn
 pydantic
