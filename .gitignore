@@ -18,6 +18,10 @@ api_keys.txt
 # ============ 数据集缓存 ============
 data_cifar/
 data/
+!data/
+!data/experimental_sources/
+!data/experimental_sources/*.csv
+!data/experimental_sources/sha256_manifest.json
 
 # ============ DS_Store ============
 .DS_Store
