@@ -10643,21 +10643,5 @@
       "evolution_efficiency_score": 0.0,
       "timestamp": 1769524738.296052
     }
-  ],
-  "das_metrics": [
-    {
-      "timestamp": 1775114095.441661,
-      "generation": 599,
-      "invariant_distances": 0.0,
-      "manifold_size": 1,
-      "group_hierarchy_depth": 8
-    },
-    {
-      "timestamp": 1775114155.5083697,
-      "generation": 414,
-      "invariant_distances": 0.0012950917007401586,
-      "manifold_size": 16,
-      "group_hierarchy_depth": 8
-    }
   ]
 }
