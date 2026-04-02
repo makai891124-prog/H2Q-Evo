@@ -18,6 +18,7 @@ api_keys.txt
 # ============ 数据集缓存 ============
 data_cifar/
 data/
+# Keep data/ ignored by default, but allow DAS CI source tables under data/experimental_sources.
 !data/
 !data/experimental_sources/
 !data/experimental_sources/*.csv
