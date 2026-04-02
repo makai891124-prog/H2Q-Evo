@@ -6,4 +6,3 @@ matplotlib
 python-dotenv
 docker
 requests
-pytest
