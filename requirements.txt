@@ -6,3 +6,6 @@ matplotlib
 python-dotenv
 docker
 requests
+numpy
+click
+scipy
