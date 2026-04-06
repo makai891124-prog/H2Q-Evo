@@ -105,12 +105,11 @@ class ExportCommand(BaseCommand):
     
     def run(self, output_file: str = ""):
         """Export agent checkpoint"""
-        from pathlib import Path as _Path
         mgr = CheckpointManager()
         
         try:
             checkpoint = mgr.create_checkpoint(self.home)
-            mgr.save(checkpoint, _Path(output_file))
+            mgr.save(checkpoint, Path(output_file))
             print(f"✅ Checkpoint exported to {output_file}")
         except Exception as e:
             print(f"❌ Export failed: {e}")
@@ -121,11 +120,10 @@ class ImportCommand(BaseCommand):
     
     def run(self, checkpoint_file: str = ""):
         """Import agent checkpoint"""
-        from pathlib import Path as _Path
         mgr = CheckpointManager()
         
         try:
-            mgr.restore(_Path(checkpoint_file), self.home)
+            mgr.restore(Path(checkpoint_file), self.home)
             print(f"✅ Checkpoint imported from {checkpoint_file}")
         except Exception as e:
             print(f"❌ Import failed: {e}")
