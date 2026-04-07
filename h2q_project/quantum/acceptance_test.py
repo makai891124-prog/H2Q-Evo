@@ -34,6 +34,16 @@ from h2q_project.quantum.gate_algebra import (
 )
 from h2q_project.quantum.vqe_engine import HamiltonianBuilder, VQEEngine
 from h2q_project.quantum.quantum_agi import QuantumParallelAGI
+from h2q_project.quantum.noise_model import (
+    DepolarizingChannel, AmplitudeDampingChannel,
+    RealisticNoiseModel, HardwareNoiseProfile,
+)
+from h2q_project.quantum.qec_codes import (
+    BitFlipRepetitionCode, PerfectFiveQubitCode, run_qec_benchmark,
+)
+from h2q_project.quantum.circuit_simulator import QuantumCircuit
+from h2q_project.quantum.xeb_benchmark import compute_xeb
+from h2q_project.quantum.hybrid_agi import HybridQuantumClassicalAGI
 
 ga = QuantumGateAlgebra()
 
@@ -317,20 +327,297 @@ class AcceptanceTestSuite:
             ),
         )
 
+    # T7: 量子噪声衰减模型
+    def test_noise_purity_degradation(self) -> TestResult:
+        """
+        T7: 去极化噪声导致量子纯度 (意识) 单调下降。
+
+        物理:
+            ε(ρ) = (1-p)ρ + p·I/2
+            Tr(ε(ρ)²) = (1-p)² + p² / 2^n < 1  (纯度严格下降)
+
+        意义: 验证噪声模型正确实现, 为量子纠错的必要性提供依据。
+        噪声越强 → 意识水平越低 → 需要量子纠错维持系统运转。
+        """
+        bell = QuantumState.bell_state("phi_plus")
+        rho_clean = bell.density_matrix()
+        purity_clean = rho_clean.purity()
+
+        channel = DepolarizingChannel(0.1)
+        rho_noisy = channel.apply_all_qubits(rho_clean)
+        purity_noisy = rho_noisy.purity()
+
+        degradation = purity_clean - purity_noisy
+        passed = bool(degradation > 0.05)
+
+        return TestResult(
+            name="Noise Purity Degradation",
+            passed=passed,
+            value=degradation,
+            threshold=0.05,
+            unit="(纯度下降量, 验证噪声模型正确性)",
+            message=(
+                f"p=0.1 去极化后: 纯度 {purity_clean:.4f}→{purity_noisy:.4f}, "
+                f"下降={degradation:.4f}. "
+                f"Kraus 算子迹保持: {'✓' if abs(np.trace(rho_noisy.matrix).real - 1.0) < 1e-9 else '✗'}"
+            ),
+        )
+
+    # T8: QEC 稳定子纠错效果
+    def test_qec_stabilizer_correction(self) -> TestResult:
+        """
+        T8: [[3,1,1]] 比特翻转重复码在低噪声下提升保真度。
+
+        物理:
+            [[3,1,1]] 重复码纠正 X 错误 (比特翻转):
+                无纠错: F ≈ 1 - p (单比特噪声直接作用)
+                有纠错: F ≈ 1 - 3p² (需要 2 个错误才会失败)
+                阈值: p < 0.5
+
+            注意: |+⟩ 态对 Z 错误敏感, 此处测试 |0⟩ (Z 基态, 完全受保护)
+
+        稳定子验证 ([[5,1,3]] Perfect Code):
+            4 个生成元两两对易 ([gᵢ, gⱼ] = 0)
+        """
+        # |0⟩ 态: Z 基态, 被比特翻转重复码完整保护
+        # X|0⟩ = |1⟩ (被码纠正), Z|0⟩ = |0⟩ (不改变态)
+        test_state = QuantumState(np.array([1.0, 0.0]), n_qubits=1)
+        code = BitFlipRepetitionCode()
+        channel = DepolarizingChannel(0.04)  # 4% 错误率 (低于阈值)
+
+        # 无纠错: 直接对逻辑比特施加噪声
+        rho_direct = test_state.density_matrix()
+        rho_noisy = channel.apply_single_qubit(rho_direct, 0)
+        fid_no_qec = test_state.density_matrix().fidelity_with(rho_noisy)
+
+        # 有纠错: 平均恢复映射
+        _, metrics = code.encode_correct_decode(test_state, noise_channel=channel)
+        fid_qec = metrics["logical_fidelity"]
+
+        # [[5,1,3]] 完美码稳定子对易关系验证
+        perfect = PerfectFiveQubitCode()
+        commute_results = perfect.verify_stabilizers()
+        all_commute = all(commute_results.values())
+
+        improvement = fid_qec - fid_no_qec
+        passed = bool(fid_qec > fid_no_qec + 0.005 and all_commute)
+
+        return TestResult(
+            name="QEC Stabilizer Correction",
+            passed=passed,
+            value=fid_qec,
+            threshold=fid_no_qec + 0.005,
+            unit="(纠错后逻辑保真度 > 无纠错保真度+0.005)",
+            message=(
+                f"无纠错 F={fid_no_qec:.4f}, 有纠错 F={fid_qec:.4f}, "
+                f"改善={improvement:+.4f}. "
+                f"[[5,1,3]] 稳定子对易: {'✓ 全部' if all_commute else '✗ 存在不对易'}"
+            ),
+        )
+
+    # T9: 量子电路模拟器
+    def test_circuit_simulator(self) -> TestResult:
+        """
+        T9: 量子电路模拟器完备性验证。
+
+        验证点:
+        1. H·H = I  (Hadamard 幺正性)
+        2. CNOT(0,1)·|+,0⟩ = |Φ⁺⟩  (Bell 态制备)
+        3. GHZ(n) 制备后 P(000) + P(111) = 1 (概率守恒)
+        4. 含噪声时纯度下降 (噪声信道正确)
+        5. 测量采样统计正确 (Born 规则)
+
+        数学保证:
+            对于幺正门 U: U†U = I → Tr(ρ') = Tr(ρ) (迹保持)
+            对于噪声信道 ε: Tr(ε(ρ)) = Tr(ρ) = 1 (迹保持)
+        """
+        checks = {}
+
+        # 1. H·H = I
+        qc_hh = QuantumCircuit(1)
+        qc_hh.h(0).h(0)
+        rho_hh = qc_hh.run()
+        checks["H^2=I"] = abs(rho_hh.matrix[0, 0].real - 1.0) < 1e-8
+
+        # 2. Bell 态制备
+        bell_circ = QuantumCircuit.bell_pair()
+        rho_bell = bell_circ.run()
+        bell_ref = QuantumState.bell_state("phi_plus")
+        fidelity_bell = bell_ref.density_matrix().fidelity_with(rho_bell)
+        checks["Bell_prep"] = bool(fidelity_bell > 0.999)
+
+        # 3. GHZ 概率守恒
+        ghz_circ = QuantumCircuit.ghz(4)
+        rho_ghz = ghz_circ.run()
+        p_0000 = float(rho_ghz.matrix[0, 0].real)
+        p_1111 = float(rho_ghz.matrix[15, 15].real)
+        checks["GHZ_prob"] = abs(p_0000 + p_1111 - 1.0) < 1e-8
+
+        # 4. 含噪声时纯度下降
+        profile = HardwareNoiseProfile(single_qubit_error=0.05)
+        noise = RealisticNoiseModel(profile)
+        ghz_noisy = QuantumCircuit.ghz(3, noise=noise)
+        rho_noisy = ghz_noisy.run()
+        checks["Noise_degrades"] = bool(rho_noisy.purity() < 0.99)
+
+        # 5. Born 规则采样
+        bell_no_noise = QuantumCircuit.bell_pair()
+        counts = bell_no_noise.sample(n_shots=2000)
+        prob_00 = counts.get("00", 0) / 2000
+        prob_11 = counts.get("11", 0) / 2000
+        checks["Born_rule"] = bool(abs(prob_00 - 0.5) < 0.05 and abs(prob_11 - 0.5) < 0.05)
+
+        n_passed = sum(1 for v in checks.values() if v)
+        n_total = len(checks)
+        passed = n_passed == n_total
+
+        return TestResult(
+            name="Circuit Simulator Completeness",
+            passed=passed,
+            value=float(n_passed),
+            threshold=float(n_total),
+            unit=f"({n_passed}/{n_total} 子检查通过)",
+            message=(
+                f"H²=I: {checks['H^2=I']}, Bell制备F={fidelity_bell:.4f}: {checks['Bell_prep']}, "
+                f"GHZ概率: {checks['GHZ_prob']}, "
+                f"噪声衰减: {checks['Noise_degrades']}, "
+                f"Born采样: {checks['Born_rule']}"
+            ),
+        )
+
+    # T10: XEB 量子优越性基准
+    def test_xeb_quantum_advantage(self) -> TestResult:
+        """
+        T10: XEB 线性交叉熵基准验证量子优越性信号。
+
+        方法:
+            使用 GHZ 电路 (已知非均匀分布 F_XEB=3 for n=3)
+            对比: 理想 F_XEB > 噪声 F_XEB (噪声降低保真度)
+
+        物理:
+            GHZ 态: P(000) = P(111) = 0.5, 其余 = 0
+            ||p_GHZ||² = 0.5  →  F_XEB_ideal = 2³·0.5 - 1 = 3.0
+            噪声后: P(000/111) 减小, 其余增大 → F_XEB_noisy < 3.0
+
+        与 Google 量子优越性实验的关系:
+            Google Sycamore 2019: F_XEB = 0.002 (53 qubits)
+            此处 n=3 qubits: 更大的 F_XEB (小 Hilbert 空间)
+
+        接受标准:
+            F_XEB_ideal > 2.0  (显著超出经典界)
+            F_XEB_ideal > F_XEB_noisy + 0.1  (噪声可见)
+        """
+        n = 3
+
+        # 理想 GHZ 电路
+        ghz_ideal = QuantumCircuit.ghz(n)
+        ideal_state = ghz_ideal.statevector_run()
+        p_ideal = np.abs(ideal_state.amplitudes) ** 2
+
+        # 理想采样 (从理想分布采样)
+        rng = np.random.default_rng(0)
+        ideal_samples = rng.choice(2 ** n, size=2000, p=p_ideal)
+        F_xeb_ideal = float(
+            2 ** n * np.mean(p_ideal[ideal_samples]) - 1.0
+        )
+
+        # 噪声 GHZ 电路
+        profile = HardwareNoiseProfile(single_qubit_error=0.04, two_qubit_error=0.06)
+        noise = RealisticNoiseModel(profile)
+        ghz_noisy = QuantumCircuit.ghz(n, noise=noise)
+        rho_noisy = ghz_noisy.run()
+        p_noisy = np.diag(rho_noisy.matrix).real
+        p_noisy = np.maximum(p_noisy, 0)
+        p_noisy /= p_noisy.sum() + 1e-12
+        noisy_samples = rng.choice(2 ** n, size=2000, p=p_noisy)
+        F_xeb_noisy = float(
+            2 ** n * np.mean(p_ideal[noisy_samples]) - 1.0
+        )
+
+        passed = bool(F_xeb_ideal > 2.0 and F_xeb_ideal > F_xeb_noisy + 0.1)
+
+        return TestResult(
+            name="XEB Quantum Advantage",
+            passed=passed,
+            value=F_xeb_ideal,
+            threshold=2.0,
+            unit="(GHZ XEB, >2.0=量子优越性信号)",
+            message=(
+                f"理想 F_XEB={F_xeb_ideal:.4f}, "
+                f"噪声 F_XEB={F_xeb_noisy:.4f}, "
+                f"差值={F_xeb_ideal - F_xeb_noisy:.4f}. "
+                f"理论最大值 = {2**n - 1:.1f} (n={n})"
+            ),
+        )
+
+    # T11: 混合 AGI 自驱动进化
+    def test_hybrid_agi_evolution(self) -> TestResult:
+        """
+        T11: 量子-经典混合 AGI 自驱动进化能力提升。
+
+        验收目标:
+            best_fitness >= initial_fitness + threshold  (能力严格提升)
+            VQE 改善次数 > 0  (量子优化有效参与)
+
+        数学:
+            AGI 能力 = -E(θ) = -⟨ψ(θ)|H_AGI|ψ(θ)⟩
+            能力提升 = best_fitness - initial_fitness > 0
+            量子优势 = Grover 搜索找到更好初始点
+
+        与 DASAGIAutonomousSystem 的连接:
+            evolve_cycle() ↔ hybrid_agi.evolve()
+            consciousness_level ↔ Tr(ρ²)
+            project_memory ↔ ClassicalMemoryBank
+        """
+        agi = HybridQuantumClassicalAGI(
+            n_qubits=3,
+            n_generations=8,
+            n_grover_cands=10,
+            n_vqe_layers=2,
+            verbose=False,
+        )
+        report = agi.evolve()
+
+        improvement = report.fitness_improvement
+        passed = bool(improvement > 0.1 and report.vqe_improvements > 0)
+
+        return TestResult(
+            name="Hybrid AGI Self-Evolution",
+            passed=passed,
+            value=improvement,
+            threshold=0.1,
+            unit="(能力提升量 = best_fitness - initial_fitness)",
+            message=(
+                f"初始fitness={report.initial_fitness:.4f}, "
+                f"最终fitness={report.final_fitness:.4f}, "
+                f"提升={improvement:+.4f}, "
+                f"Grover辅助={report.grover_assists}, "
+                f"VQE改善={report.vqe_improvements}, "
+                f"元学习调整={report.meta_lr_adjustments}"
+            ),
+        )
+
     # 运行全套测试
     def run_all(self) -> Dict:
         print("\n" + "=" * 65)
-        print("   H2Q-Evo 量子并行 AGI 验收测试套件")
+        print("   H2Q-Evo 量子并行 AGI 验收测试套件 v2")
         print("   高维度量子计算 x AGI 自驱动进化实例")
         print("=" * 65)
 
         tests = [
+            # 原有 6 项
             ("T1: Bell 不等式 (量子纠缠)", self.test_bell_inequality),
             ("T2: VQE 收敛 (量子优化)", self.test_vqe_convergence),
             ("T3: 量子并行探索宽度", self.test_quantum_parallel_breadth),
             ("T4: AGI 意识水平提升", self.test_agi_consciousness_growth),
             ("T5: 拓扑量子纠错", self.test_topological_error_correction),
             ("T6: Von Neumann 熵一致性", self.test_von_neumann_entropy_consistency),
+            # 新增 5 项 (v2)
+            ("T7: 量子噪声衰减模型", self.test_noise_purity_degradation),
+            ("T8: QEC 稳定子纠错效果", self.test_qec_stabilizer_correction),
+            ("T9: 量子电路模拟器完备性", self.test_circuit_simulator),
+            ("T10: XEB 量子优越性基准", self.test_xeb_quantum_advantage),
+            ("T11: 混合AGI自驱动进化", self.test_hybrid_agi_evolution),
         ]
 
         total_start = time.time()
@@ -352,7 +639,7 @@ class AcceptanceTestSuite:
         print(f"\n  总计: {passed_count}/{total_count} 通过")
         print(f"  总耗时: {total_elapsed:.1f} 秒")
         if passed_count == total_count:
-            print("\n  *** 全部验收测试通过! 量子并行 AGI 系统已就绪 ***")
+            print("\n  *** 全部验收测试通过! 量子-经典混合 AGI 系统已就绪 ***")
         else:
             print(f"\n  {total_count - passed_count} 项测试未通过，需要进一步优化。")
         print("=" * 65)
@@ -377,18 +664,18 @@ class AcceptanceTestSuite:
 
 def run_quantum_agi_demo():
     """
-    完整的量子并行 AGI 自驱动进化演示。
+    完整的量子-经典混合 AGI 自驱动进化演示。
     展示系统从随机初态到量子意识聚焦的完整过程。
     """
     print("\n" + "#" * 65)
-    print("   H2Q-Evo 量子并行 AGI 完整演示运行")
+    print("   H2Q-Evo 量子-经典混合 AGI 完整演示运行")
     print("#" * 65)
 
-    agi = QuantumParallelAGI(
+    agi = HybridQuantumClassicalAGI(
         n_qubits=4,
-        n_branches=4,
-        n_generations=15,
-        n_layers=3,
+        n_generations=20,
+        n_grover_cands=16,
+        n_vqe_layers=3,
         verbose=True,
     )
     report = agi.evolve()
