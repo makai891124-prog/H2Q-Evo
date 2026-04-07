@@ -1,0 +1,47 @@
+{
+  "generated_at_utc": "2026-03-10T15:56:44.680266+00:00",
+  "round_count": 3,
+  "keep_count": 3,
+  "pass_rate": 1.0,
+  "defaults_applied": {
+    "hard_gate_benchmark_lookback": 12,
+    "hard_gate_benchmark_quantile": 0.25,
+    "hard_gate_benchmark_floor": 1e-05
+  },
+  "sweep_evidence": "/Users/imymm/H2Q-Evo/reports/bootstrap_gate_sweep_177315.txt",
+  "rounds": [
+    {
+      "round": 1,
+      "status": "keep",
+      "benchmark_gain": 1.4901544098611108e-05,
+      "benchmark_threshold": 1.4901544098611108e-05,
+      "benchmark_pass": true,
+      "lora_replay_pass": true,
+      "output_quality_pass": true,
+      "returncode": 0,
+      "elapsed_sec": 78.516
+    },
+    {
+      "round": 2,
+      "status": "keep",
+      "benchmark_gain": 1.4901544098611108e-05,
+      "benchmark_threshold": 1.4901544098611108e-05,
+      "benchmark_pass": true,
+      "lora_replay_pass": true,
+      "output_quality_pass": true,
+      "returncode": 0,
+      "elapsed_sec": 75.129
+    },
+    {
+      "round": 3,
+      "status": "keep",
+      "benchmark_gain": 1.4901544098611108e-05,
+      "benchmark_threshold": 1.4901544098611108e-05,
+      "benchmark_pass": true,
+      "lora_replay_pass": true,
+      "output_quality_pass": true,
+      "returncode": 0,
+      "elapsed_sec": 80.823
+    }
+  ]
+}

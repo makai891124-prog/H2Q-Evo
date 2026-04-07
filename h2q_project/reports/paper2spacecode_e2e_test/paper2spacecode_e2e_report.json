@@ -1,0 +1,8 @@
+{
+  "stage6_contract_path": "/Users/imymm/H2Q-Evo/h2q_project/reports/paper2spacecode_e2e_test/stage6_formula_contract.json",
+  "stage7_report_path": "/Users/imymm/H2Q-Evo/h2q_project/reports/paper2spacecode_e2e_test/stage7_render_report.json",
+  "stage8_report_path": "/Users/imymm/H2Q-Evo/h2q_project/reports/paper2spacecode_e2e_test/stage8_e2e_report.json",
+  "voice_chain_report_path": "/Users/imymm/H2Q-Evo/h2q_project/reports/paper2spacecode_e2e_test/voice_video_dialogue_chain_report.json",
+  "overall_passed": true,
+  "duration_sec": 6.736
+}

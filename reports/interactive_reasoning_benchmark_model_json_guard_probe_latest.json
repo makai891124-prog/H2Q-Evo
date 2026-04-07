@@ -1,0 +1,632 @@
+{
+  "meta": {
+    "created_at_utc": "2026-03-07T14:01:40.766260+00:00",
+    "task_file": "/Users/imymm/H2Q-Evo/benchmarks/interactive_reasoning/tasks_v1.json",
+    "task_count": 24,
+    "solver": "model-json-guard",
+    "min_success_rate": 0.0
+  },
+  "metrics": {
+    "success_count": 24,
+    "success_rate": 1.0,
+    "avg_steps": 29.208333333333332,
+    "max_steps": 55,
+    "min_steps": 8,
+    "parse_errors": 701,
+    "passed": true
+  },
+  "results": [
+    {
+      "task_id": "ir-001",
+      "success": true,
+      "reason": "ok",
+      "steps": 8,
+      "reached": [
+        [
+          0,
+          4
+        ],
+        [
+          4,
+          4
+        ]
+      ],
+      "goal": [
+        4,
+        4
+      ],
+      "policy": "model-json-guard",
+      "parse_errors": 8,
+      "guard_fallback_count": 8
+    },
+    {
+      "task_id": "ir-002",
+      "success": true,
+      "reason": "ok",
+      "steps": 10,
+      "reached": [
+        [
+          5,
+          0
+        ],
+        [
+          5,
+          5
+        ]
+      ],
+      "goal": [
+        5,
+        5
+      ],
+      "policy": "model-json-guard",
+      "parse_errors": 10,
+      "guard_fallback_count": 10
+    },
+    {
+      "task_id": "ir-003",
+      "success": true,
+      "reason": "ok",
+      "steps": 12,
+      "reached": [
+        [
+          6,
+          0
+        ],
+        [
+          6,
+          3
+        ]
+      ],
+      "goal": [
+        6,
+        3
+      ],
+      "policy": "model-json-guard",
+      "parse_errors": 12,
+      "guard_fallback_count": 12
+    },
+    {
+      "task_id": "ir-004",
+      "success": true,
+      "reason": "ok",
+      "steps": 10,
+      "reached": [
+        [
+          5,
+          5
+        ],
+        [
+          0,
+          5
+        ]
+      ],
+      "goal": [
+        0,
+        5
+      ],
+      "policy": "model-json-guard",
+      "parse_errors": 10,
+      "guard_fallback_count": 10
+    },
+    {
+      "task_id": "ir-005",
+      "success": true,
+      "reason": "ok",
+      "steps": 22,
+      "reached": [
+        [
+          0,
+          5
+        ],
+        [
+          7,
+          0
+        ],
+        [
+          7,
+          5
+        ]
+      ],
+      "goal": [
+        7,
+        5
+      ],
+      "policy": "model-json-guard",
+      "parse_errors": 22,
+      "guard_fallback_count": 22
+    },
+    {
+      "task_id": "ir-006",
+      "success": true,
+      "reason": "ok",
+      "steps": 10,
+      "reached": [
+        [
+          1,
+          6
+        ],
+        [
+          6,
+          6
+        ]
+      ],
+      "goal": [
+        6,
+        6
+      ],
+      "policy": "model-json-guard",
+      "parse_errors": 10,
+      "guard_fallback_count": 10
+    },
+    {
+      "task_id": "ir-007",
+      "success": true,
+      "reason": "ok",
+      "steps": 30,
+      "reached": [
+        [
+          8,
+          6
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          8,
+          0
+        ]
+      ],
+      "goal": [
+        8,
+        0
+      ],
+      "policy": "model-json-guard",
+      "parse_errors": 30,
+      "guard_fallback_count": 30
+    },
+    {
+      "task_id": "ir-008",
+      "success": true,
+      "reason": "ok",
+      "steps": 12,
+      "reached": [
+        [
+          6,
+          6
+        ],
+        [
+          0,
+          6
+        ]
+      ],
+      "goal": [
+        0,
+        6
+      ],
+      "policy": "model-json-guard",
+      "parse_errors": 12,
+      "guard_fallback_count": 12
+    },
+    {
+      "task_id": "ir-009",
+      "success": true,
+      "reason": "ok",
+      "steps": 30,
+      "reached": [
+        [
+          0,
+          7
+        ],
+        [
+          9,
+          0
+        ],
+        [
+          9,
+          7
+        ]
+      ],
+      "goal": [
+        9,
+        7
+      ],
+      "policy": "model-json-guard",
+      "parse_errors": 30,
+      "guard_fallback_count": 30
+    },
+    {
+      "task_id": "ir-010",
+      "success": true,
+      "reason": "ok",
+      "steps": 36,
+      "reached": [
+        [
+          9,
+          0
+        ],
+        [
+          0,
+          9
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "goal": [
+        0,
+        0
+      ],
+      "policy": "model-json-guard",
+      "parse_errors": 36,
+      "guard_fallback_count": 36
+    },
+    {
+      "task_id": "ir-011",
+      "success": true,
+      "reason": "ok",
+      "steps": 13,
+      "reached": [
+        [
+          5,
+          8
+        ],
+        [
+          5,
+          0
+        ]
+      ],
+      "goal": [
+        5,
+        0
+      ],
+      "policy": "model-json-guard",
+      "parse_errors": 13,
+      "guard_fallback_count": 13
+    },
+    {
+      "task_id": "ir-012",
+      "success": true,
+      "reason": "ok",
+      "steps": 16,
+      "reached": [
+        [
+          8,
+          8
+        ],
+        [
+          4,
+          0
+        ]
+      ],
+      "goal": [
+        4,
+        0
+      ],
+      "policy": "model-json-guard",
+      "parse_errors": 16,
+      "guard_fallback_count": 16
+    },
+    {
+      "task_id": "ir-013",
+      "success": true,
+      "reason": "ok",
+      "steps": 33,
+      "reached": [
+        [
+          0,
+          9
+        ],
+        [
+          6,
+          0
+        ],
+        [
+          6,
+          9
+        ]
+      ],
+      "goal": [
+        6,
+        9
+      ],
+      "policy": "model-json-guard",
+      "parse_errors": 33,
+      "guard_fallback_count": 33
+    },
+    {
+      "task_id": "ir-014",
+      "success": true,
+      "reason": "ok",
+      "steps": 48,
+      "reached": [
+        [
+          11,
+          5
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          11,
+          0
+        ]
+      ],
+      "goal": [
+        11,
+        0
+      ],
+      "policy": "model-json-guard",
+      "parse_errors": 48,
+      "guard_fallback_count": 48
+    },
+    {
+      "task_id": "ir-015",
+      "success": true,
+      "reason": "ok",
+      "steps": 32,
+      "reached": [
+        [
+          1,
+          9
+        ],
+        [
+          9,
+          1
+        ],
+        [
+          9,
+          9
+        ]
+      ],
+      "goal": [
+        9,
+        9
+      ],
+      "policy": "model-json-guard",
+      "parse_errors": 32,
+      "guard_fallback_count": 32
+    },
+    {
+      "task_id": "ir-016",
+      "success": true,
+      "reason": "ok",
+      "steps": 40,
+      "reached": [
+        [
+          7,
+          0
+        ],
+        [
+          0,
+          11
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "goal": [
+        0,
+        0
+      ],
+      "policy": "model-json-guard",
+      "parse_errors": 40,
+      "guard_fallback_count": 40
+    },
+    {
+      "task_id": "ir-017",
+      "success": true,
+      "reason": "ok",
+      "steps": 44,
+      "reached": [
+        [
+          0,
+          11
+        ],
+        [
+          11,
+          0
+        ],
+        [
+          11,
+          11
+        ]
+      ],
+      "goal": [
+        11,
+        11
+      ],
+      "policy": "model-json-guard",
+      "parse_errors": 44,
+      "guard_fallback_count": 44
+    },
+    {
+      "task_id": "ir-018",
+      "success": true,
+      "reason": "ok",
+      "steps": 19,
+      "reached": [
+        [
+          8,
+          11
+        ],
+        [
+          0,
+          11
+        ]
+      ],
+      "goal": [
+        0,
+        11
+      ],
+      "policy": "model-json-guard",
+      "parse_errors": 19,
+      "guard_fallback_count": 19
+    },
+    {
+      "task_id": "ir-019",
+      "success": true,
+      "reason": "ok",
+      "steps": 55,
+      "reached": [
+        [
+          12,
+          7
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          12,
+          0
+        ]
+      ],
+      "goal": [
+        12,
+        0
+      ],
+      "policy": "model-json-guard",
+      "parse_errors": 55,
+      "guard_fallback_count": 55
+    },
+    {
+      "task_id": "ir-020",
+      "success": true,
+      "reason": "ok",
+      "steps": 40,
+      "reached": [
+        [
+          13,
+          0
+        ],
+        [
+          0,
+          9
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "goal": [
+        0,
+        0
+      ],
+      "policy": "model-json-guard",
+      "parse_errors": 40,
+      "guard_fallback_count": 40
+    },
+    {
+      "task_id": "ir-021",
+      "success": true,
+      "reason": "ok",
+      "steps": 38,
+      "reached": [
+        [
+          0,
+          8
+        ],
+        [
+          14,
+          0
+        ],
+        [
+          14,
+          8
+        ]
+      ],
+      "goal": [
+        14,
+        8
+      ],
+      "policy": "model-json-guard",
+      "parse_errors": 38,
+      "guard_fallback_count": 38
+    },
+    {
+      "task_id": "ir-022",
+      "success": true,
+      "reason": "ok",
+      "steps": 48,
+      "reached": [
+        [
+          9,
+          0
+        ],
+        [
+          0,
+          13
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "goal": [
+        0,
+        0
+      ],
+      "policy": "model-json-guard",
+      "parse_errors": 48,
+      "guard_fallback_count": 48
+    },
+    {
+      "task_id": "ir-023",
+      "success": true,
+      "reason": "ok",
+      "steps": 51,
+      "reached": [
+        [
+          15,
+          9
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          15,
+          0
+        ]
+      ],
+      "goal": [
+        15,
+        0
+      ],
+      "policy": "model-json-guard",
+      "parse_errors": 51,
+      "guard_fallback_count": 51
+    },
+    {
+      "task_id": "ir-024",
+      "success": true,
+      "reason": "ok",
+      "steps": 44,
+      "reached": [
+        [
+          11,
+          11
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          11,
+          0
+        ]
+      ],
+      "goal": [
+        11,
+        0
+      ],
+      "policy": "model-json-guard",
+      "parse_errors": 44,
+      "guard_fallback_count": 44
+    }
+  ]
+}

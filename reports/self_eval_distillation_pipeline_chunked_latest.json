@@ -1,0 +1,58 @@
+{
+  "generated_at_utc": "2026-03-10T15:56:09.804993+00:00",
+  "config": {
+    "chunks": 2,
+    "sessions": 4,
+    "teacher_provider": "heuristic",
+    "max_samples_per_chunk": 60,
+    "synthetic_min_size_per_chunk": 120
+  },
+  "chunk_runs": [
+    {
+      "chunk": 1,
+      "cmd": [
+        "/Users/imymm/H2Q-Evo/.venv/bin/python",
+        "tools/run_self_eval_distillation_pipeline.py",
+        "--sessions",
+        "4",
+        "--teacher-provider",
+        "heuristic",
+        "--teacher-key-file",
+        "secrets/deepseek_api_key.txt",
+        "--max-samples",
+        "60",
+        "--synthetic-min-size",
+        "120"
+      ],
+      "returncode": 0,
+      "elapsed_sec": 6.245746850967407,
+      "delta_schema_valid_rate": 1.0,
+      "stdout_tail": "JSON: /Users/imymm/H2Q-Evo/reports/self_eval_distillation_pipeline_1773158163.json\nLatest JSON: /Users/imymm/H2Q-Evo/reports/self_eval_distillation_pipeline_latest.json\nMD: /Users/imymm/H2Q-Evo/reports/self_eval_distillation_pipeline_1773158163.md\nLatest MD: /Users/imymm/H2Q-Evo/reports/self_eval_distillation_pipeline_latest.md",
+      "stderr_tail": ""
+    },
+    {
+      "chunk": 2,
+      "cmd": [
+        "/Users/imymm/H2Q-Evo/.venv/bin/python",
+        "tools/run_self_eval_distillation_pipeline.py",
+        "--sessions",
+        "4",
+        "--teacher-provider",
+        "heuristic",
+        "--teacher-key-file",
+        "secrets/deepseek_api_key.txt",
+        "--max-samples",
+        "60",
+        "--synthetic-min-size",
+        "120"
+      ],
+      "returncode": 0,
+      "elapsed_sec": 6.025694847106934,
+      "delta_schema_valid_rate": 1.0,
+      "stdout_tail": "JSON: /Users/imymm/H2Q-Evo/reports/self_eval_distillation_pipeline_1773158169.json\nLatest JSON: /Users/imymm/H2Q-Evo/reports/self_eval_distillation_pipeline_latest.json\nMD: /Users/imymm/H2Q-Evo/reports/self_eval_distillation_pipeline_1773158169.md\nLatest MD: /Users/imymm/H2Q-Evo/reports/self_eval_distillation_pipeline_latest.md",
+      "stderr_tail": ""
+    }
+  ],
+  "best_delta_schema_valid_rate": 1.0,
+  "all_chunks_succeeded": true
+}

@@ -1,0 +1,86 @@
+{
+  "paper": {
+    "title": "Ray structures on Teichmuller Space",
+    "url": "https://arxiv.org/pdf/2206.01371"
+  },
+  "dimensions": [
+    3,
+    4,
+    5
+  ],
+  "dimension_results": [
+    {
+      "dimension": 3,
+      "seed": 220611647,
+      "r_critical": 2.2929414128236107,
+      "r_upper": 0.95,
+      "min_hessian_eigenvalue": 1.5637524554994766,
+      "max_condition_number": 1.4652710643021576,
+      "max_error_start": 0.7746816116979207,
+      "max_error_end": 0.008428266653858341,
+      "boundary_coverage_ratio": 1.0,
+      "projection_consistency": {
+        "explained_variance_2d": 0.9770161803449811,
+        "distance_correlation": 0.9974475866653371,
+        "relative_distortion": 0.05650000919697739,
+        "consistency_score": 0.9755371838622474
+      },
+      "checks": {
+        "stable_hessian": true,
+        "convergence_improves": true,
+        "projection_consistent": true
+      }
+    },
+    {
+      "dimension": 4,
+      "seed": 220621721,
+      "r_critical": 2.2093543576888606,
+      "r_upper": 0.95,
+      "min_hessian_eigenvalue": 1.563393131183518,
+      "max_condition_number": 1.4654253356895213,
+      "max_error_start": 0.6590737590579835,
+      "max_error_end": 0.009380519866710698,
+      "boundary_coverage_ratio": 1.0,
+      "projection_consistency": {
+        "explained_variance_2d": 0.9809016346275519,
+        "distance_correlation": 0.999146566226697,
+        "relative_distortion": 0.04464557535979469,
+        "consistency_score": 0.9808381449732987
+      },
+      "checks": {
+        "stable_hessian": true,
+        "convergence_improves": true,
+        "projection_consistent": true
+      }
+    },
+    {
+      "dimension": 5,
+      "seed": 220631795,
+      "r_critical": 2.1449657249801786,
+      "r_upper": 0.95,
+      "min_hessian_eigenvalue": 1.5626200024685977,
+      "max_condition_number": 1.4770874443190136,
+      "max_error_start": 0.7741717400572556,
+      "max_error_end": 0.007786566110411383,
+      "boundary_coverage_ratio": 1.0,
+      "projection_consistency": {
+        "explained_variance_2d": 0.9754603684978659,
+        "distance_correlation": 0.9984381865028799,
+        "relative_distortion": 0.05544817729264585,
+        "consistency_score": 0.9760019388830322
+      },
+      "checks": {
+        "stable_hessian": true,
+        "convergence_improves": true,
+        "projection_consistent": true
+      }
+    }
+  ],
+  "summary": {
+    "all_projection_consistent": true,
+    "mean_explained_variance_2d": 0.9777927278234663,
+    "mean_distance_correlation": 0.9983441131316381,
+    "mean_relative_distortion": 0.05219792061647264,
+    "mean_consistency_score": 0.9774590892395261
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "paper": {
+    "title": "On Series Involving Cubed Catalan Numbers",
+    "url": "https://arxiv.org/html/2604.01249v1"
+  },
+  "artifact_paths": {
+    "numeric_report": "/Users/imymm/H2Q-Evo/h2q_project/reports/paper2604_argument_space/paper2604_numerical_validation.json",
+    "analysis_markdown": "/Users/imymm/H2Q-Evo/h2q_project/reports/paper2604_argument_space/paper2604_analysis.md",
+    "abstraction_json": "/Users/imymm/H2Q-Evo/h2q_project/reports/paper2604_argument_space/paper2604_argument_abstraction.json",
+    "space_1d": "/Users/imymm/H2Q-Evo/h2q_project/reports/paper2604_argument_space/argument_space_visuals/space_1d_convergence.png",
+    "space_2d_eq104": "/Users/imymm/H2Q-Evo/h2q_project/reports/paper2604_argument_space/argument_space_visuals/space_2d_heatmap_eq104.png",
+    "space_2d_eq114": "/Users/imymm/H2Q-Evo/h2q_project/reports/paper2604_argument_space/argument_space_visuals/space_2d_heatmap_eq114.png",
+    "space_3d": "/Users/imymm/H2Q-Evo/h2q_project/reports/paper2604_argument_space/argument_space_visuals/space_3d_surface_eq114.png",
+    "space_4d": "/Users/imymm/H2Q-Evo/h2q_project/reports/paper2604_argument_space/argument_space_visuals/space_4d_projection.png",
+    "multidim_frames_dir": "/Users/imymm/H2Q-Evo/h2q_project/reports/paper2604_argument_space/argument_space_visuals/multidim_video_frames",
+    "multidim_video": "/Users/imymm/H2Q-Evo/h2q_project/reports/paper2604_argument_space/argument_space_visuals/paper2604_multidim_argument_space.mp4",
+    "stage6_contract": "/Users/imymm/H2Q-Evo/h2q_project/reports/paper2604_argument_space/stage6_formula_contract.json",
+    "stage7_report": "/Users/imymm/H2Q-Evo/h2q_project/reports/paper2604_argument_space/stage7_render_report.json",
+    "stage8_report": "/Users/imymm/H2Q-Evo/h2q_project/reports/paper2604_argument_space/stage8_argument_space_report.json"
+  },
+  "checks": {
+    "eq20_rel_error_lt_5e-2": true,
+    "eq24_rel_error_lt_1e-8": true,
+    "eq25_rel_error_lt_3e-2": true,
+    "canonical_equations_passed": true,
+    "multidim_video_created": true,
+    "stage7_passed": true,
+    "stage8_passed": true
+  },
+  "multidim_frame_count": 32,
+  "duration_sec": 14.313,
+  "overall_passed": true
+}

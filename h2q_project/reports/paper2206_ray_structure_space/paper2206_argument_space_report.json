@@ -1,0 +1,42 @@
+{
+  "paper": {
+    "title": "Ray structures on Teichmuller Space",
+    "url": "https://arxiv.org/pdf/2206.01371"
+  },
+  "artifact_paths": {
+    "proxy_model_spec": "/Users/imymm/H2Q-Evo/h2q_project/reports/paper2206_ray_structure_space/paper2206_proxy_model_spec.json",
+    "numeric_report": "/Users/imymm/H2Q-Evo/h2q_project/reports/paper2206_ray_structure_space/paper2206_numerical_validation.json",
+    "analysis_markdown": "/Users/imymm/H2Q-Evo/h2q_project/reports/paper2206_ray_structure_space/paper2206_analysis.md",
+    "abstraction_json": "/Users/imymm/H2Q-Evo/h2q_project/reports/paper2206_ray_structure_space/paper2206_argument_abstraction.json",
+    "space_1d": "/Users/imymm/H2Q-Evo/h2q_project/reports/paper2206_ray_structure_space/argument_space_visuals/space_1d_metrics.png",
+    "space_2d": "/Users/imymm/H2Q-Evo/h2q_project/reports/paper2206_ray_structure_space/argument_space_visuals/space_2d_energy_landscape.png",
+    "space_3d": "/Users/imymm/H2Q-Evo/h2q_project/reports/paper2206_ray_structure_space/argument_space_visuals/space_3d_transition_manifold.png",
+    "space_4d": "/Users/imymm/H2Q-Evo/h2q_project/reports/paper2206_ray_structure_space/argument_space_visuals/space_4d_projection.png",
+    "space_sensitivity_dashboard": "/Users/imymm/H2Q-Evo/h2q_project/reports/paper2206_ray_structure_space/argument_space_visuals/space_sensitivity_dashboard.png",
+    "space_sensitivity_robustness_ci": "/Users/imymm/H2Q-Evo/h2q_project/reports/paper2206_ray_structure_space/argument_space_visuals/space_sensitivity_robustness_ci.png",
+    "space_dimensional_consistency": "/Users/imymm/H2Q-Evo/h2q_project/reports/paper2206_ray_structure_space/argument_space_visuals/space_dimensional_consistency.png",
+    "space_dimensional_projection_paths": "/Users/imymm/H2Q-Evo/h2q_project/reports/paper2206_ray_structure_space/argument_space_visuals/space_dimensional_projection_paths.png",
+    "multidim_frames_dir": "/Users/imymm/H2Q-Evo/h2q_project/reports/paper2206_ray_structure_space/argument_space_visuals/multidim_video_frames",
+    "multidim_video": "/Users/imymm/H2Q-Evo/h2q_project/reports/paper2206_ray_structure_space/argument_space_visuals/paper2206_multidim_argument_space.mp4",
+    "sensitivity_report": "/Users/imymm/H2Q-Evo/h2q_project/reports/paper2206_ray_structure_space/paper2206_sensitivity_report.json",
+    "dimensional_extension_report": "/Users/imymm/H2Q-Evo/h2q_project/reports/paper2206_ray_structure_space/paper2206_dimensional_extension_report.json",
+    "stage6_contract": "/Users/imymm/H2Q-Evo/h2q_project/reports/paper2206_ray_structure_space/stage6_formula_contract.json",
+    "stage7_report": "/Users/imymm/H2Q-Evo/h2q_project/reports/paper2206_ray_structure_space/stage7_render_report.json",
+    "stage8_report": "/Users/imymm/H2Q-Evo/h2q_project/reports/paper2206_ray_structure_space/stage8_argument_space_report.json"
+  },
+  "checks": {
+    "all_hessian_positive": true,
+    "convergence_improves": true,
+    "boundary_coverage_good": true,
+    "multidim_video_created": true,
+    "sensitivity_report_created": true,
+    "sensitivity_ci_plot_created": true,
+    "dimensional_extension_created": true,
+    "projection_consistency_good": true,
+    "stage7_passed": true,
+    "stage8_passed": true
+  },
+  "multidim_frame_count": 28,
+  "duration_sec": 22.332,
+  "overall_passed": true
+}

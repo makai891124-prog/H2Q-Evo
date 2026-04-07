@@ -1,0 +1,23 @@
+{
+  "{\"cpu_count\": 10, \"has_cuda\": false, \"has_mps\": true, \"ns\": \"chsh_validation\", \"params\": {\"autotune_threads\": true, \"probe\": \"matmul\", \"thread_candidates\": [1, 2]}, \"torch\": \"2.9.1\"}": {
+    "selected_torch_threads": 2,
+    "probe_timings_ms": {
+      "t1": 0.7680916000026627,
+      "t2": 0.7559667999885278
+    }
+  },
+  "{\"cpu_count\": 10, \"has_cuda\": false, \"has_mps\": true, \"ns\": \"convergence_experiment\", \"params\": {\"autotune_threads\": true, \"n_list\": [200, 500], \"probe\": \"matmul\", \"thread_candidates\": [1, 2], \"trials\": 8}, \"torch\": \"2.9.1\"}": {
+    "selected_torch_threads": 2,
+    "probe_timings_ms": {
+      "t1": 0.5894833999263938,
+      "t2": 0.4913415999908466
+    }
+  },
+  "{\"cpu_count\": 10, \"has_cuda\": false, \"has_mps\": true, \"ns\": \"batch_sampling\", \"params\": {\"autotune_threads\": true, \"matmul_size\": 896, \"n_pairs\": 30000, \"probe\": \"matmul\", \"thread_candidates\": [1, 2]}, \"torch\": \"2.9.1\"}": {
+    "selected_torch_threads": 2,
+    "probe_timings_ms": {
+      "t1": 0.751533400034532,
+      "t2": 0.7505166000555619
+    }
+  }
+}

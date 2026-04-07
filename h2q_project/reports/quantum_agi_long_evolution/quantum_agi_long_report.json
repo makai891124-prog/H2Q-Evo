@@ -1,0 +1,65 @@
+{
+  "started_at": "2026-04-06T01:50:49.038905",
+  "finished_at": "2026-04-06T01:51:22.877719",
+  "elapsed_hours": 0.009399671090973748,
+  "cycles": 6,
+  "knowledge_count": 6,
+  "acquired_count": 6,
+  "failed_count": 0,
+  "baselines": {
+    "paper2206_report": {
+      "overall_passed": true,
+      "checks": {
+        "all_hessian_positive": true,
+        "convergence_improves": true,
+        "boundary_coverage_good": true,
+        "multidim_video_created": true,
+        "sensitivity_report_created": true,
+        "sensitivity_ci_plot_created": true,
+        "dimensional_extension_created": true,
+        "projection_consistency_good": true,
+        "stage7_passed": true,
+        "stage8_passed": true
+      }
+    },
+    "quantum_equivalence": {
+      "timestamp": 1768847801.154591,
+      "bv": 0.0,
+      "ghz_fidelity_mean": 0.9999999999999996
+    },
+    "agi_benchmark": {
+      "overall_score": 82.53333333333333,
+      "pass_rate": 0.92,
+      "verdict": "SUPERIOR: 达到学术AGI核心能力标准"
+    },
+    "agi_eval": {
+      "overall_score": 0.4068,
+      "consciousness_score": 0.4068,
+      "adaptability_score": 0.0556
+    }
+  },
+  "metrics": {
+    "witness_min_ci95": {
+      "mean": -0.4990540884274209,
+      "lower": -0.49908428373915265,
+      "upper": -0.49901234008249146
+    },
+    "composite_score_ci95": {
+      "mean": 0.6058538368346388,
+      "lower": 0.5250830840424779,
+      "upper": 0.6476216871653934
+    },
+    "entanglement_ratio_ci95": {
+      "mean": 0.80625,
+      "lower": 0.7895833333333333,
+      "upper": 0.8229166666666666
+    },
+    "capability_score_ci95": {
+      "mean": 97.41666666666667,
+      "lower": 96.20833333333333,
+      "upper": 99.0
+    }
+  },
+  "latest_capability_score": 0.9620833333333334,
+  "latest_composite_score": 0.6402247747194523
+}

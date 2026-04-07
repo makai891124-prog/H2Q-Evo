@@ -1,0 +1,94 @@
+{
+  "timestamp_utc": "2026-03-27T16:33:46.031054+00:00",
+  "fetch_sources": {
+    "wiki_xeb": "ok",
+    "google_rcs": "ok"
+  },
+  "public_rcs_xeb_table": [
+    {
+      "source": "wiki",
+      "platform": "Google Sycamore (2019)",
+      "qubits": 53,
+      "cycles": 20,
+      "xeb": 0.0024,
+      "runtime_seconds": 200.0,
+      "samples": 1000000
+    },
+    {
+      "source": "wiki",
+      "platform": "Zuchongzhi 2.1 (2021)",
+      "qubits": 60,
+      "cycles": 24,
+      "xeb": 0.000366,
+      "runtime_seconds": 14400.0,
+      "samples": null
+    }
+  ],
+  "local_stats": [
+    {
+      "n_qubits": 16,
+      "depth": 48,
+      "sample_count": 60,
+      "mean_delta": 5.272452751518948e-19,
+      "ci95_low_delta": -1.0058992924344117e-18,
+      "ci95_high_delta": 2.0603898427382013e-18,
+      "mean_abs_error": 2.529524136472368e-18,
+      "ci95_low_mae": 1.1323789085201539e-18,
+      "ci95_high_mae": 3.926669364424582e-18,
+      "rmse": 6.031409024205734e-18,
+      "max_abs_error": 3.225668553413534e-17,
+      "tost_p1": 0.0,
+      "tost_p2": 0.0,
+      "tost_pass": true,
+      "cohen_d": 0.0,
+      "hedges_g": 0.0,
+      "xeb_proxy": 0.9999999974704759
+    },
+    {
+      "n_qubits": 18,
+      "depth": 54,
+      "sample_count": 60,
+      "mean_delta": 8.108871090347509e-19,
+      "ci95_low_delta": -9.070006999812635e-19,
+      "ci95_high_delta": 2.5287749180507655e-18,
+      "mean_abs_error": 2.4157028489867043e-18,
+      "ci95_low_mae": 7.989208821030591e-19,
+      "ci95_high_mae": 4.0324848158703494e-18,
+      "rmse": 6.780978294891504e-18,
+      "max_abs_error": 2.844258015890952e-17,
+      "tost_p1": 0.0,
+      "tost_p2": 0.0,
+      "tost_pass": true,
+      "cohen_d": 0.0,
+      "hedges_g": 0.0,
+      "xeb_proxy": 0.9999999975842971
+    }
+  ],
+  "local_config": {
+    "n_list": [
+      16,
+      18
+    ],
+    "seed_list": [
+      11,
+      17,
+      23,
+      31
+    ],
+    "depth_factor": 3,
+    "equiv_margin": 1e-09,
+    "alpha": 0.05
+  },
+  "gap_summary": {
+    "public_max_qubits": 60,
+    "local_max_qubits": 18,
+    "qubit_gap": 42,
+    "state_space_ratio_local_over_public": 2.2737367544323206e-13,
+    "public_sycamore_xeb": 0.0024,
+    "public_min_xeb": 0.000366,
+    "local_mean_xeb_proxy": 0.9999999975273866,
+    "local_proxy_over_sycamore_xeb": 416.6666656364111,
+    "local_tost_pass_rate": 1.0
+  },
+  "verdict": "本地 DAS 在 n=16/18 上通过统一统计检验（TOST+置信区间+效应量），并保持高一致性；但与公开 RCS/XEB 挑战仍存在规模差距，应表述为‘具备量子计算特性与可扩展潜力’，而非‘已在同口径公开挑战上完成硬件级量子优势复现’。"
+}

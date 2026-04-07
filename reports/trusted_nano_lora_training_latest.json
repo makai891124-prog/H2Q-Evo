@@ -1,0 +1,89 @@
+{
+  "generated_at_utc": "2026-03-10T15:25:23.145531+00:00",
+  "model_name": "distilgpt2",
+  "dataset": "/Users/imymm/H2Q-Evo/reports/self_eval_distill_dataset_latest.json",
+  "corpus_text_count": 160,
+  "token_count": 40909,
+  "chunk_count": 638,
+  "epochs": 1,
+  "steps": 46,
+  "stopped_early": true,
+  "early_stop_patience": 20,
+  "early_stop_min_delta": 0.0001,
+  "warmup_steps": 19,
+  "loss_initial": 4.82880973815918,
+  "loss_final": 4.705009460449219,
+  "loss_min": 3.8001513481140137,
+  "weights_dir": "/Users/imymm/H2Q-Evo/reports/trusted_nano_lora_weights_1773156306",
+  "weights_latest_dir": "/Users/imymm/H2Q-Evo/reports/trusted_nano_lora_weights_latest",
+  "latest_strategy": "updated_with_best",
+  "best_checkpoint": {
+    "dir": "/Users/imymm/H2Q-Evo/reports/trusted_nano_lora_weights_best_1773156306",
+    "loss": 3.8001513481140137,
+    "step": 26,
+    "improved_vs_initial": true,
+    "replay": {
+      "score": 1.0,
+      "samples": [
+        {
+          "prompt": "请输出一个JSON，字段: diagnosis, action, confidence。",
+          "output": "请输出一个JSON，字段: diagnosis, action, confidence。\nThe first step is to create a new JSON object. The second step is creating an array of objects that will be used for the next stage of development and testing in order to test them on your own devices. This method can also take advantage of some other methods such as data-flow or database queries which are not"
+        },
+        {
+          "prompt": "Describe one robustness experiment with metric and expected failure mode.",
+          "output": "Describe one robustness experiment with metric and expected failure mode.\nThe results are presented in the paper, “A Brief History of Metrics for Measurement” (PDF)."
+        }
+      ],
+      "quality": {
+        "score": 0.6112006183442116,
+        "structure_rate": 0.5,
+        "density_rate": 1.0,
+        "echo_rate": 0.2397286155960151,
+        "non_empty_rate": 1.0,
+        "samples": [
+          {
+            "prompt": "请输出一个JSON，字段: diagnosis, action, confidence。",
+            "completion": "The first step is to create a new JSON object. The second step is creating an array of objects that will be used for the next stage of development and testing in order to test them on your own devices. This method can also take advantage of some other methods such as data-flow or database queries which are not",
+            "non_empty": true,
+            "structure_ok": false,
+            "field_score": 0.0,
+            "density": 1.0,
+            "echo_similarity": 0.10140845070422536,
+            "score": 0.4797183098591549
+          },
+          {
+            "prompt": "Describe one robustness experiment with metric and expected failure mode.",
+            "completion": "The results are presented in the paper, “A Brief History of Metrics for Measurement” (PDF).",
+            "non_empty": true,
+            "structure_ok": true,
+            "field_score": 0.5,
+            "density": 1.0,
+            "echo_similarity": 0.3780487804878049,
+            "score": 0.7426829268292683
+          }
+        ]
+      }
+    },
+    "replay_pass": true,
+    "replay_quality_pass": true
+  },
+  "lora": {
+    "r": 8,
+    "alpha": 16,
+    "dropout": 0.05,
+    "target_modules": [
+      "c_attn",
+      "c_proj"
+    ]
+  },
+  "samples": [
+    {
+      "prompt": "请给出一个结构化JSON格式的自我评估摘要：",
+      "output": "请给出一个结构化JSON格式的自我评估摘要：。\nThe first step is to create a JSON object that will be used for the next generation of applications. The second step is creating an API called \"API\" which can handle all kinds of data and objects, including user names, passwords, etc. This method allows you to use any kind of APIs like this:\n<api> <a href=\"https://githubusercontent.\"com/j"
+    },
+    {
+      "prompt": "Describe one concrete next-step experiment to improve robustness:",
+      "output": "Describe one concrete next-step experiment to improve robustness:\nThe first step is a simple, easy way to test the performance of your code. The second step is an example that demonstrates how you can use this technique in real time and with more complex tests (e.g., testing for new features). In addition we have some examples where I've used it as part of my project on GitHub or other projects like Github."
+    }
+  ]
+}

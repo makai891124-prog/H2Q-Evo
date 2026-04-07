@@ -1,0 +1,750 @@
+{
+  "generated_at_utc": "2026-04-05T14:33:32.208791+00:00",
+  "meta": {
+    "output_prefix": "master_project_finalization",
+    "base_branch": "origin/main",
+    "python_executable": "/Users/imymm/.pyenv/versions/3.12.2/bin/python3.12",
+    "fetch_before_sync": true,
+    "execute_instances": false,
+    "run_research_refresh": true,
+    "run_validation": true,
+    "validation_with_longrun": false,
+    "validation_longrun_cycles": 2,
+    "ci_safe": true
+  },
+  "git_sync": {
+    "checked_at_utc": "2026-04-05T14:26:56.402395+00:00",
+    "fetch": {
+      "attempted": true,
+      "ok": true,
+      "stdout_tail": "Fetching origin\nFetching origin-ssh",
+      "stderr_tail": ""
+    },
+    "fetch_note": "fetch_ok",
+    "branch": "copilot/vscode-mmdt291x-9e7t",
+    "head": "a9c9102b9832376155057b51fd886feef72b4230",
+    "upstream": "origin/copilot/vscode-mmdt291x-9e7t",
+    "base_branch": "origin/main",
+    "dirty_file_count": 198,
+    "dirty_preview": [
+      " M .DS_Store",
+      " M .github/workflows/agi-self-evolution-ci.yml",
+      " M agi_benchmark_validator.py",
+      " M h2q_project/h2q_server.py",
+      " M reports/research_aggregation_cross_validation_latest.json",
+      " M reports/research_aggregation_cross_validation_latest.md",
+      " M reports/research_aggregation_cross_validation_proof_note_latest.md",
+      " M reports/systemic_joint_blueprint_latest.json",
+      " M reports/systemic_joint_blueprint_latest.md",
+      " M reports/systemic_joint_validation_latest.json",
+      " M reports/systemic_platform_joint_capability_latest.json",
+      " M reports/systemic_platform_joint_capability_latest.md",
+      " M requirements.txt",
+      " M tools/collect_self_eval_distill_samples.py",
+      " M tools/one_click_agi_experience.sh",
+      " M tools/run_interactive_reasoning_benchmark.py",
+      " M tools/run_research_aggregation_cross_validation.py",
+      " M tools/run_self_eval_distillation_pipeline.py",
+      " M tools/run_systemic_platform_joint_capability_assessment.py",
+      " M wandb/latest-run",
+      "?? .github/workflows/systemic-joint-ci.yml",
+      "?? AGI_BOOTSTRAP_EXISTENCE_OBJECTIVE.md",
+      "?? AUTORESEARCH_H2Q_BOOTSTRAP_INTEGRATION.md",
+      "?? OPENCLAW_FULL_STACK_INTEGRATION.md",
+      "?? agi_benchmark_results.json",
+      "?? axiom_contract.json",
+      "?? docs/DAS_ARCHITECTURE_EFFICIENCY_REPORT.md",
+      "?? docs/DAS_AUTOCOMPUTE_LIBRARY_GUIDE.md",
+      "?? docs/DAS_GQS_APPENDIX_TEMPLATE.md",
+      "?? docs/DAS_GQS_PUBLIC_CHALLENGE_MAIN_TEXT_PAGE.md",
+      "?? docs/DAS_GQS_RCS_MAIN_FIGURE_TEMPLATE.md",
+      "?? external/",
+      "?? git-hooks/",
+      "?? h2q_project/das_gqs/",
+      "?? h2q_project/tools/das_m4_harshenv_benchmark.py",
+      "?? h2q_qwen_crystal.pt",
+      "?? reports/DAS_GQS_SUPREMACY_FORMAL_ANALYSIS.md",
+      "?? reports/agi_benchmark_results_before_latest.json",
+      "?? reports/autoresearch_h2q_bootstrap_fusion_before_api_latest.json",
+      "?? reports/autoresearch_h2q_bootstrap_fusion_latest.json",
+      "?? reports/autoresearch_h2q_bootstrap_fusion_latest.md",
+      "?? reports/benchmark_delta_analysis_latest.json",
+      "?? reports/benchmark_delta_analysis_latest.md",
+      "?? reports/compute_plan_cache.json",
+      "?? reports/conv_math_conversion/DAS_ARCHITECTURE_EFFICIENCY_REPORT_20260328.md",
+      "?? reports/conv_math_conversion/DAS_M4_HARSHENV_BENCHMARK_20260328.md",
+      "?? reports/conv_math_conversion/DAS_M4_HARSHENV_PUBLIC_COMPARISON_20260328.md",
+      "?? reports/conv_math_conversion/DAS_PARETO_AUDIT_20260328.md",
+      "?? reports/conv_math_conversion/OPEN_SOURCE_SMALLMODEL_DAS_VALIDATION_20260328.md",
+      "?? reports/conv_math_conversion/das_m4_harshenv_benchmark_20260328.json"
+    ],
+    "divergence_vs_base": {
+      "behind": 0,
+      "ahead": 15,
+      "synced_or_ahead": true
+    },
+    "divergence_vs_upstream": {
+      "behind": 0,
+      "ahead": 0,
+      "fully_synced": true
+    },
+    "sync_label": "synced_with_local_changes",
+    "sync_ok_for_finalization": true
+  },
+  "finalization_run": {
+    "ok": true,
+    "returncode": 0,
+    "command": [
+      "/Users/imymm/.pyenv/versions/3.12.2/bin/python3.12",
+      "tools/run_project_reality_finalization.py",
+      "--output-prefix",
+      "project_reality_finalization",
+      "--base-branch",
+      "origin/main",
+      "--python",
+      "/Users/imymm/.pyenv/versions/3.12.2/bin/python3.12",
+      "--max-instances",
+      "1",
+      "--timeout-sec",
+      "900",
+      "--ci-safe"
+    ],
+    "stdout_tail": "JSON: /Users/imymm/H2Q-Evo/reports/project_reality_finalization_1775399224.json\nLatest JSON: /Users/imymm/H2Q-Evo/reports/project_reality_finalization_latest.json\nMD: /Users/imymm/H2Q-Evo/reports/project_reality_finalization_1775399224.md\nLatest MD: /Users/imymm/H2Q-Evo/reports/project_reality_finalization_latest.md\nWeighted completion (after): 0.907407\nReadiness (after): release_candidate_with_gaps\nFinal statement: Project reaches release-candidate level but still has unresolved gaps; final claim should remain conditional.",
+    "stderr_tail": ""
+  },
+  "finalization_latest_json": "/Users/imymm/H2Q-Evo/reports/project_reality_finalization_latest.json",
+  "finalization": {
+    "evaluation_before": {
+      "weighted_completion": 0.9074074074074076,
+      "counts": {
+        "achieved": 12,
+        "partial": 0,
+        "not_achieved": 1,
+        "total": 13
+      },
+      "readiness": "release_candidate_with_gaps",
+      "capabilities": [
+        {
+          "capability_id": "release_gate_pass",
+          "title": "Release gate pass",
+          "kind": "bool",
+          "target": true,
+          "measured": false,
+          "gap": 1.0,
+          "status": "not_achieved",
+          "normalized_completion": 0.0,
+          "weight": 0.1,
+          "source_hint": "reports/release_gate_latest.json",
+          "notes": "Primary release safety and readiness gate."
+        },
+        {
+          "capability_id": "breadth",
+          "title": "Capability breadth",
+          "kind": "numeric",
+          "target": 0.7,
+          "measured": 1.0,
+          "gap": 0.0,
+          "status": "achieved",
+          "normalized_completion": 1.0,
+          "weight": 0.08,
+          "source_hint": "release_gate.signals.breadth",
+          "notes": "Coverage across heterogeneous task families."
+        },
+        {
+          "capability_id": "horizon",
+          "title": "Long-horizon stability",
+          "kind": "numeric",
+          "target": 0.85,
+          "measured": 1.0,
+          "gap": 0.0,
+          "status": "achieved",
+          "normalized_completion": 1.0,
+          "weight": 0.08,
+          "source_hint": "release_gate.signals.horizon",
+          "notes": "Ability to sustain quality over longer windows."
+        },
+        {
+          "capability_id": "robustness",
+          "title": "Robustness",
+          "kind": "numeric",
+          "target": 0.7,
+          "measured": 0.88,
+          "gap": 0.0,
+          "status": "achieved",
+          "normalized_completion": 1.0,
+          "weight": 0.08,
+          "source_hint": "release_gate.signals.robustness",
+          "notes": "Resilience against drift and controller changes."
+        },
+        {
+          "capability_id": "interactive_success_rate",
+          "title": "Interactive reasoning success",
+          "kind": "numeric",
+          "target": 0.65,
+          "measured": 1.0,
+          "gap": 0.0,
+          "status": "achieved",
+          "normalized_completion": 1.0,
+          "weight": 0.08,
+          "source_hint": "interactive_reasoning.metrics.success_rate",
+          "notes": "Tool-using and iterative reasoning quality."
+        },
+        {
+          "capability_id": "public_alignment_overall",
+          "title": "Public benchmark alignment",
+          "kind": "numeric",
+          "target": 0.65,
+          "measured": 0.9496111111111111,
+          "gap": 0.0,
+          "status": "achieved",
+          "normalized_completion": 1.0,
+          "weight": 0.09,
+          "source_hint": "public_alignment.alignment.overall",
+          "notes": "Alignment against ARC/SWE/METR style dimensions."
+        },
+        {
+          "capability_id": "systemic_aggregate_score",
+          "title": "Systemic aggregate score",
+          "kind": "numeric",
+          "target": 0.85,
+          "measured": 0.97259375,
+          "gap": 0.0,
+          "status": "achieved",
+          "normalized_completion": 1.0,
+          "weight": 0.1,
+          "source_hint": "systemic_platform_joint_capability.aggregate_effectiveness.score",
+          "notes": "Cross-controller solution quality level."
+        },
+        {
+          "capability_id": "systemic_cv_min_score",
+          "title": "Systemic CV floor",
+          "kind": "numeric",
+          "target": 0.8,
+          "measured": 0.9545454545454545,
+          "gap": 0.0,
+          "status": "achieved",
+          "normalized_completion": 1.0,
+          "weight": 0.08,
+          "source_hint": "systemic_platform_joint_capability.cross_validation.min_score",
+          "notes": "Minimum score under evidence-family ablation."
+        },
+        {
+          "capability_id": "research_aggregate_score",
+          "title": "Research aggregate score",
+          "kind": "numeric",
+          "target": 0.85,
+          "measured": 0.9943158135231227,
+          "gap": 0.0,
+          "status": "achieved",
+          "normalized_completion": 1.0,
+          "weight": 0.08,
+          "source_hint": "research_aggregation_cross_validation.aggregate_effectiveness.score",
+          "notes": "Research-to-architecture integrated effectiveness."
+        },
+        {
+          "capability_id": "research_loo_min_score",
+          "title": "Research LOO floor",
+          "kind": "numeric",
+          "target": 0.8,
+          "measured": 0.9918797336044611,
+          "gap": 0.0,
+          "status": "achieved",
+          "normalized_completion": 1.0,
+          "weight": 0.08,
+          "source_hint": "research_aggregation_cross_validation.cross_validation.min_score",
+          "notes": "Stability when each evidence family is removed once."
+        },
+        {
+          "capability_id": "formal_logic_closed",
+          "title": "Formal logic closure",
+          "kind": "bool",
+          "target": true,
+          "measured": true,
+          "gap": 0.0,
+          "status": "achieved",
+          "normalized_completion": 1.0,
+          "weight": 0.09,
+          "source_hint": "distill_evo_public_formal_assessment.logic_closure",
+          "notes": "Formal closure should remain valid for final claims."
+        },
+        {
+          "capability_id": "distill_schema_uplift",
+          "title": "Distillation schema uplift",
+          "kind": "numeric",
+          "target": 0.02,
+          "measured": 1.0,
+          "gap": 0.0,
+          "status": "achieved",
+          "normalized_completion": 1.0,
+          "weight": 0.07,
+          "source_hint": "self_eval_distillation_pipeline.metrics.delta_schema_valid_rate",
+          "notes": "Expected net uplift from self-eval distillation."
+        },
+        {
+          "capability_id": "fusion_tier_stability_ratio",
+          "title": "Fusion tier stability",
+          "kind": "numeric",
+          "target": 0.6666666666666666,
+          "measured": 0.6666666666666666,
+          "gap": 0.0,
+          "status": "achieved",
+          "normalized_completion": 1.0,
+          "weight": 0.07,
+          "source_hint": "open_source_model_fusion_pathway.fusion_plan.tier_maturity",
+          "notes": "At least two tiers should be marked stable."
+        }
+      ],
+      "unresolved_priority": [
+        {
+          "capability_id": "release_gate_pass",
+          "title": "Release gate pass",
+          "kind": "bool",
+          "target": true,
+          "measured": false,
+          "gap": 1.0,
+          "status": "not_achieved",
+          "normalized_completion": 0.0,
+          "weight": 0.1,
+          "source_hint": "reports/release_gate_latest.json",
+          "notes": "Primary release safety and readiness gate."
+        }
+      ]
+    },
+    "evaluation_after": {
+      "weighted_completion": 0.9074074074074076,
+      "counts": {
+        "achieved": 12,
+        "partial": 0,
+        "not_achieved": 1,
+        "total": 13
+      },
+      "readiness": "release_candidate_with_gaps",
+      "capabilities": [
+        {
+          "capability_id": "release_gate_pass",
+          "title": "Release gate pass",
+          "kind": "bool",
+          "target": true,
+          "measured": false,
+          "gap": 1.0,
+          "status": "not_achieved",
+          "normalized_completion": 0.0,
+          "weight": 0.1,
+          "source_hint": "reports/release_gate_latest.json",
+          "notes": "Primary release safety and readiness gate."
+        },
+        {
+          "capability_id": "breadth",
+          "title": "Capability breadth",
+          "kind": "numeric",
+          "target": 0.7,
+          "measured": 1.0,
+          "gap": 0.0,
+          "status": "achieved",
+          "normalized_completion": 1.0,
+          "weight": 0.08,
+          "source_hint": "release_gate.signals.breadth",
+          "notes": "Coverage across heterogeneous task families."
+        },
+        {
+          "capability_id": "horizon",
+          "title": "Long-horizon stability",
+          "kind": "numeric",
+          "target": 0.85,
+          "measured": 1.0,
+          "gap": 0.0,
+          "status": "achieved",
+          "normalized_completion": 1.0,
+          "weight": 0.08,
+          "source_hint": "release_gate.signals.horizon",
+          "notes": "Ability to sustain quality over longer windows."
+        },
+        {
+          "capability_id": "robustness",
+          "title": "Robustness",
+          "kind": "numeric",
+          "target": 0.7,
+          "measured": 0.88,
+          "gap": 0.0,
+          "status": "achieved",
+          "normalized_completion": 1.0,
+          "weight": 0.08,
+          "source_hint": "release_gate.signals.robustness",
+          "notes": "Resilience against drift and controller changes."
+        },
+        {
+          "capability_id": "interactive_success_rate",
+          "title": "Interactive reasoning success",
+          "kind": "numeric",
+          "target": 0.65,
+          "measured": 1.0,
+          "gap": 0.0,
+          "status": "achieved",
+          "normalized_completion": 1.0,
+          "weight": 0.08,
+          "source_hint": "interactive_reasoning.metrics.success_rate",
+          "notes": "Tool-using and iterative reasoning quality."
+        },
+        {
+          "capability_id": "public_alignment_overall",
+          "title": "Public benchmark alignment",
+          "kind": "numeric",
+          "target": 0.65,
+          "measured": 0.9496111111111111,
+          "gap": 0.0,
+          "status": "achieved",
+          "normalized_completion": 1.0,
+          "weight": 0.09,
+          "source_hint": "public_alignment.alignment.overall",
+          "notes": "Alignment against ARC/SWE/METR style dimensions."
+        },
+        {
+          "capability_id": "systemic_aggregate_score",
+          "title": "Systemic aggregate score",
+          "kind": "numeric",
+          "target": 0.85,
+          "measured": 0.97259375,
+          "gap": 0.0,
+          "status": "achieved",
+          "normalized_completion": 1.0,
+          "weight": 0.1,
+          "source_hint": "systemic_platform_joint_capability.aggregate_effectiveness.score",
+          "notes": "Cross-controller solution quality level."
+        },
+        {
+          "capability_id": "systemic_cv_min_score",
+          "title": "Systemic CV floor",
+          "kind": "numeric",
+          "target": 0.8,
+          "measured": 0.9545454545454545,
+          "gap": 0.0,
+          "status": "achieved",
+          "normalized_completion": 1.0,
+          "weight": 0.08,
+          "source_hint": "systemic_platform_joint_capability.cross_validation.min_score",
+          "notes": "Minimum score under evidence-family ablation."
+        },
+        {
+          "capability_id": "research_aggregate_score",
+          "title": "Research aggregate score",
+          "kind": "numeric",
+          "target": 0.85,
+          "measured": 0.9943158135231227,
+          "gap": 0.0,
+          "status": "achieved",
+          "normalized_completion": 1.0,
+          "weight": 0.08,
+          "source_hint": "research_aggregation_cross_validation.aggregate_effectiveness.score",
+          "notes": "Research-to-architecture integrated effectiveness."
+        },
+        {
+          "capability_id": "research_loo_min_score",
+          "title": "Research LOO floor",
+          "kind": "numeric",
+          "target": 0.8,
+          "measured": 0.9918797336044611,
+          "gap": 0.0,
+          "status": "achieved",
+          "normalized_completion": 1.0,
+          "weight": 0.08,
+          "source_hint": "research_aggregation_cross_validation.cross_validation.min_score",
+          "notes": "Stability when each evidence family is removed once."
+        },
+        {
+          "capability_id": "formal_logic_closed",
+          "title": "Formal logic closure",
+          "kind": "bool",
+          "target": true,
+          "measured": true,
+          "gap": 0.0,
+          "status": "achieved",
+          "normalized_completion": 1.0,
+          "weight": 0.09,
+          "source_hint": "distill_evo_public_formal_assessment.logic_closure",
+          "notes": "Formal closure should remain valid for final claims."
+        },
+        {
+          "capability_id": "distill_schema_uplift",
+          "title": "Distillation schema uplift",
+          "kind": "numeric",
+          "target": 0.02,
+          "measured": 1.0,
+          "gap": 0.0,
+          "status": "achieved",
+          "normalized_completion": 1.0,
+          "weight": 0.07,
+          "source_hint": "self_eval_distillation_pipeline.metrics.delta_schema_valid_rate",
+          "notes": "Expected net uplift from self-eval distillation."
+        },
+        {
+          "capability_id": "fusion_tier_stability_ratio",
+          "title": "Fusion tier stability",
+          "kind": "numeric",
+          "target": 0.6666666666666666,
+          "measured": 0.6666666666666666,
+          "gap": 0.0,
+          "status": "achieved",
+          "normalized_completion": 1.0,
+          "weight": 0.07,
+          "source_hint": "open_source_model_fusion_pathway.fusion_plan.tier_maturity",
+          "notes": "At least two tiers should be marked stable."
+        }
+      ],
+      "unresolved_priority": [
+        {
+          "capability_id": "release_gate_pass",
+          "title": "Release gate pass",
+          "kind": "bool",
+          "target": true,
+          "measured": false,
+          "gap": 1.0,
+          "status": "not_achieved",
+          "normalized_completion": 0.0,
+          "weight": 0.1,
+          "source_hint": "reports/release_gate_latest.json",
+          "notes": "Primary release safety and readiness gate."
+        }
+      ]
+    },
+    "instance_plan": [
+      {
+        "order": 1,
+        "instance_id": "release_gate_hardening",
+        "title": "Release gate hardening run",
+        "command": [
+          "/Users/imymm/.pyenv/versions/3.12.2/bin/python3.12",
+          "tools/release_gate.py",
+          "--profile",
+          "quick",
+          "--assist-provider",
+          "none",
+          "--min-breadth",
+          "0.60",
+          "--min-horizon",
+          "0.80",
+          "--min-robustness",
+          "0.60",
+          "--output-prefix",
+          "reality_finalize_release_gate"
+        ],
+        "expected_artifacts": [
+          "reports/release_gate_latest.json",
+          "reports/release_gate_latest.md"
+        ],
+        "addresses_capabilities": [
+          "release_gate_pass"
+        ]
+      }
+    ],
+    "instance_execution": [
+      {
+        "instance_id": "release_gate_hardening",
+        "executed": false,
+        "status": "planned_only",
+        "reason": "execute_instances=false"
+      }
+    ],
+    "research_and_dev_map": [
+      {
+        "trend": "SWE-bench style issue-resolution evaluation (2024 mainstream)",
+        "focus": "Real-world code issue closure and patch validity",
+        "local_instances": [
+          "tools/run_interactive_reasoning_benchmark.py",
+          "tools/run_agi_integrated_validation.py"
+        ],
+        "mapped_capabilities": [
+          "interactive_success_rate",
+          "public_alignment_overall"
+        ]
+      },
+      {
+        "trend": "Self-rewarding and judge-model loops (2024)",
+        "focus": "Self-evaluation driven policy improvement",
+        "local_instances": [
+          "tools/run_self_eval_distillation_pipeline.py",
+          "tools/run_self_eval_distillation_pipeline_chunked.py",
+          "tools/train_self_eval_distillation_adapter.py"
+        ],
+        "mapped_capabilities": [
+          "distill_schema_uplift",
+          "robustness"
+        ]
+      },
+      {
+        "trend": "Agent reliability under long-horizon orchestration (2024-2025)",
+        "focus": "Multi-controller consistency and failure isolation",
+        "local_instances": [
+          "tools/run_systemic_platform_joint_capability_assessment.py",
+          "tools/dynamic_blueprint_bootstrap.py"
+        ],
+        "mapped_capabilities": [
+          "systemic_aggregate_score",
+          "systemic_cv_min_score",
+          "horizon"
+        ]
+      },
+      {
+        "trend": "Formalized trust and verification stacks (2024-2026)",
+        "focus": "Evidence-backed claims with machine-checkable closure",
+        "local_instances": [
+          "tools/run_distill_evolution_public_formal_assessment.py",
+          "tools/release_gate.py"
+        ],
+        "mapped_capabilities": [
+          "formal_logic_closed",
+          "release_gate_pass"
+        ]
+      },
+      {
+        "trend": "Cost-aware small/large model routing (2024-2026)",
+        "focus": "Edge-core decomposition and route policy stability",
+        "local_instances": [
+          "tools/run_open_source_model_fusion_pathway.py",
+          "reports/open_source_model_fusion_router_latest.json"
+        ],
+        "mapped_capabilities": [
+          "fusion_tier_stability_ratio",
+          "robustness"
+        ]
+      }
+    ],
+    "final_statement": "Project reaches release-candidate level but still has unresolved gaps; final claim should remain conditional."
+  },
+  "capability_gap_model": {
+    "model_version": "gap-model-v1",
+    "generated_at_utc": "2026-04-05T14:27:04.594150+00:00",
+    "summary": {
+      "total_capabilities": 13,
+      "resolved_capabilities": 12,
+      "unresolved_capabilities": 1,
+      "priority_level_counts": {
+        "critical": 1,
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      },
+      "weighted_gap_total": 0.1,
+      "weighted_completion_after": 0.9074074074074076,
+      "readiness_after": "release_candidate_with_gaps"
+    },
+    "unresolved_priority": [
+      {
+        "capability_id": "release_gate_pass",
+        "title": "Release gate pass",
+        "kind": "bool",
+        "status": "not_achieved",
+        "target": true,
+        "measured": false,
+        "gap": 1.0,
+        "normalized_gap": 1.0,
+        "weight": 0.1,
+        "priority_score": 0.1,
+        "priority_level": "critical",
+        "recommended_instances": [
+          "release_gate_hardening"
+        ],
+        "research_tags": [
+          "Release governance and safety gate"
+        ],
+        "notes": "Primary release safety and readiness gate."
+      }
+    ],
+    "top_actions": [
+      {
+        "capability_id": "release_gate_pass",
+        "priority_level": "critical",
+        "priority_score": 0.1,
+        "recommended_instances": [
+          "release_gate_hardening"
+        ]
+      }
+    ]
+  },
+  "research_refresh_runs": [
+    {
+      "name": "research_aggregation_cross_validation",
+      "executed": true,
+      "status": "ok",
+      "returncode": 0,
+      "command": [
+        "/Users/imymm/.pyenv/versions/3.12.2/bin/python3.12",
+        "tools/run_research_aggregation_cross_validation.py"
+      ],
+      "stdout_tail": "JSON: /Users/imymm/H2Q-Evo/reports/research_aggregation_cross_validation_1775399224.json\nLatest JSON: /Users/imymm/H2Q-Evo/reports/research_aggregation_cross_validation_latest.json\nMD: /Users/imymm/H2Q-Evo/reports/research_aggregation_cross_validation_1775399224.md\nLatest MD: /Users/imymm/H2Q-Evo/reports/research_aggregation_cross_validation_latest.md\nProof MD: /Users/imymm/H2Q-Evo/reports/research_aggregation_cross_validation_proof_note_1775399224.md\nLatest Proof MD: /Users/imymm/H2Q-Evo/reports/research_aggregation_cross_validation_proof_note_latest.md\nAggregate score: 0.994316\nLOO min score: 0.991880\nRobust claim: True",
+      "stderr_tail": ""
+    },
+    {
+      "name": "systemic_platform_joint_capability",
+      "executed": true,
+      "status": "ok",
+      "returncode": 0,
+      "command": [
+        "/Users/imymm/.pyenv/versions/3.12.2/bin/python3.12",
+        "tools/run_systemic_platform_joint_capability_assessment.py",
+        "--output-prefix",
+        "systemic_platform_joint_capability",
+        "--timeout-sec",
+        "900",
+        "--ci-safe"
+      ],
+      "stdout_tail": "JSON: /Users/imymm/H2Q-Evo/reports/systemic_platform_joint_capability_1775399597.json\nLatest JSON: /Users/imymm/H2Q-Evo/reports/systemic_platform_joint_capability_latest.json\nMD: /Users/imymm/H2Q-Evo/reports/systemic_platform_joint_capability_1775399597.md\nLatest MD: /Users/imymm/H2Q-Evo/reports/systemic_platform_joint_capability_latest.md\nAggregate score: 0.972594\nLOO min score: 0.954545\nRobust claim: False",
+      "stderr_tail": ""
+    }
+  ],
+  "validation": {
+    "executed": true,
+    "status": "failed",
+    "steps": [
+      {
+        "name": "release_gate_master",
+        "status": "failed",
+        "returncode": 1,
+        "command": [
+          "/Users/imymm/.pyenv/versions/3.12.2/bin/python3.12",
+          "tools/release_gate.py",
+          "--profile",
+          "quick",
+          "--assist-provider",
+          "none",
+          "--min-breadth",
+          "0.60",
+          "--min-horizon",
+          "0.80",
+          "--min-robustness",
+          "0.60",
+          "--output-prefix",
+          "release_gate_master"
+        ],
+        "stdout_tail": "Release gate completed\nGate OK: False\nJSON: /Users/imymm/H2Q-Evo/reports/release_gate_master_1775399603.json\nMD: /Users/imymm/H2Q-Evo/reports/release_gate_master_1775399603.md",
+        "stderr_tail": ""
+      },
+      {
+        "name": "agi_integrated_validation_master",
+        "status": "failed",
+        "returncode": 1,
+        "command": [
+          "/Users/imymm/.pyenv/versions/3.12.2/bin/python3.12",
+          "tools/run_agi_integrated_validation.py",
+          "--python",
+          "/Users/imymm/.pyenv/versions/3.12.2/bin/python3.12",
+          "--output-prefix",
+          "agi_integrated_validation_master"
+        ],
+        "stdout_tail": "",
+        "stderr_tail": "Traceback (most recent call last):\n  File \"/Users/imymm/H2Q-Evo/tools/run_agi_integrated_validation.py\", line 440, in <module>\n    raise SystemExit(main())\n                     ^^^^^^\n  File \"/Users/imymm/H2Q-Evo/tools/run_agi_integrated_validation.py\", line 174, in main\n    gate_res_1 = must(\n                 ^^^^^\n  File \"/Users/imymm/H2Q-Evo/tools/run_agi_integrated_validation.py\", line 131, in must\n    raise RuntimeError(f\"Step failed: {step_name}\\nSTDOUT:\\n{res.stdout}\\nSTDERR:\\n{res.stderr}\")\nRuntimeError: Step failed: release_gate_baseline\nSTDOUT:\nRelease gate completed\nGate OK: False\nJSON: /Users/imymm/H2Q-Evo/reports/release_gate_instantiation_1775399612.json\nMD: /Users/imymm/H2Q-Evo/reports/release_gate_instantiation_1775399612.md\n\nSTDERR:\n"
+      }
+    ],
+    "summary": {
+      "release_gate_ok": false,
+      "integrated_validation_baseline_gate_ok": false,
+      "integrated_validation_longrun_gate_ok": false,
+      "all_steps_ok": false,
+      "validation_ok": false,
+      "artifacts": {
+        "release_gate_latest": "reports/release_gate_master_latest.json",
+        "integrated_validation_latest": "reports/agi_integrated_validation_master_latest.json"
+      }
+    }
+  },
+  "final_statement": "Finalization remains conditional because validation bundle did not fully pass."
+}

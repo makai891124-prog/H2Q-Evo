@@ -1,0 +1,332 @@
+{
+  "meta": {
+    "created_at_utc": "2026-03-07T13:31:53.062499+00:00",
+    "task_file": "/Users/imymm/H2Q-Evo/benchmarks/interactive_reasoning/tasks_v1.json",
+    "task_count": 24,
+    "solver": "model",
+    "min_success_rate": 0.0
+  },
+  "metrics": {
+    "success_count": 0,
+    "success_rate": 0.0,
+    "avg_steps": 0.0,
+    "max_steps": 0,
+    "min_steps": 0,
+    "parse_errors": 8476,
+    "passed": true
+  },
+  "results": [
+    {
+      "task_id": "ir-001",
+      "success": false,
+      "reason": "step-budget-exceeded",
+      "steps": 100,
+      "reached": [],
+      "goal": [
+        4,
+        4
+      ],
+      "policy": "model",
+      "parse_errors": 100
+    },
+    {
+      "task_id": "ir-002",
+      "success": false,
+      "reason": "step-budget-exceeded",
+      "steps": 144,
+      "reached": [],
+      "goal": [
+        5,
+        5
+      ],
+      "policy": "model",
+      "parse_errors": 144
+    },
+    {
+      "task_id": "ir-003",
+      "success": false,
+      "reason": "step-budget-exceeded",
+      "steps": 196,
+      "reached": [],
+      "goal": [
+        6,
+        3
+      ],
+      "policy": "model",
+      "parse_errors": 196
+    },
+    {
+      "task_id": "ir-004",
+      "success": false,
+      "reason": "step-budget-exceeded",
+      "steps": 144,
+      "reached": [],
+      "goal": [
+        0,
+        5
+      ],
+      "policy": "model",
+      "parse_errors": 144
+    },
+    {
+      "task_id": "ir-005",
+      "success": false,
+      "reason": "step-budget-exceeded",
+      "steps": 192,
+      "reached": [],
+      "goal": [
+        7,
+        5
+      ],
+      "policy": "model",
+      "parse_errors": 192
+    },
+    {
+      "task_id": "ir-006",
+      "success": false,
+      "reason": "step-budget-exceeded",
+      "steps": 256,
+      "reached": [],
+      "goal": [
+        6,
+        6
+      ],
+      "policy": "model",
+      "parse_errors": 256
+    },
+    {
+      "task_id": "ir-007",
+      "success": false,
+      "reason": "step-budget-exceeded",
+      "steps": 252,
+      "reached": [],
+      "goal": [
+        8,
+        0
+      ],
+      "policy": "model",
+      "parse_errors": 252
+    },
+    {
+      "task_id": "ir-008",
+      "success": false,
+      "reason": "step-budget-exceeded",
+      "steps": 196,
+      "reached": [],
+      "goal": [
+        0,
+        6
+      ],
+      "policy": "model",
+      "parse_errors": 196
+    },
+    {
+      "task_id": "ir-009",
+      "success": false,
+      "reason": "step-budget-exceeded",
+      "steps": 320,
+      "reached": [],
+      "goal": [
+        9,
+        7
+      ],
+      "policy": "model",
+      "parse_errors": 320
+    },
+    {
+      "task_id": "ir-010",
+      "success": false,
+      "reason": "step-budget-exceeded",
+      "steps": 400,
+      "reached": [],
+      "goal": [
+        0,
+        0
+      ],
+      "policy": "model",
+      "parse_errors": 400
+    },
+    {
+      "task_id": "ir-011",
+      "success": false,
+      "reason": "step-budget-exceeded",
+      "steps": 216,
+      "reached": [],
+      "goal": [
+        5,
+        0
+      ],
+      "policy": "model",
+      "parse_errors": 216
+    },
+    {
+      "task_id": "ir-012",
+      "success": false,
+      "reason": "step-budget-exceeded",
+      "steps": 324,
+      "reached": [],
+      "goal": [
+        4,
+        0
+      ],
+      "policy": "model",
+      "parse_errors": 324
+    },
+    {
+      "task_id": "ir-013",
+      "success": false,
+      "reason": "step-budget-exceeded",
+      "steps": 280,
+      "reached": [],
+      "goal": [
+        6,
+        9
+      ],
+      "policy": "model",
+      "parse_errors": 280
+    },
+    {
+      "task_id": "ir-014",
+      "success": false,
+      "reason": "step-budget-exceeded",
+      "steps": 288,
+      "reached": [],
+      "goal": [
+        11,
+        0
+      ],
+      "policy": "model",
+      "parse_errors": 288
+    },
+    {
+      "task_id": "ir-015",
+      "success": false,
+      "reason": "step-budget-exceeded",
+      "steps": 484,
+      "reached": [],
+      "goal": [
+        9,
+        9
+      ],
+      "policy": "model",
+      "parse_errors": 484
+    },
+    {
+      "task_id": "ir-016",
+      "success": false,
+      "reason": "step-budget-exceeded",
+      "steps": 384,
+      "reached": [],
+      "goal": [
+        0,
+        0
+      ],
+      "policy": "model",
+      "parse_errors": 384
+    },
+    {
+      "task_id": "ir-017",
+      "success": false,
+      "reason": "step-budget-exceeded",
+      "steps": 576,
+      "reached": [],
+      "goal": [
+        11,
+        11
+      ],
+      "policy": "model",
+      "parse_errors": 576
+    },
+    {
+      "task_id": "ir-018",
+      "success": false,
+      "reason": "step-budget-exceeded",
+      "steps": 432,
+      "reached": [],
+      "goal": [
+        0,
+        11
+      ],
+      "policy": "model",
+      "parse_errors": 432
+    },
+    {
+      "task_id": "ir-019",
+      "success": false,
+      "reason": "step-budget-exceeded",
+      "steps": 416,
+      "reached": [],
+      "goal": [
+        12,
+        0
+      ],
+      "policy": "model",
+      "parse_errors": 416
+    },
+    {
+      "task_id": "ir-020",
+      "success": false,
+      "reason": "step-budget-exceeded",
+      "steps": 560,
+      "reached": [],
+      "goal": [
+        0,
+        0
+      ],
+      "policy": "model",
+      "parse_errors": 560
+    },
+    {
+      "task_id": "ir-021",
+      "success": false,
+      "reason": "step-budget-exceeded",
+      "steps": 540,
+      "reached": [],
+      "goal": [
+        14,
+        8
+      ],
+      "policy": "model",
+      "parse_errors": 540
+    },
+    {
+      "task_id": "ir-022",
+      "success": false,
+      "reason": "step-budget-exceeded",
+      "steps": 560,
+      "reached": [],
+      "goal": [
+        0,
+        0
+      ],
+      "policy": "model",
+      "parse_errors": 560
+    },
+    {
+      "task_id": "ir-023",
+      "success": false,
+      "reason": "step-budget-exceeded",
+      "steps": 640,
+      "reached": [],
+      "goal": [
+        15,
+        0
+      ],
+      "policy": "model",
+      "parse_errors": 640
+    },
+    {
+      "task_id": "ir-024",
+      "success": false,
+      "reason": "step-budget-exceeded",
+      "steps": 576,
+      "reached": [],
+      "goal": [
+        11,
+        0
+      ],
+      "policy": "model",
+      "parse_errors": 576
+    }
+  ]
+}

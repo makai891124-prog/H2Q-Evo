@@ -1,0 +1,26 @@
+{
+  "stage": "6_formula_contract",
+  "driver": "tribonacci_sl3z",
+  "input": {
+    "paper_formula_text": "hannah h. tucuman dented the nineteen many file it"
+  },
+  "derived": {
+    "eta": 1.8392867552141612,
+    "determinant": 1.0,
+    "foliation_depth": 9.0,
+    "trace_depth": 241.0,
+    "half_order_delta": 162.86141967773438,
+    "ring_size": 13.0
+  },
+  "validation": {
+    "determinant_is_unitary": true,
+    "foliation_depth_in_range": true,
+    "trace_depth_positive": true,
+    "contract_ready": true
+  },
+  "render_plan": {
+    "frames": 24,
+    "fps": 12,
+    "grid_resolution": 96
+  }
+}

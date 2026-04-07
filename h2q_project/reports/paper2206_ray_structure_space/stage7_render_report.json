@@ -1,0 +1,25 @@
+{
+  "stage": "7_realtime_manifold_rendering",
+  "driver": "pyvista",
+  "video_path": "/Users/imymm/H2Q-Evo/h2q_project/reports/paper2206_ray_structure_space/stage7_spatial_demo/paper_formula_manifold_demo.mp4",
+  "frames_dir": "/Users/imymm/H2Q-Evo/h2q_project/reports/paper2206_ray_structure_space/stage7_spatial_demo/frames",
+  "saved_png_frames": [
+    "/Users/imymm/H2Q-Evo/h2q_project/reports/paper2206_ray_structure_space/stage7_spatial_demo/frames/frame_0000.png",
+    "/Users/imymm/H2Q-Evo/h2q_project/reports/paper2206_ray_structure_space/stage7_spatial_demo/frames/frame_0006.png",
+    "/Users/imymm/H2Q-Evo/h2q_project/reports/paper2206_ray_structure_space/stage7_spatial_demo/frames/frame_0012.png",
+    "/Users/imymm/H2Q-Evo/h2q_project/reports/paper2206_ray_structure_space/stage7_spatial_demo/frames/frame_0018.png",
+    "/Users/imymm/H2Q-Evo/h2q_project/reports/paper2206_ray_structure_space/stage7_spatial_demo/frames/frame_0024.png",
+    "/Users/imymm/H2Q-Evo/h2q_project/reports/paper2206_ray_structure_space/stage7_spatial_demo/frames/frame_0030.png",
+    "/Users/imymm/H2Q-Evo/h2q_project/reports/paper2206_ray_structure_space/stage7_spatial_demo/frames/frame_0036.png",
+    "/Users/imymm/H2Q-Evo/h2q_project/reports/paper2206_ray_structure_space/stage7_spatial_demo/frames/frame_0042.png",
+    "/Users/imymm/H2Q-Evo/h2q_project/reports/paper2206_ray_structure_space/stage7_spatial_demo/frames/frame_0047.png"
+  ],
+  "frame_metrics": {
+    "count": 48,
+    "curvature_proxy_mean": 0.023727246870597202,
+    "curvature_proxy_max": 0.0471685566008091
+  },
+  "duration_sec": 8.289,
+  "passed": true,
+  "error": null
+}

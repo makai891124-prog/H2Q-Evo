@@ -1,0 +1,295 @@
+{
+  "generated_at_utc": "2026-04-05T13:58:38.653076+00:00",
+  "model_scan": {
+    "models": [
+      {
+        "name": "test_model",
+        "size_b": 0.0,
+        "specialties": [
+          "general"
+        ],
+        "edge_score": 0.45,
+        "core_score": 0.45,
+        "tier": "bridge",
+        "sources": [
+          "internal_registry"
+        ]
+      },
+      {
+        "name": "deepseek-coder-v2-236b",
+        "size_b": 236.0,
+        "specialties": [
+          "coding",
+          "general_reasoning"
+        ],
+        "edge_score": 0.27,
+        "core_score": 0.9700000000000001,
+        "tier": "core",
+        "sources": [
+          "seed_catalog"
+        ]
+      },
+      {
+        "name": "deepseek-coder-v2-236b-compressed:latest",
+        "size_b": 236.0,
+        "specialties": [
+          "coding",
+          "general_reasoning"
+        ],
+        "edge_score": 0.27,
+        "core_score": 0.9700000000000001,
+        "tier": "core",
+        "sources": [
+          "ollama"
+        ]
+      },
+      {
+        "name": "deepseek-coder-v2:236b",
+        "size_b": 236.0,
+        "specialties": [
+          "coding",
+          "general_reasoning"
+        ],
+        "edge_score": 0.27,
+        "core_score": 0.9700000000000001,
+        "tier": "core",
+        "sources": [
+          "ollama"
+        ]
+      },
+      {
+        "name": "deepseek-coder:33b",
+        "size_b": 33.0,
+        "specialties": [
+          "coding",
+          "general_reasoning"
+        ],
+        "edge_score": 0.47,
+        "core_score": 0.8200000000000001,
+        "tier": "core",
+        "sources": [
+          "ollama"
+        ]
+      },
+      {
+        "name": "codellama-7b",
+        "size_b": 7.0,
+        "specialties": [
+          "coding",
+          "general_reasoning"
+        ],
+        "edge_score": 0.89,
+        "core_score": 0.52,
+        "tier": "edge",
+        "sources": [
+          "seed_catalog"
+        ]
+      },
+      {
+        "name": "deepseek-coder-6.7b",
+        "size_b": 6.7,
+        "specialties": [
+          "coding",
+          "general_reasoning"
+        ],
+        "edge_score": 0.89,
+        "core_score": 0.52,
+        "tier": "edge",
+        "sources": [
+          "seed_catalog"
+        ]
+      },
+      {
+        "name": "deepseek-coder:6.7b",
+        "size_b": 6.7,
+        "specialties": [
+          "coding",
+          "general_reasoning"
+        ],
+        "edge_score": 0.89,
+        "core_score": 0.52,
+        "tier": "edge",
+        "sources": [
+          "ollama"
+        ]
+      },
+      {
+        "name": "llama-2-7b-chat",
+        "size_b": 7.0,
+        "specialties": [
+          "instruction",
+          "general_reasoning"
+        ],
+        "edge_score": 0.87,
+        "core_score": 0.52,
+        "tier": "edge",
+        "sources": [
+          "seed_catalog"
+        ]
+      },
+      {
+        "name": "llama2:7b",
+        "size_b": 7.0,
+        "specialties": [
+          "general_reasoning"
+        ],
+        "edge_score": 0.84,
+        "core_score": 0.52,
+        "tier": "edge",
+        "sources": [
+          "ollama"
+        ]
+      },
+      {
+        "name": "qwen2.5-0.5b",
+        "size_b": 0.5,
+        "specialties": [
+          "general_reasoning"
+        ],
+        "edge_score": 0.92,
+        "core_score": 0.32,
+        "tier": "edge",
+        "sources": [
+          "seed_catalog"
+        ]
+      },
+      {
+        "name": "tinyllama-1.1b",
+        "size_b": 1.1,
+        "specialties": [
+          "general_reasoning"
+        ],
+        "edge_score": 0.92,
+        "core_score": 0.32,
+        "tier": "edge",
+        "sources": [
+          "seed_catalog"
+        ]
+      }
+    ],
+    "scan_status": {
+      "ollama_ok": true,
+      "ollama_stderr_tail": "",
+      "registry_path": "/Users/imymm/H2Q-Evo/models/registry.json",
+      "registry_exists": true
+    }
+  },
+  "capability_snapshot": {
+    "sources": {
+      "distill_pipeline": "/Users/imymm/H2Q-Evo/reports/self_eval_distillation_pipeline_latest.json",
+      "distilled_benchmark": "/Users/imymm/H2Q-Evo/reports/self_model_consistency_distilled_latest.json",
+      "systemic_joint": "/Users/imymm/H2Q-Evo/reports/systemic_platform_joint_capability_latest.json",
+      "formal_assessment": "/Users/imymm/H2Q-Evo/reports/distill_evo_public_formal_assessment_latest.json"
+    },
+    "metrics": {
+      "edge_schema_valid_rate": 1.0,
+      "edge_delta_schema_valid_rate": 1.0,
+      "bridge_consistency_overall_score": 0.9889546351084813,
+      "core_systemic_score": 0.0,
+      "core_cv_min_score": 0.9545454545454545,
+      "formal_logic_closed": false
+    }
+  },
+  "fusion_plan": {
+    "tier_maturity": {
+      "edge": "stable",
+      "bridge": "stable",
+      "core": "developing"
+    },
+    "tier_counts": {
+      "edge": 7,
+      "bridge": 1,
+      "core": 4
+    },
+    "routing_policy": {
+      "edge_route": {
+        "when": "short prompts, low uncertainty, deterministic formatting tasks",
+        "tier": "edge",
+        "max_tokens": 256,
+        "fallback": "bridge"
+      },
+      "bridge_route": {
+        "when": "medium complexity, multi-turn consistency checks, adapter tasks",
+        "tier": "bridge",
+        "max_tokens": 512,
+        "fallback": "core"
+      },
+      "core_route": {
+        "when": "high uncertainty, long-horizon planning, release-gate critical tasks",
+        "tier": "core",
+        "max_tokens": 1024,
+        "fallback": "bridge with decomposition"
+      }
+    },
+    "self_improvement_stages": [
+      {
+        "stage": "S1_edge_skill_hardening",
+        "goal": "Harden fast, low-cost capabilities (schema fidelity, formatting, retrieval snippets)",
+        "drivers": [
+          "tools/run_self_eval_distillation_pipeline.py",
+          "tools/run_self_model_consistency_benchmark.py"
+        ],
+        "entry_metric": "edge_schema_valid_rate",
+        "entry_value": 1.0,
+        "target": ">= 0.80",
+        "candidate_models": [
+          "codellama-7b",
+          "deepseek-coder-6.7b",
+          "deepseek-coder:6.7b",
+          "llama-2-7b-chat"
+        ],
+        "exit_gate": "delta_schema_valid_rate > 0 and schema_valid_rate >= 0.80"
+      },
+      {
+        "stage": "S2_bridge_transfer_alignment",
+        "goal": "Transfer edge gains into robust multi-turn self-evaluation and adapter compatibility",
+        "drivers": [
+          "tools/openclaw_h2q_adapter.py",
+          "tools/run_self_model_consistency_benchmark.py"
+        ],
+        "entry_metric": "bridge_consistency_overall_score",
+        "entry_value": 0.9889546351084813,
+        "target": ">= 0.82",
+        "candidate_models": [
+          "test_model"
+        ],
+        "exit_gate": "overall_score >= 0.82 and semantic_consistency >= 0.80"
+      },
+      {
+        "stage": "S3_core_reasoning_consolidation",
+        "goal": "Consolidate long-horizon planning, cross-validation stability, and release-gate trust",
+        "drivers": [
+          "tools/dynamic_blueprint_bootstrap.py",
+          "tools/run_systemic_platform_joint_capability_assessment.py"
+        ],
+        "entry_metric": "core_systemic_score",
+        "entry_value": 0.0,
+        "target": ">= 0.85",
+        "candidate_models": [
+          "deepseek-coder-v2-236b",
+          "deepseek-coder-v2-236b-compressed:latest",
+          "deepseek-coder-v2:236b",
+          "deepseek-coder:33b"
+        ],
+        "exit_gate": "aggregate.score >= 0.85 and cv.min_score >= 0.80"
+      },
+      {
+        "stage": "S4_formalized_self_improvement",
+        "goal": "Convert empirical gains into formal closure and repeatable governance checks",
+        "drivers": [
+          "tools/run_distill_evolution_public_formal_assessment.py",
+          "tools/release_gate.py"
+        ],
+        "entry_metric": "formal_logic_closed",
+        "entry_value": false,
+        "target": "true",
+        "candidate_models": [
+          "deepseek-coder-v2-236b",
+          "deepseek-coder-v2-236b-compressed:latest",
+          "test_model"
+        ],
+        "exit_gate": "logic_closure all_true and gate_ok true"
+      }
+    ]
+  }
+}

@@ -1,0 +1,128 @@
+{
+  "generated_at_utc": "2026-03-09T10:12:23.398578+00:00",
+  "infra_probe": {
+    "health_ok": true,
+    "health_error": "",
+    "json_probe_ok": true,
+    "json_probe_error": "",
+    "json_probe_preview": "{\"x\":1,\"y\":0}",
+    "infra_invalid": false,
+    "summary": "infra_ok"
+  },
+  "task_file": "/Users/imymm/H2Q-Evo/benchmarks/interactive_reasoning/tasks_v1.json",
+  "solver_runs": {
+    "bfs": {
+      "solver": "bfs",
+      "status": "ok",
+      "run": {
+        "cmd": [
+          "/Users/imymm/H2Q-Evo/.venv/bin/python",
+          "tools/run_interactive_reasoning_benchmark.py",
+          "--solver",
+          "bfs",
+          "--task-file",
+          "/Users/imymm/H2Q-Evo/benchmarks/interactive_reasoning/tasks_v1.json",
+          "--min-success-rate",
+          "0.99",
+          "--output-prefix",
+          "public_benchmark_algorithm_effect_bfs"
+        ],
+        "returncode": 0,
+        "stdout_tail": "Interactive reasoning benchmark completed\nJSON: /Users/imymm/H2Q-Evo/reports/public_benchmark_algorithm_effect_bfs_1773051077.json\nMD: /Users/imymm/H2Q-Evo/reports/public_benchmark_algorithm_effect_bfs_1773051077.md",
+        "stderr_tail": ""
+      },
+      "artifact": "/Users/imymm/H2Q-Evo/reports/public_benchmark_algorithm_effect_bfs_latest.json",
+      "metrics": {
+        "success_count": 24,
+        "success_rate": 1.0,
+        "avg_steps": 29.208333333333332,
+        "max_steps": 55,
+        "min_steps": 8,
+        "parse_errors": 0,
+        "passed": true
+      }
+    },
+    "model": {
+      "solver": "model",
+      "status": "ok",
+      "run": {
+        "cmd": [
+          "/Users/imymm/H2Q-Evo/.venv/bin/python",
+          "tools/run_interactive_reasoning_benchmark.py",
+          "--solver",
+          "model",
+          "--task-file",
+          "/Users/imymm/H2Q-Evo/benchmarks/interactive_reasoning/tasks_v1.json",
+          "--model-endpoint",
+          "http://127.0.0.1:8000/generate",
+          "--model-timeout-seconds",
+          "15.0",
+          "--max-steps-multiplier",
+          "4",
+          "--min-success-rate",
+          "0.0",
+          "--output-prefix",
+          "public_benchmark_algorithm_effect_model"
+        ],
+        "returncode": 0,
+        "stdout_tail": "Interactive reasoning benchmark completed\nJSON: /Users/imymm/H2Q-Evo/reports/public_benchmark_algorithm_effect_model_1773051138.json\nMD: /Users/imymm/H2Q-Evo/reports/public_benchmark_algorithm_effect_model_1773051138.md",
+        "stderr_tail": ""
+      },
+      "artifact": "/Users/imymm/H2Q-Evo/reports/public_benchmark_algorithm_effect_model_latest.json",
+      "metrics": {
+        "success_count": 0,
+        "success_rate": 0.0,
+        "avg_steps": 0.0,
+        "max_steps": 0,
+        "min_steps": 0,
+        "parse_errors": 8476,
+        "passed": true
+      }
+    },
+    "model-json-guard": {
+      "solver": "model-json-guard",
+      "status": "ok",
+      "run": {
+        "cmd": [
+          "/Users/imymm/H2Q-Evo/.venv/bin/python",
+          "tools/run_interactive_reasoning_benchmark.py",
+          "--solver",
+          "model-json-guard",
+          "--task-file",
+          "/Users/imymm/H2Q-Evo/benchmarks/interactive_reasoning/tasks_v1.json",
+          "--model-endpoint",
+          "http://127.0.0.1:8000/generate",
+          "--model-timeout-seconds",
+          "15.0",
+          "--max-steps-multiplier",
+          "4",
+          "--min-success-rate",
+          "0.0",
+          "--output-prefix",
+          "public_benchmark_algorithm_effect_model_json_guard"
+        ],
+        "returncode": 0,
+        "stdout_tail": "Interactive reasoning benchmark completed\nJSON: /Users/imymm/H2Q-Evo/reports/public_benchmark_algorithm_effect_model_json_guard_1773051143.json\nMD: /Users/imymm/H2Q-Evo/reports/public_benchmark_algorithm_effect_model_json_guard_1773051143.md",
+        "stderr_tail": ""
+      },
+      "artifact": "/Users/imymm/H2Q-Evo/reports/public_benchmark_algorithm_effect_model_json_guard_latest.json",
+      "metrics": {
+        "success_count": 24,
+        "success_rate": 1.0,
+        "avg_steps": 29.208333333333332,
+        "max_steps": 55,
+        "min_steps": 8,
+        "parse_errors": 701,
+        "passed": true
+      },
+      "infra_invalid_context": false
+    }
+  },
+  "comparison": {
+    "model_minus_bfs_success_rate": -1.0,
+    "guard_minus_bfs_success_rate": 0.0,
+    "guard_minus_bfs_parse_errors": 701,
+    "guard_minus_model_success_rate": 1.0,
+    "guard_minus_model_parse_errors": -7775
+  }
+}

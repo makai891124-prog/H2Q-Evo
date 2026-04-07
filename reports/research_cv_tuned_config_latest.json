@@ -1,0 +1,14 @@
+{
+  "weights": {
+    "distill_gain": 0.3,
+    "consistency_quality": 0.2,
+    "robustness_30_vs_50": 0.1,
+    "public_validation": 0.25,
+    "formal_closure": 0.15
+  },
+  "thresholds": {
+    "aggregate": 0.85,
+    "loo_min": 0.8,
+    "loo_std": 0.07
+  }
+}

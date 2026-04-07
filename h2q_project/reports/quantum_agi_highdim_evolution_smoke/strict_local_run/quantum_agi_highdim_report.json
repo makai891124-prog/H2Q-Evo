@@ -1,0 +1,189 @@
+{
+  "started_at": "2026-04-06T23:53:23.661009",
+  "finished_at": "2026-04-06T23:53:44.646561",
+  "elapsed_hours": 0.005829352272881402,
+  "cycles": 3,
+  "knowledge_count": 3,
+  "acquired_count": 3,
+  "failed_count": 0,
+  "capability_checked_cycles": 2,
+  "capability_check_failures": 0,
+  "baselines": {
+    "paper2206_report": {
+      "overall_passed": true,
+      "checks": {
+        "all_hessian_positive": true,
+        "convergence_improves": true,
+        "boundary_coverage_good": true,
+        "multidim_video_created": true,
+        "sensitivity_report_created": true,
+        "sensitivity_ci_plot_created": true,
+        "dimensional_extension_created": true,
+        "projection_consistency_good": true,
+        "stage7_passed": true,
+        "stage8_passed": true
+      }
+    },
+    "paper2604_report": {
+      "overall_passed": true,
+      "checks": {
+        "eq20_rel_error_lt_5e-2": true,
+        "eq24_rel_error_lt_1e-8": true,
+        "eq25_rel_error_lt_3e-2": true,
+        "canonical_equations_passed": true,
+        "multidim_video_created": true,
+        "stage7_passed": true,
+        "stage8_passed": true
+      }
+    },
+    "quantum_equivalence": {
+      "timestamp": 1768847801.154591,
+      "bv": 0.0,
+      "ghz_fidelity_mean": 0.9999999999999996
+    },
+    "agi_benchmark": {
+      "overall_score": 82.53333333333333,
+      "pass_rate": 0.92,
+      "verdict": "SUPERIOR: 达到学术AGI核心能力标准"
+    },
+    "agi_eval": {
+      "overall_score": 0.4068,
+      "consciousness_score": 0.4068,
+      "adaptability_score": 0.0556
+    }
+  },
+  "config": {
+    "projection_dim": 32,
+    "parallel_branches": 2,
+    "projection_seed": 260401249,
+    "formula_mode": "aligned",
+    "resource_profile_requested": "low",
+    "resource_profile_applied": "low",
+    "parallel_worker_limit": 2,
+    "capability_timeout_seconds": 25.0,
+    "important_cycle_every": 1,
+    "force_acceptance_prompt": true
+  },
+  "metrics": {
+    "witness_min_ci95": {
+      "mean": -0.49908353515491016,
+      "lower": -0.49909410825267536,
+      "upper": -0.4990739002739886
+    },
+    "entanglement_ratio_ci95": {
+      "mean": 0.8250000000000001,
+      "lower": 0.8125,
+      "upper": 0.8375
+    },
+    "base_composite_ci95": {
+      "mean": 0.6683015351372577,
+      "lower": 0.6615616206302425,
+      "upper": 0.6730383611631185
+    },
+    "enhanced_composite_ci95": {
+      "mean": 0.7097957869297975,
+      "lower": 0.7045265894552869,
+      "upper": 0.7139606904055521
+    },
+    "highdim_consensus_ci95": {
+      "mean": 0.8165899488183975,
+      "lower": 0.8151027087053518,
+      "upper": 0.8193572727847424
+    },
+    "highdim_disagreement_ci95": {
+      "mean": 0.0005300807635861456,
+      "lower": 0.00012020533861167859,
+      "upper": 0.0009393202324233796
+    },
+    "capability_score_ci95": {
+      "mean": 95.77380952380952,
+      "lower": 94.46428571428571,
+      "upper": 97.08333333333333
+    },
+    "capability_measurements": 2,
+    "capability_check_failures": 0,
+    "forced_prompt_count": 3
+  },
+  "resume": {
+    "enabled": false,
+    "resumed": false,
+    "resumed_from_cycle": 0,
+    "resumed_at": null
+  },
+  "latest_capability_score": 0.9446428571428571,
+  "latest_base_score": 0.6615616206302425,
+  "latest_enhanced_score": 0.7045265894552869,
+  "acceptance": {
+    "timestamp": "2026-04-06T23:53:44.662832",
+    "passed": false,
+    "strict_acceptance": true,
+    "run_scope": "smoke",
+    "criteria": [
+      {
+        "name": "minimum_cycles",
+        "value": 3,
+        "threshold": 12,
+        "passed": false
+      },
+      {
+        "name": "enhanced_composite_mean",
+        "value": 0.7097957869297975,
+        "threshold": 0.58,
+        "passed": true
+      },
+      {
+        "name": "capability_measurements",
+        "value": 2,
+        "threshold": 2,
+        "passed": true
+      },
+      {
+        "name": "capability_score_mean",
+        "value": 95.77380952380952,
+        "threshold": 60.0,
+        "passed": true
+      },
+      {
+        "name": "entanglement_ratio_mean",
+        "value": 0.8250000000000001,
+        "threshold": 0.12,
+        "passed": true
+      },
+      {
+        "name": "highdim_consensus_mean",
+        "value": 0.8165899488183975,
+        "threshold": 0.55,
+        "passed": true
+      },
+      {
+        "name": "composite_uplift",
+        "value": -0.0094341009502652,
+        "threshold": 0.02,
+        "passed": false
+      },
+      {
+        "name": "forced_acceptance_prompts",
+        "value": 3,
+        "threshold": 2,
+        "passed": true
+      },
+      {
+        "name": "non_smoke_run",
+        "value": 0,
+        "threshold": 1,
+        "passed": false
+      }
+    ],
+    "trend": {
+      "initial_window_mean": 0.7139606904055521,
+      "final_window_mean": 0.7045265894552869,
+      "uplift": -0.0094341009502652,
+      "window_size": 1
+    },
+    "recommendations": [
+      "Raise minimum_cycles above threshold (3 < 12)",
+      "Raise composite_uplift above threshold (-0.009434 < 0.020000)",
+      "Raise non_smoke_run above threshold (0 < 1)"
+    ]
+  }
+}

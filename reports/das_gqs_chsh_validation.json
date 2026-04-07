@@ -1,0 +1,35 @@
+{
+  "chsh": {
+    "E_ab": -0.7071067811865476,
+    "E_ab_prime": 0.7071067811865475,
+    "E_a_prime_b": -0.7071067811865475,
+    "E_a_prime_b_prime": -0.7071067811865476,
+    "S": -2.82842712474619,
+    "abs_S": 2.82842712474619,
+    "tsirelson_target": 2.8284271247461903,
+    "tsirelson_error": 4.440892098500626e-16
+  },
+  "memory": {
+    "n_qubits": 2,
+    "traditional_gate_matrix_bytes": 256,
+    "das_geometric_state_bytes": 80,
+    "compression_ratio_traditional_over_das": 3.2
+  },
+  "hardware_profile": {
+    "torch_version": "2.9.1",
+    "cpu_count": 10,
+    "torch_threads": 4,
+    "has_cuda": false,
+    "has_mps": true,
+    "cuda_device_name": null
+  },
+  "compute_plan": {
+    "selected_torch_threads": 2,
+    "cache_hit": false,
+    "cache_key": "{\"cpu_count\": 10, \"has_cuda\": false, \"has_mps\": true, \"ns\": \"chsh_validation\", \"params\": {\"autotune_threads\": true, \"probe\": \"matmul\", \"thread_candidates\": [1, 2]}, \"torch\": \"2.9.1\"}",
+    "autotune_timings_ms": {
+      "t1": 0.7680916000026627,
+      "t2": 0.7559667999885278
+    }
+  }
+}

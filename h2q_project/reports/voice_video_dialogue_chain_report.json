@@ -1,0 +1,28 @@
+{
+  "input_text": "hello h2q this is a local speech recognition cognitive chain test",
+  "language": "en-US",
+  "use_cloud_fallback": false,
+  "use_tribonacci_bridge": true,
+  "tooling": {
+    "say": true,
+    "ffmpeg": true
+  },
+  "audio_stage": {
+    "stage": "audio",
+    "media_path": "/var/folders/qm/cngt8n216yvbptkh3fslh4f80000gn/T/h2q_voice_chain_tj42l61x/dialogue_input.wav",
+    "transcript": "can i hate to cure this is america speech recognition cognitive came past",
+    "response_text": "我收到你的语音输入，但暂时没有生成可用回复。",
+    "passed": true,
+    "error": null
+  },
+  "video_stage": {
+    "stage": "video",
+    "media_path": "/var/folders/qm/cngt8n216yvbptkh3fslh4f80000gn/T/h2q_voice_chain_tj42l61x/dialogue_input.mp4",
+    "transcript": "and i hate to cubans even though 'cause speech recognition cognitive came past",
+    "response_text": "我收到你的语音输入，但暂时没有生成可用回复。",
+    "passed": true,
+    "error": null
+  },
+  "overall_passed": true,
+  "duration_sec": 12.909
+}
