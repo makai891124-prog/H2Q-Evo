@@ -110,3 +110,28 @@ reports/trusted_local_agi_server_*.log
 # white-list: 保留规范化“latest”产物用于审阅
 !reports/*_latest.json
 !reports/*_latest.md
+
+# ============ 外部工程依赖/构建缓存（OpenClaw） ============
+external/openclaw/**/node_modules/
+external/openclaw/**/.pnpm/
+external/openclaw/**/.next/
+external/openclaw/**/dist/
+external/openclaw/**/build/
+external/openclaw/**/coverage/
+
+# ============ 临时与中间版本文件 ============
+*.bak
+*.backup
+*.tmp
+*.temp
+.api_server_pid
+wandb/
+wandb_cache/
+streaming_cache/
+gemini_cache/
+outputs/
+
+# ============ 大型中间报告与可再生产物 ============
+reports/conv_math_conversion/
+reports/conv_math_conversion_audit/
+h2q_project/reports/paper2206_ray_structure_space/argument_space_visuals/multidim_video_frames/

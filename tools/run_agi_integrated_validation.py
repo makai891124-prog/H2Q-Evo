@@ -111,6 +111,12 @@ def main() -> int:
     parser.add_argument("--python", default=".venv/bin/python", help="Python executable path")
     parser.add_argument("--with-longrun", action="store_true", help="Run dynamic blueprint longrun (8 cycles) and re-validate")
     parser.add_argument("--longrun-cycles", type=int, default=8)
+    parser.add_argument(
+        "--release-gate-docker-policy",
+        choices=["auto", "strict", "allow-missing"],
+        default="auto",
+    )
+    parser.add_argument("--release-gate-allow-missing-docker", action="store_true")
     parser.add_argument("--output-prefix", default="agi_integrated_validation")
     args = parser.parse_args()
 
@@ -130,6 +136,12 @@ def main() -> int:
         if res.returncode != 0:
             raise RuntimeError(f"Step failed: {step_name}\nSTDOUT:\n{res.stdout}\nSTDERR:\n{res.stderr}")
         return res
+
+    def with_release_gate_docker_flags(cmd: List[str]) -> List[str]:
+        cmd.extend(["--docker-policy", args.release_gate_docker_policy])
+        if args.release_gate_allow_missing_docker:
+            cmd.append("--allow-missing-docker")
+        return cmd
 
     # Baseline integrated instantiation and validation.
     trust_res = must("trust_center", [py, "tools/trusted_joint_agi_quantum_center.py", "--profile", "quick", "--skip-rsa"])
@@ -173,24 +185,26 @@ def main() -> int:
 
     gate_res_1 = must(
         "release_gate_baseline",
-        [
-            py,
-            "tools/release_gate.py",
-            "--profile",
-            "quick",
-            "--lookback-rounds",
-            "48",
-            "--assist-provider",
-            "none",
-            "--min-breadth",
-            "0.60",
-            "--min-horizon",
-            "0.80",
-            "--min-robustness",
-            "0.60",
-            "--output-prefix",
-            "release_gate_instantiation",
-        ],
+        with_release_gate_docker_flags(
+            [
+                py,
+                "tools/release_gate.py",
+                "--profile",
+                "quick",
+                "--lookback-rounds",
+                "48",
+                "--assist-provider",
+                "none",
+                "--min-breadth",
+                "0.60",
+                "--min-horizon",
+                "0.80",
+                "--min-robustness",
+                "0.60",
+                "--output-prefix",
+                "release_gate_instantiation",
+            ]
+        ),
     )
     gate_json_1 = first_match(r"JSON:\s*(.+\.json)", gate_res_1.stdout)
 
@@ -274,24 +288,26 @@ def main() -> int:
 
         gate_res_2 = must(
             "release_gate_post_longrun",
-            [
-                py,
-                "tools/release_gate.py",
-                "--profile",
-                "quick",
-                "--lookback-rounds",
-                "48",
-                "--assist-provider",
-                "none",
-                "--min-breadth",
-                "0.60",
-                "--min-horizon",
-                "0.80",
-                "--min-robustness",
-                "0.60",
-                "--output-prefix",
-                "release_gate_post_longrun",
-            ],
+            with_release_gate_docker_flags(
+                [
+                    py,
+                    "tools/release_gate.py",
+                    "--profile",
+                    "quick",
+                    "--lookback-rounds",
+                    "48",
+                    "--assist-provider",
+                    "none",
+                    "--min-breadth",
+                    "0.60",
+                    "--min-horizon",
+                    "0.80",
+                    "--min-robustness",
+                    "0.60",
+                    "--output-prefix",
+                    "release_gate_post_longrun",
+                ]
+            ),
         )
         gate_json_2 = first_match(r"JSON:\s*(.+\.json)", gate_res_2.stdout)
 
@@ -322,6 +338,8 @@ def main() -> int:
     summary = {
         "generated_at_utc": now,
         "with_longrun": args.with_longrun,
+        "release_gate_docker_policy": args.release_gate_docker_policy,
+        "release_gate_allow_missing_docker": bool(args.release_gate_allow_missing_docker),
         "steps": [
             {
                 "name": s.name,

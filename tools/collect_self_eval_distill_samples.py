@@ -162,10 +162,97 @@ def _collect_failed_prompts(max_samples: int) -> List[Dict[str, Any]]:
     return rows[: max(1, max_samples)]
 
 
+def _collect_prompt_pool(max_samples: int, include_valid_prompts: bool) -> List[Dict[str, Any]]:
+    sessions = sorted(REPORTS.glob("trusted_local_agi_chat_session_*.json"), key=lambda p: p.stat().st_mtime, reverse=True)
+    by_prompt: Dict[str, Dict[str, Any]] = {}
+
+    for session_path in sessions:
+        try:
+            payload = json.loads(session_path.read_text(encoding="utf-8"))
+        except Exception:
+            continue
+
+        for turn in payload.get("transcript", []):
+            user_prompt = str(turn.get("user", "")).strip()
+            if not user_prompt:
+                continue
+            runtime = turn.get("runtime") or {}
+            schema = runtime.get("schema") or {}
+            if not bool(schema.get("required", False)):
+                continue
+
+            valid = bool(schema.get("valid", False))
+            if (not include_valid_prompts) and valid:
+                continue
+
+            if user_prompt not in by_prompt:
+                by_prompt[user_prompt] = {
+                    "prompt": user_prompt,
+                    "failure_count": 0,
+                    "valid_count": 0,
+                    "student_examples": [],
+                    "source_sessions": [],
+                }
+
+            item = by_prompt[user_prompt]
+            if valid:
+                item["valid_count"] += 1
+            else:
+                item["failure_count"] += 1
+
+            if len(item["student_examples"]) < 3:
+                item["student_examples"].append(str(turn.get("assistant", ""))[:1200])
+            if len(item["source_sessions"]) < 20:
+                item["source_sessions"].append(str(session_path))
+
+    rows = sorted(
+        by_prompt.values(),
+        key=lambda x: (x["failure_count"], x["valid_count"]),
+        reverse=True,
+    )
+    return rows[: max(1, max_samples)]
+
+
+def _synthetic_prompts() -> List[str]:
+    axes = [
+        "reasoning",
+        "robustness",
+        "alignment",
+        "memory",
+        "tool-use",
+        "safety",
+        "planning",
+        "self-correction",
+        "uncertainty",
+        "schema-compliance",
+    ]
+    templates = [
+        "Provide a strict JSON self-evaluation for {axis} with concrete limits and next experiments.",
+        "For {axis}, output only JSON with capability_boundaries, failure_risks, improvement_plan, confidence.",
+        "Return one JSON object evaluating current {axis} weaknesses and measurable recovery plan.",
+        "Generate strict JSON: what is currently fragile in {axis}, and which metrics prove improvement?",
+        "Self-audit {axis} now in strict JSON; include actionable milestones for the next 7 days.",
+    ]
+    contexts = [
+        "for coding assistants",
+        "for autonomous bootstrap loops",
+        "for safety-critical planning",
+        "for long-run memory consistency",
+    ]
+    prompts: List[str] = []
+    for axis in axes:
+        for tpl in templates:
+            for ctx in contexts:
+                prompts.append(f"{tpl.format(axis=axis)} Context: {ctx}.")
+    return prompts
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description="Collect self-eval strict-json failure samples")
     parser.add_argument("--output-prefix", default="self_eval_distill_dataset")
-    parser.add_argument("--max-samples", type=int, default=40)
+    parser.add_argument("--max-samples", type=int, default=160)
+    parser.add_argument("--include-valid-prompts", action="store_true")
+    parser.add_argument("--synthetic-min-size", type=int, default=120)
     parser.add_argument("--teacher-provider", choices=["deepseek", "heuristic"], default="deepseek")
     parser.add_argument("--teacher-model", default="deepseek-chat")
     parser.add_argument("--teacher-base-url", default="https://api.deepseek.com")
@@ -173,7 +260,28 @@ def main() -> int:
     args = parser.parse_args()
 
     REPORTS.mkdir(parents=True, exist_ok=True)
-    samples = _collect_failed_prompts(max_samples=max(1, args.max_samples))
+    samples = _collect_prompt_pool(
+        max_samples=max(1, args.max_samples),
+        include_valid_prompts=bool(args.include_valid_prompts),
+    )
+
+    if len(samples) < max(0, int(args.synthetic_min_size)):
+        seen = {str(x.get("prompt", "")) for x in samples}
+        for p in _synthetic_prompts():
+            if p in seen:
+                continue
+            samples.append(
+                {
+                    "prompt": p,
+                    "failure_count": 0,
+                    "valid_count": 0,
+                    "student_examples": [],
+                    "source_sessions": ["synthetic_prompt_bank"],
+                }
+            )
+            seen.add(p)
+            if len(samples) >= max(1, args.max_samples):
+                break
 
     key = ""
     key_file = Path(args.teacher_key_file)

@@ -1,16 +1,31 @@
 {
-  "generated_at_utc": "2026-03-07T12:24:10.639608+00:00",
+  "generated_at_utc": "2026-04-05T14:27:04.618734+00:00",
   "sources": {
     "distill_pipeline": "/Users/imymm/H2Q-Evo/reports/self_eval_distillation_pipeline_latest.json",
     "distill_benchmark": "/Users/imymm/H2Q-Evo/reports/self_model_consistency_distilled_latest.json",
     "public_validation": "/Users/imymm/H2Q-Evo/reports/distill_evo_public_validation_latest.json",
-    "formal_assessment": "/Users/imymm/H2Q-Evo/reports/distill_evo_public_formal_assessment_latest.json"
+    "formal_assessment": "/Users/imymm/H2Q-Evo/reports/distill_evo_public_formal_assessment_latest.json",
+    "tuned_config": "/Users/imymm/H2Q-Evo/reports/research_cv_tuned_config_latest.json"
+  },
+  "tuning": {
+    "weights": {
+      "distill_gain": 0.3,
+      "consistency_quality": 0.2,
+      "robustness_30_vs_50": 0.1,
+      "public_validation": 0.25,
+      "formal_closure": 0.15
+    },
+    "thresholds": {
+      "aggregate": 0.85,
+      "loo_min": 0.8,
+      "loo_std": 0.07
+    }
   },
   "local_snapshot": {
-    "sessions": 50,
-    "total_runs": 150,
+    "sessions": 4,
+    "total_runs": 12,
     "schema_valid_rate": 1.0,
-    "overall_score": 0.9130071615942765,
+    "overall_score": 0.9889546351084813,
     "baseline_gate_ok": true,
     "longrun_gate_ok": true,
     "lean_compile_success": true
@@ -118,24 +133,24 @@
     }
   ],
   "aggregate_effectiveness": {
-    "score": 0.9787387652132775,
+    "score": 0.9943158135231227,
     "components": [
       {
         "name": "distill_gain",
         "value": 1.0,
-        "weight": 0.25,
+        "weight": 0.3,
         "note": "schema_valid_rate delta from pipeline"
       },
       {
         "name": "consistency_quality",
-        "value": 0.9130071615942765,
+        "value": 0.9889546351084813,
         "weight": 0.2,
         "note": "overall_score from distilled benchmark"
       },
       {
         "name": "robustness_30_vs_50",
         "value": 0.9922489278599158,
-        "weight": 0.15,
+        "weight": 0.1,
         "note": "stability under sessions increase"
       },
       {
@@ -156,7 +171,7 @@
     "folds": [
       {
         "left_out": "distill_gain",
-        "score": 0.9716516869510367,
+        "score": 0.9918797336044611,
         "kept_components": [
           "consistency_quality",
           "robustness_30_vs_50",
@@ -166,7 +181,7 @@
       },
       {
         "left_out": "consistency_quality",
-        "score": 0.9951716661180278,
+        "score": 0.9956561081267831,
         "kept_components": [
           "distill_gain",
           "robustness_30_vs_50",
@@ -176,7 +191,7 @@
       },
       {
         "left_out": "robustness_30_vs_50",
-        "score": 0.9763546188638709,
+        "score": 0.9945454674857013,
         "kept_components": [
           "distill_gain",
           "consistency_quality",
@@ -186,7 +201,7 @@
       },
       {
         "left_out": "public_validation",
-        "score": 0.9752516953304569,
+        "score": 0.9960210930769171,
         "kept_components": [
           "distill_gain",
           "consistency_quality",
@@ -196,7 +211,7 @@
       },
       {
         "left_out": "formal_closure",
-        "score": 0.9749867826038561,
+        "score": 0.9933127217919092,
         "kept_components": [
           "distill_gain",
           "consistency_quality",
@@ -205,10 +220,10 @@
         ]
       }
     ],
-    "min_score": 0.9716516869510367,
-    "max_score": 0.9951716661180278,
-    "mean_score": 0.9786832899734497,
-    "std_score": 0.008392528899131222
+    "min_score": 0.9918797336044611,
+    "max_score": 0.9960210930769171,
+    "mean_score": 0.9942830248171542,
+    "std_score": 0.001529209718701658
   },
   "proof_argument": {
     "premises": [

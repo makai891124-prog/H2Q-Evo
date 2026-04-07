@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-03-07T12:24:10.660383+00:00",
+  "generated_at_utc": "2026-04-05T14:33:17.449879+00:00",
   "self_problem": "evidence_consistency_under_multi_controller_collaboration",
   "solution_strategy": {
     "controllers": [
@@ -8,6 +8,7 @@
       "formal_assessment",
       "research_cross_validation"
     ],
+    "mode": "ci_safe",
     "goal": "stabilize and verify the evidence chain from control to formal closure"
   },
   "steps": [
@@ -37,8 +38,8 @@
         "--output-prefix",
         "systemic_joint_blueprint"
       ],
-      "returncode": 0,
-      "stdout_tail": "Dynamic blueprint bootstrap completed\nJSON: /Users/imymm/H2Q-Evo/reports/systemic_joint_blueprint_1772885953.json\nMD: /Users/imymm/H2Q-Evo/reports/systemic_joint_blueprint_1772885953.md\nLatest JSON: /Users/imymm/H2Q-Evo/reports/systemic_joint_blueprint_latest.json\nLatest MD: /Users/imymm/H2Q-Evo/reports/systemic_joint_blueprint_latest.md",
+      "returncode": 1,
+      "stdout_tail": "Dynamic blueprint bootstrap completed\nJSON: /Users/imymm/H2Q-Evo/reports/systemic_joint_blueprint_1775399588.json\nMD: /Users/imymm/H2Q-Evo/reports/systemic_joint_blueprint_1775399588.md\nLatest JSON: /Users/imymm/H2Q-Evo/reports/systemic_joint_blueprint_latest.json\nLatest MD: /Users/imymm/H2Q-Evo/reports/systemic_joint_blueprint_latest.md",
       "stderr_tail": ""
     },
     {
@@ -52,9 +53,9 @@
         "--output-prefix",
         "systemic_joint_validation"
       ],
-      "returncode": 0,
-      "stdout_tail": "Summary JSON: /Users/imymm/H2Q-Evo/reports/systemic_joint_validation_1772885953.json\nLatest Summary JSON: /Users/imymm/H2Q-Evo/reports/systemic_joint_validation_latest.json\nPublic Validation MD: /Users/imymm/H2Q-Evo/reports/agi_system_instantiation_public_validation_1772885953.md\nLatest Public Validation MD: /Users/imymm/H2Q-Evo/reports/agi_system_instantiation_public_validation_latest.md\nStability MD: /Users/imymm/H2Q-Evo/reports/agi_system_instantiation_stability_1772885953.md\nLatest Stability MD: /Users/imymm/H2Q-Evo/reports/agi_system_instantiation_stability_latest.md",
-      "stderr_tail": ""
+      "returncode": 1,
+      "stdout_tail": "",
+      "stderr_tail": "Traceback (most recent call last):\n  File \"/Users/imymm/H2Q-Evo/tools/run_agi_integrated_validation.py\", line 440, in <module>\n    raise SystemExit(main())\n                     ^^^^^^\n  File \"/Users/imymm/H2Q-Evo/tools/run_agi_integrated_validation.py\", line 174, in main\n    gate_res_1 = must(\n                 ^^^^^\n  File \"/Users/imymm/H2Q-Evo/tools/run_agi_integrated_validation.py\", line 131, in must\n    raise RuntimeError(f\"Step failed: {step_name}\\nSTDOUT:\\n{res.stdout}\\nSTDERR:\\n{res.stderr}\")\nRuntimeError: Step failed: release_gate_baseline\nSTDOUT:\nRelease gate completed\nGate OK: False\nJSON: /Users/imymm/H2Q-Evo/reports/release_gate_instantiation_1775399597.json\nMD: /Users/imymm/H2Q-Evo/reports/release_gate_instantiation_1775399597.md\n\nSTDERR:\n"
     },
     {
       "name": "formal_closure_control",
@@ -63,8 +64,10 @@
         "tools/run_distill_evolution_public_formal_assessment.py"
       ],
       "returncode": 0,
-      "stdout_tail": "JSON: /Users/imymm/H2Q-Evo/reports/distill_evo_public_formal_assessment_1772886250.json\nLatest JSON: /Users/imymm/H2Q-Evo/reports/distill_evo_public_formal_assessment_latest.json\nMD: /Users/imymm/H2Q-Evo/reports/distill_evo_public_formal_assessment_1772886250.md\nLatest MD: /Users/imymm/H2Q-Evo/reports/distill_evo_public_formal_assessment_latest.md\nLean: /Users/imymm/H2Q-Evo/reports/distill_evolution_logic_closure_1772886250.lean\nLean latest: /Users/imymm/H2Q-Evo/reports/distill_evolution_logic_closure_latest.lean\nLean compile success: True",
-      "stderr_tail": ""
+      "stdout_tail": "",
+      "stderr_tail": "",
+      "skipped": true,
+      "skip_reason": "ci_safe mode: Lean/formal closure step skipped"
     },
     {
       "name": "research_cross_validation_control",
@@ -73,8 +76,10 @@
         "tools/run_research_aggregation_cross_validation.py"
       ],
       "returncode": 0,
-      "stdout_tail": "JSON: /Users/imymm/H2Q-Evo/reports/research_aggregation_cross_validation_1772886250.json\nLatest JSON: /Users/imymm/H2Q-Evo/reports/research_aggregation_cross_validation_latest.json\nMD: /Users/imymm/H2Q-Evo/reports/research_aggregation_cross_validation_1772886250.md\nLatest MD: /Users/imymm/H2Q-Evo/reports/research_aggregation_cross_validation_latest.md\nProof MD: /Users/imymm/H2Q-Evo/reports/research_aggregation_cross_validation_proof_note_1772886250.md\nLatest Proof MD: /Users/imymm/H2Q-Evo/reports/research_aggregation_cross_validation_proof_note_latest.md\nAggregate score: 0.978739\nLOO min score: 0.971652\nRobust claim: True",
-      "stderr_tail": ""
+      "stdout_tail": "",
+      "stderr_tail": "",
+      "skipped": true,
+      "skip_reason": "ci_safe mode: research aggregation step skipped"
     }
   ],
   "sources": {
@@ -84,37 +89,25 @@
     "kpi": "/Users/imymm/H2Q-Evo/reports/one_click_kpi_dashboard_latest.json"
   },
   "aggregate_effectiveness": {
-    "score": 0.9887909377077577,
+    "score": 0.97259375,
     "components": [
       {
         "name": "gate_alignment",
-        "value": 0.9945283112059428,
-        "weight": 0.3,
+        "value": 0.9946527777777778,
+        "weight": 0.45,
         "source": "/Users/imymm/H2Q-Evo/reports/systemic_joint_validation_latest.json"
-      },
-      {
-        "name": "formal_closure",
-        "value": 1.0,
-        "weight": 0.2,
-        "source": "/Users/imymm/H2Q-Evo/reports/distill_evo_public_formal_assessment_latest.json"
-      },
-      {
-        "name": "research_aggregate",
-        "value": 0.9787387652132775,
-        "weight": 0.25,
-        "source": "/Users/imymm/H2Q-Evo/reports/research_aggregation_cross_validation_latest.json"
-      },
-      {
-        "name": "research_cv_floor",
-        "value": 0.9716516869510367,
-        "weight": 0.15,
-        "source": "/Users/imymm/H2Q-Evo/reports/research_aggregation_cross_validation_latest.json"
       },
       {
         "name": "distill_schema_signal",
         "value": 1.0,
-        "weight": 0.1,
+        "weight": 0.3,
         "source": "/Users/imymm/H2Q-Evo/reports/one_click_kpi_dashboard_latest.json"
+      },
+      {
+        "name": "validation_blueprint_rate",
+        "value": 0.9,
+        "weight": 0.25,
+        "source": "/Users/imymm/H2Q-Evo/reports/systemic_joint_validation_latest.json"
       }
     ]
   },
@@ -122,63 +115,37 @@
     "folds": [
       {
         "left_out": "gate_alignment",
-        "score": 0.9863320633513927,
+        "score": 0.9545454545454545,
         "kept": [
-          "formal_closure",
-          "research_aggregate",
-          "research_cv_floor",
-          "distill_schema_signal"
-        ]
-      },
-      {
-        "left_out": "formal_closure",
-        "score": 0.9859886721346972,
-        "kept": [
-          "gate_alignment",
-          "research_aggregate",
-          "research_cv_floor",
-          "distill_schema_signal"
-        ]
-      },
-      {
-        "left_out": "research_aggregate",
-        "score": 0.9921416618725845,
-        "kept": [
-          "gate_alignment",
-          "formal_closure",
-          "research_cv_floor",
-          "distill_schema_signal"
-        ]
-      },
-      {
-        "left_out": "research_cv_floor",
-        "score": 0.9918155113707084,
-        "kept": [
-          "gate_alignment",
-          "formal_closure",
-          "research_aggregate",
-          "distill_schema_signal"
+          "distill_schema_signal",
+          "validation_blueprint_rate"
         ]
       },
       {
         "left_out": "distill_schema_signal",
-        "score": 0.987545486341953,
+        "score": 0.9608482142857143,
         "kept": [
           "gate_alignment",
-          "formal_closure",
-          "research_aggregate",
-          "research_cv_floor"
+          "validation_blueprint_rate"
+        ]
+      },
+      {
+        "left_out": "validation_blueprint_rate",
+        "score": 0.9967916666666667,
+        "kept": [
+          "gate_alignment",
+          "distill_schema_signal"
         ]
       }
     ],
-    "min_score": 0.9859886721346972,
-    "max_score": 0.9921416618725845,
-    "mean_score": 0.9887646790142671,
-    "std_score": 0.002676634275480472
+    "min_score": 0.9545454545454545,
+    "max_score": 0.9967916666666667,
+    "mean_score": 0.9707284451659453,
+    "std_score": 0.018608238880177354
   },
   "conclusion": {
-    "all_steps_ok": true,
-    "robust_claim": true,
-    "statement": "Joint multi-controller solution is empirically and cross-validated for platform capability assessment."
+    "all_steps_ok": false,
+    "robust_claim": false,
+    "statement": "Joint multi-controller solution is partially validated; more stabilization is required."
   }
 }

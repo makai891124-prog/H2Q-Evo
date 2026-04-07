@@ -20,7 +20,7 @@ import logging
 import threading
 from typing import Dict, Any, List, Optional
 from pathlib import Path
-from dataclasses import dataclass, asdict
+from dataclasses import dataclass, asdict, fields
 from concurrent.futures import ThreadPoolExecutor
 
 # 导入相关模块
@@ -29,6 +29,17 @@ from deepseek_local_integration import (
     StructuredIsomorphicModel
 )
 from agi_evolution_loss_metrics import AGI_EvolutionLossSystem
+
+try:
+    from h2q_project.h2q.core.directional_axiom_manifold import (
+        DirectionalAxiomConfig,
+        DirectionalAxiomManifoldAdapter,
+        DirectionalColdStartController,
+    )
+except Exception:
+    DirectionalAxiomConfig = None
+    DirectionalAxiomManifoldAdapter = None
+    DirectionalColdStartController = None
 
 logger = logging.getLogger(__name__)
 
@@ -43,10 +54,15 @@ class AutonomousEvolutionState:
     compression_ratio: float = 1.0
     acceleration_factor: float = 1.0
     evolution_history: List[Dict[str, Any]] = None
+    directional_axiom_enabled: bool = False
+    directional_axiom_phase: str = "disabled"
+    directional_axiom_metrics_history: List[Dict[str, Any]] = None
 
     def __post_init__(self):
         if self.evolution_history is None:
             self.evolution_history = []
+        if self.directional_axiom_metrics_history is None:
+            self.directional_axiom_metrics_history = []
 
 @dataclass
 class EvolutionTask:
@@ -83,11 +99,51 @@ class AutonomousAGIEvolutionLoop:
         self.compression_threshold = 0.8
         self.acceleration_target = 2.0
 
+        self.directional_axiom_enabled = os.getenv("ENABLE_DIRECTIONAL_AXIOM", "false").strip().lower() in {
+            "1",
+            "true",
+            "yes",
+            "y",
+            "on",
+        }
+        self.directional_axiom_adapter = None
+        self.directional_axiom_controller = None
+        if (
+            self.directional_axiom_enabled
+            and DirectionalAxiomConfig is not None
+            and DirectionalAxiomManifoldAdapter is not None
+        ):
+            directional_cfg = DirectionalAxiomConfig(
+                enabled=True,
+                rank_constraint=max(1, int(os.getenv("AXIS_RANK_CONSTRAINT", "8"))),
+                horizon_window=max(2, int(os.getenv("AXIS_ROLLING_HORIZON", "16"))),
+                stability_threshold=float(os.getenv("AXIS_STABILITY_THRESHOLD", "0.80")),
+                projection_error_threshold=float(os.getenv("AXIS_PROJECTION_ERROR_THRESHOLD", "0.30")),
+                min_simulation_steps=max(1, int(os.getenv("AXIS_PHASE_1_STEPS", "3"))),
+                min_shadow_steps=max(1, int(os.getenv("AXIS_PHASE_2_STEPS", "2"))),
+                gate_enforced_min_stability=float(os.getenv("AXIS_GATE_MIN_STABILITY", "0.70")),
+            )
+            self.directional_axiom_adapter = DirectionalAxiomManifoldAdapter(directional_cfg)
+            if DirectionalColdStartController is not None:
+                self.directional_axiom_controller = DirectionalColdStartController(directional_cfg)
+            self.state.directional_axiom_enabled = True
+            if self.state.directional_axiom_phase in {"", "disabled"}:
+                if self.directional_axiom_controller is not None:
+                    self.state.directional_axiom_phase = self.directional_axiom_controller.phase
+                else:
+                    self.state.directional_axiom_phase = "simulation"
+        else:
+            self.directional_axiom_enabled = False
+            self.state.directional_axiom_enabled = False
+            self.state.directional_axiom_phase = "disabled"
+
         # 并发控制
         self.executor = ThreadPoolExecutor(max_workers=4)
         self.running = False
 
         logger.info("🚀 自主AGI进化循环初始化完成")
+        if self.directional_axiom_enabled:
+            logger.info("🧭 Directional Axiom 原型已启用")
 
     def _load_state(self) -> AutonomousEvolutionState:
         """加载进化状态"""
@@ -95,7 +151,9 @@ class AutonomousAGIEvolutionLoop:
             try:
                 with open(self.state_file, 'r', encoding='utf-8') as f:
                     data = json.load(f)
-                    return AutonomousEvolutionState(**data)
+                    valid_keys = {f.name for f in fields(AutonomousEvolutionState)}
+                    normalized = {k: v for k, v in data.items() if k in valid_keys}
+                    return AutonomousEvolutionState(**normalized)
             except Exception as e:
                 logger.warning(f"加载状态文件失败: {e}")
 
@@ -284,6 +342,72 @@ class AutonomousAGIEvolutionLoop:
 
         return ''.join(chars)
 
+    def _build_directional_latent_batch(self, task_results: List[Dict[str, Any]]) -> Optional[torch.Tensor]:
+        latents: List[torch.Tensor] = []
+        for row in task_results:
+            if not row.get('success', False):
+                continue
+
+            result_obj = row.get('result', {}) if isinstance(row.get('result', {}), dict) else {}
+            response_text = str(result_obj.get('response', '') or '').strip()
+            if not response_text:
+                comp_obj = row.get('compressed_result', {}) if isinstance(row.get('compressed_result', {}), dict) else {}
+                response_text = str(comp_obj.get('compressed_response', '') or '').strip()
+            if not response_text:
+                continue
+
+            latents.append(self._text_to_tensor(response_text).squeeze(0))
+
+        if not latents:
+            return None
+        return torch.stack(latents, dim=0)
+
+    def _update_directional_axiom_metrics(self, task_results: List[Dict[str, Any]]) -> Dict[str, Any]:
+        if not self.directional_axiom_enabled or self.directional_axiom_adapter is None:
+            return {
+                'enabled': False,
+                'phase': 'disabled',
+                'reason': 'directional-axiom-disabled',
+            }
+
+        latent_batch = self._build_directional_latent_batch(task_results)
+        if latent_batch is None:
+            metrics = {
+                'enabled': True,
+                'phase': self.state.directional_axiom_phase,
+                'reason': 'no-successful-task-latents',
+                'rolling_horizon_pass': False,
+                'direction_stability': 0.0,
+                'projection_error': 1.0,
+            }
+            self.state.directional_axiom_metrics_history.append(metrics)
+            self.state.directional_axiom_metrics_history = self.state.directional_axiom_metrics_history[-2000:]
+            return metrics
+
+        analysis = self.directional_axiom_adapter.analyze(
+            latent_batch=latent_batch,
+            generation=max(1, self.state.generation + 1),
+        )
+
+        transition = {
+            'phase': self.state.directional_axiom_phase,
+            'transition': 'hold',
+            'total_steps': len(self.state.directional_axiom_metrics_history) + 1,
+            'shadow_steps': 0,
+        }
+        if self.directional_axiom_controller is not None:
+            transition = self.directional_axiom_controller.update(analysis)
+
+        metrics = {
+            'enabled': True,
+            **analysis,
+            **transition,
+        }
+        self.state.directional_axiom_phase = str(metrics.get('phase', self.state.directional_axiom_phase))
+        self.state.directional_axiom_metrics_history.append(metrics)
+        self.state.directional_axiom_metrics_history = self.state.directional_axiom_metrics_history[-2000:]
+        return metrics
+
     def update_evolution_state(self, task_results: List[Dict[str, Any]]):
         """更新进化状态"""
         # 计算平均质量分数
@@ -354,6 +478,12 @@ class AutonomousAGIEvolutionLoop:
         # 更新进化状态
         self.update_evolution_state(task_results)
 
+        directional_axiom = self._update_directional_axiom_metrics(task_results)
+        if self.state.evolution_history:
+            self.state.evolution_history[-1]['directional_axiom_phase'] = directional_axiom.get('phase', 'disabled')
+            self.state.evolution_history[-1]['directional_stability'] = directional_axiom.get('direction_stability')
+            self.state.evolution_history[-1]['directional_projection_error'] = directional_axiom.get('projection_error')
+
         # 计算AGI进化损失
         try:
             loss_metrics = self.loss_system.calculate_evolution_loss()
@@ -374,7 +504,8 @@ class AutonomousAGIEvolutionLoop:
             'avg_quality': sum(r.get('quality_score', 0) for r in task_results) / len(task_results),
             'compression_ratio': self.state.compression_ratio,
             'capability_score': self.state.capability_score,
-            'loss_metrics': loss_metrics
+            'loss_metrics': loss_metrics,
+            'directional_axiom': directional_axiom,
         }
 
         logger.info(f"✅ 第 {self.state.generation} 代进化完成: {generation_summary}")
@@ -437,6 +568,9 @@ class AutonomousAGIEvolutionLoop:
             'stability_index': self.state.stability_index,
             'acceleration_factor': self.state.acceleration_factor,
             'total_evolution_records': len(self.state.evolution_history),
+            'directional_axiom_enabled': self.state.directional_axiom_enabled,
+            'directional_axiom_phase': self.state.directional_axiom_phase,
+            'directional_axiom_history_size': len(self.state.directional_axiom_metrics_history),
             'running': self.running,
             'deepseek_status': self.deepseek_integration.get_evolution_status()
         }

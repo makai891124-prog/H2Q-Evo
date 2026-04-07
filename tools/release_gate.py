@@ -15,6 +15,7 @@ from __future__ import annotations
 import argparse
 import json
 import os
+import shutil
 import subprocess
 import sys
 import time
@@ -63,10 +64,66 @@ def _resolve_assist_key_file(key_file: str) -> str:
     return key_file if p.exists() and p.is_file() else ""
 
 
+def _probe_docker_daemon(timeout_seconds: float) -> Dict[str, Any]:
+    docker_bin = shutil.which("docker")
+    if not docker_bin:
+        return {
+            "available": False,
+            "reason": "docker-not-found",
+            "docker_bin": "",
+            "stderr_tail": "",
+        }
+
+    try:
+        proc = subprocess.run(
+            [docker_bin, "ps"],
+            cwd=str(ROOT),
+            capture_output=True,
+            text=True,
+            timeout=max(1.0, float(timeout_seconds)),
+        )
+    except subprocess.TimeoutExpired:
+        return {
+            "available": False,
+            "reason": "docker-daemon-timeout",
+            "docker_bin": docker_bin,
+            "stderr_tail": "docker probe timeout",
+        }
+    except Exception as exc:
+        return {
+            "available": False,
+            "reason": "docker-daemon-probe-error",
+            "docker_bin": docker_bin,
+            "stderr_tail": str(exc)[:400],
+        }
+
+    if proc.returncode != 0:
+        return {
+            "available": False,
+            "reason": "docker-daemon-unreachable",
+            "docker_bin": docker_bin,
+            "stderr_tail": (proc.stderr or "")[-400:],
+        }
+
+    return {
+        "available": True,
+        "reason": "docker-daemon-ready",
+        "docker_bin": docker_bin,
+        "stderr_tail": "",
+    }
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description="Unified release gate")
     parser.add_argument("--lookback-rounds", type=int, default=48)
     parser.add_argument("--docker-image", default="h2q-sandbox")
+    parser.add_argument(
+        "--docker-policy",
+        choices=["auto", "strict", "allow-missing"],
+        default="auto",
+        help="auto: daemon unavailable时自动降级; strict: 必须可用; allow-missing: 总是允许缺失",
+    )
+    parser.add_argument("--docker-probe-timeout-seconds", type=float, default=5.0)
     parser.add_argument("--profile", choices=["quick", "full"], default="quick")
     parser.add_argument("--allow-missing-docker", action="store_true")
     parser.add_argument("--assist-provider", choices=["none", "deepseek"], default="none")
@@ -102,6 +159,17 @@ def main() -> None:
         ]
     )
 
+    docker_probe = _probe_docker_daemon(args.docker_probe_timeout_seconds)
+    docker_daemon_available = bool(docker_probe.get("available", False))
+
+    effective_allow_missing_docker = bool(args.allow_missing_docker)
+    if args.docker_policy == "allow-missing":
+        effective_allow_missing_docker = True
+    if args.docker_policy == "auto" and not docker_daemon_available:
+        effective_allow_missing_docker = True
+
+    enable_docker_consistency_check = docker_daemon_available
+
     daemon_cmd = [
         sys.executable,
         "tools/agi_self_evolution_daemon.py",
@@ -119,19 +187,25 @@ def main() -> None:
         "2",
         "--assist-provider",
         args.assist_provider,
-        "--enable-docker-consistency-check",
-        "--docker-check-interval-rounds",
-        "1",
-        "--docker-image",
-        args.docker_image,
-        "--docker-min-overlap",
-        "0.05",
         "--min-overall-success-ratio",
         "0.75",
         "--min-core-success-ratio",
         "1.0",
         "--fail-on-empty",
     ]
+
+    if enable_docker_consistency_check:
+        daemon_cmd.extend(
+            [
+                "--enable-docker-consistency-check",
+                "--docker-check-interval-rounds",
+                "1",
+                "--docker-image",
+                args.docker_image,
+                "--docker-min-overlap",
+                "0.05",
+            ]
+        )
 
     if args.assist_provider == "deepseek":
         key_file = _resolve_assist_key_file(args.assist_key_file)
@@ -141,7 +215,11 @@ def main() -> None:
                     "created_at_utc": _now_utc(),
                     "lookback_rounds": max(0, args.lookback_rounds),
                     "docker_image": args.docker_image,
-                    "allow_missing_docker": bool(args.allow_missing_docker),
+                    "docker_policy": args.docker_policy,
+                    "docker_probe": docker_probe,
+                    "docker_check_enabled": enable_docker_consistency_check,
+                    "allow_missing_docker_requested": bool(args.allow_missing_docker),
+                    "allow_missing_docker": bool(effective_allow_missing_docker),
                     "assist_provider": args.assist_provider,
                     "assist_key_file": args.assist_key_file,
                 },
@@ -243,6 +321,11 @@ def main() -> None:
     docker_section = round_obj.get("round", {}).get("docker_consistency", {})
     docker_ok = bool(docker_section.get("ok", False))
     docker_reason = str(docker_section.get("reason", ""))
+    if not docker_reason:
+        if enable_docker_consistency_check:
+            docker_reason = "docker-check-missing-result"
+        else:
+            docker_reason = str(docker_probe.get("reason", "docker-check-skipped-by-policy"))
     monitor_ok = bool(monitor_obj.get("metrics", {}).get("round_count", 0) >= 1)
     framework_score = float(framework_obj.get("robustness", {}).get("overall_score", 0.0) or 0.0)
     round_section = round_obj.get("round", {})
@@ -281,8 +364,18 @@ def main() -> None:
     horizon_ok = horizon_score >= max(0.0, args.min_horizon)
     robustness_ok = robustness_score >= max(0.0, args.min_robustness)
 
+    docker_missing_allowed_reasons = {
+        "docker-not-found",
+        "docker-run-failed",
+        "docker-timeout",
+        "docker-daemon-unreachable",
+        "docker-daemon-timeout",
+        "docker-daemon-probe-error",
+        "docker-check-skipped-by-policy",
+        "docker-check-missing-result",
+    }
     docker_gate_ok = docker_ok or (
-        args.allow_missing_docker and docker_reason in {"docker-not-found", "docker-run-failed"}
+        effective_allow_missing_docker and docker_reason in docker_missing_allowed_reasons
     )
     steps_ok = all(v.get("returncode", 1) == 0 for v in steps.values())
     gate_ok = bool(
@@ -302,7 +395,11 @@ def main() -> None:
             "created_at_utc": _now_utc(),
             "lookback_rounds": max(0, args.lookback_rounds),
             "docker_image": args.docker_image,
-            "allow_missing_docker": bool(args.allow_missing_docker),
+            "docker_policy": args.docker_policy,
+            "docker_probe": docker_probe,
+            "docker_check_enabled": enable_docker_consistency_check,
+            "allow_missing_docker_requested": bool(args.allow_missing_docker),
+            "allow_missing_docker": bool(effective_allow_missing_docker),
             "assist_provider": args.assist_provider,
             "assist_model": args.assist_model,
             "assist_key_file": args.assist_key_file,
@@ -324,6 +421,10 @@ def main() -> None:
             "acceptance_ok": acceptance_ok,
             "docker_ok": docker_ok,
             "docker_reason": docker_reason,
+            "docker_gate_ok": docker_gate_ok,
+            "docker_daemon_available": docker_daemon_available,
+            "docker_policy": args.docker_policy,
+            "docker_check_enabled": enable_docker_consistency_check,
             "monitor_ok": monitor_ok,
             "framework_score": framework_score,
             "assist_enabled": assist_enabled,
@@ -360,7 +461,13 @@ def main() -> None:
         f"- gate_ok: `{gate_ok}`",
         f"- trust_ok: `{trust_ok}`",
         f"- acceptance_ok: `{acceptance_ok}`",
+        f"- docker_policy: `{args.docker_policy}`",
+        f"- docker_daemon_available: `{docker_daemon_available}`",
+        f"- docker_check_enabled: `{enable_docker_consistency_check}`",
+        f"- allow_missing_docker: `{effective_allow_missing_docker}`",
+        f"- docker_probe_reason: `{docker_probe.get('reason', '')}`",
         f"- docker_ok: `{docker_ok}` (reason: `{docker_reason}`)",
+        f"- docker_gate_ok: `{docker_gate_ok}`",
         f"- monitor_ok: `{monitor_ok}`",
         f"- framework_score: `{framework_score:.3f}`",
         f"- assist_enabled: `{assist_enabled}`",

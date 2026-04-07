@@ -1,0 +1,83 @@
+name: Systemic Joint CI Gate
+
+on:
+  push:
+    paths:
+      - 'tools/run_systemic_platform_joint_capability_assessment.py'
+      - 'tools/one_click_agi_experience.sh'
+      - 'tools/generate_one_click_kpi_dashboard.py'
+      - 'tools/dynamic_blueprint_bootstrap.py'
+      - 'tools/run_agi_integrated_validation.py'
+      - '.github/workflows/systemic-joint-ci.yml'
+  pull_request:
+    paths:
+      - 'tools/run_systemic_platform_joint_capability_assessment.py'
+      - 'tools/one_click_agi_experience.sh'
+      - 'tools/generate_one_click_kpi_dashboard.py'
+      - 'tools/dynamic_blueprint_bootstrap.py'
+      - 'tools/run_agi_integrated_validation.py'
+      - '.github/workflows/systemic-joint-ci.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  systemic-joint-gate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Create venv expected by one-click script
+        run: |
+          python -m venv .venv
+          .venv/bin/python -m pip install --upgrade pip
+          .venv/bin/pip install -r requirements.txt
+
+      - name: Run CI-safe strict systemic validation
+        run: |
+          chmod +x tools/one_click_agi_experience.sh
+          tools/one_click_agi_experience.sh --ci-safe --strict
+
+      - name: Verify robust claim artifact
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          p = Path("reports/systemic_platform_joint_capability_latest.json")
+          if not p.exists():
+              raise SystemExit("missing artifact: systemic_platform_joint_capability_latest.json")
+          payload = json.loads(p.read_text(encoding="utf-8"))
+          robust = bool((payload.get("conclusion") or {}).get("robust_claim", False))
+          if not robust:
+              raise SystemExit("strict gate failed: robust_claim is false")
+          print("strict gate passed")
+          PY
+
+      - name: Upload systemic artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: systemic-joint-ci-artifacts
+          path: |
+            reports/systemic_platform_joint_capability_*.json
+            reports/systemic_platform_joint_capability_*.md
+            reports/one_click_kpi_dashboard_*.json
+            reports/one_click_kpi_dashboard_*.md
+            reports/one_click_kpi_dashboard_*.png
+            reports/systemic_joint_validation_*.json
+            reports/systemic_joint_blueprint_*.json

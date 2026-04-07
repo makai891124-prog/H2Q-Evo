@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-03-07T12:19:13.473089+00:00",
+  "generated_at_utc": "2026-03-10T15:11:04.490021+00:00",
   "with_longrun": true,
   "steps": [
     {
@@ -12,7 +12,7 @@
         "--skip-rsa"
       ],
       "returncode": 0,
-      "stdout_tail": "Trusted joint AGI-quantized center completed\nData: reports/trusted_joint_agi_quantum_center_1772885954.json\nReport: reports/trusted_joint_agi_quantum_center_1772885954.md\n",
+      "stdout_tail": "Trusted joint AGI-quantized center completed\nData: reports/trusted_joint_agi_quantum_center_1773155465.json\nReport: reports/trusted_joint_agi_quantum_center_1773155465.md\n",
       "stderr_tail": ""
     },
     {
@@ -28,7 +28,7 @@
         "--trust-skip-rsa"
       ],
       "returncode": 0,
-      "stdout_tail": "Unified framework generated\nJSON: /Users/imymm/H2Q-Evo/reports/unified_system_framework_instantiation_1772885955.json\nMD:   /Users/imymm/H2Q-Evo/reports/unified_system_framework_instantiation_1772885955.md\nLatest JSON: /Users/imymm/H2Q-Evo/reports/unified_system_framework_instantiation_latest.json\nLatest MD:   /Users/imymm/H2Q-Evo/reports/unified_system_framework_instantiation_latest.md\n",
+      "stdout_tail": "Unified framework generated\nJSON: /Users/imymm/H2Q-Evo/reports/unified_system_framework_instantiation_1773155466.json\nMD:   /Users/imymm/H2Q-Evo/reports/unified_system_framework_instantiation_1773155466.md\nLatest JSON: /Users/imymm/H2Q-Evo/reports/unified_system_framework_instantiation_latest.json\nLatest MD:   /Users/imymm/H2Q-Evo/reports/unified_system_framework_instantiation_latest.md\n",
       "stderr_tail": ""
     },
     {
@@ -37,10 +37,10 @@
         "/Users/imymm/.pyenv/versions/3.12.2/bin/python3.12",
         "tools/agi_showcase_generator.py",
         "--center-json",
-        "reports/trusted_joint_agi_quantum_center_1772885954.json"
+        "reports/trusted_joint_agi_quantum_center_1773155465.json"
       ],
       "returncode": 0,
-      "stdout_tail": "AGI showcase generated\nIcon: reports/agi_showcase_icon_1772885956.svg\nDashboard: reports/agi_showcase_dashboard_1772885956.png\nData: reports/agi_showcase_1772885956.json\nReport: reports/AGI真实功能展示最终报告_1772885956.md\n",
+      "stdout_tail": "AGI showcase generated\nIcon: reports/agi_showcase_icon_1773155467.svg\nDashboard: reports/agi_showcase_dashboard_1773155467.png\nData: reports/agi_showcase_1773155467.json\nReport: reports/AGI真实功能展示最终报告_1773155467.md\n",
       "stderr_tail": ""
     },
     {
@@ -58,7 +58,7 @@
         "0.55"
       ],
       "returncode": 0,
-      "stdout_tail": "Public alignment report generated\nJSON: /Users/imymm/H2Q-Evo/reports/public_alignment_instantiation_1772885956.json\nMD: /Users/imymm/H2Q-Evo/reports/public_alignment_instantiation_1772885956.md\n",
+      "stdout_tail": "Public alignment report generated\nJSON: /Users/imymm/H2Q-Evo/reports/public_alignment_instantiation_1773155468.json\nMD: /Users/imymm/H2Q-Evo/reports/public_alignment_instantiation_1773155468.md\n",
       "stderr_tail": ""
     },
     {
@@ -82,7 +82,7 @@
         "release_gate_instantiation"
       ],
       "returncode": 0,
-      "stdout_tail": "Release gate completed\nGate OK: True\nJSON: /Users/imymm/H2Q-Evo/reports/release_gate_instantiation_1772885962.json\nMD: /Users/imymm/H2Q-Evo/reports/release_gate_instantiation_1772885962.md\n",
+      "stdout_tail": "Release gate completed\nGate OK: True\nJSON: /Users/imymm/H2Q-Evo/reports/release_gate_instantiation_1773155481.json\nMD: /Users/imymm/H2Q-Evo/reports/release_gate_instantiation_1773155481.md\n",
       "stderr_tail": ""
     },
     {
@@ -100,7 +100,7 @@
         "agi_realtime_monitor_instantiation"
       ],
       "returncode": 0,
-      "stdout_tail": "[monitor] cycle=1 success_rate=100.00% assist_hit_rate=97.30% tokens=118171 alerts=37\n",
+      "stdout_tail": "[monitor] cycle=1 success_rate=100.00% assist_hit_rate=100.00% tokens=77866 alerts=37\n",
       "stderr_tail": ""
     },
     {
@@ -109,7 +109,7 @@
         "/Users/imymm/.pyenv/versions/3.12.2/bin/python3.12",
         "tools/dynamic_blueprint_bootstrap.py",
         "--cycles",
-        "2",
+        "1",
         "--max-actions-per-cycle",
         "2",
         "--enable-release-gate-cycle",
@@ -130,7 +130,7 @@
         "dynamic_blueprint_bootstrap_longrun"
       ],
       "returncode": 0,
-      "stdout_tail": "Dynamic blueprint bootstrap completed\nJSON: /Users/imymm/H2Q-Evo/reports/dynamic_blueprint_bootstrap_longrun_1772886245.json\nMD: /Users/imymm/H2Q-Evo/reports/dynamic_blueprint_bootstrap_longrun_1772886245.md\nLatest JSON: /Users/imymm/H2Q-Evo/reports/dynamic_blueprint_bootstrap_longrun_latest.json\nLatest MD: /Users/imymm/H2Q-Evo/reports/dynamic_blueprint_bootstrap_longrun_latest.md\n",
+      "stdout_tail": "Dynamic blueprint bootstrap completed\nJSON: /Users/imymm/H2Q-Evo/reports/dynamic_blueprint_bootstrap_longrun_1773155580.json\nMD: /Users/imymm/H2Q-Evo/reports/dynamic_blueprint_bootstrap_longrun_1773155580.md\nLatest JSON: /Users/imymm/H2Q-Evo/reports/dynamic_blueprint_bootstrap_longrun_latest.json\nLatest MD: /Users/imymm/H2Q-Evo/reports/dynamic_blueprint_bootstrap_longrun_latest.md\n",
       "stderr_tail": ""
     },
     {
@@ -148,7 +148,7 @@
         "0.55"
       ],
       "returncode": 0,
-      "stdout_tail": "Public alignment report generated\nJSON: /Users/imymm/H2Q-Evo/reports/public_alignment_post_longrun_1772886245.json\nMD: /Users/imymm/H2Q-Evo/reports/public_alignment_post_longrun_1772886245.md\n",
+      "stdout_tail": "Public alignment report generated\nJSON: /Users/imymm/H2Q-Evo/reports/public_alignment_post_longrun_1773155580.json\nMD: /Users/imymm/H2Q-Evo/reports/public_alignment_post_longrun_1773155580.md\n",
       "stderr_tail": ""
     },
     {
@@ -172,7 +172,7 @@
         "release_gate_post_longrun"
       ],
       "returncode": 0,
-      "stdout_tail": "Release gate completed\nGate OK: True\nJSON: /Users/imymm/H2Q-Evo/reports/release_gate_post_longrun_1772886250.json\nMD: /Users/imymm/H2Q-Evo/reports/release_gate_post_longrun_1772886250.md\n",
+      "stdout_tail": "Release gate completed\nGate OK: True\nJSON: /Users/imymm/H2Q-Evo/reports/release_gate_post_longrun_1773155589.json\nMD: /Users/imymm/H2Q-Evo/reports/release_gate_post_longrun_1773155589.md\n",
       "stderr_tail": ""
     },
     {
@@ -190,7 +190,7 @@
         "agi_realtime_monitor_post_longrun"
       ],
       "returncode": 0,
-      "stdout_tail": "[monitor] cycle=1 success_rate=100.00% assist_hit_rate=97.30% tokens=118527 alerts=37\n",
+      "stdout_tail": "[monitor] cycle=1 success_rate=100.00% assist_hit_rate=100.00% tokens=78152 alerts=37\n",
       "stderr_tail": ""
     }
   ],
@@ -198,12 +198,12 @@
     "gate_ok": true,
     "breadth": 0.8999999999999999,
     "horizon": 1.0,
-    "robustness": 0.9978378378378379,
+    "robustness": 1.0,
     "interactive_success_rate": 1.0,
     "arc": 1.0,
-    "swe": 1.0,
-    "metr": 0.9992631578947369,
-    "alignment_overall": 0.9997543859649123,
+    "swe": 0.9591666666666667,
+    "metr": 0.9766666666666667,
+    "alignment_overall": 0.9786111111111112,
     "monitor_success_ratio": 0.0,
     "blueprint_ok_rate": 0.8,
     "blueprint_gate_success_ratio": 0.75,
@@ -213,23 +213,23 @@
     "gate_ok": true,
     "breadth": 0.8999999999999999,
     "horizon": 1.0,
-    "robustness": 0.9978378378378379,
+    "robustness": 1.0,
     "interactive_success_rate": 1.0,
     "arc": 1.0,
-    "swe": 0.9591666666666667,
-    "metr": 0.9759099099099099,
-    "alignment_overall": 0.9783588588588589,
+    "swe": 1.0,
+    "metr": 1.0,
+    "alignment_overall": 1.0,
     "monitor_success_ratio": 0.0,
     "blueprint_ok_rate": 1.0,
-    "blueprint_gate_success_ratio": 0.9868421052631579,
-    "blueprint_robustness_end": 0.9978378378378379
+    "blueprint_gate_success_ratio": 0.9953271028037384,
+    "blueprint_robustness_end": 1.0
   },
   "artifacts": {
-    "trust_center": "reports/trusted_joint_agi_quantum_center_1772885954.json",
-    "public_alignment_baseline": "/Users/imymm/H2Q-Evo/reports/public_alignment_instantiation_1772885956.json",
-    "release_gate_baseline": "/Users/imymm/H2Q-Evo/reports/release_gate_instantiation_1772885962.json",
+    "trust_center": "reports/trusted_joint_agi_quantum_center_1773155465.json",
+    "public_alignment_baseline": "/Users/imymm/H2Q-Evo/reports/public_alignment_instantiation_1773155468.json",
+    "release_gate_baseline": "/Users/imymm/H2Q-Evo/reports/release_gate_instantiation_1773155481.json",
     "dynamic_blueprint_longrun": "/Users/imymm/H2Q-Evo/reports/dynamic_blueprint_bootstrap_longrun_latest.json",
-    "public_alignment_post_longrun": "/Users/imymm/H2Q-Evo/reports/public_alignment_post_longrun_1772886245.json",
-    "release_gate_post_longrun": "/Users/imymm/H2Q-Evo/reports/release_gate_post_longrun_1772886250.json"
+    "public_alignment_post_longrun": "/Users/imymm/H2Q-Evo/reports/public_alignment_post_longrun_1773155580.json",
+    "release_gate_post_longrun": "/Users/imymm/H2Q-Evo/reports/release_gate_post_longrun_1773155589.json"
   }
 }
