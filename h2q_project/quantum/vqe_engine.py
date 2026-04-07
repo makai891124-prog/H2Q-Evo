@@ -344,7 +344,7 @@ class VQEEngine:
 
             # Adam 更新
             m = beta1 * m + (1 - beta1) * grads
-            v = beta2 * v + (1 - beta2) * grads ** 2
+            v = beta2 * v + (1 - beta2) * np.square(grads)
             m_hat = m / (1 - beta1 ** t)
             v_hat = v / (1 - beta2 ** t)
             params -= self.lr * m_hat / (np.sqrt(v_hat) + eps_adam)

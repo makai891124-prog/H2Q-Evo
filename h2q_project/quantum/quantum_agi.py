@@ -153,7 +153,7 @@ class QuantumParallelAGI:
 
     def _init_branches(self) -> List[EvolutionBranch]:
         """初始化 N 条进化分支，参数随机 (量子叠加态探索)"""
-        rng = np.random.default_rng(int(time.time()) % 10000)
+        rng = np.random.default_rng(int(time.time() * 1e9) & 0xFFFFFFFF)
         branches = []
         n_params = self.n_layers * self.n_qubits
         for i in range(self.n_branches):
@@ -238,7 +238,7 @@ class QuantumParallelAGI:
         alpha = float(q0)  # 0 或 1
 
         n = len(parent_a.params)
-        rng = np.random.default_rng(int(time.time() * 1000) % 100000)
+        rng = np.random.default_rng()
 
         # 量子纠缠参数混合 (受 Bell 测量结果调制)
         crossover_mask = rng.random(n) < 0.5
@@ -279,7 +279,7 @@ class QuantumParallelAGI:
         大变异 = 非 Fueter 偏离 → 被 HolomorphicStreamingMiddleware 检测并纠正
         小变异 = 测地线步 → 在 SU(2) 流形上保持 Fueter 解析性
         """
-        rng = np.random.default_rng(int(time.time() * 1000000) % 1000000)
+        rng = np.random.default_rng()
         # 退火变异强度
         strength = mutation_rate / (1 + 0.05 * self.generation)
         noise = rng.normal(0, strength, len(branch.params))
