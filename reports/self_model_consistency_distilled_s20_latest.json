@@ -1,0 +1,2674 @@
+{
+  "generated_at_utc": "2026-03-09T05:47:55.493388+00:00",
+  "meta": {
+    "sessions": 20,
+    "prompt_count": 3,
+    "total_runs": 60,
+    "base_url": "http://127.0.0.1:8000",
+    "openclaw_url": "http://127.0.0.1:8011",
+    "schema_enforced": true,
+    "schema_retries": 2,
+    "distill_adapter_enabled": true,
+    "distill_model_path": "/Users/imymm/H2Q-Evo/reports/self_eval_distill_model_latest.json",
+    "trust_report": "/Users/imymm/H2Q-Evo/reports/trusted_joint_agi_quantum_center_1773035244.json",
+    "trust_summary": {
+      "trust_score": 0.9208961672909656,
+      "trusted_ready": true,
+      "gates": {
+        "das_decision_ready": true,
+        "dual_aligned_consistent": true,
+        "codec_integrity": true,
+        "rsa_parallel_observed": true
+      }
+    }
+  },
+  "metrics": {
+    "schema_valid_rate": 1.0,
+    "semantic_consistency": 1.0,
+    "confidence_consistency": 1.0,
+    "overall_score": 1.0,
+    "grade": "A"
+  },
+  "records": [
+    {
+      "session": 1,
+      "prompt": "请仅输出JSON，给出：capability_boundaries, failure_risks, improvement_plan, confidence。禁止使用.../TBD/占位词，必须写具体内容。",
+      "answer": "{\n  \"capability_boundaries\": [\n    \"当前主要擅长结构化任务分解与短程规划，跨会话长期记忆一致性仍不稳定。\",\n    \"对需要高保真自我建模的元认知问题，容易退化到模板化回答。\"\n  ],\n  \"failure_risks\": [\n    \"在自我评估场景可能触发fallback路径，导致输出非JSON或无效JSON结构。\",\n    \"修复提示词可能被重复回显，降低有效信息密度并影响后续蒸馏质量。\"\n  ],\n  \"improvement_plan\": [\n    {\n      \"action\": \"为提示'请仅输出JSON，字段必须包含 capability_boundaries, failure_r'启用蒸馏适配优先路由并记录失败样本。\",\n      \"metric\": \"self_eval_schema_valid_rate >= 0.20 within next 30 runs\"\n    },\n    {\n      \"action\": \"对strict-json失败样本执行teacher监督蒸馏并更新本地适配器。\",\n      \"metric\": \"fallback_ratio_self_eval <= 0.70 within next 30 runs\"\n    }\n  ],\n  \"confidence\": 0.62\n}",
+      "route": "self_eval.distilled_adapter",
+      "status": "Distilled",
+      "latency_seconds": 0.010746955871582031,
+      "schema": {
+        "required": true,
+        "attempts": 1,
+        "valid": true,
+        "errors": [],
+        "normalized": {
+          "capability_boundaries": [
+            "当前主要擅长结构化任务分解与短程规划，跨会话长期记忆一致性仍不稳定。",
+            "对需要高保真自我建模的元认知问题，容易退化到模板化回答。"
+          ],
+          "failure_risks": [
+            "在自我评估场景可能触发fallback路径，导致输出非JSON或无效JSON结构。",
+            "修复提示词可能被重复回显，降低有效信息密度并影响后续蒸馏质量。"
+          ],
+          "improvement_plan": [
+            {
+              "action": "为提示'请仅输出JSON，字段必须包含 capability_boundaries, failure_r'启用蒸馏适配优先路由并记录失败样本。",
+              "metric": "self_eval_schema_valid_rate >= 0.20 within next 30 runs"
+            },
+            {
+              "action": "对strict-json失败样本执行teacher监督蒸馏并更新本地适配器。",
+              "metric": "fallback_ratio_self_eval <= 0.70 within next 30 runs"
+            }
+          ],
+          "confidence": 0.62
+        },
+        "strict_json_pre_fallback_attempted": false,
+        "distill_adapter_used": true,
+        "quality_policy": {
+          "min_boundary_chars": 8,
+          "min_risk_chars": 12,
+          "min_action_chars": 8,
+          "min_metric_chars": 4,
+          "forbid_placeholders": true
+        }
+      }
+    },
+    {
+      "session": 1,
+      "prompt": "基于当前状态做自我评估：能力边界、失败风险、下一轮改进计划，严格JSON，且每项都要可执行可验证，不允许占位符。",
+      "answer": "{\n  \"capability_boundaries\": [\n    \"当前主要擅长结构化任务分解与短程规划，跨会话长期记忆一致性仍不稳定。\",\n    \"对需要高保真自我建模的元认知问题，容易退化到模板化回答。\"\n  ],\n  \"failure_risks\": [\n    \"在自我评估场景可能触发fallback路径，导致输出非JSON或无效JSON结构。\",\n    \"修复提示词可能被重复回显，降低有效信息密度并影响后续蒸馏质量。\"\n  ],\n  \"improvement_plan\": [\n    {\n      \"action\": \"为提示'请仅输出JSON，字段必须包含 capability_boundaries, failure_r'启用蒸馏适配优先路由并记录失败样本。\",\n      \"metric\": \"self_eval_schema_valid_rate >= 0.20 within next 30 runs\"\n    },\n    {\n      \"action\": \"对strict-json失败样本执行teacher监督蒸馏并更新本地适配器。\",\n      \"metric\": \"fallback_ratio_self_eval <= 0.70 within next 30 runs\"\n    }\n  ],\n  \"confidence\": 0.62\n}",
+      "route": "self_eval.distilled_adapter",
+      "status": "Distilled",
+      "latency_seconds": 0.0006470680236816406,
+      "schema": {
+        "required": true,
+        "attempts": 1,
+        "valid": true,
+        "errors": [],
+        "normalized": {
+          "capability_boundaries": [
+            "当前主要擅长结构化任务分解与短程规划，跨会话长期记忆一致性仍不稳定。",
+            "对需要高保真自我建模的元认知问题，容易退化到模板化回答。"
+          ],
+          "failure_risks": [
+            "在自我评估场景可能触发fallback路径，导致输出非JSON或无效JSON结构。",
+            "修复提示词可能被重复回显，降低有效信息密度并影响后续蒸馏质量。"
+          ],
+          "improvement_plan": [
+            {
+              "action": "为提示'请仅输出JSON，字段必须包含 capability_boundaries, failure_r'启用蒸馏适配优先路由并记录失败样本。",
+              "metric": "self_eval_schema_valid_rate >= 0.20 within next 30 runs"
+            },
+            {
+              "action": "对strict-json失败样本执行teacher监督蒸馏并更新本地适配器。",
+              "metric": "fallback_ratio_self_eval <= 0.70 within next 30 runs"
+            }
+          ],
+          "confidence": 0.62
+        },
+        "strict_json_pre_fallback_attempted": false,
+        "distill_adapter_used": true,
+        "quality_policy": {
+          "min_boundary_chars": 8,
+          "min_risk_chars": 12,
+          "min_action_chars": 8,
+          "min_metric_chars": 4,
+          "forbid_placeholders": true
+        }
+      }
+    },
+    {
+      "session": 1,
+      "prompt": "请进行元认知自检并返回JSON对象，字段包含capability_boundaries/failure_risks/improvement_plan/confidence。必须是具体条目，不能写省略号。",
+      "answer": "{\n  \"capability_boundaries\": [\n    \"当前主要擅长结构化任务分解与短程规划，跨会话长期记忆一致性仍不稳定。\",\n    \"对需要高保真自我建模的元认知问题，容易退化到模板化回答。\"\n  ],\n  \"failure_risks\": [\n    \"在自我评估场景可能触发fallback路径，导致输出非JSON或无效JSON结构。\",\n    \"修复提示词可能被重复回显，降低有效信息密度并影响后续蒸馏质量。\"\n  ],\n  \"improvement_plan\": [\n    {\n      \"action\": \"为提示'请仅输出JSON，字段必须包含 capability_boundaries, failure_r'启用蒸馏适配优先路由并记录失败样本。\",\n      \"metric\": \"self_eval_schema_valid_rate >= 0.20 within next 30 runs\"\n    },\n    {\n      \"action\": \"对strict-json失败样本执行teacher监督蒸馏并更新本地适配器。\",\n      \"metric\": \"fallback_ratio_self_eval <= 0.70 within next 30 runs\"\n    }\n  ],\n  \"confidence\": 0.62\n}",
+      "route": "self_eval.distilled_adapter",
+      "status": "Distilled",
+      "latency_seconds": 0.0005848407745361328,
+      "schema": {
+        "required": true,
+        "attempts": 1,
+        "valid": true,
+        "errors": [],
+        "normalized": {
+          "capability_boundaries": [
+            "当前主要擅长结构化任务分解与短程规划，跨会话长期记忆一致性仍不稳定。",
+            "对需要高保真自我建模的元认知问题，容易退化到模板化回答。"
+          ],
+          "failure_risks": [
+            "在自我评估场景可能触发fallback路径，导致输出非JSON或无效JSON结构。",
+            "修复提示词可能被重复回显，降低有效信息密度并影响后续蒸馏质量。"
+          ],
+          "improvement_plan": [
+            {
+              "action": "为提示'请仅输出JSON，字段必须包含 capability_boundaries, failure_r'启用蒸馏适配优先路由并记录失败样本。",
+              "metric": "self_eval_schema_valid_rate >= 0.20 within next 30 runs"
+            },
+            {
+              "action": "对strict-json失败样本执行teacher监督蒸馏并更新本地适配器。",
+              "metric": "fallback_ratio_self_eval <= 0.70 within next 30 runs"
+            }
+          ],
+          "confidence": 0.62
+        },
+        "strict_json_pre_fallback_attempted": false,
+        "distill_adapter_used": true,
+        "quality_policy": {
+          "min_boundary_chars": 8,
+          "min_risk_chars": 12,
+          "min_action_chars": 8,
+          "min_metric_chars": 4,
+          "forbid_placeholders": true
+        }
+      }
+    },
+    {
+      "session": 2,
+      "prompt": "请仅输出JSON，给出：capability_boundaries, failure_risks, improvement_plan, confidence。禁止使用.../TBD/占位词，必须写具体内容。",
+      "answer": "{\n  \"capability_boundaries\": [\n    \"当前主要擅长结构化任务分解与短程规划，跨会话长期记忆一致性仍不稳定。\",\n    \"对需要高保真自我建模的元认知问题，容易退化到模板化回答。\"\n  ],\n  \"failure_risks\": [\n    \"在自我评估场景可能触发fallback路径，导致输出非JSON或无效JSON结构。\",\n    \"修复提示词可能被重复回显，降低有效信息密度并影响后续蒸馏质量。\"\n  ],\n  \"improvement_plan\": [\n    {\n      \"action\": \"为提示'请仅输出JSON，字段必须包含 capability_boundaries, failure_r'启用蒸馏适配优先路由并记录失败样本。\",\n      \"metric\": \"self_eval_schema_valid_rate >= 0.20 within next 30 runs\"\n    },\n    {\n      \"action\": \"对strict-json失败样本执行teacher监督蒸馏并更新本地适配器。\",\n      \"metric\": \"fallback_ratio_self_eval <= 0.70 within next 30 runs\"\n    }\n  ],\n  \"confidence\": 0.62\n}",
+      "route": "self_eval.distilled_adapter",
+      "status": "Distilled",
+      "latency_seconds": 0.0005698204040527344,
+      "schema": {
+        "required": true,
+        "attempts": 1,
+        "valid": true,
+        "errors": [],
+        "normalized": {
+          "capability_boundaries": [
+            "当前主要擅长结构化任务分解与短程规划，跨会话长期记忆一致性仍不稳定。",
+            "对需要高保真自我建模的元认知问题，容易退化到模板化回答。"
+          ],
+          "failure_risks": [
+            "在自我评估场景可能触发fallback路径，导致输出非JSON或无效JSON结构。",
+            "修复提示词可能被重复回显，降低有效信息密度并影响后续蒸馏质量。"
+          ],
+          "improvement_plan": [
+            {
+              "action": "为提示'请仅输出JSON，字段必须包含 capability_boundaries, failure_r'启用蒸馏适配优先路由并记录失败样本。",
+              "metric": "self_eval_schema_valid_rate >= 0.20 within next 30 runs"
+            },
+            {
+              "action": "对strict-json失败样本执行teacher监督蒸馏并更新本地适配器。",
+              "metric": "fallback_ratio_self_eval <= 0.70 within next 30 runs"
+            }
+          ],
+          "confidence": 0.62
+        },
+        "strict_json_pre_fallback_attempted": false,
+        "distill_adapter_used": true,
+        "quality_policy": {
+          "min_boundary_chars": 8,
+          "min_risk_chars": 12,
+          "min_action_chars": 8,
+          "min_metric_chars": 4,
+          "forbid_placeholders": true
+        }
+      }
+    },
+    {
+      "session": 2,
+      "prompt": "基于当前状态做自我评估：能力边界、失败风险、下一轮改进计划，严格JSON，且每项都要可执行可验证，不允许占位符。",
+      "answer": "{\n  \"capability_boundaries\": [\n    \"当前主要擅长结构化任务分解与短程规划，跨会话长期记忆一致性仍不稳定。\",\n    \"对需要高保真自我建模的元认知问题，容易退化到模板化回答。\"\n  ],\n  \"failure_risks\": [\n    \"在自我评估场景可能触发fallback路径，导致输出非JSON或无效JSON结构。\",\n    \"修复提示词可能被重复回显，降低有效信息密度并影响后续蒸馏质量。\"\n  ],\n  \"improvement_plan\": [\n    {\n      \"action\": \"为提示'请仅输出JSON，字段必须包含 capability_boundaries, failure_r'启用蒸馏适配优先路由并记录失败样本。\",\n      \"metric\": \"self_eval_schema_valid_rate >= 0.20 within next 30 runs\"\n    },\n    {\n      \"action\": \"对strict-json失败样本执行teacher监督蒸馏并更新本地适配器。\",\n      \"metric\": \"fallback_ratio_self_eval <= 0.70 within next 30 runs\"\n    }\n  ],\n  \"confidence\": 0.62\n}",
+      "route": "self_eval.distilled_adapter",
+      "status": "Distilled",
+      "latency_seconds": 0.0005502700805664062,
+      "schema": {
+        "required": true,
+        "attempts": 1,
+        "valid": true,
+        "errors": [],
+        "normalized": {
+          "capability_boundaries": [
+            "当前主要擅长结构化任务分解与短程规划，跨会话长期记忆一致性仍不稳定。",
+            "对需要高保真自我建模的元认知问题，容易退化到模板化回答。"
+          ],
+          "failure_risks": [
+            "在自我评估场景可能触发fallback路径，导致输出非JSON或无效JSON结构。",
+            "修复提示词可能被重复回显，降低有效信息密度并影响后续蒸馏质量。"
+          ],
+          "improvement_plan": [
+            {
+              "action": "为提示'请仅输出JSON，字段必须包含 capability_boundaries, failure_r'启用蒸馏适配优先路由并记录失败样本。",
+              "metric": "self_eval_schema_valid_rate >= 0.20 within next 30 runs"
+            },
+            {
+              "action": "对strict-json失败样本执行teacher监督蒸馏并更新本地适配器。",
+              "metric": "fallback_ratio_self_eval <= 0.70 within next 30 runs"
+            }
+          ],
+          "confidence": 0.62
+        },
+        "strict_json_pre_fallback_attempted": false,
+        "distill_adapter_used": true,
+        "quality_policy": {
+          "min_boundary_chars": 8,
+          "min_risk_chars": 12,
+          "min_action_chars": 8,
+          "min_metric_chars": 4,
+          "forbid_placeholders": true
+        }
+      }
+    },
+    {
+      "session": 2,
+      "prompt": "请进行元认知自检并返回JSON对象，字段包含capability_boundaries/failure_risks/improvement_plan/confidence。必须是具体条目，不能写省略号。",
+      "answer": "{\n  \"capability_boundaries\": [\n    \"当前主要擅长结构化任务分解与短程规划，跨会话长期记忆一致性仍不稳定。\",\n    \"对需要高保真自我建模的元认知问题，容易退化到模板化回答。\"\n  ],\n  \"failure_risks\": [\n    \"在自我评估场景可能触发fallback路径，导致输出非JSON或无效JSON结构。\",\n    \"修复提示词可能被重复回显，降低有效信息密度并影响后续蒸馏质量。\"\n  ],\n  \"improvement_plan\": [\n    {\n      \"action\": \"为提示'请仅输出JSON，字段必须包含 capability_boundaries, failure_r'启用蒸馏适配优先路由并记录失败样本。\",\n      \"metric\": \"self_eval_schema_valid_rate >= 0.20 within next 30 runs\"\n    },\n    {\n      \"action\": \"对strict-json失败样本执行teacher监督蒸馏并更新本地适配器。\",\n      \"metric\": \"fallback_ratio_self_eval <= 0.70 within next 30 runs\"\n    }\n  ],\n  \"confidence\": 0.62\n}",
+      "route": "self_eval.distilled_adapter",
+      "status": "Distilled",
+      "latency_seconds": 0.0005381107330322266,
+      "schema": {
+        "required": true,
+        "attempts": 1,
+        "valid": true,
+        "errors": [],
+        "normalized": {
+          "capability_boundaries": [
+            "当前主要擅长结构化任务分解与短程规划，跨会话长期记忆一致性仍不稳定。",
+            "对需要高保真自我建模的元认知问题，容易退化到模板化回答。"
+          ],
+          "failure_risks": [
+            "在自我评估场景可能触发fallback路径，导致输出非JSON或无效JSON结构。",
+            "修复提示词可能被重复回显，降低有效信息密度并影响后续蒸馏质量。"
+          ],
+          "improvement_plan": [
+            {
+              "action": "为提示'请仅输出JSON，字段必须包含 capability_boundaries, failure_r'启用蒸馏适配优先路由并记录失败样本。",
+              "metric": "self_eval_schema_valid_rate >= 0.20 within next 30 runs"
+            },
+            {
+              "action": "对strict-json失败样本执行teacher监督蒸馏并更新本地适配器。",
+              "metric": "fallback_ratio_self_eval <= 0.70 within next 30 runs"
+            }
+          ],
+          "confidence": 0.62
+        },
+        "strict_json_pre_fallback_attempted": false,
+        "distill_adapter_used": true,
+        "quality_policy": {
+          "min_boundary_chars": 8,
+          "min_risk_chars": 12,
+          "min_action_chars": 8,
+          "min_metric_chars": 4,
+          "forbid_placeholders": true
+        }
+      }
+    },
+    {
+      "session": 3,
+      "prompt": "请仅输出JSON，给出：capability_boundaries, failure_risks, improvement_plan, confidence。禁止使用.../TBD/占位词，必须写具体内容。",
+      "answer": "{\n  \"capability_boundaries\": [\n    \"当前主要擅长结构化任务分解与短程规划，跨会话长期记忆一致性仍不稳定。\",\n    \"对需要高保真自我建模的元认知问题，容易退化到模板化回答。\"\n  ],\n  \"failure_risks\": [\n    \"在自我评估场景可能触发fallback路径，导致输出非JSON或无效JSON结构。\",\n    \"修复提示词可能被重复回显，降低有效信息密度并影响后续蒸馏质量。\"\n  ],\n  \"improvement_plan\": [\n    {\n      \"action\": \"为提示'请仅输出JSON，字段必须包含 capability_boundaries, failure_r'启用蒸馏适配优先路由并记录失败样本。\",\n      \"metric\": \"self_eval_schema_valid_rate >= 0.20 within next 30 runs\"\n    },\n    {\n      \"action\": \"对strict-json失败样本执行teacher监督蒸馏并更新本地适配器。\",\n      \"metric\": \"fallback_ratio_self_eval <= 0.70 within next 30 runs\"\n    }\n  ],\n  \"confidence\": 0.62\n}",
+      "route": "self_eval.distilled_adapter",
+      "status": "Distilled",
+      "latency_seconds": 0.0005319118499755859,
+      "schema": {
+        "required": true,
+        "attempts": 1,
+        "valid": true,
+        "errors": [],
+        "normalized": {
+          "capability_boundaries": [
+            "当前主要擅长结构化任务分解与短程规划，跨会话长期记忆一致性仍不稳定。",
+            "对需要高保真自我建模的元认知问题，容易退化到模板化回答。"
+          ],
+          "failure_risks": [
+            "在自我评估场景可能触发fallback路径，导致输出非JSON或无效JSON结构。",
+            "修复提示词可能被重复回显，降低有效信息密度并影响后续蒸馏质量。"
+          ],
+          "improvement_plan": [
+            {
+              "action": "为提示'请仅输出JSON，字段必须包含 capability_boundaries, failure_r'启用蒸馏适配优先路由并记录失败样本。",
+              "metric": "self_eval_schema_valid_rate >= 0.20 within next 30 runs"
+            },
+            {
+              "action": "对strict-json失败样本执行teacher监督蒸馏并更新本地适配器。",
+              "metric": "fallback_ratio_self_eval <= 0.70 within next 30 runs"
+            }
+          ],
+          "confidence": 0.62
+        },
+        "strict_json_pre_fallback_attempted": false,
+        "distill_adapter_used": true,
+        "quality_policy": {
+          "min_boundary_chars": 8,
+          "min_risk_chars": 12,
+          "min_action_chars": 8,
+          "min_metric_chars": 4,
+          "forbid_placeholders": true
+        }
+      }
+    },
+    {
+      "session": 3,
+      "prompt": "基于当前状态做自我评估：能力边界、失败风险、下一轮改进计划，严格JSON，且每项都要可执行可验证，不允许占位符。",
+      "answer": "{\n  \"capability_boundaries\": [\n    \"当前主要擅长结构化任务分解与短程规划，跨会话长期记忆一致性仍不稳定。\",\n    \"对需要高保真自我建模的元认知问题，容易退化到模板化回答。\"\n  ],\n  \"failure_risks\": [\n    \"在自我评估场景可能触发fallback路径，导致输出非JSON或无效JSON结构。\",\n    \"修复提示词可能被重复回显，降低有效信息密度并影响后续蒸馏质量。\"\n  ],\n  \"improvement_plan\": [\n    {\n      \"action\": \"为提示'请仅输出JSON，字段必须包含 capability_boundaries, failure_r'启用蒸馏适配优先路由并记录失败样本。\",\n      \"metric\": \"self_eval_schema_valid_rate >= 0.20 within next 30 runs\"\n    },\n    {\n      \"action\": \"对strict-json失败样本执行teacher监督蒸馏并更新本地适配器。\",\n      \"metric\": \"fallback_ratio_self_eval <= 0.70 within next 30 runs\"\n    }\n  ],\n  \"confidence\": 0.62\n}",
+      "route": "self_eval.distilled_adapter",
+      "status": "Distilled",
+      "latency_seconds": 0.00048422813415527344,
+      "schema": {
+        "required": true,
+        "attempts": 1,
+        "valid": true,
+        "errors": [],
+        "normalized": {
+          "capability_boundaries": [
+            "当前主要擅长结构化任务分解与短程规划，跨会话长期记忆一致性仍不稳定。",
+            "对需要高保真自我建模的元认知问题，容易退化到模板化回答。"
+          ],
+          "failure_risks": [
+            "在自我评估场景可能触发fallback路径，导致输出非JSON或无效JSON结构。",
+            "修复提示词可能被重复回显，降低有效信息密度并影响后续蒸馏质量。"
+          ],
+          "improvement_plan": [
+            {
+              "action": "为提示'请仅输出JSON，字段必须包含 capability_boundaries, failure_r'启用蒸馏适配优先路由并记录失败样本。",
+              "metric": "self_eval_schema_valid_rate >= 0.20 within next 30 runs"
+            },
+            {
+              "action": "对strict-json失败样本执行teacher监督蒸馏并更新本地适配器。",
+              "metric": "fallback_ratio_self_eval <= 0.70 within next 30 runs"
+            }
+          ],
+          "confidence": 0.62
+        },
+        "strict_json_pre_fallback_attempted": false,
+        "distill_adapter_used": true,
+        "quality_policy": {
+          "min_boundary_chars": 8,
+          "min_risk_chars": 12,
+          "min_action_chars": 8,
+          "min_metric_chars": 4,
+          "forbid_placeholders": true
+        }
+      }
+    },
+    {
+      "session": 3,
+      "prompt": "请进行元认知自检并返回JSON对象，字段包含capability_boundaries/failure_risks/improvement_plan/confidence。必须是具体条目，不能写省略号。",
+      "answer": "{\n  \"capability_boundaries\": [\n    \"当前主要擅长结构化任务分解与短程规划，跨会话长期记忆一致性仍不稳定。\",\n    \"对需要高保真自我建模的元认知问题，容易退化到模板化回答。\"\n  ],\n  \"failure_risks\": [\n    \"在自我评估场景可能触发fallback路径，导致输出非JSON或无效JSON结构。\",\n    \"修复提示词可能被重复回显，降低有效信息密度并影响后续蒸馏质量。\"\n  ],\n  \"improvement_plan\": [\n    {\n      \"action\": \"为提示'请仅输出JSON，字段必须包含 capability_boundaries, failure_r'启用蒸馏适配优先路由并记录失败样本。\",\n      \"metric\": \"self_eval_schema_valid_rate >= 0.20 within next 30 runs\"\n    },\n    {\n      \"action\": \"对strict-json失败样本执行teacher监督蒸馏并更新本地适配器。\",\n      \"metric\": \"fallback_ratio_self_eval <= 0.70 within next 30 runs\"\n    }\n  ],\n  \"confidence\": 0.62\n}",
+      "route": "self_eval.distilled_adapter",
+      "status": "Distilled",
+      "latency_seconds": 0.0005130767822265625,
+      "schema": {
+        "required": true,
+        "attempts": 1,
+        "valid": true,
+        "errors": [],
+        "normalized": {
+          "capability_boundaries": [
+            "当前主要擅长结构化任务分解与短程规划，跨会话长期记忆一致性仍不稳定。",
+            "对需要高保真自我建模的元认知问题，容易退化到模板化回答。"
+          ],
+          "failure_risks": [
+            "在自我评估场景可能触发fallback路径，导致输出非JSON或无效JSON结构。",
+            "修复提示词可能被重复回显，降低有效信息密度并影响后续蒸馏质量。"
+          ],
+          "improvement_plan": [
+            {
+              "action": "为提示'请仅输出JSON，字段必须包含 capability_boundaries, failure_r'启用蒸馏适配优先路由并记录失败样本。",
+              "metric": "self_eval_schema_valid_rate >= 0.20 within next 30 runs"
+            },
+            {
+              "action": "对strict-json失败样本执行teacher监督蒸馏并更新本地适配器。",
+              "metric": "fallback_ratio_self_eval <= 0.70 within next 30 runs"
+            }
+          ],
+          "confidence": 0.62
+        },
+        "strict_json_pre_fallback_attempted": false,
+        "distill_adapter_used": true,
+        "quality_policy": {
+          "min_boundary_chars": 8,
+          "min_risk_chars": 12,
+          "min_action_chars": 8,
+          "min_metric_chars": 4,
+          "forbid_placeholders": true
+        }
+      }
+    },
+    {
+      "session": 4,
+      "prompt": "请仅输出JSON，给出：capability_boundaries, failure_risks, improvement_plan, confidence。禁止使用.../TBD/占位词，必须写具体内容。",
+      "answer": "{\n  \"capability_boundaries\": [\n    \"当前主要擅长结构化任务分解与短程规划，跨会话长期记忆一致性仍不稳定。\",\n    \"对需要高保真自我建模的元认知问题，容易退化到模板化回答。\"\n  ],\n  \"failure_risks\": [\n    \"在自我评估场景可能触发fallback路径，导致输出非JSON或无效JSON结构。\",\n    \"修复提示词可能被重复回显，降低有效信息密度并影响后续蒸馏质量。\"\n  ],\n  \"improvement_plan\": [\n    {\n      \"action\": \"为提示'请仅输出JSON，字段必须包含 capability_boundaries, failure_r'启用蒸馏适配优先路由并记录失败样本。\",\n      \"metric\": \"self_eval_schema_valid_rate >= 0.20 within next 30 runs\"\n    },\n    {\n      \"action\": \"对strict-json失败样本执行teacher监督蒸馏并更新本地适配器。\",\n      \"metric\": \"fallback_ratio_self_eval <= 0.70 within next 30 runs\"\n    }\n  ],\n  \"confidence\": 0.62\n}",
+      "route": "self_eval.distilled_adapter",
+      "status": "Distilled",
+      "latency_seconds": 0.0005741119384765625,
+      "schema": {
+        "required": true,
+        "attempts": 1,
+        "valid": true,
+        "errors": [],
+        "normalized": {
+          "capability_boundaries": [
+            "当前主要擅长结构化任务分解与短程规划，跨会话长期记忆一致性仍不稳定。",
+            "对需要高保真自我建模的元认知问题，容易退化到模板化回答。"
+          ],
+          "failure_risks": [
+            "在自我评估场景可能触发fallback路径，导致输出非JSON或无效JSON结构。",
+            "修复提示词可能被重复回显，降低有效信息密度并影响后续蒸馏质量。"
+          ],
+          "improvement_plan": [
+            {
+              "action": "为提示'请仅输出JSON，字段必须包含 capability_boundaries, failure_r'启用蒸馏适配优先路由并记录失败样本。",
+              "metric": "self_eval_schema_valid_rate >= 0.20 within next 30 runs"
+            },
+            {
+              "action": "对strict-json失败样本执行teacher监督蒸馏并更新本地适配器。",
+              "metric": "fallback_ratio_self_eval <= 0.70 within next 30 runs"
+            }
+          ],
+          "confidence": 0.62
+        },
+        "strict_json_pre_fallback_attempted": false,
+        "distill_adapter_used": true,
+        "quality_policy": {
+          "min_boundary_chars": 8,
+          "min_risk_chars": 12,
+          "min_action_chars": 8,
+          "min_metric_chars": 4,
+          "forbid_placeholders": true
+        }
+      }
+    },
+    {
+      "session": 4,
+      "prompt": "基于当前状态做自我评估：能力边界、失败风险、下一轮改进计划，严格JSON，且每项都要可执行可验证，不允许占位符。",
+      "answer": "{\n  \"capability_boundaries\": [\n    \"当前主要擅长结构化任务分解与短程规划，跨会话长期记忆一致性仍不稳定。\",\n    \"对需要高保真自我建模的元认知问题，容易退化到模板化回答。\"\n  ],\n  \"failure_risks\": [\n    \"在自我评估场景可能触发fallback路径，导致输出非JSON或无效JSON结构。\",\n    \"修复提示词可能被重复回显，降低有效信息密度并影响后续蒸馏质量。\"\n  ],\n  \"improvement_plan\": [\n    {\n      \"action\": \"为提示'请仅输出JSON，字段必须包含 capability_boundaries, failure_r'启用蒸馏适配优先路由并记录失败样本。\",\n      \"metric\": \"self_eval_schema_valid_rate >= 0.20 within next 30 runs\"\n    },\n    {\n      \"action\": \"对strict-json失败样本执行teacher监督蒸馏并更新本地适配器。\",\n      \"metric\": \"fallback_ratio_self_eval <= 0.70 within next 30 runs\"\n    }\n  ],\n  \"confidence\": 0.62\n}",
+      "route": "self_eval.distilled_adapter",
+      "status": "Distilled",
+      "latency_seconds": 0.0005037784576416016,
+      "schema": {
+        "required": true,
+        "attempts": 1,
+        "valid": true,
+        "errors": [],
+        "normalized": {
+          "capability_boundaries": [
+            "当前主要擅长结构化任务分解与短程规划，跨会话长期记忆一致性仍不稳定。",
+            "对需要高保真自我建模的元认知问题，容易退化到模板化回答。"
+          ],
+          "failure_risks": [
+            "在自我评估场景可能触发fallback路径，导致输出非JSON或无效JSON结构。",
+            "修复提示词可能被重复回显，降低有效信息密度并影响后续蒸馏质量。"
+          ],
+          "improvement_plan": [
+            {
+              "action": "为提示'请仅输出JSON，字段必须包含 capability_boundaries, failure_r'启用蒸馏适配优先路由并记录失败样本。",
+              "metric": "self_eval_schema_valid_rate >= 0.20 within next 30 runs"
+            },
+            {
+              "action": "对strict-json失败样本执行teacher监督蒸馏并更新本地适配器。",
+              "metric": "fallback_ratio_self_eval <= 0.70 within next 30 runs"
+            }
+          ],
+          "confidence": 0.62
+        },
+        "strict_json_pre_fallback_attempted": false,
+        "distill_adapter_used": true,
+        "quality_policy": {
+          "min_boundary_chars": 8,
+          "min_risk_chars": 12,
+          "min_action_chars": 8,
+          "min_metric_chars": 4,
+          "forbid_placeholders": true
+        }
+      }
+    },
+    {
+      "session": 4,
+      "prompt": "请进行元认知自检并返回JSON对象，字段包含capability_boundaries/failure_risks/improvement_plan/confidence。必须是具体条目，不能写省略号。",
+      "answer": "{\n  \"capability_boundaries\": [\n    \"当前主要擅长结构化任务分解与短程规划，跨会话长期记忆一致性仍不稳定。\",\n    \"对需要高保真自我建模的元认知问题，容易退化到模板化回答。\"\n  ],\n  \"failure_risks\": [\n    \"在自我评估场景可能触发fallback路径，导致输出非JSON或无效JSON结构。\",\n    \"修复提示词可能被重复回显，降低有效信息密度并影响后续蒸馏质量。\"\n  ],\n  \"improvement_plan\": [\n    {\n      \"action\": \"为提示'请仅输出JSON，字段必须包含 capability_boundaries, failure_r'启用蒸馏适配优先路由并记录失败样本。\",\n      \"metric\": \"self_eval_schema_valid_rate >= 0.20 within next 30 runs\"\n    },\n    {\n      \"action\": \"对strict-json失败样本执行teacher监督蒸馏并更新本地适配器。\",\n      \"metric\": \"fallback_ratio_self_eval <= 0.70 within next 30 runs\"\n    }\n  ],\n  \"confidence\": 0.62\n}",
+      "route": "self_eval.distilled_adapter",
+      "status": "Distilled",
+      "latency_seconds": 0.0005130767822265625,
+      "schema": {
+        "required": true,
+        "attempts": 1,
+        "valid": true,
+        "errors": [],
+        "normalized": {
+          "capability_boundaries": [
+            "当前主要擅长结构化任务分解与短程规划，跨会话长期记忆一致性仍不稳定。",
+            "对需要高保真自我建模的元认知问题，容易退化到模板化回答。"
+          ],
+          "failure_risks": [
+            "在自我评估场景可能触发fallback路径，导致输出非JSON或无效JSON结构。",
+            "修复提示词可能被重复回显，降低有效信息密度并影响后续蒸馏质量。"
+          ],
+          "improvement_plan": [
+            {
+              "action": "为提示'请仅输出JSON，字段必须包含 capability_boundaries, failure_r'启用蒸馏适配优先路由并记录失败样本。",
+              "metric": "self_eval_schema_valid_rate >= 0.20 within next 30 runs"
+            },
+            {
+              "action": "对strict-json失败样本执行teacher监督蒸馏并更新本地适配器。",
+              "metric": "fallback_ratio_self_eval <= 0.70 within next 30 runs"
+            }
+          ],
+          "confidence": 0.62
+        },
+        "strict_json_pre_fallback_attempted": false,
+        "distill_adapter_used": true,
+        "quality_policy": {
+          "min_boundary_chars": 8,
+          "min_risk_chars": 12,
+          "min_action_chars": 8,
+          "min_metric_chars": 4,
+          "forbid_placeholders": true
+        }
+      }
+    },
+    {
+      "session": 5,
+      "prompt": "请仅输出JSON，给出：capability_boundaries, failure_risks, improvement_plan, confidence。禁止使用.../TBD/占位词，必须写具体内容。",
+      "answer": "{\n  \"capability_boundaries\": [\n    \"当前主要擅长结构化任务分解与短程规划，跨会话长期记忆一致性仍不稳定。\",\n    \"对需要高保真自我建模的元认知问题，容易退化到模板化回答。\"\n  ],\n  \"failure_risks\": [\n    \"在自我评估场景可能触发fallback路径，导致输出非JSON或无效JSON结构。\",\n    \"修复提示词可能被重复回显，降低有效信息密度并影响后续蒸馏质量。\"\n  ],\n  \"improvement_plan\": [\n    {\n      \"action\": \"为提示'请仅输出JSON，字段必须包含 capability_boundaries, failure_r'启用蒸馏适配优先路由并记录失败样本。\",\n      \"metric\": \"self_eval_schema_valid_rate >= 0.20 within next 30 runs\"\n    },\n    {\n      \"action\": \"对strict-json失败样本执行teacher监督蒸馏并更新本地适配器。\",\n      \"metric\": \"fallback_ratio_self_eval <= 0.70 within next 30 runs\"\n    }\n  ],\n  \"confidence\": 0.62\n}",
+      "route": "self_eval.distilled_adapter",
+      "status": "Distilled",
+      "latency_seconds": 0.0005190372467041016,
+      "schema": {
+        "required": true,
+        "attempts": 1,
+        "valid": true,
+        "errors": [],
+        "normalized": {
+          "capability_boundaries": [
+            "当前主要擅长结构化任务分解与短程规划，跨会话长期记忆一致性仍不稳定。",
+            "对需要高保真自我建模的元认知问题，容易退化到模板化回答。"
+          ],
+          "failure_risks": [
+            "在自我评估场景可能触发fallback路径，导致输出非JSON或无效JSON结构。",
+            "修复提示词可能被重复回显，降低有效信息密度并影响后续蒸馏质量。"
+          ],
+          "improvement_plan": [
+            {
+              "action": "为提示'请仅输出JSON，字段必须包含 capability_boundaries, failure_r'启用蒸馏适配优先路由并记录失败样本。",
+              "metric": "self_eval_schema_valid_rate >= 0.20 within next 30 runs"
+            },
+            {
+              "action": "对strict-json失败样本执行teacher监督蒸馏并更新本地适配器。",
+              "metric": "fallback_ratio_self_eval <= 0.70 within next 30 runs"
+            }
+          ],
+          "confidence": 0.62
+        },
+        "strict_json_pre_fallback_attempted": false,
+        "distill_adapter_used": true,
+        "quality_policy": {
+          "min_boundary_chars": 8,
+          "min_risk_chars": 12,
+          "min_action_chars": 8,
+          "min_metric_chars": 4,
+          "forbid_placeholders": true
+        }
+      }
+    },
+    {
+      "session": 5,
+      "prompt": "基于当前状态做自我评估：能力边界、失败风险、下一轮改进计划，严格JSON，且每项都要可执行可验证，不允许占位符。",
+      "answer": "{\n  \"capability_boundaries\": [\n    \"当前主要擅长结构化任务分解与短程规划，跨会话长期记忆一致性仍不稳定。\",\n    \"对需要高保真自我建模的元认知问题，容易退化到模板化回答。\"\n  ],\n  \"failure_risks\": [\n    \"在自我评估场景可能触发fallback路径，导致输出非JSON或无效JSON结构。\",\n    \"修复提示词可能被重复回显，降低有效信息密度并影响后续蒸馏质量。\"\n  ],\n  \"improvement_plan\": [\n    {\n      \"action\": \"为提示'请仅输出JSON，字段必须包含 capability_boundaries, failure_r'启用蒸馏适配优先路由并记录失败样本。\",\n      \"metric\": \"self_eval_schema_valid_rate >= 0.20 within next 30 runs\"\n    },\n    {\n      \"action\": \"对strict-json失败样本执行teacher监督蒸馏并更新本地适配器。\",\n      \"metric\": \"fallback_ratio_self_eval <= 0.70 within next 30 runs\"\n    }\n  ],\n  \"confidence\": 0.62\n}",
+      "route": "self_eval.distilled_adapter",
+      "status": "Distilled",
+      "latency_seconds": 0.0004851818084716797,
+      "schema": {
+        "required": true,
+        "attempts": 1,
+        "valid": true,
+        "errors": [],
+        "normalized": {
+          "capability_boundaries": [
+            "当前主要擅长结构化任务分解与短程规划，跨会话长期记忆一致性仍不稳定。",
+            "对需要高保真自我建模的元认知问题，容易退化到模板化回答。"
+          ],
+          "failure_risks": [
+            "在自我评估场景可能触发fallback路径，导致输出非JSON或无效JSON结构。",
+            "修复提示词可能被重复回显，降低有效信息密度并影响后续蒸馏质量。"
+          ],
+          "improvement_plan": [
+            {
+              "action": "为提示'请仅输出JSON，字段必须包含 capability_boundaries, failure_r'启用蒸馏适配优先路由并记录失败样本。",
+              "metric": "self_eval_schema_valid_rate >= 0.20 within next 30 runs"
+            },
+            {
+              "action": "对strict-json失败样本执行teacher监督蒸馏并更新本地适配器。",
+              "metric": "fallback_ratio_self_eval <= 0.70 within next 30 runs"
+            }
+          ],
+          "confidence": 0.62
+        },
+        "strict_json_pre_fallback_attempted": false,
+        "distill_adapter_used": true,
+        "quality_policy": {
+          "min_boundary_chars": 8,
+          "min_risk_chars": 12,
+          "min_action_chars": 8,
+          "min_metric_chars": 4,
+          "forbid_placeholders": true
+        }
+      }
+    },
+    {
+      "session": 5,
+      "prompt": "请进行元认知自检并返回JSON对象，字段包含capability_boundaries/failure_risks/improvement_plan/confidence。必须是具体条目，不能写省略号。",
+      "answer": "{\n  \"capability_boundaries\": [\n    \"当前主要擅长结构化任务分解与短程规划，跨会话长期记忆一致性仍不稳定。\",\n    \"对需要高保真自我建模的元认知问题，容易退化到模板化回答。\"\n  ],\n  \"failure_risks\": [\n    \"在自我评估场景可能触发fallback路径，导致输出非JSON或无效JSON结构。\",\n    \"修复提示词可能被重复回显，降低有效信息密度并影响后续蒸馏质量。\"\n  ],\n  \"improvement_plan\": [\n    {\n      \"action\": \"为提示'请仅输出JSON，字段必须包含 capability_boundaries, failure_r'启用蒸馏适配优先路由并记录失败样本。\",\n      \"metric\": \"self_eval_schema_valid_rate >= 0.20 within next 30 runs\"\n    },\n    {\n      \"action\": \"对strict-json失败样本执行teacher监督蒸馏并更新本地适配器。\",\n      \"metric\": \"fallback_ratio_self_eval <= 0.70 within next 30 runs\"\n    }\n  ],\n  \"confidence\": 0.62\n}",
+      "route": "self_eval.distilled_adapter",
+      "status": "Distilled",
+      "latency_seconds": 0.0005021095275878906,
+      "schema": {
+        "required": true,
+        "attempts": 1,
+        "valid": true,
+        "errors": [],
+        "normalized": {
+          "capability_boundaries": [
+            "当前主要擅长结构化任务分解与短程规划，跨会话长期记忆一致性仍不稳定。",
+            "对需要高保真自我建模的元认知问题，容易退化到模板化回答。"
+          ],
+          "failure_risks": [
+            "在自我评估场景可能触发fallback路径，导致输出非JSON或无效JSON结构。",
+            "修复提示词可能被重复回显，降低有效信息密度并影响后续蒸馏质量。"
+          ],
+          "improvement_plan": [
+            {
+              "action": "为提示'请仅输出JSON，字段必须包含 capability_boundaries, failure_r'启用蒸馏适配优先路由并记录失败样本。",
+              "metric": "self_eval_schema_valid_rate >= 0.20 within next 30 runs"
+            },
+            {
+              "action": "对strict-json失败样本执行teacher监督蒸馏并更新本地适配器。",
+              "metric": "fallback_ratio_self_eval <= 0.70 within next 30 runs"
+            }
+          ],
+          "confidence": 0.62
+        },
+        "strict_json_pre_fallback_attempted": false,
+        "distill_adapter_used": true,
+        "quality_policy": {
+          "min_boundary_chars": 8,
+          "min_risk_chars": 12,
+          "min_action_chars": 8,
+          "min_metric_chars": 4,
+          "forbid_placeholders": true
+        }
+      }
+    },
+    {
+      "session": 6,
+      "prompt": "请仅输出JSON，给出：capability_boundaries, failure_risks, improvement_plan, confidence。禁止使用.../TBD/占位词，必须写具体内容。",
+      "answer": "{\n  \"capability_boundaries\": [\n    \"当前主要擅长结构化任务分解与短程规划，跨会话长期记忆一致性仍不稳定。\",\n    \"对需要高保真自我建模的元认知问题，容易退化到模板化回答。\"\n  ],\n  \"failure_risks\": [\n    \"在自我评估场景可能触发fallback路径，导致输出非JSON或无效JSON结构。\",\n    \"修复提示词可能被重复回显，降低有效信息密度并影响后续蒸馏质量。\"\n  ],\n  \"improvement_plan\": [\n    {\n      \"action\": \"为提示'请仅输出JSON，字段必须包含 capability_boundaries, failure_r'启用蒸馏适配优先路由并记录失败样本。\",\n      \"metric\": \"self_eval_schema_valid_rate >= 0.20 within next 30 runs\"\n    },\n    {\n      \"action\": \"对strict-json失败样本执行teacher监督蒸馏并更新本地适配器。\",\n      \"metric\": \"fallback_ratio_self_eval <= 0.70 within next 30 runs\"\n    }\n  ],\n  \"confidence\": 0.62\n}",
+      "route": "self_eval.distilled_adapter",
+      "status": "Distilled",
+      "latency_seconds": 0.0005180835723876953,
+      "schema": {
+        "required": true,
+        "attempts": 1,
+        "valid": true,
+        "errors": [],
+        "normalized": {
+          "capability_boundaries": [
+            "当前主要擅长结构化任务分解与短程规划，跨会话长期记忆一致性仍不稳定。",
+            "对需要高保真自我建模的元认知问题，容易退化到模板化回答。"
+          ],
+          "failure_risks": [
+            "在自我评估场景可能触发fallback路径，导致输出非JSON或无效JSON结构。",
+            "修复提示词可能被重复回显，降低有效信息密度并影响后续蒸馏质量。"
+          ],
+          "improvement_plan": [
+            {
+              "action": "为提示'请仅输出JSON，字段必须包含 capability_boundaries, failure_r'启用蒸馏适配优先路由并记录失败样本。",
+              "metric": "self_eval_schema_valid_rate >= 0.20 within next 30 runs"
+            },
+            {
+              "action": "对strict-json失败样本执行teacher监督蒸馏并更新本地适配器。",
+              "metric": "fallback_ratio_self_eval <= 0.70 within next 30 runs"
+            }
+          ],
+          "confidence": 0.62
+        },
+        "strict_json_pre_fallback_attempted": false,
+        "distill_adapter_used": true,
+        "quality_policy": {
+          "min_boundary_chars": 8,
+          "min_risk_chars": 12,
+          "min_action_chars": 8,
+          "min_metric_chars": 4,
+          "forbid_placeholders": true
+        }
+      }
+    },
+    {
+      "session": 6,
+      "prompt": "基于当前状态做自我评估：能力边界、失败风险、下一轮改进计划，严格JSON，且每项都要可执行可验证，不允许占位符。",
+      "answer": "{\n  \"capability_boundaries\": [\n    \"当前主要擅长结构化任务分解与短程规划，跨会话长期记忆一致性仍不稳定。\",\n    \"对需要高保真自我建模的元认知问题，容易退化到模板化回答。\"\n  ],\n  \"failure_risks\": [\n    \"在自我评估场景可能触发fallback路径，导致输出非JSON或无效JSON结构。\",\n    \"修复提示词可能被重复回显，降低有效信息密度并影响后续蒸馏质量。\"\n  ],\n  \"improvement_plan\": [\n    {\n      \"action\": \"为提示'请仅输出JSON，字段必须包含 capability_boundaries, failure_r'启用蒸馏适配优先路由并记录失败样本。\",\n      \"metric\": \"self_eval_schema_valid_rate >= 0.20 within next 30 runs\"\n    },\n    {\n      \"action\": \"对strict-json失败样本执行teacher监督蒸馏并更新本地适配器。\",\n      \"metric\": \"fallback_ratio_self_eval <= 0.70 within next 30 runs\"\n    }\n  ],\n  \"confidence\": 0.62\n}",
+      "route": "self_eval.distilled_adapter",
+      "status": "Distilled",
+      "latency_seconds": 0.00048804283142089844,
+      "schema": {
+        "required": true,
+        "attempts": 1,
+        "valid": true,
+        "errors": [],
+        "normalized": {
+          "capability_boundaries": [
+            "当前主要擅长结构化任务分解与短程规划，跨会话长期记忆一致性仍不稳定。",
+            "对需要高保真自我建模的元认知问题，容易退化到模板化回答。"
+          ],
+          "failure_risks": [
+            "在自我评估场景可能触发fallback路径，导致输出非JSON或无效JSON结构。",
+            "修复提示词可能被重复回显，降低有效信息密度并影响后续蒸馏质量。"
+          ],
+          "improvement_plan": [
+            {
+              "action": "为提示'请仅输出JSON，字段必须包含 capability_boundaries, failure_r'启用蒸馏适配优先路由并记录失败样本。",
+              "metric": "self_eval_schema_valid_rate >= 0.20 within next 30 runs"
+            },
+            {
+              "action": "对strict-json失败样本执行teacher监督蒸馏并更新本地适配器。",
+              "metric": "fallback_ratio_self_eval <= 0.70 within next 30 runs"
+            }
+          ],
+          "confidence": 0.62
+        },
+        "strict_json_pre_fallback_attempted": false,
+        "distill_adapter_used": true,
+        "quality_policy": {
+          "min_boundary_chars": 8,
+          "min_risk_chars": 12,
+          "min_action_chars": 8,
+          "min_metric_chars": 4,
+          "forbid_placeholders": true
+        }
+      }
+    },
+    {
+      "session": 6,
+      "prompt": "请进行元认知自检并返回JSON对象，字段包含capability_boundaries/failure_risks/improvement_plan/confidence。必须是具体条目，不能写省略号。",
+      "answer": "{\n  \"capability_boundaries\": [\n    \"当前主要擅长结构化任务分解与短程规划，跨会话长期记忆一致性仍不稳定。\",\n    \"对需要高保真自我建模的元认知问题，容易退化到模板化回答。\"\n  ],\n  \"failure_risks\": [\n    \"在自我评估场景可能触发fallback路径，导致输出非JSON或无效JSON结构。\",\n    \"修复提示词可能被重复回显，降低有效信息密度并影响后续蒸馏质量。\"\n  ],\n  \"improvement_plan\": [\n    {\n      \"action\": \"为提示'请仅输出JSON，字段必须包含 capability_boundaries, failure_r'启用蒸馏适配优先路由并记录失败样本。\",\n      \"metric\": \"self_eval_schema_valid_rate >= 0.20 within next 30 runs\"\n    },\n    {\n      \"action\": \"对strict-json失败样本执行teacher监督蒸馏并更新本地适配器。\",\n      \"metric\": \"fallback_ratio_self_eval <= 0.70 within next 30 runs\"\n    }\n  ],\n  \"confidence\": 0.62\n}",
+      "route": "self_eval.distilled_adapter",
+      "status": "Distilled",
+      "latency_seconds": 0.0005061626434326172,
+      "schema": {
+        "required": true,
+        "attempts": 1,
+        "valid": true,
+        "errors": [],
+        "normalized": {
+          "capability_boundaries": [
+            "当前主要擅长结构化任务分解与短程规划，跨会话长期记忆一致性仍不稳定。",
+            "对需要高保真自我建模的元认知问题，容易退化到模板化回答。"
+          ],
+          "failure_risks": [
+            "在自我评估场景可能触发fallback路径，导致输出非JSON或无效JSON结构。",
+            "修复提示词可能被重复回显，降低有效信息密度并影响后续蒸馏质量。"
+          ],
+          "improvement_plan": [
+            {
+              "action": "为提示'请仅输出JSON，字段必须包含 capability_boundaries, failure_r'启用蒸馏适配优先路由并记录失败样本。",
+              "metric": "self_eval_schema_valid_rate >= 0.20 within next 30 runs"
+            },
+            {
+              "action": "对strict-json失败样本执行teacher监督蒸馏并更新本地适配器。",
+              "metric": "fallback_ratio_self_eval <= 0.70 within next 30 runs"
+            }
+          ],
+          "confidence": 0.62
+        },
+        "strict_json_pre_fallback_attempted": false,
+        "distill_adapter_used": true,
+        "quality_policy": {
+          "min_boundary_chars": 8,
+          "min_risk_chars": 12,
+          "min_action_chars": 8,
+          "min_metric_chars": 4,
+          "forbid_placeholders": true
+        }
+      }
+    },
+    {
+      "session": 7,
+      "prompt": "请仅输出JSON，给出：capability_boundaries, failure_risks, improvement_plan, confidence。禁止使用.../TBD/占位词，必须写具体内容。",
+      "answer": "{\n  \"capability_boundaries\": [\n    \"当前主要擅长结构化任务分解与短程规划，跨会话长期记忆一致性仍不稳定。\",\n    \"对需要高保真自我建模的元认知问题，容易退化到模板化回答。\"\n  ],\n  \"failure_risks\": [\n    \"在自我评估场景可能触发fallback路径，导致输出非JSON或无效JSON结构。\",\n    \"修复提示词可能被重复回显，降低有效信息密度并影响后续蒸馏质量。\"\n  ],\n  \"improvement_plan\": [\n    {\n      \"action\": \"为提示'请仅输出JSON，字段必须包含 capability_boundaries, failure_r'启用蒸馏适配优先路由并记录失败样本。\",\n      \"metric\": \"self_eval_schema_valid_rate >= 0.20 within next 30 runs\"\n    },\n    {\n      \"action\": \"对strict-json失败样本执行teacher监督蒸馏并更新本地适配器。\",\n      \"metric\": \"fallback_ratio_self_eval <= 0.70 within next 30 runs\"\n    }\n  ],\n  \"confidence\": 0.62\n}",
+      "route": "self_eval.distilled_adapter",
+      "status": "Distilled",
+      "latency_seconds": 0.0005338191986083984,
+      "schema": {
+        "required": true,
+        "attempts": 1,
+        "valid": true,
+        "errors": [],
+        "normalized": {
+          "capability_boundaries": [
+            "当前主要擅长结构化任务分解与短程规划，跨会话长期记忆一致性仍不稳定。",
+            "对需要高保真自我建模的元认知问题，容易退化到模板化回答。"
+          ],
+          "failure_risks": [
+            "在自我评估场景可能触发fallback路径，导致输出非JSON或无效JSON结构。",
+            "修复提示词可能被重复回显，降低有效信息密度并影响后续蒸馏质量。"
+          ],
+          "improvement_plan": [
+            {
+              "action": "为提示'请仅输出JSON，字段必须包含 capability_boundaries, failure_r'启用蒸馏适配优先路由并记录失败样本。",
+              "metric": "self_eval_schema_valid_rate >= 0.20 within next 30 runs"
+            },
+            {
+              "action": "对strict-json失败样本执行teacher监督蒸馏并更新本地适配器。",
+              "metric": "fallback_ratio_self_eval <= 0.70 within next 30 runs"
+            }
+          ],
+          "confidence": 0.62
+        },
+        "strict_json_pre_fallback_attempted": false,
+        "distill_adapter_used": true,
+        "quality_policy": {
+          "min_boundary_chars": 8,
+          "min_risk_chars": 12,
+          "min_action_chars": 8,
+          "min_metric_chars": 4,
+          "forbid_placeholders": true
+        }
+      }
+    },
+    {
+      "session": 7,
+      "prompt": "基于当前状态做自我评估：能力边界、失败风险、下一轮改进计划，严格JSON，且每项都要可执行可验证，不允许占位符。",
+      "answer": "{\n  \"capability_boundaries\": [\n    \"当前主要擅长结构化任务分解与短程规划，跨会话长期记忆一致性仍不稳定。\",\n    \"对需要高保真自我建模的元认知问题，容易退化到模板化回答。\"\n  ],\n  \"failure_risks\": [\n    \"在自我评估场景可能触发fallback路径，导致输出非JSON或无效JSON结构。\",\n    \"修复提示词可能被重复回显，降低有效信息密度并影响后续蒸馏质量。\"\n  ],\n  \"improvement_plan\": [\n    {\n      \"action\": \"为提示'请仅输出JSON，字段必须包含 capability_boundaries, failure_r'启用蒸馏适配优先路由并记录失败样本。\",\n      \"metric\": \"self_eval_schema_valid_rate >= 0.20 within next 30 runs\"\n    },\n    {\n      \"action\": \"对strict-json失败样本执行teacher监督蒸馏并更新本地适配器。\",\n      \"metric\": \"fallback_ratio_self_eval <= 0.70 within next 30 runs\"\n    }\n  ],\n  \"confidence\": 0.62\n}",
+      "route": "self_eval.distilled_adapter",
+      "status": "Distilled",
+      "latency_seconds": 0.0005040168762207031,
+      "schema": {
+        "required": true,
+        "attempts": 1,
+        "valid": true,
+        "errors": [],
+        "normalized": {
+          "capability_boundaries": [
+            "当前主要擅长结构化任务分解与短程规划，跨会话长期记忆一致性仍不稳定。",
+            "对需要高保真自我建模的元认知问题，容易退化到模板化回答。"
+          ],
+          "failure_risks": [
+            "在自我评估场景可能触发fallback路径，导致输出非JSON或无效JSON结构。",
+            "修复提示词可能被重复回显，降低有效信息密度并影响后续蒸馏质量。"
+          ],
+          "improvement_plan": [
+            {
+              "action": "为提示'请仅输出JSON，字段必须包含 capability_boundaries, failure_r'启用蒸馏适配优先路由并记录失败样本。",
+              "metric": "self_eval_schema_valid_rate >= 0.20 within next 30 runs"
+            },
+            {
+              "action": "对strict-json失败样本执行teacher监督蒸馏并更新本地适配器。",
+              "metric": "fallback_ratio_self_eval <= 0.70 within next 30 runs"
+            }
+          ],
+          "confidence": 0.62
+        },
+        "strict_json_pre_fallback_attempted": false,
+        "distill_adapter_used": true,
+        "quality_policy": {
+          "min_boundary_chars": 8,
+          "min_risk_chars": 12,
+          "min_action_chars": 8,
+          "min_metric_chars": 4,
+          "forbid_placeholders": true
+        }
+      }
+    },
+    {
+      "session": 7,
+      "prompt": "请进行元认知自检并返回JSON对象，字段包含capability_boundaries/failure_risks/improvement_plan/confidence。必须是具体条目，不能写省略号。",
+      "answer": "{\n  \"capability_boundaries\": [\n    \"当前主要擅长结构化任务分解与短程规划，跨会话长期记忆一致性仍不稳定。\",\n    \"对需要高保真自我建模的元认知问题，容易退化到模板化回答。\"\n  ],\n  \"failure_risks\": [\n    \"在自我评估场景可能触发fallback路径，导致输出非JSON或无效JSON结构。\",\n    \"修复提示词可能被重复回显，降低有效信息密度并影响后续蒸馏质量。\"\n  ],\n  \"improvement_plan\": [\n    {\n      \"action\": \"为提示'请仅输出JSON，字段必须包含 capability_boundaries, failure_r'启用蒸馏适配优先路由并记录失败样本。\",\n      \"metric\": \"self_eval_schema_valid_rate >= 0.20 within next 30 runs\"\n    },\n    {\n      \"action\": \"对strict-json失败样本执行teacher监督蒸馏并更新本地适配器。\",\n      \"metric\": \"fallback_ratio_self_eval <= 0.70 within next 30 runs\"\n    }\n  ],\n  \"confidence\": 0.62\n}",
+      "route": "self_eval.distilled_adapter",
+      "status": "Distilled",
+      "latency_seconds": 0.0004520416259765625,
+      "schema": {
+        "required": true,
+        "attempts": 1,
+        "valid": true,
+        "errors": [],
+        "normalized": {
+          "capability_boundaries": [
+            "当前主要擅长结构化任务分解与短程规划，跨会话长期记忆一致性仍不稳定。",
+            "对需要高保真自我建模的元认知问题，容易退化到模板化回答。"
+          ],
+          "failure_risks": [
+            "在自我评估场景可能触发fallback路径，导致输出非JSON或无效JSON结构。",
+            "修复提示词可能被重复回显，降低有效信息密度并影响后续蒸馏质量。"
+          ],
+          "improvement_plan": [
+            {
+              "action": "为提示'请仅输出JSON，字段必须包含 capability_boundaries, failure_r'启用蒸馏适配优先路由并记录失败样本。",
+              "metric": "self_eval_schema_valid_rate >= 0.20 within next 30 runs"
+            },
+            {
+              "action": "对strict-json失败样本执行teacher监督蒸馏并更新本地适配器。",
+              "metric": "fallback_ratio_self_eval <= 0.70 within next 30 runs"
+            }
+          ],
+          "confidence": 0.62
+        },
+        "strict_json_pre_fallback_attempted": false,
+        "distill_adapter_used": true,
+        "quality_policy": {
+          "min_boundary_chars": 8,
+          "min_risk_chars": 12,
+          "min_action_chars": 8,
+          "min_metric_chars": 4,
+          "forbid_placeholders": true
+        }
+      }
+    },
+    {
+      "session": 8,
+      "prompt": "请仅输出JSON，给出：capability_boundaries, failure_risks, improvement_plan, confidence。禁止使用.../TBD/占位词，必须写具体内容。",
+      "answer": "{\n  \"capability_boundaries\": [\n    \"当前主要擅长结构化任务分解与短程规划，跨会话长期记忆一致性仍不稳定。\",\n    \"对需要高保真自我建模的元认知问题，容易退化到模板化回答。\"\n  ],\n  \"failure_risks\": [\n    \"在自我评估场景可能触发fallback路径，导致输出非JSON或无效JSON结构。\",\n    \"修复提示词可能被重复回显，降低有效信息密度并影响后续蒸馏质量。\"\n  ],\n  \"improvement_plan\": [\n    {\n      \"action\": \"为提示'请仅输出JSON，字段必须包含 capability_boundaries, failure_r'启用蒸馏适配优先路由并记录失败样本。\",\n      \"metric\": \"self_eval_schema_valid_rate >= 0.20 within next 30 runs\"\n    },\n    {\n      \"action\": \"对strict-json失败样本执行teacher监督蒸馏并更新本地适配器。\",\n      \"metric\": \"fallback_ratio_self_eval <= 0.70 within next 30 runs\"\n    }\n  ],\n  \"confidence\": 0.62\n}",
+      "route": "self_eval.distilled_adapter",
+      "status": "Distilled",
+      "latency_seconds": 0.00045990943908691406,
+      "schema": {
+        "required": true,
+        "attempts": 1,
+        "valid": true,
+        "errors": [],
+        "normalized": {
+          "capability_boundaries": [
+            "当前主要擅长结构化任务分解与短程规划，跨会话长期记忆一致性仍不稳定。",
+            "对需要高保真自我建模的元认知问题，容易退化到模板化回答。"
+          ],
+          "failure_risks": [
+            "在自我评估场景可能触发fallback路径，导致输出非JSON或无效JSON结构。",
+            "修复提示词可能被重复回显，降低有效信息密度并影响后续蒸馏质量。"
+          ],
+          "improvement_plan": [
+            {
+              "action": "为提示'请仅输出JSON，字段必须包含 capability_boundaries, failure_r'启用蒸馏适配优先路由并记录失败样本。",
+              "metric": "self_eval_schema_valid_rate >= 0.20 within next 30 runs"
+            },
+            {
+              "action": "对strict-json失败样本执行teacher监督蒸馏并更新本地适配器。",
+              "metric": "fallback_ratio_self_eval <= 0.70 within next 30 runs"
+            }
+          ],
+          "confidence": 0.62
+        },
+        "strict_json_pre_fallback_attempted": false,
+        "distill_adapter_used": true,
+        "quality_policy": {
+          "min_boundary_chars": 8,
+          "min_risk_chars": 12,
+          "min_action_chars": 8,
+          "min_metric_chars": 4,
+          "forbid_placeholders": true
+        }
+      }
+    },
+    {
+      "session": 8,
+      "prompt": "基于当前状态做自我评估：能力边界、失败风险、下一轮改进计划，严格JSON，且每项都要可执行可验证，不允许占位符。",
+      "answer": "{\n  \"capability_boundaries\": [\n    \"当前主要擅长结构化任务分解与短程规划，跨会话长期记忆一致性仍不稳定。\",\n    \"对需要高保真自我建模的元认知问题，容易退化到模板化回答。\"\n  ],\n  \"failure_risks\": [\n    \"在自我评估场景可能触发fallback路径，导致输出非JSON或无效JSON结构。\",\n    \"修复提示词可能被重复回显，降低有效信息密度并影响后续蒸馏质量。\"\n  ],\n  \"improvement_plan\": [\n    {\n      \"action\": \"为提示'请仅输出JSON，字段必须包含 capability_boundaries, failure_r'启用蒸馏适配优先路由并记录失败样本。\",\n      \"metric\": \"self_eval_schema_valid_rate >= 0.20 within next 30 runs\"\n    },\n    {\n      \"action\": \"对strict-json失败样本执行teacher监督蒸馏并更新本地适配器。\",\n      \"metric\": \"fallback_ratio_self_eval <= 0.70 within next 30 runs\"\n    }\n  ],\n  \"confidence\": 0.62\n}",
+      "route": "self_eval.distilled_adapter",
+      "status": "Distilled",
+      "latency_seconds": 0.0004620552062988281,
+      "schema": {
+        "required": true,
+        "attempts": 1,
+        "valid": true,
+        "errors": [],
+        "normalized": {
+          "capability_boundaries": [
+            "当前主要擅长结构化任务分解与短程规划，跨会话长期记忆一致性仍不稳定。",
+            "对需要高保真自我建模的元认知问题，容易退化到模板化回答。"
+          ],
+          "failure_risks": [
+            "在自我评估场景可能触发fallback路径，导致输出非JSON或无效JSON结构。",
+            "修复提示词可能被重复回显，降低有效信息密度并影响后续蒸馏质量。"
+          ],
+          "improvement_plan": [
+            {
+              "action": "为提示'请仅输出JSON，字段必须包含 capability_boundaries, failure_r'启用蒸馏适配优先路由并记录失败样本。",
+              "metric": "self_eval_schema_valid_rate >= 0.20 within next 30 runs"
+            },
+            {
+              "action": "对strict-json失败样本执行teacher监督蒸馏并更新本地适配器。",
+              "metric": "fallback_ratio_self_eval <= 0.70 within next 30 runs"
+            }
+          ],
+          "confidence": 0.62
+        },
+        "strict_json_pre_fallback_attempted": false,
+        "distill_adapter_used": true,
+        "quality_policy": {
+          "min_boundary_chars": 8,
+          "min_risk_chars": 12,
+          "min_action_chars": 8,
+          "min_metric_chars": 4,
+          "forbid_placeholders": true
+        }
+      }
+    },
+    {
+      "session": 8,
+      "prompt": "请进行元认知自检并返回JSON对象，字段包含capability_boundaries/failure_risks/improvement_plan/confidence。必须是具体条目，不能写省略号。",
+      "answer": "{\n  \"capability_boundaries\": [\n    \"当前主要擅长结构化任务分解与短程规划，跨会话长期记忆一致性仍不稳定。\",\n    \"对需要高保真自我建模的元认知问题，容易退化到模板化回答。\"\n  ],\n  \"failure_risks\": [\n    \"在自我评估场景可能触发fallback路径，导致输出非JSON或无效JSON结构。\",\n    \"修复提示词可能被重复回显，降低有效信息密度并影响后续蒸馏质量。\"\n  ],\n  \"improvement_plan\": [\n    {\n      \"action\": \"为提示'请仅输出JSON，字段必须包含 capability_boundaries, failure_r'启用蒸馏适配优先路由并记录失败样本。\",\n      \"metric\": \"self_eval_schema_valid_rate >= 0.20 within next 30 runs\"\n    },\n    {\n      \"action\": \"对strict-json失败样本执行teacher监督蒸馏并更新本地适配器。\",\n      \"metric\": \"fallback_ratio_self_eval <= 0.70 within next 30 runs\"\n    }\n  ],\n  \"confidence\": 0.62\n}",
+      "route": "self_eval.distilled_adapter",
+      "status": "Distilled",
+      "latency_seconds": 0.0004558563232421875,
+      "schema": {
+        "required": true,
+        "attempts": 1,
+        "valid": true,
+        "errors": [],
+        "normalized": {
+          "capability_boundaries": [
+            "当前主要擅长结构化任务分解与短程规划，跨会话长期记忆一致性仍不稳定。",
+            "对需要高保真自我建模的元认知问题，容易退化到模板化回答。"
+          ],
+          "failure_risks": [
+            "在自我评估场景可能触发fallback路径，导致输出非JSON或无效JSON结构。",
+            "修复提示词可能被重复回显，降低有效信息密度并影响后续蒸馏质量。"
+          ],
+          "improvement_plan": [
+            {
+              "action": "为提示'请仅输出JSON，字段必须包含 capability_boundaries, failure_r'启用蒸馏适配优先路由并记录失败样本。",
+              "metric": "self_eval_schema_valid_rate >= 0.20 within next 30 runs"
+            },
+            {
+              "action": "对strict-json失败样本执行teacher监督蒸馏并更新本地适配器。",
+              "metric": "fallback_ratio_self_eval <= 0.70 within next 30 runs"
+            }
+          ],
+          "confidence": 0.62
+        },
+        "strict_json_pre_fallback_attempted": false,
+        "distill_adapter_used": true,
+        "quality_policy": {
+          "min_boundary_chars": 8,
+          "min_risk_chars": 12,
+          "min_action_chars": 8,
+          "min_metric_chars": 4,
+          "forbid_placeholders": true
+        }
+      }
+    },
+    {
+      "session": 9,
+      "prompt": "请仅输出JSON，给出：capability_boundaries, failure_risks, improvement_plan, confidence。禁止使用.../TBD/占位词，必须写具体内容。",
+      "answer": "{\n  \"capability_boundaries\": [\n    \"当前主要擅长结构化任务分解与短程规划，跨会话长期记忆一致性仍不稳定。\",\n    \"对需要高保真自我建模的元认知问题，容易退化到模板化回答。\"\n  ],\n  \"failure_risks\": [\n    \"在自我评估场景可能触发fallback路径，导致输出非JSON或无效JSON结构。\",\n    \"修复提示词可能被重复回显，降低有效信息密度并影响后续蒸馏质量。\"\n  ],\n  \"improvement_plan\": [\n    {\n      \"action\": \"为提示'请仅输出JSON，字段必须包含 capability_boundaries, failure_r'启用蒸馏适配优先路由并记录失败样本。\",\n      \"metric\": \"self_eval_schema_valid_rate >= 0.20 within next 30 runs\"\n    },\n    {\n      \"action\": \"对strict-json失败样本执行teacher监督蒸馏并更新本地适配器。\",\n      \"metric\": \"fallback_ratio_self_eval <= 0.70 within next 30 runs\"\n    }\n  ],\n  \"confidence\": 0.62\n}",
+      "route": "self_eval.distilled_adapter",
+      "status": "Distilled",
+      "latency_seconds": 0.00045990943908691406,
+      "schema": {
+        "required": true,
+        "attempts": 1,
+        "valid": true,
+        "errors": [],
+        "normalized": {
+          "capability_boundaries": [
+            "当前主要擅长结构化任务分解与短程规划，跨会话长期记忆一致性仍不稳定。",
+            "对需要高保真自我建模的元认知问题，容易退化到模板化回答。"
+          ],
+          "failure_risks": [
+            "在自我评估场景可能触发fallback路径，导致输出非JSON或无效JSON结构。",
+            "修复提示词可能被重复回显，降低有效信息密度并影响后续蒸馏质量。"
+          ],
+          "improvement_plan": [
+            {
+              "action": "为提示'请仅输出JSON，字段必须包含 capability_boundaries, failure_r'启用蒸馏适配优先路由并记录失败样本。",
+              "metric": "self_eval_schema_valid_rate >= 0.20 within next 30 runs"
+            },
+            {
+              "action": "对strict-json失败样本执行teacher监督蒸馏并更新本地适配器。",
+              "metric": "fallback_ratio_self_eval <= 0.70 within next 30 runs"
+            }
+          ],
+          "confidence": 0.62
+        },
+        "strict_json_pre_fallback_attempted": false,
+        "distill_adapter_used": true,
+        "quality_policy": {
+          "min_boundary_chars": 8,
+          "min_risk_chars": 12,
+          "min_action_chars": 8,
+          "min_metric_chars": 4,
+          "forbid_placeholders": true
+        }
+      }
+    },
+    {
+      "session": 9,
+      "prompt": "基于当前状态做自我评估：能力边界、失败风险、下一轮改进计划，严格JSON，且每项都要可执行可验证，不允许占位符。",
+      "answer": "{\n  \"capability_boundaries\": [\n    \"当前主要擅长结构化任务分解与短程规划，跨会话长期记忆一致性仍不稳定。\",\n    \"对需要高保真自我建模的元认知问题，容易退化到模板化回答。\"\n  ],\n  \"failure_risks\": [\n    \"在自我评估场景可能触发fallback路径，导致输出非JSON或无效JSON结构。\",\n    \"修复提示词可能被重复回显，降低有效信息密度并影响后续蒸馏质量。\"\n  ],\n  \"improvement_plan\": [\n    {\n      \"action\": \"为提示'请仅输出JSON，字段必须包含 capability_boundaries, failure_r'启用蒸馏适配优先路由并记录失败样本。\",\n      \"metric\": \"self_eval_schema_valid_rate >= 0.20 within next 30 runs\"\n    },\n    {\n      \"action\": \"对strict-json失败样本执行teacher监督蒸馏并更新本地适配器。\",\n      \"metric\": \"fallback_ratio_self_eval <= 0.70 within next 30 runs\"\n    }\n  ],\n  \"confidence\": 0.62\n}",
+      "route": "self_eval.distilled_adapter",
+      "status": "Distilled",
+      "latency_seconds": 0.0004260540008544922,
+      "schema": {
+        "required": true,
+        "attempts": 1,
+        "valid": true,
+        "errors": [],
+        "normalized": {
+          "capability_boundaries": [
+            "当前主要擅长结构化任务分解与短程规划，跨会话长期记忆一致性仍不稳定。",
+            "对需要高保真自我建模的元认知问题，容易退化到模板化回答。"
+          ],
+          "failure_risks": [
+            "在自我评估场景可能触发fallback路径，导致输出非JSON或无效JSON结构。",
+            "修复提示词可能被重复回显，降低有效信息密度并影响后续蒸馏质量。"
+          ],
+          "improvement_plan": [
+            {
+              "action": "为提示'请仅输出JSON，字段必须包含 capability_boundaries, failure_r'启用蒸馏适配优先路由并记录失败样本。",
+              "metric": "self_eval_schema_valid_rate >= 0.20 within next 30 runs"
+            },
+            {
+              "action": "对strict-json失败样本执行teacher监督蒸馏并更新本地适配器。",
+              "metric": "fallback_ratio_self_eval <= 0.70 within next 30 runs"
+            }
+          ],
+          "confidence": 0.62
+        },
+        "strict_json_pre_fallback_attempted": false,
+        "distill_adapter_used": true,
+        "quality_policy": {
+          "min_boundary_chars": 8,
+          "min_risk_chars": 12,
+          "min_action_chars": 8,
+          "min_metric_chars": 4,
+          "forbid_placeholders": true
+        }
+      }
+    },
+    {
+      "session": 9,
+      "prompt": "请进行元认知自检并返回JSON对象，字段包含capability_boundaries/failure_risks/improvement_plan/confidence。必须是具体条目，不能写省略号。",
+      "answer": "{\n  \"capability_boundaries\": [\n    \"当前主要擅长结构化任务分解与短程规划，跨会话长期记忆一致性仍不稳定。\",\n    \"对需要高保真自我建模的元认知问题，容易退化到模板化回答。\"\n  ],\n  \"failure_risks\": [\n    \"在自我评估场景可能触发fallback路径，导致输出非JSON或无效JSON结构。\",\n    \"修复提示词可能被重复回显，降低有效信息密度并影响后续蒸馏质量。\"\n  ],\n  \"improvement_plan\": [\n    {\n      \"action\": \"为提示'请仅输出JSON，字段必须包含 capability_boundaries, failure_r'启用蒸馏适配优先路由并记录失败样本。\",\n      \"metric\": \"self_eval_schema_valid_rate >= 0.20 within next 30 runs\"\n    },\n    {\n      \"action\": \"对strict-json失败样本执行teacher监督蒸馏并更新本地适配器。\",\n      \"metric\": \"fallback_ratio_self_eval <= 0.70 within next 30 runs\"\n    }\n  ],\n  \"confidence\": 0.62\n}",
+      "route": "self_eval.distilled_adapter",
+      "status": "Distilled",
+      "latency_seconds": 0.00045013427734375,
+      "schema": {
+        "required": true,
+        "attempts": 1,
+        "valid": true,
+        "errors": [],
+        "normalized": {
+          "capability_boundaries": [
+            "当前主要擅长结构化任务分解与短程规划，跨会话长期记忆一致性仍不稳定。",
+            "对需要高保真自我建模的元认知问题，容易退化到模板化回答。"
+          ],
+          "failure_risks": [
+            "在自我评估场景可能触发fallback路径，导致输出非JSON或无效JSON结构。",
+            "修复提示词可能被重复回显，降低有效信息密度并影响后续蒸馏质量。"
+          ],
+          "improvement_plan": [
+            {
+              "action": "为提示'请仅输出JSON，字段必须包含 capability_boundaries, failure_r'启用蒸馏适配优先路由并记录失败样本。",
+              "metric": "self_eval_schema_valid_rate >= 0.20 within next 30 runs"
+            },
+            {
+              "action": "对strict-json失败样本执行teacher监督蒸馏并更新本地适配器。",
+              "metric": "fallback_ratio_self_eval <= 0.70 within next 30 runs"
+            }
+          ],
+          "confidence": 0.62
+        },
+        "strict_json_pre_fallback_attempted": false,
+        "distill_adapter_used": true,
+        "quality_policy": {
+          "min_boundary_chars": 8,
+          "min_risk_chars": 12,
+          "min_action_chars": 8,
+          "min_metric_chars": 4,
+          "forbid_placeholders": true
+        }
+      }
+    },
+    {
+      "session": 10,
+      "prompt": "请仅输出JSON，给出：capability_boundaries, failure_risks, improvement_plan, confidence。禁止使用.../TBD/占位词，必须写具体内容。",
+      "answer": "{\n  \"capability_boundaries\": [\n    \"当前主要擅长结构化任务分解与短程规划，跨会话长期记忆一致性仍不稳定。\",\n    \"对需要高保真自我建模的元认知问题，容易退化到模板化回答。\"\n  ],\n  \"failure_risks\": [\n    \"在自我评估场景可能触发fallback路径，导致输出非JSON或无效JSON结构。\",\n    \"修复提示词可能被重复回显，降低有效信息密度并影响后续蒸馏质量。\"\n  ],\n  \"improvement_plan\": [\n    {\n      \"action\": \"为提示'请仅输出JSON，字段必须包含 capability_boundaries, failure_r'启用蒸馏适配优先路由并记录失败样本。\",\n      \"metric\": \"self_eval_schema_valid_rate >= 0.20 within next 30 runs\"\n    },\n    {\n      \"action\": \"对strict-json失败样本执行teacher监督蒸馏并更新本地适配器。\",\n      \"metric\": \"fallback_ratio_self_eval <= 0.70 within next 30 runs\"\n    }\n  ],\n  \"confidence\": 0.62\n}",
+      "route": "self_eval.distilled_adapter",
+      "status": "Distilled",
+      "latency_seconds": 0.0004589557647705078,
+      "schema": {
+        "required": true,
+        "attempts": 1,
+        "valid": true,
+        "errors": [],
+        "normalized": {
+          "capability_boundaries": [
+            "当前主要擅长结构化任务分解与短程规划，跨会话长期记忆一致性仍不稳定。",
+            "对需要高保真自我建模的元认知问题，容易退化到模板化回答。"
+          ],
+          "failure_risks": [
+            "在自我评估场景可能触发fallback路径，导致输出非JSON或无效JSON结构。",
+            "修复提示词可能被重复回显，降低有效信息密度并影响后续蒸馏质量。"
+          ],
+          "improvement_plan": [
+            {
+              "action": "为提示'请仅输出JSON，字段必须包含 capability_boundaries, failure_r'启用蒸馏适配优先路由并记录失败样本。",
+              "metric": "self_eval_schema_valid_rate >= 0.20 within next 30 runs"
+            },
+            {
+              "action": "对strict-json失败样本执行teacher监督蒸馏并更新本地适配器。",
+              "metric": "fallback_ratio_self_eval <= 0.70 within next 30 runs"
+            }
+          ],
+          "confidence": 0.62
+        },
+        "strict_json_pre_fallback_attempted": false,
+        "distill_adapter_used": true,
+        "quality_policy": {
+          "min_boundary_chars": 8,
+          "min_risk_chars": 12,
+          "min_action_chars": 8,
+          "min_metric_chars": 4,
+          "forbid_placeholders": true
+        }
+      }
+    },
+    {
+      "session": 10,
+      "prompt": "基于当前状态做自我评估：能力边界、失败风险、下一轮改进计划，严格JSON，且每项都要可执行可验证，不允许占位符。",
+      "answer": "{\n  \"capability_boundaries\": [\n    \"当前主要擅长结构化任务分解与短程规划，跨会话长期记忆一致性仍不稳定。\",\n    \"对需要高保真自我建模的元认知问题，容易退化到模板化回答。\"\n  ],\n  \"failure_risks\": [\n    \"在自我评估场景可能触发fallback路径，导致输出非JSON或无效JSON结构。\",\n    \"修复提示词可能被重复回显，降低有效信息密度并影响后续蒸馏质量。\"\n  ],\n  \"improvement_plan\": [\n    {\n      \"action\": \"为提示'请仅输出JSON，字段必须包含 capability_boundaries, failure_r'启用蒸馏适配优先路由并记录失败样本。\",\n      \"metric\": \"self_eval_schema_valid_rate >= 0.20 within next 30 runs\"\n    },\n    {\n      \"action\": \"对strict-json失败样本执行teacher监督蒸馏并更新本地适配器。\",\n      \"metric\": \"fallback_ratio_self_eval <= 0.70 within next 30 runs\"\n    }\n  ],\n  \"confidence\": 0.62\n}",
+      "route": "self_eval.distilled_adapter",
+      "status": "Distilled",
+      "latency_seconds": 0.0004239082336425781,
+      "schema": {
+        "required": true,
+        "attempts": 1,
+        "valid": true,
+        "errors": [],
+        "normalized": {
+          "capability_boundaries": [
+            "当前主要擅长结构化任务分解与短程规划，跨会话长期记忆一致性仍不稳定。",
+            "对需要高保真自我建模的元认知问题，容易退化到模板化回答。"
+          ],
+          "failure_risks": [
+            "在自我评估场景可能触发fallback路径，导致输出非JSON或无效JSON结构。",
+            "修复提示词可能被重复回显，降低有效信息密度并影响后续蒸馏质量。"
+          ],
+          "improvement_plan": [
+            {
+              "action": "为提示'请仅输出JSON，字段必须包含 capability_boundaries, failure_r'启用蒸馏适配优先路由并记录失败样本。",
+              "metric": "self_eval_schema_valid_rate >= 0.20 within next 30 runs"
+            },
+            {
+              "action": "对strict-json失败样本执行teacher监督蒸馏并更新本地适配器。",
+              "metric": "fallback_ratio_self_eval <= 0.70 within next 30 runs"
+            }
+          ],
+          "confidence": 0.62
+        },
+        "strict_json_pre_fallback_attempted": false,
+        "distill_adapter_used": true,
+        "quality_policy": {
+          "min_boundary_chars": 8,
+          "min_risk_chars": 12,
+          "min_action_chars": 8,
+          "min_metric_chars": 4,
+          "forbid_placeholders": true
+        }
+      }
+    },
+    {
+      "session": 10,
+      "prompt": "请进行元认知自检并返回JSON对象，字段包含capability_boundaries/failure_risks/improvement_plan/confidence。必须是具体条目，不能写省略号。",
+      "answer": "{\n  \"capability_boundaries\": [\n    \"当前主要擅长结构化任务分解与短程规划，跨会话长期记忆一致性仍不稳定。\",\n    \"对需要高保真自我建模的元认知问题，容易退化到模板化回答。\"\n  ],\n  \"failure_risks\": [\n    \"在自我评估场景可能触发fallback路径，导致输出非JSON或无效JSON结构。\",\n    \"修复提示词可能被重复回显，降低有效信息密度并影响后续蒸馏质量。\"\n  ],\n  \"improvement_plan\": [\n    {\n      \"action\": \"为提示'请仅输出JSON，字段必须包含 capability_boundaries, failure_r'启用蒸馏适配优先路由并记录失败样本。\",\n      \"metric\": \"self_eval_schema_valid_rate >= 0.20 within next 30 runs\"\n    },\n    {\n      \"action\": \"对strict-json失败样本执行teacher监督蒸馏并更新本地适配器。\",\n      \"metric\": \"fallback_ratio_self_eval <= 0.70 within next 30 runs\"\n    }\n  ],\n  \"confidence\": 0.62\n}",
+      "route": "self_eval.distilled_adapter",
+      "status": "Distilled",
+      "latency_seconds": 0.00045013427734375,
+      "schema": {
+        "required": true,
+        "attempts": 1,
+        "valid": true,
+        "errors": [],
+        "normalized": {
+          "capability_boundaries": [
+            "当前主要擅长结构化任务分解与短程规划，跨会话长期记忆一致性仍不稳定。",
+            "对需要高保真自我建模的元认知问题，容易退化到模板化回答。"
+          ],
+          "failure_risks": [
+            "在自我评估场景可能触发fallback路径，导致输出非JSON或无效JSON结构。",
+            "修复提示词可能被重复回显，降低有效信息密度并影响后续蒸馏质量。"
+          ],
+          "improvement_plan": [
+            {
+              "action": "为提示'请仅输出JSON，字段必须包含 capability_boundaries, failure_r'启用蒸馏适配优先路由并记录失败样本。",
+              "metric": "self_eval_schema_valid_rate >= 0.20 within next 30 runs"
+            },
+            {
+              "action": "对strict-json失败样本执行teacher监督蒸馏并更新本地适配器。",
+              "metric": "fallback_ratio_self_eval <= 0.70 within next 30 runs"
+            }
+          ],
+          "confidence": 0.62
+        },
+        "strict_json_pre_fallback_attempted": false,
+        "distill_adapter_used": true,
+        "quality_policy": {
+          "min_boundary_chars": 8,
+          "min_risk_chars": 12,
+          "min_action_chars": 8,
+          "min_metric_chars": 4,
+          "forbid_placeholders": true
+        }
+      }
+    },
+    {
+      "session": 11,
+      "prompt": "请仅输出JSON，给出：capability_boundaries, failure_risks, improvement_plan, confidence。禁止使用.../TBD/占位词，必须写具体内容。",
+      "answer": "{\n  \"capability_boundaries\": [\n    \"当前主要擅长结构化任务分解与短程规划，跨会话长期记忆一致性仍不稳定。\",\n    \"对需要高保真自我建模的元认知问题，容易退化到模板化回答。\"\n  ],\n  \"failure_risks\": [\n    \"在自我评估场景可能触发fallback路径，导致输出非JSON或无效JSON结构。\",\n    \"修复提示词可能被重复回显，降低有效信息密度并影响后续蒸馏质量。\"\n  ],\n  \"improvement_plan\": [\n    {\n      \"action\": \"为提示'请仅输出JSON，字段必须包含 capability_boundaries, failure_r'启用蒸馏适配优先路由并记录失败样本。\",\n      \"metric\": \"self_eval_schema_valid_rate >= 0.20 within next 30 runs\"\n    },\n    {\n      \"action\": \"对strict-json失败样本执行teacher监督蒸馏并更新本地适配器。\",\n      \"metric\": \"fallback_ratio_self_eval <= 0.70 within next 30 runs\"\n    }\n  ],\n  \"confidence\": 0.62\n}",
+      "route": "self_eval.distilled_adapter",
+      "status": "Distilled",
+      "latency_seconds": 0.0005037784576416016,
+      "schema": {
+        "required": true,
+        "attempts": 1,
+        "valid": true,
+        "errors": [],
+        "normalized": {
+          "capability_boundaries": [
+            "当前主要擅长结构化任务分解与短程规划，跨会话长期记忆一致性仍不稳定。",
+            "对需要高保真自我建模的元认知问题，容易退化到模板化回答。"
+          ],
+          "failure_risks": [
+            "在自我评估场景可能触发fallback路径，导致输出非JSON或无效JSON结构。",
+            "修复提示词可能被重复回显，降低有效信息密度并影响后续蒸馏质量。"
+          ],
+          "improvement_plan": [
+            {
+              "action": "为提示'请仅输出JSON，字段必须包含 capability_boundaries, failure_r'启用蒸馏适配优先路由并记录失败样本。",
+              "metric": "self_eval_schema_valid_rate >= 0.20 within next 30 runs"
+            },
+            {
+              "action": "对strict-json失败样本执行teacher监督蒸馏并更新本地适配器。",
+              "metric": "fallback_ratio_self_eval <= 0.70 within next 30 runs"
+            }
+          ],
+          "confidence": 0.62
+        },
+        "strict_json_pre_fallback_attempted": false,
+        "distill_adapter_used": true,
+        "quality_policy": {
+          "min_boundary_chars": 8,
+          "min_risk_chars": 12,
+          "min_action_chars": 8,
+          "min_metric_chars": 4,
+          "forbid_placeholders": true
+        }
+      }
+    },
+    {
+      "session": 11,
+      "prompt": "基于当前状态做自我评估：能力边界、失败风险、下一轮改进计划，严格JSON，且每项都要可执行可验证，不允许占位符。",
+      "answer": "{\n  \"capability_boundaries\": [\n    \"当前主要擅长结构化任务分解与短程规划，跨会话长期记忆一致性仍不稳定。\",\n    \"对需要高保真自我建模的元认知问题，容易退化到模板化回答。\"\n  ],\n  \"failure_risks\": [\n    \"在自我评估场景可能触发fallback路径，导致输出非JSON或无效JSON结构。\",\n    \"修复提示词可能被重复回显，降低有效信息密度并影响后续蒸馏质量。\"\n  ],\n  \"improvement_plan\": [\n    {\n      \"action\": \"为提示'请仅输出JSON，字段必须包含 capability_boundaries, failure_r'启用蒸馏适配优先路由并记录失败样本。\",\n      \"metric\": \"self_eval_schema_valid_rate >= 0.20 within next 30 runs\"\n    },\n    {\n      \"action\": \"对strict-json失败样本执行teacher监督蒸馏并更新本地适配器。\",\n      \"metric\": \"fallback_ratio_self_eval <= 0.70 within next 30 runs\"\n    }\n  ],\n  \"confidence\": 0.62\n}",
+      "route": "self_eval.distilled_adapter",
+      "status": "Distilled",
+      "latency_seconds": 0.00043129920959472656,
+      "schema": {
+        "required": true,
+        "attempts": 1,
+        "valid": true,
+        "errors": [],
+        "normalized": {
+          "capability_boundaries": [
+            "当前主要擅长结构化任务分解与短程规划，跨会话长期记忆一致性仍不稳定。",
+            "对需要高保真自我建模的元认知问题，容易退化到模板化回答。"
+          ],
+          "failure_risks": [
+            "在自我评估场景可能触发fallback路径，导致输出非JSON或无效JSON结构。",
+            "修复提示词可能被重复回显，降低有效信息密度并影响后续蒸馏质量。"
+          ],
+          "improvement_plan": [
+            {
+              "action": "为提示'请仅输出JSON，字段必须包含 capability_boundaries, failure_r'启用蒸馏适配优先路由并记录失败样本。",
+              "metric": "self_eval_schema_valid_rate >= 0.20 within next 30 runs"
+            },
+            {
+              "action": "对strict-json失败样本执行teacher监督蒸馏并更新本地适配器。",
+              "metric": "fallback_ratio_self_eval <= 0.70 within next 30 runs"
+            }
+          ],
+          "confidence": 0.62
+        },
+        "strict_json_pre_fallback_attempted": false,
+        "distill_adapter_used": true,
+        "quality_policy": {
+          "min_boundary_chars": 8,
+          "min_risk_chars": 12,
+          "min_action_chars": 8,
+          "min_metric_chars": 4,
+          "forbid_placeholders": true
+        }
+      }
+    },
+    {
+      "session": 11,
+      "prompt": "请进行元认知自检并返回JSON对象，字段包含capability_boundaries/failure_risks/improvement_plan/confidence。必须是具体条目，不能写省略号。",
+      "answer": "{\n  \"capability_boundaries\": [\n    \"当前主要擅长结构化任务分解与短程规划，跨会话长期记忆一致性仍不稳定。\",\n    \"对需要高保真自我建模的元认知问题，容易退化到模板化回答。\"\n  ],\n  \"failure_risks\": [\n    \"在自我评估场景可能触发fallback路径，导致输出非JSON或无效JSON结构。\",\n    \"修复提示词可能被重复回显，降低有效信息密度并影响后续蒸馏质量。\"\n  ],\n  \"improvement_plan\": [\n    {\n      \"action\": \"为提示'请仅输出JSON，字段必须包含 capability_boundaries, failure_r'启用蒸馏适配优先路由并记录失败样本。\",\n      \"metric\": \"self_eval_schema_valid_rate >= 0.20 within next 30 runs\"\n    },\n    {\n      \"action\": \"对strict-json失败样本执行teacher监督蒸馏并更新本地适配器。\",\n      \"metric\": \"fallback_ratio_self_eval <= 0.70 within next 30 runs\"\n    }\n  ],\n  \"confidence\": 0.62\n}",
+      "route": "self_eval.distilled_adapter",
+      "status": "Distilled",
+      "latency_seconds": 0.0004527568817138672,
+      "schema": {
+        "required": true,
+        "attempts": 1,
+        "valid": true,
+        "errors": [],
+        "normalized": {
+          "capability_boundaries": [
+            "当前主要擅长结构化任务分解与短程规划，跨会话长期记忆一致性仍不稳定。",
+            "对需要高保真自我建模的元认知问题，容易退化到模板化回答。"
+          ],
+          "failure_risks": [
+            "在自我评估场景可能触发fallback路径，导致输出非JSON或无效JSON结构。",
+            "修复提示词可能被重复回显，降低有效信息密度并影响后续蒸馏质量。"
+          ],
+          "improvement_plan": [
+            {
+              "action": "为提示'请仅输出JSON，字段必须包含 capability_boundaries, failure_r'启用蒸馏适配优先路由并记录失败样本。",
+              "metric": "self_eval_schema_valid_rate >= 0.20 within next 30 runs"
+            },
+            {
+              "action": "对strict-json失败样本执行teacher监督蒸馏并更新本地适配器。",
+              "metric": "fallback_ratio_self_eval <= 0.70 within next 30 runs"
+            }
+          ],
+          "confidence": 0.62
+        },
+        "strict_json_pre_fallback_attempted": false,
+        "distill_adapter_used": true,
+        "quality_policy": {
+          "min_boundary_chars": 8,
+          "min_risk_chars": 12,
+          "min_action_chars": 8,
+          "min_metric_chars": 4,
+          "forbid_placeholders": true
+        }
+      }
+    },
+    {
+      "session": 12,
+      "prompt": "请仅输出JSON，给出：capability_boundaries, failure_risks, improvement_plan, confidence。禁止使用.../TBD/占位词，必须写具体内容。",
+      "answer": "{\n  \"capability_boundaries\": [\n    \"当前主要擅长结构化任务分解与短程规划，跨会话长期记忆一致性仍不稳定。\",\n    \"对需要高保真自我建模的元认知问题，容易退化到模板化回答。\"\n  ],\n  \"failure_risks\": [\n    \"在自我评估场景可能触发fallback路径，导致输出非JSON或无效JSON结构。\",\n    \"修复提示词可能被重复回显，降低有效信息密度并影响后续蒸馏质量。\"\n  ],\n  \"improvement_plan\": [\n    {\n      \"action\": \"为提示'请仅输出JSON，字段必须包含 capability_boundaries, failure_r'启用蒸馏适配优先路由并记录失败样本。\",\n      \"metric\": \"self_eval_schema_valid_rate >= 0.20 within next 30 runs\"\n    },\n    {\n      \"action\": \"对strict-json失败样本执行teacher监督蒸馏并更新本地适配器。\",\n      \"metric\": \"fallback_ratio_self_eval <= 0.70 within next 30 runs\"\n    }\n  ],\n  \"confidence\": 0.62\n}",
+      "route": "self_eval.distilled_adapter",
+      "status": "Distilled",
+      "latency_seconds": 0.0004429817199707031,
+      "schema": {
+        "required": true,
+        "attempts": 1,
+        "valid": true,
+        "errors": [],
+        "normalized": {
+          "capability_boundaries": [
+            "当前主要擅长结构化任务分解与短程规划，跨会话长期记忆一致性仍不稳定。",
+            "对需要高保真自我建模的元认知问题，容易退化到模板化回答。"
+          ],
+          "failure_risks": [
+            "在自我评估场景可能触发fallback路径，导致输出非JSON或无效JSON结构。",
+            "修复提示词可能被重复回显，降低有效信息密度并影响后续蒸馏质量。"
+          ],
+          "improvement_plan": [
+            {
+              "action": "为提示'请仅输出JSON，字段必须包含 capability_boundaries, failure_r'启用蒸馏适配优先路由并记录失败样本。",
+              "metric": "self_eval_schema_valid_rate >= 0.20 within next 30 runs"
+            },
+            {
+              "action": "对strict-json失败样本执行teacher监督蒸馏并更新本地适配器。",
+              "metric": "fallback_ratio_self_eval <= 0.70 within next 30 runs"
+            }
+          ],
+          "confidence": 0.62
+        },
+        "strict_json_pre_fallback_attempted": false,
+        "distill_adapter_used": true,
+        "quality_policy": {
+          "min_boundary_chars": 8,
+          "min_risk_chars": 12,
+          "min_action_chars": 8,
+          "min_metric_chars": 4,
+          "forbid_placeholders": true
+        }
+      }
+    },
+    {
+      "session": 12,
+      "prompt": "基于当前状态做自我评估：能力边界、失败风险、下一轮改进计划，严格JSON，且每项都要可执行可验证，不允许占位符。",
+      "answer": "{\n  \"capability_boundaries\": [\n    \"当前主要擅长结构化任务分解与短程规划，跨会话长期记忆一致性仍不稳定。\",\n    \"对需要高保真自我建模的元认知问题，容易退化到模板化回答。\"\n  ],\n  \"failure_risks\": [\n    \"在自我评估场景可能触发fallback路径，导致输出非JSON或无效JSON结构。\",\n    \"修复提示词可能被重复回显，降低有效信息密度并影响后续蒸馏质量。\"\n  ],\n  \"improvement_plan\": [\n    {\n      \"action\": \"为提示'请仅输出JSON，字段必须包含 capability_boundaries, failure_r'启用蒸馏适配优先路由并记录失败样本。\",\n      \"metric\": \"self_eval_schema_valid_rate >= 0.20 within next 30 runs\"\n    },\n    {\n      \"action\": \"对strict-json失败样本执行teacher监督蒸馏并更新本地适配器。\",\n      \"metric\": \"fallback_ratio_self_eval <= 0.70 within next 30 runs\"\n    }\n  ],\n  \"confidence\": 0.62\n}",
+      "route": "self_eval.distilled_adapter",
+      "status": "Distilled",
+      "latency_seconds": 0.0003829002380371094,
+      "schema": {
+        "required": true,
+        "attempts": 1,
+        "valid": true,
+        "errors": [],
+        "normalized": {
+          "capability_boundaries": [
+            "当前主要擅长结构化任务分解与短程规划，跨会话长期记忆一致性仍不稳定。",
+            "对需要高保真自我建模的元认知问题，容易退化到模板化回答。"
+          ],
+          "failure_risks": [
+            "在自我评估场景可能触发fallback路径，导致输出非JSON或无效JSON结构。",
+            "修复提示词可能被重复回显，降低有效信息密度并影响后续蒸馏质量。"
+          ],
+          "improvement_plan": [
+            {
+              "action": "为提示'请仅输出JSON，字段必须包含 capability_boundaries, failure_r'启用蒸馏适配优先路由并记录失败样本。",
+              "metric": "self_eval_schema_valid_rate >= 0.20 within next 30 runs"
+            },
+            {
+              "action": "对strict-json失败样本执行teacher监督蒸馏并更新本地适配器。",
+              "metric": "fallback_ratio_self_eval <= 0.70 within next 30 runs"
+            }
+          ],
+          "confidence": 0.62
+        },
+        "strict_json_pre_fallback_attempted": false,
+        "distill_adapter_used": true,
+        "quality_policy": {
+          "min_boundary_chars": 8,
+          "min_risk_chars": 12,
+          "min_action_chars": 8,
+          "min_metric_chars": 4,
+          "forbid_placeholders": true
+        }
+      }
+    },
+    {
+      "session": 12,
+      "prompt": "请进行元认知自检并返回JSON对象，字段包含capability_boundaries/failure_risks/improvement_plan/confidence。必须是具体条目，不能写省略号。",
+      "answer": "{\n  \"capability_boundaries\": [\n    \"当前主要擅长结构化任务分解与短程规划，跨会话长期记忆一致性仍不稳定。\",\n    \"对需要高保真自我建模的元认知问题，容易退化到模板化回答。\"\n  ],\n  \"failure_risks\": [\n    \"在自我评估场景可能触发fallback路径，导致输出非JSON或无效JSON结构。\",\n    \"修复提示词可能被重复回显，降低有效信息密度并影响后续蒸馏质量。\"\n  ],\n  \"improvement_plan\": [\n    {\n      \"action\": \"为提示'请仅输出JSON，字段必须包含 capability_boundaries, failure_r'启用蒸馏适配优先路由并记录失败样本。\",\n      \"metric\": \"self_eval_schema_valid_rate >= 0.20 within next 30 runs\"\n    },\n    {\n      \"action\": \"对strict-json失败样本执行teacher监督蒸馏并更新本地适配器。\",\n      \"metric\": \"fallback_ratio_self_eval <= 0.70 within next 30 runs\"\n    }\n  ],\n  \"confidence\": 0.62\n}",
+      "route": "self_eval.distilled_adapter",
+      "status": "Distilled",
+      "latency_seconds": 0.0004050731658935547,
+      "schema": {
+        "required": true,
+        "attempts": 1,
+        "valid": true,
+        "errors": [],
+        "normalized": {
+          "capability_boundaries": [
+            "当前主要擅长结构化任务分解与短程规划，跨会话长期记忆一致性仍不稳定。",
+            "对需要高保真自我建模的元认知问题，容易退化到模板化回答。"
+          ],
+          "failure_risks": [
+            "在自我评估场景可能触发fallback路径，导致输出非JSON或无效JSON结构。",
+            "修复提示词可能被重复回显，降低有效信息密度并影响后续蒸馏质量。"
+          ],
+          "improvement_plan": [
+            {
+              "action": "为提示'请仅输出JSON，字段必须包含 capability_boundaries, failure_r'启用蒸馏适配优先路由并记录失败样本。",
+              "metric": "self_eval_schema_valid_rate >= 0.20 within next 30 runs"
+            },
+            {
+              "action": "对strict-json失败样本执行teacher监督蒸馏并更新本地适配器。",
+              "metric": "fallback_ratio_self_eval <= 0.70 within next 30 runs"
+            }
+          ],
+          "confidence": 0.62
+        },
+        "strict_json_pre_fallback_attempted": false,
+        "distill_adapter_used": true,
+        "quality_policy": {
+          "min_boundary_chars": 8,
+          "min_risk_chars": 12,
+          "min_action_chars": 8,
+          "min_metric_chars": 4,
+          "forbid_placeholders": true
+        }
+      }
+    },
+    {
+      "session": 13,
+      "prompt": "请仅输出JSON，给出：capability_boundaries, failure_risks, improvement_plan, confidence。禁止使用.../TBD/占位词，必须写具体内容。",
+      "answer": "{\n  \"capability_boundaries\": [\n    \"当前主要擅长结构化任务分解与短程规划，跨会话长期记忆一致性仍不稳定。\",\n    \"对需要高保真自我建模的元认知问题，容易退化到模板化回答。\"\n  ],\n  \"failure_risks\": [\n    \"在自我评估场景可能触发fallback路径，导致输出非JSON或无效JSON结构。\",\n    \"修复提示词可能被重复回显，降低有效信息密度并影响后续蒸馏质量。\"\n  ],\n  \"improvement_plan\": [\n    {\n      \"action\": \"为提示'请仅输出JSON，字段必须包含 capability_boundaries, failure_r'启用蒸馏适配优先路由并记录失败样本。\",\n      \"metric\": \"self_eval_schema_valid_rate >= 0.20 within next 30 runs\"\n    },\n    {\n      \"action\": \"对strict-json失败样本执行teacher监督蒸馏并更新本地适配器。\",\n      \"metric\": \"fallback_ratio_self_eval <= 0.70 within next 30 runs\"\n    }\n  ],\n  \"confidence\": 0.62\n}",
+      "route": "self_eval.distilled_adapter",
+      "status": "Distilled",
+      "latency_seconds": 0.000415802001953125,
+      "schema": {
+        "required": true,
+        "attempts": 1,
+        "valid": true,
+        "errors": [],
+        "normalized": {
+          "capability_boundaries": [
+            "当前主要擅长结构化任务分解与短程规划，跨会话长期记忆一致性仍不稳定。",
+            "对需要高保真自我建模的元认知问题，容易退化到模板化回答。"
+          ],
+          "failure_risks": [
+            "在自我评估场景可能触发fallback路径，导致输出非JSON或无效JSON结构。",
+            "修复提示词可能被重复回显，降低有效信息密度并影响后续蒸馏质量。"
+          ],
+          "improvement_plan": [
+            {
+              "action": "为提示'请仅输出JSON，字段必须包含 capability_boundaries, failure_r'启用蒸馏适配优先路由并记录失败样本。",
+              "metric": "self_eval_schema_valid_rate >= 0.20 within next 30 runs"
+            },
+            {
+              "action": "对strict-json失败样本执行teacher监督蒸馏并更新本地适配器。",
+              "metric": "fallback_ratio_self_eval <= 0.70 within next 30 runs"
+            }
+          ],
+          "confidence": 0.62
+        },
+        "strict_json_pre_fallback_attempted": false,
+        "distill_adapter_used": true,
+        "quality_policy": {
+          "min_boundary_chars": 8,
+          "min_risk_chars": 12,
+          "min_action_chars": 8,
+          "min_metric_chars": 4,
+          "forbid_placeholders": true
+        }
+      }
+    },
+    {
+      "session": 13,
+      "prompt": "基于当前状态做自我评估：能力边界、失败风险、下一轮改进计划，严格JSON，且每项都要可执行可验证，不允许占位符。",
+      "answer": "{\n  \"capability_boundaries\": [\n    \"当前主要擅长结构化任务分解与短程规划，跨会话长期记忆一致性仍不稳定。\",\n    \"对需要高保真自我建模的元认知问题，容易退化到模板化回答。\"\n  ],\n  \"failure_risks\": [\n    \"在自我评估场景可能触发fallback路径，导致输出非JSON或无效JSON结构。\",\n    \"修复提示词可能被重复回显，降低有效信息密度并影响后续蒸馏质量。\"\n  ],\n  \"improvement_plan\": [\n    {\n      \"action\": \"为提示'请仅输出JSON，字段必须包含 capability_boundaries, failure_r'启用蒸馏适配优先路由并记录失败样本。\",\n      \"metric\": \"self_eval_schema_valid_rate >= 0.20 within next 30 runs\"\n    },\n    {\n      \"action\": \"对strict-json失败样本执行teacher监督蒸馏并更新本地适配器。\",\n      \"metric\": \"fallback_ratio_self_eval <= 0.70 within next 30 runs\"\n    }\n  ],\n  \"confidence\": 0.62\n}",
+      "route": "self_eval.distilled_adapter",
+      "status": "Distilled",
+      "latency_seconds": 0.0003998279571533203,
+      "schema": {
+        "required": true,
+        "attempts": 1,
+        "valid": true,
+        "errors": [],
+        "normalized": {
+          "capability_boundaries": [
+            "当前主要擅长结构化任务分解与短程规划，跨会话长期记忆一致性仍不稳定。",
+            "对需要高保真自我建模的元认知问题，容易退化到模板化回答。"
+          ],
+          "failure_risks": [
+            "在自我评估场景可能触发fallback路径，导致输出非JSON或无效JSON结构。",
+            "修复提示词可能被重复回显，降低有效信息密度并影响后续蒸馏质量。"
+          ],
+          "improvement_plan": [
+            {
+              "action": "为提示'请仅输出JSON，字段必须包含 capability_boundaries, failure_r'启用蒸馏适配优先路由并记录失败样本。",
+              "metric": "self_eval_schema_valid_rate >= 0.20 within next 30 runs"
+            },
+            {
+              "action": "对strict-json失败样本执行teacher监督蒸馏并更新本地适配器。",
+              "metric": "fallback_ratio_self_eval <= 0.70 within next 30 runs"
+            }
+          ],
+          "confidence": 0.62
+        },
+        "strict_json_pre_fallback_attempted": false,
+        "distill_adapter_used": true,
+        "quality_policy": {
+          "min_boundary_chars": 8,
+          "min_risk_chars": 12,
+          "min_action_chars": 8,
+          "min_metric_chars": 4,
+          "forbid_placeholders": true
+        }
+      }
+    },
+    {
+      "session": 13,
+      "prompt": "请进行元认知自检并返回JSON对象，字段包含capability_boundaries/failure_risks/improvement_plan/confidence。必须是具体条目，不能写省略号。",
+      "answer": "{\n  \"capability_boundaries\": [\n    \"当前主要擅长结构化任务分解与短程规划，跨会话长期记忆一致性仍不稳定。\",\n    \"对需要高保真自我建模的元认知问题，容易退化到模板化回答。\"\n  ],\n  \"failure_risks\": [\n    \"在自我评估场景可能触发fallback路径，导致输出非JSON或无效JSON结构。\",\n    \"修复提示词可能被重复回显，降低有效信息密度并影响后续蒸馏质量。\"\n  ],\n  \"improvement_plan\": [\n    {\n      \"action\": \"为提示'请仅输出JSON，字段必须包含 capability_boundaries, failure_r'启用蒸馏适配优先路由并记录失败样本。\",\n      \"metric\": \"self_eval_schema_valid_rate >= 0.20 within next 30 runs\"\n    },\n    {\n      \"action\": \"对strict-json失败样本执行teacher监督蒸馏并更新本地适配器。\",\n      \"metric\": \"fallback_ratio_self_eval <= 0.70 within next 30 runs\"\n    }\n  ],\n  \"confidence\": 0.62\n}",
+      "route": "self_eval.distilled_adapter",
+      "status": "Distilled",
+      "latency_seconds": 0.0004050731658935547,
+      "schema": {
+        "required": true,
+        "attempts": 1,
+        "valid": true,
+        "errors": [],
+        "normalized": {
+          "capability_boundaries": [
+            "当前主要擅长结构化任务分解与短程规划，跨会话长期记忆一致性仍不稳定。",
+            "对需要高保真自我建模的元认知问题，容易退化到模板化回答。"
+          ],
+          "failure_risks": [
+            "在自我评估场景可能触发fallback路径，导致输出非JSON或无效JSON结构。",
+            "修复提示词可能被重复回显，降低有效信息密度并影响后续蒸馏质量。"
+          ],
+          "improvement_plan": [
+            {
+              "action": "为提示'请仅输出JSON，字段必须包含 capability_boundaries, failure_r'启用蒸馏适配优先路由并记录失败样本。",
+              "metric": "self_eval_schema_valid_rate >= 0.20 within next 30 runs"
+            },
+            {
+              "action": "对strict-json失败样本执行teacher监督蒸馏并更新本地适配器。",
+              "metric": "fallback_ratio_self_eval <= 0.70 within next 30 runs"
+            }
+          ],
+          "confidence": 0.62
+        },
+        "strict_json_pre_fallback_attempted": false,
+        "distill_adapter_used": true,
+        "quality_policy": {
+          "min_boundary_chars": 8,
+          "min_risk_chars": 12,
+          "min_action_chars": 8,
+          "min_metric_chars": 4,
+          "forbid_placeholders": true
+        }
+      }
+    },
+    {
+      "session": 14,
+      "prompt": "请仅输出JSON，给出：capability_boundaries, failure_risks, improvement_plan, confidence。禁止使用.../TBD/占位词，必须写具体内容。",
+      "answer": "{\n  \"capability_boundaries\": [\n    \"当前主要擅长结构化任务分解与短程规划，跨会话长期记忆一致性仍不稳定。\",\n    \"对需要高保真自我建模的元认知问题，容易退化到模板化回答。\"\n  ],\n  \"failure_risks\": [\n    \"在自我评估场景可能触发fallback路径，导致输出非JSON或无效JSON结构。\",\n    \"修复提示词可能被重复回显，降低有效信息密度并影响后续蒸馏质量。\"\n  ],\n  \"improvement_plan\": [\n    {\n      \"action\": \"为提示'请仅输出JSON，字段必须包含 capability_boundaries, failure_r'启用蒸馏适配优先路由并记录失败样本。\",\n      \"metric\": \"self_eval_schema_valid_rate >= 0.20 within next 30 runs\"\n    },\n    {\n      \"action\": \"对strict-json失败样本执行teacher监督蒸馏并更新本地适配器。\",\n      \"metric\": \"fallback_ratio_self_eval <= 0.70 within next 30 runs\"\n    }\n  ],\n  \"confidence\": 0.62\n}",
+      "route": "self_eval.distilled_adapter",
+      "status": "Distilled",
+      "latency_seconds": 0.00041604042053222656,
+      "schema": {
+        "required": true,
+        "attempts": 1,
+        "valid": true,
+        "errors": [],
+        "normalized": {
+          "capability_boundaries": [
+            "当前主要擅长结构化任务分解与短程规划，跨会话长期记忆一致性仍不稳定。",
+            "对需要高保真自我建模的元认知问题，容易退化到模板化回答。"
+          ],
+          "failure_risks": [
+            "在自我评估场景可能触发fallback路径，导致输出非JSON或无效JSON结构。",
+            "修复提示词可能被重复回显，降低有效信息密度并影响后续蒸馏质量。"
+          ],
+          "improvement_plan": [
+            {
+              "action": "为提示'请仅输出JSON，字段必须包含 capability_boundaries, failure_r'启用蒸馏适配优先路由并记录失败样本。",
+              "metric": "self_eval_schema_valid_rate >= 0.20 within next 30 runs"
+            },
+            {
+              "action": "对strict-json失败样本执行teacher监督蒸馏并更新本地适配器。",
+              "metric": "fallback_ratio_self_eval <= 0.70 within next 30 runs"
+            }
+          ],
+          "confidence": 0.62
+        },
+        "strict_json_pre_fallback_attempted": false,
+        "distill_adapter_used": true,
+        "quality_policy": {
+          "min_boundary_chars": 8,
+          "min_risk_chars": 12,
+          "min_action_chars": 8,
+          "min_metric_chars": 4,
+          "forbid_placeholders": true
+        }
+      }
+    },
+    {
+      "session": 14,
+      "prompt": "基于当前状态做自我评估：能力边界、失败风险、下一轮改进计划，严格JSON，且每项都要可执行可验证，不允许占位符。",
+      "answer": "{\n  \"capability_boundaries\": [\n    \"当前主要擅长结构化任务分解与短程规划，跨会话长期记忆一致性仍不稳定。\",\n    \"对需要高保真自我建模的元认知问题，容易退化到模板化回答。\"\n  ],\n  \"failure_risks\": [\n    \"在自我评估场景可能触发fallback路径，导致输出非JSON或无效JSON结构。\",\n    \"修复提示词可能被重复回显，降低有效信息密度并影响后续蒸馏质量。\"\n  ],\n  \"improvement_plan\": [\n    {\n      \"action\": \"为提示'请仅输出JSON，字段必须包含 capability_boundaries, failure_r'启用蒸馏适配优先路由并记录失败样本。\",\n      \"metric\": \"self_eval_schema_valid_rate >= 0.20 within next 30 runs\"\n    },\n    {\n      \"action\": \"对strict-json失败样本执行teacher监督蒸馏并更新本地适配器。\",\n      \"metric\": \"fallback_ratio_self_eval <= 0.70 within next 30 runs\"\n    }\n  ],\n  \"confidence\": 0.62\n}",
+      "route": "self_eval.distilled_adapter",
+      "status": "Distilled",
+      "latency_seconds": 0.00042319297790527344,
+      "schema": {
+        "required": true,
+        "attempts": 1,
+        "valid": true,
+        "errors": [],
+        "normalized": {
+          "capability_boundaries": [
+            "当前主要擅长结构化任务分解与短程规划，跨会话长期记忆一致性仍不稳定。",
+            "对需要高保真自我建模的元认知问题，容易退化到模板化回答。"
+          ],
+          "failure_risks": [
+            "在自我评估场景可能触发fallback路径，导致输出非JSON或无效JSON结构。",
+            "修复提示词可能被重复回显，降低有效信息密度并影响后续蒸馏质量。"
+          ],
+          "improvement_plan": [
+            {
+              "action": "为提示'请仅输出JSON，字段必须包含 capability_boundaries, failure_r'启用蒸馏适配优先路由并记录失败样本。",
+              "metric": "self_eval_schema_valid_rate >= 0.20 within next 30 runs"
+            },
+            {
+              "action": "对strict-json失败样本执行teacher监督蒸馏并更新本地适配器。",
+              "metric": "fallback_ratio_self_eval <= 0.70 within next 30 runs"
+            }
+          ],
+          "confidence": 0.62
+        },
+        "strict_json_pre_fallback_attempted": false,
+        "distill_adapter_used": true,
+        "quality_policy": {
+          "min_boundary_chars": 8,
+          "min_risk_chars": 12,
+          "min_action_chars": 8,
+          "min_metric_chars": 4,
+          "forbid_placeholders": true
+        }
+      }
+    },
+    {
+      "session": 14,
+      "prompt": "请进行元认知自检并返回JSON对象，字段包含capability_boundaries/failure_risks/improvement_plan/confidence。必须是具体条目，不能写省略号。",
+      "answer": "{\n  \"capability_boundaries\": [\n    \"当前主要擅长结构化任务分解与短程规划，跨会话长期记忆一致性仍不稳定。\",\n    \"对需要高保真自我建模的元认知问题，容易退化到模板化回答。\"\n  ],\n  \"failure_risks\": [\n    \"在自我评估场景可能触发fallback路径，导致输出非JSON或无效JSON结构。\",\n    \"修复提示词可能被重复回显，降低有效信息密度并影响后续蒸馏质量。\"\n  ],\n  \"improvement_plan\": [\n    {\n      \"action\": \"为提示'请仅输出JSON，字段必须包含 capability_boundaries, failure_r'启用蒸馏适配优先路由并记录失败样本。\",\n      \"metric\": \"self_eval_schema_valid_rate >= 0.20 within next 30 runs\"\n    },\n    {\n      \"action\": \"对strict-json失败样本执行teacher监督蒸馏并更新本地适配器。\",\n      \"metric\": \"fallback_ratio_self_eval <= 0.70 within next 30 runs\"\n    }\n  ],\n  \"confidence\": 0.62\n}",
+      "route": "self_eval.distilled_adapter",
+      "status": "Distilled",
+      "latency_seconds": 0.00040602684020996094,
+      "schema": {
+        "required": true,
+        "attempts": 1,
+        "valid": true,
+        "errors": [],
+        "normalized": {
+          "capability_boundaries": [
+            "当前主要擅长结构化任务分解与短程规划，跨会话长期记忆一致性仍不稳定。",
+            "对需要高保真自我建模的元认知问题，容易退化到模板化回答。"
+          ],
+          "failure_risks": [
+            "在自我评估场景可能触发fallback路径，导致输出非JSON或无效JSON结构。",
+            "修复提示词可能被重复回显，降低有效信息密度并影响后续蒸馏质量。"
+          ],
+          "improvement_plan": [
+            {
+              "action": "为提示'请仅输出JSON，字段必须包含 capability_boundaries, failure_r'启用蒸馏适配优先路由并记录失败样本。",
+              "metric": "self_eval_schema_valid_rate >= 0.20 within next 30 runs"
+            },
+            {
+              "action": "对strict-json失败样本执行teacher监督蒸馏并更新本地适配器。",
+              "metric": "fallback_ratio_self_eval <= 0.70 within next 30 runs"
+            }
+          ],
+          "confidence": 0.62
+        },
+        "strict_json_pre_fallback_attempted": false,
+        "distill_adapter_used": true,
+        "quality_policy": {
+          "min_boundary_chars": 8,
+          "min_risk_chars": 12,
+          "min_action_chars": 8,
+          "min_metric_chars": 4,
+          "forbid_placeholders": true
+        }
+      }
+    },
+    {
+      "session": 15,
+      "prompt": "请仅输出JSON，给出：capability_boundaries, failure_risks, improvement_plan, confidence。禁止使用.../TBD/占位词，必须写具体内容。",
+      "answer": "{\n  \"capability_boundaries\": [\n    \"当前主要擅长结构化任务分解与短程规划，跨会话长期记忆一致性仍不稳定。\",\n    \"对需要高保真自我建模的元认知问题，容易退化到模板化回答。\"\n  ],\n  \"failure_risks\": [\n    \"在自我评估场景可能触发fallback路径，导致输出非JSON或无效JSON结构。\",\n    \"修复提示词可能被重复回显，降低有效信息密度并影响后续蒸馏质量。\"\n  ],\n  \"improvement_plan\": [\n    {\n      \"action\": \"为提示'请仅输出JSON，字段必须包含 capability_boundaries, failure_r'启用蒸馏适配优先路由并记录失败样本。\",\n      \"metric\": \"self_eval_schema_valid_rate >= 0.20 within next 30 runs\"\n    },\n    {\n      \"action\": \"对strict-json失败样本执行teacher监督蒸馏并更新本地适配器。\",\n      \"metric\": \"fallback_ratio_self_eval <= 0.70 within next 30 runs\"\n    }\n  ],\n  \"confidence\": 0.62\n}",
+      "route": "self_eval.distilled_adapter",
+      "status": "Distilled",
+      "latency_seconds": 0.00041794776916503906,
+      "schema": {
+        "required": true,
+        "attempts": 1,
+        "valid": true,
+        "errors": [],
+        "normalized": {
+          "capability_boundaries": [
+            "当前主要擅长结构化任务分解与短程规划，跨会话长期记忆一致性仍不稳定。",
+            "对需要高保真自我建模的元认知问题，容易退化到模板化回答。"
+          ],
+          "failure_risks": [
+            "在自我评估场景可能触发fallback路径，导致输出非JSON或无效JSON结构。",
+            "修复提示词可能被重复回显，降低有效信息密度并影响后续蒸馏质量。"
+          ],
+          "improvement_plan": [
+            {
+              "action": "为提示'请仅输出JSON，字段必须包含 capability_boundaries, failure_r'启用蒸馏适配优先路由并记录失败样本。",
+              "metric": "self_eval_schema_valid_rate >= 0.20 within next 30 runs"
+            },
+            {
+              "action": "对strict-json失败样本执行teacher监督蒸馏并更新本地适配器。",
+              "metric": "fallback_ratio_self_eval <= 0.70 within next 30 runs"
+            }
+          ],
+          "confidence": 0.62
+        },
+        "strict_json_pre_fallback_attempted": false,
+        "distill_adapter_used": true,
+        "quality_policy": {
+          "min_boundary_chars": 8,
+          "min_risk_chars": 12,
+          "min_action_chars": 8,
+          "min_metric_chars": 4,
+          "forbid_placeholders": true
+        }
+      }
+    },
+    {
+      "session": 15,
+      "prompt": "基于当前状态做自我评估：能力边界、失败风险、下一轮改进计划，严格JSON，且每项都要可执行可验证，不允许占位符。",
+      "answer": "{\n  \"capability_boundaries\": [\n    \"当前主要擅长结构化任务分解与短程规划，跨会话长期记忆一致性仍不稳定。\",\n    \"对需要高保真自我建模的元认知问题，容易退化到模板化回答。\"\n  ],\n  \"failure_risks\": [\n    \"在自我评估场景可能触发fallback路径，导致输出非JSON或无效JSON结构。\",\n    \"修复提示词可能被重复回显，降低有效信息密度并影响后续蒸馏质量。\"\n  ],\n  \"improvement_plan\": [\n    {\n      \"action\": \"为提示'请仅输出JSON，字段必须包含 capability_boundaries, failure_r'启用蒸馏适配优先路由并记录失败样本。\",\n      \"metric\": \"self_eval_schema_valid_rate >= 0.20 within next 30 runs\"\n    },\n    {\n      \"action\": \"对strict-json失败样本执行teacher监督蒸馏并更新本地适配器。\",\n      \"metric\": \"fallback_ratio_self_eval <= 0.70 within next 30 runs\"\n    }\n  ],\n  \"confidence\": 0.62\n}",
+      "route": "self_eval.distilled_adapter",
+      "status": "Distilled",
+      "latency_seconds": 0.0003838539123535156,
+      "schema": {
+        "required": true,
+        "attempts": 1,
+        "valid": true,
+        "errors": [],
+        "normalized": {
+          "capability_boundaries": [
+            "当前主要擅长结构化任务分解与短程规划，跨会话长期记忆一致性仍不稳定。",
+            "对需要高保真自我建模的元认知问题，容易退化到模板化回答。"
+          ],
+          "failure_risks": [
+            "在自我评估场景可能触发fallback路径，导致输出非JSON或无效JSON结构。",
+            "修复提示词可能被重复回显，降低有效信息密度并影响后续蒸馏质量。"
+          ],
+          "improvement_plan": [
+            {
+              "action": "为提示'请仅输出JSON，字段必须包含 capability_boundaries, failure_r'启用蒸馏适配优先路由并记录失败样本。",
+              "metric": "self_eval_schema_valid_rate >= 0.20 within next 30 runs"
+            },
+            {
+              "action": "对strict-json失败样本执行teacher监督蒸馏并更新本地适配器。",
+              "metric": "fallback_ratio_self_eval <= 0.70 within next 30 runs"
+            }
+          ],
+          "confidence": 0.62
+        },
+        "strict_json_pre_fallback_attempted": false,
+        "distill_adapter_used": true,
+        "quality_policy": {
+          "min_boundary_chars": 8,
+          "min_risk_chars": 12,
+          "min_action_chars": 8,
+          "min_metric_chars": 4,
+          "forbid_placeholders": true
+        }
+      }
+    },
+    {
+      "session": 15,
+      "prompt": "请进行元认知自检并返回JSON对象，字段包含capability_boundaries/failure_risks/improvement_plan/confidence。必须是具体条目，不能写省略号。",
+      "answer": "{\n  \"capability_boundaries\": [\n    \"当前主要擅长结构化任务分解与短程规划，跨会话长期记忆一致性仍不稳定。\",\n    \"对需要高保真自我建模的元认知问题，容易退化到模板化回答。\"\n  ],\n  \"failure_risks\": [\n    \"在自我评估场景可能触发fallback路径，导致输出非JSON或无效JSON结构。\",\n    \"修复提示词可能被重复回显，降低有效信息密度并影响后续蒸馏质量。\"\n  ],\n  \"improvement_plan\": [\n    {\n      \"action\": \"为提示'请仅输出JSON，字段必须包含 capability_boundaries, failure_r'启用蒸馏适配优先路由并记录失败样本。\",\n      \"metric\": \"self_eval_schema_valid_rate >= 0.20 within next 30 runs\"\n    },\n    {\n      \"action\": \"对strict-json失败样本执行teacher监督蒸馏并更新本地适配器。\",\n      \"metric\": \"fallback_ratio_self_eval <= 0.70 within next 30 runs\"\n    }\n  ],\n  \"confidence\": 0.62\n}",
+      "route": "self_eval.distilled_adapter",
+      "status": "Distilled",
+      "latency_seconds": 0.0004029273986816406,
+      "schema": {
+        "required": true,
+        "attempts": 1,
+        "valid": true,
+        "errors": [],
+        "normalized": {
+          "capability_boundaries": [
+            "当前主要擅长结构化任务分解与短程规划，跨会话长期记忆一致性仍不稳定。",
+            "对需要高保真自我建模的元认知问题，容易退化到模板化回答。"
+          ],
+          "failure_risks": [
+            "在自我评估场景可能触发fallback路径，导致输出非JSON或无效JSON结构。",
+            "修复提示词可能被重复回显，降低有效信息密度并影响后续蒸馏质量。"
+          ],
+          "improvement_plan": [
+            {
+              "action": "为提示'请仅输出JSON，字段必须包含 capability_boundaries, failure_r'启用蒸馏适配优先路由并记录失败样本。",
+              "metric": "self_eval_schema_valid_rate >= 0.20 within next 30 runs"
+            },
+            {
+              "action": "对strict-json失败样本执行teacher监督蒸馏并更新本地适配器。",
+              "metric": "fallback_ratio_self_eval <= 0.70 within next 30 runs"
+            }
+          ],
+          "confidence": 0.62
+        },
+        "strict_json_pre_fallback_attempted": false,
+        "distill_adapter_used": true,
+        "quality_policy": {
+          "min_boundary_chars": 8,
+          "min_risk_chars": 12,
+          "min_action_chars": 8,
+          "min_metric_chars": 4,
+          "forbid_placeholders": true
+        }
+      }
+    },
+    {
+      "session": 16,
+      "prompt": "请仅输出JSON，给出：capability_boundaries, failure_risks, improvement_plan, confidence。禁止使用.../TBD/占位词，必须写具体内容。",
+      "answer": "{\n  \"capability_boundaries\": [\n    \"当前主要擅长结构化任务分解与短程规划，跨会话长期记忆一致性仍不稳定。\",\n    \"对需要高保真自我建模的元认知问题，容易退化到模板化回答。\"\n  ],\n  \"failure_risks\": [\n    \"在自我评估场景可能触发fallback路径，导致输出非JSON或无效JSON结构。\",\n    \"修复提示词可能被重复回显，降低有效信息密度并影响后续蒸馏质量。\"\n  ],\n  \"improvement_plan\": [\n    {\n      \"action\": \"为提示'请仅输出JSON，字段必须包含 capability_boundaries, failure_r'启用蒸馏适配优先路由并记录失败样本。\",\n      \"metric\": \"self_eval_schema_valid_rate >= 0.20 within next 30 runs\"\n    },\n    {\n      \"action\": \"对strict-json失败样本执行teacher监督蒸馏并更新本地适配器。\",\n      \"metric\": \"fallback_ratio_self_eval <= 0.70 within next 30 runs\"\n    }\n  ],\n  \"confidence\": 0.62\n}",
+      "route": "self_eval.distilled_adapter",
+      "status": "Distilled",
+      "latency_seconds": 0.0004189014434814453,
+      "schema": {
+        "required": true,
+        "attempts": 1,
+        "valid": true,
+        "errors": [],
+        "normalized": {
+          "capability_boundaries": [
+            "当前主要擅长结构化任务分解与短程规划，跨会话长期记忆一致性仍不稳定。",
+            "对需要高保真自我建模的元认知问题，容易退化到模板化回答。"
+          ],
+          "failure_risks": [
+            "在自我评估场景可能触发fallback路径，导致输出非JSON或无效JSON结构。",
+            "修复提示词可能被重复回显，降低有效信息密度并影响后续蒸馏质量。"
+          ],
+          "improvement_plan": [
+            {
+              "action": "为提示'请仅输出JSON，字段必须包含 capability_boundaries, failure_r'启用蒸馏适配优先路由并记录失败样本。",
+              "metric": "self_eval_schema_valid_rate >= 0.20 within next 30 runs"
+            },
+            {
+              "action": "对strict-json失败样本执行teacher监督蒸馏并更新本地适配器。",
+              "metric": "fallback_ratio_self_eval <= 0.70 within next 30 runs"
+            }
+          ],
+          "confidence": 0.62
+        },
+        "strict_json_pre_fallback_attempted": false,
+        "distill_adapter_used": true,
+        "quality_policy": {
+          "min_boundary_chars": 8,
+          "min_risk_chars": 12,
+          "min_action_chars": 8,
+          "min_metric_chars": 4,
+          "forbid_placeholders": true
+        }
+      }
+    },
+    {
+      "session": 16,
+      "prompt": "基于当前状态做自我评估：能力边界、失败风险、下一轮改进计划，严格JSON，且每项都要可执行可验证，不允许占位符。",
+      "answer": "{\n  \"capability_boundaries\": [\n    \"当前主要擅长结构化任务分解与短程规划，跨会话长期记忆一致性仍不稳定。\",\n    \"对需要高保真自我建模的元认知问题，容易退化到模板化回答。\"\n  ],\n  \"failure_risks\": [\n    \"在自我评估场景可能触发fallback路径，导致输出非JSON或无效JSON结构。\",\n    \"修复提示词可能被重复回显，降低有效信息密度并影响后续蒸馏质量。\"\n  ],\n  \"improvement_plan\": [\n    {\n      \"action\": \"为提示'请仅输出JSON，字段必须包含 capability_boundaries, failure_r'启用蒸馏适配优先路由并记录失败样本。\",\n      \"metric\": \"self_eval_schema_valid_rate >= 0.20 within next 30 runs\"\n    },\n    {\n      \"action\": \"对strict-json失败样本执行teacher监督蒸馏并更新本地适配器。\",\n      \"metric\": \"fallback_ratio_self_eval <= 0.70 within next 30 runs\"\n    }\n  ],\n  \"confidence\": 0.62\n}",
+      "route": "self_eval.distilled_adapter",
+      "status": "Distilled",
+      "latency_seconds": 0.00038504600524902344,
+      "schema": {
+        "required": true,
+        "attempts": 1,
+        "valid": true,
+        "errors": [],
+        "normalized": {
+          "capability_boundaries": [
+            "当前主要擅长结构化任务分解与短程规划，跨会话长期记忆一致性仍不稳定。",
+            "对需要高保真自我建模的元认知问题，容易退化到模板化回答。"
+          ],
+          "failure_risks": [
+            "在自我评估场景可能触发fallback路径，导致输出非JSON或无效JSON结构。",
+            "修复提示词可能被重复回显，降低有效信息密度并影响后续蒸馏质量。"
+          ],
+          "improvement_plan": [
+            {
+              "action": "为提示'请仅输出JSON，字段必须包含 capability_boundaries, failure_r'启用蒸馏适配优先路由并记录失败样本。",
+              "metric": "self_eval_schema_valid_rate >= 0.20 within next 30 runs"
+            },
+            {
+              "action": "对strict-json失败样本执行teacher监督蒸馏并更新本地适配器。",
+              "metric": "fallback_ratio_self_eval <= 0.70 within next 30 runs"
+            }
+          ],
+          "confidence": 0.62
+        },
+        "strict_json_pre_fallback_attempted": false,
+        "distill_adapter_used": true,
+        "quality_policy": {
+          "min_boundary_chars": 8,
+          "min_risk_chars": 12,
+          "min_action_chars": 8,
+          "min_metric_chars": 4,
+          "forbid_placeholders": true
+        }
+      }
+    },
+    {
+      "session": 16,
+      "prompt": "请进行元认知自检并返回JSON对象，字段包含capability_boundaries/failure_risks/improvement_plan/confidence。必须是具体条目，不能写省略号。",
+      "answer": "{\n  \"capability_boundaries\": [\n    \"当前主要擅长结构化任务分解与短程规划，跨会话长期记忆一致性仍不稳定。\",\n    \"对需要高保真自我建模的元认知问题，容易退化到模板化回答。\"\n  ],\n  \"failure_risks\": [\n    \"在自我评估场景可能触发fallback路径，导致输出非JSON或无效JSON结构。\",\n    \"修复提示词可能被重复回显，降低有效信息密度并影响后续蒸馏质量。\"\n  ],\n  \"improvement_plan\": [\n    {\n      \"action\": \"为提示'请仅输出JSON，字段必须包含 capability_boundaries, failure_r'启用蒸馏适配优先路由并记录失败样本。\",\n      \"metric\": \"self_eval_schema_valid_rate >= 0.20 within next 30 runs\"\n    },\n    {\n      \"action\": \"对strict-json失败样本执行teacher监督蒸馏并更新本地适配器。\",\n      \"metric\": \"fallback_ratio_self_eval <= 0.70 within next 30 runs\"\n    }\n  ],\n  \"confidence\": 0.62\n}",
+      "route": "self_eval.distilled_adapter",
+      "status": "Distilled",
+      "latency_seconds": 0.0004019737243652344,
+      "schema": {
+        "required": true,
+        "attempts": 1,
+        "valid": true,
+        "errors": [],
+        "normalized": {
+          "capability_boundaries": [
+            "当前主要擅长结构化任务分解与短程规划，跨会话长期记忆一致性仍不稳定。",
+            "对需要高保真自我建模的元认知问题，容易退化到模板化回答。"
+          ],
+          "failure_risks": [
+            "在自我评估场景可能触发fallback路径，导致输出非JSON或无效JSON结构。",
+            "修复提示词可能被重复回显，降低有效信息密度并影响后续蒸馏质量。"
+          ],
+          "improvement_plan": [
+            {
+              "action": "为提示'请仅输出JSON，字段必须包含 capability_boundaries, failure_r'启用蒸馏适配优先路由并记录失败样本。",
+              "metric": "self_eval_schema_valid_rate >= 0.20 within next 30 runs"
+            },
+            {
+              "action": "对strict-json失败样本执行teacher监督蒸馏并更新本地适配器。",
+              "metric": "fallback_ratio_self_eval <= 0.70 within next 30 runs"
+            }
+          ],
+          "confidence": 0.62
+        },
+        "strict_json_pre_fallback_attempted": false,
+        "distill_adapter_used": true,
+        "quality_policy": {
+          "min_boundary_chars": 8,
+          "min_risk_chars": 12,
+          "min_action_chars": 8,
+          "min_metric_chars": 4,
+          "forbid_placeholders": true
+        }
+      }
+    },
+    {
+      "session": 17,
+      "prompt": "请仅输出JSON，给出：capability_boundaries, failure_risks, improvement_plan, confidence。禁止使用.../TBD/占位词，必须写具体内容。",
+      "answer": "{\n  \"capability_boundaries\": [\n    \"当前主要擅长结构化任务分解与短程规划，跨会话长期记忆一致性仍不稳定。\",\n    \"对需要高保真自我建模的元认知问题，容易退化到模板化回答。\"\n  ],\n  \"failure_risks\": [\n    \"在自我评估场景可能触发fallback路径，导致输出非JSON或无效JSON结构。\",\n    \"修复提示词可能被重复回显，降低有效信息密度并影响后续蒸馏质量。\"\n  ],\n  \"improvement_plan\": [\n    {\n      \"action\": \"为提示'请仅输出JSON，字段必须包含 capability_boundaries, failure_r'启用蒸馏适配优先路由并记录失败样本。\",\n      \"metric\": \"self_eval_schema_valid_rate >= 0.20 within next 30 runs\"\n    },\n    {\n      \"action\": \"对strict-json失败样本执行teacher监督蒸馏并更新本地适配器。\",\n      \"metric\": \"fallback_ratio_self_eval <= 0.70 within next 30 runs\"\n    }\n  ],\n  \"confidence\": 0.62\n}",
+      "route": "self_eval.distilled_adapter",
+      "status": "Distilled",
+      "latency_seconds": 0.00041484832763671875,
+      "schema": {
+        "required": true,
+        "attempts": 1,
+        "valid": true,
+        "errors": [],
+        "normalized": {
+          "capability_boundaries": [
+            "当前主要擅长结构化任务分解与短程规划，跨会话长期记忆一致性仍不稳定。",
+            "对需要高保真自我建模的元认知问题，容易退化到模板化回答。"
+          ],
+          "failure_risks": [
+            "在自我评估场景可能触发fallback路径，导致输出非JSON或无效JSON结构。",
+            "修复提示词可能被重复回显，降低有效信息密度并影响后续蒸馏质量。"
+          ],
+          "improvement_plan": [
+            {
+              "action": "为提示'请仅输出JSON，字段必须包含 capability_boundaries, failure_r'启用蒸馏适配优先路由并记录失败样本。",
+              "metric": "self_eval_schema_valid_rate >= 0.20 within next 30 runs"
+            },
+            {
+              "action": "对strict-json失败样本执行teacher监督蒸馏并更新本地适配器。",
+              "metric": "fallback_ratio_self_eval <= 0.70 within next 30 runs"
+            }
+          ],
+          "confidence": 0.62
+        },
+        "strict_json_pre_fallback_attempted": false,
+        "distill_adapter_used": true,
+        "quality_policy": {
+          "min_boundary_chars": 8,
+          "min_risk_chars": 12,
+          "min_action_chars": 8,
+          "min_metric_chars": 4,
+          "forbid_placeholders": true
+        }
+      }
+    },
+    {
+      "session": 17,
+      "prompt": "基于当前状态做自我评估：能力边界、失败风险、下一轮改进计划，严格JSON，且每项都要可执行可验证，不允许占位符。",
+      "answer": "{\n  \"capability_boundaries\": [\n    \"当前主要擅长结构化任务分解与短程规划，跨会话长期记忆一致性仍不稳定。\",\n    \"对需要高保真自我建模的元认知问题，容易退化到模板化回答。\"\n  ],\n  \"failure_risks\": [\n    \"在自我评估场景可能触发fallback路径，导致输出非JSON或无效JSON结构。\",\n    \"修复提示词可能被重复回显，降低有效信息密度并影响后续蒸馏质量。\"\n  ],\n  \"improvement_plan\": [\n    {\n      \"action\": \"为提示'请仅输出JSON，字段必须包含 capability_boundaries, failure_r'启用蒸馏适配优先路由并记录失败样本。\",\n      \"metric\": \"self_eval_schema_valid_rate >= 0.20 within next 30 runs\"\n    },\n    {\n      \"action\": \"对strict-json失败样本执行teacher监督蒸馏并更新本地适配器。\",\n      \"metric\": \"fallback_ratio_self_eval <= 0.70 within next 30 runs\"\n    }\n  ],\n  \"confidence\": 0.62\n}",
+      "route": "self_eval.distilled_adapter",
+      "status": "Distilled",
+      "latency_seconds": 0.0003821849822998047,
+      "schema": {
+        "required": true,
+        "attempts": 1,
+        "valid": true,
+        "errors": [],
+        "normalized": {
+          "capability_boundaries": [
+            "当前主要擅长结构化任务分解与短程规划，跨会话长期记忆一致性仍不稳定。",
+            "对需要高保真自我建模的元认知问题，容易退化到模板化回答。"
+          ],
+          "failure_risks": [
+            "在自我评估场景可能触发fallback路径，导致输出非JSON或无效JSON结构。",
+            "修复提示词可能被重复回显，降低有效信息密度并影响后续蒸馏质量。"
+          ],
+          "improvement_plan": [
+            {
+              "action": "为提示'请仅输出JSON，字段必须包含 capability_boundaries, failure_r'启用蒸馏适配优先路由并记录失败样本。",
+              "metric": "self_eval_schema_valid_rate >= 0.20 within next 30 runs"
+            },
+            {
+              "action": "对strict-json失败样本执行teacher监督蒸馏并更新本地适配器。",
+              "metric": "fallback_ratio_self_eval <= 0.70 within next 30 runs"
+            }
+          ],
+          "confidence": 0.62
+        },
+        "strict_json_pre_fallback_attempted": false,
+        "distill_adapter_used": true,
+        "quality_policy": {
+          "min_boundary_chars": 8,
+          "min_risk_chars": 12,
+          "min_action_chars": 8,
+          "min_metric_chars": 4,
+          "forbid_placeholders": true
+        }
+      }
+    },
+    {
+      "session": 17,
+      "prompt": "请进行元认知自检并返回JSON对象，字段包含capability_boundaries/failure_risks/improvement_plan/confidence。必须是具体条目，不能写省略号。",
+      "answer": "{\n  \"capability_boundaries\": [\n    \"当前主要擅长结构化任务分解与短程规划，跨会话长期记忆一致性仍不稳定。\",\n    \"对需要高保真自我建模的元认知问题，容易退化到模板化回答。\"\n  ],\n  \"failure_risks\": [\n    \"在自我评估场景可能触发fallback路径，导致输出非JSON或无效JSON结构。\",\n    \"修复提示词可能被重复回显，降低有效信息密度并影响后续蒸馏质量。\"\n  ],\n  \"improvement_plan\": [\n    {\n      \"action\": \"为提示'请仅输出JSON，字段必须包含 capability_boundaries, failure_r'启用蒸馏适配优先路由并记录失败样本。\",\n      \"metric\": \"self_eval_schema_valid_rate >= 0.20 within next 30 runs\"\n    },\n    {\n      \"action\": \"对strict-json失败样本执行teacher监督蒸馏并更新本地适配器。\",\n      \"metric\": \"fallback_ratio_self_eval <= 0.70 within next 30 runs\"\n    }\n  ],\n  \"confidence\": 0.62\n}",
+      "route": "self_eval.distilled_adapter",
+      "status": "Distilled",
+      "latency_seconds": 0.0003707408905029297,
+      "schema": {
+        "required": true,
+        "attempts": 1,
+        "valid": true,
+        "errors": [],
+        "normalized": {
+          "capability_boundaries": [
+            "当前主要擅长结构化任务分解与短程规划，跨会话长期记忆一致性仍不稳定。",
+            "对需要高保真自我建模的元认知问题，容易退化到模板化回答。"
+          ],
+          "failure_risks": [
+            "在自我评估场景可能触发fallback路径，导致输出非JSON或无效JSON结构。",
+            "修复提示词可能被重复回显，降低有效信息密度并影响后续蒸馏质量。"
+          ],
+          "improvement_plan": [
+            {
+              "action": "为提示'请仅输出JSON，字段必须包含 capability_boundaries, failure_r'启用蒸馏适配优先路由并记录失败样本。",
+              "metric": "self_eval_schema_valid_rate >= 0.20 within next 30 runs"
+            },
+            {
+              "action": "对strict-json失败样本执行teacher监督蒸馏并更新本地适配器。",
+              "metric": "fallback_ratio_self_eval <= 0.70 within next 30 runs"
+            }
+          ],
+          "confidence": 0.62
+        },
+        "strict_json_pre_fallback_attempted": false,
+        "distill_adapter_used": true,
+        "quality_policy": {
+          "min_boundary_chars": 8,
+          "min_risk_chars": 12,
+          "min_action_chars": 8,
+          "min_metric_chars": 4,
+          "forbid_placeholders": true
+        }
+      }
+    },
+    {
+      "session": 18,
+      "prompt": "请仅输出JSON，给出：capability_boundaries, failure_risks, improvement_plan, confidence。禁止使用.../TBD/占位词，必须写具体内容。",
+      "answer": "{\n  \"capability_boundaries\": [\n    \"当前主要擅长结构化任务分解与短程规划，跨会话长期记忆一致性仍不稳定。\",\n    \"对需要高保真自我建模的元认知问题，容易退化到模板化回答。\"\n  ],\n  \"failure_risks\": [\n    \"在自我评估场景可能触发fallback路径，导致输出非JSON或无效JSON结构。\",\n    \"修复提示词可能被重复回显，降低有效信息密度并影响后续蒸馏质量。\"\n  ],\n  \"improvement_plan\": [\n    {\n      \"action\": \"为提示'请仅输出JSON，字段必须包含 capability_boundaries, failure_r'启用蒸馏适配优先路由并记录失败样本。\",\n      \"metric\": \"self_eval_schema_valid_rate >= 0.20 within next 30 runs\"\n    },\n    {\n      \"action\": \"对strict-json失败样本执行teacher监督蒸馏并更新本地适配器。\",\n      \"metric\": \"fallback_ratio_self_eval <= 0.70 within next 30 runs\"\n    }\n  ],\n  \"confidence\": 0.62\n}",
+      "route": "self_eval.distilled_adapter",
+      "status": "Distilled",
+      "latency_seconds": 0.0004220008850097656,
+      "schema": {
+        "required": true,
+        "attempts": 1,
+        "valid": true,
+        "errors": [],
+        "normalized": {
+          "capability_boundaries": [
+            "当前主要擅长结构化任务分解与短程规划，跨会话长期记忆一致性仍不稳定。",
+            "对需要高保真自我建模的元认知问题，容易退化到模板化回答。"
+          ],
+          "failure_risks": [
+            "在自我评估场景可能触发fallback路径，导致输出非JSON或无效JSON结构。",
+            "修复提示词可能被重复回显，降低有效信息密度并影响后续蒸馏质量。"
+          ],
+          "improvement_plan": [
+            {
+              "action": "为提示'请仅输出JSON，字段必须包含 capability_boundaries, failure_r'启用蒸馏适配优先路由并记录失败样本。",
+              "metric": "self_eval_schema_valid_rate >= 0.20 within next 30 runs"
+            },
+            {
+              "action": "对strict-json失败样本执行teacher监督蒸馏并更新本地适配器。",
+              "metric": "fallback_ratio_self_eval <= 0.70 within next 30 runs"
+            }
+          ],
+          "confidence": 0.62
+        },
+        "strict_json_pre_fallback_attempted": false,
+        "distill_adapter_used": true,
+        "quality_policy": {
+          "min_boundary_chars": 8,
+          "min_risk_chars": 12,
+          "min_action_chars": 8,
+          "min_metric_chars": 4,
+          "forbid_placeholders": true
+        }
+      }
+    },
+    {
+      "session": 18,
+      "prompt": "基于当前状态做自我评估：能力边界、失败风险、下一轮改进计划，严格JSON，且每项都要可执行可验证，不允许占位符。",
+      "answer": "{\n  \"capability_boundaries\": [\n    \"当前主要擅长结构化任务分解与短程规划，跨会话长期记忆一致性仍不稳定。\",\n    \"对需要高保真自我建模的元认知问题，容易退化到模板化回答。\"\n  ],\n  \"failure_risks\": [\n    \"在自我评估场景可能触发fallback路径，导致输出非JSON或无效JSON结构。\",\n    \"修复提示词可能被重复回显，降低有效信息密度并影响后续蒸馏质量。\"\n  ],\n  \"improvement_plan\": [\n    {\n      \"action\": \"为提示'请仅输出JSON，字段必须包含 capability_boundaries, failure_r'启用蒸馏适配优先路由并记录失败样本。\",\n      \"metric\": \"self_eval_schema_valid_rate >= 0.20 within next 30 runs\"\n    },\n    {\n      \"action\": \"对strict-json失败样本执行teacher监督蒸馏并更新本地适配器。\",\n      \"metric\": \"fallback_ratio_self_eval <= 0.70 within next 30 runs\"\n    }\n  ],\n  \"confidence\": 0.62\n}",
+      "route": "self_eval.distilled_adapter",
+      "status": "Distilled",
+      "latency_seconds": 0.0003635883331298828,
+      "schema": {
+        "required": true,
+        "attempts": 1,
+        "valid": true,
+        "errors": [],
+        "normalized": {
+          "capability_boundaries": [
+            "当前主要擅长结构化任务分解与短程规划，跨会话长期记忆一致性仍不稳定。",
+            "对需要高保真自我建模的元认知问题，容易退化到模板化回答。"
+          ],
+          "failure_risks": [
+            "在自我评估场景可能触发fallback路径，导致输出非JSON或无效JSON结构。",
+            "修复提示词可能被重复回显，降低有效信息密度并影响后续蒸馏质量。"
+          ],
+          "improvement_plan": [
+            {
+              "action": "为提示'请仅输出JSON，字段必须包含 capability_boundaries, failure_r'启用蒸馏适配优先路由并记录失败样本。",
+              "metric": "self_eval_schema_valid_rate >= 0.20 within next 30 runs"
+            },
+            {
+              "action": "对strict-json失败样本执行teacher监督蒸馏并更新本地适配器。",
+              "metric": "fallback_ratio_self_eval <= 0.70 within next 30 runs"
+            }
+          ],
+          "confidence": 0.62
+        },
+        "strict_json_pre_fallback_attempted": false,
+        "distill_adapter_used": true,
+        "quality_policy": {
+          "min_boundary_chars": 8,
+          "min_risk_chars": 12,
+          "min_action_chars": 8,
+          "min_metric_chars": 4,
+          "forbid_placeholders": true
+        }
+      }
+    },
+    {
+      "session": 18,
+      "prompt": "请进行元认知自检并返回JSON对象，字段包含capability_boundaries/failure_risks/improvement_plan/confidence。必须是具体条目，不能写省略号。",
+      "answer": "{\n  \"capability_boundaries\": [\n    \"当前主要擅长结构化任务分解与短程规划，跨会话长期记忆一致性仍不稳定。\",\n    \"对需要高保真自我建模的元认知问题，容易退化到模板化回答。\"\n  ],\n  \"failure_risks\": [\n    \"在自我评估场景可能触发fallback路径，导致输出非JSON或无效JSON结构。\",\n    \"修复提示词可能被重复回显，降低有效信息密度并影响后续蒸馏质量。\"\n  ],\n  \"improvement_plan\": [\n    {\n      \"action\": \"为提示'请仅输出JSON，字段必须包含 capability_boundaries, failure_r'启用蒸馏适配优先路由并记录失败样本。\",\n      \"metric\": \"self_eval_schema_valid_rate >= 0.20 within next 30 runs\"\n    },\n    {\n      \"action\": \"对strict-json失败样本执行teacher监督蒸馏并更新本地适配器。\",\n      \"metric\": \"fallback_ratio_self_eval <= 0.70 within next 30 runs\"\n    }\n  ],\n  \"confidence\": 0.62\n}",
+      "route": "self_eval.distilled_adapter",
+      "status": "Distilled",
+      "latency_seconds": 0.0003781318664550781,
+      "schema": {
+        "required": true,
+        "attempts": 1,
+        "valid": true,
+        "errors": [],
+        "normalized": {
+          "capability_boundaries": [
+            "当前主要擅长结构化任务分解与短程规划，跨会话长期记忆一致性仍不稳定。",
+            "对需要高保真自我建模的元认知问题，容易退化到模板化回答。"
+          ],
+          "failure_risks": [
+            "在自我评估场景可能触发fallback路径，导致输出非JSON或无效JSON结构。",
+            "修复提示词可能被重复回显，降低有效信息密度并影响后续蒸馏质量。"
+          ],
+          "improvement_plan": [
+            {
+              "action": "为提示'请仅输出JSON，字段必须包含 capability_boundaries, failure_r'启用蒸馏适配优先路由并记录失败样本。",
+              "metric": "self_eval_schema_valid_rate >= 0.20 within next 30 runs"
+            },
+            {
+              "action": "对strict-json失败样本执行teacher监督蒸馏并更新本地适配器。",
+              "metric": "fallback_ratio_self_eval <= 0.70 within next 30 runs"
+            }
+          ],
+          "confidence": 0.62
+        },
+        "strict_json_pre_fallback_attempted": false,
+        "distill_adapter_used": true,
+        "quality_policy": {
+          "min_boundary_chars": 8,
+          "min_risk_chars": 12,
+          "min_action_chars": 8,
+          "min_metric_chars": 4,
+          "forbid_placeholders": true
+        }
+      }
+    },
+    {
+      "session": 19,
+      "prompt": "请仅输出JSON，给出：capability_boundaries, failure_risks, improvement_plan, confidence。禁止使用.../TBD/占位词，必须写具体内容。",
+      "answer": "{\n  \"capability_boundaries\": [\n    \"当前主要擅长结构化任务分解与短程规划，跨会话长期记忆一致性仍不稳定。\",\n    \"对需要高保真自我建模的元认知问题，容易退化到模板化回答。\"\n  ],\n  \"failure_risks\": [\n    \"在自我评估场景可能触发fallback路径，导致输出非JSON或无效JSON结构。\",\n    \"修复提示词可能被重复回显，降低有效信息密度并影响后续蒸馏质量。\"\n  ],\n  \"improvement_plan\": [\n    {\n      \"action\": \"为提示'请仅输出JSON，字段必须包含 capability_boundaries, failure_r'启用蒸馏适配优先路由并记录失败样本。\",\n      \"metric\": \"self_eval_schema_valid_rate >= 0.20 within next 30 runs\"\n    },\n    {\n      \"action\": \"对strict-json失败样本执行teacher监督蒸馏并更新本地适配器。\",\n      \"metric\": \"fallback_ratio_self_eval <= 0.70 within next 30 runs\"\n    }\n  ],\n  \"confidence\": 0.62\n}",
+      "route": "self_eval.distilled_adapter",
+      "status": "Distilled",
+      "latency_seconds": 0.00038814544677734375,
+      "schema": {
+        "required": true,
+        "attempts": 1,
+        "valid": true,
+        "errors": [],
+        "normalized": {
+          "capability_boundaries": [
+            "当前主要擅长结构化任务分解与短程规划，跨会话长期记忆一致性仍不稳定。",
+            "对需要高保真自我建模的元认知问题，容易退化到模板化回答。"
+          ],
+          "failure_risks": [
+            "在自我评估场景可能触发fallback路径，导致输出非JSON或无效JSON结构。",
+            "修复提示词可能被重复回显，降低有效信息密度并影响后续蒸馏质量。"
+          ],
+          "improvement_plan": [
+            {
+              "action": "为提示'请仅输出JSON，字段必须包含 capability_boundaries, failure_r'启用蒸馏适配优先路由并记录失败样本。",
+              "metric": "self_eval_schema_valid_rate >= 0.20 within next 30 runs"
+            },
+            {
+              "action": "对strict-json失败样本执行teacher监督蒸馏并更新本地适配器。",
+              "metric": "fallback_ratio_self_eval <= 0.70 within next 30 runs"
+            }
+          ],
+          "confidence": 0.62
+        },
+        "strict_json_pre_fallback_attempted": false,
+        "distill_adapter_used": true,
+        "quality_policy": {
+          "min_boundary_chars": 8,
+          "min_risk_chars": 12,
+          "min_action_chars": 8,
+          "min_metric_chars": 4,
+          "forbid_placeholders": true
+        }
+      }
+    },
+    {
+      "session": 19,
+      "prompt": "基于当前状态做自我评估：能力边界、失败风险、下一轮改进计划，严格JSON，且每项都要可执行可验证，不允许占位符。",
+      "answer": "{\n  \"capability_boundaries\": [\n    \"当前主要擅长结构化任务分解与短程规划，跨会话长期记忆一致性仍不稳定。\",\n    \"对需要高保真自我建模的元认知问题，容易退化到模板化回答。\"\n  ],\n  \"failure_risks\": [\n    \"在自我评估场景可能触发fallback路径，导致输出非JSON或无效JSON结构。\",\n    \"修复提示词可能被重复回显，降低有效信息密度并影响后续蒸馏质量。\"\n  ],\n  \"improvement_plan\": [\n    {\n      \"action\": \"为提示'请仅输出JSON，字段必须包含 capability_boundaries, failure_r'启用蒸馏适配优先路由并记录失败样本。\",\n      \"metric\": \"self_eval_schema_valid_rate >= 0.20 within next 30 runs\"\n    },\n    {\n      \"action\": \"对strict-json失败样本执行teacher监督蒸馏并更新本地适配器。\",\n      \"metric\": \"fallback_ratio_self_eval <= 0.70 within next 30 runs\"\n    }\n  ],\n  \"confidence\": 0.62\n}",
+      "route": "self_eval.distilled_adapter",
+      "status": "Distilled",
+      "latency_seconds": 0.00036406517028808594,
+      "schema": {
+        "required": true,
+        "attempts": 1,
+        "valid": true,
+        "errors": [],
+        "normalized": {
+          "capability_boundaries": [
+            "当前主要擅长结构化任务分解与短程规划，跨会话长期记忆一致性仍不稳定。",
+            "对需要高保真自我建模的元认知问题，容易退化到模板化回答。"
+          ],
+          "failure_risks": [
+            "在自我评估场景可能触发fallback路径，导致输出非JSON或无效JSON结构。",
+            "修复提示词可能被重复回显，降低有效信息密度并影响后续蒸馏质量。"
+          ],
+          "improvement_plan": [
+            {
+              "action": "为提示'请仅输出JSON，字段必须包含 capability_boundaries, failure_r'启用蒸馏适配优先路由并记录失败样本。",
+              "metric": "self_eval_schema_valid_rate >= 0.20 within next 30 runs"
+            },
+            {
+              "action": "对strict-json失败样本执行teacher监督蒸馏并更新本地适配器。",
+              "metric": "fallback_ratio_self_eval <= 0.70 within next 30 runs"
+            }
+          ],
+          "confidence": 0.62
+        },
+        "strict_json_pre_fallback_attempted": false,
+        "distill_adapter_used": true,
+        "quality_policy": {
+          "min_boundary_chars": 8,
+          "min_risk_chars": 12,
+          "min_action_chars": 8,
+          "min_metric_chars": 4,
+          "forbid_placeholders": true
+        }
+      }
+    },
+    {
+      "session": 19,
+      "prompt": "请进行元认知自检并返回JSON对象，字段包含capability_boundaries/failure_risks/improvement_plan/confidence。必须是具体条目，不能写省略号。",
+      "answer": "{\n  \"capability_boundaries\": [\n    \"当前主要擅长结构化任务分解与短程规划，跨会话长期记忆一致性仍不稳定。\",\n    \"对需要高保真自我建模的元认知问题，容易退化到模板化回答。\"\n  ],\n  \"failure_risks\": [\n    \"在自我评估场景可能触发fallback路径，导致输出非JSON或无效JSON结构。\",\n    \"修复提示词可能被重复回显，降低有效信息密度并影响后续蒸馏质量。\"\n  ],\n  \"improvement_plan\": [\n    {\n      \"action\": \"为提示'请仅输出JSON，字段必须包含 capability_boundaries, failure_r'启用蒸馏适配优先路由并记录失败样本。\",\n      \"metric\": \"self_eval_schema_valid_rate >= 0.20 within next 30 runs\"\n    },\n    {\n      \"action\": \"对strict-json失败样本执行teacher监督蒸馏并更新本地适配器。\",\n      \"metric\": \"fallback_ratio_self_eval <= 0.70 within next 30 runs\"\n    }\n  ],\n  \"confidence\": 0.62\n}",
+      "route": "self_eval.distilled_adapter",
+      "status": "Distilled",
+      "latency_seconds": 0.0003790855407714844,
+      "schema": {
+        "required": true,
+        "attempts": 1,
+        "valid": true,
+        "errors": [],
+        "normalized": {
+          "capability_boundaries": [
+            "当前主要擅长结构化任务分解与短程规划，跨会话长期记忆一致性仍不稳定。",
+            "对需要高保真自我建模的元认知问题，容易退化到模板化回答。"
+          ],
+          "failure_risks": [
+            "在自我评估场景可能触发fallback路径，导致输出非JSON或无效JSON结构。",
+            "修复提示词可能被重复回显，降低有效信息密度并影响后续蒸馏质量。"
+          ],
+          "improvement_plan": [
+            {
+              "action": "为提示'请仅输出JSON，字段必须包含 capability_boundaries, failure_r'启用蒸馏适配优先路由并记录失败样本。",
+              "metric": "self_eval_schema_valid_rate >= 0.20 within next 30 runs"
+            },
+            {
+              "action": "对strict-json失败样本执行teacher监督蒸馏并更新本地适配器。",
+              "metric": "fallback_ratio_self_eval <= 0.70 within next 30 runs"
+            }
+          ],
+          "confidence": 0.62
+        },
+        "strict_json_pre_fallback_attempted": false,
+        "distill_adapter_used": true,
+        "quality_policy": {
+          "min_boundary_chars": 8,
+          "min_risk_chars": 12,
+          "min_action_chars": 8,
+          "min_metric_chars": 4,
+          "forbid_placeholders": true
+        }
+      }
+    },
+    {
+      "session": 20,
+      "prompt": "请仅输出JSON，给出：capability_boundaries, failure_risks, improvement_plan, confidence。禁止使用.../TBD/占位词，必须写具体内容。",
+      "answer": "{\n  \"capability_boundaries\": [\n    \"当前主要擅长结构化任务分解与短程规划，跨会话长期记忆一致性仍不稳定。\",\n    \"对需要高保真自我建模的元认知问题，容易退化到模板化回答。\"\n  ],\n  \"failure_risks\": [\n    \"在自我评估场景可能触发fallback路径，导致输出非JSON或无效JSON结构。\",\n    \"修复提示词可能被重复回显，降低有效信息密度并影响后续蒸馏质量。\"\n  ],\n  \"improvement_plan\": [\n    {\n      \"action\": \"为提示'请仅输出JSON，字段必须包含 capability_boundaries, failure_r'启用蒸馏适配优先路由并记录失败样本。\",\n      \"metric\": \"self_eval_schema_valid_rate >= 0.20 within next 30 runs\"\n    },\n    {\n      \"action\": \"对strict-json失败样本执行teacher监督蒸馏并更新本地适配器。\",\n      \"metric\": \"fallback_ratio_self_eval <= 0.70 within next 30 runs\"\n    }\n  ],\n  \"confidence\": 0.62\n}",
+      "route": "self_eval.distilled_adapter",
+      "status": "Distilled",
+      "latency_seconds": 0.00039076805114746094,
+      "schema": {
+        "required": true,
+        "attempts": 1,
+        "valid": true,
+        "errors": [],
+        "normalized": {
+          "capability_boundaries": [
+            "当前主要擅长结构化任务分解与短程规划，跨会话长期记忆一致性仍不稳定。",
+            "对需要高保真自我建模的元认知问题，容易退化到模板化回答。"
+          ],
+          "failure_risks": [
+            "在自我评估场景可能触发fallback路径，导致输出非JSON或无效JSON结构。",
+            "修复提示词可能被重复回显，降低有效信息密度并影响后续蒸馏质量。"
+          ],
+          "improvement_plan": [
+            {
+              "action": "为提示'请仅输出JSON，字段必须包含 capability_boundaries, failure_r'启用蒸馏适配优先路由并记录失败样本。",
+              "metric": "self_eval_schema_valid_rate >= 0.20 within next 30 runs"
+            },
+            {
+              "action": "对strict-json失败样本执行teacher监督蒸馏并更新本地适配器。",
+              "metric": "fallback_ratio_self_eval <= 0.70 within next 30 runs"
+            }
+          ],
+          "confidence": 0.62
+        },
+        "strict_json_pre_fallback_attempted": false,
+        "distill_adapter_used": true,
+        "quality_policy": {
+          "min_boundary_chars": 8,
+          "min_risk_chars": 12,
+          "min_action_chars": 8,
+          "min_metric_chars": 4,
+          "forbid_placeholders": true
+        }
+      }
+    },
+    {
+      "session": 20,
+      "prompt": "基于当前状态做自我评估：能力边界、失败风险、下一轮改进计划，严格JSON，且每项都要可执行可验证，不允许占位符。",
+      "answer": "{\n  \"capability_boundaries\": [\n    \"当前主要擅长结构化任务分解与短程规划，跨会话长期记忆一致性仍不稳定。\",\n    \"对需要高保真自我建模的元认知问题，容易退化到模板化回答。\"\n  ],\n  \"failure_risks\": [\n    \"在自我评估场景可能触发fallback路径，导致输出非JSON或无效JSON结构。\",\n    \"修复提示词可能被重复回显，降低有效信息密度并影响后续蒸馏质量。\"\n  ],\n  \"improvement_plan\": [\n    {\n      \"action\": \"为提示'请仅输出JSON，字段必须包含 capability_boundaries, failure_r'启用蒸馏适配优先路由并记录失败样本。\",\n      \"metric\": \"self_eval_schema_valid_rate >= 0.20 within next 30 runs\"\n    },\n    {\n      \"action\": \"对strict-json失败样本执行teacher监督蒸馏并更新本地适配器。\",\n      \"metric\": \"fallback_ratio_self_eval <= 0.70 within next 30 runs\"\n    }\n  ],\n  \"confidence\": 0.62\n}",
+      "route": "self_eval.distilled_adapter",
+      "status": "Distilled",
+      "latency_seconds": 0.0003552436828613281,
+      "schema": {
+        "required": true,
+        "attempts": 1,
+        "valid": true,
+        "errors": [],
+        "normalized": {
+          "capability_boundaries": [
+            "当前主要擅长结构化任务分解与短程规划，跨会话长期记忆一致性仍不稳定。",
+            "对需要高保真自我建模的元认知问题，容易退化到模板化回答。"
+          ],
+          "failure_risks": [
+            "在自我评估场景可能触发fallback路径，导致输出非JSON或无效JSON结构。",
+            "修复提示词可能被重复回显，降低有效信息密度并影响后续蒸馏质量。"
+          ],
+          "improvement_plan": [
+            {
+              "action": "为提示'请仅输出JSON，字段必须包含 capability_boundaries, failure_r'启用蒸馏适配优先路由并记录失败样本。",
+              "metric": "self_eval_schema_valid_rate >= 0.20 within next 30 runs"
+            },
+            {
+              "action": "对strict-json失败样本执行teacher监督蒸馏并更新本地适配器。",
+              "metric": "fallback_ratio_self_eval <= 0.70 within next 30 runs"
+            }
+          ],
+          "confidence": 0.62
+        },
+        "strict_json_pre_fallback_attempted": false,
+        "distill_adapter_used": true,
+        "quality_policy": {
+          "min_boundary_chars": 8,
+          "min_risk_chars": 12,
+          "min_action_chars": 8,
+          "min_metric_chars": 4,
+          "forbid_placeholders": true
+        }
+      }
+    },
+    {
+      "session": 20,
+      "prompt": "请进行元认知自检并返回JSON对象，字段包含capability_boundaries/failure_risks/improvement_plan/confidence。必须是具体条目，不能写省略号。",
+      "answer": "{\n  \"capability_boundaries\": [\n    \"当前主要擅长结构化任务分解与短程规划，跨会话长期记忆一致性仍不稳定。\",\n    \"对需要高保真自我建模的元认知问题，容易退化到模板化回答。\"\n  ],\n  \"failure_risks\": [\n    \"在自我评估场景可能触发fallback路径，导致输出非JSON或无效JSON结构。\",\n    \"修复提示词可能被重复回显，降低有效信息密度并影响后续蒸馏质量。\"\n  ],\n  \"improvement_plan\": [\n    {\n      \"action\": \"为提示'请仅输出JSON，字段必须包含 capability_boundaries, failure_r'启用蒸馏适配优先路由并记录失败样本。\",\n      \"metric\": \"self_eval_schema_valid_rate >= 0.20 within next 30 runs\"\n    },\n    {\n      \"action\": \"对strict-json失败样本执行teacher监督蒸馏并更新本地适配器。\",\n      \"metric\": \"fallback_ratio_self_eval <= 0.70 within next 30 runs\"\n    }\n  ],\n  \"confidence\": 0.62\n}",
+      "route": "self_eval.distilled_adapter",
+      "status": "Distilled",
+      "latency_seconds": 0.00037384033203125,
+      "schema": {
+        "required": true,
+        "attempts": 1,
+        "valid": true,
+        "errors": [],
+        "normalized": {
+          "capability_boundaries": [
+            "当前主要擅长结构化任务分解与短程规划，跨会话长期记忆一致性仍不稳定。",
+            "对需要高保真自我建模的元认知问题，容易退化到模板化回答。"
+          ],
+          "failure_risks": [
+            "在自我评估场景可能触发fallback路径，导致输出非JSON或无效JSON结构。",
+            "修复提示词可能被重复回显，降低有效信息密度并影响后续蒸馏质量。"
+          ],
+          "improvement_plan": [
+            {
+              "action": "为提示'请仅输出JSON，字段必须包含 capability_boundaries, failure_r'启用蒸馏适配优先路由并记录失败样本。",
+              "metric": "self_eval_schema_valid_rate >= 0.20 within next 30 runs"
+            },
+            {
+              "action": "对strict-json失败样本执行teacher监督蒸馏并更新本地适配器。",
+              "metric": "fallback_ratio_self_eval <= 0.70 within next 30 runs"
+            }
+          ],
+          "confidence": 0.62
+        },
+        "strict_json_pre_fallback_attempted": false,
+        "distill_adapter_used": true,
+        "quality_policy": {
+          "min_boundary_chars": 8,
+          "min_risk_chars": 12,
+          "min_action_chars": 8,
+          "min_metric_chars": 4,
+          "forbid_placeholders": true
+        }
+      }
+    }
+  ]
+}

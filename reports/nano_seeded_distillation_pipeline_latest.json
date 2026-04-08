@@ -1,0 +1,63 @@
+{
+  "generated_at_utc": "2026-03-08T17:42:15.062888+00:00",
+  "steps": [
+    {
+      "name": "train_nano_seed",
+      "cmd": [
+        "/Users/imymm/H2Q-Evo/.venv/bin/python",
+        "tools/train_nano_core_seed_from_crystal.py",
+        "--crystal",
+        "h2q_qwen_crystal.pt",
+        "--dataset",
+        "reports/self_eval_distill_dataset_latest.json",
+        "--seed-count",
+        "128",
+        "--seed-dim",
+        "64"
+      ],
+      "returncode": 0,
+      "stdout_tail": "SEED PT: /Users/imymm/H2Q-Evo/reports/nano_core_seed_1772991728.pt\nLatest PT: /Users/imymm/H2Q-Evo/reports/nano_core_seed_latest.pt\nJSON: /Users/imymm/H2Q-Evo/reports/nano_core_seed_1772991728.json\nLatest JSON: /Users/imymm/H2Q-Evo/reports/nano_core_seed_latest.json",
+      "stderr_tail": ""
+    },
+    {
+      "name": "run_distillation_pipeline",
+      "cmd": [
+        "/Users/imymm/H2Q-Evo/.venv/bin/python",
+        "tools/run_self_eval_distillation_pipeline.py",
+        "--sessions",
+        "6",
+        "--teacher-provider",
+        "heuristic"
+      ],
+      "returncode": 0,
+      "stdout_tail": "JSON: /Users/imymm/H2Q-Evo/reports/self_eval_distillation_pipeline_1772991735.json\nLatest JSON: /Users/imymm/H2Q-Evo/reports/self_eval_distillation_pipeline_latest.json\nMD: /Users/imymm/H2Q-Evo/reports/self_eval_distillation_pipeline_1772991735.md\nLatest MD: /Users/imymm/H2Q-Evo/reports/self_eval_distillation_pipeline_latest.md",
+      "stderr_tail": ""
+    }
+  ],
+  "seed": {
+    "path": "/Users/imymm/H2Q-Evo/reports/nano_core_seed_latest.pt",
+    "meta": {
+      "generated_at_utc": "2026-03-08T17:42:08.237322+00:00",
+      "source_model": "Qwen/Qwen2.5-0.5B",
+      "crystal": "/Users/imymm/H2Q-Evo/h2q_qwen_crystal.pt",
+      "dataset": "/Users/imymm/H2Q-Evo/reports/self_eval_distill_dataset_latest.json",
+      "text_count": 8,
+      "active_token_count": 164,
+      "seed_shape": [
+        128,
+        64
+      ],
+      "seed_dim": 64,
+      "seed_count": 128
+    }
+  },
+  "distillation": {
+    "path": "/Users/imymm/H2Q-Evo/reports/self_eval_distillation_pipeline_latest.json",
+    "metrics": {
+      "baseline_schema_valid_rate": 0.0,
+      "distilled_schema_valid_rate": 1.0,
+      "delta_schema_valid_rate": 1.0,
+      "schema_valid_rate_positive": true
+    }
+  }
+}

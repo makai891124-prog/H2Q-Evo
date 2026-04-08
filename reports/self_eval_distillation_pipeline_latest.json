@@ -1,0 +1,55 @@
+{
+  "generated_at_utc": "2026-03-07T04:38:44.833375+00:00",
+  "steps": [
+    {
+      "name": "collect_samples",
+      "cmd": [
+        "/Users/imymm/H2Q-Evo/.venv/bin/python",
+        "tools/collect_self_eval_distill_samples.py",
+        "--teacher-provider",
+        "deepseek",
+        "--teacher-key-file",
+        "/Users/imymm/H2Q-Evo/secrets/deepseek_api_key.txt"
+      ],
+      "returncode": 0,
+      "stdout_tail": "JSON: /Users/imymm/H2Q-Evo/reports/self_eval_distill_dataset_1772858293.json\nLatest JSON: /Users/imymm/H2Q-Evo/reports/self_eval_distill_dataset_latest.json\nMD: /Users/imymm/H2Q-Evo/reports/self_eval_distill_dataset_1772858293.md\nLatest MD: /Users/imymm/H2Q-Evo/reports/self_eval_distill_dataset_latest.md",
+      "stderr_tail": ""
+    },
+    {
+      "name": "train_adapter",
+      "cmd": [
+        "/Users/imymm/H2Q-Evo/.venv/bin/python",
+        "tools/train_self_eval_distillation_adapter.py",
+        "--dataset",
+        "reports/self_eval_distill_dataset_latest.json"
+      ],
+      "returncode": 0,
+      "stdout_tail": "JSON: /Users/imymm/H2Q-Evo/reports/self_eval_distill_model_1772858294.json\nLatest JSON: /Users/imymm/H2Q-Evo/reports/self_eval_distill_model_latest.json\nMD: /Users/imymm/H2Q-Evo/reports/self_eval_distill_model_1772858294.md\nLatest MD: /Users/imymm/H2Q-Evo/reports/self_eval_distill_model_latest.md",
+      "stderr_tail": ""
+    },
+    {
+      "name": "distilled_benchmark",
+      "cmd": [
+        "/Users/imymm/H2Q-Evo/.venv/bin/python",
+        "tools/run_self_model_consistency_benchmark.py",
+        "--sessions",
+        "50",
+        "--schema-retries",
+        "2",
+        "--output-prefix",
+        "self_model_consistency_distilled",
+        "--self-eval-distill-model",
+        "reports/self_eval_distill_model_latest.json"
+      ],
+      "returncode": 0,
+      "stdout_tail": "JSON: /Users/imymm/H2Q-Evo/reports/self_model_consistency_distilled_1772858324.json\nMD: /Users/imymm/H2Q-Evo/reports/self_model_consistency_distilled_1772858324.md\nLatest JSON: /Users/imymm/H2Q-Evo/reports/self_model_consistency_distilled_latest.json\nLatest MD: /Users/imymm/H2Q-Evo/reports/self_model_consistency_distilled_latest.md",
+      "stderr_tail": ""
+    }
+  ],
+  "metrics": {
+    "baseline_schema_valid_rate": 0.0,
+    "distilled_schema_valid_rate": 1.0,
+    "delta_schema_valid_rate": 1.0,
+    "schema_valid_rate_positive": true
+  }
+}

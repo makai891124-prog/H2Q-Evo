@@ -1,0 +1,14 @@
+{
+  "generated_at_utc": "2026-03-10T15:07:19.306258+00:00",
+  "source_model": "Qwen/Qwen2.5-0.5B",
+  "crystal": "/Users/imymm/H2Q-Evo/h2q_qwen_crystal.pt",
+  "dataset": "/Users/imymm/H2Q-Evo/reports/self_eval_distill_dataset_latest.json",
+  "text_count": 160,
+  "active_token_count": 240,
+  "seed_shape": [
+    128,
+    64
+  ],
+  "seed_dim": 64,
+  "seed_count": 128
+}

@@ -1,0 +1,29 @@
+{
+  "paper": {
+    "title": "Ray structures on Teichmuller Space",
+    "url": "https://arxiv.org/pdf/2206.01371"
+  },
+  "model_parameters": {
+    "seed": 220601371,
+    "r_critical": 2.6822015375523764,
+    "r_upper": 0.95,
+    "num_r": 64,
+    "num_s": 160,
+    "boundary_samples": 360
+  },
+  "checks": {
+    "all_hessian_positive": true,
+    "convergence_improves": true,
+    "boundary_coverage_good": true
+  },
+  "metrics": {
+    "min_hessian_eigenvalue": 1.723487370983744,
+    "max_hessian_eigenvalue": 2.4614835192865496,
+    "max_condition_number": 1.4375544069208612,
+    "max_error_start": 0.7236732967153714,
+    "max_error_end": 0.005257577640153662,
+    "boundary_coverage_ratio": 1.0,
+    "r_error_correlation": -0.9851136198901738,
+    "error_profile_curvature": 0.05383556692044245
+  }
+}

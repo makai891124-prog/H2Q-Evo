@@ -1,0 +1,45 @@
+{
+  "generated_at_utc": "2026-03-06T15:11:48.444159+00:00",
+  "inputs": {
+    "step1": "/Users/imymm/H2Q-Evo/reports/one_click_step1_responses_1772809750.json",
+    "step2": "/Users/imymm/H2Q-Evo/reports/one_click_step2_full_1772809370.json",
+    "step3": "/Users/imymm/H2Q-Evo/reports/trusted_local_agi_chat_session_1772809684.json"
+  },
+  "scores": {
+    "step1_protocol": {
+      "score": 100,
+      "verdict": "pass",
+      "checks": {
+        "object_is_response": true,
+        "status_completed": true,
+        "has_output_text": true,
+        "has_usage": true
+      }
+    },
+    "step2_full_chain": {
+      "score": 100,
+      "verdict": "pass",
+      "checks": {
+        "mode_full": true,
+        "ok_true": true,
+        "confidence_present": true,
+        "artifacts_present": true
+      }
+    },
+    "step3_trusted_chat": {
+      "score": 100,
+      "verdict": "pass",
+      "checks": {
+        "trusted_ready": true,
+        "trust_score_gte_07": true,
+        "has_transcript": true,
+        "assistant_non_empty": true,
+        "contains_code_fence": true,
+        "has_route": true,
+        "latency_recorded": true
+      }
+    },
+    "overall": 100,
+    "grade": "A"
+  }
+}

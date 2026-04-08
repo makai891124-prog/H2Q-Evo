@@ -1,0 +1,3018 @@
+{
+  "paper": {
+    "title": "Ray structures on Teichmuller Space",
+    "url": "https://arxiv.org/pdf/2206.01371"
+  },
+  "grid": {
+    "ay_scales": [
+      0.8,
+      0.9,
+      1.0,
+      1.1,
+      1.2
+    ],
+    "az_scales": [
+      0.8,
+      0.9,
+      1.0,
+      1.1,
+      1.2
+    ],
+    "seeds": [
+      220601371,
+      220601401,
+      220601431,
+      220601461,
+      220601491
+    ],
+    "num_cases": 125,
+    "num_r": 44,
+    "num_s": 104
+  },
+  "cases": [
+    {
+      "ay_scale": 0.8,
+      "az_scale": 0.8,
+      "seed": 220601371,
+      "r_critical": 2.681916115592159,
+      "r_upper": 0.95,
+      "min_hessian_eigenvalue": 1.3783446928485878,
+      "max_condition_number": 1.4374746019513263,
+      "max_error_start": 0.7236456565287658,
+      "max_error_end": 0.0048832384080442,
+      "error_drop_ratio": 148.1897044667527,
+      "error_profile_curvature": 0.04701370278579511,
+      "boundary_coverage_ratio": 1.0,
+      "r_error_correlation": -0.9865457599459732,
+      "checks": {
+        "hessian_positive": true,
+        "convergence_improves": true,
+        "coverage_good": true
+      }
+    },
+    {
+      "ay_scale": 0.8,
+      "az_scale": 0.8,
+      "seed": 220601401,
+      "r_critical": 2.68206657956604,
+      "r_upper": 0.95,
+      "min_hessian_eigenvalue": 1.3807426233054028,
+      "max_condition_number": 1.4366496113084837,
+      "max_error_start": 0.7638755957712956,
+      "max_error_end": 0.008264876543756195,
+      "error_drop_ratio": 92.4243201610041,
+      "error_profile_curvature": 0.07181421692803766,
+      "boundary_coverage_ratio": 1.0,
+      "r_error_correlation": -0.9839180366022298,
+      "checks": {
+        "hessian_positive": true,
+        "convergence_improves": true,
+        "coverage_good": true
+      }
+    },
+    {
+      "ay_scale": 0.8,
+      "az_scale": 0.8,
+      "seed": 220601431,
+      "r_critical": 2.681942459776931,
+      "r_upper": 0.95,
+      "min_hessian_eigenvalue": 1.3790015211136968,
+      "max_condition_number": 1.43721383921481,
+      "max_error_start": 0.7798211821842765,
+      "max_error_end": 0.005237364700877266,
+      "error_drop_ratio": 148.89571888198952,
+      "error_profile_curvature": 0.04809605972879433,
+      "boundary_coverage_ratio": 1.0,
+      "r_error_correlation": -0.9822697008996201,
+      "checks": {
+        "hessian_positive": true,
+        "convergence_improves": true,
+        "coverage_good": true
+      }
+    },
+    {
+      "ay_scale": 0.8,
+      "az_scale": 0.8,
+      "seed": 220601461,
+      "r_critical": 2.6827656107570954,
+      "r_upper": 0.95,
+      "min_hessian_eigenvalue": 1.3779938402869787,
+      "max_condition_number": 1.4378397958918376,
+      "max_error_start": 0.6493695345924002,
+      "max_error_end": 0.006093554218845642,
+      "error_drop_ratio": 106.56662946956041,
+      "error_profile_curvature": 0.06255968838523847,
+      "boundary_coverage_ratio": 1.0,
+      "r_error_correlation": -0.9818941274033266,
+      "checks": {
+        "hessian_positive": true,
+        "convergence_improves": true,
+        "coverage_good": true
+      }
+    },
+    {
+      "ay_scale": 0.8,
+      "az_scale": 0.8,
+      "seed": 220601491,
+      "r_critical": 2.6817309430078398,
+      "r_upper": 0.95,
+      "min_hessian_eigenvalue": 1.3825181627400316,
+      "max_condition_number": 1.4354569925718061,
+      "max_error_start": 0.7706154422083266,
+      "max_error_end": 0.005521465061895646,
+      "error_drop_ratio": 139.56720427816245,
+      "error_profile_curvature": 0.06493391274318704,
+      "boundary_coverage_ratio": 1.0,
+      "r_error_correlation": -0.9857222075199346,
+      "checks": {
+        "hessian_positive": true,
+        "convergence_improves": true,
+        "coverage_good": true
+      }
+    },
+    {
+      "ay_scale": 0.8,
+      "az_scale": 0.9,
+      "seed": 220601371,
+      "r_critical": 2.384802210367871,
+      "r_upper": 0.95,
+      "min_hessian_eigenvalue": 1.3202385773602443,
+      "max_condition_number": 1.4275323552953405,
+      "max_error_start": 0.7234264510209895,
+      "max_error_end": 0.0045678725583989275,
+      "error_drop_ratio": 158.3727308002121,
+      "error_profile_curvature": 0.04695337579153118,
+      "boundary_coverage_ratio": 1.0,
+      "r_error_correlation": -0.9865669845252167,
+      "checks": {
+        "hessian_positive": true,
+        "convergence_improves": true,
+        "coverage_good": true
+      }
+    },
+    {
+      "ay_scale": 0.8,
+      "az_scale": 0.9,
+      "seed": 220601401,
+      "r_critical": 2.384882195797391,
+      "r_upper": 0.95,
+      "min_hessian_eigenvalue": 1.3053628999515743,
+      "max_condition_number": 1.4372112334103675,
+      "max_error_start": 0.7638886615301232,
+      "max_error_end": 0.007973482066369969,
+      "error_drop_ratio": 95.80364703546557,
+      "error_profile_curvature": 0.07178736381205882,
+      "boundary_coverage_ratio": 1.0,
+      "r_error_correlation": -0.9839372190676811,
+      "checks": {
+        "hessian_positive": true,
+        "convergence_improves": true,
+        "coverage_good": true
+      }
+    },
+    {
+      "ay_scale": 0.8,
+      "az_scale": 0.9,
+      "seed": 220601431,
+      "r_critical": 2.3789094798809023,
+      "r_upper": 0.95,
+      "min_hessian_eigenvalue": 1.3104356305982674,
+      "max_condition_number": 1.4338744784108939,
+      "max_error_start": 0.7797418632927495,
+      "max_error_end": 0.004968805321908938,
+      "error_drop_ratio": 156.92743280857397,
+      "error_profile_curvature": 0.04805896641348221,
+      "boundary_coverage_ratio": 1.0,
+      "r_error_correlation": -0.9822963048237728,
+      "checks": {
+        "hessian_positive": true,
+        "convergence_improves": true,
+        "coverage_good": true
+      }
+    },
+    {
+      "ay_scale": 0.8,
+      "az_scale": 0.9,
+      "seed": 220601461,
+      "r_critical": 2.3860469670684408,
+      "r_upper": 0.95,
+      "min_hessian_eigenvalue": 1.3043320973605348,
+      "max_condition_number": 1.4384090033311925,
+      "max_error_start": 0.6493807900844405,
+      "max_error_end": 0.005874922785836545,
+      "error_drop_ratio": 110.5343531748177,
+      "error_profile_curvature": 0.06253757172942986,
+      "boundary_coverage_ratio": 1.0,
+      "r_error_correlation": -0.9819134663696065,
+      "checks": {
+        "hessian_positive": true,
+        "convergence_improves": true,
+        "coverage_good": true
+      }
+    },
+    {
+      "ay_scale": 0.8,
+      "az_scale": 0.9,
+      "seed": 220601491,
+      "r_critical": 2.3836016892246157,
+      "r_upper": 0.95,
+      "min_hessian_eigenvalue": 1.3062359110975323,
+      "max_condition_number": 1.4377014384665885,
+      "max_error_start": 0.7706681221296953,
+      "max_error_end": 0.005337520870356215,
+      "error_drop_ratio": 144.38690561565195,
+      "error_profile_curvature": 0.06491042786189674,
+      "boundary_coverage_ratio": 1.0,
+      "r_error_correlation": -0.9857347524007152,
+      "checks": {
+        "hessian_positive": true,
+        "convergence_improves": true,
+        "coverage_good": true
+      }
+    },
+    {
+      "ay_scale": 0.8,
+      "az_scale": 1.0,
+      "seed": 220601371,
+      "r_critical": 2.147758458831283,
+      "r_upper": 0.95,
+      "min_hessian_eigenvalue": 1.2337889111377125,
+      "max_condition_number": 1.4373629999353466,
+      "max_error_start": 0.723643197098916,
+      "max_error_end": 0.004478630030628823,
+      "error_drop_ratio": 161.576909043615,
+      "error_profile_curvature": 0.046958618197705325,
+      "boundary_coverage_ratio": 1.0,
+      "r_error_correlation": -0.986575083739787,
+      "checks": {
+        "hessian_positive": true,
+        "convergence_improves": true,
+        "coverage_good": true
+      }
+    },
+    {
+      "ay_scale": 0.8,
+      "az_scale": 1.0,
+      "seed": 220601401,
+      "r_critical": 2.145173034065455,
+      "r_upper": 0.95,
+      "min_hessian_eigenvalue": 1.2328551332919147,
+      "max_condition_number": 1.4360157416779484,
+      "max_error_start": 0.763860848373209,
+      "max_error_end": 0.007581981546942162,
+      "error_drop_ratio": 100.7468619705724,
+      "error_profile_curvature": 0.07174736831211541,
+      "boundary_coverage_ratio": 1.0,
+      "r_error_correlation": -0.983962922697252,
+      "checks": {
+        "hessian_positive": true,
+        "convergence_improves": true,
+        "coverage_good": true
+      }
+    },
+    {
+      "ay_scale": 0.8,
+      "az_scale": 1.0,
+      "seed": 220601431,
+      "r_critical": 2.1446622987129533,
+      "r_upper": 0.95,
+      "min_hessian_eigenvalue": 1.2310056658352009,
+      "max_condition_number": 1.4380137289293935,
+      "max_error_start": 0.7798401779520482,
+      "max_error_end": 0.004817208949012062,
+      "error_drop_ratio": 161.88630931443856,
+      "error_profile_curvature": 0.04804976796450925,
+      "boundary_coverage_ratio": 1.0,
+      "r_error_correlation": -0.9823095132904985,
+      "checks": {
+        "hessian_positive": true,
+        "convergence_improves": true,
+        "coverage_good": true
+      }
+    },
+    {
+      "ay_scale": 0.8,
+      "az_scale": 1.0,
+      "seed": 220601461,
+      "r_critical": 2.1445565092794645,
+      "r_upper": 0.95,
+      "min_hessian_eigenvalue": 1.2308549783598564,
+      "max_condition_number": 1.4374845787446493,
+      "max_error_start": 0.6493625102247123,
+      "max_error_end": 0.005585458089086664,
+      "error_drop_ratio": 116.25949024548069,
+      "error_profile_curvature": 0.06250556907050508,
+      "boundary_coverage_ratio": 1.0,
+      "r_error_correlation": -0.9819390761901339,
+      "checks": {
+        "hessian_positive": true,
+        "convergence_improves": true,
+        "coverage_good": true
+      }
+    },
+    {
+      "ay_scale": 0.8,
+      "az_scale": 1.0,
+      "seed": 220601491,
+      "r_critical": 2.1479935328651454,
+      "r_upper": 0.95,
+      "min_hessian_eigenvalue": 1.2301116409851405,
+      "max_condition_number": 1.4367471328450216,
+      "max_error_start": 0.7706457247884891,
+      "max_error_end": 0.005142210273739694,
+      "error_drop_ratio": 149.86663006062446,
+      "error_profile_curvature": 0.0648804754610143,
+      "boundary_coverage_ratio": 1.0,
+      "r_error_correlation": -0.9857482081831195,
+      "checks": {
+        "hessian_positive": true,
+        "convergence_improves": true,
+        "coverage_good": true
+      }
+    },
+    {
+      "ay_scale": 0.8,
+      "az_scale": 1.1,
+      "seed": 220601371,
+      "r_critical": 1.9504789552110755,
+      "r_upper": 0.95,
+      "min_hessian_eigenvalue": 1.1575754540130299,
+      "max_condition_number": 1.4375935461328464,
+      "max_error_start": 0.723648277732448,
+      "max_error_end": 0.004243102237435321,
+      "error_drop_ratio": 170.54698125064417,
+      "error_profile_curvature": 0.04692906261165861,
+      "boundary_coverage_ratio": 1.0,
+      "r_error_correlation": -0.9865929129358588,
+      "checks": {
+        "hessian_positive": true,
+        "convergence_improves": true,
+        "coverage_good": true
+      }
+    },
+    {
+      "ay_scale": 0.8,
+      "az_scale": 1.1,
+      "seed": 220601401,
+      "r_critical": 1.9508688491451038,
+      "r_upper": 0.95,
+      "min_hessian_eigenvalue": 1.1558851700262396,
+      "max_condition_number": 1.4385010597579435,
+      "max_error_start": 0.763918665787573,
+      "max_error_end": 0.007254425478729514,
+      "error_drop_ratio": 105.30381324164625,
+      "error_profile_curvature": 0.07172475042865042,
+      "boundary_coverage_ratio": 1.0,
+      "r_error_correlation": -0.9839848409203469,
+      "checks": {
+        "hessian_positive": true,
+        "convergence_improves": true,
+        "coverage_good": true
+      }
+    },
+    {
+      "ay_scale": 0.8,
+      "az_scale": 1.1,
+      "seed": 220601431,
+      "r_critical": 1.9509105625182332,
+      "r_upper": 0.95,
+      "min_hessian_eigenvalue": 1.1587990660222323,
+      "max_condition_number": 1.4371213010151185,
+      "max_error_start": 0.7798189844939774,
+      "max_error_end": 0.004553647979370683,
+      "error_drop_ratio": 171.25148628677022,
+      "error_profile_curvature": 0.048020120236974696,
+      "boundary_coverage_ratio": 1.0,
+      "r_error_correlation": -0.9823336255996129,
+      "checks": {
+        "hessian_positive": true,
+        "convergence_improves": true,
+        "coverage_good": true
+      }
+    },
+    {
+      "ay_scale": 0.8,
+      "az_scale": 1.1,
+      "seed": 220601461,
+      "r_critical": 1.9436841461523107,
+      "r_upper": 0.95,
+      "min_hessian_eigenvalue": 1.1583172688140069,
+      "max_condition_number": 1.4371248144092248,
+      "max_error_start": 0.6493553956915139,
+      "max_error_end": 0.00524391726377221,
+      "error_drop_ratio": 123.83021375596616,
+      "error_profile_curvature": 0.06247060658920397,
+      "boundary_coverage_ratio": 1.0,
+      "r_error_correlation": -0.981969600126557,
+      "checks": {
+        "hessian_positive": true,
+        "convergence_improves": true,
+        "coverage_good": true
+      }
+    },
+    {
+      "ay_scale": 0.8,
+      "az_scale": 1.1,
+      "seed": 220601491,
+      "r_critical": 1.9506703106378391,
+      "r_upper": 0.95,
+      "min_hessian_eigenvalue": 1.1570050755460604,
+      "max_condition_number": 1.4363568539283103,
+      "max_error_start": 0.7706365644351558,
+      "max_error_end": 0.0048395785418688785,
+      "error_drop_ratio": 159.23629666676771,
+      "error_profile_curvature": 0.06483525728137252,
+      "boundary_coverage_ratio": 1.0,
+      "r_error_correlation": -0.9857688057534487,
+      "checks": {
+        "hessian_positive": true,
+        "convergence_improves": true,
+        "coverage_good": true
+      }
+    },
+    {
+      "ay_scale": 0.8,
+      "az_scale": 1.2,
+      "seed": 220601371,
+      "r_critical": 1.7929495074085093,
+      "r_upper": 0.95,
+      "min_hessian_eigenvalue": 1.0837794470244242,
+      "max_condition_number": 1.4417572131191418,
+      "max_error_start": 0.7237400145116774,
+      "max_error_end": 0.0040476836715050354,
+      "error_drop_ratio": 178.8035017673631,
+      "error_profile_curvature": 0.04691336484077235,
+      "boundary_coverage_ratio": 1.0,
+      "r_error_correlation": -0.9866089566645025,
+      "checks": {
+        "hessian_positive": true,
+        "convergence_improves": true,
+        "coverage_good": true
+      }
+    },
+    {
+      "ay_scale": 0.8,
+      "az_scale": 1.2,
+      "seed": 220601401,
+      "r_critical": 1.7877937035626041,
+      "r_upper": 0.95,
+      "min_hessian_eigenvalue": 1.0845080255530062,
+      "max_condition_number": 1.4367506423939305,
+      "max_error_start": 0.7638779462434343,
+      "max_error_end": 0.006740260792509553,
+      "error_drop_ratio": 113.33062173088781,
+      "error_profile_curvature": 0.07167521329799742,
+      "boundary_coverage_ratio": 1.0,
+      "r_error_correlation": -0.9840187583175832,
+      "checks": {
+        "hessian_positive": true,
+        "convergence_improves": true,
+        "coverage_good": true
+      }
+    },
+    {
+      "ay_scale": 0.8,
+      "az_scale": 1.2,
+      "seed": 220601431,
+      "r_critical": 1.7896436473986426,
+      "r_upper": 0.95,
+      "min_hessian_eigenvalue": 1.0874495562685904,
+      "max_condition_number": 1.435940142652233,
+      "max_error_start": 0.7797909314346289,
+      "max_error_end": 0.004249603905893747,
+      "error_drop_ratio": 183.4973208569255,
+      "error_profile_curvature": 0.04798692365130367,
+      "boundary_coverage_ratio": 1.0,
+      "r_error_correlation": -0.9823606716071108,
+      "checks": {
+        "hessian_positive": true,
+        "convergence_improves": true,
+        "coverage_good": true
+      }
+    },
+    {
+      "ay_scale": 0.8,
+      "az_scale": 1.2,
+      "seed": 220601461,
+      "r_critical": 1.7877383889338712,
+      "r_upper": 0.95,
+      "min_hessian_eigenvalue": 1.0883360622195153,
+      "max_condition_number": 1.4349076257141002,
+      "max_error_start": 0.649311544150636,
+      "max_error_end": 0.0048999423743097004,
+      "error_drop_ratio": 132.51411844248688,
+      "error_profile_curvature": 0.06243375246635535,
+      "boundary_coverage_ratio": 1.0,
+      "r_error_correlation": -0.9820006666864132,
+      "checks": {
+        "hessian_positive": true,
+        "convergence_improves": true,
+        "coverage_good": true
+      }
+    },
+    {
+      "ay_scale": 0.8,
+      "az_scale": 1.2,
+      "seed": 220601491,
+      "r_critical": 1.7892640001026252,
+      "r_upper": 0.95,
+      "min_hessian_eigenvalue": 1.0851000394791748,
+      "max_condition_number": 1.4372145482672845,
+      "max_error_start": 0.7706566951824012,
+      "max_error_end": 0.004528659552022964,
+      "error_drop_ratio": 170.17324582020012,
+      "error_profile_curvature": 0.06479418583658421,
+      "boundary_coverage_ratio": 1.0,
+      "r_error_correlation": -0.9857902013238024,
+      "checks": {
+        "hessian_positive": true,
+        "convergence_improves": true,
+        "coverage_good": true
+      }
+    },
+    {
+      "ay_scale": 0.9,
+      "az_scale": 0.8,
+      "seed": 220601371,
+      "r_critical": 3.0131452281325677,
+      "r_upper": 0.95,
+      "min_hessian_eigenvalue": 1.6251282080032952,
+      "max_condition_number": 1.4373281986786102,
+      "max_error_start": 0.7236424301606704,
+      "max_error_end": 0.005020093420863057,
+      "error_drop_ratio": 144.1491959399157,
+      "error_profile_curvature": 0.04703278830651005,
+      "boundary_coverage_ratio": 1.0,
+      "r_error_correlation": -0.9865360928761661,
+      "checks": {
+        "hessian_positive": true,
+        "convergence_improves": true,
+        "coverage_good": true
+      }
+    },
+    {
+      "ay_scale": 0.9,
+      "az_scale": 0.8,
+      "seed": 220601401,
+      "r_critical": 3.012962154627531,
+      "r_upper": 0.95,
+      "min_hessian_eigenvalue": 1.6306691005390457,
+      "max_condition_number": 1.4354072369863968,
+      "max_error_start": 0.7638466902610865,
+      "max_error_end": 0.008474965772925006,
+      "error_drop_ratio": 90.12976697809795,
+      "error_profile_curvature": 0.07183219564540753,
+      "boundary_coverage_ratio": 1.0,
+      "r_error_correlation": -0.9839042257115755,
+      "checks": {
+        "hessian_positive": true,
+        "convergence_improves": true,
+        "coverage_good": true
+      }
+    },
+    {
+      "ay_scale": 0.9,
+      "az_scale": 0.8,
+      "seed": 220601431,
+      "r_critical": 3.0191956046704767,
+      "r_upper": 0.95,
+      "min_hessian_eigenvalue": 1.6240733441610826,
+      "max_condition_number": 1.4390089458002016,
+      "max_error_start": 0.7798638102954406,
+      "max_error_end": 0.0054232842682028675,
+      "error_drop_ratio": 143.79917624230802,
+      "error_profile_curvature": 0.04812131842952566,
+      "boundary_coverage_ratio": 1.0,
+      "r_error_correlation": -0.9822510683949153,
+      "checks": {
+        "hessian_positive": true,
+        "convergence_improves": true,
+        "coverage_good": true
+      }
+    },
+    {
+      "ay_scale": 0.9,
+      "az_scale": 0.8,
+      "seed": 220601461,
+      "r_critical": 3.0173937537860933,
+      "r_upper": 0.95,
+      "min_hessian_eigenvalue": 1.6253561602556377,
+      "max_condition_number": 1.4367173612145028,
+      "max_error_start": 0.6493473377873367,
+      "max_error_end": 0.006273075602379742,
+      "error_drop_ratio": 103.51339262370782,
+      "error_profile_curvature": 0.06257747675704643,
+      "boundary_coverage_ratio": 1.0,
+      "r_error_correlation": -0.9818784725693855,
+      "checks": {
+        "hessian_positive": true,
+        "convergence_improves": true,
+        "coverage_good": true
+      }
+    },
+    {
+      "ay_scale": 0.9,
+      "az_scale": 0.8,
+      "seed": 220601491,
+      "r_critical": 3.021144300251262,
+      "r_upper": 0.95,
+      "min_hessian_eigenvalue": 1.6275400904554993,
+      "max_condition_number": 1.4377232072244426,
+      "max_error_start": 0.7706686330135475,
+      "max_error_end": 0.005728249551116418,
+      "error_drop_ratio": 134.5382435133865,
+      "error_profile_curvature": 0.06497239323373655,
+      "boundary_coverage_ratio": 1.0,
+      "r_error_correlation": -0.9857084954311393,
+      "checks": {
+        "hessian_positive": true,
+        "convergence_improves": true,
+        "coverage_good": true
+      }
+    },
+    {
+      "ay_scale": 0.9,
+      "az_scale": 0.9,
+      "seed": 220601371,
+      "r_critical": 2.675093653352245,
+      "r_upper": 0.95,
+      "min_hessian_eigenvalue": 1.5479278812117272,
+      "max_condition_number": 1.4375651254269095,
+      "max_error_start": 0.7236476514207398,
+      "max_error_end": 0.004884706229005291,
+      "error_drop_ratio": 148.1455828650931,
+      "error_profile_curvature": 0.047014140301510646,
+      "boundary_coverage_ratio": 1.0,
+      "r_error_correlation": -0.9865457049157694,
+      "checks": {
+        "hessian_positive": true,
+        "convergence_improves": true,
+        "coverage_good": true
+      }
+    },
+    {
+      "ay_scale": 0.9,
+      "az_scale": 0.9,
+      "seed": 220601401,
+      "r_critical": 2.684375707590845,
+      "r_upper": 0.95,
+      "min_hessian_eigenvalue": 1.5511327836359352,
+      "max_condition_number": 1.439074032731999,
+      "max_error_start": 0.7639319932252219,
+      "max_error_end": 0.008316915491389666,
+      "error_drop_ratio": 91.85280216158324,
+      "error_profile_curvature": 0.07182530623548539,
+      "boundary_coverage_ratio": 1.0,
+      "r_error_correlation": -0.9839147681850537,
+      "checks": {
+        "hessian_positive": true,
+        "convergence_improves": true,
+        "coverage_good": true
+      }
+    },
+    {
+      "ay_scale": 0.9,
+      "az_scale": 0.9,
+      "seed": 220601431,
+      "r_critical": 2.683487984002682,
+      "r_upper": 0.95,
+      "min_hessian_eigenvalue": 1.5613221384367866,
+      "max_condition_number": 1.4337287107541636,
+      "max_error_start": 0.7797384003357478,
+      "max_error_end": 0.005182696432716548,
+      "error_drop_ratio": 150.45033226594796,
+      "error_profile_curvature": 0.04808358665683969,
+      "boundary_coverage_ratio": 1.0,
+      "r_error_correlation": -0.9822756392635513,
+      "checks": {
+        "hessian_positive": true,
+        "convergence_improves": true,
+        "coverage_good": true
+      }
+    },
+    {
+      "ay_scale": 0.9,
+      "az_scale": 0.9,
+      "seed": 220601461,
+      "r_critical": 2.680106704600601,
+      "r_upper": 0.95,
+      "min_hessian_eigenvalue": 1.5550080935048212,
+      "max_condition_number": 1.4345779022120286,
+      "max_error_start": 0.6493050220835593,
+      "max_error_end": 0.006037387421223879,
+      "error_drop_ratio": 107.54735066379664,
+      "error_profile_curvature": 0.06254649545118551,
+      "boundary_coverage_ratio": 1.0,
+      "r_error_correlation": -0.9818986697370019,
+      "checks": {
+        "hessian_positive": true,
+        "convergence_improves": true,
+        "coverage_good": true
+      }
+    },
+    {
+      "ay_scale": 0.9,
+      "az_scale": 0.9,
+      "seed": 220601491,
+      "r_critical": 2.6764522405024986,
+      "r_upper": 0.95,
+      "min_hessian_eigenvalue": 1.5544900621886,
+      "max_condition_number": 1.4351463283941976,
+      "max_error_start": 0.7706081496392934,
+      "max_error_end": 0.005508700699092633,
+      "error_drop_ratio": 139.88927548128078,
+      "error_profile_curvature": 0.06493105148700758,
+      "boundary_coverage_ratio": 1.0,
+      "r_error_correlation": -0.9857230275917928,
+      "checks": {
+        "hessian_positive": true,
+        "convergence_improves": true,
+        "coverage_good": true
+      }
+    },
+    {
+      "ay_scale": 0.9,
+      "az_scale": 1.0,
+      "seed": 220601371,
+      "r_critical": 2.4124064509812033,
+      "r_upper": 0.95,
+      "min_hessian_eigenvalue": 1.4778731243294847,
+      "max_condition_number": 1.4374422826289268,
+      "max_error_start": 0.7236449442943013,
+      "max_error_end": 0.0047071370754925,
+      "error_drop_ratio": 153.7335609073138,
+      "error_profile_curvature": 0.0469891109067669,
+      "boundary_coverage_ratio": 1.0,
+      "r_error_correlation": -0.9865582746177698,
+      "checks": {
+        "hessian_positive": true,
+        "convergence_improves": true,
+        "coverage_good": true
+      }
+    },
+    {
+      "ay_scale": 0.9,
+      "az_scale": 1.0,
+      "seed": 220601401,
+      "r_critical": 2.413450682851391,
+      "r_upper": 0.95,
+      "min_hessian_eigenvalue": 1.477113603847791,
+      "max_condition_number": 1.4376035215439422,
+      "max_error_start": 0.7638977874286799,
+      "max_error_end": 0.008007260133640127,
+      "error_drop_ratio": 95.40064574889855,
+      "error_profile_curvature": 0.0717914249151276,
+      "boundary_coverage_ratio": 1.0,
+      "r_error_correlation": -0.9839349969054156,
+      "checks": {
+        "hessian_positive": true,
+        "convergence_improves": true,
+        "coverage_good": true
+      }
+    },
+    {
+      "ay_scale": 0.9,
+      "az_scale": 1.0,
+      "seed": 220601431,
+      "r_critical": 2.4161220657614497,
+      "r_upper": 0.95,
+      "min_hessian_eigenvalue": 1.4770581358166441,
+      "max_condition_number": 1.4396464114258638,
+      "max_error_start": 0.7798789463086024,
+      "max_error_end": 0.005091265712136173,
+      "error_drop_ratio": 153.17977697561258,
+      "error_profile_curvature": 0.048083180538667995,
+      "boundary_coverage_ratio": 1.0,
+      "r_error_correlation": -0.9822834801179191,
+      "checks": {
+        "hessian_positive": true,
+        "convergence_improves": true,
+        "coverage_good": true
+      }
+    },
+    {
+      "ay_scale": 0.9,
+      "az_scale": 1.0,
+      "seed": 220601461,
+      "r_critical": 2.407663018292325,
+      "r_upper": 0.95,
+      "min_hessian_eigenvalue": 1.4784465927678645,
+      "max_condition_number": 1.4372240412671036,
+      "max_error_start": 0.6493573579806532,
+      "max_error_end": 0.005840963671010965,
+      "error_drop_ratio": 111.17298352726463,
+      "error_profile_curvature": 0.06253067149670333,
+      "boundary_coverage_ratio": 1.0,
+      "r_error_correlation": -0.9819160944228524,
+      "checks": {
+        "hessian_positive": true,
+        "convergence_improves": true,
+        "coverage_good": true
+      }
+    },
+    {
+      "ay_scale": 0.9,
+      "az_scale": 1.0,
+      "seed": 220601491,
+      "r_critical": 2.417690119452185,
+      "r_upper": 0.95,
+      "min_hessian_eigenvalue": 1.4777861890374273,
+      "max_condition_number": 1.4395767238076431,
+      "max_error_start": 0.7707121286427997,
+      "max_error_end": 0.005398322469371339,
+      "error_drop_ratio": 142.76881994649588,
+      "error_profile_curvature": 0.0649243090029286,
+      "boundary_coverage_ratio": 1.0,
+      "r_error_correlation": -0.9857307740347563,
+      "checks": {
+        "hessian_positive": true,
+        "convergence_improves": true,
+        "coverage_good": true
+      }
+    },
+    {
+      "ay_scale": 0.9,
+      "az_scale": 1.1,
+      "seed": 220601371,
+      "r_critical": 2.1920932812835576,
+      "r_upper": 0.95,
+      "min_hessian_eigenvalue": 1.4027859020274078,
+      "max_condition_number": 1.4391981139448913,
+      "max_error_start": 0.7236836350627305,
+      "max_error_end": 0.004540284425932537,
+      "error_drop_ratio": 159.39169602003332,
+      "error_profile_curvature": 0.04696976173395133,
+      "boundary_coverage_ratio": 1.0,
+      "r_error_correlation": -0.9865707363036943,
+      "checks": {
+        "hessian_positive": true,
+        "convergence_improves": true,
+        "coverage_good": true
+      }
+    },
+    {
+      "ay_scale": 0.9,
+      "az_scale": 1.1,
+      "seed": 220601401,
+      "r_critical": 2.194414338191871,
+      "r_upper": 0.95,
+      "min_hessian_eigenvalue": 1.406322423783254,
+      "max_condition_number": 1.4353357148215367,
+      "max_error_start": 0.7638450260965548,
+      "max_error_end": 0.007658315463554293,
+      "error_drop_ratio": 99.74060610739681,
+      "error_profile_curvature": 0.07175280671831266,
+      "boundary_coverage_ratio": 1.0,
+      "r_error_correlation": -0.9839578532288857,
+      "checks": {
+        "hessian_positive": true,
+        "convergence_improves": true,
+        "coverage_good": true
+      }
+    },
+    {
+      "ay_scale": 0.9,
+      "az_scale": 1.1,
+      "seed": 220601431,
+      "r_critical": 2.190667357481126,
+      "r_upper": 0.95,
+      "min_hessian_eigenvalue": 1.4041415657781076,
+      "max_condition_number": 1.4373049241430544,
+      "max_error_start": 0.7798233453416621,
+      "max_error_end": 0.004844087093576794,
+      "error_drop_ratio": 160.9845839426998,
+      "error_profile_curvature": 0.048051136616115334,
+      "boundary_coverage_ratio": 1.0,
+      "r_error_correlation": -0.9823073409594598,
+      "checks": {
+        "hessian_positive": true,
+        "convergence_improves": true,
+        "coverage_good": true
+      }
+    },
+    {
+      "ay_scale": 0.9,
+      "az_scale": 1.1,
+      "seed": 220601461,
+      "r_critical": 2.1946810601658915,
+      "r_upper": 0.95,
+      "min_hessian_eigenvalue": 1.4048675535460435,
+      "max_condition_number": 1.4365536690177705,
+      "max_error_start": 0.6493441004772368,
+      "max_error_end": 0.005635516768443822,
+      "error_drop_ratio": 115.22352379701022,
+      "error_profile_curvature": 0.06250856061414879,
+      "boundary_coverage_ratio": 1.0,
+      "r_error_correlation": -0.9819344814411882,
+      "checks": {
+        "hessian_positive": true,
+        "convergence_improves": true,
+        "coverage_good": true
+      }
+    },
+    {
+      "ay_scale": 0.9,
+      "az_scale": 1.1,
+      "seed": 220601491,
+      "r_critical": 2.1893715304216173,
+      "r_upper": 0.95,
+      "min_hessian_eigenvalue": 1.4027336268695618,
+      "max_condition_number": 1.4373487015758215,
+      "max_error_start": 0.7706598437133934,
+      "max_error_end": 0.005142452082737635,
+      "error_drop_ratio": 149.86232857674486,
+      "error_profile_curvature": 0.06488025198978722,
+      "boundary_coverage_ratio": 1.0,
+      "r_error_correlation": -0.9857479948930498,
+      "checks": {
+        "hessian_positive": true,
+        "convergence_improves": true,
+        "coverage_good": true
+      }
+    },
+    {
+      "ay_scale": 0.9,
+      "az_scale": 1.2,
+      "seed": 220601371,
+      "r_critical": 2.0068694878392526,
+      "r_upper": 0.95,
+      "min_hessian_eigenvalue": 1.333947283772653,
+      "max_condition_number": 1.4341329374257819,
+      "max_error_start": 0.7235720031316166,
+      "max_error_end": 0.004266308036882002,
+      "error_drop_ratio": 169.60144388927753,
+      "error_profile_curvature": 0.04692534982431962,
+      "boundary_coverage_ratio": 1.0,
+      "r_error_correlation": -0.9865903776837158,
+      "checks": {
+        "hessian_positive": true,
+        "convergence_improves": true,
+        "coverage_good": true
+      }
+    },
+    {
+      "ay_scale": 0.9,
+      "az_scale": 1.2,
+      "seed": 220601401,
+      "r_critical": 2.010834253194567,
+      "r_upper": 0.95,
+      "min_hessian_eigenvalue": 1.3295640822498356,
+      "max_condition_number": 1.4379065125533144,
+      "max_error_start": 0.7639048357489502,
+      "max_error_end": 0.007369135198467928,
+      "error_drop_ratio": 103.66275216497168,
+      "error_profile_curvature": 0.07173317497167768,
+      "boundary_coverage_ratio": 1.0,
+      "r_error_correlation": -0.983977168592557,
+      "checks": {
+        "hessian_positive": true,
+        "convergence_improves": true,
+        "coverage_good": true
+      }
+    },
+    {
+      "ay_scale": 0.9,
+      "az_scale": 1.2,
+      "seed": 220601431,
+      "r_critical": 2.01026287311978,
+      "r_upper": 0.95,
+      "min_hessian_eigenvalue": 1.3289672404269566,
+      "max_condition_number": 1.437452665624324,
+      "max_error_start": 0.7798268539835396,
+      "max_error_end": 0.004653740481733582,
+      "error_drop_ratio": 167.56990576600512,
+      "error_profile_curvature": 0.04803148012869906,
+      "boundary_coverage_ratio": 1.0,
+      "r_error_correlation": -0.9823244137123459,
+      "checks": {
+        "hessian_positive": true,
+        "convergence_improves": true,
+        "coverage_good": true
+      }
+    },
+    {
+      "ay_scale": 0.9,
+      "az_scale": 1.2,
+      "seed": 220601461,
+      "r_critical": 2.0136925061444217,
+      "r_upper": 0.95,
+      "min_hessian_eigenvalue": 1.331364451215006,
+      "max_condition_number": 1.4379736756493375,
+      "max_error_start": 0.649372181982694,
+      "max_error_end": 0.0054038184499724555,
+      "error_drop_ratio": 120.16913373283367,
+      "error_profile_curvature": 0.062488708213641844,
+      "boundary_coverage_ratio": 1.0,
+      "r_error_correlation": -0.9819554771039877,
+      "checks": {
+        "hessian_positive": true,
+        "convergence_improves": true,
+        "coverage_good": true
+      }
+    },
+    {
+      "ay_scale": 0.9,
+      "az_scale": 1.2,
+      "seed": 220601491,
+      "r_critical": 2.010403016178896,
+      "r_upper": 0.95,
+      "min_hessian_eigenvalue": 1.3325428456092168,
+      "max_condition_number": 1.4354749978749866,
+      "max_error_start": 0.7706158648603502,
+      "max_error_end": 0.004898875708620243,
+      "error_drop_ratio": 157.30463696075122,
+      "error_profile_curvature": 0.06484072330182339,
+      "boundary_coverage_ratio": 1.0,
+      "r_error_correlation": -0.9857645793168859,
+      "checks": {
+        "hessian_positive": true,
+        "convergence_improves": true,
+        "coverage_good": true
+      }
+    },
+    {
+      "ay_scale": 1.0,
+      "az_scale": 0.8,
+      "seed": 220601371,
+      "r_critical": 3.3525125735426107,
+      "r_upper": 0.95,
+      "min_hessian_eigenvalue": 1.8863604246340688,
+      "max_condition_number": 1.4295194865857488,
+      "max_error_start": 0.7234702796602056,
+      "max_error_end": 0.005047330850975381,
+      "error_drop_ratio": 143.337201586537,
+      "error_profile_curvature": 0.04702460397286043,
+      "boundary_coverage_ratio": 1.0,
+      "r_error_correlation": -0.9865335911786276,
+      "checks": {
+        "hessian_positive": true,
+        "convergence_improves": true,
+        "coverage_good": true
+      }
+    },
+    {
+      "ay_scale": 1.0,
+      "az_scale": 0.8,
+      "seed": 220601401,
+      "r_critical": 3.353498699548575,
+      "r_upper": 0.95,
+      "min_hessian_eigenvalue": 1.8714592606637148,
+      "max_condition_number": 1.437279835066284,
+      "max_error_start": 0.763890257452808,
+      "max_error_end": 0.00873030740987074,
+      "error_drop_ratio": 87.49866660928016,
+      "error_profile_curvature": 0.07186345068596707,
+      "boundary_coverage_ratio": 1.0,
+      "r_error_correlation": -0.9838877985535391,
+      "checks": {
+        "hessian_positive": true,
+        "convergence_improves": true,
+        "coverage_good": true
+      }
+    },
+    {
+      "ay_scale": 1.0,
+      "az_scale": 0.8,
+      "seed": 220601431,
+      "r_critical": 3.3441171562820298,
+      "r_upper": 0.95,
+      "min_hessian_eigenvalue": 1.8765342168576669,
+      "max_condition_number": 1.434608245082738,
+      "max_error_start": 0.7797592944256245,
+      "max_error_end": 0.005467751227381728,
+      "error_drop_ratio": 142.61060205532027,
+      "error_profile_curvature": 0.04811953243993267,
+      "boundary_coverage_ratio": 1.0,
+      "r_error_correlation": -0.9822471298979473,
+      "checks": {
+        "hessian_positive": true,
+        "convergence_improves": true,
+        "coverage_good": true
+      }
+    },
+    {
+      "ay_scale": 1.0,
+      "az_scale": 0.8,
+      "seed": 220601461,
+      "r_critical": 3.354728178896394,
+      "r_upper": 0.95,
+      "min_hessian_eigenvalue": 1.8704287034391687,
+      "max_condition_number": 1.4382379823585025,
+      "max_error_start": 0.6493774083855884,
+      "max_error_end": 0.006422834269743608,
+      "error_drop_ratio": 101.1044939217326,
+      "error_profile_curvature": 0.06259761880910045,
+      "boundary_coverage_ratio": 1.0,
+      "r_error_correlation": -0.981865667420605,
+      "checks": {
+        "hessian_positive": true,
+        "convergence_improves": true,
+        "coverage_good": true
+      }
+    },
+    {
+      "ay_scale": 1.0,
+      "az_scale": 0.8,
+      "seed": 220601491,
+      "r_critical": 3.3509151724796604,
+      "r_upper": 0.95,
+      "min_hessian_eigenvalue": 1.8723353872504216,
+      "max_condition_number": 1.4376716132586629,
+      "max_error_start": 0.7706674221699098,
+      "max_error_end": 0.0058465712125837415,
+      "error_drop_ratio": 131.81528012712482,
+      "error_profile_curvature": 0.06499183101888464,
+      "boundary_coverage_ratio": 1.0,
+      "r_error_correlation": -0.9857006294798524,
+      "checks": {
+        "hessian_positive": true,
+        "convergence_improves": true,
+        "coverage_good": true
+      }
+    },
+    {
+      "ay_scale": 1.0,
+      "az_scale": 0.9,
+      "seed": 220601371,
+      "r_critical": 2.982187367144326,
+      "r_upper": 0.95,
+      "min_hessian_eigenvalue": 1.7998853273703936,
+      "max_condition_number": 1.4374012034904793,
+      "max_error_start": 0.7236440390128891,
+      "max_error_end": 0.005009685748072653,
+      "error_drop_ratio": 144.44898850018535,
+      "error_profile_curvature": 0.04703141479348597,
+      "boundary_coverage_ratio": 1.0,
+      "r_error_correlation": -0.9865368256829418,
+      "checks": {
+        "hessian_positive": true,
+        "convergence_improves": true,
+        "coverage_good": true
+      }
+    },
+    {
+      "ay_scale": 1.0,
+      "az_scale": 0.9,
+      "seed": 220601401,
+      "r_critical": 2.979296263685882,
+      "r_upper": 0.95,
+      "min_hessian_eigenvalue": 1.7989518361993528,
+      "max_condition_number": 1.4363231812950432,
+      "max_error_start": 0.7638680012725645,
+      "max_error_end": 0.008493491994339297,
+      "error_drop_ratio": 89.93568272998475,
+      "error_profile_curvature": 0.07183657246993025,
+      "boundary_coverage_ratio": 1.0,
+      "r_error_correlation": -0.9839031159194778,
+      "checks": {
+        "hessian_positive": true,
+        "convergence_improves": true,
+        "coverage_good": true
+      }
+    },
+    {
+      "ay_scale": 1.0,
+      "az_scale": 0.9,
+      "seed": 220601431,
+      "r_critical": 2.977961936622136,
+      "r_upper": 0.95,
+      "min_hessian_eigenvalue": 1.79710276239014,
+      "max_condition_number": 1.4379218856690898,
+      "max_error_start": 0.7798379969343935,
+      "max_error_end": 0.005386346512402143,
+      "error_drop_ratio": 144.78051034013592,
+      "error_profile_curvature": 0.048114967350624885,
+      "boundary_coverage_ratio": 1.0,
+      "r_error_correlation": -0.9822549349352652,
+      "checks": {
+        "hessian_positive": true,
+        "convergence_improves": true,
+        "coverage_good": true
+      }
+    },
+    {
+      "ay_scale": 1.0,
+      "az_scale": 0.9,
+      "seed": 220601461,
+      "r_critical": 2.978202718768411,
+      "r_upper": 0.95,
+      "min_hessian_eigenvalue": 1.7969520100219678,
+      "max_condition_number": 1.4374985408145409,
+      "max_error_start": 0.649362786327173,
+      "max_error_end": 0.0062476856046677276,
+      "error_drop_ratio": 103.9365338489545,
+      "error_profile_curvature": 0.06257594145697506,
+      "boundary_coverage_ratio": 1.0,
+      "r_error_correlation": -0.9818806357924658,
+      "checks": {
+        "hessian_positive": true,
+        "convergence_improves": true,
+        "coverage_good": true
+      }
+    },
+    {
+      "ay_scale": 1.0,
+      "az_scale": 0.9,
+      "seed": 220601491,
+      "r_critical": 2.98255440034205,
+      "r_upper": 0.95,
+      "min_hessian_eigenvalue": 1.7962195462690635,
+      "max_condition_number": 1.4369059417683485,
+      "max_error_start": 0.7706494521416809,
+      "max_error_end": 0.005734752214636118,
+      "error_drop_ratio": 134.3823452693989,
+      "error_profile_curvature": 0.06497240698180531,
+      "boundary_coverage_ratio": 1.0,
+      "r_error_correlation": -0.9857081506947822,
+      "checks": {
+        "hessian_positive": true,
+        "convergence_improves": true,
+        "coverage_good": true
+      }
+    },
+    {
+      "ay_scale": 1.0,
+      "az_scale": 1.0,
+      "seed": 220601371,
+      "r_critical": 2.6817524026525286,
+      "r_upper": 0.95,
+      "min_hessian_eigenvalue": 1.723671836918161,
+      "max_condition_number": 1.437585692995023,
+      "max_error_start": 0.7236481046717476,
+      "max_error_end": 0.004875632446128219,
+      "error_drop_ratio": 148.4213817730257,
+      "error_profile_curvature": 0.04701263421943819,
+      "boundary_coverage_ratio": 1.0,
+      "r_error_correlation": -0.9865462268724433,
+      "checks": {
+        "hessian_positive": true,
+        "convergence_improves": true,
+        "coverage_good": true
+      }
+    },
+    {
+      "ay_scale": 1.0,
+      "az_scale": 1.0,
+      "seed": 220601401,
+      "r_critical": 2.681829450610352,
+      "r_upper": 0.95,
+      "min_hessian_eigenvalue": 1.7219814888772924,
+      "max_condition_number": 1.4383117413959834,
+      "max_error_start": 0.7639142620515226,
+      "max_error_end": 0.008315241556186893,
+      "error_drop_ratio": 91.8691606118331,
+      "error_profile_curvature": 0.07182352583418793,
+      "boundary_coverage_ratio": 1.0,
+      "r_error_correlation": -0.9839148755414557,
+      "checks": {
+        "hessian_positive": true,
+        "convergence_improves": true,
+        "coverage_good": true
+      }
+    },
+    {
+      "ay_scale": 1.0,
+      "az_scale": 1.0,
+      "seed": 220601431,
+      "r_critical": 2.6819751896937056,
+      "r_upper": 0.95,
+      "min_hessian_eigenvalue": 1.7248973010937438,
+      "max_condition_number": 1.4372073127837683,
+      "max_error_start": 0.7798210271886667,
+      "max_error_end": 0.005233814815089497,
+      "error_drop_ratio": 148.99667923679337,
+      "error_profile_curvature": 0.04809556637755795,
+      "boundary_coverage_ratio": 1.0,
+      "r_error_correlation": -0.9822700842342563,
+      "checks": {
+        "hessian_positive": true,
+        "convergence_improves": true,
+        "coverage_good": true
+      }
+    },
+    {
+      "ay_scale": 1.0,
+      "az_scale": 1.0,
+      "seed": 220601461,
+      "r_critical": 2.6708358054074735,
+      "r_upper": 0.95,
+      "min_hessian_eigenvalue": 1.7244140361943712,
+      "max_condition_number": 1.4372094555524775,
+      "max_error_start": 0.6493570695378549,
+      "max_error_end": 0.006047073100183703,
+      "error_drop_ratio": 107.38369766327583,
+      "error_profile_curvature": 0.06255273413156377,
+      "boundary_coverage_ratio": 1.0,
+      "r_error_correlation": -0.9818979499626597,
+      "checks": {
+        "hessian_positive": true,
+        "convergence_improves": true,
+        "coverage_good": true
+      }
+    },
+    {
+      "ay_scale": 1.0,
+      "az_scale": 1.0,
+      "seed": 220601491,
+      "r_critical": 2.682057452392002,
+      "r_upper": 0.95,
+      "min_hessian_eigenvalue": 1.7231015415987398,
+      "max_condition_number": 1.436596059773426,
+      "max_error_start": 0.7706421789480385,
+      "max_error_end": 0.005557676116696942,
+      "error_drop_ratio": 138.66266453217668,
+      "error_profile_curvature": 0.06494274649474428,
+      "boundary_coverage_ratio": 1.0,
+      "r_error_correlation": -0.9857199155586659,
+      "checks": {
+        "hessian_positive": true,
+        "convergence_improves": true,
+        "coverage_good": true
+      }
+    },
+    {
+      "ay_scale": 1.0,
+      "az_scale": 1.1,
+      "seed": 220601371,
+      "r_critical": 2.4430342029399768,
+      "r_upper": 0.95,
+      "min_hessian_eigenvalue": 1.6498794133411367,
+      "max_condition_number": 1.4409166122211767,
+      "max_error_start": 0.7237214968016128,
+      "max_error_end": 0.0047760586713967495,
+      "error_drop_ratio": 151.53111521344894,
+      "error_profile_curvature": 0.04700449427519853,
+      "boundary_coverage_ratio": 1.0,
+      "r_error_correlation": -0.9865538190966622,
+      "checks": {
+        "hessian_positive": true,
+        "convergence_improves": true,
+        "coverage_good": true
+      }
+    },
+    {
+      "ay_scale": 1.0,
+      "az_scale": 1.1,
+      "seed": 220601401,
+      "r_critical": 2.4376307587258212,
+      "r_upper": 0.95,
+      "min_hessian_eigenvalue": 1.6506049168919867,
+      "max_condition_number": 1.4369112135033537,
+      "max_error_start": 0.7638816818576701,
+      "max_error_end": 0.008024795703886999,
+      "error_drop_ratio": 95.19017181803969,
+      "error_profile_curvature": 0.07179143329901738,
+      "boundary_coverage_ratio": 1.0,
+      "r_error_correlation": -0.9839338084330798,
+      "checks": {
+        "hessian_positive": true,
+        "convergence_improves": true,
+        "coverage_good": true
+      }
+    },
+    {
+      "ay_scale": 1.0,
+      "az_scale": 1.1,
+      "seed": 220601431,
+      "r_critical": 2.43998180501117,
+      "r_upper": 0.95,
+      "min_hessian_eigenvalue": 1.6535639914404867,
+      "max_condition_number": 1.4362604115460462,
+      "max_error_start": 0.7797985382848434,
+      "max_error_end": 0.005063881899495532,
+      "error_drop_ratio": 153.99224424300408,
+      "error_profile_curvature": 0.04807422592258114,
+      "boundary_coverage_ratio": 1.0,
+      "r_error_correlation": -0.9822866621951072,
+      "checks": {
+        "hessian_positive": true,
+        "convergence_improves": true,
+        "coverage_good": true
+      }
+    },
+    {
+      "ay_scale": 1.0,
+      "az_scale": 1.1,
+      "seed": 220601461,
+      "r_critical": 2.4373376260848993,
+      "r_upper": 0.95,
+      "min_hessian_eigenvalue": 1.654452899698412,
+      "max_condition_number": 1.4354340519148323,
+      "max_error_start": 0.6493219566504852,
+      "max_error_end": 0.005855463289424528,
+      "error_drop_ratio": 110.89164504253945,
+      "error_profile_curvature": 0.06252858888634005,
+      "boundary_coverage_ratio": 1.0,
+      "r_error_correlation": -0.9819146984775716,
+      "checks": {
+        "hessian_positive": true,
+        "convergence_improves": true,
+        "coverage_good": true
+      }
+    },
+    {
+      "ay_scale": 1.0,
+      "az_scale": 1.1,
+      "seed": 220601491,
+      "r_critical": 2.4394987087557443,
+      "r_upper": 0.95,
+      "min_hessian_eigenvalue": 1.6512044100846057,
+      "max_condition_number": 1.4372816498205554,
+      "max_error_start": 0.7706582700373625,
+      "max_error_end": 0.0053854186505088615,
+      "error_drop_ratio": 143.10090265025988,
+      "error_profile_curvature": 0.06491700758795144,
+      "boundary_coverage_ratio": 1.0,
+      "r_error_correlation": -0.9857315140695647,
+      "checks": {
+        "hessian_positive": true,
+        "convergence_improves": true,
+        "coverage_good": true
+      }
+    },
+    {
+      "ay_scale": 1.0,
+      "az_scale": 1.2,
+      "seed": 220601371,
+      "r_critical": 2.230543876742364,
+      "r_upper": 0.95,
+      "min_hessian_eigenvalue": 1.5804896641381785,
+      "max_condition_number": 1.4344024459595768,
+      "max_error_start": 0.7235779442272331,
+      "max_error_end": 0.004516403829386891,
+      "error_drop_ratio": 160.21108199384818,
+      "error_profile_curvature": 0.04695819023072661,
+      "boundary_coverage_ratio": 1.0,
+      "r_error_correlation": -0.9865717218662463,
+      "checks": {
+        "hessian_positive": true,
+        "convergence_improves": true,
+        "coverage_good": true
+      }
+    },
+    {
+      "ay_scale": 1.0,
+      "az_scale": 1.2,
+      "seed": 220601401,
+      "r_critical": 2.2305201103056436,
+      "r_upper": 0.95,
+      "min_hessian_eigenvalue": 1.5774102216186643,
+      "max_condition_number": 1.4368142228799692,
+      "max_error_start": 0.7638794254215994,
+      "max_error_end": 0.007712060501561306,
+      "error_drop_ratio": 99.04997831214524,
+      "error_profile_curvature": 0.0717609604309944,
+      "boundary_coverage_ratio": 1.0,
+      "r_error_correlation": -0.9839543130771067,
+      "checks": {
+        "hessian_positive": true,
+        "convergence_improves": true,
+        "coverage_good": true
+      }
+    },
+    {
+      "ay_scale": 1.0,
+      "az_scale": 1.2,
+      "seed": 220601431,
+      "r_critical": 2.2318371564002972,
+      "r_upper": 0.95,
+      "min_hessian_eigenvalue": 1.5730295251701496,
+      "max_condition_number": 1.4364654790918667,
+      "max_error_start": 0.7798034088129947,
+      "max_error_end": 0.00491638319942135,
+      "error_drop_ratio": 158.61322789175105,
+      "error_profile_curvature": 0.04805855512556564,
+      "boundary_coverage_ratio": 1.0,
+      "r_error_correlation": -0.9823002498839554,
+      "checks": {
+        "hessian_positive": true,
+        "convergence_improves": true,
+        "coverage_good": true
+      }
+    },
+    {
+      "ay_scale": 1.0,
+      "az_scale": 1.2,
+      "seed": 220601461,
+      "r_critical": 2.235803302475764,
+      "r_upper": 0.95,
+      "min_hessian_eigenvalue": 1.577154287258147,
+      "max_condition_number": 1.4371922937064878,
+      "max_error_start": 0.6493567301497215,
+      "max_error_end": 0.005690233401578829,
+      "error_drop_ratio": 114.11776711471082,
+      "error_profile_curvature": 0.06251549068120535,
+      "boundary_coverage_ratio": 1.0,
+      "r_error_correlation": -0.9819296555000273,
+      "checks": {
+        "hessian_positive": true,
+        "convergence_improves": true,
+        "coverage_good": true
+      }
+    },
+    {
+      "ay_scale": 1.0,
+      "az_scale": 1.2,
+      "seed": 220601491,
+      "r_critical": 2.2346168425915334,
+      "r_upper": 0.95,
+      "min_hessian_eigenvalue": 1.5758587651410432,
+      "max_condition_number": 1.4374899768158311,
+      "max_error_start": 0.7706631593495475,
+      "max_error_end": 0.005200001404575106,
+      "error_drop_ratio": 148.2044136894841,
+      "error_profile_curvature": 0.06488935599024859,
+      "boundary_coverage_ratio": 1.0,
+      "r_error_correlation": -0.9857441120018109,
+      "checks": {
+        "hessian_positive": true,
+        "convergence_improves": true,
+        "coverage_good": true
+      }
+    },
+    {
+      "ay_scale": 1.1,
+      "az_scale": 0.8,
+      "seed": 220601371,
+      "r_critical": 3.676981515134974,
+      "r_upper": 0.95,
+      "min_hessian_eigenvalue": 2.114024258345922,
+      "max_condition_number": 1.4375631765753139,
+      "max_error_start": 0.7236476084735181,
+      "max_error_end": 0.005227308860954765,
+      "error_drop_ratio": 138.43597685202482,
+      "error_profile_curvature": 0.047063967157186866,
+      "boundary_coverage_ratio": 1.0,
+      "r_error_correlation": -0.9865221759510742,
+      "checks": {
+        "hessian_positive": true,
+        "convergence_improves": true,
+        "coverage_good": true
+      }
+    },
+    {
+      "ay_scale": 1.1,
+      "az_scale": 0.8,
+      "seed": 220601401,
+      "r_critical": 3.6901780075105215,
+      "r_upper": 0.95,
+      "min_hessian_eigenvalue": 2.117229119015103,
+      "max_condition_number": 1.438797735921727,
+      "max_error_start": 0.7639255666121136,
+      "max_error_end": 0.008893446351820156,
+      "error_drop_ratio": 85.8975852995129,
+      "error_profile_curvature": 0.07188414380705181,
+      "boundary_coverage_ratio": 1.0,
+      "r_error_correlation": -0.9838772957158959,
+      "checks": {
+        "hessian_positive": true,
+        "convergence_improves": true,
+        "coverage_good": true
+      }
+    },
+    {
+      "ay_scale": 1.1,
+      "az_scale": 0.8,
+      "seed": 220601431,
+      "r_critical": 3.6878730331635015,
+      "r_upper": 0.95,
+      "min_hessian_eigenvalue": 2.127455908756211,
+      "max_condition_number": 1.4344132353578842,
+      "max_error_start": 0.7797546619548463,
+      "max_error_end": 0.0055651153976088085,
+      "error_drop_ratio": 140.1147337016385,
+      "error_profile_curvature": 0.0481315652009211,
+      "boundary_coverage_ratio": 1.0,
+      "r_error_correlation": -0.98223711880263,
+      "checks": {
+        "hessian_positive": true,
+        "convergence_improves": true,
+        "coverage_good": true
+      }
+    },
+    {
+      "ay_scale": 1.1,
+      "az_scale": 0.8,
+      "seed": 220601461,
+      "r_critical": 3.684592824959949,
+      "r_upper": 0.95,
+      "min_hessian_eigenvalue": 2.121106762811243,
+      "max_condition_number": 1.4351179664247835,
+      "max_error_start": 0.6493157046689663,
+      "max_error_end": 0.006476902525253322,
+      "error_drop_ratio": 100.25096134105715,
+      "error_profile_curvature": 0.0625976187737107,
+      "boundary_coverage_ratio": 1.0,
+      "r_error_correlation": -0.9818608306228304,
+      "checks": {
+        "hessian_positive": true,
+        "convergence_improves": true,
+        "coverage_good": true
+      }
+    },
+    {
+      "ay_scale": 1.1,
+      "az_scale": 0.8,
+      "seed": 220601491,
+      "r_critical": 3.6790311263272897,
+      "r_upper": 0.95,
+      "min_hessian_eigenvalue": 2.120586786704079,
+      "max_condition_number": 1.4355835053297707,
+      "max_error_start": 0.7706184119219627,
+      "max_error_end": 0.005912205624238902,
+      "error_drop_ratio": 130.3436417641795,
+      "error_profile_curvature": 0.06499850131642668,
+      "boundary_coverage_ratio": 1.0,
+      "r_error_correlation": -0.9856962315903,
+      "checks": {
+        "hessian_positive": true,
+        "convergence_improves": true,
+        "coverage_good": true
+      }
+    },
+    {
+      "ay_scale": 1.1,
+      "az_scale": 0.9,
+      "seed": 220601371,
+      "r_critical": 3.275483176621726,
+      "r_upper": 0.95,
+      "min_hessian_eigenvalue": 2.043969526517328,
+      "max_condition_number": 1.4374625499969373,
+      "max_error_start": 0.7236453909350513,
+      "max_error_end": 0.005111044572246401,
+      "error_drop_ratio": 141.58463709444732,
+      "error_profile_curvature": 0.047046294936445104,
+      "boundary_coverage_ratio": 1.0,
+      "r_error_correlation": -0.9865298858943853,
+      "checks": {
+        "hessian_positive": true,
+        "convergence_improves": true,
+        "coverage_good": true
+      }
+    },
+    {
+      "ay_scale": 1.1,
+      "az_scale": 0.9,
+      "seed": 220601401,
+      "r_critical": 3.2773745339279863,
+      "r_upper": 0.95,
+      "min_hessian_eigenvalue": 2.043209928926567,
+      "max_condition_number": 1.4375945908556678,
+      "max_error_start": 0.7638975796756527,
+      "max_error_end": 0.008691136636861432,
+      "error_drop_ratio": 87.89386378252979,
+      "error_profile_curvature": 0.07185998601324237,
+      "boundary_coverage_ratio": 1.0,
+      "r_error_correlation": -0.9838903322179162,
+      "checks": {
+        "hessian_positive": true,
+        "convergence_improves": true,
+        "coverage_good": true
+      }
+    },
+    {
+      "ay_scale": 1.1,
+      "az_scale": 0.9,
+      "seed": 220601431,
+      "r_critical": 3.279944738577151,
+      "r_upper": 0.95,
+      "min_hessian_eigenvalue": 2.0431547851478493,
+      "max_condition_number": 1.4392660204030905,
+      "max_error_start": 0.7798699143991797,
+      "max_error_end": 0.005515393349541646,
+      "error_drop_ratio": 141.39878427057073,
+      "error_profile_curvature": 0.048132978250313305,
+      "boundary_coverage_ratio": 1.0,
+      "r_error_correlation": -0.9822417983841205,
+      "checks": {
+        "hessian_positive": true,
+        "convergence_improves": true,
+        "coverage_good": true
+      }
+    },
+    {
+      "ay_scale": 1.1,
+      "az_scale": 0.9,
+      "seed": 220601461,
+      "r_critical": 3.268452300859501,
+      "r_upper": 0.95,
+      "min_hessian_eigenvalue": 2.0445429882446864,
+      "max_condition_number": 1.4372840517930165,
+      "max_error_start": 0.6493585447268755,
+      "max_error_end": 0.006351777743393468,
+      "error_drop_ratio": 102.23256715842714,
+      "error_profile_curvature": 0.06258708446884277,
+      "boundary_coverage_ratio": 1.0,
+      "r_error_correlation": -0.9818715512978793,
+      "checks": {
+        "hessian_positive": true,
+        "convergence_improves": true,
+        "coverage_good": true
+      }
+    },
+    {
+      "ay_scale": 1.1,
+      "az_scale": 0.9,
+      "seed": 220601491,
+      "r_critical": 3.2822163152972585,
+      "r_upper": 0.95,
+      "min_hessian_eigenvalue": 2.0438825278531536,
+      "max_condition_number": 1.4392091111948082,
+      "max_error_start": 0.7707035026656709,
+      "max_error_end": 0.005847773241410102,
+      "error_drop_ratio": 131.79435502184887,
+      "error_profile_curvature": 0.06499540738758691,
+      "boundary_coverage_ratio": 1.0,
+      "r_error_correlation": -0.9857006208136411,
+      "checks": {
+        "hessian_positive": true,
+        "convergence_improves": true,
+        "coverage_good": true
+      }
+    },
+    {
+      "ay_scale": 1.1,
+      "az_scale": 1.0,
+      "seed": 220601371,
+      "r_critical": 2.9458004778456086,
+      "r_upper": 0.95,
+      "min_hessian_eigenvalue": 1.9688822237602337,
+      "max_condition_number": 1.4388992355159913,
+      "max_error_start": 0.7236770495662234,
+      "max_error_end": 0.005007958575666631,
+      "error_drop_ratio": 144.50539848363093,
+      "error_profile_curvature": 0.047033468152499515,
+      "boundary_coverage_ratio": 1.0,
+      "r_error_correlation": -0.9865370521049197,
+      "checks": {
+        "hessian_positive": true,
+        "convergence_improves": true,
+        "coverage_good": true
+      }
+    },
+    {
+      "ay_scale": 1.1,
+      "az_scale": 1.0,
+      "seed": 220601401,
+      "r_critical": 2.9501258349052124,
+      "r_upper": 0.95,
+      "min_hessian_eigenvalue": 1.9724220041527833,
+      "max_condition_number": 1.435738253302477,
+      "max_error_start": 0.7638543921386619,
+      "max_error_end": 0.008467654226490545,
+      "error_drop_ratio": 90.2085006906623,
+      "error_profile_curvature": 0.07183261377409157,
+      "boundary_coverage_ratio": 1.0,
+      "r_error_correlation": -0.9839047825147189,
+      "checks": {
+        "hessian_positive": true,
+        "convergence_improves": true,
+        "coverage_good": true
+      }
+    },
+    {
+      "ay_scale": 1.1,
+      "az_scale": 1.0,
+      "seed": 220601431,
+      "r_critical": 2.94460681951935,
+      "r_upper": 0.95,
+      "min_hessian_eigenvalue": 1.970237897949704,
+      "max_condition_number": 1.4373502285229605,
+      "max_error_start": 0.7798244212590615,
+      "max_error_end": 0.005355522317150034,
+      "error_drop_ratio": 145.6112728280159,
+      "error_profile_curvature": 0.04811015124409227,
+      "boundary_coverage_ratio": 1.0,
+      "r_error_correlation": -0.9822581568710634,
+      "checks": {
+        "hessian_positive": true,
+        "convergence_improves": true,
+        "coverage_good": true
+      }
+    },
+    {
+      "ay_scale": 1.1,
+      "az_scale": 1.0,
+      "seed": 220601461,
+      "r_critical": 2.9504957844518467,
+      "r_upper": 0.95,
+      "min_hessian_eigenvalue": 1.970964045035301,
+      "max_condition_number": 1.4367354039572173,
+      "max_error_start": 0.6493476946121759,
+      "max_error_end": 0.006224887999608361,
+      "error_drop_ratio": 104.31475950298699,
+      "error_profile_curvature": 0.06257182291574297,
+      "boundary_coverage_ratio": 1.0,
+      "r_error_correlation": -0.9818825542294531,
+      "checks": {
+        "hessian_positive": true,
+        "convergence_improves": true,
+        "coverage_good": true
+      }
+    },
+    {
+      "ay_scale": 1.1,
+      "az_scale": 1.0,
+      "seed": 220601491,
+      "r_critical": 2.9427603603124055,
+      "r_upper": 0.95,
+      "min_hessian_eigenvalue": 1.9688329446188022,
+      "max_condition_number": 1.4373860951464825,
+      "max_error_start": 0.7706607213200878,
+      "max_error_end": 0.005683175186055879,
+      "error_drop_ratio": 135.60390030048077,
+      "error_profile_curvature": 0.06496416198776282,
+      "boundary_coverage_ratio": 1.0,
+      "r_error_correlation": -0.9857114640802154,
+      "checks": {
+        "hessian_positive": true,
+        "convergence_improves": true,
+        "coverage_good": true
+      }
+    },
+    {
+      "ay_scale": 1.1,
+      "az_scale": 1.1,
+      "seed": 220601371,
+      "r_critical": 2.6751798172098575,
+      "r_upper": 0.95,
+      "min_hessian_eigenvalue": 1.9000484320238535,
+      "max_condition_number": 1.4347536485545005,
+      "max_error_start": 0.723585685971386,
+      "max_error_end": 0.0048332143357133085,
+      "error_drop_ratio": 149.71106922047886,
+      "error_profile_curvature": 0.04700191793870824,
+      "boundary_coverage_ratio": 1.0,
+      "r_error_correlation": -0.9865488420072737,
+      "checks": {
+        "hessian_positive": true,
+        "convergence_improves": true,
+        "coverage_good": true
+      }
+    },
+    {
+      "ay_scale": 1.1,
+      "az_scale": 1.1,
+      "seed": 220601401,
+      "r_critical": 2.6801744471701996,
+      "r_upper": 0.95,
+      "min_hessian_eigenvalue": 1.895660407277025,
+      "max_condition_number": 1.437842515291506,
+      "max_error_start": 0.7639033470315403,
+      "max_error_end": 0.0082983872544675,
+      "error_drop_ratio": 92.05443462767866,
+      "error_profile_curvature": 0.07182061961603674,
+      "boundary_coverage_ratio": 1.0,
+      "r_error_correlation": -0.9839159377560261,
+      "checks": {
+        "hessian_positive": true,
+        "convergence_improves": true,
+        "coverage_good": true
+      }
+    },
+    {
+      "ay_scale": 1.1,
+      "az_scale": 1.1,
+      "seed": 220601431,
+      "r_critical": 2.6797652741882683,
+      "r_upper": 0.95,
+      "min_hessian_eigenvalue": 1.8950637630840947,
+      "max_condition_number": 1.4374710552160384,
+      "max_error_start": 0.7798272907056689,
+      "max_error_end": 0.00524280001572252,
+      "error_drop_ratio": 148.74252086042986,
+      "error_profile_curvature": 0.04809719050457347,
+      "boundary_coverage_ratio": 1.0,
+      "r_error_correlation": -0.982269100655957,
+      "checks": {
+        "hessian_positive": true,
+        "convergence_improves": true,
+        "coverage_good": true
+      }
+    },
+    {
+      "ay_scale": 1.1,
+      "az_scale": 1.1,
+      "seed": 220601461,
+      "r_critical": 2.6844085465520147,
+      "r_upper": 0.95,
+      "min_hessian_eigenvalue": 1.8974663212242753,
+      "max_condition_number": 1.4378967335897361,
+      "max_error_start": 0.6493706605047256,
+      "max_error_end": 0.006085655116757227,
+      "error_drop_ratio": 106.70513659517829,
+      "error_profile_curvature": 0.06255876749298327,
+      "boundary_coverage_ratio": 1.0,
+      "r_error_correlation": -0.9818947642086988,
+      "checks": {
+        "hessian_positive": true,
+        "convergence_improves": true,
+        "coverage_good": true
+      }
+    },
+    {
+      "ay_scale": 1.1,
+      "az_scale": 1.1,
+      "seed": 220601491,
+      "r_critical": 2.6799940170558436,
+      "r_upper": 0.95,
+      "min_hessian_eigenvalue": 1.8986400274201714,
+      "max_condition_number": 1.4358522490822703,
+      "max_error_start": 0.7706247201934521,
+      "max_error_end": 0.005532865633174785,
+      "error_drop_ratio": 139.28130037585314,
+      "error_profile_curvature": 0.06493679341027235,
+      "boundary_coverage_ratio": 1.0,
+      "r_error_correlation": -0.9857214905583441,
+      "checks": {
+        "hessian_positive": true,
+        "convergence_improves": true,
+        "coverage_good": true
+      }
+    },
+    {
+      "ay_scale": 1.1,
+      "az_scale": 1.2,
+      "seed": 220601371,
+      "r_critical": 2.4585324194904716,
+      "r_upper": 0.95,
+      "min_hessian_eigenvalue": 1.8200269366483084,
+      "max_condition_number": 1.4372007042898887,
+      "max_error_start": 0.7236396204607449,
+      "max_error_end": 0.004758300246909309,
+      "error_drop_ratio": 152.07943654475682,
+      "error_profile_curvature": 0.04699617951033624,
+      "boundary_coverage_ratio": 1.0,
+      "r_error_correlation": -0.9865547664562446,
+      "checks": {
+        "hessian_positive": true,
+        "convergence_improves": true,
+        "coverage_good": true
+      }
+    },
+    {
+      "ay_scale": 1.1,
+      "az_scale": 1.2,
+      "seed": 220601401,
+      "r_critical": 2.4633074085088573,
+      "r_upper": 0.95,
+      "min_hessian_eigenvalue": 1.8197926474767678,
+      "max_condition_number": 1.4414971518312345,
+      "max_error_start": 0.7639883471497319,
+      "max_error_end": 0.00817105473340657,
+      "error_drop_ratio": 93.49935498855969,
+      "error_profile_curvature": 0.07181733533044417,
+      "boundary_coverage_ratio": 1.0,
+      "r_error_correlation": -0.9839245365208186,
+      "checks": {
+        "hessian_positive": true,
+        "convergence_improves": true,
+        "coverage_good": true
+      }
+    },
+    {
+      "ay_scale": 1.1,
+      "az_scale": 1.2,
+      "seed": 220601431,
+      "r_critical": 2.4595536194041907,
+      "r_upper": 0.95,
+      "min_hessian_eigenvalue": 1.822020910748798,
+      "max_condition_number": 1.4381929328874707,
+      "max_error_start": 0.7798444334834317,
+      "max_error_end": 0.005103753666386516,
+      "error_drop_ratio": 152.79821175922183,
+      "error_profile_curvature": 0.04808210228696807,
+      "boundary_coverage_ratio": 1.0,
+      "r_error_correlation": -0.9822825312115314,
+      "checks": {
+        "hessian_positive": true,
+        "convergence_improves": true,
+        "coverage_good": true
+      }
+    },
+    {
+      "ay_scale": 1.1,
+      "az_scale": 1.2,
+      "seed": 220601461,
+      "r_critical": 2.458935345417549,
+      "r_upper": 0.95,
+      "min_hessian_eigenvalue": 1.8234765496258163,
+      "max_condition_number": 1.4367538966399038,
+      "max_error_start": 0.6493480603346725,
+      "max_error_end": 0.005903183465774495,
+      "error_drop_ratio": 109.99964071919258,
+      "error_profile_curvature": 0.06253671095326574,
+      "boundary_coverage_ratio": 1.0,
+      "r_error_correlation": -0.9819106978722882,
+      "checks": {
+        "hessian_positive": true,
+        "convergence_improves": true,
+        "coverage_good": true
+      }
+    },
+    {
+      "ay_scale": 1.1,
+      "az_scale": 1.2,
+      "seed": 220601491,
+      "r_critical": 2.456334344417832,
+      "r_upper": 0.95,
+      "min_hessian_eigenvalue": 1.8204357427421463,
+      "max_condition_number": 1.4379691423968815,
+      "max_error_start": 0.7706744047109714,
+      "max_error_end": 0.005412665058913201,
+      "error_drop_ratio": 142.38353866768057,
+      "error_profile_curvature": 0.06492293203264923,
+      "boundary_coverage_ratio": 1.0,
+      "r_error_correlation": -0.9857297303256465,
+      "checks": {
+        "hessian_positive": true,
+        "convergence_improves": true,
+        "coverage_good": true
+      }
+    },
+    {
+      "ay_scale": 1.2,
+      "az_scale": 0.8,
+      "seed": 220601371,
+      "r_critical": 4.02515152176399,
+      "r_upper": 0.95,
+      "min_hessian_eigenvalue": 2.36598168494309,
+      "max_condition_number": 1.4374266941240115,
+      "max_error_start": 0.7236446007630852,
+      "max_error_end": 0.005285712560458085,
+      "error_drop_ratio": 136.9057799655248,
+      "error_profile_curvature": 0.04707251431886013,
+      "boundary_coverage_ratio": 1.0,
+      "r_error_correlation": -0.9865182608238283,
+      "checks": {
+        "hessian_positive": true,
+        "convergence_improves": true,
+        "coverage_good": true
+      }
+    },
+    {
+      "ay_scale": 1.2,
+      "az_scale": 0.8,
+      "seed": 220601401,
+      "r_critical": 4.02187308567844,
+      "r_upper": 0.95,
+      "min_hessian_eigenvalue": 2.365048307411865,
+      "max_condition_number": 1.4365282224973028,
+      "max_error_start": 0.7638727716496433,
+      "max_error_end": 0.008967089138981667,
+      "error_drop_ratio": 85.18625830638182,
+      "error_profile_curvature": 0.07188700178203411,
+      "boundary_coverage_ratio": 1.0,
+      "r_error_correlation": -0.9838724970486087,
+      "checks": {
+        "hessian_positive": true,
+        "convergence_improves": true,
+        "coverage_good": true
+      }
+    },
+    {
+      "ay_scale": 1.2,
+      "az_scale": 0.8,
+      "seed": 220601431,
+      "r_critical": 4.019292938594991,
+      "r_upper": 0.95,
+      "min_hessian_eigenvalue": 2.363199391187882,
+      "max_condition_number": 1.4378606509573686,
+      "max_error_start": 0.7798365427724364,
+      "max_error_end": 0.005681852118460909,
+      "error_drop_ratio": 137.25041175194775,
+      "error_profile_curvature": 0.04815188054662066,
+      "boundary_coverage_ratio": 1.0,
+      "r_error_correlation": -0.9822247499277773,
+      "checks": {
+        "hessian_positive": true,
+        "convergence_improves": true,
+        "coverage_good": true
+      }
+    },
+    {
+      "ay_scale": 1.2,
+      "az_scale": 0.8,
+      "seed": 220601461,
+      "r_critical": 4.020067262946048,
+      "r_upper": 0.95,
+      "min_hessian_eigenvalue": 2.3630486126571664,
+      "max_condition_number": 1.4375078498513456,
+      "max_error_start": 0.6493629704148552,
+      "max_error_end": 0.006591502693000785,
+      "error_drop_ratio": 98.51516424386567,
+      "error_profile_curvature": 0.0626160145356203,
+      "boundary_coverage_ratio": 1.0,
+      "r_error_correlation": -0.9818512742582817,
+      "checks": {
+        "hessian_positive": true,
+        "convergence_improves": true,
+        "coverage_good": true
+      }
+    },
+    {
+      "ay_scale": 1.2,
+      "az_scale": 0.8,
+      "seed": 220601491,
+      "r_critical": 4.025709299109858,
+      "r_upper": 0.95,
+      "min_hessian_eigenvalue": 2.3623205141496184,
+      "max_condition_number": 1.4370125483570997,
+      "max_error_start": 0.7706519542386464,
+      "max_error_end": 0.006042378455037291,
+      "error_drop_ratio": 127.54115949095915,
+      "error_profile_curvature": 0.06502450497175538,
+      "boundary_coverage_ratio": 1.0,
+      "r_error_correlation": -0.9856878571142822,
+      "checks": {
+        "hessian_positive": true,
+        "convergence_improves": true,
+        "coverage_good": true
+      }
+    },
+    {
+      "ay_scale": 1.2,
+      "az_scale": 0.9,
+      "seed": 220601371,
+      "r_critical": 3.575477993504288,
+      "r_upper": 0.95,
+      "min_hessian_eigenvalue": 2.2897681788219995,
+      "max_condition_number": 1.4375804645947172,
+      "max_error_start": 0.7236479894526832,
+      "max_error_end": 0.0051942371846824525,
+      "error_drop_ratio": 139.3174712134219,
+      "error_profile_curvature": 0.04705886843453353,
+      "boundary_coverage_ratio": 1.0,
+      "r_error_correlation": -0.9865243054504501,
+      "checks": {
+        "hessian_positive": true,
+        "convergence_improves": true,
+        "coverage_good": true
+      }
+    },
+    {
+      "ay_scale": 1.2,
+      "az_scale": 0.9,
+      "seed": 220601401,
+      "r_critical": 3.575085898815294,
+      "r_upper": 0.95,
+      "min_hessian_eigenvalue": 2.2880778076243398,
+      "max_condition_number": 1.4381855257615817,
+      "max_error_start": 0.763911326103762,
+      "max_error_end": 0.008849199234272227,
+      "error_drop_ratio": 86.32547486841473,
+      "error_profile_curvature": 0.07187815503320744,
+      "boundary_coverage_ratio": 1.0,
+      "r_error_correlation": -0.9838801536534413,
+      "checks": {
+        "hessian_positive": true,
+        "convergence_improves": true,
+        "coverage_good": true
+      }
+    },
+    {
+      "ay_scale": 1.2,
+      "az_scale": 0.9,
+      "seed": 220601431,
+      "r_critical": 3.5753824921808315,
+      "r_upper": 0.95,
+      "min_hessian_eigenvalue": 2.290994312406816,
+      "max_condition_number": 1.4372648231132692,
+      "max_error_start": 0.7798223929928262,
+      "max_error_end": 0.00557660409290467,
+      "error_drop_ratio": 139.83822053730236,
+      "error_profile_curvature": 0.048137516685625124,
+      "boundary_coverage_ratio": 1.0,
+      "r_error_correlation": -0.9822356972210419,
+      "checks": {
+        "hessian_positive": true,
+        "convergence_improves": true,
+        "coverage_good": true
+      }
+    },
+    {
+      "ay_scale": 1.2,
+      "az_scale": 0.9,
+      "seed": 220601461,
+      "r_critical": 3.5586678862414027,
+      "r_upper": 0.95,
+      "min_hessian_eigenvalue": 2.290510515581113,
+      "max_condition_number": 1.437266237415624,
+      "max_error_start": 0.6493581924369778,
+      "max_error_end": 0.006451738902488789,
+      "error_drop_ratio": 100.64855417296643,
+      "error_profile_curvature": 0.06259869737946479,
+      "boundary_coverage_ratio": 1.0,
+      "r_error_correlation": -0.9818630142651803,
+      "checks": {
+        "hessian_positive": true,
+        "convergence_improves": true,
+        "coverage_good": true
+      }
+    },
+    {
+      "ay_scale": 1.2,
+      "az_scale": 0.9,
+      "seed": 220601491,
+      "r_critical": 3.5759450170532228,
+      "r_upper": 0.95,
+      "min_hessian_eigenvalue": 2.2891979136386955,
+      "max_condition_number": 1.4367556149638427,
+      "max_error_start": 0.7706459238710158,
+      "max_error_end": 0.005919295406699715,
+      "error_drop_ratio": 130.19217168968547,
+      "error_profile_curvature": 0.06500251927540487,
+      "boundary_coverage_ratio": 1.0,
+      "r_error_correlation": -0.9856958635177108,
+      "checks": {
+        "hessian_positive": true,
+        "convergence_improves": true,
+        "coverage_good": true
+      }
+    },
+    {
+      "ay_scale": 1.2,
+      "az_scale": 1.0,
+      "seed": 220601371,
+      "r_critical": 3.223006988936841,
+      "r_upper": 0.95,
+      "min_hessian_eigenvalue": 2.2159769265055558,
+      "max_condition_number": 1.440356221946916,
+      "max_error_start": 0.7237091510475526,
+      "max_error_end": 0.005130893898278864,
+      "error_drop_ratio": 141.04933085642597,
+      "error_profile_curvature": 0.04705377724758577,
+      "boundary_coverage_ratio": 1.0,
+      "r_error_correlation": -0.9865288009121098,
+      "checks": {
+        "hessian_positive": true,
+        "convergence_improves": true,
+        "coverage_good": true
+      }
+    },
+    {
+      "ay_scale": 1.2,
+      "az_scale": 1.0,
+      "seed": 220601401,
+      "r_critical": 3.217355408795737,
+      "r_upper": 0.95,
+      "min_hessian_eigenvalue": 2.216701418515089,
+      "max_condition_number": 1.437018311386841,
+      "max_error_start": 0.7638841734093423,
+      "max_error_end": 0.008650709940284232,
+      "error_drop_ratio": 88.30306167729903,
+      "error_profile_curvature": 0.0718544511969607,
+      "boundary_coverage_ratio": 1.0,
+      "r_error_correlation": -0.983892934377079,
+      "checks": {
+        "hessian_positive": true,
+        "convergence_improves": true,
+        "coverage_good": true
+      }
+    },
+    {
+      "ay_scale": 1.2,
+      "az_scale": 1.0,
+      "seed": 220601431,
+      "r_critical": 3.2203786351873234,
+      "r_upper": 0.95,
+      "min_hessian_eigenvalue": 2.2196660884189905,
+      "max_condition_number": 1.4364746413206197,
+      "max_error_start": 0.7798036264214544,
+      "max_error_end": 0.005461321372672524,
+      "error_drop_ratio": 142.78662126046132,
+      "error_profile_curvature": 0.04812185023709184,
+      "boundary_coverage_ratio": 1.0,
+      "r_error_correlation": -0.9822475306853553,
+      "checks": {
+        "hessian_positive": true,
+        "convergence_improves": true,
+        "coverage_good": true
+      }
+    },
+    {
+      "ay_scale": 1.2,
+      "az_scale": 1.0,
+      "seed": 220601461,
+      "r_critical": 3.2167236286979177,
+      "r_upper": 0.95,
+      "min_hessian_eigenvalue": 2.220555712172425,
+      "max_condition_number": 1.4357858161397925,
+      "max_error_start": 0.6493289141127428,
+      "max_error_end": 0.006322045030455225,
+      "error_drop_ratio": 102.70868223568905,
+      "error_profile_curvature": 0.06258077810641419,
+      "boundary_coverage_ratio": 1.0,
+      "r_error_correlation": -0.9818740503950576,
+      "checks": {
+        "hessian_positive": true,
+        "convergence_improves": true,
+        "coverage_good": true
+      }
+    },
+    {
+      "ay_scale": 1.2,
+      "az_scale": 1.0,
+      "seed": 220601491,
+      "r_critical": 3.2197576765393396,
+      "r_upper": 0.95,
+      "min_hessian_eigenvalue": 2.217303309842921,
+      "max_condition_number": 1.4373266256844488,
+      "max_error_start": 0.7706593256027848,
+      "max_error_end": 0.0058030646388591185,
+      "error_drop_ratio": 132.80212673183257,
+      "error_profile_curvature": 0.06498393441811696,
+      "boundary_coverage_ratio": 1.0,
+      "r_error_correlation": -0.9857035161214311,
+      "checks": {
+        "hessian_positive": true,
+        "convergence_improves": true,
+        "coverage_good": true
+      }
+    },
+    {
+      "ay_scale": 1.2,
+      "az_scale": 1.1,
+      "seed": 220601371,
+      "r_critical": 2.919344539343682,
+      "r_upper": 0.95,
+      "min_hessian_eigenvalue": 2.146592045762981,
+      "max_condition_number": 1.4349265459266913,
+      "max_error_start": 0.7235894971436037,
+      "max_error_end": 0.0049517223159809285,
+      "error_drop_ratio": 146.12885193669462,
+      "error_profile_curvature": 0.047019040492633786,
+      "boundary_coverage_ratio": 1.0,
+      "r_error_correlation": -0.9865405605445616,
+      "checks": {
+        "hessian_positive": true,
+        "convergence_improves": true,
+        "coverage_good": true
+      }
+    },
+    {
+      "ay_scale": 1.2,
+      "az_scale": 1.1,
+      "seed": 220601401,
+      "r_critical": 2.919321788503479,
+      "r_upper": 0.95,
+      "min_hessian_eigenvalue": 2.1435065950645056,
+      "max_condition_number": 1.436937519122474,
+      "max_error_start": 0.7638822938404886,
+      "max_error_end": 0.00844264082946414,
+      "error_drop_ratio": 90.47907038454137,
+      "error_profile_curvature": 0.07183254828319041,
+      "boundary_coverage_ratio": 1.0,
+      "r_error_correlation": -0.9839064054279508,
+      "checks": {
+        "hessian_positive": true,
+        "convergence_improves": true,
+        "coverage_good": true
+      }
+    },
+    {
+      "ay_scale": 1.2,
+      "az_scale": 1.1,
+      "seed": 220601431,
+      "r_critical": 2.9212232905158557,
+      "r_upper": 0.95,
+      "min_hessian_eigenvalue": 2.1391349745232464,
+      "max_condition_number": 1.4366468002571906,
+      "max_error_start": 0.7798077152643371,
+      "max_error_end": 0.0053681037372805725,
+      "error_drop_ratio": 145.26688630264434,
+      "error_profile_curvature": 0.048111047794202916,
+      "boundary_coverage_ratio": 1.0,
+      "r_error_correlation": -0.9822566976054098,
+      "checks": {
+        "hessian_positive": true,
+        "convergence_improves": true,
+        "coverage_good": true
+      }
+    },
+    {
+      "ay_scale": 1.2,
+      "az_scale": 1.1,
+      "seed": 220601461,
+      "r_critical": 2.9266603180287896,
+      "r_upper": 0.95,
+      "min_hessian_eigenvalue": 2.143251304921086,
+      "max_condition_number": 1.437252508108676,
+      "max_error_start": 0.6493579209313621,
+      "max_error_end": 0.006217717370419191,
+      "error_drop_ratio": 104.43670598806635,
+      "error_profile_curvature": 0.0625720518907589,
+      "boundary_coverage_ratio": 1.0,
+      "r_error_correlation": -0.9818832068584789,
+      "checks": {
+        "hessian_positive": true,
+        "convergence_improves": true,
+        "coverage_good": true
+      }
+    },
+    {
+      "ay_scale": 1.2,
+      "az_scale": 1.1,
+      "seed": 220601491,
+      "r_critical": 2.92520378390374,
+      "r_upper": 0.95,
+      "min_hessian_eigenvalue": 2.1419551695212986,
+      "max_condition_number": 1.4375007141855365,
+      "max_error_start": 0.770663411346642,
+      "max_error_end": 0.005681779230820298,
+      "error_drop_ratio": 135.63769024432486,
+      "error_profile_curvature": 0.0649643112881841,
+      "boundary_coverage_ratio": 1.0,
+      "r_error_correlation": -0.9857115829645338,
+      "checks": {
+        "hessian_positive": true,
+        "convergence_improves": true,
+        "coverage_good": true
+      }
+    },
+    {
+      "ay_scale": 1.2,
+      "az_scale": 1.2,
+      "seed": 220601371,
+      "r_critical": 2.6791465919452766,
+      "r_upper": 0.95,
+      "min_hessian_eigenvalue": 2.0673179452191297,
+      "max_condition_number": 1.4371863447152988,
+      "max_error_start": 0.7236393040046866,
+      "max_error_end": 0.004875278526537272,
+      "error_drop_ratio": 148.430351223166,
+      "error_profile_curvature": 0.04701204608582097,
+      "boundary_coverage_ratio": 1.0,
+      "r_error_correlation": -0.9865462587923289,
+      "checks": {
+        "hessian_positive": true,
+        "convergence_improves": true,
+        "coverage_good": true
+      }
+    },
+    {
+      "ay_scale": 1.2,
+      "az_scale": 1.2,
+      "seed": 220601401,
+      "r_critical": 2.6824818414635097,
+      "r_upper": 0.95,
+      "min_hessian_eigenvalue": 2.069892647986105,
+      "max_condition_number": 1.4377416666138354,
+      "max_error_start": 0.763901001050267,
+      "max_error_end": 0.008284538371426071,
+      "error_drop_ratio": 92.20803463051277,
+      "error_profile_curvature": 0.07181878802440456,
+      "boundary_coverage_ratio": 1.0,
+      "r_error_correlation": -0.9839168036185447,
+      "checks": {
+        "hessian_positive": true,
+        "convergence_improves": true,
+        "coverage_good": true
+      }
+    },
+    {
+      "ay_scale": 1.2,
+      "az_scale": 1.2,
+      "seed": 220601431,
+      "r_critical": 2.68258229847536,
+      "r_upper": 0.95,
+      "min_hessian_eigenvalue": 2.0691365155097134,
+      "max_condition_number": 1.437826367994957,
+      "max_error_start": 0.77983572863927,
+      "max_error_end": 0.005241600559330959,
+      "error_drop_ratio": 148.77816800653133,
+      "error_profile_curvature": 0.04809750545714478,
+      "boundary_coverage_ratio": 1.0,
+      "r_error_correlation": -0.9822692448060053,
+      "checks": {
+        "hessian_positive": true,
+        "convergence_improves": true,
+        "coverage_good": true
+      }
+    },
+    {
+      "ay_scale": 1.2,
+      "az_scale": 1.2,
+      "seed": 220601461,
+      "r_critical": 2.6773510707329837,
+      "r_upper": 0.95,
+      "min_hessian_eigenvalue": 2.0734542427322546,
+      "max_condition_number": 1.4367131130182529,
+      "max_error_start": 0.6493472537721957,
+      "max_error_end": 0.006045895999709612,
+      "error_drop_ratio": 107.40298109715818,
+      "error_profile_curvature": 0.06255158596428484,
+      "boundary_coverage_ratio": 1.0,
+      "r_error_correlation": -0.9818980144383671,
+      "checks": {
+        "hessian_positive": true,
+        "convergence_improves": true,
+        "coverage_good": true
+      }
+    },
+    {
+      "ay_scale": 1.2,
+      "az_scale": 1.2,
+      "seed": 220601491,
+      "r_critical": 2.6825731948518388,
+      "r_upper": 0.95,
+      "min_hessian_eigenvalue": 2.0673359259958515,
+      "max_condition_number": 1.437540675079628,
+      "max_error_start": 0.7706643491931385,
+      "max_error_end": 0.005569726204103349,
+      "error_drop_ratio": 138.36664872779056,
+      "error_profile_curvature": 0.06494676881415257,
+      "boundary_coverage_ratio": 1.0,
+      "r_error_correlation": -0.9857191511376434,
+      "checks": {
+        "hessian_positive": true,
+        "convergence_improves": true,
+        "coverage_good": true
+      }
+    }
+  ],
+  "aggregate_grids": {
+    "mean_end_error": [
+      [
+        0.006000099786683789,
+        0.005744520720574119,
+        0.005521097777881881,
+        0.005226934300235321,
+        0.0048932300592482
+      ],
+      [
+        0.006183933723097418,
+        0.005986081254685604,
+        0.00580898981233022,
+        0.005564131166849016,
+        0.005318375575135242
+      ],
+      [
+        0.006302958994111039,
+        0.006174392414823588,
+        0.00600588760685705,
+        0.005821123642942534,
+        0.005607016467304696
+      ],
+      [
+        0.006414995751975192,
+        0.006303425108690609,
+        0.006147839660994289,
+        0.005998584471167068,
+        0.005869791434278018
+      ],
+      [
+        0.006513706993187747,
+        0.00639821496420957,
+        0.006273606976109994,
+        0.0061323926967930265,
+        0.006003407932221453
+      ]
+    ],
+    "mean_error_drop_ratio": [
+      [
+        127.12871545149383,
+        133.20501388694427,
+        138.06724012694622,
+        146.03375824035888,
+        155.6637617235727
+      ],
+      [
+        123.2259550594832,
+        127.57706868754035,
+        131.25115742111709,
+        137.040547688777,
+        143.66157450276782
+      ],
+      [
+        121.27324885999897,
+        123.49681213773188,
+        127.06671676342094,
+        130.9412157934584,
+        136.03929380038787
+      ],
+      [
+        119.00857979168259,
+        120.98084146556478,
+        124.04876636115539,
+        127.29889233592375,
+        130.1520365358823
+      ],
+      [
+        117.07975475173585,
+        119.26437849635818,
+        121.52996455234158,
+        124.3898409712543,
+        127.03723673703178
+      ]
+    ],
+    "mean_min_hessian_eigenvalue": [
+      [
+        1.3797201680589395,
+        1.3093210232736308,
+        1.231723265921965,
+        1.1575164068843136,
+        1.085834626108942
+      ],
+      [
+        1.6265533806829118,
+        1.5539761917955741,
+        1.4776555291598423,
+        1.404170214400875,
+        1.3312771806547334
+      ],
+      [
+        1.875423598569008,
+        1.797822296450184,
+        1.7236132409364615,
+        1.6519411262913255,
+        1.5767884926652365
+      ],
+      [
+        2.1200805671265117,
+        2.0437519513379168,
+        1.9702678231033648,
+        1.8973757902058839,
+        1.8211505574483673
+      ],
+      [
+        2.363919702069924,
+        2.289709745614593,
+        2.218040691090996,
+        2.1428880179586236,
+        2.0694274554886105
+      ]
+    ]
+  },
+  "robustness_ci": {
+    "alpha": 0.05,
+    "bootstrap_samples": 1200,
+    "global": {
+      "error_drop_ratio_mean": 129.29849488571716,
+      "error_drop_ratio_ci_lower": 124.8946538077867,
+      "error_drop_ratio_ci_upper": 133.7594554312046,
+      "max_error_end_mean": 0.005928589571695467,
+      "max_error_end_ci_lower": 0.005705749699828483,
+      "max_error_end_ci_upper": 0.006160565987176827
+    },
+    "pairwise": [
+      {
+        "ay_scale": 0.8,
+        "az_scale": 0.8,
+        "sample_count": 5,
+        "error_drop_ratio_mean": 127.12871545149383,
+        "error_drop_ratio_ci_lower": 106.54706176691245,
+        "error_drop_ratio_ci_upper": 146.74761019512937,
+        "max_error_end_mean": 0.006000099786683789,
+        "max_error_end_ci_lower": 0.005152534255947716,
+        "max_error_end_ci_upper": 0.007225109710198299
+      },
+      {
+        "ay_scale": 0.8,
+        "az_scale": 0.9,
+        "sample_count": 5,
+        "error_drop_ratio_mean": 133.20501388694427,
+        "error_drop_ratio_ci_lower": 108.46643997937329,
+        "error_drop_ratio_ci_upper": 154.9974465666448,
+        "max_error_end_mean": 0.005744520720574119,
+        "max_error_end_ci_lower": 0.004882175326194389,
+        "max_error_end_ci_upper": 0.006919097587964468
+      },
+      {
+        "ay_scale": 0.8,
+        "az_scale": 1.0,
+        "sample_count": 5,
+        "error_drop_ratio_mean": 138.06724012694622,
+        "error_drop_ratio_ci_lower": 116.01539704016258,
+        "error_drop_ratio_ci_upper": 159.3586133553463,
+        "max_error_end_mean": 0.005521097777881881,
+        "max_error_end_ci_lower": 0.0047440621278731715,
+        "max_error_end_ci_upper": 0.006562006552108396
+      },
+      {
+        "ay_scale": 0.8,
+        "az_scale": 1.1,
+        "sample_count": 5,
+        "error_drop_ratio_mean": 146.03375824035888,
+        "error_drop_ratio_ci_lower": 122.05772694630983,
+        "error_drop_ratio_ci_upper": 168.56664634831927,
+        "max_error_end_mean": 0.005226934300235321,
+        "max_error_end_ci_lower": 0.0044866157950961775,
+        "max_error_end_ci_upper": 0.006288486703985259
+      },
+      {
+        "ay_scale": 0.8,
+        "az_scale": 1.2,
+        "sample_count": 5,
+        "error_drop_ratio_mean": 155.6637617235727,
+        "error_drop_ratio_ci_lower": 131.20066089841518,
+        "error_drop_ratio_ci_upper": 178.95497821375545,
+        "max_error_end_mean": 0.0048932300592482,
+        "max_error_end_ci_lower": 0.004224646941364105,
+        "max_error_end_ci_upper": 0.005833681684668679
+      },
+      {
+        "ay_scale": 0.9,
+        "az_scale": 0.8,
+        "sample_count": 5,
+        "error_drop_ratio_mean": 123.2259550594832,
+        "error_drop_ratio_ci_lower": 103.54037396006194,
+        "error_drop_ratio_ci_upper": 142.08699757556678,
+        "max_error_end_mean": 0.006183933723097418,
+        "max_error_end_ci_lower": 0.0053033558729644005,
+        "max_error_end_ci_upper": 0.007424251437871526
+      },
+      {
+        "ay_scale": 0.9,
+        "az_scale": 0.9,
+        "sample_count": 5,
+        "error_drop_ratio_mean": 127.57706868754035,
+        "error_drop_ratio_ci_lower": 104.59900652596544,
+        "error_drop_ratio_ci_upper": 146.9552712685016,
+        "max_error_end_mean": 0.005986081254685604,
+        "max_error_end_ci_lower": 0.005128701204507263,
+        "max_error_end_ci_upper": 0.007193629574470853
+      },
+      {
+        "ay_scale": 0.9,
+        "az_scale": 1.0,
+        "sample_count": 5,
+        "error_drop_ratio_mean": 131.25115742111709,
+        "error_drop_ratio_ci_lower": 110.11093954991456,
+        "error_drop_ratio_ci_upper": 151.31909914246972,
+        "max_error_end_mean": 0.00580898981233022,
+        "max_error_end_ci_lower": 0.004999025608925738,
+        "max_error_end_ci_upper": 0.006963685067932611
+      },
+      {
+        "ay_scale": 0.9,
+        "az_scale": 1.1,
+        "sample_count": 5,
+        "error_drop_ratio_mean": 137.040547688777,
+        "error_drop_ratio_ci_lower": 114.7674076278468,
+        "error_drop_ratio_ci_upper": 158.12297770044222,
+        "max_error_end_mean": 0.005564131166849016,
+        "max_error_end_ci_lower": 0.004781151488654577,
+        "max_error_end_ci_upper": 0.0066909100505366985
+      },
+      {
+        "ay_scale": 0.9,
+        "az_scale": 1.2,
+        "sample_count": 5,
+        "error_drop_ratio_mean": 143.66157450276782,
+        "error_drop_ratio_ci_lower": 117.69240543769999,
+        "error_drop_ratio_ci_upper": 165.93331732022514,
+        "max_error_end_mean": 0.005318375575135242,
+        "max_error_end_ci_lower": 0.004547794549170282,
+        "max_error_end_ci_upper": 0.006432992905421963
+      },
+      {
+        "ay_scale": 1.0,
+        "az_scale": 0.8,
+        "sample_count": 5,
+        "error_drop_ratio_mean": 121.27324885999897,
+        "error_drop_ratio_ci_lower": 101.38753906722202,
+        "error_drop_ratio_ci_upper": 140.74217748216788,
+        "max_error_end_mean": 0.006302958994111039,
+        "max_error_end_ci_lower": 0.005367026995618726,
+        "max_error_end_ci_upper": 0.007577800146315725
+      },
+      {
+        "ay_scale": 1.0,
+        "az_scale": 0.9,
+        "sample_count": 5,
+        "error_drop_ratio_mean": 123.49681213773188,
+        "error_drop_ratio_ci_lower": 104.42535568545547,
+        "error_drop_ratio_ci_upper": 140.55493994385102,
+        "max_error_end_mean": 0.006174392414823588,
+        "max_error_end_ci_lower": 0.005332617872257565,
+        "max_error_end_ci_upper": 0.007422901620017552
+      },
+      {
+        "ay_scale": 1.0,
+        "az_scale": 1.0,
+        "sample_count": 5,
+        "error_drop_ratio_mean": 127.06671676342094,
+        "error_drop_ratio_ci_lower": 106.28251225436016,
+        "error_drop_ratio_ci_upper": 146.69975731036297,
+        "max_error_end_mean": 0.00600588760685705,
+        "max_error_end_ci_lower": 0.0051553141278264745,
+        "max_error_end_ci_upper": 0.00717368604297452
+      },
+      {
+        "ay_scale": 1.0,
+        "az_scale": 1.1,
+        "sample_count": 5,
+        "error_drop_ratio_mean": 130.9412157934584,
+        "error_drop_ratio_ci_lower": 109.5986551420215,
+        "error_drop_ratio_ci_upper": 150.33729850672216,
+        "max_error_end_mean": 0.005821123642942534,
+        "max_error_end_ci_lower": 0.005013059958458685,
+        "max_error_end_ci_upper": 0.006998746460116212
+      },
+      {
+        "ay_scale": 1.0,
+        "az_scale": 1.2,
+        "sample_count": 5,
+        "error_drop_ratio_mean": 136.03929380038787,
+        "error_drop_ratio_ci_lower": 113.97618598857953,
+        "error_drop_ratio_ci_upper": 157.17060669213652,
+        "max_error_end_mean": 0.005607016467304696,
+        "max_error_end_ci_lower": 0.004831165617832171,
+        "max_error_end_ci_upper": 0.006707236862766826
+      },
+      {
+        "ay_scale": 1.1,
+        "az_scale": 0.8,
+        "sample_count": 5,
+        "error_drop_ratio_mean": 119.00857979168259,
+        "error_drop_ratio_ci_lower": 100.52814700906393,
+        "error_drop_ratio_ci_upper": 137.4890125743012,
+        "max_error_end_mean": 0.006414995751975192,
+        "max_error_end_ci_lower": 0.00549941082827321,
+        "max_error_end_ci_upper": 0.007631532015461635
+      },
+      {
+        "ay_scale": 1.1,
+        "az_scale": 0.9,
+        "sample_count": 5,
+        "error_drop_ratio_mean": 120.98084146556478,
+        "error_drop_ratio_ci_lower": 101.49975912009276,
+        "error_drop_ratio_ci_upper": 139.552239550377,
+        "max_error_end_mean": 0.006303425108690609,
+        "max_error_end_ci_lower": 0.005420129816997239,
+        "max_error_end_ci_upper": 0.007588116200703881
+      },
+      {
+        "ay_scale": 1.1,
+        "az_scale": 1.0,
+        "sample_count": 5,
+        "error_drop_ratio_mean": 124.04876636115539,
+        "error_drop_ratio_ci_lower": 103.88913201172097,
+        "error_drop_ratio_ci_upper": 142.9462737158779,
+        "max_error_end_mean": 0.006147839660994289,
+        "max_error_end_ci_lower": 0.005285910014490465,
+        "max_error_end_ci_upper": 0.0073538626103166775
+      },
+      {
+        "ay_scale": 1.1,
+        "az_scale": 1.1,
+        "sample_count": 5,
+        "error_drop_ratio_mean": 127.29889233592375,
+        "error_drop_ratio_ci_lower": 106.51590193973861,
+        "error_drop_ratio_ci_upper": 146.85511950531472,
+        "max_error_end_mean": 0.005998584471167068,
+        "max_error_end_ci_lower": 0.005136978867209288,
+        "max_error_end_ci_upper": 0.007244723379176449
+      },
+      {
+        "ay_scale": 1.1,
+        "az_scale": 1.2,
+        "sample_count": 5,
+        "error_drop_ratio_mean": 130.1520365358823,
+        "error_drop_ratio_ci_lower": 108.4700323241042,
+        "error_drop_ratio_ci_upper": 150.42776705512756,
+        "max_error_end_mean": 0.005869791434278018,
+        "max_error_end_ci_lower": 0.005027354577100971,
+        "max_error_end_ci_upper": 0.007067698863609221
+      },
+      {
+        "ay_scale": 1.2,
+        "az_scale": 0.8,
+        "sample_count": 5,
+        "error_drop_ratio_mean": 117.07975475173585,
+        "error_drop_ratio_ci_lower": 98.19594382570719,
+        "error_drop_ratio_ci_upper": 135.10178222789628,
+        "max_error_end_mean": 0.006513706993187747,
+        "max_error_end_ci_lower": 0.005595501562575055,
+        "max_error_end_ci_upper": 0.007834924445681339
+      },
+      {
+        "ay_scale": 1.2,
+        "az_scale": 0.9,
+        "sample_count": 5,
+        "error_drop_ratio_mean": 119.26437849635818,
+        "error_drop_ratio_ci_lower": 99.8926398631026,
+        "error_drop_ratio_ci_upper": 137.70071103822679,
+        "max_error_end_mean": 0.00639821496420957,
+        "max_error_end_ci_lower": 0.005484260473489358,
+        "max_error_end_ci_upper": 0.007638714757997584
+      },
+      {
+        "ay_scale": 1.2,
+        "az_scale": 1.0,
+        "sample_count": 5,
+        "error_drop_ratio_mean": 121.52996455234158,
+        "error_drop_ratio_ci_lower": 100.08399879988374,
+        "error_drop_ratio_ci_upper": 140.09480619312143,
+        "max_error_end_mean": 0.006273606976109994,
+        "max_error_end_ci_lower": 0.005397499036152378,
+        "max_error_end_ci_upper": 0.007511651819714185
+      },
+      {
+        "ay_scale": 1.2,
+        "az_scale": 1.1,
+        "sample_count": 5,
+        "error_drop_ratio_mean": 124.3898409712543,
+        "error_drop_ratio_ci_lower": 104.40055381567701,
+        "error_drop_ratio_ci_upper": 143.68583334460055,
+        "max_error_end_mean": 0.0061323926967930265,
+        "max_error_end_ci_lower": 0.00526428626746866,
+        "max_error_end_ci_upper": 0.007299472434958508
+      },
+      {
+        "ay_scale": 1.2,
+        "az_scale": 1.2,
+        "sample_count": 5,
+        "error_drop_ratio_mean": 127.03723673703178,
+        "error_drop_ratio_ci_lower": 106.4914872423725,
+        "error_drop_ratio_ci_upper": 146.55673743743705,
+        "max_error_end_mean": 0.006003407932221453,
+        "max_error_end_ci_lower": 0.005160696875167963,
+        "max_error_end_ci_upper": 0.007198613504496983
+      }
+    ],
+    "seedwise": [
+      {
+        "seed": 220601371,
+        "sample_count": 25,
+        "error_drop_ratio_mean": 151.1443751763135,
+        "error_drop_ratio_ci_lower": 147.3849645859068,
+        "error_drop_ratio_ci_upper": 155.5227685100121
+      },
+      {
+        "seed": 220601401,
+        "sample_count": 25,
+        "error_drop_ratio_mean": 93.75980546551604,
+        "error_drop_ratio_ci_lower": 91.33186521130528,
+        "error_drop_ratio_ci_upper": 96.6511597778431
+      },
+      {
+        "seed": 220601431,
+        "sample_count": 25,
+        "error_drop_ratio_mean": 151.6008455354816,
+        "error_drop_ratio_ci_lower": 147.79760334059003,
+        "error_drop_ratio_ci_upper": 155.9640995794765
+      },
+      {
+        "seed": 220601461,
+        "sample_count": 25,
+        "error_drop_ratio_mean": 108.87921920314902,
+        "error_drop_ratio_ci_lower": 106.05847867120207,
+        "error_drop_ratio_ci_upper": 112.11920005545524
+      },
+      {
+        "seed": 220601491,
+        "sample_count": 25,
+        "error_drop_ratio_mean": 141.10822904812582,
+        "error_drop_ratio_ci_lower": 137.32634224555406,
+        "error_drop_ratio_ci_upper": 145.00662171422024
+      }
+    ]
+  },
+  "summary": {
+    "best_case": {
+      "ay_scale": 0.8,
+      "az_scale": 1.2,
+      "seed": 220601431,
+      "r_critical": 1.7896436473986426,
+      "r_upper": 0.95,
+      "min_hessian_eigenvalue": 1.0874495562685904,
+      "max_condition_number": 1.435940142652233,
+      "max_error_start": 0.7797909314346289,
+      "max_error_end": 0.004249603905893747,
+      "error_drop_ratio": 183.4973208569255,
+      "error_profile_curvature": 0.04798692365130367,
+      "boundary_coverage_ratio": 1.0,
+      "r_error_correlation": -0.9823606716071108,
+      "checks": {
+        "hessian_positive": true,
+        "convergence_improves": true,
+        "coverage_good": true
+      }
+    },
+    "worst_case": {
+      "ay_scale": 1.2,
+      "az_scale": 0.8,
+      "seed": 220601401,
+      "r_critical": 4.02187308567844,
+      "r_upper": 0.95,
+      "min_hessian_eigenvalue": 2.365048307411865,
+      "max_condition_number": 1.4365282224973028,
+      "max_error_start": 0.7638727716496433,
+      "max_error_end": 0.008967089138981667,
+      "error_drop_ratio": 85.18625830638182,
+      "error_profile_curvature": 0.07188700178203411,
+      "boundary_coverage_ratio": 1.0,
+      "r_error_correlation": -0.9838724970486087,
+      "checks": {
+        "hessian_positive": true,
+        "convergence_improves": true,
+        "coverage_good": true
+      }
+    },
+    "mean_error_drop_ratio": 129.29849488571716,
+    "mean_boundary_coverage_ratio": 1.0,
+    "all_cases_stable": true
+  }
+}

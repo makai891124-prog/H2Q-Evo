@@ -1,0 +1,154 @@
+{
+  "started_at": "2026-04-06T23:00:26.539136",
+  "finished_at": "2026-04-06T23:00:38.111697",
+  "elapsed_hours": 0.00321460054980384,
+  "cycles": 2,
+  "knowledge_count": 2,
+  "acquired_count": 2,
+  "failed_count": 0,
+  "baselines": {
+    "paper2206_report": {
+      "overall_passed": true,
+      "checks": {
+        "all_hessian_positive": true,
+        "convergence_improves": true,
+        "boundary_coverage_good": true,
+        "multidim_video_created": true,
+        "sensitivity_report_created": true,
+        "sensitivity_ci_plot_created": true,
+        "dimensional_extension_created": true,
+        "projection_consistency_good": true,
+        "stage7_passed": true,
+        "stage8_passed": true
+      }
+    },
+    "paper2604_report": {
+      "overall_passed": true,
+      "checks": {
+        "eq20_rel_error_lt_5e-2": true,
+        "eq24_rel_error_lt_1e-8": true,
+        "eq25_rel_error_lt_3e-2": true,
+        "canonical_equations_passed": true,
+        "multidim_video_created": true,
+        "stage7_passed": true,
+        "stage8_passed": true
+      }
+    },
+    "quantum_equivalence": {
+      "timestamp": 1768847801.154591,
+      "bv": 0.0,
+      "ghz_fidelity_mean": 0.9999999999999996
+    },
+    "agi_benchmark": {
+      "overall_score": 82.53333333333333,
+      "pass_rate": 0.92,
+      "verdict": "SUPERIOR: 达到学术AGI核心能力标准"
+    },
+    "agi_eval": {
+      "overall_score": 0.4068,
+      "consciousness_score": 0.4068,
+      "adaptability_score": 0.0556
+    }
+  },
+  "config": {
+    "projection_dim": 128,
+    "parallel_branches": 6,
+    "projection_seed": 260401249,
+    "formula_mode": "aligned"
+  },
+  "metrics": {
+    "witness_min_ci95": {
+      "mean": -0.49911200362112806,
+      "lower": -0.4991127919773205,
+      "upper": -0.4991112152649356
+    },
+    "entanglement_ratio_ci95": {
+      "mean": 0.8431818181818181,
+      "lower": 0.8363636363636363,
+      "upper": 0.85
+    },
+    "base_composite_ci95": {
+      "mean": 0.5602398969085407,
+      "lower": 0.4519149146208306,
+      "upper": 0.6685648791962508
+    },
+    "enhanced_composite_ci95": {
+      "mean": 0.6325870630013541,
+      "lower": 0.554599824744237,
+      "upper": 0.7105743012584712
+    },
+    "highdim_consensus_ci95": {
+      "mean": 0.8192272544113839,
+      "lower": 0.8191116990586425,
+      "upper": 0.8193428097641252
+    },
+    "highdim_disagreement_ci95": {
+      "mean": 0.0033858801596541232,
+      "lower": 0.002873749984986777,
+      "upper": 0.0038980103343214693
+    },
+    "capability_score_ci95": {
+      "mean": 95.45833333333334,
+      "lower": 95.45833333333334,
+      "upper": 95.45833333333334
+    }
+  },
+  "resume": {
+    "enabled": false,
+    "resumed": false,
+    "resumed_from_cycle": 0,
+    "resumed_at": null
+  },
+  "latest_capability_score": 0.9545833333333335,
+  "latest_base_score": 0.6685648791962508,
+  "latest_enhanced_score": 0.7105743012584712,
+  "acceptance": {
+    "timestamp": "2026-04-06T23:00:38.114114",
+    "passed": true,
+    "criteria": [
+      {
+        "name": "minimum_cycles",
+        "value": 2,
+        "threshold": 2,
+        "passed": true
+      },
+      {
+        "name": "enhanced_composite_mean",
+        "value": 0.6325870630013541,
+        "threshold": 0.58,
+        "passed": true
+      },
+      {
+        "name": "capability_score_mean",
+        "value": 95.45833333333334,
+        "threshold": 60.0,
+        "passed": true
+      },
+      {
+        "name": "entanglement_ratio_mean",
+        "value": 0.8431818181818181,
+        "threshold": 0.12,
+        "passed": true
+      },
+      {
+        "name": "highdim_consensus_mean",
+        "value": 0.8192272544113839,
+        "threshold": 0.55,
+        "passed": true
+      },
+      {
+        "name": "composite_uplift",
+        "value": 0.15597447651423424,
+        "threshold": 0.02,
+        "passed": true
+      }
+    ],
+    "trend": {
+      "initial_window_mean": 0.554599824744237,
+      "final_window_mean": 0.7105743012584712,
+      "uplift": 0.15597447651423424,
+      "window_size": 1
+    },
+    "recommendations": []
+  }
+}

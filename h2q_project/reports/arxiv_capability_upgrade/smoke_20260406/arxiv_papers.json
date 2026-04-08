@@ -1,0 +1,113 @@
+[
+  {
+    "category": "cs.AI",
+    "paper_id": "http://arxiv.org/abs/2604.02330v1",
+    "title": "ActionParty: Multi-Subject Action Binding in Generative Video Games",
+    "summary": "Recent advances in video diffusion have enabled the development of \"world models\" capable of simulating interactive environments. However, these models are largely restricted to single-agent settings, failing to control multiple agents simultaneously in a scene. In this work, we tackle a fundamental issue of action binding in existing video diffusion models, which struggle to associate specific actions with their corresponding subjects. For this purpose, we propose ActionParty, an action controllable multi-subject world model for generative video games. It introduces subject state tokens, i.e. latent variables that persistently capture the state of each subject in the scene. By jointly modeling state tokens and video latents with a spatial biasing mechanism, we disentangle global video frame rendering from individual action-controlled subject updates. We evaluate ActionParty on the Melting Pot benchmark, demonstrating the first video world model capable of controlling up to seven players simultaneously across 46 diverse environments. Our results show significant improvements in action-following accuracy and identity consistency, while enabling robust autoregressive tracking of subjects through complex interactions.",
+    "published": "2026-04-02T17:59:58Z",
+    "updated": "2026-04-02T17:59:58Z",
+    "authors": [
+      "Alexander Pondaven",
+      "Ziyi Wu",
+      "Igor Gilitschenski",
+      "Philip Torr",
+      "Sergey Tulyakov",
+      "Fabio Pizzati",
+      "Aliaksandr Siarohin"
+    ],
+    "terms": [
+      "cs.CV",
+      "cs.AI",
+      "cs.LG"
+    ],
+    "tags": [
+      "multimodal_perception",
+      "agent_autonomy",
+      "robustness_safety"
+    ]
+  },
+  {
+    "category": "cs.AI",
+    "paper_id": "http://arxiv.org/abs/2604.02327v1",
+    "title": "Steerable Visual Representations",
+    "summary": "Pretrained Vision Transformers (ViTs) such as DINOv2 and MAE provide generic image features that can be applied to a variety of downstream tasks such as retrieval, classification, and segmentation. However, such representations tend to focus on the most salient visual cues in the image, with no way to direct them toward less prominent concepts of interest. In contrast, Multimodal LLMs can be guided with textual prompts, but the resulting representations tend to be language-centric and lose their effectiveness for generic visual tasks. To address this, we introduce Steerable Visual Representations, a new class of visual representations, whose global and local features can be steered with natural language. While most vision-language models (e.g., CLIP) fuse text with visual features after encoding (late fusion), we inject text directly into the layers of the visual encoder (early fusion) via lightweight cross-attention. We introduce benchmarks for measuring representational steerability, and demonstrate that our steerable visual features can focus on any desired objects in an image while preserving the underlying representation quality. Our method also matches or outperforms dedicated approaches on anomaly detection and personalized object discrimination, exhibiting zero-shot generalization to out-of-distribution tasks.",
+    "published": "2026-04-02T17:59:49Z",
+    "updated": "2026-04-02T17:59:49Z",
+    "authors": [
+      "Jona Ruthardt",
+      "Manu Gaur",
+      "Deva Ramanan",
+      "Makarand Tapaswi",
+      "Yuki M. Asano"
+    ],
+    "terms": [
+      "cs.CV",
+      "cs.AI"
+    ],
+    "tags": [
+      "multimodal_perception",
+      "knowledge_memory"
+    ]
+  },
+  {
+    "category": "quant-ph",
+    "paper_id": "http://arxiv.org/abs/2604.02321v1",
+    "title": "Robust Correlation-Induced Localization Under Time-Reversal Symmetry Breaking",
+    "summary": "We study Anderson localization in a one-dimensional disordered system with long-range correlated hopping decaying as $1/r^{a}$ with complex hopping amplitudes that break time-reversal symmetry in a tunable fashion by varying their argument. We find analytically a corelation-induced algebraic localization that is robust to a finite strength of the time-reversal-symmetry-breaking parameter, beyond which all states delocalize. This establishes a localization--delocalization transition driven by the interplay between long-ranged correlated hopping and time-reversal symmetry breaking. In addition to obtaining the static localization phase diagram, we also investigate the dynamical phase diagram through the lens of wavepacket spreading. We find that the growth in time of the mean-squared displacement of a wavepacket, which is subdiffusive for the time-reversal symmetric case, becomes diffusive for any finite value of the time-reversal-symmetry-breaking parameter.",
+    "published": "2026-04-02T17:58:41Z",
+    "updated": "2026-04-02T17:58:41Z",
+    "authors": [
+      "Bikram Pain",
+      "Sthitadhi Roy",
+      "Jens H. Bardarson",
+      "Ivan M. Khaymovich"
+    ],
+    "terms": [
+      "cond-mat.dis-nn",
+      "cond-mat.stat-mech",
+      "quant-ph"
+    ],
+    "tags": [
+      "robustness_safety",
+      "quantum_computation",
+      "math_foundations"
+    ]
+  },
+  {
+    "category": "quant-ph",
+    "paper_id": "http://arxiv.org/abs/2604.02314v1",
+    "title": "Towards High-Brightness Perfect Photon Blockade",
+    "summary": "Single-photon sources with high single-photon purity and high brightness are key elements of many future quantum technologies. While photon blockade (PB) is widely exploited in the development of such sources, achieving the coexistence of high purity and high brightness remains a long-standing challenge. Here, we identify a novel mechanism for high-brightness PB and demonstrate that near-ideal purity and near-ideal brightness can be simultaneously achieved in an extended nondegenerate two-photon Jaynes-Cummings model with two-body and three-body interactions. This mechanism is underpinned by a distinctive energy-level structure arising from the combined action of the two interactions. The energy levels in the multi-excitation manifold essentially retain a harmonic ladder of degenerate doublets, whereas in the single-excitation subspace the doublet degeneracy is lifted, with a finite splitting between the two levels. Consequently, when one bosonic mode is driven by a coherent continuous-wave pump, the former degeneracy enables the other bosonic mode to exhibit near-perfect PB even in the strong driving regime, while the latter splitting allows the mean photon number of that mode to approach unity. Our proposed scheme overcomes the outstanding challenge and offers a promising pathway toward realizing ideal single-photon sources.",
+    "published": "2026-04-02T17:56:19Z",
+    "updated": "2026-04-02T17:56:19Z",
+    "authors": [
+      "Zhi-Guang Lu",
+      "Xin-You Lü"
+    ],
+    "terms": [
+      "quant-ph"
+    ],
+    "tags": [
+      "quantum_computation",
+      "math_foundations"
+    ]
+  },
+  {
+    "category": "stat.ML",
+    "paper_id": "http://arxiv.org/abs/2604.02250v1",
+    "title": "Smoothing the Landscape: Causal Structure Learning via Diffusion Denoising Objectives",
+    "summary": "Understanding causal dependencies in observational data is critical for informing decision-making. These relationships are often modeled as Bayesian Networks (BNs) and Directed Acyclic Graphs (DAGs). Existing methods, such as NOTEARS and DAG-GNN, often face issues with scalability and stability in high-dimensional data, especially when there is a feature-sample imbalance. Here, we show that the denoising score matching objective of diffusion models could smooth the gradients for faster, more stable convergence. We also propose an adaptive k-hop acyclicity constraint that improves runtime over existing solutions that require matrix inversion. We name this framework Denoising Diffusion Causal Discovery (DDCD). Unlike generative diffusion models, DDCD utilizes the reverse denoising process to infer a parameterized causal structure rather than to generate data. We demonstrate the competitive performance of DDCDs on synthetic benchmarking data. We also show that our methods are practically useful by conducting qualitative analyses on two real-world examples. Code is available at this url: https://github.com/haozhu233/ddcd.",
+    "published": "2026-04-02T16:41:20Z",
+    "updated": "2026-04-02T16:41:20Z",
+    "authors": [
+      "Hao Zhu",
+      "Di Zhou",
+      "Donna Slonim"
+    ],
+    "terms": [
+      "cs.LG",
+      "stat.ML"
+    ],
+    "tags": []
+  }
+]

@@ -77,15 +77,355 @@
         "warn_drop": 0.018000000000000002,
         "fail_drop": 0.045000000000000005
       }
+    },
+    {
+      "timestamp_utc": "2026-03-06T11:48:16.466630+00:00",
+      "overall_ok": true,
+      "cycles": 2,
+      "max_actions_per_cycle": 2,
+      "strategy": {
+        "updated_at_utc": "2026-03-06T11:42:43.874155+00:00",
+        "observed_runs": 5,
+        "ok_rate": 0.8,
+        "fail_streak": 1,
+        "max_actions_per_cycle": 2,
+        "interactive_target": 0.85,
+        "alignment_target": 0.8,
+        "warn_drop": 0.02,
+        "fail_drop": 0.05
+      }
+    },
+    {
+      "timestamp_utc": "2026-03-06T13:42:47.141966+00:00",
+      "overall_ok": true,
+      "cycles": 8,
+      "max_actions_per_cycle": 2,
+      "strategy": {
+        "updated_at_utc": "2026-03-06T13:24:00.880476+00:00",
+        "observed_runs": 6,
+        "ok_rate": 0.8333333333333334,
+        "fail_streak": 0,
+        "max_actions_per_cycle": 2,
+        "interactive_target": 0.85,
+        "alignment_target": 0.8,
+        "warn_drop": 0.02,
+        "fail_drop": 0.05
+      }
+    },
+    {
+      "timestamp_utc": "2026-03-06T14:15:07.013454+00:00",
+      "overall_ok": true,
+      "cycles": 8,
+      "max_actions_per_cycle": 2,
+      "strategy": {
+        "updated_at_utc": "2026-03-06T13:54:11.375402+00:00",
+        "observed_runs": 7,
+        "ok_rate": 0.8571428571428571,
+        "fail_streak": 0,
+        "max_actions_per_cycle": 2,
+        "interactive_target": 0.85,
+        "alignment_target": 0.8,
+        "warn_drop": 0.02,
+        "fail_drop": 0.05
+      }
+    },
+    {
+      "timestamp_utc": "2026-03-06T14:26:52.503688+00:00",
+      "overall_ok": true,
+      "cycles": 1,
+      "max_actions_per_cycle": 2,
+      "strategy": {
+        "updated_at_utc": "2026-03-06T14:24:27.528337+00:00",
+        "observed_runs": 8,
+        "ok_rate": 0.875,
+        "fail_streak": 0,
+        "max_actions_per_cycle": 2,
+        "interactive_target": 0.85,
+        "alignment_target": 0.8,
+        "warn_drop": 0.02,
+        "fail_drop": 0.05
+      }
+    },
+    {
+      "timestamp_utc": "2026-03-06T14:55:53.204357+00:00",
+      "overall_ok": true,
+      "cycles": 1,
+      "max_actions_per_cycle": 2,
+      "strategy": {
+        "updated_at_utc": "2026-03-06T14:52:41.318793+00:00",
+        "observed_runs": 8,
+        "ok_rate": 0.875,
+        "fail_streak": 0,
+        "max_actions_per_cycle": 2,
+        "interactive_target": 0.85,
+        "alignment_target": 0.8,
+        "warn_drop": 0.02,
+        "fail_drop": 0.05
+      }
+    },
+    {
+      "timestamp_utc": "2026-03-06T15:02:04.236851+00:00",
+      "overall_ok": true,
+      "cycles": 1,
+      "max_actions_per_cycle": 2,
+      "strategy": {
+        "updated_at_utc": "2026-03-06T14:59:10.476854+00:00",
+        "observed_runs": 8,
+        "ok_rate": 0.875,
+        "fail_streak": 0,
+        "max_actions_per_cycle": 2,
+        "interactive_target": 0.85,
+        "alignment_target": 0.8,
+        "warn_drop": 0.02,
+        "fail_drop": 0.05
+      }
+    },
+    {
+      "timestamp_utc": "2026-03-06T15:06:05.434838+00:00",
+      "overall_ok": true,
+      "cycles": 1,
+      "max_actions_per_cycle": 2,
+      "strategy": {
+        "updated_at_utc": "2026-03-06T15:02:50.122469+00:00",
+        "observed_runs": 8,
+        "ok_rate": 0.875,
+        "fail_streak": 0,
+        "max_actions_per_cycle": 2,
+        "interactive_target": 0.85,
+        "alignment_target": 0.8,
+        "warn_drop": 0.02,
+        "fail_drop": 0.05
+      }
+    },
+    {
+      "timestamp_utc": "2026-03-06T15:12:00.642140+00:00",
+      "overall_ok": true,
+      "cycles": 1,
+      "max_actions_per_cycle": 2,
+      "strategy": {
+        "updated_at_utc": "2026-03-06T15:09:10.582430+00:00",
+        "observed_runs": 8,
+        "ok_rate": 0.875,
+        "fail_streak": 0,
+        "max_actions_per_cycle": 2,
+        "interactive_target": 0.85,
+        "alignment_target": 0.8,
+        "warn_drop": 0.02,
+        "fail_drop": 0.05
+      }
+    },
+    {
+      "timestamp_utc": "2026-03-06T15:32:23.216397+00:00",
+      "overall_ok": true,
+      "cycles": 3,
+      "max_actions_per_cycle": 2,
+      "strategy": {
+        "updated_at_utc": "2026-03-06T15:24:08.543526+00:00",
+        "observed_runs": 8,
+        "ok_rate": 1.0,
+        "fail_streak": 0,
+        "max_actions_per_cycle": 2,
+        "interactive_target": 0.86,
+        "alignment_target": 0.81,
+        "warn_drop": 0.018000000000000002,
+        "fail_drop": 0.045000000000000005
+      }
+    },
+    {
+      "timestamp_utc": "2026-03-06T15:41:22.826170+00:00",
+      "overall_ok": true,
+      "cycles": 3,
+      "max_actions_per_cycle": 2,
+      "strategy": {
+        "updated_at_utc": "2026-03-06T15:32:57.241461+00:00",
+        "observed_runs": 8,
+        "ok_rate": 1.0,
+        "fail_streak": 0,
+        "max_actions_per_cycle": 2,
+        "interactive_target": 0.86,
+        "alignment_target": 0.81,
+        "warn_drop": 0.018000000000000002,
+        "fail_drop": 0.045000000000000005
+      }
+    },
+    {
+      "timestamp_utc": "2026-03-06T15:52:31.665349+00:00",
+      "overall_ok": true,
+      "cycles": 1,
+      "max_actions_per_cycle": 2,
+      "strategy": {
+        "updated_at_utc": "2026-03-06T15:49:37.055975+00:00",
+        "observed_runs": 8,
+        "ok_rate": 1.0,
+        "fail_streak": 0,
+        "max_actions_per_cycle": 2,
+        "interactive_target": 0.86,
+        "alignment_target": 0.81,
+        "warn_drop": 0.018000000000000002,
+        "fail_drop": 0.045000000000000005
+      }
+    },
+    {
+      "timestamp_utc": "2026-03-06T16:37:34.021031+00:00",
+      "overall_ok": true,
+      "cycles": 4,
+      "max_actions_per_cycle": 2,
+      "strategy": {
+        "updated_at_utc": "2026-03-06T16:27:41.789458+00:00",
+        "observed_runs": 8,
+        "ok_rate": 1.0,
+        "fail_streak": 0,
+        "max_actions_per_cycle": 2,
+        "interactive_target": 0.86,
+        "alignment_target": 0.81,
+        "warn_drop": 0.018000000000000002,
+        "fail_drop": 0.045000000000000005
+      }
+    },
+    {
+      "timestamp_utc": "2026-03-06T16:46:40.750014+00:00",
+      "overall_ok": true,
+      "cycles": 3,
+      "max_actions_per_cycle": 2,
+      "strategy": {
+        "updated_at_utc": "2026-03-06T16:38:13.712002+00:00",
+        "observed_runs": 8,
+        "ok_rate": 1.0,
+        "fail_streak": 0,
+        "max_actions_per_cycle": 2,
+        "interactive_target": 0.86,
+        "alignment_target": 0.81,
+        "warn_drop": 0.018000000000000002,
+        "fail_drop": 0.045000000000000005
+      }
+    },
+    {
+      "timestamp_utc": "2026-03-06T17:01:52.532486+00:00",
+      "overall_ok": true,
+      "cycles": 3,
+      "max_actions_per_cycle": 2,
+      "strategy": {
+        "updated_at_utc": "2026-03-06T16:54:10.319555+00:00",
+        "observed_runs": 8,
+        "ok_rate": 1.0,
+        "fail_streak": 0,
+        "max_actions_per_cycle": 2,
+        "interactive_target": 0.86,
+        "alignment_target": 0.81,
+        "warn_drop": 0.018000000000000002,
+        "fail_drop": 0.045000000000000005
+      }
+    },
+    {
+      "timestamp_utc": "2026-03-06T17:09:29.667728+00:00",
+      "overall_ok": true,
+      "cycles": 3,
+      "max_actions_per_cycle": 2,
+      "strategy": {
+        "updated_at_utc": "2026-03-06T17:02:00.616811+00:00",
+        "observed_runs": 8,
+        "ok_rate": 1.0,
+        "fail_streak": 0,
+        "max_actions_per_cycle": 2,
+        "interactive_target": 0.86,
+        "alignment_target": 0.81,
+        "warn_drop": 0.018000000000000002,
+        "fail_drop": 0.045000000000000005
+      }
+    },
+    {
+      "timestamp_utc": "2026-03-06T17:18:06.326822+00:00",
+      "overall_ok": true,
+      "cycles": 1,
+      "max_actions_per_cycle": 2,
+      "strategy": {
+        "updated_at_utc": "2026-03-06T17:15:20.728366+00:00",
+        "observed_runs": 8,
+        "ok_rate": 1.0,
+        "fail_streak": 0,
+        "max_actions_per_cycle": 2,
+        "interactive_target": 0.86,
+        "alignment_target": 0.81,
+        "warn_drop": 0.018000000000000002,
+        "fail_drop": 0.045000000000000005
+      }
+    },
+    {
+      "timestamp_utc": "2026-03-06T17:25:14.918268+00:00",
+      "overall_ok": true,
+      "cycles": 1,
+      "max_actions_per_cycle": 2,
+      "strategy": {
+        "updated_at_utc": "2026-03-06T17:22:16.677663+00:00",
+        "observed_runs": 8,
+        "ok_rate": 1.0,
+        "fail_streak": 0,
+        "max_actions_per_cycle": 2,
+        "interactive_target": 0.86,
+        "alignment_target": 0.81,
+        "warn_drop": 0.018000000000000002,
+        "fail_drop": 0.045000000000000005
+      }
+    },
+    {
+      "timestamp_utc": "2026-03-06T17:37:20.671949+00:00",
+      "overall_ok": true,
+      "cycles": 2,
+      "max_actions_per_cycle": 2,
+      "strategy": {
+        "updated_at_utc": "2026-03-06T17:31:36.022311+00:00",
+        "observed_runs": 8,
+        "ok_rate": 1.0,
+        "fail_streak": 0,
+        "max_actions_per_cycle": 2,
+        "interactive_target": 0.86,
+        "alignment_target": 0.81,
+        "warn_drop": 0.018000000000000002,
+        "fail_drop": 0.045000000000000005
+      }
+    },
+    {
+      "timestamp_utc": "2026-03-06T18:17:59.445027+00:00",
+      "overall_ok": true,
+      "cycles": 8,
+      "max_actions_per_cycle": 2,
+      "strategy": {
+        "updated_at_utc": "2026-03-06T17:57:51.353555+00:00",
+        "observed_runs": 8,
+        "ok_rate": 1.0,
+        "fail_streak": 0,
+        "max_actions_per_cycle": 2,
+        "interactive_target": 0.86,
+        "alignment_target": 0.81,
+        "warn_drop": 0.018000000000000002,
+        "fail_drop": 0.045000000000000005
+      }
+    },
+    {
+      "timestamp_utc": "2026-03-06T18:39:39.294210+00:00",
+      "overall_ok": true,
+      "cycles": 6,
+      "max_actions_per_cycle": 2,
+      "strategy": {
+        "updated_at_utc": "2026-03-06T18:26:43.300722+00:00",
+        "observed_runs": 8,
+        "ok_rate": 1.0,
+        "fail_streak": 0,
+        "max_actions_per_cycle": 2,
+        "interactive_target": 0.86,
+        "alignment_target": 0.81,
+        "warn_drop": 0.018000000000000002,
+        "fail_drop": 0.045000000000000005
+      }
     }
   ],
   "module_stats": {
     "interactive_bfs": {
-      "runs": 4,
-      "success": 4,
+      "runs": 65,
+      "success": 65,
       "fail": 0,
       "last_ok": true,
-      "last_run_utc": "2026-03-06T07:29:03.782968+00:00"
+      "last_run_utc": "2026-03-06T18:39:39.287166+00:00"
     },
     "capability_registry": {
       "runs": 4,
@@ -109,16 +449,16 @@
       "last_run_utc": "2026-03-06T07:12:47.911834+00:00"
     },
     "release_gate": {
-      "runs": 2,
-      "success": 1,
+      "runs": 63,
+      "success": 62,
       "fail": 1,
-      "last_ok": false,
-      "last_run_utc": "2026-03-06T07:44:19.483724+00:00"
+      "last_ok": true,
+      "last_run_utc": "2026-03-06T18:39:39.236189+00:00"
     }
   },
   "strategy": {
-    "updated_at_utc": "2026-03-06T07:38:38.332195+00:00",
-    "observed_runs": 4,
+    "updated_at_utc": "2026-03-06T18:26:43.300722+00:00",
+    "observed_runs": 8,
     "ok_rate": 1.0,
     "fail_streak": 0,
     "max_actions_per_cycle": 2,

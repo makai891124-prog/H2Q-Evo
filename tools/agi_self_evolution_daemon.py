@@ -395,6 +395,38 @@ def _docker_consistency_check(
     if not docker_bin:
         return {"executed": False, "ok": False, "reason": "docker-not-found"}
 
+    try:
+        probe = subprocess.run(
+            [docker_bin, "ps"],
+            capture_output=True,
+            text=True,
+            timeout=5,
+        )
+    except subprocess.TimeoutExpired:
+        return {
+            "executed": False,
+            "ok": False,
+            "reason": "docker-daemon-timeout",
+            "image": docker_image,
+        }
+    except Exception as exc:
+        return {
+            "executed": False,
+            "ok": False,
+            "reason": "docker-daemon-probe-error",
+            "image": docker_image,
+            "stderr": str(exc)[:400],
+        }
+
+    if probe.returncode != 0:
+        return {
+            "executed": False,
+            "ok": False,
+            "reason": "docker-daemon-unreachable",
+            "image": docker_image,
+            "stderr": (probe.stderr or "")[-400:],
+        }
+
     local = adaptive_infer(
         base_url=base_url,
         prompt=prompt,

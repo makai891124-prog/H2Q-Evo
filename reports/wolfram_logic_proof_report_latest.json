@@ -1,0 +1,92 @@
+{
+  "meta": {
+    "generated_at": "2026-03-06T11:41:25.712229+00:00",
+    "repo_root": "/Users/imymm/H2Q-Evo",
+    "component_count": 10,
+    "edge_count": 12,
+    "engine": "python-fallback-stdlib",
+    "theorem3_strengthened": {
+      "name": "ProductionRequiresGateUnderGovernanceAxioms",
+      "axioms": [
+        "productionCandidate -> (trustedJointCenterOK and ciGreen)",
+        "(trustedJointCenterOK and ciGreen) -> releaseGatePass"
+      ]
+    }
+  },
+  "components": [
+    "DynamicBlueprintBootstrap",
+    "CapabilityRegistry",
+    "InteractiveBenchmark",
+    "PublicAlignment",
+    "RegressionGuard",
+    "ReleaseGate",
+    "RealtimeMonitor",
+    "TrustedJointCenter",
+    "CISelfEvolution",
+    "RuntimeReports"
+  ],
+  "edges": [
+    [
+      "DynamicBlueprintBootstrap",
+      "CapabilityRegistry"
+    ],
+    [
+      "DynamicBlueprintBootstrap",
+      "PublicAlignment"
+    ],
+    [
+      "DynamicBlueprintBootstrap",
+      "RegressionGuard"
+    ],
+    [
+      "CapabilityRegistry",
+      "ReleaseGate"
+    ],
+    [
+      "InteractiveBenchmark",
+      "ReleaseGate"
+    ],
+    [
+      "PublicAlignment",
+      "ReleaseGate"
+    ],
+    [
+      "RegressionGuard",
+      "ReleaseGate"
+    ],
+    [
+      "ReleaseGate",
+      "TrustedJointCenter"
+    ],
+    [
+      "ReleaseGate",
+      "CISelfEvolution"
+    ],
+    [
+      "RealtimeMonitor",
+      "RuntimeReports"
+    ],
+    [
+      "DynamicBlueprintBootstrap",
+      "RuntimeReports"
+    ],
+    [
+      "CISelfEvolution",
+      "RuntimeReports"
+    ]
+  ],
+  "proofs": {
+    "Theorem1_DeliveryClosure": true,
+    "Theorem2_GateImpliesTrustAndCI": true,
+    "Theorem3_ProductionRequiresGate": true
+  },
+  "counter_examples": {
+    "Theorem1_DeliveryClosure": {},
+    "Theorem2_GateImpliesTrustAndCI": {},
+    "Theorem3_ProductionRequiresGate": {}
+  },
+  "artifacts": {
+    "graph_svg": "/Users/imymm/H2Q-Evo/reports/wolfram_system_abstraction_graph_1772797285.svg",
+    "latest_graph_svg": "/Users/imymm/H2Q-Evo/reports/wolfram_system_abstraction_graph_latest.svg"
+  }
+}

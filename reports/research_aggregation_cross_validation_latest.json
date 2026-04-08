@@ -1,0 +1,239 @@
+{
+  "generated_at_utc": "2026-04-05T14:27:04.618734+00:00",
+  "sources": {
+    "distill_pipeline": "/Users/imymm/H2Q-Evo/reports/self_eval_distillation_pipeline_latest.json",
+    "distill_benchmark": "/Users/imymm/H2Q-Evo/reports/self_model_consistency_distilled_latest.json",
+    "public_validation": "/Users/imymm/H2Q-Evo/reports/distill_evo_public_validation_latest.json",
+    "formal_assessment": "/Users/imymm/H2Q-Evo/reports/distill_evo_public_formal_assessment_latest.json",
+    "tuned_config": "/Users/imymm/H2Q-Evo/reports/research_cv_tuned_config_latest.json"
+  },
+  "tuning": {
+    "weights": {
+      "distill_gain": 0.3,
+      "consistency_quality": 0.2,
+      "robustness_30_vs_50": 0.1,
+      "public_validation": 0.25,
+      "formal_closure": 0.15
+    },
+    "thresholds": {
+      "aggregate": 0.85,
+      "loo_min": 0.8,
+      "loo_std": 0.07
+    }
+  },
+  "local_snapshot": {
+    "sessions": 4,
+    "total_runs": 12,
+    "schema_valid_rate": 1.0,
+    "overall_score": 0.9889546351084813,
+    "baseline_gate_ok": true,
+    "longrun_gate_ok": true,
+    "lean_compile_success": true
+  },
+  "research_map": [
+    {
+      "paper": "Self-Consistency Improves Chain of Thought Reasoning in Language Models",
+      "year": 2022,
+      "url": "https://arxiv.org/abs/2203.11171",
+      "method": "Sample diverse reasoning paths and marginalize to a consistent answer.",
+      "local_mapping": [
+        "tools/run_self_model_consistency_benchmark.py",
+        "reports/self_model_consistency_distilled_latest.json"
+      ],
+      "target_effect": "consistency/robustness"
+    },
+    {
+      "paper": "Reflexion: Language Agents with Verbal Reinforcement Learning",
+      "year": 2023,
+      "url": "https://arxiv.org/abs/2303.11366",
+      "method": "Use linguistic feedback memory to improve next trial decisions.",
+      "local_mapping": [
+        "tools/trusted_local_agi_chat.py",
+        "tools/collect_self_eval_distill_samples.py",
+        "tools/train_self_eval_distillation_adapter.py"
+      ],
+      "target_effect": "self-improvement"
+    },
+    {
+      "paper": "Self-Refine: Iterative Refinement with Self-Feedback",
+      "year": 2023,
+      "url": "https://arxiv.org/abs/2303.17651",
+      "method": "Generate, self-critique, and iteratively refine without extra training.",
+      "local_mapping": [
+        "tools/run_self_eval_distillation_pipeline.py",
+        "reports/self_eval_distillation_pipeline_latest.json"
+      ],
+      "target_effect": "iterative quality uplift"
+    },
+    {
+      "paper": "Direct Preference Optimization: Your Language Model is Secretly a Reward Model",
+      "year": 2023,
+      "url": "https://arxiv.org/abs/2305.18290",
+      "method": "Preference alignment via direct objective, avoiding PPO RLHF complexity.",
+      "local_mapping": [
+        "reports/distill_evo_public_validation_latest.json",
+        "reports/release_gate_latest.json"
+      ],
+      "target_effect": "alignment stability"
+    },
+    {
+      "paper": "Constitutional AI: Harmlessness from AI Feedback",
+      "year": 2022,
+      "url": "https://arxiv.org/abs/2212.08073",
+      "method": "Rule-guided self-critique and AI feedback for harmless aligned behavior.",
+      "local_mapping": [
+        "tools/run_agi_integrated_validation.py",
+        "reports/distill_evo_public_validation_latest.json"
+      ],
+      "target_effect": "safety/alignment gates"
+    },
+    {
+      "paper": "Self-Rewarding Language Models",
+      "year": 2024,
+      "url": "https://arxiv.org/abs/2401.10020",
+      "method": "LLM-as-a-judge reward loops with iterative DPO improvement.",
+      "local_mapping": [
+        "tools/run_distill_evolution_public_formal_assessment.py",
+        "reports/distill_evo_public_formal_assessment_latest.json"
+      ],
+      "target_effect": "closed-loop reward improvement"
+    },
+    {
+      "paper": "LoRA: Low-Rank Adaptation of Large Language Models",
+      "year": 2021,
+      "url": "https://arxiv.org/abs/2106.09685",
+      "method": "Parameter-efficient adaptation via low-rank updates.",
+      "local_mapping": [
+        "tools/train_self_eval_distillation_adapter.py",
+        "reports/self_eval_distill_model_latest.json"
+      ],
+      "target_effect": "low-cost adaptation"
+    },
+    {
+      "paper": "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks",
+      "year": 2020,
+      "url": "https://arxiv.org/abs/2005.11401",
+      "method": "Combine parametric generation with non-parametric retrieval memory.",
+      "local_mapping": [
+        "h2q_project/h2q_server.py",
+        "tools/trusted_local_agi_chat.py"
+      ],
+      "target_effect": "factual grounding/provenance"
+    },
+    {
+      "paper": "Improving Dialogue Management: Quality Datasets vs Models",
+      "year": 2023,
+      "url": "https://arxiv.org/abs/2310.01339",
+      "method": "Shows dataset quality strongly controls downstream dialogue performance.",
+      "local_mapping": [
+        "tools/collect_self_eval_distill_samples.py",
+        "reports/self_eval_distill_dataset_latest.json"
+      ],
+      "target_effect": "data quality sensitivity"
+    }
+  ],
+  "aggregate_effectiveness": {
+    "score": 0.9943158135231227,
+    "components": [
+      {
+        "name": "distill_gain",
+        "value": 1.0,
+        "weight": 0.3,
+        "note": "schema_valid_rate delta from pipeline"
+      },
+      {
+        "name": "consistency_quality",
+        "value": 0.9889546351084813,
+        "weight": 0.2,
+        "note": "overall_score from distilled benchmark"
+      },
+      {
+        "name": "robustness_30_vs_50",
+        "value": 0.9922489278599158,
+        "weight": 0.1,
+        "note": "stability under sessions increase"
+      },
+      {
+        "name": "public_validation",
+        "value": 0.9891999748617396,
+        "weight": 0.25,
+        "note": "baseline/longrun gate and alignment"
+      },
+      {
+        "name": "formal_closure",
+        "value": 1.0,
+        "weight": 0.15,
+        "note": "Lean compile + closure facts"
+      }
+    ]
+  },
+  "cross_validation": {
+    "folds": [
+      {
+        "left_out": "distill_gain",
+        "score": 0.9918797336044611,
+        "kept_components": [
+          "consistency_quality",
+          "robustness_30_vs_50",
+          "public_validation",
+          "formal_closure"
+        ]
+      },
+      {
+        "left_out": "consistency_quality",
+        "score": 0.9956561081267831,
+        "kept_components": [
+          "distill_gain",
+          "robustness_30_vs_50",
+          "public_validation",
+          "formal_closure"
+        ]
+      },
+      {
+        "left_out": "robustness_30_vs_50",
+        "score": 0.9945454674857013,
+        "kept_components": [
+          "distill_gain",
+          "consistency_quality",
+          "public_validation",
+          "formal_closure"
+        ]
+      },
+      {
+        "left_out": "public_validation",
+        "score": 0.9960210930769171,
+        "kept_components": [
+          "distill_gain",
+          "consistency_quality",
+          "robustness_30_vs_50",
+          "formal_closure"
+        ]
+      },
+      {
+        "left_out": "formal_closure",
+        "score": 0.9933127217919092,
+        "kept_components": [
+          "distill_gain",
+          "consistency_quality",
+          "robustness_30_vs_50",
+          "public_validation"
+        ]
+      }
+    ],
+    "min_score": 0.9918797336044611,
+    "max_score": 0.9960210930769171,
+    "mean_score": 0.9942830248171542,
+    "std_score": 0.001529209718701658
+  },
+  "proof_argument": {
+    "premises": [
+      "P1: Distillation pipeline has positive schema-valid uplift.",
+      "P2: Robustness from sessions=30 to sessions=50 remains stable.",
+      "P3: Public validation gates pass in baseline and longrun settings.",
+      "P4: Lean4 logical closure compiles with all closure facts true.",
+      "P5: Leave-one-evidence-out aggregate score remains above acceptance floor."
+    ],
+    "conclusion": "Aggregated effect is empirically supported and cross-validated under independent evidence families.",
+    "robust_claim": true
+  }
+}

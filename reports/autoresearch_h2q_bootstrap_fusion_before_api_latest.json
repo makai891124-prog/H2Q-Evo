@@ -1,0 +1,1292 @@
+{
+  "generated_at_utc": "2026-03-09T06:46:54.518952+00:00",
+  "meta": {
+    "execute": true,
+    "max_iterations": 12,
+    "timeout_sec": 900,
+    "output_prefix": "autoresearch_h2q_bootstrap_fusion",
+    "weight_signal_base_weight": 0.1,
+    "weight_signal_decay": 0.5,
+    "weight_signal_gate_floor": 0.05
+  },
+  "autoresearch_summary": {
+    "source": "/Users/imymm/H2Q-Evo/external/autoresearch/results.tsv",
+    "exists": false,
+    "keep_count": 0,
+    "discard_count": 0,
+    "crash_count": 0,
+    "top_keep_descriptions": []
+  },
+  "baseline_snapshot": {
+    "distill_delta": 1.0,
+    "research_aggregate": 0.9961373328944223,
+    "systemic_score": 0.97259375
+  },
+  "final_snapshot": {
+    "distill_delta": 1.0,
+    "research_aggregate": 0.9961373328944223,
+    "systemic_score": 0.97259375
+  },
+  "experiments": [
+    {
+      "name": "distillation_uplift",
+      "description": "Run self-eval distillation pipeline and maximize schema-valid uplift.",
+      "cmd": [
+        "/Users/imymm/H2Q-Evo/.venv/bin/python",
+        "tools/run_self_eval_distillation_pipeline.py",
+        "--sessions",
+        "12",
+        "--teacher-provider",
+        "heuristic",
+        "--max-samples",
+        "320",
+        "--synthetic-min-size",
+        "280",
+        "--include-valid-prompts"
+      ],
+      "metric_name": "delta_schema_valid_rate",
+      "baseline_metric": 1.0,
+      "executed": true,
+      "status": "keep",
+      "metric_after": 1.0,
+      "delta": 0.0,
+      "stdout_tail": "JSON: /Users/imymm/H2Q-Evo/reports/self_eval_distillation_pipeline_1773037415.json\nLatest JSON: /Users/imymm/H2Q-Evo/reports/self_eval_distillation_pipeline_latest.json\nMD: /Users/imymm/H2Q-Evo/reports/self_eval_distillation_pipeline_1773037415.md\nLatest MD: /Users/imymm/H2Q-Evo/reports/self_eval_distillation_pipeline_latest.md",
+      "stderr_tail": "",
+      "returncode": 0,
+      "elapsed_sec": 1.4493699073791504,
+      "decision": {
+        "delta_signal": 0.5,
+        "meaning_uplift": 0.0,
+        "meaning_signal": 0.5,
+        "geometry_uplift": 0.0,
+        "geometry_signal": 0.5,
+        "axiom_uplift": 0.0,
+        "axiom_signal": 0.5,
+        "weight_gain_rate": 0.31972605587680214,
+        "weight_gain_signal": 0.9999639740056466,
+        "weight_gate": 0.05,
+        "weight_support_ratio": 0.0,
+        "weight_decay_factor": 1.0,
+        "weight_effective_weight": 0.005000000000000001,
+        "decision_score": 0.5024998198700281,
+        "geometry_before": 0.5356303210987072,
+        "geometry_after": 0.5356303210987072,
+        "boundary_ratio_before": 0.9931370478749357,
+        "boundary_ratio_after": 0.9931370478749357,
+        "projection_accel_before": -0.02783301802850735,
+        "projection_accel_after": -0.02783301802850735,
+        "axiom_score_before": 0.7762465408066257,
+        "axiom_score_after": 0.7762465408066257,
+        "axiom_pass_rate_before": 0.5714285714285714,
+        "axiom_pass_rate_after": 0.5714285714285714,
+        "axiom_violations_before": [
+          "A1_phi_boundary",
+          "A4_flat_background",
+          "A5_orthogonal_acceleration"
+        ],
+        "axiom_violations_after": [
+          "A1_phi_boundary",
+          "A4_flat_background",
+          "A5_orthogonal_acceleration"
+        ]
+      },
+      "decision_reason": "weight gain up (gated)"
+    },
+    {
+      "name": "research_cross_validation",
+      "description": "Aggregate evidence families and maximize cross-validated aggregate score.",
+      "cmd": [
+        "/Users/imymm/H2Q-Evo/.venv/bin/python",
+        "tools/run_research_aggregation_cross_validation.py"
+      ],
+      "metric_name": "aggregate_score",
+      "baseline_metric": 0.9961373328944223,
+      "executed": true,
+      "status": "keep",
+      "metric_after": 0.9961373328944223,
+      "delta": 0.0,
+      "stdout_tail": "JSON: /Users/imymm/H2Q-Evo/reports/research_aggregation_cross_validation_1773037415.json\nLatest JSON: /Users/imymm/H2Q-Evo/reports/research_aggregation_cross_validation_latest.json\nMD: /Users/imymm/H2Q-Evo/reports/research_aggregation_cross_validation_1773037415.md\nLatest MD: /Users/imymm/H2Q-Evo/reports/research_aggregation_cross_validation_latest.md\nProof MD: /Users/imymm/H2Q-Evo/reports/research_aggregation_cross_validation_proof_note_1773037415.md\nLatest Proof MD: /Users/imymm/H2Q-Evo/reports/research_aggregation_cross_validation_proof_note_latest.md\nAggregate score: 0.996137\nLOO min score: 0.994850\nRobust claim: True",
+      "stderr_tail": "",
+      "returncode": 0,
+      "elapsed_sec": 0.028898000717163086,
+      "decision": {
+        "delta_signal": 0.5,
+        "meaning_uplift": 0.0,
+        "meaning_signal": 0.5,
+        "geometry_uplift": 0.0,
+        "geometry_signal": 0.5,
+        "axiom_uplift": 0.0,
+        "axiom_signal": 0.5,
+        "weight_gain_rate": 0.31972605587680214,
+        "weight_gain_signal": 0.9999639740056466,
+        "weight_gate": 0.030326532985631673,
+        "weight_support_ratio": 0.0,
+        "weight_decay_factor": 0.6065306597126334,
+        "weight_effective_weight": 0.0030326532985631674,
+        "decision_score": 0.501516217394931,
+        "geometry_before": 0.5356303210987072,
+        "geometry_after": 0.5356303210987072,
+        "boundary_ratio_before": 0.9931370478749357,
+        "boundary_ratio_after": 0.9931370478749357,
+        "projection_accel_before": -0.02783301802850735,
+        "projection_accel_after": -0.02783301802850735,
+        "axiom_score_before": 0.7842465408066257,
+        "axiom_score_after": 0.7842465408066257,
+        "axiom_pass_rate_before": 0.5714285714285714,
+        "axiom_pass_rate_after": 0.5714285714285714,
+        "axiom_violations_before": [
+          "A1_phi_boundary",
+          "A4_flat_background",
+          "A5_orthogonal_acceleration"
+        ],
+        "axiom_violations_after": [
+          "A1_phi_boundary",
+          "A4_flat_background",
+          "A5_orthogonal_acceleration"
+        ]
+      },
+      "decision_reason": "weight gain up (gated)"
+    },
+    {
+      "name": "systemic_joint_capability",
+      "description": "Run systemic joint capability assessment (ci-safe) and maximize trusted aggregate.",
+      "cmd": [
+        "/Users/imymm/H2Q-Evo/.venv/bin/python",
+        "tools/run_systemic_platform_joint_capability_assessment.py",
+        "--ci-safe",
+        "--blueprint-cycles",
+        "1",
+        "--longrun-cycles",
+        "1"
+      ],
+      "metric_name": "systemic_score",
+      "baseline_metric": 0.97259375,
+      "executed": true,
+      "status": "keep",
+      "metric_after": 0.97259375,
+      "delta": 0.0,
+      "stdout_tail": "JSON: /Users/imymm/H2Q-Evo/reports/systemic_platform_joint_capability_1773037761.json\nLatest JSON: /Users/imymm/H2Q-Evo/reports/systemic_platform_joint_capability_latest.json\nMD: /Users/imymm/H2Q-Evo/reports/systemic_platform_joint_capability_1773037761.md\nLatest MD: /Users/imymm/H2Q-Evo/reports/systemic_platform_joint_capability_latest.md\nAggregate score: 0.972594\nLOO min score: 0.954545\nRobust claim: True",
+      "stderr_tail": "",
+      "returncode": 0,
+      "elapsed_sec": 345.3168098926544,
+      "decision": {
+        "delta_signal": 0.5,
+        "meaning_uplift": 0.0,
+        "meaning_signal": 0.5,
+        "geometry_uplift": 0.0,
+        "geometry_signal": 0.5,
+        "axiom_uplift": 0.0,
+        "axiom_signal": 0.5,
+        "weight_gain_rate": 0.31972605587680214,
+        "weight_gain_signal": 0.9999639740056466,
+        "weight_gate": 0.018393972058572117,
+        "weight_support_ratio": 0.0,
+        "weight_decay_factor": 0.36787944117144233,
+        "weight_effective_weight": 0.001839397205857212,
+        "decision_score": 0.5009196323368151,
+        "geometry_before": 0.5356303210987072,
+        "geometry_after": 0.5356303210987072,
+        "boundary_ratio_before": 0.9931370478749357,
+        "boundary_ratio_after": 0.9931370478749357,
+        "projection_accel_before": -0.02783301802850735,
+        "projection_accel_after": -0.02783301802850735,
+        "axiom_score_before": 0.7842465408066257,
+        "axiom_score_after": 0.7842465408066257,
+        "axiom_pass_rate_before": 0.5714285714285714,
+        "axiom_pass_rate_after": 0.5714285714285714,
+        "axiom_violations_before": [
+          "A1_phi_boundary",
+          "A4_flat_background",
+          "A5_orthogonal_acceleration"
+        ],
+        "axiom_violations_after": [
+          "A1_phi_boundary",
+          "A4_flat_background",
+          "A5_orthogonal_acceleration"
+        ]
+      },
+      "decision_reason": "weight gain up (gated)"
+    },
+    {
+      "name": "distillation_uplift",
+      "description": "Run self-eval distillation pipeline and maximize schema-valid uplift.",
+      "cmd": [
+        "/Users/imymm/H2Q-Evo/.venv/bin/python",
+        "tools/run_self_eval_distillation_pipeline.py",
+        "--sessions",
+        "12",
+        "--teacher-provider",
+        "heuristic",
+        "--max-samples",
+        "320",
+        "--synthetic-min-size",
+        "280",
+        "--include-valid-prompts"
+      ],
+      "metric_name": "delta_schema_valid_rate",
+      "baseline_metric": 1.0,
+      "executed": true,
+      "status": "keep",
+      "metric_after": 1.0,
+      "delta": 0.0,
+      "stdout_tail": "JSON: /Users/imymm/H2Q-Evo/reports/self_eval_distillation_pipeline_1773037762.json\nLatest JSON: /Users/imymm/H2Q-Evo/reports/self_eval_distillation_pipeline_latest.json\nMD: /Users/imymm/H2Q-Evo/reports/self_eval_distillation_pipeline_1773037762.md\nLatest MD: /Users/imymm/H2Q-Evo/reports/self_eval_distillation_pipeline_latest.md",
+      "stderr_tail": "",
+      "returncode": 0,
+      "elapsed_sec": 1.4727330207824707,
+      "decision": {
+        "delta_signal": 0.5,
+        "meaning_uplift": 0.0,
+        "meaning_signal": 0.5,
+        "geometry_uplift": 0.0,
+        "geometry_signal": 0.5,
+        "axiom_uplift": 0.0,
+        "axiom_signal": 0.5,
+        "weight_gain_rate": 0.31972605587680214,
+        "weight_gain_signal": 0.9999639740056466,
+        "weight_gate": 0.011156508007421491,
+        "weight_support_ratio": 0.0,
+        "weight_decay_factor": 0.22313016014842982,
+        "weight_effective_weight": 0.0011156508007421492,
+        "decision_score": 0.5005577852079416,
+        "geometry_before": 0.5356303210987072,
+        "geometry_after": 0.5356303210987072,
+        "boundary_ratio_before": 0.9931370478749357,
+        "boundary_ratio_after": 0.9931370478749357,
+        "projection_accel_before": -0.02783301802850735,
+        "projection_accel_after": -0.02783301802850735,
+        "axiom_score_before": 0.7842465408066257,
+        "axiom_score_after": 0.7842465408066257,
+        "axiom_pass_rate_before": 0.5714285714285714,
+        "axiom_pass_rate_after": 0.5714285714285714,
+        "axiom_violations_before": [
+          "A1_phi_boundary",
+          "A4_flat_background",
+          "A5_orthogonal_acceleration"
+        ],
+        "axiom_violations_after": [
+          "A1_phi_boundary",
+          "A4_flat_background",
+          "A5_orthogonal_acceleration"
+        ]
+      },
+      "decision_reason": "weight gain up (gated)"
+    },
+    {
+      "name": "research_cross_validation",
+      "description": "Aggregate evidence families and maximize cross-validated aggregate score.",
+      "cmd": [
+        "/Users/imymm/H2Q-Evo/.venv/bin/python",
+        "tools/run_research_aggregation_cross_validation.py"
+      ],
+      "metric_name": "aggregate_score",
+      "baseline_metric": 0.9961373328944223,
+      "executed": true,
+      "status": "keep",
+      "metric_after": 0.9961373328944223,
+      "delta": 0.0,
+      "stdout_tail": "JSON: /Users/imymm/H2Q-Evo/reports/research_aggregation_cross_validation_1773037762.json\nLatest JSON: /Users/imymm/H2Q-Evo/reports/research_aggregation_cross_validation_latest.json\nMD: /Users/imymm/H2Q-Evo/reports/research_aggregation_cross_validation_1773037762.md\nLatest MD: /Users/imymm/H2Q-Evo/reports/research_aggregation_cross_validation_latest.md\nProof MD: /Users/imymm/H2Q-Evo/reports/research_aggregation_cross_validation_proof_note_1773037762.md\nLatest Proof MD: /Users/imymm/H2Q-Evo/reports/research_aggregation_cross_validation_proof_note_latest.md\nAggregate score: 0.996137\nLOO min score: 0.994850\nRobust claim: True",
+      "stderr_tail": "",
+      "returncode": 0,
+      "elapsed_sec": 0.02985858917236328,
+      "decision": {
+        "delta_signal": 0.5,
+        "meaning_uplift": 0.0,
+        "meaning_signal": 0.5,
+        "geometry_uplift": 0.0,
+        "geometry_signal": 0.5,
+        "axiom_uplift": 0.0,
+        "axiom_signal": 0.5,
+        "weight_gain_rate": 0.31972605587680214,
+        "weight_gain_signal": 0.9999639740056466,
+        "weight_gate": 0.0067667641618306355,
+        "weight_support_ratio": 0.0,
+        "weight_decay_factor": 0.1353352832366127,
+        "weight_effective_weight": 0.0006766764161830636,
+        "decision_score": 0.5003383138301507,
+        "geometry_before": 0.5356303210987072,
+        "geometry_after": 0.5356303210987072,
+        "boundary_ratio_before": 0.9931370478749357,
+        "boundary_ratio_after": 0.9931370478749357,
+        "projection_accel_before": -0.02783301802850735,
+        "projection_accel_after": -0.02783301802850735,
+        "axiom_score_before": 0.7842465408066257,
+        "axiom_score_after": 0.7842465408066257,
+        "axiom_pass_rate_before": 0.5714285714285714,
+        "axiom_pass_rate_after": 0.5714285714285714,
+        "axiom_violations_before": [
+          "A1_phi_boundary",
+          "A4_flat_background",
+          "A5_orthogonal_acceleration"
+        ],
+        "axiom_violations_after": [
+          "A1_phi_boundary",
+          "A4_flat_background",
+          "A5_orthogonal_acceleration"
+        ]
+      },
+      "decision_reason": "weight gain up (gated)"
+    },
+    {
+      "name": "systemic_joint_capability",
+      "description": "Run systemic joint capability assessment (ci-safe) and maximize trusted aggregate.",
+      "cmd": [
+        "/Users/imymm/H2Q-Evo/.venv/bin/python",
+        "tools/run_systemic_platform_joint_capability_assessment.py",
+        "--ci-safe",
+        "--blueprint-cycles",
+        "1",
+        "--longrun-cycles",
+        "1"
+      ],
+      "metric_name": "systemic_score",
+      "baseline_metric": 0.97259375,
+      "executed": true,
+      "status": "discard",
+      "metric_after": 0.96778125,
+      "delta": -0.004812499999999997,
+      "stdout_tail": "JSON: /Users/imymm/H2Q-Evo/reports/systemic_platform_joint_capability_1773038120.json\nLatest JSON: /Users/imymm/H2Q-Evo/reports/systemic_platform_joint_capability_latest.json\nMD: /Users/imymm/H2Q-Evo/reports/systemic_platform_joint_capability_1773038120.md\nLatest MD: /Users/imymm/H2Q-Evo/reports/systemic_platform_joint_capability_latest.md\nAggregate score: 0.967781\nLOO min score: 0.953973\nRobust claim: True",
+      "stderr_tail": "",
+      "returncode": 0,
+      "elapsed_sec": 357.9887521266937,
+      "decision": {
+        "delta_signal": 0.10740751320156477,
+        "meaning_uplift": -0.0019249999999999545,
+        "meaning_signal": 0.38651147564294613,
+        "geometry_uplift": -0.009439644483571152,
+        "geometry_signal": 0.0940195765776411,
+        "axiom_uplift": -0.02061668713945619,
+        "axiom_signal": 0.00704753478338338,
+        "weight_gain_rate": 0.31972605587680214,
+        "weight_gain_signal": 0.9999639740056466,
+        "weight_gate": 0.0041042499311949405,
+        "weight_support_ratio": 0.0,
+        "weight_decay_factor": 0.0820849986238988,
+        "weight_effective_weight": 0.0004104249931194941,
+        "decision_score": 0.15335348507105478,
+        "geometry_before": 0.5356303210987072,
+        "geometry_after": 0.5261906766151361,
+        "boundary_ratio_before": 0.9931370478749357,
+        "boundary_ratio_after": 0.9919315947428555,
+        "projection_accel_before": -0.02783301802850735,
+        "projection_accel_after": -0.03463892079742781,
+        "axiom_score_before": 0.7842465408066257,
+        "axiom_score_after": 0.7636298536671695,
+        "axiom_pass_rate_before": 0.5714285714285714,
+        "axiom_pass_rate_after": 0.5714285714285714,
+        "axiom_violations_before": [
+          "A1_phi_boundary",
+          "A4_flat_background",
+          "A5_orthogonal_acceleration"
+        ],
+        "axiom_violations_after": [
+          "A1_phi_boundary",
+          "A4_flat_background",
+          "A5_orthogonal_acceleration"
+        ]
+      },
+      "decision_reason": "metric not improved, meaning not improved, geometry not improved, axiom not improved, weight signal decayed"
+    },
+    {
+      "name": "distillation_uplift",
+      "description": "Run self-eval distillation pipeline and maximize schema-valid uplift.",
+      "cmd": [
+        "/Users/imymm/H2Q-Evo/.venv/bin/python",
+        "tools/run_self_eval_distillation_pipeline.py",
+        "--sessions",
+        "12",
+        "--teacher-provider",
+        "heuristic",
+        "--max-samples",
+        "320",
+        "--synthetic-min-size",
+        "280",
+        "--include-valid-prompts"
+      ],
+      "metric_name": "delta_schema_valid_rate",
+      "baseline_metric": 1.0,
+      "executed": true,
+      "status": "keep",
+      "metric_after": 1.0,
+      "delta": 0.0,
+      "stdout_tail": "JSON: /Users/imymm/H2Q-Evo/reports/self_eval_distillation_pipeline_1773038121.json\nLatest JSON: /Users/imymm/H2Q-Evo/reports/self_eval_distillation_pipeline_latest.json\nMD: /Users/imymm/H2Q-Evo/reports/self_eval_distillation_pipeline_1773038121.md\nLatest MD: /Users/imymm/H2Q-Evo/reports/self_eval_distillation_pipeline_latest.md",
+      "stderr_tail": "",
+      "returncode": 0,
+      "elapsed_sec": 1.3620848655700684,
+      "decision": {
+        "delta_signal": 0.5,
+        "meaning_uplift": 0.0,
+        "meaning_signal": 0.5,
+        "geometry_uplift": 0.0,
+        "geometry_signal": 0.5,
+        "axiom_uplift": 0.0,
+        "axiom_signal": 0.5,
+        "weight_gain_rate": 0.31972605587680214,
+        "weight_gain_signal": 0.9999639740056466,
+        "weight_gate": 0.0024893534183931974,
+        "weight_support_ratio": 0.0,
+        "weight_decay_factor": 0.049787068367863944,
+        "weight_effective_weight": 0.00024893534183931975,
+        "decision_score": 0.5001244587027763,
+        "geometry_before": 0.5356303210987072,
+        "geometry_after": 0.5356303210987072,
+        "boundary_ratio_before": 0.9931370478749357,
+        "boundary_ratio_after": 0.9931370478749357,
+        "projection_accel_before": -0.02783301802850735,
+        "projection_accel_after": -0.02783301802850735,
+        "axiom_score_before": 0.7829132074732923,
+        "axiom_score_after": 0.7829132074732923,
+        "axiom_pass_rate_before": 0.5714285714285714,
+        "axiom_pass_rate_after": 0.5714285714285714,
+        "axiom_violations_before": [
+          "A1_phi_boundary",
+          "A4_flat_background",
+          "A5_orthogonal_acceleration"
+        ],
+        "axiom_violations_after": [
+          "A1_phi_boundary",
+          "A4_flat_background",
+          "A5_orthogonal_acceleration"
+        ]
+      },
+      "decision_reason": "weight gain up (gated)"
+    },
+    {
+      "name": "research_cross_validation",
+      "description": "Aggregate evidence families and maximize cross-validated aggregate score.",
+      "cmd": [
+        "/Users/imymm/H2Q-Evo/.venv/bin/python",
+        "tools/run_research_aggregation_cross_validation.py"
+      ],
+      "metric_name": "aggregate_score",
+      "baseline_metric": 0.9961373328944223,
+      "executed": true,
+      "status": "keep",
+      "metric_after": 0.9961373328944223,
+      "delta": 0.0,
+      "stdout_tail": "JSON: /Users/imymm/H2Q-Evo/reports/research_aggregation_cross_validation_1773038121.json\nLatest JSON: /Users/imymm/H2Q-Evo/reports/research_aggregation_cross_validation_latest.json\nMD: /Users/imymm/H2Q-Evo/reports/research_aggregation_cross_validation_1773038121.md\nLatest MD: /Users/imymm/H2Q-Evo/reports/research_aggregation_cross_validation_latest.md\nProof MD: /Users/imymm/H2Q-Evo/reports/research_aggregation_cross_validation_proof_note_1773038121.md\nLatest Proof MD: /Users/imymm/H2Q-Evo/reports/research_aggregation_cross_validation_proof_note_latest.md\nAggregate score: 0.996137\nLOO min score: 0.994850\nRobust claim: True",
+      "stderr_tail": "",
+      "returncode": 0,
+      "elapsed_sec": 0.03008103370666504,
+      "decision": {
+        "delta_signal": 0.5,
+        "meaning_uplift": 0.0,
+        "meaning_signal": 0.5,
+        "geometry_uplift": 0.0,
+        "geometry_signal": 0.5,
+        "axiom_uplift": 0.0,
+        "axiom_signal": 0.5,
+        "weight_gain_rate": 0.31972605587680214,
+        "weight_gain_signal": 0.9999639740056466,
+        "weight_gate": 0.001509869171115925,
+        "weight_support_ratio": 0.0,
+        "weight_decay_factor": 0.0301973834223185,
+        "weight_effective_weight": 0.00015098691711159251,
+        "decision_score": 0.500075488019102,
+        "geometry_before": 0.5356303210987072,
+        "geometry_after": 0.5356303210987072,
+        "boundary_ratio_before": 0.9931370478749357,
+        "boundary_ratio_after": 0.9931370478749357,
+        "projection_accel_before": -0.02783301802850735,
+        "projection_accel_after": -0.02783301802850735,
+        "axiom_score_before": 0.7831036836637686,
+        "axiom_score_after": 0.7831036836637686,
+        "axiom_pass_rate_before": 0.5714285714285714,
+        "axiom_pass_rate_after": 0.5714285714285714,
+        "axiom_violations_before": [
+          "A1_phi_boundary",
+          "A4_flat_background",
+          "A5_orthogonal_acceleration"
+        ],
+        "axiom_violations_after": [
+          "A1_phi_boundary",
+          "A4_flat_background",
+          "A5_orthogonal_acceleration"
+        ]
+      },
+      "decision_reason": "weight gain up (gated)"
+    },
+    {
+      "name": "systemic_joint_capability",
+      "description": "Run systemic joint capability assessment (ci-safe) and maximize trusted aggregate.",
+      "cmd": [
+        "/Users/imymm/H2Q-Evo/.venv/bin/python",
+        "tools/run_systemic_platform_joint_capability_assessment.py",
+        "--ci-safe",
+        "--blueprint-cycles",
+        "1",
+        "--longrun-cycles",
+        "1"
+      ],
+      "metric_name": "systemic_score",
+      "baseline_metric": 0.97259375,
+      "executed": true,
+      "status": "discard",
+      "metric_after": 0.96778125,
+      "delta": -0.004812499999999997,
+      "stdout_tail": "JSON: /Users/imymm/H2Q-Evo/reports/systemic_platform_joint_capability_1773038460.json\nLatest JSON: /Users/imymm/H2Q-Evo/reports/systemic_platform_joint_capability_latest.json\nMD: /Users/imymm/H2Q-Evo/reports/systemic_platform_joint_capability_1773038460.md\nLatest MD: /Users/imymm/H2Q-Evo/reports/systemic_platform_joint_capability_latest.md\nAggregate score: 0.967781\nLOO min score: 0.953973\nRobust claim: True",
+      "stderr_tail": "",
+      "returncode": 0,
+      "elapsed_sec": 338.05120491981506,
+      "decision": {
+        "delta_signal": 0.10740751320156477,
+        "meaning_uplift": -0.0019249999999999545,
+        "meaning_signal": 0.38651147564294613,
+        "geometry_uplift": -0.009439644483571152,
+        "geometry_signal": 0.0940195765776411,
+        "axiom_uplift": -0.02061668713945608,
+        "axiom_signal": 0.007047534783383547,
+        "weight_gain_rate": 0.31972605587680214,
+        "weight_gain_signal": 0.9999639740056466,
+        "weight_gate": 0.000915781944436709,
+        "weight_support_ratio": 0.0,
+        "weight_decay_factor": 0.01831563888873418,
+        "weight_effective_weight": 9.15781944436709e-05,
+        "decision_score": 0.15308343519171277,
+        "geometry_before": 0.5356303210987072,
+        "geometry_after": 0.5261906766151361,
+        "boundary_ratio_before": 0.9931370478749357,
+        "boundary_ratio_after": 0.9919315947428555,
+        "projection_accel_before": -0.02783301802850735,
+        "projection_accel_after": -0.03463892079742781,
+        "axiom_score_before": 0.7832465408066256,
+        "axiom_score_after": 0.7626298536671695,
+        "axiom_pass_rate_before": 0.5714285714285714,
+        "axiom_pass_rate_after": 0.5714285714285714,
+        "axiom_violations_before": [
+          "A1_phi_boundary",
+          "A4_flat_background",
+          "A5_orthogonal_acceleration"
+        ],
+        "axiom_violations_after": [
+          "A1_phi_boundary",
+          "A4_flat_background",
+          "A5_orthogonal_acceleration"
+        ]
+      },
+      "decision_reason": "metric not improved, meaning not improved, geometry not improved, axiom not improved, weight signal decayed"
+    },
+    {
+      "name": "distillation_uplift",
+      "description": "Run self-eval distillation pipeline and maximize schema-valid uplift.",
+      "cmd": [
+        "/Users/imymm/H2Q-Evo/.venv/bin/python",
+        "tools/run_self_eval_distillation_pipeline.py",
+        "--sessions",
+        "12",
+        "--teacher-provider",
+        "heuristic",
+        "--max-samples",
+        "320",
+        "--synthetic-min-size",
+        "280",
+        "--include-valid-prompts"
+      ],
+      "metric_name": "delta_schema_valid_rate",
+      "baseline_metric": 1.0,
+      "executed": true,
+      "status": "keep",
+      "metric_after": 1.0,
+      "delta": 0.0,
+      "stdout_tail": "JSON: /Users/imymm/H2Q-Evo/reports/self_eval_distillation_pipeline_1773038461.json\nLatest JSON: /Users/imymm/H2Q-Evo/reports/self_eval_distillation_pipeline_latest.json\nMD: /Users/imymm/H2Q-Evo/reports/self_eval_distillation_pipeline_1773038461.md\nLatest MD: /Users/imymm/H2Q-Evo/reports/self_eval_distillation_pipeline_latest.md",
+      "stderr_tail": "",
+      "returncode": 0,
+      "elapsed_sec": 1.370175838470459,
+      "decision": {
+        "delta_signal": 0.5,
+        "meaning_uplift": 0.0,
+        "meaning_signal": 0.5,
+        "geometry_uplift": 0.0,
+        "geometry_signal": 0.5,
+        "axiom_uplift": 0.0,
+        "axiom_signal": 0.5,
+        "weight_gain_rate": 0.31972605587680214,
+        "weight_gain_signal": 0.9999639740056466,
+        "weight_gate": 0.0005554498269121153,
+        "weight_support_ratio": 0.0,
+        "weight_decay_factor": 0.011108996538242306,
+        "weight_effective_weight": 5.5544982691211535e-05,
+        "decision_score": 0.5000277704902824,
+        "geometry_before": 0.5356303210987072,
+        "geometry_after": 0.5356303210987072,
+        "boundary_ratio_before": 0.9931370478749357,
+        "boundary_ratio_after": 0.9931370478749357,
+        "projection_accel_before": -0.02783301802850735,
+        "projection_accel_after": -0.02783301802850735,
+        "axiom_score_before": 0.7824687630288478,
+        "axiom_score_after": 0.7824687630288478,
+        "axiom_pass_rate_before": 0.5714285714285714,
+        "axiom_pass_rate_after": 0.5714285714285714,
+        "axiom_violations_before": [
+          "A1_phi_boundary",
+          "A4_flat_background",
+          "A5_orthogonal_acceleration"
+        ],
+        "axiom_violations_after": [
+          "A1_phi_boundary",
+          "A4_flat_background",
+          "A5_orthogonal_acceleration"
+        ]
+      },
+      "decision_reason": "weight gain up (gated)"
+    },
+    {
+      "name": "research_cross_validation",
+      "description": "Aggregate evidence families and maximize cross-validated aggregate score.",
+      "cmd": [
+        "/Users/imymm/H2Q-Evo/.venv/bin/python",
+        "tools/run_research_aggregation_cross_validation.py"
+      ],
+      "metric_name": "aggregate_score",
+      "baseline_metric": 0.9961373328944223,
+      "executed": true,
+      "status": "keep",
+      "metric_after": 0.9961373328944223,
+      "delta": 0.0,
+      "stdout_tail": "JSON: /Users/imymm/H2Q-Evo/reports/research_aggregation_cross_validation_1773038461.json\nLatest JSON: /Users/imymm/H2Q-Evo/reports/research_aggregation_cross_validation_latest.json\nMD: /Users/imymm/H2Q-Evo/reports/research_aggregation_cross_validation_1773038461.md\nLatest MD: /Users/imymm/H2Q-Evo/reports/research_aggregation_cross_validation_latest.md\nProof MD: /Users/imymm/H2Q-Evo/reports/research_aggregation_cross_validation_proof_note_1773038461.md\nLatest Proof MD: /Users/imymm/H2Q-Evo/reports/research_aggregation_cross_validation_proof_note_latest.md\nAggregate score: 0.996137\nLOO min score: 0.994850\nRobust claim: True",
+      "stderr_tail": "",
+      "returncode": 0,
+      "elapsed_sec": 0.02962207794189453,
+      "decision": {
+        "delta_signal": 0.5,
+        "meaning_uplift": 0.0,
+        "meaning_signal": 0.5,
+        "geometry_uplift": 0.0,
+        "geometry_signal": 0.5,
+        "axiom_uplift": 0.0,
+        "axiom_signal": 0.5,
+        "weight_gain_rate": 0.31972605587680214,
+        "weight_gain_signal": 0.9999639740056466,
+        "weight_gate": 0.00033689734995427336,
+        "weight_support_ratio": 0.0,
+        "weight_decay_factor": 0.006737946999085467,
+        "weight_effective_weight": 3.3689734995427336e-05,
+        "decision_score": 0.5000168436537915,
+        "geometry_before": 0.5356303210987072,
+        "geometry_after": 0.5356303210987072,
+        "boundary_ratio_before": 0.9931370478749357,
+        "boundary_ratio_after": 0.9931370478749357,
+        "projection_accel_before": -0.02783301802850735,
+        "projection_accel_after": -0.02783301802850735,
+        "axiom_score_before": 0.7826465408066257,
+        "axiom_score_after": 0.7826465408066257,
+        "axiom_pass_rate_before": 0.5714285714285714,
+        "axiom_pass_rate_after": 0.5714285714285714,
+        "axiom_violations_before": [
+          "A1_phi_boundary",
+          "A4_flat_background",
+          "A5_orthogonal_acceleration"
+        ],
+        "axiom_violations_after": [
+          "A1_phi_boundary",
+          "A4_flat_background",
+          "A5_orthogonal_acceleration"
+        ]
+      },
+      "decision_reason": "weight gain up (gated)"
+    },
+    {
+      "name": "systemic_joint_capability",
+      "description": "Run systemic joint capability assessment (ci-safe) and maximize trusted aggregate.",
+      "cmd": [
+        "/Users/imymm/H2Q-Evo/.venv/bin/python",
+        "tools/run_systemic_platform_joint_capability_assessment.py",
+        "--ci-safe",
+        "--blueprint-cycles",
+        "1",
+        "--longrun-cycles",
+        "1"
+      ],
+      "metric_name": "systemic_score",
+      "baseline_metric": 0.97259375,
+      "executed": true,
+      "status": "discard",
+      "metric_after": 0.96778125,
+      "delta": -0.004812499999999997,
+      "stdout_tail": "JSON: /Users/imymm/H2Q-Evo/reports/systemic_platform_joint_capability_1773038814.json\nLatest JSON: /Users/imymm/H2Q-Evo/reports/systemic_platform_joint_capability_latest.json\nMD: /Users/imymm/H2Q-Evo/reports/systemic_platform_joint_capability_1773038814.md\nLatest MD: /Users/imymm/H2Q-Evo/reports/systemic_platform_joint_capability_latest.md\nAggregate score: 0.967781\nLOO min score: 0.953973\nRobust claim: True",
+      "stderr_tail": "",
+      "returncode": 0,
+      "elapsed_sec": 353.07305908203125,
+      "decision": {
+        "delta_signal": 0.10740751320156477,
+        "meaning_uplift": -0.0019249999999999545,
+        "meaning_signal": 0.38651147564294613,
+        "geometry_uplift": -0.009439644483571152,
+        "geometry_signal": 0.0940195765776411,
+        "axiom_uplift": -0.02061668713945608,
+        "axiom_signal": 0.007047534783383547,
+        "weight_gain_rate": 0.31972605587680214,
+        "weight_gain_signal": 0.9999639740056466,
+        "weight_gate": 0.00020433857192320333,
+        "weight_support_ratio": 0.0,
+        "weight_decay_factor": 0.004086771438464067,
+        "weight_effective_weight": 2.0433857192320335e-05,
+        "decision_score": 0.15302317891888711,
+        "geometry_before": 0.5356303210987072,
+        "geometry_after": 0.5261906766151361,
+        "boundary_ratio_before": 0.9931370478749357,
+        "boundary_ratio_after": 0.9919315947428555,
+        "projection_accel_before": -0.02783301802850735,
+        "projection_accel_after": -0.03463892079742781,
+        "axiom_score_before": 0.7827919953520801,
+        "axiom_score_after": 0.762175308212624,
+        "axiom_pass_rate_before": 0.5714285714285714,
+        "axiom_pass_rate_after": 0.5714285714285714,
+        "axiom_violations_before": [
+          "A1_phi_boundary",
+          "A4_flat_background",
+          "A5_orthogonal_acceleration"
+        ],
+        "axiom_violations_after": [
+          "A1_phi_boundary",
+          "A4_flat_background",
+          "A5_orthogonal_acceleration"
+        ]
+      },
+      "decision_reason": "metric not improved, meaning not improved, geometry not improved, axiom not improved, weight signal decayed"
+    }
+  ],
+  "summary": {
+    "keep": 9,
+    "discard": 3,
+    "crash": 0
+  },
+  "meaning_score_baseline": {
+    "score": 0.9380718332236057,
+    "components": {
+      "utility": 0.9843655414472112,
+      "autonomy": 1.0,
+      "robustness": 0.9843655414472112,
+      "alignment": 0.97259375,
+      "efficiency": 0.5
+    }
+  },
+  "meaning_score_final": {
+    "score": 0.9755718332236056,
+    "components": {
+      "utility": 0.9843655414472112,
+      "autonomy": 1.0,
+      "robustness": 0.9843655414472112,
+      "alignment": 0.97259375,
+      "efficiency": 0.875
+    }
+  },
+  "meaning_curve": [
+    {
+      "step": 0,
+      "experiment": "baseline",
+      "score": 0.9380718332236057
+    },
+    {
+      "step": 1,
+      "experiment": "distillation_uplift",
+      "score": 0.9880718332236056
+    },
+    {
+      "step": 2,
+      "experiment": "research_cross_validation",
+      "score": 0.9880718332236056
+    },
+    {
+      "step": 3,
+      "experiment": "systemic_joint_capability",
+      "score": 0.9880718332236056
+    },
+    {
+      "step": 4,
+      "experiment": "distillation_uplift",
+      "score": 0.9880718332236056
+    },
+    {
+      "step": 5,
+      "experiment": "research_cross_validation",
+      "score": 0.9880718332236056
+    },
+    {
+      "step": 6,
+      "experiment": "systemic_joint_capability",
+      "score": 0.9797384998902723
+    },
+    {
+      "step": 7,
+      "experiment": "distillation_uplift",
+      "score": 0.9809289760807485
+    },
+    {
+      "step": 8,
+      "experiment": "research_cross_validation",
+      "score": 0.9818218332236056
+    },
+    {
+      "step": 9,
+      "experiment": "systemic_joint_capability",
+      "score": 0.9769607221124945
+    },
+    {
+      "step": 10,
+      "experiment": "distillation_uplift",
+      "score": 0.9780718332236056
+    },
+    {
+      "step": 11,
+      "experiment": "research_cross_validation",
+      "score": 0.9789809241326966
+    },
+    {
+      "step": 12,
+      "experiment": "systemic_joint_capability",
+      "score": 0.9755718332236056
+    }
+  ],
+  "geometry_signal_baseline": {
+    "ap_gp_boundary_ratio": 0.9931370478749357,
+    "phi": 1.618033988749895,
+    "phi_alignment": 0.6137924510734418,
+    "projection_acceleration": -0.02783301802850735,
+    "geometry_score": 0.5356303210987072
+  },
+  "geometry_signal_final": {
+    "ap_gp_boundary_ratio": 0.9931370478749357,
+    "phi": 1.618033988749895,
+    "phi_alignment": 0.6137924510734418,
+    "projection_acceleration": -0.02783301802850735,
+    "geometry_score": 0.5356303210987072
+  },
+  "geometry_curve": [
+    {
+      "step": 0,
+      "experiment": "baseline",
+      "score": 0.5356303210987072,
+      "boundary_ratio": 0.9931370478749357,
+      "projection_accel": -0.02783301802850735
+    },
+    {
+      "step": 1,
+      "experiment": "distillation_uplift",
+      "score": 0.5356303210987072,
+      "boundary_ratio": 0.9931370478749357,
+      "projection_accel": -0.02783301802850735
+    },
+    {
+      "step": 2,
+      "experiment": "research_cross_validation",
+      "score": 0.5356303210987072,
+      "boundary_ratio": 0.9931370478749357,
+      "projection_accel": -0.02783301802850735
+    },
+    {
+      "step": 3,
+      "experiment": "systemic_joint_capability",
+      "score": 0.5356303210987072,
+      "boundary_ratio": 0.9931370478749357,
+      "projection_accel": -0.02783301802850735
+    },
+    {
+      "step": 4,
+      "experiment": "distillation_uplift",
+      "score": 0.5356303210987072,
+      "boundary_ratio": 0.9931370478749357,
+      "projection_accel": -0.02783301802850735
+    },
+    {
+      "step": 5,
+      "experiment": "research_cross_validation",
+      "score": 0.5356303210987072,
+      "boundary_ratio": 0.9931370478749357,
+      "projection_accel": -0.02783301802850735
+    },
+    {
+      "step": 6,
+      "experiment": "systemic_joint_capability",
+      "score": 0.5356303210987072,
+      "boundary_ratio": 0.9931370478749357,
+      "projection_accel": -0.02783301802850735
+    },
+    {
+      "step": 7,
+      "experiment": "distillation_uplift",
+      "score": 0.5356303210987072,
+      "boundary_ratio": 0.9931370478749357,
+      "projection_accel": -0.02783301802850735
+    },
+    {
+      "step": 8,
+      "experiment": "research_cross_validation",
+      "score": 0.5356303210987072,
+      "boundary_ratio": 0.9931370478749357,
+      "projection_accel": -0.02783301802850735
+    },
+    {
+      "step": 9,
+      "experiment": "systemic_joint_capability",
+      "score": 0.5356303210987072,
+      "boundary_ratio": 0.9931370478749357,
+      "projection_accel": -0.02783301802850735
+    },
+    {
+      "step": 10,
+      "experiment": "distillation_uplift",
+      "score": 0.5356303210987072,
+      "boundary_ratio": 0.9931370478749357,
+      "projection_accel": -0.02783301802850735
+    },
+    {
+      "step": 11,
+      "experiment": "research_cross_validation",
+      "score": 0.5356303210987072,
+      "boundary_ratio": 0.9931370478749357,
+      "projection_accel": -0.02783301802850735
+    },
+    {
+      "step": 12,
+      "experiment": "systemic_joint_capability",
+      "score": 0.5356303210987072,
+      "boundary_ratio": 0.9931370478749357,
+      "projection_accel": -0.02783301802850735
+    }
+  ],
+  "axiom_contract": {
+    "path": "/Users/imymm/H2Q-Evo/axiom_contract.json",
+    "version": "v1"
+  },
+  "axiom_consistency_baseline": {
+    "score": 0.7762465408066257,
+    "pass_rate": 0.5714285714285714,
+    "passed": 4,
+    "total": 7,
+    "components": [
+      {
+        "id": "A1_phi_boundary",
+        "metric": "abs(ap_gp_boundary_ratio - phi)",
+        "value": 0.6137924510734418,
+        "threshold": 0.75,
+        "weight": 0.18,
+        "pass": false
+      },
+      {
+        "id": "A2_nonnegative_norm",
+        "metric": "nonnegative_snapshot",
+        "value": 1.0,
+        "threshold": 1.0,
+        "weight": 0.1,
+        "pass": true
+      },
+      {
+        "id": "A3_causal_stability",
+        "metric": "1-crash_rate",
+        "value": 1.0,
+        "threshold": 0.8,
+        "weight": 0.16,
+        "pass": true
+      },
+      {
+        "id": "A4_flat_background",
+        "metric": "z1_flatness",
+        "value": 0.443339639429853,
+        "threshold": 0.5,
+        "weight": 0.12,
+        "pass": false
+      },
+      {
+        "id": "A5_orthogonal_acceleration",
+        "metric": "z2_accel_quality",
+        "value": 0.3904720797170573,
+        "threshold": 0.5,
+        "weight": 0.12,
+        "pass": false
+      },
+      {
+        "id": "A6_meaning_progress",
+        "metric": "meaning_score",
+        "value": 0.9380718332236057,
+        "threshold": 0.55,
+        "weight": 0.16,
+        "pass": true
+      },
+      {
+        "id": "A7_systemic_gate",
+        "metric": "systemic_score",
+        "value": 0.97259375,
+        "threshold": 0.75,
+        "weight": 0.16,
+        "pass": true
+      }
+    ],
+    "violations": [
+      "A1_phi_boundary",
+      "A4_flat_background",
+      "A5_orthogonal_acceleration"
+    ]
+  },
+  "axiom_consistency_final": {
+    "score": 0.7822465408066257,
+    "pass_rate": 0.5714285714285714,
+    "passed": 4,
+    "total": 7,
+    "components": [
+      {
+        "id": "A1_phi_boundary",
+        "metric": "abs(ap_gp_boundary_ratio - phi)",
+        "value": 0.6137924510734418,
+        "threshold": 0.75,
+        "weight": 0.18,
+        "pass": false
+      },
+      {
+        "id": "A2_nonnegative_norm",
+        "metric": "nonnegative_snapshot",
+        "value": 1.0,
+        "threshold": 1.0,
+        "weight": 0.1,
+        "pass": true
+      },
+      {
+        "id": "A3_causal_stability",
+        "metric": "1-crash_rate",
+        "value": 1.0,
+        "threshold": 0.8,
+        "weight": 0.16,
+        "pass": true
+      },
+      {
+        "id": "A4_flat_background",
+        "metric": "z1_flatness",
+        "value": 0.443339639429853,
+        "threshold": 0.5,
+        "weight": 0.12,
+        "pass": false
+      },
+      {
+        "id": "A5_orthogonal_acceleration",
+        "metric": "z2_accel_quality",
+        "value": 0.3904720797170573,
+        "threshold": 0.5,
+        "weight": 0.12,
+        "pass": false
+      },
+      {
+        "id": "A6_meaning_progress",
+        "metric": "meaning_score",
+        "value": 0.9755718332236056,
+        "threshold": 0.55,
+        "weight": 0.16,
+        "pass": true
+      },
+      {
+        "id": "A7_systemic_gate",
+        "metric": "systemic_score",
+        "value": 0.97259375,
+        "threshold": 0.75,
+        "weight": 0.16,
+        "pass": true
+      }
+    ],
+    "violations": [
+      "A1_phi_boundary",
+      "A4_flat_background",
+      "A5_orthogonal_acceleration"
+    ]
+  },
+  "axiom_curve": [
+    {
+      "step": 0,
+      "experiment": "baseline",
+      "score": 0.7762465408066257,
+      "pass_rate": 0.5714285714285714
+    },
+    {
+      "step": 1,
+      "experiment": "distillation_uplift",
+      "score": 0.7842465408066257,
+      "pass_rate": 0.5714285714285714
+    },
+    {
+      "step": 2,
+      "experiment": "research_cross_validation",
+      "score": 0.7842465408066257,
+      "pass_rate": 0.5714285714285714
+    },
+    {
+      "step": 3,
+      "experiment": "systemic_joint_capability",
+      "score": 0.7842465408066257,
+      "pass_rate": 0.5714285714285714
+    },
+    {
+      "step": 4,
+      "experiment": "distillation_uplift",
+      "score": 0.7842465408066257,
+      "pass_rate": 0.5714285714285714
+    },
+    {
+      "step": 5,
+      "experiment": "research_cross_validation",
+      "score": 0.7842465408066257,
+      "pass_rate": 0.5714285714285714
+    },
+    {
+      "step": 6,
+      "experiment": "systemic_joint_capability",
+      "score": 0.7829132074732923,
+      "pass_rate": 0.5714285714285714
+    },
+    {
+      "step": 7,
+      "experiment": "distillation_uplift",
+      "score": 0.7831036836637686,
+      "pass_rate": 0.5714285714285714
+    },
+    {
+      "step": 8,
+      "experiment": "research_cross_validation",
+      "score": 0.7832465408066256,
+      "pass_rate": 0.5714285714285714
+    },
+    {
+      "step": 9,
+      "experiment": "systemic_joint_capability",
+      "score": 0.7824687630288478,
+      "pass_rate": 0.5714285714285714
+    },
+    {
+      "step": 10,
+      "experiment": "distillation_uplift",
+      "score": 0.7826465408066257,
+      "pass_rate": 0.5714285714285714
+    },
+    {
+      "step": 11,
+      "experiment": "research_cross_validation",
+      "score": 0.7827919953520801,
+      "pass_rate": 0.5714285714285714
+    },
+    {
+      "step": 12,
+      "experiment": "systemic_joint_capability",
+      "score": 0.7822465408066257,
+      "pass_rate": 0.5714285714285714
+    }
+  ],
+  "weight_training_signal_baseline": {
+    "source": "/Users/imymm/H2Q-Evo/reports/trusted_nano_lora_training_latest.json",
+    "loss_initial": 4.426612854003906,
+    "loss_final": 3.0113093852996826,
+    "loss_improvement_rate": 0.31972605587680214,
+    "weight_gain_signal": 0.9999639740056466
+  },
+  "weight_training_signal_final": {
+    "source": "/Users/imymm/H2Q-Evo/reports/trusted_nano_lora_training_latest.json",
+    "loss_initial": 4.426612854003906,
+    "loss_final": 3.0113093852996826,
+    "loss_improvement_rate": 0.31972605587680214,
+    "weight_gain_signal": 0.9999639740056466
+  },
+  "weight_training_curve": [
+    {
+      "step": 0,
+      "experiment": "baseline",
+      "loss_improvement_rate": 0.31972605587680214,
+      "weight_gain_signal": 0.9999639740056466
+    },
+    {
+      "step": 1,
+      "experiment": "distillation_uplift",
+      "loss_improvement_rate": 0.31972605587680214,
+      "weight_gain_signal": 0.9999639740056466,
+      "weight_gate": 0.05,
+      "weight_effective_weight": 0.005000000000000001
+    },
+    {
+      "step": 2,
+      "experiment": "research_cross_validation",
+      "loss_improvement_rate": 0.31972605587680214,
+      "weight_gain_signal": 0.9999639740056466,
+      "weight_gate": 0.030326532985631673,
+      "weight_effective_weight": 0.0030326532985631674
+    },
+    {
+      "step": 3,
+      "experiment": "systemic_joint_capability",
+      "loss_improvement_rate": 0.31972605587680214,
+      "weight_gain_signal": 0.9999639740056466,
+      "weight_gate": 0.018393972058572117,
+      "weight_effective_weight": 0.001839397205857212
+    },
+    {
+      "step": 4,
+      "experiment": "distillation_uplift",
+      "loss_improvement_rate": 0.31972605587680214,
+      "weight_gain_signal": 0.9999639740056466,
+      "weight_gate": 0.011156508007421491,
+      "weight_effective_weight": 0.0011156508007421492
+    },
+    {
+      "step": 5,
+      "experiment": "research_cross_validation",
+      "loss_improvement_rate": 0.31972605587680214,
+      "weight_gain_signal": 0.9999639740056466,
+      "weight_gate": 0.0067667641618306355,
+      "weight_effective_weight": 0.0006766764161830636
+    },
+    {
+      "step": 6,
+      "experiment": "systemic_joint_capability",
+      "loss_improvement_rate": 0.31972605587680214,
+      "weight_gain_signal": 0.9999639740056466,
+      "weight_gate": 0.0041042499311949405,
+      "weight_effective_weight": 0.0004104249931194941
+    },
+    {
+      "step": 7,
+      "experiment": "distillation_uplift",
+      "loss_improvement_rate": 0.31972605587680214,
+      "weight_gain_signal": 0.9999639740056466,
+      "weight_gate": 0.0024893534183931974,
+      "weight_effective_weight": 0.00024893534183931975
+    },
+    {
+      "step": 8,
+      "experiment": "research_cross_validation",
+      "loss_improvement_rate": 0.31972605587680214,
+      "weight_gain_signal": 0.9999639740056466,
+      "weight_gate": 0.001509869171115925,
+      "weight_effective_weight": 0.00015098691711159251
+    },
+    {
+      "step": 9,
+      "experiment": "systemic_joint_capability",
+      "loss_improvement_rate": 0.31972605587680214,
+      "weight_gain_signal": 0.9999639740056466,
+      "weight_gate": 0.000915781944436709,
+      "weight_effective_weight": 9.15781944436709e-05
+    },
+    {
+      "step": 10,
+      "experiment": "distillation_uplift",
+      "loss_improvement_rate": 0.31972605587680214,
+      "weight_gain_signal": 0.9999639740056466,
+      "weight_gate": 0.0005554498269121153,
+      "weight_effective_weight": 5.5544982691211535e-05
+    },
+    {
+      "step": 11,
+      "experiment": "research_cross_validation",
+      "loss_improvement_rate": 0.31972605587680214,
+      "weight_gain_signal": 0.9999639740056466,
+      "weight_gate": 0.00033689734995427336,
+      "weight_effective_weight": 3.3689734995427336e-05
+    },
+    {
+      "step": 12,
+      "experiment": "systemic_joint_capability",
+      "loss_improvement_rate": 0.31972605587680214,
+      "weight_gain_signal": 0.9999639740056466,
+      "weight_gate": 0.00020433857192320333,
+      "weight_effective_weight": 2.0433857192320335e-05
+    }
+  ],
+  "next_plan": [
+    "Increase experiment breadth around components marked 'discard' with smaller perturbations.",
+    "Prioritize distillation + consistency coupling before scaling systemic gate complexity.",
+    "Run overnight execute mode with max-iterations >= 12 for true autoresearch-style cadence."
+  ]
+}

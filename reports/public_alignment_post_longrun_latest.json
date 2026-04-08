@@ -1,0 +1,34 @@
+{
+  "meta": {
+    "created_at_utc": "2026-03-06T18:39:39.338993+00:00",
+    "sources": {
+      "capability_registry": "/Users/imymm/H2Q-Evo/reports/capability_registry_latest.json",
+      "release_gate": "/Users/imymm/H2Q-Evo/reports/release_gate_latest.json",
+      "interactive_benchmark": "/Users/imymm/H2Q-Evo/reports/interactive_reasoning_benchmark_latest.json",
+      "math_ablation": "/Users/imymm/H2Q-Evo/reports/math_ablation_latest.json"
+    }
+  },
+  "alignment": {
+    "arc_agi": {
+      "score": 1.0,
+      "target": 0.75,
+      "ok": true
+    },
+    "swe_bench": {
+      "score": 0.9183333333333332,
+      "target": 0.5,
+      "ok": true
+    },
+    "metr_horizon": {
+      "score": 0.9526153846153846,
+      "target": 0.55,
+      "ok": true
+    },
+    "overall": 0.9569829059829059
+  },
+  "notes": [
+    "ARC-AGI alignment is approximated by breadth/depth plus interactive task success.",
+    "SWE-bench alignment is approximated by autonomy, assist reliability, and framework score.",
+    "METR alignment is approximated by sustained horizon, robustness, and autonomy."
+  ]
+}

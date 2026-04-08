@@ -1,0 +1,73 @@
+{
+  "timestamp": "2026-04-06T23:53:44.662832",
+  "passed": false,
+  "strict_acceptance": true,
+  "run_scope": "smoke",
+  "criteria": [
+    {
+      "name": "minimum_cycles",
+      "value": 3,
+      "threshold": 12,
+      "passed": false
+    },
+    {
+      "name": "enhanced_composite_mean",
+      "value": 0.7097957869297975,
+      "threshold": 0.58,
+      "passed": true
+    },
+    {
+      "name": "capability_measurements",
+      "value": 2,
+      "threshold": 2,
+      "passed": true
+    },
+    {
+      "name": "capability_score_mean",
+      "value": 95.77380952380952,
+      "threshold": 60.0,
+      "passed": true
+    },
+    {
+      "name": "entanglement_ratio_mean",
+      "value": 0.8250000000000001,
+      "threshold": 0.12,
+      "passed": true
+    },
+    {
+      "name": "highdim_consensus_mean",
+      "value": 0.8165899488183975,
+      "threshold": 0.55,
+      "passed": true
+    },
+    {
+      "name": "composite_uplift",
+      "value": -0.0094341009502652,
+      "threshold": 0.02,
+      "passed": false
+    },
+    {
+      "name": "forced_acceptance_prompts",
+      "value": 3,
+      "threshold": 2,
+      "passed": true
+    },
+    {
+      "name": "non_smoke_run",
+      "value": 0,
+      "threshold": 1,
+      "passed": false
+    }
+  ],
+  "trend": {
+    "initial_window_mean": 0.7139606904055521,
+    "final_window_mean": 0.7045265894552869,
+    "uplift": -0.0094341009502652,
+    "window_size": 1
+  },
+  "recommendations": [
+    "Raise minimum_cycles above threshold (3 < 12)",
+    "Raise composite_uplift above threshold (-0.009434 < 0.020000)",
+    "Raise non_smoke_run above threshold (0 < 1)"
+  ]
+}

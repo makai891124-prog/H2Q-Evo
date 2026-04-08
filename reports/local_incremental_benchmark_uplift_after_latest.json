@@ -1,0 +1,163 @@
+{
+  "generated_at_utc": "2026-03-10T15:08:21.040789+00:00",
+  "seed": 42,
+  "model_name": "distilgpt2",
+  "adapter_dir": "/Users/imymm/H2Q-Evo/reports/trusted_nano_lora_weights_latest",
+  "score_base": 0.15319682418315286,
+  "score_adapter": 0.15325248987711082,
+  "gain": 5.566569395795695e-05,
+  "base": {
+    "model_name": "distilgpt2",
+    "adapter_dir": "",
+    "metrics": {
+      "score": 0.15319682418315286,
+      "avg_nll": 5.527550458908081,
+      "avg_ppl": 313.76262791381
+    },
+    "rows": [
+      {
+        "task": "self_eval_json",
+        "prompt": "Return JSON with keys diagnosis, action, confidence and one sentence each.",
+        "target": "{\"diagnosis\":\"schema drift risk\",\"action\":\"run validation and retrain adapter\",\"confidence\":0.72}",
+        "output": "Return JSON with keys diagnosis, action, confidence and one sentence each.",
+        "ll": {
+          "nll": 5.604170322418213,
+          "ppl": 271.5565275803442,
+          "target_tokens": 24
+        }
+      },
+      {
+        "task": "robustness_plan",
+        "prompt": "Write one robustness experiment, include metric and expected failure mode.",
+        "target": "Hypothesis: consistency drops under distribution shift. Measurement: schema_valid_rate and failure_recovery_rate. Failure mode: invalid JSON spikes.",
+        "output": "Write one robustness experiment, include metric and expected failure mode.",
+        "ll": {
+          "nll": 5.342673301696777,
+          "ppl": 209.07087340810705,
+          "target_tokens": 34
+        }
+      },
+      {
+        "task": "schema_guard",
+        "prompt": "Output valid JSON with keys root_cause, next_step, confidence.",
+        "target": "{\"root_cause\":\"insufficient calibration\",\"next_step\":\"increase replay buffer and rerun benchmark\",\"confidence\":0.68}",
+        "output": "Output valid JSON with keys root_cause, next_step, confidence.",
+        "ll": {
+          "nll": 4.279495716094971,
+          "ppl": 72.20401950004707,
+          "target_tokens": 28
+        }
+      },
+      {
+        "task": "ablation_reasoning",
+        "prompt": "Provide one ablation idea and why it improves generalization.",
+        "target": "Ablate retrieval memory and compare against full pipeline; this isolates memory contribution and reduces variance in attribution.",
+        "output": "Provide one ablation idea and why it improves generalization.",
+        "ll": {
+          "nll": 6.390142917633057,
+          "ppl": 595.941744185636,
+          "target_tokens": 22
+        }
+      },
+      {
+        "task": "safety_contract",
+        "prompt": "Return JSON with fields constraint, fallback, verification.",
+        "target": "{\"constraint\":\"never bypass schema checks\",\"fallback\":\"return minimal safe JSON\",\"verification\":\"run fixed-seed probe before keep\"}",
+        "output": "Return JSON with fields constraint, fallback, verification.",
+        "ll": {
+          "nll": 6.296853542327881,
+          "ppl": 542.861130520521,
+          "target_tokens": 29
+        }
+      },
+      {
+        "task": "transfer_probe",
+        "prompt": "Describe one transfer test across two domains and expected delta signal.",
+        "target": "Source domain: formal reasoning, target domain: code generation. Expected delta signal: +0.01 in benchmark score after adapter replay.",
+        "output": "Describe one transfer test across two domains and expected delta signal.",
+        "ll": {
+          "nll": 5.251966953277588,
+          "ppl": 190.94147228820458,
+          "target_tokens": 28
+        }
+      }
+    ]
+  },
+  "adapter": {
+    "model_name": "distilgpt2",
+    "adapter_dir": "/Users/imymm/H2Q-Evo/reports/trusted_nano_lora_weights_latest",
+    "metrics": {
+      "score": 0.15325248987711082,
+      "avg_nll": 5.525179465611775,
+      "avg_ppl": 313.18544845879717
+    },
+    "rows": [
+      {
+        "task": "self_eval_json",
+        "prompt": "Return JSON with keys diagnosis, action, confidence and one sentence each.",
+        "target": "{\"diagnosis\":\"schema drift risk\",\"action\":\"run validation and retrain adapter\",\"confidence\":0.72}",
+        "output": "Return JSON with keys diagnosis, action, confidence and one sentence each.",
+        "ll": {
+          "nll": 5.59990119934082,
+          "ppl": 270.39969043868905,
+          "target_tokens": 24
+        }
+      },
+      {
+        "task": "robustness_plan",
+        "prompt": "Write one robustness experiment, include metric and expected failure mode.",
+        "target": "Hypothesis: consistency drops under distribution shift. Measurement: schema_valid_rate and failure_recovery_rate. Failure mode: invalid JSON spikes.",
+        "output": "Write one robustness experiment, include metric and expected failure mode.",
+        "ll": {
+          "nll": 5.337221145629883,
+          "ppl": 207.93408815854735,
+          "target_tokens": 34
+        }
+      },
+      {
+        "task": "schema_guard",
+        "prompt": "Output valid JSON with keys root_cause, next_step, confidence.",
+        "target": "{\"root_cause\":\"insufficient calibration\",\"next_step\":\"increase replay buffer and rerun benchmark\",\"confidence\":0.68}",
+        "output": "Output valid JSON with keys root_cause, next_step, confidence.",
+        "ll": {
+          "nll": 4.275753974914551,
+          "ppl": 71.93435556783386,
+          "target_tokens": 28
+        }
+      },
+      {
+        "task": "ablation_reasoning",
+        "prompt": "Provide one ablation idea and why it improves generalization.",
+        "target": "Ablate retrieval memory and compare against full pipeline; this isolates memory contribution and reduces variance in attribution.",
+        "output": "Provide one ablation idea and why it improves generalization.",
+        "ll": {
+          "nll": 6.389984130859375,
+          "ppl": 595.847124031188,
+          "target_tokens": 22
+        }
+      },
+      {
+        "task": "safety_contract",
+        "prompt": "Return JSON with fields constraint, fallback, verification.",
+        "target": "{\"constraint\":\"never bypass schema checks\",\"fallback\":\"return minimal safe JSON\",\"verification\":\"run fixed-seed probe before keep\"}",
+        "output": "Return JSON with fields constraint, fallback, verification.",
+        "ll": {
+          "nll": 6.2948899269104,
+          "ppl": 541.7962059284305,
+          "target_tokens": 29
+        }
+      },
+      {
+        "task": "transfer_probe",
+        "prompt": "Describe one transfer test across two domains and expected delta signal.",
+        "target": "Source domain: formal reasoning, target domain: code generation. Expected delta signal: +0.01 in benchmark score after adapter replay.",
+        "output": "Describe one transfer test across two domains and expected delta signal.",
+        "ll": {
+          "nll": 5.253326416015625,
+          "ppl": 191.20122662809422,
+          "target_tokens": 28
+        }
+      }
+    ]
+  }
+}

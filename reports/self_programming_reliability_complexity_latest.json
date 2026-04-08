@@ -1,0 +1,41 @@
+{
+  "generated_at_utc": "2026-03-06T17:26:00+00:00",
+  "objective": "validate concrete self-programming output and measure reliability/complexity",
+  "artifacts": {
+    "probe": "reports/trusted_local_agi_chat_session_1772817723.json",
+    "consistency": "reports/self_model_consistency_post_latest.json",
+    "closed_loop": "reports/self_improvement_closed_loop_latest.json"
+  },
+  "metrics": {
+    "trust_score": 0.9208961672909656,
+    "trusted_ready": true,
+    "schema_valid_rate": 0.0,
+    "overall_score": 0.0,
+    "total_runs": 9,
+    "route_fallback_ratio": 1.0
+  },
+  "complexity": {
+    "sessions": 3,
+    "prompts_per_session": 3,
+    "schema_retries": 2,
+    "worst_case_calls": 27,
+    "time_complexity": "O(S*P*(R+1))",
+    "validation_complexity": "O(S*P*(R+1)*(B+F+A))"
+  },
+  "placeholder_policy": {
+    "enabled": true,
+    "placeholder_json_accepted": false,
+    "minimum_length_checks": true
+  },
+  "assessment": {
+    "self_programming_json_reliable": false,
+    "primary_blocker": "fallback route dominates introspection requests",
+    "note": "quality gates block pseudo-content, but routing policy still needs improvement"
+  },
+  "next_actions": [
+    "Add pre-fallback extra OpenClaw strict-JSON attempt for introspection prompts",
+    "Add hard-fail mode for self-eval when retries are exhausted",
+    "Add semantic KPI checks on metric fields",
+    "Execute one planned action and verify measured metric delta"
+  ]
+}

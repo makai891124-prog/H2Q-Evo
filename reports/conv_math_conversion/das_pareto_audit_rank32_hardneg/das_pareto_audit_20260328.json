@@ -1,0 +1,91 @@
+{
+  "model_id": "distilgpt2",
+  "ranks": [
+    32
+  ],
+  "seeds": [
+    11,
+    22,
+    33
+  ],
+  "token_table_size": 2048,
+  "steps": 2600,
+  "distill_hparams": {
+    "temperature": 1.35,
+    "temperature_end": 0.12,
+    "topk": 10,
+    "ranking_weight": 0.75,
+    "mse_weight": 0.03,
+    "ranking_margin": 0.08,
+    "hard_neg_k": 12,
+    "hard_neg_weight": 0.45,
+    "stage_split": 0.4,
+    "stage1_rank_scale": 0.25
+  },
+  "rows": [
+    {
+      "rank": 32,
+      "mean_cosine": 0.9996697306632996,
+      "ci95_cosine": [
+        0.9996443719302995,
+        0.9996950893962996
+      ],
+      "mean_top5": 0.6868279569892474,
+      "ci95_top5": [
+        0.6704126809797321,
+        0.7032432329987627
+      ],
+      "mean_speedup": 1.7225776225268974,
+      "ci95_speedup": [
+        1.712478706684534,
+        1.7326765383692608
+      ],
+      "mean_compression": 17.4468009583814,
+      "ci95_compression": [
+        17.4468009583814,
+        17.4468009583814
+      ],
+      "acceptance": {
+        "consistency": true,
+        "speedup": true,
+        "compression": true
+      }
+    }
+  ],
+  "pareto_front": [
+    {
+      "rank": 32,
+      "mean_cosine": 0.9996697306632996,
+      "ci95_cosine": [
+        0.9996443719302995,
+        0.9996950893962996
+      ],
+      "mean_top5": 0.6868279569892474,
+      "ci95_top5": [
+        0.6704126809797321,
+        0.7032432329987627
+      ],
+      "mean_speedup": 1.7225776225268974,
+      "ci95_speedup": [
+        1.712478706684534,
+        1.7326765383692608
+      ],
+      "mean_compression": 17.4468009583814,
+      "ci95_compression": [
+        17.4468009583814,
+        17.4468009583814
+      ],
+      "acceptance": {
+        "consistency": true,
+        "speedup": true,
+        "compression": true
+      }
+    }
+  ],
+  "thresholds": {
+    "cosine_min": 0.97,
+    "top5_min": 0.55,
+    "speedup_min": 1.05,
+    "compression_min": 2.0
+  }
+}

@@ -1,0 +1,166 @@
+{
+  "config": {
+    "n_min": 20,
+    "n_max": 30,
+    "target_qubit": 0,
+    "axis": [
+      0.0,
+      0.0,
+      1.0
+    ],
+    "baseline_memory_cap_bytes": 2147483648
+  },
+  "complexity": {
+    "baseline_memory_big_o": "O(2^n)",
+    "baseline_time_big_o_for_single_observable": "O(2^n)",
+    "das_memory_big_o": "O(n + e + d) where e is link count and d is local-rotor depth",
+    "das_memory_for_ghz_chain": "O(n)"
+  },
+  "rows": [
+    {
+      "n_qubits": 20,
+      "baseline_ran": true,
+      "baseline_expectation": 0.0,
+      "baseline_time_sec": 0.33643620799921337,
+      "baseline_estimated_state_bytes": 16777216,
+      "baseline_skip_reason": null,
+      "das_expectation": 2.83276944882399e-16,
+      "das_time_sec": 0.0008982499966805335,
+      "das_estimated_bytes": 944,
+      "abs_expectation_delta": 2.83276944882399e-16
+    },
+    {
+      "n_qubits": 21,
+      "baseline_ran": true,
+      "baseline_expectation": 0.0,
+      "baseline_time_sec": 0.6700554999952146,
+      "baseline_estimated_state_bytes": 33554432,
+      "baseline_skip_reason": null,
+      "das_expectation": 2.83276944882399e-16,
+      "das_time_sec": 0.00011208300202270038,
+      "das_estimated_bytes": 992,
+      "abs_expectation_delta": 2.83276944882399e-16
+    },
+    {
+      "n_qubits": 22,
+      "baseline_ran": true,
+      "baseline_expectation": 0.0,
+      "baseline_time_sec": 1.3627784169984807,
+      "baseline_estimated_state_bytes": 67108864,
+      "baseline_skip_reason": null,
+      "das_expectation": 2.83276944882399e-16,
+      "das_time_sec": 0.00011258400263614021,
+      "das_estimated_bytes": 1040,
+      "abs_expectation_delta": 2.83276944882399e-16
+    },
+    {
+      "n_qubits": 23,
+      "baseline_ran": true,
+      "baseline_expectation": 0.0,
+      "baseline_time_sec": 2.635335873997974,
+      "baseline_estimated_state_bytes": 134217728,
+      "baseline_skip_reason": null,
+      "das_expectation": 2.83276944882399e-16,
+      "das_time_sec": 0.0001139169980888255,
+      "das_estimated_bytes": 1088,
+      "abs_expectation_delta": 2.83276944882399e-16
+    },
+    {
+      "n_qubits": 24,
+      "baseline_ran": true,
+      "baseline_expectation": 0.0,
+      "baseline_time_sec": 5.314678667000408,
+      "baseline_estimated_state_bytes": 268435456,
+      "baseline_skip_reason": null,
+      "das_expectation": 2.83276944882399e-16,
+      "das_time_sec": 0.0002672499977052212,
+      "das_estimated_bytes": 1136,
+      "abs_expectation_delta": 2.83276944882399e-16
+    },
+    {
+      "n_qubits": 25,
+      "baseline_ran": true,
+      "baseline_expectation": 0.0,
+      "baseline_time_sec": 10.834873292002158,
+      "baseline_estimated_state_bytes": 536870912,
+      "baseline_skip_reason": null,
+      "das_expectation": 2.83276944882399e-16,
+      "das_time_sec": 0.00031045899959281087,
+      "das_estimated_bytes": 1184,
+      "abs_expectation_delta": 2.83276944882399e-16
+    },
+    {
+      "n_qubits": 26,
+      "baseline_ran": true,
+      "baseline_expectation": 0.0,
+      "baseline_time_sec": 22.56059704099971,
+      "baseline_estimated_state_bytes": 1073741824,
+      "baseline_skip_reason": null,
+      "das_expectation": 2.83276944882399e-16,
+      "das_time_sec": 0.0003492089999781456,
+      "das_estimated_bytes": 1232,
+      "abs_expectation_delta": 2.83276944882399e-16
+    },
+    {
+      "n_qubits": 27,
+      "baseline_ran": true,
+      "baseline_expectation": 0.0,
+      "baseline_time_sec": 47.28941641599886,
+      "baseline_estimated_state_bytes": 2147483648,
+      "baseline_skip_reason": null,
+      "das_expectation": 2.83276944882399e-16,
+      "das_time_sec": 0.00040116600575856864,
+      "das_estimated_bytes": 1280,
+      "abs_expectation_delta": 2.83276944882399e-16
+    },
+    {
+      "n_qubits": 28,
+      "baseline_ran": false,
+      "baseline_expectation": null,
+      "baseline_time_sec": null,
+      "baseline_estimated_state_bytes": 4294967296,
+      "baseline_skip_reason": "state_vector_exceeds_memory_cap",
+      "das_expectation": 2.83276944882399e-16,
+      "das_time_sec": 4.3207997805438936e-05,
+      "das_estimated_bytes": 1328,
+      "abs_expectation_delta": null
+    },
+    {
+      "n_qubits": 29,
+      "baseline_ran": false,
+      "baseline_expectation": null,
+      "baseline_time_sec": null,
+      "baseline_estimated_state_bytes": 8589934592,
+      "baseline_skip_reason": "state_vector_exceeds_memory_cap",
+      "das_expectation": 2.83276944882399e-16,
+      "das_time_sec": 3.749999814317562e-05,
+      "das_estimated_bytes": 1376,
+      "abs_expectation_delta": null
+    },
+    {
+      "n_qubits": 30,
+      "baseline_ran": false,
+      "baseline_expectation": null,
+      "baseline_time_sec": null,
+      "baseline_estimated_state_bytes": 17179869184,
+      "baseline_skip_reason": "state_vector_exceeds_memory_cap",
+      "das_expectation": 2.83276944882399e-16,
+      "das_time_sec": 3.5208999179303646e-05,
+      "das_estimated_bytes": 1424,
+      "abs_expectation_delta": null
+    }
+  ],
+  "n20_head_to_head": {
+    "n_qubits": 20,
+    "baseline_ran": true,
+    "baseline_expectation": 0.0,
+    "baseline_time_sec": 0.33643620799921337,
+    "baseline_estimated_state_bytes": 16777216,
+    "baseline_skip_reason": null,
+    "das_expectation": 2.83276944882399e-16,
+    "das_time_sec": 0.0008982499966805335,
+    "das_estimated_bytes": 944,
+    "abs_expectation_delta": 2.83276944882399e-16
+  },
+  "max_abs_expectation_delta_where_baseline_ran": 2.83276944882399e-16
+}

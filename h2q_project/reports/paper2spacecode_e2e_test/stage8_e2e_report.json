@@ -1,0 +1,19 @@
+{
+  "stage": "8_av_integration_e2e",
+  "inputs": {
+    "voice_chain_report_path": "/Users/imymm/H2Q-Evo/h2q_project/reports/paper2spacecode_e2e_test/voice_video_dialogue_chain_report.json",
+    "stage7_render_report_path": "/Users/imymm/H2Q-Evo/h2q_project/reports/paper2spacecode_e2e_test/stage7_render_report.json",
+    "stage6_formula_contract_path": "/Users/imymm/H2Q-Evo/h2q_project/reports/paper2spacecode_e2e_test/stage6_formula_contract.json"
+  },
+  "outputs": {
+    "combined_video_path": "/Users/imymm/H2Q-Evo/h2q_project/reports/paper2spacecode_e2e_test/paper_formula_space_av_e2e.mp4",
+    "formula_driver_text": "hannah h. tucuman dented the nineteen many file it"
+  },
+  "checks": {
+    "voice_chain_passed": true,
+    "stage7_passed": true,
+    "combined_video_created": true
+  },
+  "passed": true,
+  "error": null
+}

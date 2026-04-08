@@ -1,0 +1,68 @@
+{
+  "paper": {
+    "title": "Ray structures on Teichmuller Space",
+    "url": "https://arxiv.org/pdf/2206.01371",
+    "domain": [
+      "Teichmuller space",
+      "Thurston metric",
+      "harmonic maps"
+    ]
+  },
+  "encoded_claims": [
+    {
+      "id": "C1",
+      "source": "energy-difference minimization",
+      "paper_relation": "Tholozan-type minimizer structure and uniqueness narrative",
+      "model_object": "argmin of F_r(X)=E(X,Y)-rE(X,Z)"
+    },
+    {
+      "id": "C2",
+      "source": "harmonic ray degeneration",
+      "paper_relation": "subconvergence/limit to Thurston geodesic structures",
+      "model_object": "ray-to-reference geodesic convergence profile over r"
+    },
+    {
+      "id": "C3",
+      "source": "exponential map ray structure",
+      "paper_relation": "visual boundary rays from base point",
+      "model_object": "boundary-direction coverage map"
+    }
+  ],
+  "verification_summary": {
+    "min_hessian_eigenvalue": 1.723487370983744,
+    "all_hessian_positive": true,
+    "r_critical_estimate": 2.6822015375523764,
+    "r_operating_upper": 0.95,
+    "error_start": 0.7236732967153714,
+    "error_end": 0.005257577640153662,
+    "convergence_trend_corr_r_vs_error": -0.9851136198901738,
+    "convergence_improves": true,
+    "boundary_coverage_ratio": 1.0,
+    "boundary_coverage_good": true,
+    "error_profile_curvature": 0.05383556692044245,
+    "sensitivity_case_count": 125,
+    "sensitivity_mean_error_drop_ratio": 129.29849488571716,
+    "sensitivity_global_drop_ratio_ci": [
+      124.8946538077867,
+      133.7594554312046
+    ],
+    "sensitivity_global_end_error_ci": [
+      0.005705749699828483,
+      0.006160565987176827
+    ],
+    "extended_dimensions": [
+      3,
+      4,
+      5
+    ],
+    "projection_consistency_all_passed": true
+  },
+  "abstract_conclusion": [
+    "Energy-constrained geodesic selection can be encoded as a stable minimization path.",
+    "Degeneration-driven ray families exhibit a computable geodesic-limit trend.",
+    "A base-point-centered exponential-map surrogate can be visualized as full boundary-direction coverage.",
+    "Parameter perturbation studies keep the convergence/uniqueness structure robust across matrix scales and seeds.",
+    "High-dimensional (3D-5D) proxy states retain geometric trends under 2D projection consistency checks.",
+    "The Stage6/7/8 pipeline can package deep geometric arguments into reproducible multimodal artifacts."
+  ]
+}

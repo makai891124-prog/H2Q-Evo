@@ -1,8 +1,8 @@
 {
   "meta": {
-    "created_at_utc": "2026-03-06T07:49:25.882862+00:00",
+    "created_at_utc": "2026-03-06T18:41:50.665192+00:00",
     "sources": {
-      "round": "/Users/imymm/H2Q-Evo/reports/agi_self_evolution_round_1772783365.json",
+      "round": "/Users/imymm/H2Q-Evo/reports/agi_self_evolution_round_1772822510.json",
       "monitor": "/Users/imymm/H2Q-Evo/reports/agi_realtime_monitor_latest.json",
       "release_gate": "/Users/imymm/H2Q-Evo/reports/release_gate_latest.json",
       "interactive_reasoning": "/Users/imymm/H2Q-Evo/reports/interactive_reasoning_benchmark_latest.json"
@@ -13,9 +13,9 @@
     "depth": 1.0,
     "autonomy": 1.0,
     "horizon": 1.0,
-    "robustness": 0.925085910652921
+    "robustness": 0.9984313725490196
   },
   "score": {
-    "overall": 0.9887628865979382
+    "overall": 0.999764705882353
   }
 }

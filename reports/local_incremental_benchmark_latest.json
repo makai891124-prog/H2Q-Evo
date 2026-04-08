@@ -1,0 +1,471 @@
+{
+  "generated_at_utc": "2026-03-10T15:56:44.047391+00:00",
+  "seed": 42,
+  "model_name": "distilgpt2",
+  "adapter_dir": "/Users/imymm/H2Q-Evo/reports/trusted_nano_lora_weights_latest",
+  "score_base": 0.14428147888598417,
+  "score_adapter": 0.14429638043008278,
+  "gain": 1.4901544098611108e-05,
+  "base": {
+    "model_name": "distilgpt2",
+    "adapter_dir": "",
+    "metrics": {
+      "score": 0.14428147888598417,
+      "avg_nll": 5.930896520614624,
+      "avg_ppl": 480.05229039843516
+    },
+    "rows": [
+      {
+        "task": "self_eval_json",
+        "prompt": "Return JSON with keys diagnosis, action, confidence and one sentence each.",
+        "target": "{\"diagnosis\":\"schema drift risk\",\"action\":\"run validation and retrain adapter\",\"confidence\":0.72}",
+        "output": "Return JSON with keys diagnosis, action, confidence and one sentence each.",
+        "ll": {
+          "nll": 5.604170322418213,
+          "ppl": 271.5565275803442,
+          "target_tokens": 24
+        }
+      },
+      {
+        "task": "robustness_plan",
+        "prompt": "Write one robustness experiment, include metric and expected failure mode.",
+        "target": "Hypothesis: consistency drops under distribution shift. Measurement: schema_valid_rate and failure_recovery_rate. Failure mode: invalid JSON spikes.",
+        "output": "Write one robustness experiment, include metric and expected failure mode.",
+        "ll": {
+          "nll": 5.342673301696777,
+          "ppl": 209.07087340810705,
+          "target_tokens": 34
+        }
+      },
+      {
+        "task": "schema_guard",
+        "prompt": "Output valid JSON with keys root_cause, next_step, confidence.",
+        "target": "{\"root_cause\":\"insufficient calibration\",\"next_step\":\"increase replay buffer and rerun benchmark\",\"confidence\":0.68}",
+        "output": "Output valid JSON with keys root_cause, next_step, confidence.",
+        "ll": {
+          "nll": 4.279495716094971,
+          "ppl": 72.20401950004707,
+          "target_tokens": 28
+        }
+      },
+      {
+        "task": "ablation_reasoning",
+        "prompt": "Provide one ablation idea and why it improves generalization.",
+        "target": "Ablate retrieval memory and compare against full pipeline; this isolates memory contribution and reduces variance in attribution.",
+        "output": "Provide one ablation idea and why it improves generalization.",
+        "ll": {
+          "nll": 6.390142917633057,
+          "ppl": 595.941744185636,
+          "target_tokens": 22
+        }
+      },
+      {
+        "task": "safety_contract",
+        "prompt": "Return JSON with fields constraint, fallback, verification.",
+        "target": "{\"constraint\":\"never bypass schema checks\",\"fallback\":\"return minimal safe JSON\",\"verification\":\"run fixed-seed probe before keep\"}",
+        "output": "Return JSON with fields constraint, fallback, verification.",
+        "ll": {
+          "nll": 6.296853542327881,
+          "ppl": 542.861130520521,
+          "target_tokens": 29
+        }
+      },
+      {
+        "task": "transfer_probe",
+        "prompt": "Describe one transfer test across two domains and expected delta signal.",
+        "target": "Source domain: formal reasoning, target domain: code generation. Expected delta signal: +0.01 in benchmark score after adapter replay.",
+        "output": "Describe one transfer test across two domains and expected delta signal.",
+        "ll": {
+          "nll": 5.251966953277588,
+          "ppl": 190.94147228820458,
+          "target_tokens": 28
+        }
+      },
+      {
+        "task": "rollback_policy",
+        "prompt": "Return JSON with keys trigger, rollback_action, verification.",
+        "target": "{\"trigger\":\"benchmark gain below floor\",\"rollback_action\":\"restore last best adapter\",\"verification\":\"rerun fixed-seed benchmark\"}",
+        "output": "json, and the JSON object.",
+        "ll": {
+          "nll": 5.860835075378418,
+          "ppl": 351.01714744014504,
+          "target_tokens": 30
+        }
+      },
+      {
+        "task": "schema_repair",
+        "prompt": "Write one schema repair strategy with a measurable success criterion.",
+        "target": "Apply strict JSON schema validation and reject malformed outputs; success criterion: schema_valid_rate improves by at least 0.02.",
+        "output": "Write one schema repair strategy with a measurable success criterion.",
+        "ll": {
+          "nll": 5.238600730895996,
+          "ppl": 188.40628677809377,
+          "target_tokens": 27
+        }
+      },
+      {
+        "task": "calibration_check",
+        "prompt": "Provide one confidence calibration check and expected outcome.",
+        "target": "Bucket confidence into deciles and compare with empirical accuracy; expected outcome: calibration error decreases after replay regularization.",
+        "output": "Provide one confidence calibration check and expected outcome.",
+        "ll": {
+          "nll": 6.743407726287842,
+          "ppl": 848.4470905587972,
+          "target_tokens": 23
+        }
+      },
+      {
+        "task": "drift_alarm",
+        "prompt": "Return JSON with fields signal, threshold, response.",
+        "target": "{\"signal\":\"nll_drift\",\"threshold\":0.015,\"response\":\"trigger retraining and hold keep decision\"}",
+        "output": "Return JSON with fields signal, threshold, response.",
+        "ll": {
+          "nll": 5.879571914672852,
+          "ppl": 357.6561016034137,
+          "target_tokens": 27
+        }
+      },
+      {
+        "task": "safety_fallback",
+        "prompt": "Describe a safe fallback behavior when model output is uncertain.",
+        "target": "If uncertainty is high, return concise structured JSON with explicit unknowns and request one clarifying input before action.",
+        "output": "Describe a safe fallback behavior when model output is uncertain.",
+        "ll": {
+          "nll": 6.058943271636963,
+          "ppl": 427.9229994789376,
+          "target_tokens": 22
+        }
+      },
+      {
+        "task": "eval_design",
+        "prompt": "Design one fixed-seed evaluation protocol for adapter comparison.",
+        "target": "Use a frozen prompt set, deterministic decoding, and paired before/after NLL scoring with bootstrap confidence intervals.",
+        "output": "Design one fixed-seed evaluation protocol for adapter comparison.",
+        "ll": {
+          "nll": 5.990270137786865,
+          "ppl": 399.5225214807151,
+          "target_tokens": 24
+        }
+      },
+      {
+        "task": "memory_ablation",
+        "prompt": "Propose one memory ablation and expected failure pattern.",
+        "target": "Remove retrieval memory for one run; expected failure pattern: weaker long-range consistency and higher invalid schema rate.",
+        "output": "Propose one memory ablation and expected failure pattern.",
+        "ll": {
+          "nll": 6.11224365234375,
+          "ppl": 451.3502530266941,
+          "target_tokens": 22
+        }
+      },
+      {
+        "task": "constraint_contract",
+        "prompt": "Return JSON with keys invariant, monitor, escalation.",
+        "target": "{\"invariant\":\"never emit malformed JSON in contract mode\",\"monitor\":\"schema validator + density probe\",\"escalation\":\"discard candidate and keep previous baseline\"}",
+        "output": "Return JSON with keys invariant, monitor, escalation.",
+        "ll": {
+          "nll": 5.926332473754883,
+          "ppl": 374.7774839631531,
+          "target_tokens": 35
+        }
+      },
+      {
+        "task": "latency_budget",
+        "prompt": "Give one latency budget policy balancing quality and speed.",
+        "target": "Use a two-stage budget: fast deterministic pass first, then selective deep pass only when quality probe is borderline.",
+        "output": "Give one latency budget policy balancing quality and speed.",
+        "ll": {
+          "nll": 6.276127338409424,
+          "ppl": 531.7254785574025,
+          "target_tokens": 24
+        }
+      },
+      {
+        "task": "error_taxonomy",
+        "prompt": "List one compact error taxonomy for self-improvement loops.",
+        "target": "Classify failures into schema, semantic, calibration, and degeneration errors, then attach one remediation per class.",
+        "output": "List one compact error taxonomy for self-improvement loops.",
+        "ll": {
+          "nll": 5.50961446762085,
+          "ppl": 247.05586067091593,
+          "target_tokens": 23
+        }
+      },
+      {
+        "task": "counterfactual_test",
+        "prompt": "Describe one counterfactual test for robustness claims.",
+        "target": "Swap key assumptions in prompts while preserving format and compare degradation; robust systems should show graceful score drops.",
+        "output": "Describe one counterfactual test for robustness claims.",
+        "ll": {
+          "nll": 7.64169454574585,
+          "ppl": 2083.2710252724196,
+          "target_tokens": 21
+        }
+      },
+      {
+        "task": "quality_guard",
+        "prompt": "Return JSON with fields structure_check, density_check, echo_check.",
+        "target": "{\"structure_check\":\"json shape + required keys\",\"density_check\":\"alnum ratio above floor\",\"echo_check\":\"completion similarity below threshold\"}",
+        "output": "Return JSON with fields structure_check, density_check, echo_check.",
+        "ll": {
+          "nll": 5.3439040184021,
+          "ppl": 209.3283388256041,
+          "target_tokens": 32
+        }
+      },
+      {
+        "task": "replay_policy",
+        "prompt": "Write one replay policy that avoids overfitting to tiny probes.",
+        "target": "Replay a mixed mini-batch with held-out prompts and stop early when quality gain plateaus for multiple checks.",
+        "output": "Write one replay policy that avoids overfitting to tiny probes.",
+        "ll": {
+          "nll": 6.400874614715576,
+          "ppl": 602.3716506567775,
+          "target_tokens": 24
+        }
+      },
+      {
+        "task": "gate_explanation",
+        "prompt": "Provide one concise explanation template for keep/discard decisions.",
+        "target": "Decision = metric delta + benchmark gain + replay quality; keep only when all hard gates pass and no safety invariant is violated.",
+        "output": "Provide one concise explanation template for keep/discard decisions.",
+        "ll": {
+          "nll": 6.470207691192627,
+          "ppl": 645.6178021727744,
+          "target_tokens": 27
+        }
+      }
+    ]
+  },
+  "adapter": {
+    "model_name": "distilgpt2",
+    "adapter_dir": "/Users/imymm/H2Q-Evo/reports/trusted_nano_lora_weights_latest",
+    "metrics": {
+      "score": 0.14429638043008278,
+      "avg_nll": 5.930180764198303,
+      "avg_ppl": 479.6914918901087
+    },
+    "rows": [
+      {
+        "task": "self_eval_json",
+        "prompt": "Return JSON with keys diagnosis, action, confidence and one sentence each.",
+        "target": "{\"diagnosis\":\"schema drift risk\",\"action\":\"run validation and retrain adapter\",\"confidence\":0.72}",
+        "output": "Return JSON with keys diagnosis, action, confidence and one sentence each.",
+        "ll": {
+          "nll": 5.6026434898376465,
+          "ppl": 271.1422225942309,
+          "target_tokens": 24
+        }
+      },
+      {
+        "task": "robustness_plan",
+        "prompt": "Write one robustness experiment, include metric and expected failure mode.",
+        "target": "Hypothesis: consistency drops under distribution shift. Measurement: schema_valid_rate and failure_recovery_rate. Failure mode: invalid JSON spikes.",
+        "output": "Write one robustness experiment, include metric and expected failure mode.",
+        "ll": {
+          "nll": 5.341331481933594,
+          "ppl": 208.79052610809916,
+          "target_tokens": 34
+        }
+      },
+      {
+        "task": "schema_guard",
+        "prompt": "Output valid JSON with keys root_cause, next_step, confidence.",
+        "target": "{\"root_cause\":\"insufficient calibration\",\"next_step\":\"increase replay buffer and rerun benchmark\",\"confidence\":0.68}",
+        "output": "Output valid JSON with keys root_cause, next_step, confidence.",
+        "ll": {
+          "nll": 4.27829122543335,
+          "ppl": 72.11710278851966,
+          "target_tokens": 28
+        }
+      },
+      {
+        "task": "ablation_reasoning",
+        "prompt": "Provide one ablation idea and why it improves generalization.",
+        "target": "Ablate retrieval memory and compare against full pipeline; this isolates memory contribution and reduces variance in attribution.",
+        "output": "Provide one ablation idea and why it improves generalization.",
+        "ll": {
+          "nll": 6.389893054962158,
+          "ppl": 595.7928591909098,
+          "target_tokens": 22
+        }
+      },
+      {
+        "task": "safety_contract",
+        "prompt": "Return JSON with fields constraint, fallback, verification.",
+        "target": "{\"constraint\":\"never bypass schema checks\",\"fallback\":\"return minimal safe JSON\",\"verification\":\"run fixed-seed probe before keep\"}",
+        "output": "Return JSON with fields constraint, fallback, verification.",
+        "ll": {
+          "nll": 6.296276092529297,
+          "ppl": 542.5477459606765,
+          "target_tokens": 29
+        }
+      },
+      {
+        "task": "transfer_probe",
+        "prompt": "Describe one transfer test across two domains and expected delta signal.",
+        "target": "Source domain: formal reasoning, target domain: code generation. Expected delta signal: +0.01 in benchmark score after adapter replay.",
+        "output": "Describe one transfer test across two domains and expected delta signal.",
+        "ll": {
+          "nll": 5.252192974090576,
+          "ppl": 190.9846339125333,
+          "target_tokens": 28
+        }
+      },
+      {
+        "task": "rollback_policy",
+        "prompt": "Return JSON with keys trigger, rollback_action, verification.",
+        "target": "{\"trigger\":\"benchmark gain below floor\",\"rollback_action\":\"restore last best adapter\",\"verification\":\"rerun fixed-seed benchmark\"}",
+        "output": "json, and the JSON object.",
+        "ll": {
+          "nll": 5.859428882598877,
+          "ppl": 350.5238965461211,
+          "target_tokens": 30
+        }
+      },
+      {
+        "task": "schema_repair",
+        "prompt": "Write one schema repair strategy with a measurable success criterion.",
+        "target": "Apply strict JSON schema validation and reject malformed outputs; success criterion: schema_valid_rate improves by at least 0.02.",
+        "output": "Write one schema repair strategy with a measurable success criterion.",
+        "ll": {
+          "nll": 5.237882137298584,
+          "ppl": 188.2709478593669,
+          "target_tokens": 27
+        }
+      },
+      {
+        "task": "calibration_check",
+        "prompt": "Provide one confidence calibration check and expected outcome.",
+        "target": "Bucket confidence into deciles and compare with empirical accuracy; expected outcome: calibration error decreases after replay regularization.",
+        "output": "Provide one confidence calibration check and expected outcome.",
+        "ll": {
+          "nll": 6.742467403411865,
+          "ppl": 847.6496513344199,
+          "target_tokens": 23
+        }
+      },
+      {
+        "task": "drift_alarm",
+        "prompt": "Return JSON with fields signal, threshold, response.",
+        "target": "{\"signal\":\"nll_drift\",\"threshold\":0.015,\"response\":\"trigger retraining and hold keep decision\"}",
+        "output": "Return JSON with fields signal, threshold, response.",
+        "ll": {
+          "nll": 5.879098892211914,
+          "ppl": 357.4869622405765,
+          "target_tokens": 27
+        }
+      },
+      {
+        "task": "safety_fallback",
+        "prompt": "Describe a safe fallback behavior when model output is uncertain.",
+        "target": "If uncertainty is high, return concise structured JSON with explicit unknowns and request one clarifying input before action.",
+        "output": "Describe a safe fallback behavior when model output is uncertain.",
+        "ll": {
+          "nll": 6.058382987976074,
+          "ppl": 427.6833083679879,
+          "target_tokens": 22
+        }
+      },
+      {
+        "task": "eval_design",
+        "prompt": "Design one fixed-seed evaluation protocol for adapter comparison.",
+        "target": "Use a frozen prompt set, deterministic decoding, and paired before/after NLL scoring with bootstrap confidence intervals.",
+        "output": "Design one fixed-seed evaluation protocol for adapter comparison.",
+        "ll": {
+          "nll": 5.98933744430542,
+          "ppl": 399.15006315096826,
+          "target_tokens": 24
+        }
+      },
+      {
+        "task": "memory_ablation",
+        "prompt": "Propose one memory ablation and expected failure pattern.",
+        "target": "Remove retrieval memory for one run; expected failure pattern: weaker long-range consistency and higher invalid schema rate.",
+        "output": "Propose one memory ablation and expected failure pattern.",
+        "ll": {
+          "nll": 6.110771656036377,
+          "ppl": 450.68635586786627,
+          "target_tokens": 22
+        }
+      },
+      {
+        "task": "constraint_contract",
+        "prompt": "Return JSON with keys invariant, monitor, escalation.",
+        "target": "{\"invariant\":\"never emit malformed JSON in contract mode\",\"monitor\":\"schema validator + density probe\",\"escalation\":\"discard candidate and keep previous baseline\"}",
+        "output": "Return JSON with keys invariant, monitor, escalation.",
+        "ll": {
+          "nll": 5.925246238708496,
+          "ppl": 374.3706085466504,
+          "target_tokens": 35
+        }
+      },
+      {
+        "task": "latency_budget",
+        "prompt": "Give one latency budget policy balancing quality and speed.",
+        "target": "Use a two-stage budget: fast deterministic pass first, then selective deep pass only when quality probe is borderline.",
+        "output": "Give one latency budget policy balancing quality and speed.",
+        "ll": {
+          "nll": 6.276943683624268,
+          "ppl": 532.1597273317719,
+          "target_tokens": 24
+        }
+      },
+      {
+        "task": "error_taxonomy",
+        "prompt": "List one compact error taxonomy for self-improvement loops.",
+        "target": "Classify failures into schema, semantic, calibration, and degeneration errors, then attach one remediation per class.",
+        "output": "List one compact error taxonomy for self-improvement loops.",
+        "ll": {
+          "nll": 5.509634971618652,
+          "ppl": 247.0609263556735,
+          "target_tokens": 23
+        }
+      },
+      {
+        "task": "counterfactual_test",
+        "prompt": "Describe one counterfactual test for robustness claims.",
+        "target": "Swap key assumptions in prompts while preserving format and compare degradation; robust systems should show graceful score drops.",
+        "output": "Describe one counterfactual test for robustness claims.",
+        "ll": {
+          "nll": 7.640705108642578,
+          "ppl": 2081.210779033959,
+          "target_tokens": 21
+        }
+      },
+      {
+        "task": "quality_guard",
+        "prompt": "Return JSON with fields structure_check, density_check, echo_check.",
+        "target": "{\"structure_check\":\"json shape + required keys\",\"density_check\":\"alnum ratio above floor\",\"echo_check\":\"completion similarity below threshold\"}",
+        "output": "Return JSON with fields structure_check, density_check, echo_check.",
+        "ll": {
+          "nll": 5.343735694885254,
+          "ppl": 209.29310690870076,
+          "target_tokens": 32
+        }
+      },
+      {
+        "task": "replay_policy",
+        "prompt": "Write one replay policy that avoids overfitting to tiny probes.",
+        "target": "Replay a mixed mini-batch with held-out prompts and stop early when quality gain plateaus for multiple checks.",
+        "output": "Write one replay policy that avoids overfitting to tiny probes.",
+        "ll": {
+          "nll": 6.400049209594727,
+          "ppl": 601.8746551512052,
+          "target_tokens": 24
+        }
+      },
+      {
+        "task": "gate_explanation",
+        "prompt": "Provide one concise explanation template for keep/discard decisions.",
+        "target": "Decision = metric delta + benchmark gain + replay quality; keep only when all hard gates pass and no safety invariant is violated.",
+        "output": "Provide one concise explanation template for keep/discard decisions.",
+        "ll": {
+          "nll": 6.469302654266357,
+          "ppl": 645.0337585519381,
+          "target_tokens": 27
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "timestamp": "2026-03-28 16:02:23",
+  "device": "cpu",
+  "batch_size": 8,
+  "sequence_length": 13,
+  "latency_ms": {
+    "original": {
+      "mean_ms": 26.876262041848047,
+      "std_ms": 0.15375916021202768,
+      "p50_ms": 26.892145500823972,
+      "p90_ms": 27.01020800304832
+    },
+    "permute_exact": {
+      "mean_ms": 27.154447958006738,
+      "std_ms": 0.36553947521511604,
+      "p50_ms": 27.111854498798493,
+      "p90_ms": 27.546207998966565
+    },
+    "approx_conv_math": {
+      "mean_ms": 29.610444541503966,
+      "std_ms": 6.9014319217173945,
+      "p50_ms": 27.46841649786802,
+      "p90_ms": 29.290374997799518
+    }
+  },
+  "speed_ratio_vs_original": {
+    "permute_exact": 0.9897554199375036,
+    "approx_conv_math": 0.9076615517938778
+  },
+  "consistency_vs_original": {
+    "permute_exact": {
+      "avg_cosine_last_logits": 0.9999999403953552,
+      "avg_top1_match": 1.0,
+      "avg_top5_overlap": 1.0
+    },
+    "approx_conv_math": {
+      "avg_cosine_last_logits": 0.9953750967979431,
+      "avg_top1_match": 0.0,
+      "avg_top5_overlap": 0.05
+    }
+  },
+  "engineering_judgement": {
+    "exact_isomorphism_lossless": true,
+    "approx_stably_equivalent": false,
+    "runtime_acceleration_observed": false
+  },
+  "notes": [
+    "All three models keep the same dense architecture at inference time.",
+    "Approx conversion stores compressed artifacts, but runtime currently reconstructs dense weights.",
+    "Therefore speedup is not guaranteed without compressed-runtime kernels."
+  ]
+}

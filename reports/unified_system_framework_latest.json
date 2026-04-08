@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at_utc": "2026-03-06T07:49:25.815920+00:00",
+    "generated_at_utc": "2026-03-06T18:41:50.630957+00:00",
     "framework_version": "v1",
     "workspace_root": "/Users/imymm/H2Q-Evo"
   },
@@ -133,51 +133,51 @@
     {
       "capability_id": "svc_local_infer",
       "evidence_glob": "agi_self_evolution_round_*.json",
-      "evidence_path": "/Users/imymm/H2Q-Evo/reports/agi_self_evolution_round_1772783365.json",
+      "evidence_path": "/Users/imymm/H2Q-Evo/reports/agi_self_evolution_round_1772822510.json",
       "evidence_exists": true,
-      "evidence_mtime_utc": "2026-03-06T07:49:25.577432+00:00"
+      "evidence_mtime_utc": "2026-03-06T18:41:50.349392+00:00"
     },
     {
       "capability_id": "trust_joint_center",
       "evidence_glob": "trusted_joint_agi_quantum_center_*.json",
-      "evidence_path": "/Users/imymm/H2Q-Evo/reports/trusted_joint_agi_quantum_center_1772783200.json",
+      "evidence_path": "/Users/imymm/H2Q-Evo/reports/trusted_joint_agi_quantum_center_1772822385.json",
       "evidence_exists": true,
-      "evidence_mtime_utc": "2026-03-06T07:46:40.538481+00:00"
+      "evidence_mtime_utc": "2026-03-06T18:39:45.441634+00:00"
     },
     {
       "capability_id": "self_evolution_loop",
       "evidence_glob": "agi_self_evolution_round_*.json",
-      "evidence_path": "/Users/imymm/H2Q-Evo/reports/agi_self_evolution_round_1772783365.json",
+      "evidence_path": "/Users/imymm/H2Q-Evo/reports/agi_self_evolution_round_1772822510.json",
       "evidence_exists": true,
-      "evidence_mtime_utc": "2026-03-06T07:49:25.577432+00:00"
+      "evidence_mtime_utc": "2026-03-06T18:41:50.349392+00:00"
     },
     {
       "capability_id": "external_assist",
       "evidence_glob": "agi_self_evolution_daily_*.json",
-      "evidence_path": "/Users/imymm/H2Q-Evo/reports/agi_self_evolution_daily_1772783365.json",
+      "evidence_path": "/Users/imymm/H2Q-Evo/reports/agi_self_evolution_daily_1772822510.json",
       "evidence_exists": true,
-      "evidence_mtime_utc": "2026-03-06T07:49:25.578141+00:00"
+      "evidence_mtime_utc": "2026-03-06T18:41:50.350330+00:00"
     },
     {
       "capability_id": "docker_consistency",
       "evidence_glob": "agi_self_evolution_round_*.json",
-      "evidence_path": "/Users/imymm/H2Q-Evo/reports/agi_self_evolution_round_1772783365.json",
+      "evidence_path": "/Users/imymm/H2Q-Evo/reports/agi_self_evolution_round_1772822510.json",
       "evidence_exists": true,
-      "evidence_mtime_utc": "2026-03-06T07:49:25.577432+00:00"
+      "evidence_mtime_utc": "2026-03-06T18:41:50.349392+00:00"
     },
     {
       "capability_id": "realtime_monitor",
       "evidence_glob": "agi_realtime_monitor_latest.json",
       "evidence_path": "/Users/imymm/H2Q-Evo/reports/agi_realtime_monitor_latest.json",
       "evidence_exists": true,
-      "evidence_mtime_utc": "2026-03-06T07:49:25.776617+00:00"
+      "evidence_mtime_utc": "2026-03-06T18:41:50.573967+00:00"
     },
     {
       "capability_id": "hourly_diagnosis",
       "evidence_glob": "agi_realtime_monitor_hourly_diagnosis_latest.json",
       "evidence_path": "/Users/imymm/H2Q-Evo/reports/agi_realtime_monitor_hourly_diagnosis_latest.json",
       "evidence_exists": true,
-      "evidence_mtime_utc": "2026-03-06T07:49:25.776814+00:00"
+      "evidence_mtime_utc": "2026-03-06T18:41:50.574221+00:00"
     },
     {
       "capability_id": "quantum_crossval",
@@ -205,9 +205,9 @@
     "availability": 1.0,
     "consistency": 1.0,
     "observability": 1.0,
-    "control": 0.9375,
+    "control": 1.0,
     "budget_penalty": 0.0,
-    "overall_score": 0.9875,
+    "overall_score": 1.0,
     "grade": "A",
     "signals": {
       "acceptance_ok": true,
@@ -216,8 +216,8 @@
       "monitor_ok": true,
       "hourly_ok": true,
       "assist_rate": 1.0,
-      "assist_tokens": 3159,
-      "monitor_success_rate": 0.875
+      "assist_tokens": 3167,
+      "monitor_success_rate": 1.0
     }
   },
   "recommendations": [

@@ -1,0 +1,62 @@
+{
+  "version": "v1",
+  "description": "Operational axiom contract for bootstrap evolution.",
+  "axioms": [
+    {
+      "id": "A1_phi_boundary",
+      "statement": "AP/GP boundary ratio should approach phi in stable expansion regimes.",
+      "metric": "abs(ap_gp_boundary_ratio - phi)",
+      "threshold": 0.75,
+      "direction": "max",
+      "weight": 0.18
+    },
+    {
+      "id": "A2_nonnegative_norm",
+      "statement": "Core observable norms are non-negative.",
+      "metric": "nonnegative_snapshot",
+      "threshold": 1.0,
+      "direction": "max",
+      "weight": 0.10
+    },
+    {
+      "id": "A3_causal_stability",
+      "statement": "Low crash rate preserves causal consistency.",
+      "metric": "1-crash_rate",
+      "threshold": 0.8,
+      "direction": "max",
+      "weight": 0.16
+    },
+    {
+      "id": "A4_flat_background",
+      "statement": "Z1 flatness remains close to linear (small acceleration).",
+      "metric": "z1_flatness",
+      "threshold": 0.5,
+      "direction": "max",
+      "weight": 0.12
+    },
+    {
+      "id": "A5_orthogonal_acceleration",
+      "statement": "Z2 orthogonal acceleration remains informative and bounded.",
+      "metric": "z2_accel_quality",
+      "threshold": 0.5,
+      "direction": "max",
+      "weight": 0.12
+    },
+    {
+      "id": "A6_meaning_progress",
+      "statement": "MeaningScore should not collapse under accepted updates.",
+      "metric": "meaning_score",
+      "threshold": 0.55,
+      "direction": "max",
+      "weight": 0.16
+    },
+    {
+      "id": "A7_systemic_gate",
+      "statement": "Systemic aggregate remains in trusted zone.",
+      "metric": "systemic_score",
+      "threshold": 0.75,
+      "direction": "max",
+      "weight": 0.16
+    }
+  ]
+}

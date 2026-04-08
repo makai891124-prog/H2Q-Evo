@@ -1,0 +1,91 @@
+{
+  "model_id": "HuggingFaceTB/SmolLM2-360M",
+  "ranks": [
+    32
+  ],
+  "seeds": [
+    11,
+    22,
+    33
+  ],
+  "token_table_size": 2048,
+  "steps": 1400,
+  "distill_hparams": {
+    "temperature": 1.35,
+    "temperature_end": 0.12,
+    "topk": 10,
+    "ranking_weight": 0.75,
+    "mse_weight": 0.03,
+    "ranking_margin": 0.08,
+    "hard_neg_k": 12,
+    "hard_neg_weight": 0.45,
+    "stage_split": 0.4,
+    "stage1_rank_scale": 0.25
+  },
+  "rows": [
+    {
+      "rank": 32,
+      "mean_cosine": 0.9700515071551005,
+      "ci95_cosine": [
+        0.96966720768446,
+        0.9704358066257409
+      ],
+      "mean_top5": 0.5732142857142858,
+      "ci95_top5": [
+        0.5564694689374773,
+        0.5899591024910943
+      ],
+      "mean_speedup": 1.8696568211917517,
+      "ci95_speedup": [
+        1.7782633517566286,
+        1.9610502906268747
+      ],
+      "mean_compression": 20.417047437069037,
+      "ci95_compression": [
+        20.417047437069037,
+        20.417047437069037
+      ],
+      "acceptance": {
+        "consistency": true,
+        "speedup": true,
+        "compression": true
+      }
+    }
+  ],
+  "pareto_front": [
+    {
+      "rank": 32,
+      "mean_cosine": 0.9700515071551005,
+      "ci95_cosine": [
+        0.96966720768446,
+        0.9704358066257409
+      ],
+      "mean_top5": 0.5732142857142858,
+      "ci95_top5": [
+        0.5564694689374773,
+        0.5899591024910943
+      ],
+      "mean_speedup": 1.8696568211917517,
+      "ci95_speedup": [
+        1.7782633517566286,
+        1.9610502906268747
+      ],
+      "mean_compression": 20.417047437069037,
+      "ci95_compression": [
+        20.417047437069037,
+        20.417047437069037
+      ],
+      "acceptance": {
+        "consistency": true,
+        "speedup": true,
+        "compression": true
+      }
+    }
+  ],
+  "thresholds": {
+    "cosine_min": 0.97,
+    "top5_min": 0.55,
+    "speedup_min": 1.05,
+    "compression_min": 2.0
+  }
+}

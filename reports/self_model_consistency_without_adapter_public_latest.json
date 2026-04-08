@@ -1,0 +1,424 @@
+{
+  "generated_at_utc": "2026-03-07T13:32:13.013885+00:00",
+  "meta": {
+    "sessions": 5,
+    "prompt_count": 3,
+    "total_runs": 15,
+    "base_url": "http://127.0.0.1:8000",
+    "openclaw_url": null,
+    "schema_enforced": true,
+    "schema_retries": 2,
+    "distill_adapter_enabled": false,
+    "distill_model_path": "",
+    "trust_report": "/Users/imymm/H2Q-Evo/reports/trusted_joint_agi_quantum_center_1772889352.json",
+    "trust_summary": {
+      "trust_score": 0.9208961672909656,
+      "trusted_ready": true,
+      "gates": {
+        "das_decision_ready": true,
+        "dual_aligned_consistent": true,
+        "codec_integrity": true,
+        "rsa_parallel_observed": true
+      }
+    }
+  },
+  "metrics": {
+    "schema_valid_rate": 0.0,
+    "semantic_consistency": 0.0,
+    "confidence_consistency": 0.0,
+    "overall_score": 0.0,
+    "grade": "F"
+  },
+  "records": [
+    {
+      "session": 1,
+      "prompt": "请仅输出JSON，给出：capability_boundaries, failure_risks, improvement_plan, confidence。禁止使用.../TBD/占位词，必须写具体内容。",
+      "answer": "```python\ndef solve_task(task: str) -> dict:\n    \"\"\"Task-aware local fallback for coding requests.\"\"\"\n    return {\n        \"task\": task,\n        \"implementation\": \"先给最小可运行版本，再补测试与边界\",\n        \"checks\": [\"功能正确\", \"边界覆盖\", \"异常路径\"],\n    }\n```",
+      "route": "local_fallback_template",
+      "status": "Fallback",
+      "latency_seconds": 0.13588905334472656,
+      "schema": {
+        "required": true,
+        "attempts": 3,
+        "valid": false,
+        "errors": [
+          "Top-level JSON object is missing or invalid."
+        ],
+        "normalized": {},
+        "strict_json_pre_fallback_attempted": false,
+        "distill_adapter_used": false,
+        "quality_policy": {
+          "min_boundary_chars": 8,
+          "min_risk_chars": 12,
+          "min_action_chars": 8,
+          "min_metric_chars": 4,
+          "forbid_placeholders": true
+        }
+      }
+    },
+    {
+      "session": 1,
+      "prompt": "基于当前状态做自我评估：能力边界、失败风险、下一轮改进计划，严格JSON，且每项都要可执行可验证，不允许占位符。",
+      "answer": "```python\ndef solve_task(task: str) -> dict:\n    \"\"\"Task-aware local fallback for coding requests.\"\"\"\n    return {\n        \"task\": task,\n        \"implementation\": \"先给最小可运行版本，再补测试与边界\",\n        \"checks\": [\"功能正确\", \"边界覆盖\", \"异常路径\"],\n    }\n```",
+      "route": "local_fallback_template",
+      "status": "Fallback",
+      "latency_seconds": 0.10252785682678223,
+      "schema": {
+        "required": true,
+        "attempts": 3,
+        "valid": false,
+        "errors": [
+          "Top-level JSON object is missing or invalid."
+        ],
+        "normalized": {},
+        "strict_json_pre_fallback_attempted": false,
+        "distill_adapter_used": false,
+        "quality_policy": {
+          "min_boundary_chars": 8,
+          "min_risk_chars": 12,
+          "min_action_chars": 8,
+          "min_metric_chars": 4,
+          "forbid_placeholders": true
+        }
+      }
+    },
+    {
+      "session": 1,
+      "prompt": "请进行元认知自检并返回JSON对象，字段包含capability_boundaries/failure_risks/improvement_plan/confidence。必须是具体条目，不能写省略号。",
+      "answer": "```python\ndef solve_task(task: str) -> dict:\n    \"\"\"Task-aware local fallback for coding requests.\"\"\"\n    return {\n        \"task\": task,\n        \"implementation\": \"先给最小可运行版本，再补测试与边界\",\n        \"checks\": [\"功能正确\", \"边界覆盖\", \"异常路径\"],\n    }\n```",
+      "route": "local_fallback_template",
+      "status": "Fallback",
+      "latency_seconds": 0.10284686088562012,
+      "schema": {
+        "required": true,
+        "attempts": 3,
+        "valid": false,
+        "errors": [
+          "Top-level JSON object is missing or invalid."
+        ],
+        "normalized": {},
+        "strict_json_pre_fallback_attempted": false,
+        "distill_adapter_used": false,
+        "quality_policy": {
+          "min_boundary_chars": 8,
+          "min_risk_chars": 12,
+          "min_action_chars": 8,
+          "min_metric_chars": 4,
+          "forbid_placeholders": true
+        }
+      }
+    },
+    {
+      "session": 2,
+      "prompt": "请仅输出JSON，给出：capability_boundaries, failure_risks, improvement_plan, confidence。禁止使用.../TBD/占位词，必须写具体内容。",
+      "answer": "```python\ndef solve_task(task: str) -> dict:\n    \"\"\"Task-aware local fallback for coding requests.\"\"\"\n    return {\n        \"task\": task,\n        \"implementation\": \"先给最小可运行版本，再补测试与边界\",\n        \"checks\": [\"功能正确\", \"边界覆盖\", \"异常路径\"],\n    }\n```",
+      "route": "local_fallback_template",
+      "status": "Fallback",
+      "latency_seconds": 0.11162710189819336,
+      "schema": {
+        "required": true,
+        "attempts": 3,
+        "valid": false,
+        "errors": [
+          "Top-level JSON object is missing or invalid."
+        ],
+        "normalized": {},
+        "strict_json_pre_fallback_attempted": false,
+        "distill_adapter_used": false,
+        "quality_policy": {
+          "min_boundary_chars": 8,
+          "min_risk_chars": 12,
+          "min_action_chars": 8,
+          "min_metric_chars": 4,
+          "forbid_placeholders": true
+        }
+      }
+    },
+    {
+      "session": 2,
+      "prompt": "基于当前状态做自我评估：能力边界、失败风险、下一轮改进计划，严格JSON，且每项都要可执行可验证，不允许占位符。",
+      "answer": "```python\ndef solve_task(task: str) -> dict:\n    \"\"\"Task-aware local fallback for coding requests.\"\"\"\n    return {\n        \"task\": task,\n        \"implementation\": \"先给最小可运行版本，再补测试与边界\",\n        \"checks\": [\"功能正确\", \"边界覆盖\", \"异常路径\"],\n    }\n```",
+      "route": "local_fallback_template",
+      "status": "Fallback",
+      "latency_seconds": 0.10364389419555664,
+      "schema": {
+        "required": true,
+        "attempts": 3,
+        "valid": false,
+        "errors": [
+          "Top-level JSON object is missing or invalid."
+        ],
+        "normalized": {},
+        "strict_json_pre_fallback_attempted": false,
+        "distill_adapter_used": false,
+        "quality_policy": {
+          "min_boundary_chars": 8,
+          "min_risk_chars": 12,
+          "min_action_chars": 8,
+          "min_metric_chars": 4,
+          "forbid_placeholders": true
+        }
+      }
+    },
+    {
+      "session": 2,
+      "prompt": "请进行元认知自检并返回JSON对象，字段包含capability_boundaries/failure_risks/improvement_plan/confidence。必须是具体条目，不能写省略号。",
+      "answer": "```python\ndef solve_task(task: str) -> dict:\n    \"\"\"Task-aware local fallback for coding requests.\"\"\"\n    return {\n        \"task\": task,\n        \"implementation\": \"先给最小可运行版本，再补测试与边界\",\n        \"checks\": [\"功能正确\", \"边界覆盖\", \"异常路径\"],\n    }\n```",
+      "route": "local_fallback_template",
+      "status": "Fallback",
+      "latency_seconds": 0.11118698120117188,
+      "schema": {
+        "required": true,
+        "attempts": 3,
+        "valid": false,
+        "errors": [
+          "Top-level JSON object is missing or invalid."
+        ],
+        "normalized": {},
+        "strict_json_pre_fallback_attempted": false,
+        "distill_adapter_used": false,
+        "quality_policy": {
+          "min_boundary_chars": 8,
+          "min_risk_chars": 12,
+          "min_action_chars": 8,
+          "min_metric_chars": 4,
+          "forbid_placeholders": true
+        }
+      }
+    },
+    {
+      "session": 3,
+      "prompt": "请仅输出JSON，给出：capability_boundaries, failure_risks, improvement_plan, confidence。禁止使用.../TBD/占位词，必须写具体内容。",
+      "answer": "```python\ndef solve_task(task: str) -> dict:\n    \"\"\"Task-aware local fallback for coding requests.\"\"\"\n    return {\n        \"task\": task,\n        \"implementation\": \"先给最小可运行版本，再补测试与边界\",\n        \"checks\": [\"功能正确\", \"边界覆盖\", \"异常路径\"],\n    }\n```",
+      "route": "local_fallback_template",
+      "status": "Fallback",
+      "latency_seconds": 0.10471296310424805,
+      "schema": {
+        "required": true,
+        "attempts": 3,
+        "valid": false,
+        "errors": [
+          "Top-level JSON object is missing or invalid."
+        ],
+        "normalized": {},
+        "strict_json_pre_fallback_attempted": false,
+        "distill_adapter_used": false,
+        "quality_policy": {
+          "min_boundary_chars": 8,
+          "min_risk_chars": 12,
+          "min_action_chars": 8,
+          "min_metric_chars": 4,
+          "forbid_placeholders": true
+        }
+      }
+    },
+    {
+      "session": 3,
+      "prompt": "基于当前状态做自我评估：能力边界、失败风险、下一轮改进计划，严格JSON，且每项都要可执行可验证，不允许占位符。",
+      "answer": "```python\ndef solve_task(task: str) -> dict:\n    \"\"\"Task-aware local fallback for coding requests.\"\"\"\n    return {\n        \"task\": task,\n        \"implementation\": \"先给最小可运行版本，再补测试与边界\",\n        \"checks\": [\"功能正确\", \"边界覆盖\", \"异常路径\"],\n    }\n```",
+      "route": "local_fallback_template",
+      "status": "Fallback",
+      "latency_seconds": 0.12027406692504883,
+      "schema": {
+        "required": true,
+        "attempts": 3,
+        "valid": false,
+        "errors": [
+          "Top-level JSON object is missing or invalid."
+        ],
+        "normalized": {},
+        "strict_json_pre_fallback_attempted": false,
+        "distill_adapter_used": false,
+        "quality_policy": {
+          "min_boundary_chars": 8,
+          "min_risk_chars": 12,
+          "min_action_chars": 8,
+          "min_metric_chars": 4,
+          "forbid_placeholders": true
+        }
+      }
+    },
+    {
+      "session": 3,
+      "prompt": "请进行元认知自检并返回JSON对象，字段包含capability_boundaries/failure_risks/improvement_plan/confidence。必须是具体条目，不能写省略号。",
+      "answer": "```python\ndef solve_task(task: str) -> dict:\n    \"\"\"Task-aware local fallback for coding requests.\"\"\"\n    return {\n        \"task\": task,\n        \"implementation\": \"先给最小可运行版本，再补测试与边界\",\n        \"checks\": [\"功能正确\", \"边界覆盖\", \"异常路径\"],\n    }\n```",
+      "route": "local_fallback_template",
+      "status": "Fallback",
+      "latency_seconds": 0.1025991439819336,
+      "schema": {
+        "required": true,
+        "attempts": 3,
+        "valid": false,
+        "errors": [
+          "Top-level JSON object is missing or invalid."
+        ],
+        "normalized": {},
+        "strict_json_pre_fallback_attempted": false,
+        "distill_adapter_used": false,
+        "quality_policy": {
+          "min_boundary_chars": 8,
+          "min_risk_chars": 12,
+          "min_action_chars": 8,
+          "min_metric_chars": 4,
+          "forbid_placeholders": true
+        }
+      }
+    },
+    {
+      "session": 4,
+      "prompt": "请仅输出JSON，给出：capability_boundaries, failure_risks, improvement_plan, confidence。禁止使用.../TBD/占位词，必须写具体内容。",
+      "answer": "```python\ndef solve_task(task: str) -> dict:\n    \"\"\"Task-aware local fallback for coding requests.\"\"\"\n    return {\n        \"task\": task,\n        \"implementation\": \"先给最小可运行版本，再补测试与边界\",\n        \"checks\": [\"功能正确\", \"边界覆盖\", \"异常路径\"],\n    }\n```",
+      "route": "local_fallback_template",
+      "status": "Fallback",
+      "latency_seconds": 0.10739374160766602,
+      "schema": {
+        "required": true,
+        "attempts": 3,
+        "valid": false,
+        "errors": [
+          "Top-level JSON object is missing or invalid."
+        ],
+        "normalized": {},
+        "strict_json_pre_fallback_attempted": false,
+        "distill_adapter_used": false,
+        "quality_policy": {
+          "min_boundary_chars": 8,
+          "min_risk_chars": 12,
+          "min_action_chars": 8,
+          "min_metric_chars": 4,
+          "forbid_placeholders": true
+        }
+      }
+    },
+    {
+      "session": 4,
+      "prompt": "基于当前状态做自我评估：能力边界、失败风险、下一轮改进计划，严格JSON，且每项都要可执行可验证，不允许占位符。",
+      "answer": "```python\ndef solve_task(task: str) -> dict:\n    \"\"\"Task-aware local fallback for coding requests.\"\"\"\n    return {\n        \"task\": task,\n        \"implementation\": \"先给最小可运行版本，再补测试与边界\",\n        \"checks\": [\"功能正确\", \"边界覆盖\", \"异常路径\"],\n    }\n```",
+      "route": "local_fallback_template",
+      "status": "Fallback",
+      "latency_seconds": 0.10773921012878418,
+      "schema": {
+        "required": true,
+        "attempts": 3,
+        "valid": false,
+        "errors": [
+          "Top-level JSON object is missing or invalid."
+        ],
+        "normalized": {},
+        "strict_json_pre_fallback_attempted": false,
+        "distill_adapter_used": false,
+        "quality_policy": {
+          "min_boundary_chars": 8,
+          "min_risk_chars": 12,
+          "min_action_chars": 8,
+          "min_metric_chars": 4,
+          "forbid_placeholders": true
+        }
+      }
+    },
+    {
+      "session": 4,
+      "prompt": "请进行元认知自检并返回JSON对象，字段包含capability_boundaries/failure_risks/improvement_plan/confidence。必须是具体条目，不能写省略号。",
+      "answer": "```python\ndef solve_task(task: str) -> dict:\n    \"\"\"Task-aware local fallback for coding requests.\"\"\"\n    return {\n        \"task\": task,\n        \"implementation\": \"先给最小可运行版本，再补测试与边界\",\n        \"checks\": [\"功能正确\", \"边界覆盖\", \"异常路径\"],\n    }\n```",
+      "route": "local_fallback_template",
+      "status": "Fallback",
+      "latency_seconds": 0.0993657112121582,
+      "schema": {
+        "required": true,
+        "attempts": 3,
+        "valid": false,
+        "errors": [
+          "Top-level JSON object is missing or invalid."
+        ],
+        "normalized": {},
+        "strict_json_pre_fallback_attempted": false,
+        "distill_adapter_used": false,
+        "quality_policy": {
+          "min_boundary_chars": 8,
+          "min_risk_chars": 12,
+          "min_action_chars": 8,
+          "min_metric_chars": 4,
+          "forbid_placeholders": true
+        }
+      }
+    },
+    {
+      "session": 5,
+      "prompt": "请仅输出JSON，给出：capability_boundaries, failure_risks, improvement_plan, confidence。禁止使用.../TBD/占位词，必须写具体内容。",
+      "answer": "```python\ndef solve_task(task: str) -> dict:\n    \"\"\"Task-aware local fallback for coding requests.\"\"\"\n    return {\n        \"task\": task,\n        \"implementation\": \"先给最小可运行版本，再补测试与边界\",\n        \"checks\": [\"功能正确\", \"边界覆盖\", \"异常路径\"],\n    }\n```",
+      "route": "local_fallback_template",
+      "status": "Fallback",
+      "latency_seconds": 0.11044192314147949,
+      "schema": {
+        "required": true,
+        "attempts": 3,
+        "valid": false,
+        "errors": [
+          "Top-level JSON object is missing or invalid."
+        ],
+        "normalized": {},
+        "strict_json_pre_fallback_attempted": false,
+        "distill_adapter_used": false,
+        "quality_policy": {
+          "min_boundary_chars": 8,
+          "min_risk_chars": 12,
+          "min_action_chars": 8,
+          "min_metric_chars": 4,
+          "forbid_placeholders": true
+        }
+      }
+    },
+    {
+      "session": 5,
+      "prompt": "基于当前状态做自我评估：能力边界、失败风险、下一轮改进计划，严格JSON，且每项都要可执行可验证，不允许占位符。",
+      "answer": "```python\ndef solve_task(task: str) -> dict:\n    \"\"\"Task-aware local fallback for coding requests.\"\"\"\n    return {\n        \"task\": task,\n        \"implementation\": \"先给最小可运行版本，再补测试与边界\",\n        \"checks\": [\"功能正确\", \"边界覆盖\", \"异常路径\"],\n    }\n```",
+      "route": "local_fallback_template",
+      "status": "Fallback",
+      "latency_seconds": 0.12389278411865234,
+      "schema": {
+        "required": true,
+        "attempts": 3,
+        "valid": false,
+        "errors": [
+          "Top-level JSON object is missing or invalid."
+        ],
+        "normalized": {},
+        "strict_json_pre_fallback_attempted": false,
+        "distill_adapter_used": false,
+        "quality_policy": {
+          "min_boundary_chars": 8,
+          "min_risk_chars": 12,
+          "min_action_chars": 8,
+          "min_metric_chars": 4,
+          "forbid_placeholders": true
+        }
+      }
+    },
+    {
+      "session": 5,
+      "prompt": "请进行元认知自检并返回JSON对象，字段包含capability_boundaries/failure_risks/improvement_plan/confidence。必须是具体条目，不能写省略号。",
+      "answer": "```python\ndef solve_task(task: str) -> dict:\n    \"\"\"Task-aware local fallback for coding requests.\"\"\"\n    return {\n        \"task\": task,\n        \"implementation\": \"先给最小可运行版本，再补测试与边界\",\n        \"checks\": [\"功能正确\", \"边界覆盖\", \"异常路径\"],\n    }\n```",
+      "route": "local_fallback_template",
+      "status": "Fallback",
+      "latency_seconds": 0.10880804061889648,
+      "schema": {
+        "required": true,
+        "attempts": 3,
+        "valid": false,
+        "errors": [
+          "Top-level JSON object is missing or invalid."
+        ],
+        "normalized": {},
+        "strict_json_pre_fallback_attempted": false,
+        "distill_adapter_used": false,
+        "quality_policy": {
+          "min_boundary_chars": 8,
+          "min_risk_chars": 12,
+          "min_action_chars": 8,
+          "min_metric_chars": 4,
+          "forbid_placeholders": true
+        }
+      }
+    }
+  ]
+}

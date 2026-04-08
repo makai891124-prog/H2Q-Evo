@@ -1,0 +1,232 @@
+{
+  "meta": {
+    "generated_at_utc": "2026-03-06T18:26:35.651213+00:00",
+    "framework_version": "v1",
+    "workspace_root": "/Users/imymm/H2Q-Evo"
+  },
+  "trust_refresh": {
+    "executed": true,
+    "result": {
+      "returncode": 0,
+      "stdout_tail": "Trusted joint AGI-quantized center completed\nData: reports/trusted_joint_agi_quantum_center_1772821595.json\nReport: reports/trusted_joint_agi_quantum_center_1772821595.md\n",
+      "stderr_tail": ""
+    }
+  },
+  "capabilities": [
+    {
+      "capability_id": "svc_local_infer",
+      "name": "Local Inference Service",
+      "layer": "serving",
+      "owner_module": "h2q_project/h2q_server.py",
+      "entrypoint": "/chat, /generate, /health",
+      "description": "Provide local model inference endpoints with DAS and legacy fallback paths.",
+      "acceptance_metric": "service availability + non-empty response",
+      "acceptance_target": "health endpoint active and generation returns effective text",
+      "evidence_glob": "agi_self_evolution_round_*.json",
+      "public_task": "Prompted plan generation and structured JSON generation"
+    },
+    {
+      "capability_id": "trust_joint_center",
+      "name": "Trusted Joint Orchestration",
+      "layer": "validation",
+      "owner_module": "tools/trusted_joint_agi_quantum_center.py",
+      "entrypoint": "run_center(profile, include_rsa, rsa_folds)",
+      "description": "Aggregate multi-stage trust gates over implemented modules.",
+      "acceptance_metric": "trust_score + gate vector",
+      "acceptance_target": "trusted_ready=true and trust_score>=0.75",
+      "evidence_glob": "trusted_joint_agi_quantum_center_*.json",
+      "public_task": "Reproducible integrated technical validation report"
+    },
+    {
+      "capability_id": "self_evolution_loop",
+      "name": "Self Evolution Daemon",
+      "layer": "autonomy",
+      "owner_module": "tools/agi_self_evolution_daemon.py",
+      "entrypoint": "main()",
+      "description": "Continuous rounds with dual-threshold acceptance and adaptive controls.",
+      "acceptance_metric": "overall_ratio + core_ratio",
+      "acceptance_target": "overall>=0.75 and core>=1.0 (configurable)",
+      "evidence_glob": "agi_self_evolution_round_*.json",
+      "public_task": "Continuous autonomous iteration with daily report"
+    },
+    {
+      "capability_id": "external_assist",
+      "name": "External LLM Assist (DeepSeek)",
+      "layer": "augmentation",
+      "owner_module": "tools/agi_self_evolution_daemon.py",
+      "entrypoint": "_external_assist()",
+      "description": "Optional external API assist with traffic budget and fallback logic.",
+      "acceptance_metric": "assist success_rate + token budget discipline",
+      "acceptance_target": "success_rate stable and no uncontrolled budget overflow",
+      "evidence_glob": "agi_self_evolution_daily_*.json",
+      "public_task": "External-assisted task completion under budget constraints"
+    },
+    {
+      "capability_id": "docker_consistency",
+      "name": "Local-vs-Docker Consistency Check",
+      "layer": "reliability",
+      "owner_module": "tools/agi_self_evolution_daemon.py",
+      "entrypoint": "_docker_consistency_check()",
+      "description": "Cross-runtime consistency sampling with overlap threshold.",
+      "acceptance_metric": "docker_consistency.ok + overlap",
+      "acceptance_target": "ok=true and overlap>=configured threshold",
+      "evidence_glob": "agi_self_evolution_round_*.json",
+      "public_task": "Runtime reproducibility across local and container execution"
+    },
+    {
+      "capability_id": "realtime_monitor",
+      "name": "Realtime Evolution Monitoring",
+      "layer": "observability",
+      "owner_module": "tools/agi_realtime_monitor.py",
+      "entrypoint": "main()",
+      "description": "Periodic snapshots and lookback-based aggregate metrics.",
+      "acceptance_metric": "snapshot freshness + metric completeness",
+      "acceptance_target": "latest monitor artifacts generated on schedule",
+      "evidence_glob": "agi_realtime_monitor_latest.json",
+      "public_task": "Operational telemetry for long-running autonomous loops"
+    },
+    {
+      "capability_id": "hourly_diagnosis",
+      "name": "Hourly Trend Diagnosis",
+      "layer": "observability",
+      "owner_module": "tools/agi_realtime_monitor.py",
+      "entrypoint": "_compute_hourly_diagnosis()",
+      "description": "Hourly bucket trend deltas for success and token efficiency.",
+      "acceptance_metric": "hour buckets + deltas present",
+      "acceptance_target": "continuous hourly diagnosis artifact",
+      "evidence_glob": "agi_realtime_monitor_hourly_diagnosis_latest.json",
+      "public_task": "Time-series diagnosis and anomaly interpretation"
+    },
+    {
+      "capability_id": "quantum_crossval",
+      "name": "Quantum Supremacy Cross Validation",
+      "layer": "algorithm-benchmark",
+      "owner_module": "tools/quantum_supremacy_crossval_analysis.py",
+      "entrypoint": "main()",
+      "description": "Large-scale cross-validation for quantum supremacy style claims.",
+      "acceptance_metric": "cross-validation stability and reproducibility",
+      "acceptance_target": "public benchmark result artifacts reproducible",
+      "evidence_glob": "*quantum*report*.json",
+      "public_task": "Public benchmark style reproducible analysis"
+    },
+    {
+      "capability_id": "np_hard_suite",
+      "name": "NP-Hard MAX-CUT Public Suite",
+      "layer": "algorithm-benchmark",
+      "owner_module": "tools/np_hard_maxcut_quantum_advantage.py",
+      "entrypoint": "main()",
+      "description": "Deterministic public MAX-CUT benchmark instances.",
+      "acceptance_metric": "fixed-seed instance reproducibility",
+      "acceptance_target": "same seed produces same metrics and verdict",
+      "evidence_glob": "*maxcut*.json",
+      "public_task": "公开 NP-hard 基准对照实验"
+    },
+    {
+      "capability_id": "unified_audit_chain",
+      "name": "Unified Audit Chain",
+      "layer": "governance",
+      "owner_module": "tools/unified_audit.py",
+      "entrypoint": "main()",
+      "description": "Single command chain for architecture and integration audits.",
+      "acceptance_metric": "all audits pass",
+      "acceptance_target": "return code 0",
+      "evidence_glob": "*audit*report*.json",
+      "public_task": "Release-gate audit before external demonstration"
+    }
+  ],
+  "evidence": [
+    {
+      "capability_id": "svc_local_infer",
+      "evidence_glob": "agi_self_evolution_round_*.json",
+      "evidence_path": "/Users/imymm/H2Q-Evo/reports/agi_self_evolution_round_1772821577.json",
+      "evidence_exists": true,
+      "evidence_mtime_utc": "2026-03-06T18:26:17.186257+00:00"
+    },
+    {
+      "capability_id": "trust_joint_center",
+      "evidence_glob": "trusted_joint_agi_quantum_center_*.json",
+      "evidence_path": "/Users/imymm/H2Q-Evo/reports/trusted_joint_agi_quantum_center_1772821595.json",
+      "evidence_exists": true,
+      "evidence_mtime_utc": "2026-03-06T18:26:35.534082+00:00"
+    },
+    {
+      "capability_id": "self_evolution_loop",
+      "evidence_glob": "agi_self_evolution_round_*.json",
+      "evidence_path": "/Users/imymm/H2Q-Evo/reports/agi_self_evolution_round_1772821577.json",
+      "evidence_exists": true,
+      "evidence_mtime_utc": "2026-03-06T18:26:17.186257+00:00"
+    },
+    {
+      "capability_id": "external_assist",
+      "evidence_glob": "agi_self_evolution_daily_*.json",
+      "evidence_path": "/Users/imymm/H2Q-Evo/reports/agi_self_evolution_daily_1772821577.json",
+      "evidence_exists": true,
+      "evidence_mtime_utc": "2026-03-06T18:26:17.188185+00:00"
+    },
+    {
+      "capability_id": "docker_consistency",
+      "evidence_glob": "agi_self_evolution_round_*.json",
+      "evidence_path": "/Users/imymm/H2Q-Evo/reports/agi_self_evolution_round_1772821577.json",
+      "evidence_exists": true,
+      "evidence_mtime_utc": "2026-03-06T18:26:17.186257+00:00"
+    },
+    {
+      "capability_id": "realtime_monitor",
+      "evidence_glob": "agi_realtime_monitor_latest.json",
+      "evidence_path": "/Users/imymm/H2Q-Evo/reports/agi_realtime_monitor_latest.json",
+      "evidence_exists": true,
+      "evidence_mtime_utc": "2026-03-06T18:17:59.273088+00:00"
+    },
+    {
+      "capability_id": "hourly_diagnosis",
+      "evidence_glob": "agi_realtime_monitor_hourly_diagnosis_latest.json",
+      "evidence_path": "/Users/imymm/H2Q-Evo/reports/agi_realtime_monitor_hourly_diagnosis_latest.json",
+      "evidence_exists": true,
+      "evidence_mtime_utc": "2026-03-06T18:17:59.273390+00:00"
+    },
+    {
+      "capability_id": "quantum_crossval",
+      "evidence_glob": "*quantum*report*.json",
+      "evidence_path": "",
+      "evidence_exists": false,
+      "evidence_mtime_utc": ""
+    },
+    {
+      "capability_id": "np_hard_suite",
+      "evidence_glob": "*maxcut*.json",
+      "evidence_path": "/Users/imymm/H2Q-Evo/reports/np_hard_maxcut_quantum_advantage_1772732127.json",
+      "evidence_exists": true,
+      "evidence_mtime_utc": "2026-03-05T18:56:21.035468+00:00"
+    },
+    {
+      "capability_id": "unified_audit_chain",
+      "evidence_glob": "*audit*report*.json",
+      "evidence_path": "",
+      "evidence_exists": false,
+      "evidence_mtime_utc": ""
+    }
+  ],
+  "robustness": {
+    "availability": 1.0,
+    "consistency": 1.0,
+    "observability": 1.0,
+    "control": 0.8333333333333333,
+    "budget_penalty": 0.0,
+    "overall_score": 0.9666666666666667,
+    "grade": "A",
+    "signals": {
+      "acceptance_ok": true,
+      "docker_ok": true,
+      "trust_ok": true,
+      "monitor_ok": true,
+      "hourly_ok": true,
+      "assist_rate": 0.6666666666666666,
+      "assist_tokens": 7068,
+      "monitor_success_rate": 1.0
+    }
+  },
+  "recommendations": [
+    "Improve external assist reliability: enforce retry with bounded backoff and classify provider-side failures explicitly.",
+    "Create a CI profile that runs: trust center quick + one daemon round + docker consistency + monitor snapshot generation."
+  ]
+}
