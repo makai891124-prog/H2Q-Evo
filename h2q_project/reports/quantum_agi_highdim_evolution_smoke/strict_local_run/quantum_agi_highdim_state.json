@@ -1,0 +1,23 @@
+{
+  "started_at": "2026-04-06T23:53:23.661009",
+  "saved_at": "2026-04-06T23:53:44.670426",
+  "elapsed_hours": 0.0058359503083758885,
+  "cycle_count": 3,
+  "latest_capability_score": 0.9446428571428571,
+  "latest_base_score": 0.6615616206302425,
+  "latest_enhanced_score": 0.7045265894552869,
+  "capability_checked_cycles": 2,
+  "capability_check_failures": 0,
+  "forced_prompt_count": 3,
+  "force_capability_check_next_cycle": false,
+  "knowledge_count": 3,
+  "acquired_count": 3,
+  "failed_count": 0,
+  "resource_profile_requested": "low",
+  "resource_profile_applied": "low",
+  "parallel_worker_limit": 2,
+  "resume_enabled": false,
+  "resumed": false,
+  "resumed_from_cycle": 0,
+  "resumed_at": null
+}

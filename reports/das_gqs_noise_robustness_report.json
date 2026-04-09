@@ -1,0 +1,126 @@
+{
+  "backend_consistency": {
+    "available_backends": [
+      "numpy",
+      "clifford"
+    ],
+    "ran_consistency": true,
+    "samples": 32,
+    "max_l2": 2.7194799110210365e-16,
+    "mean_l2": 1.1772224479380072e-16
+  },
+  "batch_chsh": {
+    "E_ab": {
+      "mean": -0.7068,
+      "ci_low": -0.7148052699658063,
+      "ci_high": -0.6987947300341937,
+      "std_err": 0.004084321411125678,
+      "n": 30000
+    },
+    "E_ab_prime": {
+      "mean": 0.7064,
+      "ci_low": 0.6983902100135738,
+      "ci_high": 0.7144097899864262,
+      "std_err": 0.004086627544095025,
+      "n": 30000
+    },
+    "E_a_prime_b": {
+      "mean": -0.7094,
+      "ci_low": -0.7173757647763872,
+      "ci_high": -0.7014242352236129,
+      "std_err": 0.0040692677430547,
+      "n": 30000
+    },
+    "E_a_prime_b_prime": {
+      "mean": -0.7059333333333333,
+      "ci_low": -0.713948390224536,
+      "ci_high": -0.6979182764421306,
+      "std_err": 0.004089314740409591,
+      "n": 30000
+    },
+    "S": {
+      "mean": -2.8285333333333336,
+      "ci_low": -2.844536303169885,
+      "ci_high": -2.812530363496782,
+      "std_err": 0.008164780528852717,
+      "n": 30000
+    },
+    "abs_S": 2.8285333333333336,
+    "hardware_profile": {
+      "torch_version": "2.9.1",
+      "cpu_count": 10,
+      "torch_threads": 4,
+      "has_cuda": false,
+      "has_mps": true,
+      "cuda_device_name": null
+    },
+    "compute_plan": {
+      "selected_torch_threads": 2,
+      "cache_hit": false,
+      "cache_key": "{\"cpu_count\": 10, \"has_cuda\": false, \"has_mps\": true, \"ns\": \"batch_sampling\", \"params\": {\"autotune_threads\": true, \"matmul_size\": 896, \"n_pairs\": 30000, \"probe\": \"matmul\", \"thread_candidates\": [1, 2]}, \"torch\": \"2.9.1\"}",
+      "autotune_timings_ms": {
+        "t1": 0.751533400034532,
+        "t2": 0.7505166000555619
+      }
+    }
+  },
+  "noise_robustness": [
+    {
+      "scenario": "ideal",
+      "axis_jitter_deg": 0.0,
+      "outcome_flip_prob": 0.0,
+      "S_mean": -2.828,
+      "S_ci_low": -2.844005975433145,
+      "S_ci_high": -2.8119940245668547,
+      "abs_S": 2.828,
+      "violates_classical_limit_with_95ci": true
+    },
+    {
+      "scenario": "mild",
+      "axis_jitter_deg": 1.0,
+      "outcome_flip_prob": 0.02,
+      "S_mean": -2.5976666666666666,
+      "S_ci_low": -2.614874135958395,
+      "S_ci_high": -2.580459197374938,
+      "abs_S": 2.5976666666666666,
+      "violates_classical_limit_with_95ci": true
+    },
+    {
+      "scenario": "moderate",
+      "axis_jitter_deg": 3.0,
+      "outcome_flip_prob": 0.05,
+      "S_mean": -2.179866666666667,
+      "S_ci_low": -2.1988354986799212,
+      "S_ci_high": -2.1608978346534125,
+      "abs_S": 2.179866666666667,
+      "violates_classical_limit_with_95ci": true
+    },
+    {
+      "scenario": "strong",
+      "axis_jitter_deg": 5.0,
+      "outcome_flip_prob": 0.1,
+      "S_mean": -1.7586666666666668,
+      "S_ci_low": -1.7789927721002528,
+      "S_ci_high": -1.738340561233081,
+      "abs_S": 1.7586666666666668,
+      "violates_classical_limit_with_95ci": false
+    }
+  ],
+  "hardware_profile": {
+    "torch_version": "2.9.1",
+    "cpu_count": 10,
+    "torch_threads": 4,
+    "has_cuda": false,
+    "has_mps": true,
+    "cuda_device_name": null
+  },
+  "compute_plan": {
+    "selected_torch_threads": 2,
+    "cache_hit": false,
+    "cache_key": "{\"cpu_count\": 10, \"has_cuda\": false, \"has_mps\": true, \"ns\": \"batch_sampling\", \"params\": {\"autotune_threads\": true, \"matmul_size\": 896, \"n_pairs\": 30000, \"probe\": \"matmul\", \"thread_candidates\": [1, 2]}, \"torch\": \"2.9.1\"}",
+    "autotune_timings_ms": {
+      "t1": 0.751533400034532,
+      "t2": 0.7505166000555619
+    }
+  }
+}

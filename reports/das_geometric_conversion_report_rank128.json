@@ -1,0 +1,94 @@
+{
+  "config": {
+    "in_features": 1024,
+    "out_features": 1024,
+    "rank": 128,
+    "rotor_steps": 32,
+    "baseline_profile": "spectral_decay",
+    "target_structure": "riemann_sphere_interaction",
+    "structure_lambda": 0.2,
+    "interaction_lambda": 0.08
+  },
+  "baseline": {
+    "params": 1049600,
+    "param_bytes": 4198400,
+    "param_mebibytes": 4.00390625
+  },
+  "das": {
+    "params": 263328,
+    "param_bytes": 1053312,
+    "param_mebibytes": 1.0045166015625
+  },
+  "compression": {
+    "compression_ratio": 3.9859035119698625,
+    "param_reduction_percent": 74.91158536585367,
+    "baseline_param_complexity": "O(1024*1024)",
+    "das_param_complexity": "O(rank*(1024+1024) + rotor_steps)"
+  },
+  "quality": {
+    "rank": 128,
+    "mse": 0.0009871844667941332,
+    "mae": 0.024996085092425346,
+    "max_abs": 0.17217232286930084,
+    "rel_fro_error": 0.17628097923851
+  },
+  "riemann_sphere_alignment": {
+    "mean_geodesic_rad": 0.06318341940641403,
+    "p95_geodesic_rad": 0.0835423618555069,
+    "interaction_rel_fro_error": 0.004991035472846039
+  },
+  "hardware_profile": {
+    "torch_version": "2.9.1",
+    "cpu_count": 10,
+    "torch_threads": 4,
+    "has_cuda": false,
+    "has_mps": true,
+    "cuda_device_name": null
+  },
+  "compute_plan": {
+    "device_request": "auto",
+    "resolved_device": "cpu",
+    "rotor_kernel": "staged",
+    "compiled": false,
+    "matmul_precision": "medium",
+    "selected_torch_threads": 1,
+    "autotune_timings_ms": {
+      "scalar": 0.49705835003805987,
+      "staged": 0.1338332999694103,
+      "plan::cpu:t1:scalar": 0.417647233310466,
+      "plan::cpu:t1:staged": 0.1282861000011811,
+      "plan::cpu:t2:scalar": 0.42770000000018626,
+      "plan::cpu:t2:staged": 0.13416803330983385,
+      "plan::cpu:t4:scalar": 0.4316041666849439,
+      "plan::cpu:t4:staged": 0.14345136666330896,
+      "plan::cpu:t6:scalar": 0.43791666663916357,
+      "plan::cpu:t6:staged": 0.15114860001024985,
+      "plan::cpu:t8:scalar": 0.44771109999904485,
+      "plan::cpu:t8:staged": 0.1534916666666201,
+      "plan::cpu:t10:scalar": 0.4534139000194652,
+      "plan::cpu:t10:staged": 0.14729166665953622,
+      "plan::mps:t1:scalar": 13.148688899976454,
+      "plan::mps:t1:staged": 1.5783958333486225
+    }
+  },
+  "performance": {
+    "device": "cpu",
+    "batch_size": 128,
+    "repeat": 120,
+    "baseline_mean_ms": 0.2694329916645681,
+    "das_mean_ms": 0.1422437500044301,
+    "speedup_x": 1.894164008303892,
+    "baseline_peak_mem_bytes": null,
+    "das_peak_mem_bytes": null
+  },
+  "memory_wall_interpretation": {
+    "why_lazy_path_helps": "DAS forward executes latent path contractions and rotor channel rotations without materializing a dense N x N matrix at inference time.",
+    "bandwidth_effect": "Weight fetch changes from contiguous dense matrix loads to rank-path coefficient loads, reducing model-weight traffic from O(N^2) to O(rank*N).",
+    "kv_cache_note": "For transformer adaptation, the same path-lazy principle can be applied to projection layers to reduce projection parameter footprint and memory bandwidth pressure."
+  },
+  "friction_analysis": {
+    "current_gpu_mismatch": "Modern CUDA kernels are deeply optimized for dense GEMM/TensorCore schedules. Rotor/path operations are memory-light but involve smaller contractions and channel-wise updates, which can under-utilize matrix-specialized hardware.",
+    "future_chip_outlook": "A dedicated 3D reversible compute fabric should co-design: (1) native rotor-pair SIMD primitives, (2) on-chip path-core SRAM routing, (3) fused contraction+rotation pipelines with reversible state checkpoints.",
+    "riemann_structure_note": "Hilbert-space Euclidean activations are structurally unconstrained in open dimensions. This experiment additionally projects outputs onto a compact Riemann sphere and measures geodesic + interaction-gram consistency, making curved topology the target benchmark."
+  }
+}

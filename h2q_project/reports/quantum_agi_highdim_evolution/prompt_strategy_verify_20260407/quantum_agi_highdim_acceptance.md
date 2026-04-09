@@ -1,0 +1,22 @@
+# High-Dimensional Quantum AGI Acceptance
+
+- timestamp: 2026-04-07T00:13:02.471736
+- passed: True
+
+## Criteria
+
+- minimum_cycles: value=13 threshold=12 passed=True
+- enhanced_composite_mean: value=0.7052798161296836 threshold=0.58 passed=True
+- capability_measurements: value=6 threshold=2 passed=True
+- capability_score_mean: value=97.29166666666667 threshold=60.0 passed=True
+- entanglement_ratio_mean: value=0.7780219780219778 threshold=0.12 passed=True
+- highdim_consensus_mean: value=0.8237713859877525 threshold=0.55 passed=True
+- composite_uplift: value=-0.016850452700806984 threshold=-0.05 passed=True
+- forced_acceptance_prompts: value=9 threshold=2 passed=True
+- non_smoke_run: value=1 threshold=1 passed=True
+
+## Trend
+
+- initial_window_mean: 0.714825
+- final_window_mean: 0.697974
+- uplift: -0.016850

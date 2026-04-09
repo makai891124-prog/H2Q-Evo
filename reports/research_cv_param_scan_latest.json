@@ -1,0 +1,126 @@
+{
+  "generated_at_utc": "2026-03-09T18:55:45Z",
+  "total_candidates": 32,
+  "best": {
+    "score": 0.9797384007064879,
+    "loo_min": 0.9710548581521257,
+    "loo_std": 0.008405764561209086,
+    "robust": true,
+    "cfg": {
+      "weights": {
+        "distill_gain": 0.3,
+        "consistency_quality": 0.2,
+        "robustness_30_vs_50": 0.1,
+        "public_validation": 0.25,
+        "formal_closure": 0.15
+      },
+      "thresholds": {
+        "aggregate": 0.85,
+        "loo_min": 0.8,
+        "loo_std": 0.07
+      }
+    }
+  },
+  "top5": [
+    {
+      "score": 0.9797384007064879,
+      "loo_min": 0.9710548581521257,
+      "loo_std": 0.008405764561209086,
+      "robust": true,
+      "cfg": {
+        "weights": {
+          "distill_gain": 0.3,
+          "consistency_quality": 0.2,
+          "robustness_30_vs_50": 0.1,
+          "public_validation": 0.25,
+          "formal_closure": 0.15
+        },
+        "thresholds": {
+          "aggregate": 0.85,
+          "loo_min": 0.8,
+          "loo_std": 0.07
+        }
+      }
+    },
+    {
+      "score": 0.9797384007064879,
+      "loo_min": 0.9710548581521257,
+      "loo_std": 0.008405764561209086,
+      "robust": true,
+      "cfg": {
+        "weights": {
+          "distill_gain": 0.3,
+          "consistency_quality": 0.2,
+          "robustness_30_vs_50": 0.1,
+          "public_validation": 0.25,
+          "formal_closure": 0.15
+        },
+        "thresholds": {
+          "aggregate": 0.85,
+          "loo_min": 0.8,
+          "loo_std": 0.06
+        }
+      }
+    },
+    {
+      "score": 0.9797384007064879,
+      "loo_min": 0.9710548581521257,
+      "loo_std": 0.008405764561209086,
+      "robust": true,
+      "cfg": {
+        "weights": {
+          "distill_gain": 0.3,
+          "consistency_quality": 0.2,
+          "robustness_30_vs_50": 0.1,
+          "public_validation": 0.25,
+          "formal_closure": 0.15
+        },
+        "thresholds": {
+          "aggregate": 0.85,
+          "loo_min": 0.82,
+          "loo_std": 0.07
+        }
+      }
+    },
+    {
+      "score": 0.9797384007064879,
+      "loo_min": 0.9710548581521257,
+      "loo_std": 0.008405764561209086,
+      "robust": true,
+      "cfg": {
+        "weights": {
+          "distill_gain": 0.3,
+          "consistency_quality": 0.2,
+          "robustness_30_vs_50": 0.1,
+          "public_validation": 0.25,
+          "formal_closure": 0.15
+        },
+        "thresholds": {
+          "aggregate": 0.85,
+          "loo_min": 0.82,
+          "loo_std": 0.06
+        }
+      }
+    },
+    {
+      "score": 0.9797384007064879,
+      "loo_min": 0.9710548581521257,
+      "loo_std": 0.008405764561209086,
+      "robust": true,
+      "cfg": {
+        "weights": {
+          "distill_gain": 0.3,
+          "consistency_quality": 0.2,
+          "robustness_30_vs_50": 0.1,
+          "public_validation": 0.25,
+          "formal_closure": 0.15
+        },
+        "thresholds": {
+          "aggregate": 0.88,
+          "loo_min": 0.8,
+          "loo_std": 0.07
+        }
+      }
+    }
+  ]
+}

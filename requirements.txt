@@ -1,4 +1,7 @@
-torch
+torch>=1.9
+numpy>=1.19
+scipy>=1.7
+click>=8.0
 fastapi
 uvicorn
 pydantic
@@ -6,6 +9,9 @@ matplotlib
 python-dotenv
 docker
 requests
+copilot/fix-cli-auto-run-errors
 numpy
 click
 scipy
+clifford
+copilot/vscode-mmdt291x-9e7t

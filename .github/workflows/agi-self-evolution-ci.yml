@@ -69,15 +69,6 @@ jobs:
         run: |
           docker build -t h2q-sandbox .
 
-      - name: Validate DeepSeek key for assist gate
-        env:
-          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
-        run: |
-          if [ -z "${DEEPSEEK_API_KEY}" ]; then
-            echo "DEEPSEEK_API_KEY is required for release gate assist validation."
-            exit 1
-          fi
-
       - name: Run interactive reasoning benchmark (nightly hard gate)
         if: github.event_name == 'schedule'
         run: |
@@ -91,22 +82,27 @@ jobs:
         run: |
           EXTRA=""
           MIN_BREADTH="0.30"
+          ASSIST_ARGS=""
           if [ "${{ github.event_name }}" = "pull_request" ]; then
             EXTRA="--allow-missing-docker"
           fi
           if [ "${{ github.event_name }}" = "schedule" ]; then
             MIN_BREADTH="0.70"
           fi
+          if [ -n "${DEEPSEEK_API_KEY}" ]; then
+            mkdir -p secrets
+            printf '%s' "${DEEPSEEK_API_KEY}" > secrets/deepseek_api_key.txt
+            ASSIST_ARGS="--assist-provider deepseek --assist-key-file secrets/deepseek_api_key.txt --assist-min-calls 1 --assist-min-success-rate 0.10"
+          else
+            echo "DEEPSEEK_API_KEY not set; running release gate without assist provider."
+          fi
           python tools/release_gate.py \
             --profile quick \
             --lookback-rounds 48 \
-            --assist-provider deepseek \
-            --assist-key-file secrets/deepseek_api_key.txt \
-            --assist-min-calls 1 \
-            --assist-min-success-rate 0.10 \
             --min-breadth ${MIN_BREADTH} \
             --min-horizon 0.80 \
             --min-robustness 0.60 \
+            ${ASSIST_ARGS} \
             ${EXTRA}
 
       - name: Run math ablation report (nightly)

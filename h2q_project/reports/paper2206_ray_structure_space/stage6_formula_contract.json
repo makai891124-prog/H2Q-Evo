@@ -1,0 +1,26 @@
+{
+  "stage": "6_formula_contract",
+  "driver": "paper2206_ray_structure_space",
+  "input": {
+    "paper_formula_text": "arXiv:2206.01371 Ray structures on Teichmuller Space; encode F_r(X)=E(X,Y)-rE(X,Z) minimization, harmonic map ray degeneration limits, and exponential-map boundary rays into a multidimensional argument-space system."
+  },
+  "derived": {
+    "eta": 1.8392867552141612,
+    "determinant": 1.0,
+    "foliation_depth": 12.0,
+    "trace_depth": 1499.0,
+    "half_order_delta": 1012.6095104217529,
+    "ring_size": 13.0
+  },
+  "validation": {
+    "determinant_is_unitary": true,
+    "foliation_depth_in_range": true,
+    "trace_depth_positive": true,
+    "contract_ready": true
+  },
+  "render_plan": {
+    "frames": 48,
+    "fps": 16,
+    "grid_resolution": 128
+  }
+}

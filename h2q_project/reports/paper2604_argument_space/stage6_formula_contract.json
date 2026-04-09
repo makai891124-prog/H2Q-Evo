@@ -1,0 +1,26 @@
+{
+  "stage": "6_formula_contract",
+  "driver": "paper2604_argument_space",
+  "input": {
+    "paper_formula_text": "arXiv:2604.01249v1 On Series Involving Cubed Catalan Numbers; encode Theorem 10 Eq104 for 1/pi family, Theorem 12 Eq114 for 1/pi^2 family, and Eq25 for 1/pi^3 special case into a multi-dimensional argument manifold."
+  },
+  "derived": {
+    "eta": 1.8392867552141612,
+    "determinant": 1.0,
+    "foliation_depth": 12.0,
+    "trace_depth": 1499.0,
+    "half_order_delta": 1012.6095104217529,
+    "ring_size": 13.0
+  },
+  "validation": {
+    "determinant_is_unitary": true,
+    "foliation_depth_in_range": true,
+    "trace_depth_positive": true,
+    "contract_ready": true
+  },
+  "render_plan": {
+    "frames": 32,
+    "fps": 20,
+    "grid_resolution": 120
+  }
+}

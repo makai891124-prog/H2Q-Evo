@@ -1,0 +1,10 @@
+{
+  "timestamp": "2026-04-06T23:06:40.545222",
+  "state": "running",
+  "cpu_percent": 0.0,
+  "memory_mb": 184.890625,
+  "tasks_completed": 1,
+  "errors_count": 0,
+  "capability_score": 0.0,
+  "message": "运行时间: 00:00:05"
+}

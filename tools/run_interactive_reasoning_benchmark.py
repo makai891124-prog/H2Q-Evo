@@ -217,6 +217,7 @@ def _solve_task_with_model(
     model_timeout_seconds: float,
     model_use_chat_api: bool,
     max_steps_multiplier: int,
+    json_guard: bool,
 ) -> Dict[str, Any]:
     width = int(task["width"])
     height = int(task["height"])
@@ -242,6 +243,7 @@ def _solve_task_with_model(
     reached: List[List[int]] = []
     target_idx = 0
     parse_errors = 0
+    guard_fallback_count = 0
 
     for step_index in range(max_total_steps):
         if target_idx >= len(ordered_targets):
@@ -252,8 +254,9 @@ def _solve_task_with_model(
                 "steps": step_index,
                 "reached": reached,
                 "goal": list(goal),
-                "policy": "model",
+                "policy": "model-json-guard" if json_guard else "model",
                 "parse_errors": parse_errors,
+                "guard_fallback_count": guard_fallback_count,
             }
 
         next_target = ordered_targets[target_idx]
@@ -272,6 +275,17 @@ def _solve_task_with_model(
         )
         if move_reason != "ok":
             parse_errors += 1
+            if json_guard:
+                seg = _bfs(
+                    width=width,
+                    height=height,
+                    start=current,
+                    goal=next_target,
+                    obstacles=obstacles,
+                )
+                if seg and len(seg) >= 2:
+                    nx, ny = seg[1]
+                    guard_fallback_count += 1
 
         current = (nx, ny)
         if current == next_target:
@@ -285,8 +299,9 @@ def _solve_task_with_model(
         "steps": max_total_steps,
         "reached": reached,
         "goal": list(goal),
-        "policy": "model",
+        "policy": "model-json-guard" if json_guard else "model",
         "parse_errors": parse_errors,
+        "guard_fallback_count": guard_fallback_count,
     }
 
 
@@ -297,7 +312,7 @@ def main() -> None:
         default="benchmarks/interactive_reasoning/tasks_v1.json",
         help="Path to task JSON file",
     )
-    parser.add_argument("--solver", choices=["bfs", "model"], default="bfs")
+    parser.add_argument("--solver", choices=["bfs", "model", "model-json-guard"], default="bfs")
     parser.add_argument("--model-endpoint", default="http://127.0.0.1:8000/generate")
     parser.add_argument("--model-timeout-seconds", type=float, default=15.0)
     parser.add_argument("--model-use-chat-api", action="store_true")
@@ -316,7 +331,7 @@ def main() -> None:
 
     REPORTS.mkdir(parents=True, exist_ok=True)
 
-    if args.solver == "model":
+    if args.solver in {"model", "model-json-guard"}:
         results = [
             _solve_task_with_model(
                 t,
@@ -324,6 +339,7 @@ def main() -> None:
                 model_timeout_seconds=max(1.0, args.model_timeout_seconds),
                 model_use_chat_api=bool(args.model_use_chat_api),
                 max_steps_multiplier=max(1, args.max_steps_multiplier),
+                json_guard=(args.solver == "model-json-guard"),
             )
             for t in tasks
         ]

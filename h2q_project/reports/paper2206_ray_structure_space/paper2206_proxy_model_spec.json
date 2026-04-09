@@ -1,0 +1,71 @@
+{
+  "proxy_name": "teichmuller_ray_structure_reduced_proxy",
+  "paper": {
+    "title": "Ray structures on Teichmuller Space",
+    "url": "https://arxiv.org/pdf/2206.01371"
+  },
+  "reproducibility": {
+    "seed": 220601371,
+    "deterministic_components": [
+      "matrix-defined energies",
+      "closed-form minimizers",
+      "fixed sampled grid"
+    ]
+  },
+  "state_space": {
+    "dimension": 2,
+    "state": "x=(u,v)",
+    "base_points": {
+      "Y": [
+        0.0,
+        0.0
+      ],
+      "Z": [
+        2.6,
+        1.4
+      ]
+    }
+  },
+  "energy_model": {
+    "E_Y": "0.5*(x-Y)^T A_Y (x-Y)",
+    "E_Z": "0.5*(x-Z)^T A_Z (x-Z)",
+    "F_r": "E_Y - r*E_Z",
+    "A_Y": [
+      [
+        3.2,
+        0.5
+      ],
+      [
+        0.5,
+        2.8
+      ]
+    ],
+    "A_Z": [
+      [
+        1.15,
+        0.25
+      ],
+      [
+        0.25,
+        0.95
+      ]
+    ],
+    "r_critical_estimate": 2.6822015375523764,
+    "r_operating_upper": 0.95
+  },
+  "selection_rule": {
+    "minimizer": "X_r = argmin_x F_r(x)",
+    "uniqueness_condition": "lambda_min(A_Y-rA_Z)>0"
+  },
+  "ray_surrogate": {
+    "reference_geodesic": "g_ref(s)=Y+s(Z-Y)",
+    "curve": "gamma_r(s)=g_ref(s)+b_r(s)*n_r",
+    "bend": "b_r(s)=a(r)[sin(pi s+phi)e^{-d(r)s}+0.35 sin(2pi s+0.3phi)e^{-(d(r)+0.5)s}]",
+    "error_metric": "||gamma_r(s)-g_ref(s)||_2"
+  },
+  "boundary_proxy": {
+    "idea": "exponential-map visual boundary surrogate from Fourier radial map",
+    "coverage_bins": 36,
+    "coverage_ratio": 1.0
+  }
+}

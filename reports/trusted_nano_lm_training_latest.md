@@ -1,0 +1,17 @@
+# Trusted Nano LM Training
+
+- generated_at_utc: `2026-03-08T17:54:16.873658+00:00`
+- model_name: `sshleifer/tiny-gpt2`
+- dataset: `/Users/imymm/H2Q-Evo/reports/self_eval_distill_dataset_latest.json`
+- token_count: `2308`
+- chunk_count: `35`
+- steps: `18`
+- loss_initial: `10.825433731079102`
+- loss_final: `10.82606315612793`
+- weights_latest_dir: `/Users/imymm/H2Q-Evo/reports/trusted_nano_lm_weights_latest`
+
+## Outward Samples
+- prompt: `请给出一个结构化JSON格式的自我评估摘要：`
+- output: `请给出一个结构化JSON格式的自我评估摘要： factors factors factors factors factors factors factors factors factors factors factors factors factors factors factors factors factors factors factors factors factors factors factors factors factors factors factors factors factors factors factors factors factors factors factors factors factors factors factors factors factors factors factors factors factors factors factors factors factors factors factors factors factors factors factors factors factors factors factors factors factors factors factors factors factors factors factors factors factors factors factors factors factors factors factors factors factors factors factors factors`
+- prompt: `Describe one concrete next-step experiment to improve robustness:`
+- output: `Describe one concrete next-step experiment to improve robustness: stairs stairs stairs stairs stairs stairs stairs stairs stairs stairs stairs stairs stairs stairs stairs stairs stairs stairs stairs stairs stairs stairs stairs stairs stairs stairs stairs stairs stairs stairs stairs stairs stairs stairs stairs stairs stairs stairs stairs stairs stairs stairs stairs stairs stairs stairs stairs stairs stairs stairs stairs stairs stairs stairs stairs stairs stairs stairs stairs stairs stairs stairs stairs stairs stairs stairs stairs stairs stairs stairs stairs stairs stairs stairs stairs stairs stairs stairs stairs stairs`

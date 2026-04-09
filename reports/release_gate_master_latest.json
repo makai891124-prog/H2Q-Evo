@@ -1,0 +1,130 @@
+{
+  "meta": {
+    "created_at_utc": "2026-04-05T14:33:23.420705+00:00",
+    "lookback_rounds": 48,
+    "docker_image": "h2q-sandbox",
+    "allow_missing_docker": false,
+    "assist_provider": "none",
+    "assist_model": "deepseek-chat",
+    "assist_key_file": "secrets/deepseek_api_key.txt",
+    "min_breadth": 0.6,
+    "min_horizon": 0.8,
+    "min_robustness": 0.6
+  },
+  "steps": {
+    "trusted_center": {
+      "cmd": [
+        "/Users/imymm/.pyenv/versions/3.12.2/bin/python3.12",
+        "tools/trusted_joint_agi_quantum_center.py",
+        "--profile",
+        "quick",
+        "--skip-rsa"
+      ],
+      "returncode": 0,
+      "stdout_tail": "Trusted joint AGI-quantized center completed\nData: reports/trusted_joint_agi_quantum_center_1775399597.json\nReport: reports/trusted_joint_agi_quantum_center_1775399597.md\n",
+      "stderr_tail": ""
+    },
+    "daemon_round": {
+      "cmd": [
+        "/Users/imymm/.pyenv/versions/3.12.2/bin/python3.12",
+        "tools/agi_self_evolution_daemon.py",
+        "--rounds",
+        "1",
+        "--interval-minutes",
+        "0.01",
+        "--profile",
+        "quick",
+        "--goal-mode",
+        "basic",
+        "--basic-lock-rounds",
+        "48",
+        "--external-goal-limit",
+        "2",
+        "--assist-provider",
+        "none",
+        "--enable-docker-consistency-check",
+        "--docker-check-interval-rounds",
+        "1",
+        "--docker-image",
+        "h2q-sandbox",
+        "--docker-min-overlap",
+        "0.05",
+        "--min-overall-success-ratio",
+        "0.75",
+        "--min-core-success-ratio",
+        "1.0",
+        "--fail-on-empty"
+      ],
+      "returncode": 0,
+      "stdout_tail": "Round 1 report: /Users/imymm/H2Q-Evo/reports/agi_self_evolution_round_1775399602.json\nDaily report JSON: /Users/imymm/H2Q-Evo/reports/agi_self_evolution_daily_1775399602.json\nDaily report MD: /Users/imymm/H2Q-Evo/reports/AGI自我进化日报_1775399602.md\n",
+      "stderr_tail": ""
+    },
+    "monitor_snapshot": {
+      "cmd": [
+        "/Users/imymm/.pyenv/versions/3.12.2/bin/python3.12",
+        "tools/agi_realtime_monitor.py",
+        "--interval-seconds",
+        "5",
+        "--cycles",
+        "1",
+        "--lookback-rounds",
+        "48"
+      ],
+      "returncode": 0,
+      "stdout_tail": "[monitor] cycle=1 success_rate=100.00% assist_hit_rate=100.00% tokens=82229 alerts=37\n",
+      "stderr_tail": ""
+    },
+    "unified_framework": {
+      "cmd": [
+        "/Users/imymm/.pyenv/versions/3.12.2/bin/python3.12",
+        "tools/unified_system_framework.py"
+      ],
+      "returncode": 0,
+      "stdout_tail": "Unified framework generated\nJSON: /Users/imymm/H2Q-Evo/reports/unified_system_framework_1775399603.json\nMD:   /Users/imymm/H2Q-Evo/reports/unified_system_framework_1775399603.md\nLatest JSON: /Users/imymm/H2Q-Evo/reports/unified_system_framework_latest.json\nLatest MD:   /Users/imymm/H2Q-Evo/reports/unified_system_framework_latest.md\n",
+      "stderr_tail": ""
+    },
+    "capability_registry": {
+      "cmd": [
+        "/Users/imymm/.pyenv/versions/3.12.2/bin/python3.12",
+        "tools/capability_registry.py"
+      ],
+      "returncode": 0,
+      "stdout_tail": "Capability registry generated\nJSON: /Users/imymm/H2Q-Evo/reports/capability_registry_1775399603.json\nLatest: /Users/imymm/H2Q-Evo/reports/capability_registry_latest.json\n",
+      "stderr_tail": ""
+    }
+  },
+  "evidence": {
+    "trusted_center": "/Users/imymm/H2Q-Evo/reports/trusted_joint_agi_quantum_center_1775399597.json",
+    "round": "/Users/imymm/H2Q-Evo/reports/agi_self_evolution_round_1775399602.json",
+    "monitor": "/Users/imymm/H2Q-Evo/reports/agi_realtime_monitor_latest.json",
+    "framework": "/Users/imymm/H2Q-Evo/reports/unified_system_framework_latest.json",
+    "capability_registry": "/Users/imymm/H2Q-Evo/reports/capability_registry_latest.json",
+    "interactive_benchmark": "/Users/imymm/H2Q-Evo/reports/interactive_reasoning_benchmark_latest.json"
+  },
+  "signals": {
+    "trust_ok": true,
+    "acceptance_ok": true,
+    "docker_ok": false,
+    "docker_reason": "docker-run-failed",
+    "monitor_ok": true,
+    "framework_score": 0.7499999999999999,
+    "assist_enabled": false,
+    "assist_calls": 0,
+    "assist_success_calls": 0,
+    "assist_success_rate": 0.0,
+    "assist_min_calls": 1,
+    "assist_min_success_rate": 0.2,
+    "assist_gate_ok": true,
+    "breadth": 0.8999999999999999,
+    "horizon": 1.0,
+    "robustness": 0.88,
+    "breadth_ok": true,
+    "horizon_ok": true,
+    "robustness_ok": true,
+    "interactive_success_rate": 1.0,
+    "interactive_task_count": 24,
+    "interactive_passed": true,
+    "interactive_avg_steps": 29.208333333333332
+  },
+  "gate_ok": false
+}

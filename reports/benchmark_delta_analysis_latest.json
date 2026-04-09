@@ -1,0 +1,127 @@
+{
+  "generated_at_utc": "2026-03-09T14:00:16.033289+00:00",
+  "before": "/Users/imymm/H2Q-Evo/reports/agi_benchmark_results_before_latest.json",
+  "after": "/Users/imymm/H2Q-Evo/agi_benchmark_results.json",
+  "before_available": true,
+  "summary": {
+    "overall_before": 0.37893228418127817,
+    "overall_after": 0.37893228418127817,
+    "overall_delta": 0.0
+  },
+  "task_deltas": [
+    {
+      "task": "glue.cola",
+      "before": 0.64,
+      "after": 0.64,
+      "delta": 0.0
+    },
+    {
+      "task": "glue.mnli",
+      "before": 0.37,
+      "after": 0.37,
+      "delta": 0.0
+    },
+    {
+      "task": "glue.mrpc",
+      "before": 0.69,
+      "after": 0.69,
+      "delta": 0.0
+    },
+    {
+      "task": "glue.qnli",
+      "before": 0.55,
+      "after": 0.55,
+      "delta": 0.0
+    },
+    {
+      "task": "glue.qqp",
+      "before": 0.3,
+      "after": 0.3,
+      "delta": 0.0
+    },
+    {
+      "task": "glue.rte",
+      "before": 0.48,
+      "after": 0.48,
+      "delta": 0.0
+    },
+    {
+      "task": "glue.sst2",
+      "before": 0.52,
+      "after": 0.52,
+      "delta": 0.0
+    },
+    {
+      "task": "glue.wnli",
+      "before": 0.43661971830985913,
+      "after": 0.43661971830985913,
+      "delta": 0.0
+    },
+    {
+      "task": "mmlu.accuracy",
+      "before": 0.21,
+      "after": 0.21,
+      "delta": 0.0
+    },
+    {
+      "task": "superglue.boolq",
+      "before": 0.7,
+      "after": 0.7,
+      "delta": 0.0
+    },
+    {
+      "task": "superglue.cb",
+      "before": 0.08928571428571429,
+      "after": 0.08928571428571429,
+      "delta": 0.0
+    },
+    {
+      "task": "superglue.copa",
+      "before": 0.45,
+      "after": 0.45,
+      "delta": 0.0
+    },
+    {
+      "task": "superglue.multirc",
+      "before": 0.46,
+      "after": 0.46,
+      "delta": 0.0
+    },
+    {
+      "task": "superglue.rte",
+      "before": 0.48,
+      "after": 0.48,
+      "delta": 0.0
+    },
+    {
+      "task": "superglue.wic",
+      "before": 0.47,
+      "after": 0.47,
+      "delta": 0.0
+    },
+    {
+      "task": "superglue.wsc",
+      "before": 0.35,
+      "after": 0.35,
+      "delta": 0.0
+    }
+  ],
+  "top_regressions": [],
+  "top_improvements": [],
+  "failures": [
+    "model-json-guard.parse_errors: 701"
+  ],
+  "potential_causes": [
+    "High JSON parse-error debt suggests response formatting drift and contract leakage."
+  ],
+  "recommended_attempts": [
+    "Force /generate contract mode on probe traffic and verify with a dedicated contract smoke test in CI.",
+    "Add per-task calibration constants (NLI/Bool/MCQ) and tune on a held-out split before full benchmark runs.",
+    "Track per-task confidence histograms and reject low-confidence predictions with deterministic fallback labels.",
+    "Gate release on three checks: infra_valid=true, parse_errors<=target, and non-negative overall_score delta."
+  ],
+  "linked_reports": {
+    "public_report": "/Users/imymm/H2Q-Evo/reports/public_benchmark_algorithm_effect_latest.json",
+    "research_report": "/Users/imymm/H2Q-Evo/reports/research_aggregation_cross_validation_latest.json"
+  }
+}

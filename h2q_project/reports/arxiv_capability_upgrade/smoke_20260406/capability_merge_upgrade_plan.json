@@ -1,0 +1,337 @@
+{
+  "metadata": {
+    "generated_at": "2026-04-05T18:05:03.024094+00:00",
+    "categories": [
+      "cs.AI",
+      "quant-ph",
+      "stat.ML"
+    ],
+    "per_category": 2,
+    "max_total": 5,
+    "delay_seconds": 1.0,
+    "days": 365,
+    "analysis_root": "/Users/imymm/H2Q-Evo/h2q_project",
+    "fetch_errors": []
+  },
+  "upgrade_plan": {
+    "paper_count": 5,
+    "capability_demand": {
+      "quantum_computation": 2,
+      "agent_autonomy": 1,
+      "reasoning_planning": 0,
+      "multimodal_perception": 2,
+      "knowledge_memory": 1,
+      "optimization_efficiency": 0,
+      "robustness_safety": 2,
+      "math_foundations": 2,
+      "systems_infrastructure": 0
+    },
+    "capability_gap_rows": [
+      {
+        "capability": "quantum_computation",
+        "demand_count": 2,
+        "demand_ratio": 0.4,
+        "local_strength": 0.803436,
+        "gap": -0.403436,
+        "recommended_action": "merge",
+        "priority": "medium",
+        "candidate_local_modules": [
+          "h2q_project/tools/start_quantum_agi_long_evolution.py",
+          "h2q_project/das_gqs/public_challenge_gap_analysis.py",
+          "h2q_project/das_gqs/rcs_scaleup_batch.py",
+          "h2q_project/das_gqs/public_rcs_xeb_unified_analysis.py",
+          "h2q_project/tools/run_arxiv_capability_upgrade.py"
+        ],
+        "rationale": "demand_ratio=0.400, local_strength=0.803, gap=-0.403"
+      },
+      {
+        "capability": "agent_autonomy",
+        "demand_count": 1,
+        "demand_ratio": 0.2,
+        "local_strength": 0.776393,
+        "gap": -0.576393,
+        "recommended_action": "merge",
+        "priority": "medium",
+        "candidate_local_modules": [
+          "h2q_project/h2q/agi/ensemble_consensus_system.py",
+          "h2q_project/workflow.py",
+          "h2q_project/tools/run_arxiv_capability_upgrade.py",
+          "h2q_project/h2q/agi/hierarchical_planning.py",
+          "h2q_project/das_agi_autonomous_system.py"
+        ],
+        "rationale": "demand_ratio=0.200, local_strength=0.776, gap=-0.576"
+      },
+      {
+        "capability": "multimodal_perception",
+        "demand_count": 2,
+        "demand_ratio": 0.4,
+        "local_strength": 1.0,
+        "gap": -0.6,
+        "recommended_action": "merge",
+        "priority": "medium",
+        "candidate_local_modules": [
+          "h2q_project/benchmarks/multimodal_binary_flow_benchmark.py",
+          "h2q_project/tools/run_voice_video_dialogue_chain_test.py",
+          "h2q_project/benchmarks/multimodal_alignment.py",
+          "h2q_project/h2q/agi/multimodal_agi_experiment.py",
+          "h2q_project/h2q/agi/multimodal_agi_core.py"
+        ],
+        "rationale": "demand_ratio=0.400, local_strength=1.000, gap=-0.600"
+      },
+      {
+        "capability": "robustness_safety",
+        "demand_count": 2,
+        "demand_ratio": 0.4,
+        "local_strength": 1.0,
+        "gap": -0.6,
+        "recommended_action": "merge",
+        "priority": "medium",
+        "candidate_local_modules": [
+          "h2q_project/h2q/agi/gemini_verifier.py",
+          "h2q_project/h2q/agi/supervised_learning.py",
+          "h2q_project/benchmarks/multimodal_alignment.py",
+          "h2q_project/h2q/agi/rigorous_verification_system.py",
+          "h2q_project/comprehensive_evaluation.py"
+        ],
+        "rationale": "demand_ratio=0.400, local_strength=1.000, gap=-0.600"
+      },
+      {
+        "capability": "math_foundations",
+        "demand_count": 2,
+        "demand_ratio": 0.4,
+        "local_strength": 1.0,
+        "gap": -0.6,
+        "recommended_action": "merge",
+        "priority": "medium",
+        "candidate_local_modules": [
+          "h2q_project/h2q/control/ast_engine.py",
+          "h2q_project/das_core.py",
+          "h2q_project/h2q/core/pruning/geodesic_engine.py",
+          "h2q_project/src/h2q/pruning/geodesic_engine.py",
+          "h2q_project/src/h2q/core/pruning/geodesic_engine.py"
+        ],
+        "rationale": "demand_ratio=0.400, local_strength=1.000, gap=-0.600"
+      },
+      {
+        "capability": "knowledge_memory",
+        "demand_count": 1,
+        "demand_ratio": 0.2,
+        "local_strength": 1.0,
+        "gap": -0.8,
+        "recommended_action": "merge",
+        "priority": "medium",
+        "candidate_local_modules": [
+          "h2q_project/h2q/agi/enhanced_agi_training.py",
+          "h2q_project/vector_search.py",
+          "h2q_project/h2q/agi/autonomous_evolution.py",
+          "h2q_project/tools/start_quantum_agi_long_evolution.py",
+          "h2q_project/h2q/agi/china_knowledge_source.py"
+        ],
+        "rationale": "demand_ratio=0.200, local_strength=1.000, gap=-0.800"
+      },
+      {
+        "capability": "systems_infrastructure",
+        "demand_count": 0,
+        "demand_ratio": 0.0,
+        "local_strength": 0.904924,
+        "gap": -0.904924,
+        "recommended_action": "monitor",
+        "priority": "low",
+        "candidate_local_modules": [
+          "h2q_project/h2q/agi/gemini_cli_integration.py",
+          "h2q_project/h2q/agi/gemini_verifier.py",
+          "h2q_project/comprehensive_evaluation.py",
+          "h2q_project/h2q_evaluation_final.py",
+          "h2q_project/h2q/agi/heuristic_module_evolution.py"
+        ],
+        "rationale": "demand_ratio=0.000, local_strength=0.905, gap=-0.905"
+      },
+      {
+        "capability": "optimization_efficiency",
+        "demand_count": 0,
+        "demand_ratio": 0.0,
+        "local_strength": 0.928039,
+        "gap": -0.928039,
+        "recommended_action": "monitor",
+        "priority": "low",
+        "candidate_local_modules": [
+          "h2q_project/h2q/agi/fractal_memory_compression.py",
+          "h2q_project/h2q/agi/audit_driven_optimization.py",
+          "h2q_project/comprehensive_evaluation.py",
+          "h2q_project/h2q/agi/final_optimization_report.py",
+          "h2q_project/h2q_evaluation_final.py"
+        ],
+        "rationale": "demand_ratio=0.000, local_strength=0.928, gap=-0.928"
+      },
+      {
+        "capability": "reasoning_planning",
+        "demand_count": 0,
+        "demand_ratio": 0.0,
+        "local_strength": 1.0,
+        "gap": -1.0,
+        "recommended_action": "monitor",
+        "priority": "low",
+        "candidate_local_modules": [
+          "h2q_project/tools/run_paper2604_argument_space.py",
+          "h2q_project/h2q/agi/neuro_symbolic_reasoner.py",
+          "h2q_project/h2q/core/audit/genomic_starcoder_auditor.py",
+          "h2q_project/src/h2q/audit/genomic_starcoder_auditor.py",
+          "h2q_project/src/h2q/core/audit/genomic_starcoder_auditor.py"
+        ],
+        "rationale": "demand_ratio=0.000, local_strength=1.000, gap=-1.000"
+      }
+    ],
+    "actions": [
+      {
+        "capability": "multimodal_perception",
+        "action": "merge",
+        "priority": "medium",
+        "rationale": "demand_ratio=0.400, local_strength=1.000, gap=-0.600",
+        "candidate_local_modules": [
+          "h2q_project/benchmarks/multimodal_binary_flow_benchmark.py",
+          "h2q_project/tools/run_voice_video_dialogue_chain_test.py",
+          "h2q_project/benchmarks/multimodal_alignment.py",
+          "h2q_project/h2q/agi/multimodal_agi_experiment.py",
+          "h2q_project/h2q/agi/multimodal_agi_core.py"
+        ],
+        "suggested_tasks": [
+          "Unify duplicated multimodal_perception implementations across modules",
+          "Promote strongest multimodal_perception components into shared APIs"
+        ]
+      },
+      {
+        "capability": "robustness_safety",
+        "action": "merge",
+        "priority": "medium",
+        "rationale": "demand_ratio=0.400, local_strength=1.000, gap=-0.600",
+        "candidate_local_modules": [
+          "h2q_project/h2q/agi/gemini_verifier.py",
+          "h2q_project/h2q/agi/supervised_learning.py",
+          "h2q_project/benchmarks/multimodal_alignment.py",
+          "h2q_project/h2q/agi/rigorous_verification_system.py",
+          "h2q_project/comprehensive_evaluation.py"
+        ],
+        "suggested_tasks": [
+          "Unify duplicated robustness_safety implementations across modules",
+          "Promote strongest robustness_safety components into shared APIs"
+        ]
+      },
+      {
+        "capability": "math_foundations",
+        "action": "merge",
+        "priority": "medium",
+        "rationale": "demand_ratio=0.400, local_strength=1.000, gap=-0.600",
+        "candidate_local_modules": [
+          "h2q_project/h2q/control/ast_engine.py",
+          "h2q_project/das_core.py",
+          "h2q_project/h2q/core/pruning/geodesic_engine.py",
+          "h2q_project/src/h2q/pruning/geodesic_engine.py",
+          "h2q_project/src/h2q/core/pruning/geodesic_engine.py"
+        ],
+        "suggested_tasks": [
+          "Unify duplicated math_foundations implementations across modules",
+          "Promote strongest math_foundations components into shared APIs"
+        ]
+      },
+      {
+        "capability": "quantum_computation",
+        "action": "merge",
+        "priority": "medium",
+        "rationale": "demand_ratio=0.400, local_strength=0.803, gap=-0.403",
+        "candidate_local_modules": [
+          "h2q_project/tools/start_quantum_agi_long_evolution.py",
+          "h2q_project/das_gqs/public_challenge_gap_analysis.py",
+          "h2q_project/das_gqs/rcs_scaleup_batch.py",
+          "h2q_project/das_gqs/public_rcs_xeb_unified_analysis.py",
+          "h2q_project/tools/run_arxiv_capability_upgrade.py"
+        ],
+        "suggested_tasks": [
+          "Unify duplicated quantum_computation implementations across modules",
+          "Promote strongest quantum_computation components into shared APIs"
+        ]
+      },
+      {
+        "capability": "knowledge_memory",
+        "action": "merge",
+        "priority": "medium",
+        "rationale": "demand_ratio=0.200, local_strength=1.000, gap=-0.800",
+        "candidate_local_modules": [
+          "h2q_project/h2q/agi/enhanced_agi_training.py",
+          "h2q_project/vector_search.py",
+          "h2q_project/h2q/agi/autonomous_evolution.py",
+          "h2q_project/tools/start_quantum_agi_long_evolution.py",
+          "h2q_project/h2q/agi/china_knowledge_source.py"
+        ],
+        "suggested_tasks": [
+          "Unify duplicated knowledge_memory implementations across modules",
+          "Promote strongest knowledge_memory components into shared APIs"
+        ]
+      },
+      {
+        "capability": "agent_autonomy",
+        "action": "merge",
+        "priority": "medium",
+        "rationale": "demand_ratio=0.200, local_strength=0.776, gap=-0.576",
+        "candidate_local_modules": [
+          "h2q_project/h2q/agi/ensemble_consensus_system.py",
+          "h2q_project/workflow.py",
+          "h2q_project/tools/run_arxiv_capability_upgrade.py",
+          "h2q_project/h2q/agi/hierarchical_planning.py",
+          "h2q_project/das_agi_autonomous_system.py"
+        ],
+        "suggested_tasks": [
+          "Unify duplicated agent_autonomy implementations across modules",
+          "Promote strongest agent_autonomy components into shared APIs"
+        ]
+      },
+      {
+        "capability": "reasoning_planning",
+        "action": "monitor",
+        "priority": "low",
+        "rationale": "demand_ratio=0.000, local_strength=1.000, gap=-1.000",
+        "candidate_local_modules": [
+          "h2q_project/tools/run_paper2604_argument_space.py",
+          "h2q_project/h2q/agi/neuro_symbolic_reasoner.py",
+          "h2q_project/h2q/core/audit/genomic_starcoder_auditor.py",
+          "h2q_project/src/h2q/audit/genomic_starcoder_auditor.py",
+          "h2q_project/src/h2q/core/audit/genomic_starcoder_auditor.py"
+        ],
+        "suggested_tasks": [
+          "Track arXiv demand trend for reasoning_planning"
+        ]
+      },
+      {
+        "capability": "optimization_efficiency",
+        "action": "monitor",
+        "priority": "low",
+        "rationale": "demand_ratio=0.000, local_strength=0.928, gap=-0.928",
+        "candidate_local_modules": [
+          "h2q_project/h2q/agi/fractal_memory_compression.py",
+          "h2q_project/h2q/agi/audit_driven_optimization.py",
+          "h2q_project/comprehensive_evaluation.py",
+          "h2q_project/h2q/agi/final_optimization_report.py",
+          "h2q_project/h2q_evaluation_final.py"
+        ],
+        "suggested_tasks": [
+          "Track arXiv demand trend for optimization_efficiency"
+        ]
+      },
+      {
+        "capability": "systems_infrastructure",
+        "action": "monitor",
+        "priority": "low",
+        "rationale": "demand_ratio=0.000, local_strength=0.905, gap=-0.905",
+        "candidate_local_modules": [
+          "h2q_project/h2q/agi/gemini_cli_integration.py",
+          "h2q_project/h2q/agi/gemini_verifier.py",
+          "h2q_project/comprehensive_evaluation.py",
+          "h2q_project/h2q_evaluation_final.py",
+          "h2q_project/h2q/agi/heuristic_module_evolution.py"
+        ],
+        "suggested_tasks": [
+          "Track arXiv demand trend for systems_infrastructure"
+        ]
+      }
+    ]
+  }
+}

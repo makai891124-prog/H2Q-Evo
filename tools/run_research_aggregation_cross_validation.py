@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import json
 import math
+import argparse
 import shutil
 import time
 from dataclasses import dataclass
@@ -193,6 +194,51 @@ def _build_paper_map() -> List[Dict[str, Any]]:
 
 
 def main() -> int:
+    parser = argparse.ArgumentParser(description="Research aggregation cross validation with tunable weights")
+    parser.add_argument("--config-file", default="reports/research_cv_tuned_config_latest.json")
+    parser.add_argument("--w-distill", type=float, default=0.25)
+    parser.add_argument("--w-consistency", type=float, default=0.20)
+    parser.add_argument("--w-robustness", type=float, default=0.15)
+    parser.add_argument("--w-public", type=float, default=0.25)
+    parser.add_argument("--w-formal", type=float, default=0.15)
+    parser.add_argument("--thr-aggregate", type=float, default=0.85)
+    parser.add_argument("--thr-loo-min", type=float, default=0.80)
+    parser.add_argument("--thr-loo-std", type=float, default=0.07)
+    args = parser.parse_args()
+
+    tuned: Dict[str, Any] = {}
+    cfg_path = Path(args.config_file)
+    if not cfg_path.is_absolute():
+        cfg_path = ROOT / cfg_path
+    if cfg_path.exists():
+        try:
+            tuned = _load_json(cfg_path)
+        except Exception:
+            tuned = {}
+
+    weights_cfg = tuned.get("weights") or {}
+    thresholds_cfg = tuned.get("thresholds") or {}
+
+    w_distill = _f(weights_cfg.get("distill_gain", args.w_distill), args.w_distill)
+    w_consistency = _f(weights_cfg.get("consistency_quality", args.w_consistency), args.w_consistency)
+    w_robustness = _f(weights_cfg.get("robustness_30_vs_50", args.w_robustness), args.w_robustness)
+    w_public = _f(weights_cfg.get("public_validation", args.w_public), args.w_public)
+    w_formal = _f(weights_cfg.get("formal_closure", args.w_formal), args.w_formal)
+
+    thr_aggregate = _f(thresholds_cfg.get("aggregate", args.thr_aggregate), args.thr_aggregate)
+    thr_loo_min = _f(thresholds_cfg.get("loo_min", args.thr_loo_min), args.thr_loo_min)
+    thr_loo_std = _f(thresholds_cfg.get("loo_std", args.thr_loo_std), args.thr_loo_std)
+
+    # Guard against invalid negative values.
+    w_distill = max(0.0, w_distill)
+    w_consistency = max(0.0, w_consistency)
+    w_robustness = max(0.0, w_robustness)
+    w_public = max(0.0, w_public)
+    w_formal = max(0.0, w_formal)
+    thr_aggregate = _clip01(thr_aggregate)
+    thr_loo_min = _clip01(thr_loo_min)
+    thr_loo_std = max(0.0, thr_loo_std)
+
     distill_pipeline_path = REPORTS / "self_eval_distillation_pipeline_latest.json"
     distill_bench_path = REPORTS / "self_model_consistency_distilled_latest.json"
     public_validation_path = REPORTS / "distill_evo_public_validation_latest.json"
@@ -238,31 +284,31 @@ def main() -> int:
         EvidenceMetric(
             name="distill_gain",
             value=distill_gain,
-            weight=0.25,
+            weight=w_distill,
             note="schema_valid_rate delta from pipeline",
         ),
         EvidenceMetric(
             name="consistency_quality",
             value=consistency_score,
-            weight=0.20,
+            weight=w_consistency,
             note="overall_score from distilled benchmark",
         ),
         EvidenceMetric(
             name="robustness_30_vs_50",
             value=robustness_score,
-            weight=0.15,
+            weight=w_robustness,
             note="stability under sessions increase",
         ),
         EvidenceMetric(
             name="public_validation",
             value=gate_score,
-            weight=0.25,
+            weight=w_public,
             note="baseline/longrun gate and alignment",
         ),
         EvidenceMetric(
             name="formal_closure",
             value=formal_score,
-            weight=0.15,
+            weight=w_formal,
             note="Lean compile + closure facts",
         ),
     ]
@@ -271,9 +317,9 @@ def main() -> int:
     loo = _leave_one_out(metrics)
 
     robust_claim = (
-        aggregate["score"] >= 0.85
-        and loo["min_score"] >= 0.80
-        and loo["std_score"] <= 0.07
+        aggregate["score"] >= thr_aggregate
+        and loo["min_score"] >= thr_loo_min
+        and loo["std_score"] <= thr_loo_std
         and _b(fa_logic.get("lean_compile_success", False))
         and _b(pv_base.get("gate_ok", False))
         and _b(pv_long.get("gate_ok", False))
@@ -296,6 +342,21 @@ def main() -> int:
             "distill_benchmark": str(distill_bench_path),
             "public_validation": str(public_validation_path),
             "formal_assessment": str(formal_assessment_path),
+            "tuned_config": str(cfg_path) if cfg_path.exists() else "",
+        },
+        "tuning": {
+            "weights": {
+                "distill_gain": w_distill,
+                "consistency_quality": w_consistency,
+                "robustness_30_vs_50": w_robustness,
+                "public_validation": w_public,
+                "formal_closure": w_formal,
+            },
+            "thresholds": {
+                "aggregate": thr_aggregate,
+                "loo_min": thr_loo_min,
+                "loo_std": thr_loo_std,
+            },
         },
         "local_snapshot": {
             "sessions": int(db_meta.get("sessions", 0) or 0),

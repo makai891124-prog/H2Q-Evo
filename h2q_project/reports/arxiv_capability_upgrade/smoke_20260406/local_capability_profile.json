@@ -1,0 +1,367 @@
+{
+  "analysis_root": "/Users/imymm/H2Q-Evo/h2q_project",
+  "python_file_count": 1474,
+  "capabilities": {
+    "quantum_computation": {
+      "keyword_hits": 297,
+      "covered_files": 98,
+      "file_coverage": 0.066486,
+      "local_strength": 0.803436,
+      "top_files": [
+        {
+          "path": "h2q_project/tools/start_quantum_agi_long_evolution.py",
+          "score": 43
+        },
+        {
+          "path": "h2q_project/das_gqs/public_challenge_gap_analysis.py",
+          "score": 20
+        },
+        {
+          "path": "h2q_project/das_gqs/rcs_scaleup_batch.py",
+          "score": 13
+        },
+        {
+          "path": "h2q_project/das_gqs/public_rcs_xeb_unified_analysis.py",
+          "score": 10
+        },
+        {
+          "path": "h2q_project/tools/run_arxiv_capability_upgrade.py",
+          "score": 9
+        },
+        {
+          "path": "h2q_project/h2q/core/quantization/quaternionic_protocol.py",
+          "score": 9
+        },
+        {
+          "path": "h2q_project/src/h2q/quantization/quaternionic_protocol.py",
+          "score": 9
+        },
+        {
+          "path": "h2q_project/src/h2q/core/quantization/quaternionic_protocol.py",
+          "score": 9
+        }
+      ]
+    },
+    "agent_autonomy": {
+      "keyword_hits": 245,
+      "covered_files": 101,
+      "file_coverage": 0.068521,
+      "local_strength": 0.776393,
+      "top_files": [
+        {
+          "path": "h2q_project/h2q/agi/ensemble_consensus_system.py",
+          "score": 14
+        },
+        {
+          "path": "h2q_project/workflow.py",
+          "score": 11
+        },
+        {
+          "path": "h2q_project/tools/run_arxiv_capability_upgrade.py",
+          "score": 11
+        },
+        {
+          "path": "h2q_project/h2q/agi/hierarchical_planning.py",
+          "score": 9
+        },
+        {
+          "path": "h2q_project/das_agi_autonomous_system.py",
+          "score": 7
+        },
+        {
+          "path": "h2q_project/run_experiment.py",
+          "score": 5
+        },
+        {
+          "path": "h2q_project/h2q_cli/main.py",
+          "score": 5
+        },
+        {
+          "path": "h2q_project/h2q_cli/commands.py",
+          "score": 5
+        }
+      ]
+    },
+    "reasoning_planning": {
+      "keyword_hits": 2086,
+      "covered_files": 629,
+      "file_coverage": 0.42673,
+      "local_strength": 1.0,
+      "top_files": [
+        {
+          "path": "h2q_project/tools/run_paper2604_argument_space.py",
+          "score": 71
+        },
+        {
+          "path": "h2q_project/h2q/agi/neuro_symbolic_reasoner.py",
+          "score": 29
+        },
+        {
+          "path": "h2q_project/h2q/core/audit/genomic_starcoder_auditor.py",
+          "score": 24
+        },
+        {
+          "path": "h2q_project/src/h2q/audit/genomic_starcoder_auditor.py",
+          "score": 24
+        },
+        {
+          "path": "h2q_project/src/h2q/core/audit/genomic_starcoder_auditor.py",
+          "score": 24
+        },
+        {
+          "path": "h2q_project/local_executor.py",
+          "score": 23
+        },
+        {
+          "path": "h2q_project/precision_gated_executor.py",
+          "score": 21
+        },
+        {
+          "path": "h2q_project/h2q/agi/rigorous_verification_system.py",
+          "score": 19
+        }
+      ]
+    },
+    "multimodal_perception": {
+      "keyword_hits": 1774,
+      "covered_files": 177,
+      "file_coverage": 0.120081,
+      "local_strength": 1.0,
+      "top_files": [
+        {
+          "path": "h2q_project/benchmarks/multimodal_binary_flow_benchmark.py",
+          "score": 81
+        },
+        {
+          "path": "h2q_project/tools/run_voice_video_dialogue_chain_test.py",
+          "score": 79
+        },
+        {
+          "path": "h2q_project/benchmarks/multimodal_alignment.py",
+          "score": 70
+        },
+        {
+          "path": "h2q_project/h2q/agi/multimodal_agi_experiment.py",
+          "score": 44
+        },
+        {
+          "path": "h2q_project/h2q/agi/multimodal_agi_core.py",
+          "score": 37
+        },
+        {
+          "path": "h2q_project/h2q/core/unified_architecture.py",
+          "score": 37
+        },
+        {
+          "path": "h2q_project/h2q/services/voice_io_service.py",
+          "score": 25
+        },
+        {
+          "path": "h2q_project/h2q/core/multimodal_binary_flow.py",
+          "score": 23
+        }
+      ]
+    },
+    "knowledge_memory": {
+      "keyword_hits": 2645,
+      "covered_files": 659,
+      "file_coverage": 0.447083,
+      "local_strength": 1.0,
+      "top_files": [
+        {
+          "path": "h2q_project/h2q/agi/enhanced_agi_training.py",
+          "score": 81
+        },
+        {
+          "path": "h2q_project/vector_search.py",
+          "score": 58
+        },
+        {
+          "path": "h2q_project/h2q/agi/autonomous_evolution.py",
+          "score": 42
+        },
+        {
+          "path": "h2q_project/tools/start_quantum_agi_long_evolution.py",
+          "score": 41
+        },
+        {
+          "path": "h2q_project/h2q/agi/china_knowledge_source.py",
+          "score": 41
+        },
+        {
+          "path": "h2q_project/comprehensive_evaluation.py",
+          "score": 34
+        },
+        {
+          "path": "h2q_project/h2q/agi/real_agi_training_system.py",
+          "score": 34
+        },
+        {
+          "path": "h2q_project/h2q/agi/knowledge_acquisition.py",
+          "score": 29
+        }
+      ]
+    },
+    "optimization_efficiency": {
+      "keyword_hits": 720,
+      "covered_files": 264,
+      "file_coverage": 0.179104,
+      "local_strength": 0.928039,
+      "top_files": [
+        {
+          "path": "h2q_project/h2q/agi/fractal_memory_compression.py",
+          "score": 36
+        },
+        {
+          "path": "h2q_project/h2q/agi/audit_driven_optimization.py",
+          "score": 19
+        },
+        {
+          "path": "h2q_project/comprehensive_evaluation.py",
+          "score": 16
+        },
+        {
+          "path": "h2q_project/h2q/agi/final_optimization_report.py",
+          "score": 15
+        },
+        {
+          "path": "h2q_project/h2q_evaluation_final.py",
+          "score": 13
+        },
+        {
+          "path": "h2q_project/tools/conv_math_weight_conversion_experiment.py",
+          "score": 13
+        },
+        {
+          "path": "h2q_project/das_gqs/das_geometric_conversion_experiment.py",
+          "score": 11
+        },
+        {
+          "path": "h2q_project/optimization_suggestions.py",
+          "score": 10
+        }
+      ]
+    },
+    "robustness_safety": {
+      "keyword_hits": 1539,
+      "covered_files": 475,
+      "file_coverage": 0.322252,
+      "local_strength": 1.0,
+      "top_files": [
+        {
+          "path": "h2q_project/h2q/agi/gemini_verifier.py",
+          "score": 71
+        },
+        {
+          "path": "h2q_project/h2q/agi/supervised_learning.py",
+          "score": 50
+        },
+        {
+          "path": "h2q_project/benchmarks/multimodal_alignment.py",
+          "score": 30
+        },
+        {
+          "path": "h2q_project/h2q/agi/rigorous_verification_system.py",
+          "score": 27
+        },
+        {
+          "path": "h2q_project/comprehensive_evaluation.py",
+          "score": 19
+        },
+        {
+          "path": "h2q_project/h2q/agi/complete_evolution_demo.py",
+          "score": 19
+        },
+        {
+          "path": "h2q_project/h2q/agi/cheating_analysis.py",
+          "score": 19
+        },
+        {
+          "path": "h2q_project/system_analyzer.py",
+          "score": 16
+        }
+      ]
+    },
+    "math_foundations": {
+      "keyword_hits": 7153,
+      "covered_files": 868,
+      "file_coverage": 0.588874,
+      "local_strength": 1.0,
+      "top_files": [
+        {
+          "path": "h2q_project/h2q/control/ast_engine.py",
+          "score": 35
+        },
+        {
+          "path": "h2q_project/das_core.py",
+          "score": 28
+        },
+        {
+          "path": "h2q_project/h2q/core/pruning/geodesic_engine.py",
+          "score": 27
+        },
+        {
+          "path": "h2q_project/src/h2q/pruning/geodesic_engine.py",
+          "score": 27
+        },
+        {
+          "path": "h2q_project/src/h2q/core/pruning/geodesic_engine.py",
+          "score": 27
+        },
+        {
+          "path": "h2q_project/self_reflection.py",
+          "score": 26
+        },
+        {
+          "path": "h2q_project/h2q/audit/synesthesia_4way_audit.py",
+          "score": 26
+        },
+        {
+          "path": "h2q_project/h2q/core/memory/h2q_vault.py",
+          "score": 26
+        }
+      ]
+    },
+    "systems_infrastructure": {
+      "keyword_hits": 611,
+      "covered_files": 181,
+      "file_coverage": 0.122795,
+      "local_strength": 0.904924,
+      "top_files": [
+        {
+          "path": "h2q_project/h2q/agi/gemini_cli_integration.py",
+          "score": 30
+        },
+        {
+          "path": "h2q_project/h2q/agi/gemini_verifier.py",
+          "score": 21
+        },
+        {
+          "path": "h2q_project/comprehensive_evaluation.py",
+          "score": 20
+        },
+        {
+          "path": "h2q_project/h2q_evaluation_final.py",
+          "score": 19
+        },
+        {
+          "path": "h2q_project/h2q/agi/heuristic_module_evolution.py",
+          "score": 13
+        },
+        {
+          "path": "h2q_project/h2q_server.py",
+          "score": 12
+        },
+        {
+          "path": "h2q_project/h2q/agi/enhanced_agi_training.py",
+          "score": 11
+        },
+        {
+          "path": "h2q_project/h2q/agi/knowledge_acquisition.py",
+          "score": 11
+        }
+      ]
+    }
+  },
+  "symbol_index_size": 1949
+}

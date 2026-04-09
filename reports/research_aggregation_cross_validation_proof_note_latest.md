@@ -1,9 +1,9 @@
 # Research Aggregation Formal Proof Note
 
-- generated_at_utc: `2026-03-07T12:24:10.639608+00:00`
-- aggregate_score: `0.978739`
-- loo_min_score: `0.971652`
-- loo_std_score: `0.008393`
+- generated_at_utc: `2026-04-05T14:27:04.618734+00:00`
+- aggregate_score: `0.994316`
+- loo_min_score: `0.991880`
+- loo_std_score: `0.001529`
 - robust_claim: `True`
 
 ## Premises

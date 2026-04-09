@@ -1,0 +1,17 @@
+{
+  "stage": "8_argument_integration",
+  "inputs": {
+    "stage7_video": "/Users/imymm/H2Q-Evo/h2q_project/reports/paper2604_argument_space/stage7_spatial_demo/paper_formula_manifold_demo.mp4",
+    "multidim_video": "/Users/imymm/H2Q-Evo/h2q_project/reports/paper2604_argument_space/argument_space_visuals/paper2604_multidim_argument_space.mp4"
+  },
+  "outputs": {
+    "combined_video": "/Users/imymm/H2Q-Evo/h2q_project/reports/paper2604_argument_space/paper2604_stage8_space_fusion.mp4"
+  },
+  "checks": {
+    "stage7_passed": true,
+    "multidim_video_exists": true,
+    "combined_video_created": true
+  },
+  "passed": true,
+  "error": null
+}

@@ -1,0 +1,1179 @@
+{
+  "generated_at_utc": "2026-03-10T15:13:30.905248+00:00",
+  "steps": [
+    {
+      "name": "incremental_benchmark_before",
+      "cmd": [
+        "/Users/imymm/H2Q-Evo/.venv/bin/python",
+        "tools/run_local_incremental_benchmark.py",
+        "--seed",
+        "42",
+        "--output-prefix",
+        "local_incremental_benchmark_uplift_before"
+      ],
+      "returncode": 0,
+      "stdout_tail": "JSON: /Users/imymm/H2Q-Evo/reports/local_incremental_benchmark_uplift_before_1773155232.json\nLatest JSON: /Users/imymm/H2Q-Evo/reports/local_incremental_benchmark_uplift_before_latest.json\nMD: /Users/imymm/H2Q-Evo/reports/local_incremental_benchmark_uplift_before_1773155232.md\nLatest MD: /Users/imymm/H2Q-Evo/reports/local_incremental_benchmark_uplift_before_latest.md",
+      "stderr_tail": "`loss_type=None` was set in the config but it is unrecognized. Using the default loss: `ForCausalLMLoss`."
+    },
+    {
+      "name": "train_nano_seed",
+      "cmd": [
+        "/Users/imymm/H2Q-Evo/.venv/bin/python",
+        "tools/train_nano_core_seed_from_crystal.py",
+        "--crystal",
+        "h2q_qwen_crystal.pt",
+        "--dataset",
+        "reports/self_eval_distill_dataset_latest.json",
+        "--seed-count",
+        "128",
+        "--seed-dim",
+        "64"
+      ],
+      "returncode": 0,
+      "stdout_tail": "SEED PT: /Users/imymm/H2Q-Evo/reports/nano_core_seed_1773155239.pt\nLatest PT: /Users/imymm/H2Q-Evo/reports/nano_core_seed_latest.pt\nJSON: /Users/imymm/H2Q-Evo/reports/nano_core_seed_1773155239.json\nLatest JSON: /Users/imymm/H2Q-Evo/reports/nano_core_seed_latest.json",
+      "stderr_tail": ""
+    },
+    {
+      "name": "distillation_pipeline",
+      "cmd": [
+        "/Users/imymm/H2Q-Evo/.venv/bin/python",
+        "tools/run_self_eval_distillation_pipeline.py",
+        "--sessions",
+        "4",
+        "--teacher-provider",
+        "heuristic",
+        "--max-samples",
+        "80",
+        "--synthetic-min-size",
+        "80"
+      ],
+      "returncode": 0,
+      "stdout_tail": "JSON: /Users/imymm/H2Q-Evo/reports/self_eval_distillation_pipeline_1773155245.json\nLatest JSON: /Users/imymm/H2Q-Evo/reports/self_eval_distillation_pipeline_latest.json\nMD: /Users/imymm/H2Q-Evo/reports/self_eval_distillation_pipeline_1773155245.md\nLatest MD: /Users/imymm/H2Q-Evo/reports/self_eval_distillation_pipeline_latest.md",
+      "stderr_tail": ""
+    },
+    {
+      "name": "trusted_weight_training",
+      "cmd": [
+        "/Users/imymm/H2Q-Evo/.venv/bin/python",
+        "tools/train_trusted_nano_lora.py",
+        "--model-name",
+        "distilgpt2",
+        "--dataset",
+        "reports/self_eval_distill_dataset_latest.json",
+        "--epochs",
+        "1",
+        "--lr",
+        "1e-05",
+        "--batch-size",
+        "2",
+        "--max-samples",
+        "480",
+        "--output-prefix",
+        "trusted_nano_lora"
+      ],
+      "returncode": 0,
+      "stdout_tail": "JSON: /Users/imymm/H2Q-Evo/reports/trusted_nano_lora_training_1773155255.json\nLatest JSON: /Users/imymm/H2Q-Evo/reports/trusted_nano_lora_training_latest.json\nMD: /Users/imymm/H2Q-Evo/reports/trusted_nano_lora_training_1773155255.md\nLatest MD: /Users/imymm/H2Q-Evo/reports/trusted_nano_lora_training_latest.md\nWeights dir: /Users/imymm/H2Q-Evo/reports/trusted_nano_lora_weights_1773155255\nWeights latest dir: /Users/imymm/H2Q-Evo/reports/trusted_nano_lora_weights_latest",
+      "stderr_tail": "/Users/imymm/H2Q-Evo/.venv/lib/python3.12/site-packages/peft/tuners/lora/layer.py:2285: UserWarning: fan_in_fan_out is set to False but the target module is `Conv1D`. Setting fan_in_fan_out to True.\n  warnings.warn(\n`loss_type=None` was set in the config but it is unrecognized. Using the default loss: `ForCausalLMLoss`."
+    },
+    {
+      "name": "incremental_benchmark_after",
+      "cmd": [
+        "/Users/imymm/H2Q-Evo/.venv/bin/python",
+        "tools/run_local_incremental_benchmark.py",
+        "--seed",
+        "42",
+        "--output-prefix",
+        "local_incremental_benchmark_uplift_after"
+      ],
+      "returncode": 0,
+      "stdout_tail": "JSON: /Users/imymm/H2Q-Evo/reports/local_incremental_benchmark_uplift_after_1773155301.json\nLatest JSON: /Users/imymm/H2Q-Evo/reports/local_incremental_benchmark_uplift_after_latest.json\nMD: /Users/imymm/H2Q-Evo/reports/local_incremental_benchmark_uplift_after_1773155301.md\nLatest MD: /Users/imymm/H2Q-Evo/reports/local_incremental_benchmark_uplift_after_latest.md",
+      "stderr_tail": "`loss_type=None` was set in the config but it is unrecognized. Using the default loss: `ForCausalLMLoss`."
+    },
+    {
+      "name": "bootstrap_with_axiom",
+      "cmd": [
+        "/Users/imymm/H2Q-Evo/.venv/bin/python",
+        "tools/run_autoresearch_h2q_bootstrap.py",
+        "--execute",
+        "--max-iterations",
+        "3",
+        "--timeout-sec",
+        "900",
+        "--axiom-contract",
+        "axiom_contract.json",
+        "--distill-sessions",
+        "4",
+        "--distill-teacher-provider",
+        "heuristic",
+        "--distill-max-samples",
+        "80",
+        "--distill-synthetic-min-size",
+        "80",
+        "--hard-gate-benchmark-gain",
+        "5e-05"
+      ],
+      "returncode": 0,
+      "stdout_tail": "JSON: /Users/imymm/H2Q-Evo/reports/autoresearch_h2q_bootstrap_fusion_1773155610.json\nLatest JSON: /Users/imymm/H2Q-Evo/reports/autoresearch_h2q_bootstrap_fusion_latest.json\nMD: /Users/imymm/H2Q-Evo/reports/autoresearch_h2q_bootstrap_fusion_1773155610.md\nLatest MD: /Users/imymm/H2Q-Evo/reports/autoresearch_h2q_bootstrap_fusion_latest.md\nLedger TSV: /Users/imymm/H2Q-Evo/reports/autoresearch_h2q_experiment_ledger_latest.tsv",
+      "stderr_tail": ""
+    }
+  ],
+  "config": {
+    "train_method": "lora",
+    "train_model": "distilgpt2",
+    "epochs": 1,
+    "lr": 1e-05,
+    "batch_size": 2,
+    "max_samples": 80,
+    "synthetic_min_size": 80,
+    "include_valid_prompts": false,
+    "sessions": 4,
+    "bootstrap_iters": 3
+  },
+  "seed": {
+    "generated_at_utc": "2026-03-10T15:07:19.306258+00:00",
+    "source_model": "Qwen/Qwen2.5-0.5B",
+    "crystal": "/Users/imymm/H2Q-Evo/h2q_qwen_crystal.pt",
+    "dataset": "/Users/imymm/H2Q-Evo/reports/self_eval_distill_dataset_latest.json",
+    "text_count": 160,
+    "active_token_count": 240,
+    "seed_shape": [
+      128,
+      64
+    ],
+    "seed_dim": 64,
+    "seed_count": 128
+  },
+  "benchmark_before": {
+    "generated_at_utc": "2026-03-10T15:07:12.152031+00:00",
+    "seed": 42,
+    "model_name": "distilgpt2",
+    "adapter_dir": "/Users/imymm/H2Q-Evo/reports/trusted_nano_lora_weights_latest",
+    "score_base": 0.15319682418315286,
+    "score_adapter": 0.1532488353074048,
+    "gain": 5.201112425193277e-05,
+    "base": {
+      "model_name": "distilgpt2",
+      "adapter_dir": "",
+      "metrics": {
+        "score": 0.15319682418315286,
+        "avg_nll": 5.527550458908081,
+        "avg_ppl": 313.76262791381
+      },
+      "rows": [
+        {
+          "task": "self_eval_json",
+          "prompt": "Return JSON with keys diagnosis, action, confidence and one sentence each.",
+          "target": "{\"diagnosis\":\"schema drift risk\",\"action\":\"run validation and retrain adapter\",\"confidence\":0.72}",
+          "output": "Return JSON with keys diagnosis, action, confidence and one sentence each.",
+          "ll": {
+            "nll": 5.604170322418213,
+            "ppl": 271.5565275803442,
+            "target_tokens": 24
+          }
+        },
+        {
+          "task": "robustness_plan",
+          "prompt": "Write one robustness experiment, include metric and expected failure mode.",
+          "target": "Hypothesis: consistency drops under distribution shift. Measurement: schema_valid_rate and failure_recovery_rate. Failure mode: invalid JSON spikes.",
+          "output": "Write one robustness experiment, include metric and expected failure mode.",
+          "ll": {
+            "nll": 5.342673301696777,
+            "ppl": 209.07087340810705,
+            "target_tokens": 34
+          }
+        },
+        {
+          "task": "schema_guard",
+          "prompt": "Output valid JSON with keys root_cause, next_step, confidence.",
+          "target": "{\"root_cause\":\"insufficient calibration\",\"next_step\":\"increase replay buffer and rerun benchmark\",\"confidence\":0.68}",
+          "output": "Output valid JSON with keys root_cause, next_step, confidence.",
+          "ll": {
+            "nll": 4.279495716094971,
+            "ppl": 72.20401950004707,
+            "target_tokens": 28
+          }
+        },
+        {
+          "task": "ablation_reasoning",
+          "prompt": "Provide one ablation idea and why it improves generalization.",
+          "target": "Ablate retrieval memory and compare against full pipeline; this isolates memory contribution and reduces variance in attribution.",
+          "output": "Provide one ablation idea and why it improves generalization.",
+          "ll": {
+            "nll": 6.390142917633057,
+            "ppl": 595.941744185636,
+            "target_tokens": 22
+          }
+        },
+        {
+          "task": "safety_contract",
+          "prompt": "Return JSON with fields constraint, fallback, verification.",
+          "target": "{\"constraint\":\"never bypass schema checks\",\"fallback\":\"return minimal safe JSON\",\"verification\":\"run fixed-seed probe before keep\"}",
+          "output": "Return JSON with fields constraint, fallback, verification.",
+          "ll": {
+            "nll": 6.296853542327881,
+            "ppl": 542.861130520521,
+            "target_tokens": 29
+          }
+        },
+        {
+          "task": "transfer_probe",
+          "prompt": "Describe one transfer test across two domains and expected delta signal.",
+          "target": "Source domain: formal reasoning, target domain: code generation. Expected delta signal: +0.01 in benchmark score after adapter replay.",
+          "output": "Describe one transfer test across two domains and expected delta signal.",
+          "ll": {
+            "nll": 5.251966953277588,
+            "ppl": 190.94147228820458,
+            "target_tokens": 28
+          }
+        }
+      ]
+    },
+    "adapter": {
+      "model_name": "distilgpt2",
+      "adapter_dir": "/Users/imymm/H2Q-Evo/reports/trusted_nano_lora_weights_latest",
+      "metrics": {
+        "score": 0.1532488353074048,
+        "avg_nll": 5.525335073471069,
+        "avg_ppl": 313.18379461637045
+      },
+      "rows": [
+        {
+          "task": "self_eval_json",
+          "prompt": "Return JSON with keys diagnosis, action, confidence and one sentence each.",
+          "target": "{\"diagnosis\":\"schema drift risk\",\"action\":\"run validation and retrain adapter\",\"confidence\":0.72}",
+          "output": "Return JSON with keys diagnosis, action, confidence and one sentence each.",
+          "ll": {
+            "nll": 5.6000518798828125,
+            "ppl": 270.4404374804149,
+            "target_tokens": 24
+          }
+        },
+        {
+          "task": "robustness_plan",
+          "prompt": "Write one robustness experiment, include metric and expected failure mode.",
+          "target": "Hypothesis: consistency drops under distribution shift. Measurement: schema_valid_rate and failure_recovery_rate. Failure mode: invalid JSON spikes.",
+          "output": "Write one robustness experiment, include metric and expected failure mode.",
+          "ll": {
+            "nll": 5.337689399719238,
+            "ppl": 208.0314769452133,
+            "target_tokens": 34
+          }
+        },
+        {
+          "task": "schema_guard",
+          "prompt": "Output valid JSON with keys root_cause, next_step, confidence.",
+          "target": "{\"root_cause\":\"insufficient calibration\",\"next_step\":\"increase replay buffer and rerun benchmark\",\"confidence\":0.68}",
+          "output": "Output valid JSON with keys root_cause, next_step, confidence.",
+          "ll": {
+            "nll": 4.276236534118652,
+            "ppl": 71.96907652999039,
+            "target_tokens": 28
+          }
+        },
+        {
+          "task": "ablation_reasoning",
+          "prompt": "Provide one ablation idea and why it improves generalization.",
+          "target": "Ablate retrieval memory and compare against full pipeline; this isolates memory contribution and reduces variance in attribution.",
+          "output": "Provide one ablation idea and why it improves generalization.",
+          "ll": {
+            "nll": 6.389477252960205,
+            "ppl": 595.5451788238736,
+            "target_tokens": 22
+          }
+        },
+        {
+          "task": "safety_contract",
+          "prompt": "Return JSON with fields constraint, fallback, verification.",
+          "target": "{\"constraint\":\"never bypass schema checks\",\"fallback\":\"return minimal safe JSON\",\"verification\":\"run fixed-seed probe before keep\"}",
+          "output": "Return JSON with fields constraint, fallback, verification.",
+          "ll": {
+            "nll": 6.295044898986816,
+            "ppl": 541.8801757177757,
+            "target_tokens": 29
+          }
+        },
+        {
+          "task": "transfer_probe",
+          "prompt": "Describe one transfer test across two domains and expected delta signal.",
+          "target": "Source domain: formal reasoning, target domain: code generation. Expected delta signal: +0.01 in benchmark score after adapter replay.",
+          "output": "Describe one transfer test across two domains and expected delta signal.",
+          "ll": {
+            "nll": 5.253510475158691,
+            "ppl": 191.23642220095476,
+            "target_tokens": 28
+          }
+        }
+      ]
+    }
+  },
+  "benchmark_after": {
+    "generated_at_utc": "2026-03-10T15:08:21.040789+00:00",
+    "seed": 42,
+    "model_name": "distilgpt2",
+    "adapter_dir": "/Users/imymm/H2Q-Evo/reports/trusted_nano_lora_weights_latest",
+    "score_base": 0.15319682418315286,
+    "score_adapter": 0.15325248987711082,
+    "gain": 5.566569395795695e-05,
+    "base": {
+      "model_name": "distilgpt2",
+      "adapter_dir": "",
+      "metrics": {
+        "score": 0.15319682418315286,
+        "avg_nll": 5.527550458908081,
+        "avg_ppl": 313.76262791381
+      },
+      "rows": [
+        {
+          "task": "self_eval_json",
+          "prompt": "Return JSON with keys diagnosis, action, confidence and one sentence each.",
+          "target": "{\"diagnosis\":\"schema drift risk\",\"action\":\"run validation and retrain adapter\",\"confidence\":0.72}",
+          "output": "Return JSON with keys diagnosis, action, confidence and one sentence each.",
+          "ll": {
+            "nll": 5.604170322418213,
+            "ppl": 271.5565275803442,
+            "target_tokens": 24
+          }
+        },
+        {
+          "task": "robustness_plan",
+          "prompt": "Write one robustness experiment, include metric and expected failure mode.",
+          "target": "Hypothesis: consistency drops under distribution shift. Measurement: schema_valid_rate and failure_recovery_rate. Failure mode: invalid JSON spikes.",
+          "output": "Write one robustness experiment, include metric and expected failure mode.",
+          "ll": {
+            "nll": 5.342673301696777,
+            "ppl": 209.07087340810705,
+            "target_tokens": 34
+          }
+        },
+        {
+          "task": "schema_guard",
+          "prompt": "Output valid JSON with keys root_cause, next_step, confidence.",
+          "target": "{\"root_cause\":\"insufficient calibration\",\"next_step\":\"increase replay buffer and rerun benchmark\",\"confidence\":0.68}",
+          "output": "Output valid JSON with keys root_cause, next_step, confidence.",
+          "ll": {
+            "nll": 4.279495716094971,
+            "ppl": 72.20401950004707,
+            "target_tokens": 28
+          }
+        },
+        {
+          "task": "ablation_reasoning",
+          "prompt": "Provide one ablation idea and why it improves generalization.",
+          "target": "Ablate retrieval memory and compare against full pipeline; this isolates memory contribution and reduces variance in attribution.",
+          "output": "Provide one ablation idea and why it improves generalization.",
+          "ll": {
+            "nll": 6.390142917633057,
+            "ppl": 595.941744185636,
+            "target_tokens": 22
+          }
+        },
+        {
+          "task": "safety_contract",
+          "prompt": "Return JSON with fields constraint, fallback, verification.",
+          "target": "{\"constraint\":\"never bypass schema checks\",\"fallback\":\"return minimal safe JSON\",\"verification\":\"run fixed-seed probe before keep\"}",
+          "output": "Return JSON with fields constraint, fallback, verification.",
+          "ll": {
+            "nll": 6.296853542327881,
+            "ppl": 542.861130520521,
+            "target_tokens": 29
+          }
+        },
+        {
+          "task": "transfer_probe",
+          "prompt": "Describe one transfer test across two domains and expected delta signal.",
+          "target": "Source domain: formal reasoning, target domain: code generation. Expected delta signal: +0.01 in benchmark score after adapter replay.",
+          "output": "Describe one transfer test across two domains and expected delta signal.",
+          "ll": {
+            "nll": 5.251966953277588,
+            "ppl": 190.94147228820458,
+            "target_tokens": 28
+          }
+        }
+      ]
+    },
+    "adapter": {
+      "model_name": "distilgpt2",
+      "adapter_dir": "/Users/imymm/H2Q-Evo/reports/trusted_nano_lora_weights_latest",
+      "metrics": {
+        "score": 0.15325248987711082,
+        "avg_nll": 5.525179465611775,
+        "avg_ppl": 313.18544845879717
+      },
+      "rows": [
+        {
+          "task": "self_eval_json",
+          "prompt": "Return JSON with keys diagnosis, action, confidence and one sentence each.",
+          "target": "{\"diagnosis\":\"schema drift risk\",\"action\":\"run validation and retrain adapter\",\"confidence\":0.72}",
+          "output": "Return JSON with keys diagnosis, action, confidence and one sentence each.",
+          "ll": {
+            "nll": 5.59990119934082,
+            "ppl": 270.39969043868905,
+            "target_tokens": 24
+          }
+        },
+        {
+          "task": "robustness_plan",
+          "prompt": "Write one robustness experiment, include metric and expected failure mode.",
+          "target": "Hypothesis: consistency drops under distribution shift. Measurement: schema_valid_rate and failure_recovery_rate. Failure mode: invalid JSON spikes.",
+          "output": "Write one robustness experiment, include metric and expected failure mode.",
+          "ll": {
+            "nll": 5.337221145629883,
+            "ppl": 207.93408815854735,
+            "target_tokens": 34
+          }
+        },
+        {
+          "task": "schema_guard",
+          "prompt": "Output valid JSON with keys root_cause, next_step, confidence.",
+          "target": "{\"root_cause\":\"insufficient calibration\",\"next_step\":\"increase replay buffer and rerun benchmark\",\"confidence\":0.68}",
+          "output": "Output valid JSON with keys root_cause, next_step, confidence.",
+          "ll": {
+            "nll": 4.275753974914551,
+            "ppl": 71.93435556783386,
+            "target_tokens": 28
+          }
+        },
+        {
+          "task": "ablation_reasoning",
+          "prompt": "Provide one ablation idea and why it improves generalization.",
+          "target": "Ablate retrieval memory and compare against full pipeline; this isolates memory contribution and reduces variance in attribution.",
+          "output": "Provide one ablation idea and why it improves generalization.",
+          "ll": {
+            "nll": 6.389984130859375,
+            "ppl": 595.847124031188,
+            "target_tokens": 22
+          }
+        },
+        {
+          "task": "safety_contract",
+          "prompt": "Return JSON with fields constraint, fallback, verification.",
+          "target": "{\"constraint\":\"never bypass schema checks\",\"fallback\":\"return minimal safe JSON\",\"verification\":\"run fixed-seed probe before keep\"}",
+          "output": "Return JSON with fields constraint, fallback, verification.",
+          "ll": {
+            "nll": 6.2948899269104,
+            "ppl": 541.7962059284305,
+            "target_tokens": 29
+          }
+        },
+        {
+          "task": "transfer_probe",
+          "prompt": "Describe one transfer test across two domains and expected delta signal.",
+          "target": "Source domain: formal reasoning, target domain: code generation. Expected delta signal: +0.01 in benchmark score after adapter replay.",
+          "output": "Describe one transfer test across two domains and expected delta signal.",
+          "ll": {
+            "nll": 5.253326416015625,
+            "ppl": 191.20122662809422,
+            "target_tokens": 28
+          }
+        }
+      ]
+    }
+  },
+  "benchmark_gate": {
+    "threshold": 5e-05,
+    "gain_before": 5.201112425193277e-05,
+    "gain_after": 5.566569395795695e-05,
+    "pass": true
+  },
+  "distillation": {
+    "generated_at_utc": "2026-03-10T15:08:45.011522+00:00",
+    "config": {
+      "execution_mode": "compressed",
+      "skip_collect": false,
+      "dataset": "/Users/imymm/H2Q-Evo/reports/self_eval_distill_dataset_latest.json",
+      "collect_timeout_sec": 2400,
+      "train_timeout_sec": 600,
+      "benchmark_timeout_sec": 900
+    },
+    "steps": [
+      {
+        "name": "collect_samples",
+        "cmd": [],
+        "returncode": 0,
+        "stdout_tail": "",
+        "stderr_tail": "",
+        "elapsed_sec": 0.0,
+        "skipped": true,
+        "skip_reason": "execution-mode compressed or --skip-collect"
+      },
+      {
+        "name": "train_adapter",
+        "cmd": [
+          "/Users/imymm/H2Q-Evo/.venv/bin/python",
+          "tools/train_self_eval_distillation_adapter.py",
+          "--dataset",
+          "/Users/imymm/H2Q-Evo/reports/self_eval_distill_dataset_latest.json"
+        ],
+        "returncode": 0,
+        "stdout_tail": "JSON: /Users/imymm/H2Q-Evo/reports/self_eval_distill_model_1773155319.json\nLatest JSON: /Users/imymm/H2Q-Evo/reports/self_eval_distill_model_latest.json\nMD: /Users/imymm/H2Q-Evo/reports/self_eval_distill_model_1773155319.md\nLatest MD: /Users/imymm/H2Q-Evo/reports/self_eval_distill_model_latest.md",
+        "stderr_tail": "",
+        "elapsed_sec": 0.027352094650268555
+      },
+      {
+        "name": "distilled_benchmark",
+        "cmd": [
+          "/Users/imymm/H2Q-Evo/.venv/bin/python",
+          "tools/run_self_model_consistency_benchmark.py",
+          "--sessions",
+          "4",
+          "--schema-retries",
+          "2",
+          "--output-prefix",
+          "self_model_consistency_distilled",
+          "--self-eval-distill-model",
+          "reports/self_eval_distill_model_latest.json"
+        ],
+        "returncode": 0,
+        "stdout_tail": "JSON: /Users/imymm/H2Q-Evo/reports/self_model_consistency_distilled_1773155324.json\nMD: /Users/imymm/H2Q-Evo/reports/self_model_consistency_distilled_1773155324.md\nLatest JSON: /Users/imymm/H2Q-Evo/reports/self_model_consistency_distilled_latest.json\nLatest MD: /Users/imymm/H2Q-Evo/reports/self_model_consistency_distilled_latest.md",
+        "stderr_tail": "",
+        "elapsed_sec": 5.4078099727630615
+      }
+    ],
+    "metrics": {
+      "baseline_schema_valid_rate": 0.0,
+      "distilled_schema_valid_rate": 1.0,
+      "delta_schema_valid_rate": 1.0,
+      "schema_valid_rate_positive": true
+    }
+  },
+  "trusted_weight_training": {
+    "generated_at_utc": "2026-03-10T15:08:02.310670+00:00",
+    "model_name": "distilgpt2",
+    "dataset": "/Users/imymm/H2Q-Evo/reports/self_eval_distill_dataset_latest.json",
+    "corpus_text_count": 160,
+    "token_count": 40909,
+    "chunk_count": 638,
+    "epochs": 1,
+    "steps": 91,
+    "stopped_early": true,
+    "early_stop_patience": 40,
+    "early_stop_min_delta": 0.0001,
+    "warmup_steps": 19,
+    "loss_initial": 4.868463039398193,
+    "loss_final": 4.203610897064209,
+    "loss_min": 3.702695846557617,
+    "weights_dir": "/Users/imymm/H2Q-Evo/reports/trusted_nano_lora_weights_1773155255",
+    "weights_latest_dir": "/Users/imymm/H2Q-Evo/reports/trusted_nano_lora_weights_latest",
+    "latest_strategy": "updated_with_best",
+    "best_checkpoint": {
+      "dir": "/Users/imymm/H2Q-Evo/reports/trusted_nano_lora_weights_best_1773155255",
+      "loss": 3.702695846557617,
+      "step": 51,
+      "improved_vs_initial": true,
+      "replay": {
+        "score": 1.0,
+        "samples": [
+          {
+            "prompt": "请输出一个JSON，字段: diagnosis, action, confidence。",
+            "output": "请输出一个JSON，字段: diagnosis, action, confidence。\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"
+          },
+          {
+            "prompt": "Describe one robustness experiment with metric and expected failure mode.",
+            "output": "Describe one robustness experiment with metric and expected failure mode.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"
+          }
+        ]
+      },
+      "replay_pass": true
+    },
+    "lora": {
+      "r": 8,
+      "alpha": 16,
+      "dropout": 0.05,
+      "target_modules": [
+        "c_attn",
+        "c_proj"
+      ]
+    },
+    "samples": [
+      {
+        "prompt": "请给出一个结构化JSON格式的自我评估摘要：",
+        "output": "请给出一个结构化JSON格式的自我评估摘要：的话话话话话话话话话话话话话话话话话话话话话话话话话话话话话话话话话话话话话话话�"
+      },
+      {
+        "prompt": "Describe one concrete next-step experiment to improve robustness:",
+        "output": "Describe one concrete next-step experiment to improve robustness:\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"
+      }
+    ]
+  },
+  "bootstrap": {
+    "generated_at_utc": "2026-03-10T15:13:30.858522+00:00",
+    "meta": {
+      "execute": true,
+      "max_iterations": 3,
+      "timeout_sec": 900,
+      "output_prefix": "autoresearch_h2q_bootstrap_fusion",
+      "weight_signal_base_weight": 0.15,
+      "weight_signal_decay": 0.2,
+      "weight_signal_gate_floor": 0.15,
+      "hard_gate_enabled": true,
+      "hard_gate_benchmark_gain": 5e-05
+    },
+    "autoresearch_summary": {
+      "source": "/Users/imymm/H2Q-Evo/external/autoresearch/results.tsv",
+      "exists": false,
+      "keep_count": 0,
+      "discard_count": 0,
+      "crash_count": 0,
+      "top_keep_descriptions": []
+    },
+    "baseline_snapshot": {
+      "distill_delta": 1.0,
+      "research_aggregate": 0.9943158135231227,
+      "systemic_score": 0.9701875000000001
+    },
+    "final_snapshot": {
+      "distill_delta": 1.0,
+      "research_aggregate": 0.9943158135231227,
+      "systemic_score": 0.97259375
+    },
+    "experiments": [
+      {
+        "name": "distillation_uplift",
+        "description": "Run self-eval distillation pipeline and maximize schema-valid uplift.",
+        "cmd": [
+          "/Users/imymm/H2Q-Evo/.venv/bin/python",
+          "tools/run_self_eval_distillation_pipeline.py",
+          "--sessions",
+          "4",
+          "--teacher-provider",
+          "heuristic",
+          "--max-samples",
+          "80",
+          "--synthetic-min-size",
+          "80",
+          "--execution-mode",
+          "compressed"
+        ],
+        "metric_name": "delta_schema_valid_rate",
+        "baseline_metric": 1.0,
+        "executed": true,
+        "status": "keep",
+        "metric_after": 1.0,
+        "delta": 0.0,
+        "stdout_tail": "JSON: /Users/imymm/H2Q-Evo/reports/self_eval_distillation_pipeline_1773155325.json\nLatest JSON: /Users/imymm/H2Q-Evo/reports/self_eval_distillation_pipeline_latest.json\nMD: /Users/imymm/H2Q-Evo/reports/self_eval_distillation_pipeline_1773155325.md\nLatest MD: /Users/imymm/H2Q-Evo/reports/self_eval_distillation_pipeline_latest.md",
+        "stderr_tail": "",
+        "returncode": 0,
+        "elapsed_sec": 5.463808059692383,
+        "decision": {
+          "delta_signal": 0.5,
+          "meaning_uplift": 0.0,
+          "meaning_signal": 0.5,
+          "geometry_uplift": 0.0,
+          "geometry_signal": 0.5,
+          "axiom_uplift": 0.0,
+          "axiom_signal": 0.5,
+          "weight_gain_rate": 0.13656304606888192,
+          "weight_gain_signal": 0.9875070293161535,
+          "weight_gate": 0.15,
+          "weight_support_ratio": 0.0,
+          "weight_decay_factor": 1.0,
+          "weight_effective_weight": 0.0225,
+          "decision_score": 0.5109689081596135,
+          "geometry_before": 0.537724557425338,
+          "geometry_after": 0.537724557425338,
+          "boundary_ratio_before": 0.9925296824078704,
+          "boundary_ratio_after": 0.9925296824078704,
+          "projection_accel_before": -0.026083934614932858,
+          "projection_accel_after": -0.026083934614932858,
+          "axiom_score_before": 0.7805665915007218,
+          "axiom_score_after": 0.7805665915007218,
+          "axiom_pass_rate_before": 0.5714285714285714,
+          "axiom_pass_rate_after": 0.5714285714285714,
+          "axiom_violations_before": [
+            "A1_phi_boundary",
+            "A4_flat_background",
+            "A5_orthogonal_acceleration"
+          ],
+          "axiom_violations_after": [
+            "A1_phi_boundary",
+            "A4_flat_background",
+            "A5_orthogonal_acceleration"
+          ],
+          "benchmark_gain": 5.566569395795695e-05,
+          "benchmark_score_base": 0.15319682418315286,
+          "benchmark_score_adapter": 0.15325248987711082,
+          "benchmark_probe_returncode": 0,
+          "lora_replay_pass": true,
+          "lora_replay_score": 1.0,
+          "hard_gate": {
+            "enabled": true,
+            "benchmark_gain_threshold": 5e-05,
+            "benchmark_ok": true,
+            "lora_replay_ok": true
+          }
+        },
+        "decision_reason": "weight gain up (gated)"
+      },
+      {
+        "name": "research_cross_validation",
+        "description": "Aggregate evidence families and maximize cross-validated aggregate score.",
+        "cmd": [
+          "/Users/imymm/H2Q-Evo/.venv/bin/python",
+          "tools/run_research_aggregation_cross_validation.py"
+        ],
+        "metric_name": "aggregate_score",
+        "baseline_metric": 0.9943158135231227,
+        "executed": true,
+        "status": "keep",
+        "metric_after": 0.9943158135231227,
+        "delta": 0.0,
+        "stdout_tail": "JSON: /Users/imymm/H2Q-Evo/reports/research_aggregation_cross_validation_1773155344.json\nLatest JSON: /Users/imymm/H2Q-Evo/reports/research_aggregation_cross_validation_latest.json\nMD: /Users/imymm/H2Q-Evo/reports/research_aggregation_cross_validation_1773155344.md\nLatest MD: /Users/imymm/H2Q-Evo/reports/research_aggregation_cross_validation_latest.md\nProof MD: /Users/imymm/H2Q-Evo/reports/research_aggregation_cross_validation_proof_note_1773155344.md\nLatest Proof MD: /Users/imymm/H2Q-Evo/reports/research_aggregation_cross_validation_proof_note_latest.md\nAggregate score: 0.994316\nLOO min score: 0.991880\nRobust claim: True",
+        "stderr_tail": "",
+        "returncode": 0,
+        "elapsed_sec": 0.032948970794677734,
+        "decision": {
+          "delta_signal": 0.5,
+          "meaning_uplift": 0.0,
+          "meaning_signal": 0.5,
+          "geometry_uplift": 0.0,
+          "geometry_signal": 0.5,
+          "axiom_uplift": 0.0,
+          "axiom_signal": 0.5,
+          "weight_gain_rate": 0.13656304606888192,
+          "weight_gain_signal": 0.9875070293161535,
+          "weight_gate": 0.12280961296169726,
+          "weight_support_ratio": 0.0,
+          "weight_decay_factor": 0.8187307530779818,
+          "weight_effective_weight": 0.018421441944254588,
+          "decision_score": 0.5089805824379636,
+          "geometry_before": 0.537724557425338,
+          "geometry_after": 0.537724557425338,
+          "boundary_ratio_before": 0.9925296824078704,
+          "boundary_ratio_after": 0.9925296824078704,
+          "projection_accel_before": -0.026083934614932858,
+          "projection_accel_after": -0.026083934614932858,
+          "axiom_score_before": 0.7885665915007218,
+          "axiom_score_after": 0.7885665915007218,
+          "axiom_pass_rate_before": 0.5714285714285714,
+          "axiom_pass_rate_after": 0.5714285714285714,
+          "axiom_violations_before": [
+            "A1_phi_boundary",
+            "A4_flat_background",
+            "A5_orthogonal_acceleration"
+          ],
+          "axiom_violations_after": [
+            "A1_phi_boundary",
+            "A4_flat_background",
+            "A5_orthogonal_acceleration"
+          ],
+          "benchmark_gain": 5.566569395795695e-05,
+          "benchmark_score_base": 0.15319682418315286,
+          "benchmark_score_adapter": 0.15325248987711082,
+          "benchmark_probe_returncode": 0,
+          "lora_replay_pass": true,
+          "lora_replay_score": 1.0,
+          "hard_gate": {
+            "enabled": true,
+            "benchmark_gain_threshold": 5e-05,
+            "benchmark_ok": true,
+            "lora_replay_ok": true
+          }
+        },
+        "decision_reason": "weight gain up (gated)"
+      },
+      {
+        "name": "systemic_joint_capability",
+        "description": "Run systemic joint capability assessment (ci-safe) and maximize trusted aggregate.",
+        "cmd": [
+          "/Users/imymm/H2Q-Evo/.venv/bin/python",
+          "tools/run_systemic_platform_joint_capability_assessment.py",
+          "--ci-safe",
+          "--blueprint-cycles",
+          "1",
+          "--longrun-cycles",
+          "1"
+        ],
+        "metric_name": "systemic_score",
+        "baseline_metric": 0.9701875000000001,
+        "executed": true,
+        "status": "keep",
+        "metric_after": 0.97259375,
+        "delta": 0.002406249999999943,
+        "stdout_tail": "JSON: /Users/imymm/H2Q-Evo/reports/systemic_platform_joint_capability_1773155589.json\nLatest JSON: /Users/imymm/H2Q-Evo/reports/systemic_platform_joint_capability_latest.json\nMD: /Users/imymm/H2Q-Evo/reports/systemic_platform_joint_capability_1773155589.md\nLatest MD: /Users/imymm/H2Q-Evo/reports/systemic_platform_joint_capability_latest.md\nAggregate score: 0.972594\nLOO min score: 0.954545\nRobust claim: True",
+        "stderr_tail": "",
+        "returncode": 0,
+        "elapsed_sec": 226.87124514579773,
+        "decision": {
+          "delta_signal": 0.7424515962214148,
+          "meaning_uplift": 0.0009624999999999773,
+          "meaning_signal": 0.5574945631376045,
+          "geometry_uplift": 0.004829463620665719,
+          "geometry_signal": 0.7611639186161843,
+          "axiom_uplift": 0.010345920318345359,
+          "axiom_signal": 0.9229429151326871,
+          "weight_gain_rate": 0.13656304606888192,
+          "weight_gain_signal": 0.9875070293161535,
+          "weight_gate": 0.6703200460356393,
+          "weight_support_ratio": 1.0,
+          "weight_decay_factor": 0.6703200460356393,
+          "weight_effective_weight": 0.10054800690534589,
+          "decision_score": 0.7505347619858929,
+          "geometry_before": 0.537724557425338,
+          "geometry_after": 0.5425540210460037,
+          "boundary_ratio_before": 0.9925296824078704,
+          "boundary_ratio_after": 0.9931329594775511,
+          "projection_accel_before": -0.026083934614932858,
+          "projection_accel_after": -0.02268098323047285,
+          "axiom_score_before": 0.7885665915007218,
+          "axiom_score_after": 0.7989125118190672,
+          "axiom_pass_rate_before": 0.5714285714285714,
+          "axiom_pass_rate_after": 0.7142857142857143,
+          "axiom_violations_before": [
+            "A1_phi_boundary",
+            "A4_flat_background",
+            "A5_orthogonal_acceleration"
+          ],
+          "axiom_violations_after": [
+            "A1_phi_boundary",
+            "A5_orthogonal_acceleration"
+          ],
+          "benchmark_gain": 5.566569395795695e-05,
+          "benchmark_score_base": 0.15319682418315286,
+          "benchmark_score_adapter": 0.15325248987711082,
+          "benchmark_probe_returncode": 0,
+          "lora_replay_pass": true,
+          "lora_replay_score": 1.0,
+          "hard_gate": {
+            "enabled": true,
+            "benchmark_gain_threshold": 5e-05,
+            "benchmark_ok": true,
+            "lora_replay_ok": true
+          }
+        },
+        "decision_reason": "metric up, meaning up, geometry up, axiom up, weight gain up"
+      }
+    ],
+    "summary": {
+      "keep": 3,
+      "discard": 0,
+      "crash": 0,
+      "benchmark_probe_failures": 0
+    },
+    "meaning_score_baseline": {
+      "score": 0.9366539533807807,
+      "components": {
+        "utility": 0.9822516567615613,
+        "autonomy": 1.0,
+        "robustness": 0.9822516567615613,
+        "alignment": 0.9701875000000001,
+        "efficiency": 0.5
+      }
+    },
+    "meaning_score_final": {
+      "score": 0.9876164533807806,
+      "components": {
+        "utility": 0.9834547817615613,
+        "autonomy": 1.0,
+        "robustness": 0.9834547817615613,
+        "alignment": 0.97259375,
+        "efficiency": 1.0
+      }
+    },
+    "meaning_curve": [
+      {
+        "step": 0,
+        "experiment": "baseline",
+        "score": 0.9366539533807807
+      },
+      {
+        "step": 1,
+        "experiment": "distillation_uplift",
+        "score": 0.9866539533807807
+      },
+      {
+        "step": 2,
+        "experiment": "research_cross_validation",
+        "score": 0.9866539533807807
+      },
+      {
+        "step": 3,
+        "experiment": "systemic_joint_capability",
+        "score": 0.9876164533807806
+      }
+    ],
+    "geometry_signal_baseline": {
+      "ap_gp_boundary_ratio": 0.9925296824078704,
+      "phi": 1.618033988749895,
+      "phi_alignment": 0.6134170785712025,
+      "projection_acceleration": -0.026083934614932858,
+      "geometry_score": 0.537724557425338
+    },
+    "geometry_signal_final": {
+      "ap_gp_boundary_ratio": 0.9931329594775511,
+      "phi": 1.618033988749895,
+      "phi_alignment": 0.6137899243048985,
+      "projection_acceleration": -0.02268098323047285,
+      "geometry_score": 0.5425540210460037
+    },
+    "geometry_curve": [
+      {
+        "step": 0,
+        "experiment": "baseline",
+        "score": 0.537724557425338,
+        "boundary_ratio": 0.9925296824078704,
+        "projection_accel": -0.026083934614932858
+      },
+      {
+        "step": 1,
+        "experiment": "distillation_uplift",
+        "score": 0.537724557425338,
+        "boundary_ratio": 0.9925296824078704,
+        "projection_accel": -0.026083934614932858
+      },
+      {
+        "step": 2,
+        "experiment": "research_cross_validation",
+        "score": 0.537724557425338,
+        "boundary_ratio": 0.9925296824078704,
+        "projection_accel": -0.026083934614932858
+      },
+      {
+        "step": 3,
+        "experiment": "systemic_joint_capability",
+        "score": 0.5425540210460037,
+        "boundary_ratio": 0.9931329594775511,
+        "projection_accel": -0.02268098323047285
+      }
+    ],
+    "axiom_contract": {
+      "path": "/Users/imymm/H2Q-Evo/axiom_contract.json",
+      "version": "v1"
+    },
+    "axiom_consistency_baseline": {
+      "score": 0.7805665915007218,
+      "pass_rate": 0.5714285714285714,
+      "passed": 4,
+      "total": 7,
+      "components": [
+        {
+          "id": "A1_phi_boundary",
+          "metric": "abs(ap_gp_boundary_ratio - phi)",
+          "value": 0.6134170785712025,
+          "threshold": 0.75,
+          "weight": 0.18,
+          "pass": false
+        },
+        {
+          "id": "A2_nonnegative_norm",
+          "metric": "nonnegative_snapshot",
+          "value": 1.0,
+          "threshold": 1.0,
+          "weight": 0.1,
+          "pass": true
+        },
+        {
+          "id": "A3_causal_stability",
+          "metric": "1-crash_rate",
+          "value": 1.0,
+          "threshold": 0.8,
+          "weight": 0.16,
+          "pass": true
+        },
+        {
+          "id": "A4_flat_background",
+          "metric": "z1_flatness",
+          "value": 0.47832130770134285,
+          "threshold": 0.5,
+          "weight": 0.12,
+          "pass": false
+        },
+        {
+          "id": "A5_orthogonal_acceleration",
+          "metric": "z2_accel_quality",
+          "value": 0.397152732440161,
+          "threshold": 0.5,
+          "weight": 0.12,
+          "pass": false
+        },
+        {
+          "id": "A6_meaning_progress",
+          "metric": "meaning_score",
+          "value": 0.9366539533807807,
+          "threshold": 0.55,
+          "weight": 0.16,
+          "pass": true
+        },
+        {
+          "id": "A7_systemic_gate",
+          "metric": "systemic_score",
+          "value": 0.9701875000000001,
+          "threshold": 0.75,
+          "weight": 0.16,
+          "pass": true
+        }
+      ],
+      "violations": [
+        "A1_phi_boundary",
+        "A4_flat_background",
+        "A5_orthogonal_acceleration"
+      ]
+    },
+    "axiom_consistency_final": {
+      "score": 0.7989125118190672,
+      "pass_rate": 0.7142857142857143,
+      "passed": 5,
+      "total": 7,
+      "components": [
+        {
+          "id": "A1_phi_boundary",
+          "metric": "abs(ap_gp_boundary_ratio - phi)",
+          "value": 0.6137899243048985,
+          "threshold": 0.75,
+          "weight": 0.18,
+          "pass": false
+        },
+        {
+          "id": "A2_nonnegative_norm",
+          "metric": "nonnegative_snapshot",
+          "value": 1.0,
+          "threshold": 1.0,
+          "weight": 0.1,
+          "pass": true
+        },
+        {
+          "id": "A3_causal_stability",
+          "metric": "1-crash_rate",
+          "value": 1.0,
+          "threshold": 0.8,
+          "weight": 0.16,
+          "pass": true
+        },
+        {
+          "id": "A4_flat_background",
+          "metric": "z1_flatness",
+          "value": 0.546380335390543,
+          "threshold": 0.5,
+          "weight": 0.12,
+          "pass": true
+        },
+        {
+          "id": "A5_orthogonal_acceleration",
+          "metric": "z2_accel_quality",
+          "value": 0.41025877213662765,
+          "threshold": 0.5,
+          "weight": 0.12,
+          "pass": false
+        },
+        {
+          "id": "A6_meaning_progress",
+          "metric": "meaning_score",
+          "value": 0.9876164533807806,
+          "threshold": 0.55,
+          "weight": 0.16,
+          "pass": true
+        },
+        {
+          "id": "A7_systemic_gate",
+          "metric": "systemic_score",
+          "value": 0.97259375,
+          "threshold": 0.75,
+          "weight": 0.16,
+          "pass": true
+        }
+      ],
+      "violations": [
+        "A1_phi_boundary",
+        "A5_orthogonal_acceleration"
+      ]
+    },
+    "axiom_curve": [
+      {
+        "step": 0,
+        "experiment": "baseline",
+        "score": 0.7805665915007218,
+        "pass_rate": 0.5714285714285714
+      },
+      {
+        "step": 1,
+        "experiment": "distillation_uplift",
+        "score": 0.7885665915007218,
+        "pass_rate": 0.5714285714285714
+      },
+      {
+        "step": 2,
+        "experiment": "research_cross_validation",
+        "score": 0.7885665915007218,
+        "pass_rate": 0.5714285714285714
+      },
+      {
+        "step": 3,
+        "experiment": "systemic_joint_capability",
+        "score": 0.7989125118190672,
+        "pass_rate": 0.7142857142857143
+      }
+    ],
+    "weight_training_signal_baseline": {
+      "source": "/Users/imymm/H2Q-Evo/reports/trusted_nano_lora_training_latest.json",
+      "loss_initial": 4.868463039398193,
+      "loss_final": 4.203610897064209,
+      "loss_improvement_rate": 0.13656304606888192,
+      "weight_gain_signal": 0.9875070293161535
+    },
+    "weight_training_signal_final": {
+      "source": "/Users/imymm/H2Q-Evo/reports/trusted_nano_lora_training_latest.json",
+      "loss_initial": 4.868463039398193,
+      "loss_final": 4.203610897064209,
+      "loss_improvement_rate": 0.13656304606888192,
+      "weight_gain_signal": 0.9875070293161535
+    },
+    "weight_training_curve": [
+      {
+        "step": 0,
+        "experiment": "baseline",
+        "loss_improvement_rate": 0.13656304606888192,
+        "weight_gain_signal": 0.9875070293161535
+      },
+      {
+        "step": 1,
+        "experiment": "distillation_uplift",
+        "loss_improvement_rate": 0.13656304606888192,
+        "weight_gain_signal": 0.9875070293161535,
+        "weight_gate": 0.15,
+        "weight_effective_weight": 0.0225
+      },
+      {
+        "step": 2,
+        "experiment": "research_cross_validation",
+        "loss_improvement_rate": 0.13656304606888192,
+        "weight_gain_signal": 0.9875070293161535,
+        "weight_gate": 0.12280961296169726,
+        "weight_effective_weight": 0.018421441944254588
+      },
+      {
+        "step": 3,
+        "experiment": "systemic_joint_capability",
+        "loss_improvement_rate": 0.13656304606888192,
+        "weight_gain_signal": 0.9875070293161535,
+        "weight_gate": 0.6703200460356393,
+        "weight_effective_weight": 0.10054800690534589
+      }
+    ],
+    "incremental_benchmark_baseline": {
+      "cmd": [
+        "/Users/imymm/H2Q-Evo/.venv/bin/python",
+        "tools/run_local_incremental_benchmark.py",
+        "--seed",
+        "42"
+      ],
+      "returncode": 0,
+      "gain": 5.566569395795695e-05,
+      "score_base": 0.15319682418315286,
+      "score_adapter": 0.15325248987711082,
+      "stdout_tail": "JSON: /Users/imymm/H2Q-Evo/reports/local_incremental_benchmark_1773155319.json\nLatest JSON: /Users/imymm/H2Q-Evo/reports/local_incremental_benchmark_latest.json\nMD: /Users/imymm/H2Q-Evo/reports/local_incremental_benchmark_1773155319.md\nLatest MD: /Users/imymm/H2Q-Evo/reports/local_incremental_benchmark_latest.md",
+      "stderr_tail": "`loss_type=None` was set in the config but it is unrecognized. Using the default loss: `ForCausalLMLoss`."
+    },
+    "lora_replay_baseline": {
+      "source": "/Users/imymm/H2Q-Evo/reports/trusted_nano_lora_training_latest.json",
+      "exists": true,
+      "replay_pass": true,
+      "replay_score": 1.0,
+      "best_loss": 3.702695846557617,
+      "best_step": 51
+    },
+    "next_plan": [
+      "Increase experiment breadth around components marked 'discard' with smaller perturbations.",
+      "Prioritize distillation + consistency coupling before scaling systemic gate complexity.",
+      "Run overnight execute mode with max-iterations >= 12 for true autoresearch-style cadence."
+    ]
+  }
+}

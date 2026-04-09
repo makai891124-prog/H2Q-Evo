@@ -1,0 +1,28 @@
+{
+  "generated_at_utc": "2026-04-05T13:58:38.653076+00:00",
+  "routing_policy": {
+    "edge_route": {
+      "when": "short prompts, low uncertainty, deterministic formatting tasks",
+      "tier": "edge",
+      "max_tokens": 256,
+      "fallback": "bridge"
+    },
+    "bridge_route": {
+      "when": "medium complexity, multi-turn consistency checks, adapter tasks",
+      "tier": "bridge",
+      "max_tokens": 512,
+      "fallback": "core"
+    },
+    "core_route": {
+      "when": "high uncertainty, long-horizon planning, release-gate critical tasks",
+      "tier": "core",
+      "max_tokens": 1024,
+      "fallback": "bridge with decomposition"
+    }
+  },
+  "tier_counts": {
+    "edge": 7,
+    "bridge": 1,
+    "core": 4
+  }
+}

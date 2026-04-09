@@ -17,15 +17,33 @@ REPORTS = ROOT / "reports"
 PY = ROOT / ".venv" / "bin" / "python"
 
 
-def _run(cmd: List[str], name: str) -> Dict[str, Any]:
-    proc = subprocess.run(cmd, cwd=str(ROOT), text=True, capture_output=True)
-    return {
-        "name": name,
-        "cmd": cmd,
-        "returncode": proc.returncode,
-        "stdout_tail": "\n".join((proc.stdout or "").splitlines()[-25:]),
-        "stderr_tail": "\n".join((proc.stderr or "").splitlines()[-25:]),
-    }
+def _run(cmd: List[str], name: str, timeout_sec: int) -> Dict[str, Any]:
+    start = time.time()
+    try:
+        proc = subprocess.run(
+            cmd,
+            cwd=str(ROOT),
+            text=True,
+            capture_output=True,
+            timeout=max(60, int(timeout_sec)),
+        )
+        return {
+            "name": name,
+            "cmd": cmd,
+            "returncode": proc.returncode,
+            "stdout_tail": "\n".join((proc.stdout or "").splitlines()[-25:]),
+            "stderr_tail": "\n".join((proc.stderr or "").splitlines()[-25:]),
+            "elapsed_sec": time.time() - start,
+        }
+    except subprocess.TimeoutExpired as exc:
+        return {
+            "name": name,
+            "cmd": cmd,
+            "returncode": 124,
+            "stdout_tail": "\n".join((exc.stdout or "").splitlines()[-25:]),
+            "stderr_tail": "\n".join(((exc.stderr or "") + "\nTIMEOUT").splitlines()[-25:]),
+            "elapsed_sec": time.time() - start,
+        }
 
 
 def _latest_metric(path: Path, key: str, default: float = 0.0) -> float:
@@ -41,8 +59,22 @@ def _latest_metric(path: Path, key: str, default: float = 0.0) -> float:
 def main() -> int:
     parser = argparse.ArgumentParser(description="Run self-eval distillation enhancement pipeline")
     parser.add_argument("--sessions", type=int, default=6)
+    parser.add_argument("--max-samples", type=int, default=160)
     parser.add_argument("--teacher-provider", choices=["deepseek", "heuristic"], default="deepseek")
     parser.add_argument("--teacher-key-file", default="secrets/deepseek_api_key.txt")
+    parser.add_argument("--include-valid-prompts", action="store_true")
+    parser.add_argument("--synthetic-min-size", type=int, default=120)
+    parser.add_argument("--dataset", default="reports/self_eval_distill_dataset_latest.json")
+    parser.add_argument(
+        "--execution-mode",
+        choices=["full", "compressed"],
+        default="full",
+        help="full: collect+train+benchmark; compressed: skip collect when dataset already exists.",
+    )
+    parser.add_argument("--skip-collect", action="store_true")
+    parser.add_argument("--collect-timeout-sec", type=int, default=2400)
+    parser.add_argument("--train-timeout-sec", type=int, default=600)
+    parser.add_argument("--benchmark-timeout-sec", type=int, default=900)
     parser.add_argument("--output-prefix", default="self_eval_distillation_pipeline")
     args = parser.parse_args()
 
@@ -50,29 +82,57 @@ def main() -> int:
 
     steps = []
 
-    steps.append(
-        _run(
-            [
-                str(PY),
-                "tools/collect_self_eval_distill_samples.py",
-                "--teacher-provider",
-                args.teacher_provider,
-                "--teacher-key-file",
-                args.teacher_key_file,
-            ],
-            "collect_samples",
+    dataset_path = Path(args.dataset)
+    if not dataset_path.is_absolute():
+        dataset_path = ROOT / dataset_path
+
+    do_collect = bool(args.execution_mode == "full")
+    if args.execution_mode == "compressed":
+        do_collect = not dataset_path.exists()
+    if args.skip_collect:
+        do_collect = False
+
+    if do_collect:
+        steps.append(
+            _run(
+                [
+                    str(PY),
+                    "tools/collect_self_eval_distill_samples.py",
+                    "--teacher-provider",
+                    args.teacher_provider,
+                    "--teacher-key-file",
+                    args.teacher_key_file,
+                    "--max-samples",
+                    str(max(1, args.max_samples)),
+                    "--synthetic-min-size",
+                    str(max(0, args.synthetic_min_size)),
+                    *(["--include-valid-prompts"] if args.include_valid_prompts else []),
+                ],
+                "collect_samples",
+                timeout_sec=int(args.collect_timeout_sec),
+            )
         )
-    )
+        dataset_for_train = "reports/self_eval_distill_dataset_latest.json"
+    else:
+        steps.append(
+            {
+                "name": "collect_samples",
+                "cmd": [],
+                "returncode": 0,
+                "stdout_tail": "",
+                "stderr_tail": "",
+                "elapsed_sec": 0.0,
+                "skipped": True,
+                "skip_reason": "execution-mode compressed or --skip-collect",
+            }
+        )
+        dataset_for_train = str(dataset_path)
 
     steps.append(
         _run(
-            [
-                str(PY),
-                "tools/train_self_eval_distillation_adapter.py",
-                "--dataset",
-                "reports/self_eval_distill_dataset_latest.json",
-            ],
+            [str(PY), "tools/train_self_eval_distillation_adapter.py", "--dataset", dataset_for_train],
             "train_adapter",
+            timeout_sec=int(args.train_timeout_sec),
         )
     )
 
@@ -91,6 +151,7 @@ def main() -> int:
                 "reports/self_eval_distill_model_latest.json",
             ],
             "distilled_benchmark",
+            timeout_sec=int(args.benchmark_timeout_sec),
         )
     )
 
@@ -106,6 +167,14 @@ def main() -> int:
 
     payload = {
         "generated_at_utc": datetime.now(timezone.utc).isoformat(),
+        "config": {
+            "execution_mode": args.execution_mode,
+            "skip_collect": bool(args.skip_collect),
+            "dataset": str(dataset_path),
+            "collect_timeout_sec": int(args.collect_timeout_sec),
+            "train_timeout_sec": int(args.train_timeout_sec),
+            "benchmark_timeout_sec": int(args.benchmark_timeout_sec),
+        },
         "steps": steps,
         "metrics": {
             "baseline_schema_valid_rate": baseline_rate,

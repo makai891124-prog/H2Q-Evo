@@ -1,0 +1,57 @@
+{
+  "paper": {
+    "title": "On Series Involving Cubed Catalan Numbers",
+    "url": "https://arxiv.org/html/2604.01249v1",
+    "core_sections": [
+      "Series involving cubed Catalan numbers",
+      "Series involving fourth powers of Catalan numbers",
+      "Ramanujan-like series and related series"
+    ]
+  },
+  "encoded_claims": [
+    {
+      "id": "Eq104",
+      "statement": "Generalized Bauer-type family for 1/pi indexed by m",
+      "space_mapping": [
+        "1D convergence",
+        "2D m-N heatmap",
+        "4D family projection"
+      ]
+    },
+    {
+      "id": "Eq114",
+      "statement": "Ramanujan-like family for 1/pi^2 indexed by m",
+      "space_mapping": [
+        "2D m-N heatmap",
+        "3D error manifold",
+        "4D family projection"
+      ]
+    },
+    {
+      "id": "Eq25",
+      "statement": "Special 1/pi^3 identity from central binomial cube series",
+      "space_mapping": [
+        "1D convergence",
+        "4D family projection"
+      ]
+    }
+  ],
+  "verification_summary": {
+    "eq20_rel_error_last": 0.04463774400465013,
+    "eq24_rel_error_last": 1.2146757587286443e-11,
+    "eq25_rel_error_last": 0.020397144430349862,
+    "thresholds": {
+      "eq20_rel_error_lt_5e-2": true,
+      "eq24_rel_error_lt_1e-8": true,
+      "eq25_rel_error_lt_3e-2": true
+    },
+    "canonical_equations_passed": true,
+    "exploratory_scan_note": "Higher-m family scans are exploratory visualization outputs, not strict closed-form acceptance checks."
+  },
+  "abstract_conclusion": [
+    "The paper's theorem families can be compiled into executable numerical contracts.",
+    "Canonical explicit identities (Eq20/Eq24/Eq25) are reproducibly supported in this implementation.",
+    "Multi-dimensional visual spaces expose both local convergence speed and global argument geometry.",
+    "The Stage6/7/8 pipeline supports translating formal math claims into reproducible visual artifacts."
+  ]
+}

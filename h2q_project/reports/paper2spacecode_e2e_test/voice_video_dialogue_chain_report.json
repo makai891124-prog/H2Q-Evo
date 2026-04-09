@@ -1,0 +1,33 @@
+{
+  "input_text": "hello h2q, render a tribonacci manifold from this paper formula and explain it",
+  "language": "en-US",
+  "use_cloud_fallback": false,
+  "use_tribonacci_bridge": false,
+  "tooling": {
+    "say": true,
+    "ffmpeg": true
+  },
+  "audio_stage": {
+    "stage": "audio",
+    "media_path": "/var/folders/qm/cngt8n216yvbptkh3fslh4f80000gn/T/h2q_voice_chain_0xr79ekr/dialogue_input.wav",
+    "transcript": "hannah h. tucuman dented the nineteen many file it",
+    "response_text": "我收到你的语音输入，但暂时没有生成可用回复。",
+    "passed": true,
+    "error": null
+  },
+  "video_stage": {
+    "stage": "video",
+    "media_path": "/var/folders/qm/cngt8n216yvbptkh3fslh4f80000gn/T/h2q_voice_chain_0xr79ekr/dialogue_input.mp4",
+    "transcript": "hannah h. tucuman dented the nineteen many file it",
+    "response_text": "我收到你的语音输入，但暂时没有生成可用回复。",
+    "passed": true,
+    "error": null
+  },
+  "artifacts": {
+    "audio_input": "/Users/imymm/H2Q-Evo/h2q_project/reports/paper2spacecode_e2e_test/stage8_chain_media/dialogue_input.wav",
+    "video_input": "/Users/imymm/H2Q-Evo/h2q_project/reports/paper2spacecode_e2e_test/stage8_chain_media/dialogue_input.mp4",
+    "video_audio": "/Users/imymm/H2Q-Evo/h2q_project/reports/paper2spacecode_e2e_test/stage8_chain_media/dialogue_video_audio.wav"
+  },
+  "overall_passed": true,
+  "duration_sec": 2.307
+}

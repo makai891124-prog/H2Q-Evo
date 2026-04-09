@@ -1,0 +1,118 @@
+{
+  "paper": {
+    "title": "On Series Involving Cubed Catalan Numbers",
+    "url": "https://arxiv.org/html/2604.01249v1"
+  },
+  "families": [
+    {
+      "family": "theorem10_pi_inverse_family",
+      "display_name": "Theorem 10 Eq104 (1/pi)",
+      "max_rel_error_last": 0.9999999999915001,
+      "min_rel_error_last": 0.04463774400465013,
+      "m_records": [
+        {
+          "m": 0,
+          "target": 0.6366197723675814,
+          "partial_sum_last": 0.6082025019403386,
+          "abs_error_last": 0.028417270427242736,
+          "rel_error_last": 0.04463774400465013
+        },
+        {
+          "m": 1,
+          "target": 40.74366543152521,
+          "partial_sum_last": 0.6366197714867202,
+          "abs_error_last": 40.10704566003849,
+          "rel_error_last": 0.9843750000216196
+        },
+        {
+          "m": 2,
+          "target": 1100.0789666511805,
+          "partial_sum_last": 0.02357851008768817,
+          "abs_error_last": 1100.0553881410929,
+          "rel_error_last": 0.9999785665294925
+        },
+        {
+          "m": 3,
+          "target": 12072.197164896357,
+          "partial_sum_last": 0.00018862808070150557,
+          "abs_error_last": 12072.196976268277,
+          "rel_error_last": 0.999999984375
+        },
+        {
+          "m": 4,
+          "target": 64699.43168061641,
+          "partial_sum_last": 5.499360953396664e-07,
+          "abs_error_last": 64699.431680066475,
+          "rel_error_last": 0.9999999999915001
+        }
+      ]
+    },
+    {
+      "family": "theorem12_pi_square_inverse_family",
+      "display_name": "Theorem 12 Eq114 (1/pi^2)",
+      "max_rel_error_last": 0.9999999999909153,
+      "min_rel_error_last": 1.2146757587286443e-11,
+      "m_records": [
+        {
+          "m": 1,
+          "target": -0.8105694691387022,
+          "partial_sum_last": -0.810569469148548,
+          "abs_error_last": 9.845790849283276e-12,
+          "rel_error_last": 1.2146757587286443e-11
+        },
+        {
+          "m": 2,
+          "target": 6.831466143193671,
+          "partial_sum_last": 0.026685414621850277,
+          "abs_error_last": 6.804780728571821,
+          "rel_error_last": 0.99609375
+        },
+        {
+          "m": 3,
+          "target": -229.48479675132762,
+          "partial_sum_last": -0.00013662932286387342,
+          "abs_error_last": 229.48466012200475,
+          "rel_error_last": 0.9999994046258193
+        },
+        {
+          "m": 4,
+          "target": 21476.073978549422,
+          "partial_sum_last": 1.9510345384262284e-07,
+          "abs_error_last": 21476.073978354318,
+          "rel_error_last": 0.9999999999909153
+        }
+      ]
+    },
+    {
+      "family": "equation25_pi_cube_inverse_special_case",
+      "display_name": "Equation 25 (1/pi^3 special case)",
+      "target": 1.3932039296856769,
+      "partial_sum_last": 1.3647865479109471,
+      "abs_error_last": 0.028417381774729744,
+      "rel_error_last": 0.020397144430349862
+    }
+  ],
+  "canonical_equations": {
+    "eq20_bauer_m0": {
+      "target": 0.6366197723675814,
+      "partial_sum_last": 0.6082025019403386,
+      "rel_error_last": 0.04463774400465013
+    },
+    "eq24_m1_pi2": {
+      "target": -0.8105694691387022,
+      "partial_sum_last": -0.810569469148548,
+      "rel_error_last": 1.2146757587286443e-11
+    },
+    "eq25_pi3": {
+      "target": 1.3932039296856769,
+      "partial_sum_last": 1.3647865479109471,
+      "rel_error_last": 0.020397144430349862
+    },
+    "thresholds": {
+      "eq20_rel_error_lt_5e-2": true,
+      "eq24_rel_error_lt_1e-8": true,
+      "eq25_rel_error_lt_3e-2": true
+    },
+    "passed": true
+  }
+}

@@ -1,32 +1,32 @@
 # Research-Architecture Cross Validation
 
-- generated_at_utc: `2026-03-07T12:24:10.639608+00:00`
-- sessions: `50`
-- total_runs: `150`
+- generated_at_utc: `2026-04-05T14:27:04.618734+00:00`
+- sessions: `4`
+- total_runs: `12`
 - schema_valid_rate: `1.000000`
-- overall_score: `0.913007`
+- overall_score: `0.988955`
 - baseline_gate_ok: `True`
 - longrun_gate_ok: `True`
 - lean_compile_success: `True`
 
 ## Aggregate Effectiveness
-- score: `0.978739`
-- distill_gain: value=1.000000, weight=0.25, note=schema_valid_rate delta from pipeline
-- consistency_quality: value=0.913007, weight=0.20, note=overall_score from distilled benchmark
-- robustness_30_vs_50: value=0.992249, weight=0.15, note=stability under sessions increase
+- score: `0.994316`
+- distill_gain: value=1.000000, weight=0.30, note=schema_valid_rate delta from pipeline
+- consistency_quality: value=0.988955, weight=0.20, note=overall_score from distilled benchmark
+- robustness_30_vs_50: value=0.992249, weight=0.10, note=stability under sessions increase
 - public_validation: value=0.989200, weight=0.25, note=baseline/longrun gate and alignment
 - formal_closure: value=1.000000, weight=0.15, note=Lean compile + closure facts
 
 ## Leave-One-Out Cross Validation
-- min_score: `0.971652`
-- max_score: `0.995172`
-- mean_score: `0.978683`
-- std_score: `0.008393`
-- left_out=distill_gain, score=0.971652
-- left_out=consistency_quality, score=0.995172
-- left_out=robustness_30_vs_50, score=0.976355
-- left_out=public_validation, score=0.975252
-- left_out=formal_closure, score=0.974987
+- min_score: `0.991880`
+- max_score: `0.996021`
+- mean_score: `0.994283`
+- std_score: `0.001529`
+- left_out=distill_gain, score=0.991880
+- left_out=consistency_quality, score=0.995656
+- left_out=robustness_30_vs_50, score=0.994545
+- left_out=public_validation, score=0.996021
+- left_out=formal_closure, score=0.993313
 
 ## Proof Argument
 - P1: Distillation pipeline has positive schema-valid uplift.

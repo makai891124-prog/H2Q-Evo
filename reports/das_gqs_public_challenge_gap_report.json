@@ -1,0 +1,44 @@
+{
+  "timestamp_utc": "2026-03-27T16:18:32.550796+00:00",
+  "challenge": "公开挑战口径：Random Circuit Sampling (RCS)",
+  "public_reference": {
+    "task": "Random Circuit Sampling (RCS)",
+    "platform": "Google Sycamore (2019)",
+    "qubits": 53,
+    "samples_per_instance": 1000000,
+    "runtime_seconds": 200.0,
+    "claimed_classical_runtime_years": 10000.0,
+    "source_url": "https://research.google/pubs/quantum-supremacy-using-a-programmable-superconducting-processor/"
+  },
+  "local_artifacts": {
+    "rcs_stats": "reports/das_gqs_rcs_subset_stats.json",
+    "supremacy_scaling": "reports/das_gqs_supremacy_benchmark_report.json"
+  },
+  "gap_metrics": {
+    "local_max_qubits": 14,
+    "public_qubits": 53,
+    "qubit_gap": 39,
+    "local_state_space_dim": 16384,
+    "public_state_space_dim": 9007199254740992,
+    "state_space_ratio_local_over_public": 1.8189894035458565e-12,
+    "state_space_order_gap_bits": 39,
+    "local_total_samples": 600,
+    "public_samples_per_instance": 1000000,
+    "sample_ratio_local_over_public": 0.0006
+  },
+  "feature_assessment": {
+    "rcs_statistical_equivalence_pass_rate": 1.0,
+    "max_abs_error": 2.275957200481571e-14,
+    "max_abs_error_vs_margin_ratio": 2.275957200481571e-05,
+    "n20_expectation_delta": 2.83276944882399e-16,
+    "n20_memory_reduction_ratio": 17772.474576271186,
+    "n20_time_speedup_ratio": 3302.6501803342844,
+    "has_quantum_like_correlations": true,
+    "has_quantum_like_entanglement_statistics": true,
+    "has_hardware_validated_quantum_advantage": false
+  },
+  "verdict": {
+    "summary": "DAS 架构已表现出明确的量子态结构仿真特性（纠缠统计一致、误差远低于等价边界、且在测试族上具备显著可扩展性），但尚未达到公开 RCS 挑战的规模与硬件实测口径，因此当前结论应表述为‘具备量子计算特性’，而非‘已实现硬件层量子优势’。",
+    "claim_boundary": "可支持：量子特性/量子态演化等价的工程证据。不可直接支持：对 53+ qubit 实机 RCS 挑战的同规模替代声明。"
+  }
+}

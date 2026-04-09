@@ -1,0 +1,462 @@
+{
+  "generated_at_utc": "2026-03-10T15:56:44.670449+00:00",
+  "meta": {
+    "execute": true,
+    "max_iterations": 1,
+    "timeout_sec": 900,
+    "output_prefix": "autoresearch_h2q_bootstrap_fusion",
+    "weight_signal_base_weight": 0.15,
+    "weight_signal_decay": 0.2,
+    "weight_signal_gate_floor": 0.15,
+    "hard_gate_enabled": true,
+    "hard_gate_benchmark_gain": 0.0001,
+    "hard_gate_benchmark_gain_resolved": 1.4901544098611108e-05,
+    "hard_gate_benchmark_adaptive": {
+      "enabled": true,
+      "lookback": 12,
+      "quantile": 0.25,
+      "safety_floor": 1e-05,
+      "static_threshold": 0.0001,
+      "resolved_threshold": 1.4901544098611108e-05,
+      "history_count": 12,
+      "history_used": [
+        {
+          "file": "/Users/imymm/H2Q-Evo/reports/local_incremental_benchmark_1773158123.json",
+          "gain": 1.4901544098611108e-05
+        },
+        {
+          "file": "/Users/imymm/H2Q-Evo/reports/local_incremental_benchmark_1773158079.json",
+          "gain": 1.4901544098611108e-05
+        },
+        {
+          "file": "/Users/imymm/H2Q-Evo/reports/local_incremental_benchmark_1773158048.json",
+          "gain": 1.4901544098611108e-05
+        },
+        {
+          "file": "/Users/imymm/H2Q-Evo/reports/local_incremental_benchmark_1773158003.json",
+          "gain": 1.4901544098611108e-05
+        },
+        {
+          "file": "/Users/imymm/H2Q-Evo/reports/local_incremental_benchmark_1773157933.json",
+          "gain": 1.4901544098611108e-05
+        },
+        {
+          "file": "/Users/imymm/H2Q-Evo/reports/local_incremental_benchmark_1773157886.json",
+          "gain": 1.4901544098611108e-05
+        },
+        {
+          "file": "/Users/imymm/H2Q-Evo/reports/local_incremental_benchmark_1773157855.json",
+          "gain": 1.4901544098611108e-05
+        },
+        {
+          "file": "/Users/imymm/H2Q-Evo/reports/local_incremental_benchmark_1773157811.json",
+          "gain": 1.4901544098611108e-05
+        },
+        {
+          "file": "/Users/imymm/H2Q-Evo/reports/local_incremental_benchmark_1773157778.json",
+          "gain": 1.4901544098611108e-05
+        },
+        {
+          "file": "/Users/imymm/H2Q-Evo/reports/local_incremental_benchmark_1773157733.json",
+          "gain": 1.4901544098611108e-05
+        },
+        {
+          "file": "/Users/imymm/H2Q-Evo/reports/local_incremental_benchmark_1773157341.json",
+          "gain": 1.4901544098611108e-05
+        },
+        {
+          "file": "/Users/imymm/H2Q-Evo/reports/local_incremental_benchmark_1773157304.json",
+          "gain": 1.4901544098611108e-05
+        }
+      ],
+      "quantile_value": 1.4901544098611108e-05
+    }
+  },
+  "autoresearch_summary": {
+    "source": "/Users/imymm/H2Q-Evo/external/autoresearch/results.tsv",
+    "exists": false,
+    "keep_count": 0,
+    "discard_count": 0,
+    "crash_count": 0,
+    "top_keep_descriptions": []
+  },
+  "baseline_snapshot": {
+    "distill_delta": 1.0,
+    "research_aggregate": 0.9943158135231227,
+    "systemic_score": 0.97259375
+  },
+  "final_snapshot": {
+    "distill_delta": 1.0,
+    "research_aggregate": 0.9943158135231227,
+    "systemic_score": 0.97259375
+  },
+  "experiments": [
+    {
+      "name": "distillation_uplift",
+      "description": "Run self-eval distillation pipeline and maximize schema-valid uplift.",
+      "cmd": [
+        "/Users/imymm/H2Q-Evo/.venv/bin/python",
+        "tools/run_self_eval_distillation_pipeline_chunked.py",
+        "--chunks",
+        "2",
+        "--sessions",
+        "4",
+        "--teacher-provider",
+        "heuristic",
+        "--max-samples-per-chunk",
+        "60",
+        "--synthetic-min-size-per-chunk",
+        "120",
+        "--timeout-sec",
+        "900"
+      ],
+      "metric_name": "delta_schema_valid_rate",
+      "baseline_metric": 1.0,
+      "executed": true,
+      "status": "keep",
+      "metric_after": 1.0,
+      "delta": 0.0,
+      "stdout_tail": "JSON: /Users/imymm/H2Q-Evo/reports/self_eval_distillation_pipeline_chunked_1773158169.json\nLatest JSON: /Users/imymm/H2Q-Evo/reports/self_eval_distillation_pipeline_chunked_latest.json\nMD: /Users/imymm/H2Q-Evo/reports/self_eval_distillation_pipeline_chunked_1773158169.md\nLatest MD: /Users/imymm/H2Q-Evo/reports/self_eval_distillation_pipeline_chunked_latest.md",
+      "stderr_tail": "",
+      "returncode": 0,
+      "elapsed_sec": 12.316982984542847,
+      "decision": {
+        "delta_signal": 0.5,
+        "meaning_uplift": 0.0,
+        "meaning_signal": 0.5,
+        "geometry_uplift": 0.0,
+        "geometry_signal": 0.5,
+        "axiom_uplift": 0.0,
+        "axiom_signal": 0.5,
+        "weight_gain_rate": 0.02563784543665943,
+        "weight_gain_signal": 0.6943235884900999,
+        "weight_gate": 0.15,
+        "weight_support_ratio": 0.0,
+        "weight_decay_factor": 1.0,
+        "weight_effective_weight": 0.0225,
+        "decision_score": 0.5043722807410272,
+        "geometry_before": 0.5425540210460037,
+        "geometry_after": 0.5425540210460037,
+        "boundary_ratio_before": 0.9931329594775511,
+        "boundary_ratio_after": 0.9931329594775511,
+        "projection_accel_before": -0.02268098323047285,
+        "projection_accel_after": -0.02268098323047285,
+        "axiom_score_before": 0.7909125118190672,
+        "axiom_score_after": 0.7909125118190672,
+        "axiom_pass_rate_before": 0.7142857142857143,
+        "axiom_pass_rate_after": 0.7142857142857143,
+        "axiom_violations_before": [
+          "A1_phi_boundary",
+          "A5_orthogonal_acceleration"
+        ],
+        "axiom_violations_after": [
+          "A1_phi_boundary",
+          "A5_orthogonal_acceleration"
+        ],
+        "benchmark_gain": 1.4901544098611108e-05,
+        "benchmark_score_base": 0.14428147888598417,
+        "benchmark_score_adapter": 0.14429638043008278,
+        "benchmark_probe_returncode": 0,
+        "lora_replay_pass": true,
+        "lora_replay_score": 1.0,
+        "replay_quality_pass": true,
+        "replay_quality_score": 0.6112006183442116,
+        "replay_quality_structure_rate": 0.5,
+        "replay_quality_density_rate": 1.0,
+        "replay_quality_echo_rate": 0.2397286155960151,
+        "hard_gate": {
+          "enabled": true,
+          "benchmark_gain_threshold": 1.4901544098611108e-05,
+          "benchmark_ok": true,
+          "lora_replay_ok": true,
+          "output_quality_ok": true
+        }
+      },
+      "decision_reason": "weight gain up (gated)"
+    }
+  ],
+  "summary": {
+    "keep": 1,
+    "discard": 0,
+    "crash": 0,
+    "benchmark_probe_failures": 0
+  },
+  "meaning_score_baseline": {
+    "score": 0.9376164533807807,
+    "components": {
+      "utility": 0.9834547817615613,
+      "autonomy": 1.0,
+      "robustness": 0.9834547817615613,
+      "alignment": 0.97259375,
+      "efficiency": 0.5
+    }
+  },
+  "meaning_score_final": {
+    "score": 0.9876164533807806,
+    "components": {
+      "utility": 0.9834547817615613,
+      "autonomy": 1.0,
+      "robustness": 0.9834547817615613,
+      "alignment": 0.97259375,
+      "efficiency": 1.0
+    }
+  },
+  "meaning_curve": [
+    {
+      "step": 0,
+      "experiment": "baseline",
+      "score": 0.9376164533807807
+    },
+    {
+      "step": 1,
+      "experiment": "distillation_uplift",
+      "score": 0.9876164533807806
+    }
+  ],
+  "geometry_signal_baseline": {
+    "ap_gp_boundary_ratio": 0.9931329594775511,
+    "phi": 1.618033988749895,
+    "phi_alignment": 0.6137899243048985,
+    "projection_acceleration": -0.02268098323047285,
+    "geometry_score": 0.5425540210460037
+  },
+  "geometry_signal_final": {
+    "ap_gp_boundary_ratio": 0.9931329594775511,
+    "phi": 1.618033988749895,
+    "phi_alignment": 0.6137899243048985,
+    "projection_acceleration": -0.02268098323047285,
+    "geometry_score": 0.5425540210460037
+  },
+  "geometry_curve": [
+    {
+      "step": 0,
+      "experiment": "baseline",
+      "score": 0.5425540210460037,
+      "boundary_ratio": 0.9931329594775511,
+      "projection_accel": -0.02268098323047285
+    },
+    {
+      "step": 1,
+      "experiment": "distillation_uplift",
+      "score": 0.5425540210460037,
+      "boundary_ratio": 0.9931329594775511,
+      "projection_accel": -0.02268098323047285
+    }
+  ],
+  "axiom_contract": {
+    "path": "/Users/imymm/H2Q-Evo/axiom_contract.json",
+    "version": "v1"
+  },
+  "axiom_consistency_baseline": {
+    "score": 0.7909125118190672,
+    "pass_rate": 0.7142857142857143,
+    "passed": 5,
+    "total": 7,
+    "components": [
+      {
+        "id": "A1_phi_boundary",
+        "metric": "abs(ap_gp_boundary_ratio - phi)",
+        "value": 0.6137899243048985,
+        "threshold": 0.75,
+        "weight": 0.18,
+        "pass": false
+      },
+      {
+        "id": "A2_nonnegative_norm",
+        "metric": "nonnegative_snapshot",
+        "value": 1.0,
+        "threshold": 1.0,
+        "weight": 0.1,
+        "pass": true
+      },
+      {
+        "id": "A3_causal_stability",
+        "metric": "1-crash_rate",
+        "value": 1.0,
+        "threshold": 0.8,
+        "weight": 0.16,
+        "pass": true
+      },
+      {
+        "id": "A4_flat_background",
+        "metric": "z1_flatness",
+        "value": 0.546380335390543,
+        "threshold": 0.5,
+        "weight": 0.12,
+        "pass": true
+      },
+      {
+        "id": "A5_orthogonal_acceleration",
+        "metric": "z2_accel_quality",
+        "value": 0.41025877213662765,
+        "threshold": 0.5,
+        "weight": 0.12,
+        "pass": false
+      },
+      {
+        "id": "A6_meaning_progress",
+        "metric": "meaning_score",
+        "value": 0.9376164533807807,
+        "threshold": 0.55,
+        "weight": 0.16,
+        "pass": true
+      },
+      {
+        "id": "A7_systemic_gate",
+        "metric": "systemic_score",
+        "value": 0.97259375,
+        "threshold": 0.75,
+        "weight": 0.16,
+        "pass": true
+      }
+    ],
+    "violations": [
+      "A1_phi_boundary",
+      "A5_orthogonal_acceleration"
+    ]
+  },
+  "axiom_consistency_final": {
+    "score": 0.7989125118190672,
+    "pass_rate": 0.7142857142857143,
+    "passed": 5,
+    "total": 7,
+    "components": [
+      {
+        "id": "A1_phi_boundary",
+        "metric": "abs(ap_gp_boundary_ratio - phi)",
+        "value": 0.6137899243048985,
+        "threshold": 0.75,
+        "weight": 0.18,
+        "pass": false
+      },
+      {
+        "id": "A2_nonnegative_norm",
+        "metric": "nonnegative_snapshot",
+        "value": 1.0,
+        "threshold": 1.0,
+        "weight": 0.1,
+        "pass": true
+      },
+      {
+        "id": "A3_causal_stability",
+        "metric": "1-crash_rate",
+        "value": 1.0,
+        "threshold": 0.8,
+        "weight": 0.16,
+        "pass": true
+      },
+      {
+        "id": "A4_flat_background",
+        "metric": "z1_flatness",
+        "value": 0.546380335390543,
+        "threshold": 0.5,
+        "weight": 0.12,
+        "pass": true
+      },
+      {
+        "id": "A5_orthogonal_acceleration",
+        "metric": "z2_accel_quality",
+        "value": 0.41025877213662765,
+        "threshold": 0.5,
+        "weight": 0.12,
+        "pass": false
+      },
+      {
+        "id": "A6_meaning_progress",
+        "metric": "meaning_score",
+        "value": 0.9876164533807806,
+        "threshold": 0.55,
+        "weight": 0.16,
+        "pass": true
+      },
+      {
+        "id": "A7_systemic_gate",
+        "metric": "systemic_score",
+        "value": 0.97259375,
+        "threshold": 0.75,
+        "weight": 0.16,
+        "pass": true
+      }
+    ],
+    "violations": [
+      "A1_phi_boundary",
+      "A5_orthogonal_acceleration"
+    ]
+  },
+  "axiom_curve": [
+    {
+      "step": 0,
+      "experiment": "baseline",
+      "score": 0.7909125118190672,
+      "pass_rate": 0.7142857142857143
+    },
+    {
+      "step": 1,
+      "experiment": "distillation_uplift",
+      "score": 0.7989125118190672,
+      "pass_rate": 0.7142857142857143
+    }
+  ],
+  "weight_training_signal_baseline": {
+    "source": "/Users/imymm/H2Q-Evo/reports/trusted_nano_lora_training_latest.json",
+    "loss_initial": 4.82880973815918,
+    "loss_final": 4.705009460449219,
+    "loss_improvement_rate": 0.02563784543665943,
+    "weight_gain_signal": 0.6943235884900999
+  },
+  "weight_training_signal_final": {
+    "source": "/Users/imymm/H2Q-Evo/reports/trusted_nano_lora_training_latest.json",
+    "loss_initial": 4.82880973815918,
+    "loss_final": 4.705009460449219,
+    "loss_improvement_rate": 0.02563784543665943,
+    "weight_gain_signal": 0.6943235884900999
+  },
+  "weight_training_curve": [
+    {
+      "step": 0,
+      "experiment": "baseline",
+      "loss_improvement_rate": 0.02563784543665943,
+      "weight_gain_signal": 0.6943235884900999
+    },
+    {
+      "step": 1,
+      "experiment": "distillation_uplift",
+      "loss_improvement_rate": 0.02563784543665943,
+      "weight_gain_signal": 0.6943235884900999,
+      "weight_gate": 0.15,
+      "weight_effective_weight": 0.0225
+    }
+  ],
+  "incremental_benchmark_baseline": {
+    "cmd": [
+      "/Users/imymm/H2Q-Evo/.venv/bin/python",
+      "tools/run_local_incremental_benchmark.py",
+      "--seed",
+      "42"
+    ],
+    "returncode": 0,
+    "gain": 1.4901544098611108e-05,
+    "score_base": 0.14428147888598417,
+    "score_adapter": 0.14429638043008278,
+    "stdout_tail": "JSON: /Users/imymm/H2Q-Evo/reports/local_incremental_benchmark_1773158157.json\nLatest JSON: /Users/imymm/H2Q-Evo/reports/local_incremental_benchmark_latest.json\nMD: /Users/imymm/H2Q-Evo/reports/local_incremental_benchmark_1773158157.md\nLatest MD: /Users/imymm/H2Q-Evo/reports/local_incremental_benchmark_latest.md",
+    "stderr_tail": "`loss_type=None` was set in the config but it is unrecognized. Using the default loss: `ForCausalLMLoss`."
+  },
+  "lora_replay_baseline": {
+    "source": "/Users/imymm/H2Q-Evo/reports/trusted_nano_lora_training_latest.json",
+    "exists": true,
+    "replay_pass": true,
+    "replay_quality_pass": true,
+    "replay_score": 1.0,
+    "replay_quality_score": 0.6112006183442116,
+    "replay_quality_structure_rate": 0.5,
+    "replay_quality_density_rate": 1.0,
+    "replay_quality_echo_rate": 0.2397286155960151,
+    "best_loss": 3.8001513481140137,
+    "best_step": 26
+  },
+  "next_plan": [
+    "Increase experiment breadth around components marked 'discard' with smaller perturbations.",
+    "Prioritize distillation + consistency coupling before scaling systemic gate complexity.",
+    "Run overnight execute mode with max-iterations >= 12 for true autoresearch-style cadence."
+  ]
+}

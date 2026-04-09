@@ -1,0 +1,24 @@
+{
+  "generated_at_utc": "2026-04-05T15:37:20.910375+00:00",
+  "sources": {
+    "state_file": "/Users/imymm/H2Q-Evo/autonomous_evolution_state.json"
+  },
+  "summary": {
+    "enabled": false,
+    "latest_phase": "disabled",
+    "samples": 0,
+    "rolling_horizon_pass_rate": 0.0,
+    "avg_projection_error": 0.0,
+    "avg_direction_stability": 0.0,
+    "phase_counts": {
+      "simulation": 0,
+      "shadow": 0,
+      "gate_enforced": 0,
+      "disabled": 0
+    }
+  },
+  "latest_metrics": {},
+  "recommendations": [
+    "Set ENABLE_DIRECTIONAL_AXIOM=true to start collecting directional manifold signals."
+  ]
+}
