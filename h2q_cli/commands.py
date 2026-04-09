@@ -73,7 +73,11 @@ class ExecuteCommand(BaseCommand):
                 feedback={"user_confirmed": True},
             )
             print("💾 Experience saved to knowledge base")
+ copilot/analyze-cli-error-reasons
+
+
         
+ main
         self.metrics.record_execution(task, result)
 
 
@@ -105,9 +109,17 @@ class ExportCommand(BaseCommand):
     
     def run(self, output_file: str = ""):
         """Export agent checkpoint"""
+ copilot/analyze-cli-error-reasons
+        if not output_file:
+            print("❌ Export failed: output_file must be provided")
+            return
+        mgr = CheckpointManager()
+
+
         mgr = CheckpointManager()
         mgr.init(self.home)
         
+ main
         try:
             checkpoint = mgr.create_checkpoint(self.home)
             mgr.save(checkpoint, Path(output_file))
@@ -121,8 +133,16 @@ class ImportCommand(BaseCommand):
     
     def run(self, checkpoint_file: str = ""):
         """Import agent checkpoint"""
+ copilot/analyze-cli-error-reasons
+        if not checkpoint_file:
+            print("❌ Import failed: checkpoint_file must be provided")
+            return
+        mgr = CheckpointManager()
+
+
         mgr = CheckpointManager()
         
+ main
         try:
             mgr.restore(Path(checkpoint_file), self.home)
             print(f"✅ Checkpoint imported from {checkpoint_file}")
