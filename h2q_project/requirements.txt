@@ -1,2 +1,4 @@
 Flask
 requests
+numpy>=1.19
+scipy>=1.7
