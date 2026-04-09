@@ -69,13 +69,12 @@ class ExecuteCommand(BaseCommand):
         if save_knowledge and self.executor.knowledge_db:
             self.executor.save_experience(
                 task=task,
-                result=result['output'],
-                confidence=result['confidence'],
-                strategy=result['strategy_used']
+                result=result,
+                feedback={"user_confirmed": True},
             )
             print("💾 Experience saved to knowledge base")
         
-        self.metrics.record_execution(result['elapsed_time'], True)
+        self.metrics.record_execution(task, result)
 
 
 class StatusCommand(BaseCommand):
@@ -89,9 +88,9 @@ class StatusCommand(BaseCommand):
         print(f"   Home: {self.home}")
         print(f"   Version: 2.3.0")
         
-        stats = self.executor.get_knowledge_stats()
+        stats = self.executor.get_knowledge_stats(self.home)
         print(f"\n📚 Knowledge Base:")
-        print(f"   Total Experiences: {stats.get('total', 0)}")
+        print(f"   Total Experiences: {stats.get('total_experiences', 0)}")
         print(f"   Domains: {stats.get('domains', 'N/A')}")
         
         if (self.home / "metrics.json").exists():
@@ -106,11 +105,11 @@ class ExportCommand(BaseCommand):
     
     def run(self, output_file: str = ""):
         """Export agent checkpoint"""
-        mgr = CheckpointManager(self.home)
+        mgr = CheckpointManager()
         
         try:
-            checkpoint = mgr.create_checkpoint()
-            mgr.save(checkpoint, output_file)
+            checkpoint = mgr.create_checkpoint(self.home)
+            mgr.save(checkpoint, Path(output_file))
             print(f"✅ Checkpoint exported to {output_file}")
         except Exception as e:
             print(f"❌ Export failed: {e}")
@@ -121,11 +120,10 @@ class ImportCommand(BaseCommand):
     
     def run(self, checkpoint_file: str = ""):
         """Import agent checkpoint"""
-        mgr = CheckpointManager(self.home)
+        mgr = CheckpointManager()
         
         try:
-            checkpoint = mgr.load(checkpoint_file)
-            mgr.restore(checkpoint)
+            mgr.restore(Path(checkpoint_file), self.home)
             print(f"✅ Checkpoint imported from {checkpoint_file}")
         except Exception as e:
             print(f"❌ Import failed: {e}")

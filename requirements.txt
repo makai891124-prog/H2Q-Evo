@@ -9,4 +9,9 @@ matplotlib
 python-dotenv
 docker
 requests
+copilot/fix-cli-auto-run-errors
+numpy
+click
+scipy
 clifford
+copilot/vscode-mmdt291x-9e7t

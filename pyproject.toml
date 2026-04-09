@@ -76,6 +76,11 @@ Repository = "https://github.com/yourusername/H2Q-Evo"
 
 [project.scripts]
 h2q = "h2q_project.h2q_cli.main:main"
+ copilot/fix-cli-auto-run-errors
+
+[project.entry-points."console_scripts"]
+h2q = "h2q_project.h2q_cli.main:main"
+copilot/vscode-mmdt291x-9e7t
 
 [tool.setuptools]
 target-version = ["py38", "py39", "py310", "py311"]
