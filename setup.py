@@ -77,4 +77,9 @@ setup(
     },
     include_package_data=True,
     zip_safe=False,
+    entry_points={
+        "console_scripts": [
+            "h2q=h2q_project.h2q_cli.main:main",
+        ],
+    },
 )

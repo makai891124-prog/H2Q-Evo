@@ -39,6 +39,9 @@ classifiers = [
 dependencies = [
     "torch>=1.9",
     "numpy>=1.19",
+ copilot/fix-cli-issues
+    "click>=8.0",
+ main
     "scipy>=1.7",
     "psutil>=5.8",
     "google-generativeai>=0.3",
@@ -75,10 +78,10 @@ Repository = "https://github.com/yourusername/H2Q-Evo"
 "Discussions" = "https://github.com/yourusername/H2Q-Evo/discussions"
 
 [project.scripts]
-h2q = "h2q_cli.main:main"
+h2q = "h2q_project.h2q_cli.main:main"
 
 [project.entry-points."console_scripts"]
-h2q = "h2q_cli.main:main"
+h2q = "h2q_project.h2q_cli.main:main"
 
 [tool.setuptools]
 target-version = ["py38", "py39", "py310", "py311"]
