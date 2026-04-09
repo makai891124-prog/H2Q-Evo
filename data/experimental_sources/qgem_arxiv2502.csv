@@ -1,0 +1,5 @@
+scenario,mass_kg,d_min_m,delta_x_m,gamma_hz,tau_s,source_label,source_url
+optimistic,1.0e-14,3.5e-05,8.0e-04,1.0e-03,1.0,arXiv:2502.12474,https://arxiv.org/abs/2502.12474
+balanced,1.0e-14,3.5e-05,1.2e-03,3.0e-03,1.0,arXiv:2502.12474,https://arxiv.org/abs/2502.12474
+conservative,1.0e-14,3.5e-05,2.2e-03,1.0e-02,1.0,arXiv:2502.12474,https://arxiv.org/abs/2502.12474
+decohered,1.0e-14,3.5e-05,5.5e-03,1.0e-01,1.0,arXiv:2502.12474,https://arxiv.org/abs/2502.12474

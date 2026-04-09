@@ -7,7 +7,7 @@ This module mirrors the tokenizer contract and keeps logic explicit:
 
 from typing import List
 
-from h2q.tokenizer_simple import SimpleTokenizer, default_tokenizer
+from .tokenizer_simple import SimpleTokenizer, default_tokenizer
 
 
 class SimpleDecoder:
