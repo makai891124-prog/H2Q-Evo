@@ -27,7 +27,7 @@ try:
 except Exception:
     _orchestrator = None
 
-DDE_CONFIG = LatentConfig(dim=256, n_choices=3, device="cpu")
+DDE_CONFIG = LatentConfig(latent_dim=256, n_choices=3, device="cpu")
 _dde = get_canonical_dde(config=DDE_CONFIG)
 _sst = SpectralShiftTracker()
 _cumulative_eta = 0.0

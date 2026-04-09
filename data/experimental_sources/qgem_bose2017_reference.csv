@@ -1,0 +1,2 @@
+scenario,mass_kg,d_min_m,delta_x_m,gamma_hz,tau_s,source_label,source_url
+original_proposal_scale,1.0e-14,4.5e-04,2.0e-04,1.0e-03,1.0,arXiv:1707.06050,https://arxiv.org/abs/1707.06050
