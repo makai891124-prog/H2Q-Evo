@@ -26,6 +26,7 @@ ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
+from tools.memory_manager import MemoryWatchdog, SlidingWindowBuffer, StreamingJSONWriter
 from tools.trusted_joint_agi_quantum_center import run_center
 from tools.trusted_local_agi_chat import _http_json, _start_local_server, _wait_server_ready
 
@@ -819,31 +820,31 @@ def write_daily_report(all_rounds: List[Dict[str, Any]], trust_summary: Dict[str
         else 0.0
     )
 
-    payload = {
-        "meta": {
-            "created_at_utc": now_utc(),
-            "round_count": len(all_rounds),
-            "success_rounds": success_rounds,
-            "failed_rounds": failed_rounds,
-            "trust_report": str(trust_report) if trust_report else "",
-        },
-        "trust": trust_summary,
-        "assist_summary": {
-            "enabled_calls": assist_total_calls,
-            "success_calls": assist_success_calls,
-            "success_rate": assist_success_rate,
-            "total_tokens": assist_total_tokens,
-            "reasons": assist_reasons,
-        },
-        "rounds": all_rounds,
-        "alerts": [str(p) for p in alert_files],
+    payload_meta = {
+        "created_at_utc": now_utc(),
+        "round_count": len(all_rounds),
+        "success_rounds": success_rounds,
+        "failed_rounds": failed_rounds,
+        "trust_report": str(trust_report) if trust_report else "",
     }
-    out_json.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
+    payload_assist_summary = {
+        "enabled_calls": assist_total_calls,
+        "success_calls": assist_success_calls,
+        "success_rate": assist_success_rate,
+        "total_tokens": assist_total_tokens,
+        "reasons": assist_reasons,
+    }
+    with StreamingJSONWriter(out_json, mode="w") as writer:
+        writer.write_key_value("meta", payload_meta)
+        writer.write_key_value("trust", trust_summary)
+        writer.write_key_value("assist_summary", payload_assist_summary)
+        writer.write_iterable_array("rounds", all_rounds)
+        writer.write_key_value("alerts", [str(p) for p in alert_files])
 
     lines = [
         "# AGI Local Self-Evolution Daily Report",
         "",
-        f"- Created at (UTC): `{payload['meta']['created_at_utc']}`",
+        f"- Created at (UTC): `{payload_meta['created_at_utc']}`",
         f"- Trust score: `{trust_summary.get('trust_score', 0.0):.4f}`",
         f"- Trusted ready: `{trust_summary.get('trusted_ready', False)}`",
         f"- Rounds: `{len(all_rounds)}` | Success: `{success_rounds}` | Failed: `{failed_rounds}`",
@@ -854,7 +855,7 @@ def write_daily_report(all_rounds: List[Dict[str, Any]], trust_summary: Dict[str
             f"success_rate=`{assist_success_rate:.2%}` "
             f"tokens=`{assist_total_tokens}`"
         ),
-        f"- Trust report: `{payload['meta']['trust_report']}`",
+        f"- Trust report: `{payload_meta['trust_report']}`",
         "",
         "## Round Summary",
         "",
@@ -955,6 +956,9 @@ def main() -> None:
     parser.add_argument("--docker-check-interval-rounds", type=int, default=6)
     parser.add_argument("--docker-image", default=os.getenv("DOCKER_IMAGE", "h2q-sandbox"))
     parser.add_argument("--docker-min-overlap", type=float, default=0.05)
+    parser.add_argument("--max-rounds-memory", type=int, default=50, help="max rounds kept in memory before archiving")
+    parser.add_argument("--memory-warn-mb", type=float, default=500.0, help="warn threshold for memory watchdog")
+    parser.add_argument("--memory-critical-mb", type=float, default=1000.0, help="critical threshold for memory watchdog")
     parser.set_defaults(assist_fallback=True)
 
     args = parser.parse_args()
@@ -1000,7 +1004,15 @@ def main() -> None:
     trust_summary = _extract_trust_summary(trust_payload)
 
     server_proc: Optional[subprocess.Popen] = None
-    all_rounds: List[Dict[str, Any]] = []
+    rounds_buffer = SlidingWindowBuffer(
+        max_size=max(1, args.max_rounds_memory),
+        archive_dir=ROOT / "reports" / "archived_rounds",
+    )
+    memory_watchdog = MemoryWatchdog(
+        warn_mb=max(1.0, args.memory_warn_mb),
+        critical_mb=max(args.memory_warn_mb + 1.0, args.memory_critical_mb),
+    )
+    any_failed_round = False
     alert_files: List[Path] = []
 
     try:
@@ -1091,7 +1103,8 @@ def main() -> None:
             round_payload["self_evolution_adjustments"] = self_adjustments
             current_temperature = next_temp
             current_max_tokens = next_tokens
-            all_rounds.append(round_payload)
+            rounds_buffer.append(round_payload)
+            any_failed_round = any_failed_round or (not round_success)
 
             round_path = write_round_report(round_payload, trust_summary, trust_path)
             print(f"Round {round_id} report: {round_path}")
@@ -1101,16 +1114,23 @@ def main() -> None:
                 alert_files.append(alert)
                 print(f"Round {round_id} alert: {alert}")
 
+            memory_status = memory_watchdog.check_and_warn()
+            if memory_status.get("status") == "critical":
+                raise SystemExit(
+                    f"Memory usage exceeded critical threshold: {memory_status.get('memory_mb', 0):.1f} MB"
+                )
+
             if args.rounds > 0 and round_id >= args.rounds:
                 break
 
             time.sleep(max(1.0, args.interval_minutes * 60.0))
 
+        all_rounds = rounds_buffer.get_all()
         daily_json, daily_md = write_daily_report(all_rounds, trust_summary, trust_path, alert_files)
         print(f"Daily report JSON: {daily_json}")
         print(f"Daily report MD: {daily_md}")
 
-        if args.fail_on_empty and any(not r.get("success", False) for r in all_rounds):
+        if args.fail_on_empty and any_failed_round:
             raise SystemExit("Self-evolution daemon detected empty/invalid responses")
     finally:
         if server_proc is not None and server_proc.poll() is None:

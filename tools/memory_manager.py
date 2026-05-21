@@ -11,7 +11,7 @@ import sys
 import time
 from collections import deque
 from pathlib import Path
-from typing import Any, Deque, Dict, List, Optional
+from typing import Any, Deque, Dict, Iterable, List, Optional
 
 logger = logging.getLogger(__name__)
 
@@ -77,7 +77,12 @@ class SlidingWindowBuffer:
 class MetricsRotator:
     """Rotates historical metrics to prevent unbounded growth."""
 
-    def __init__(self, max_records: int = 1000, checkpoint_size: int = 200):
+    def __init__(
+        self,
+        max_records: int = 1000,
+        checkpoint_size: int = 200,
+        checkpoint_dir: Optional[Path] = None,
+    ):
         """
         Args:
             max_records: Maximum metrics records to keep in memory.
@@ -85,33 +90,33 @@ class MetricsRotator:
         """
         self.max_records = max(1, max_records)
         self.checkpoint_size = max(1, checkpoint_size)
-        self.records: List[Dict[str, Any]] = []
+        self.records: Deque[Dict[str, Any]] = deque(maxlen=self.max_records)
         self.checkpoint_idx = 0
+        self.checkpoint_dir = checkpoint_dir or Path(".")
+        self.checkpoint_dir.mkdir(parents=True, exist_ok=True)
+        self._pending_checkpoint: List[Dict[str, Any]] = []
 
     def append(self, record: Dict[str, Any]) -> Optional[Path]:
         """Add record; returns checkpoint file if limit exceeded."""
         self.records.append(record)
+        self._pending_checkpoint.append(record)
         checkpoint_file = None
 
         # Checkpoint periodically.
-        if len(self.records) - self.checkpoint_idx >= self.checkpoint_size:
+        if len(self._pending_checkpoint) >= self.checkpoint_size:
             checkpoint_file = self._write_checkpoint()
-            self.checkpoint_idx = len(self.records)
-
-        # Trim if exceeds max.
-        if len(self.records) > self.max_records:
-            excess = len(self.records) - self.max_records
-            self.records = self.records[excess:]
+            self.checkpoint_idx += len(self._pending_checkpoint)
+            self._pending_checkpoint.clear()
 
         return checkpoint_file
 
     def _write_checkpoint(self) -> Path:
         """Write checkpoint file with metrics since last checkpoint."""
         ts = int(time.time())
-        checkpoint_file = Path(f"metrics_checkpoint_{ts}.json")
+        checkpoint_file = self.checkpoint_dir / f"metrics_checkpoint_{ts}.json"
         try:
             checkpoint_file.write_text(
-                json.dumps(self.records, ensure_ascii=False, indent=2),
+                json.dumps(self._pending_checkpoint, ensure_ascii=False, indent=2),
                 encoding="utf-8"
             )
             logger.info(f"Metrics checkpoint written: {checkpoint_file}")
@@ -121,7 +126,7 @@ class MetricsRotator:
 
     def get_records(self) -> List[Dict[str, Any]]:
         """Return current records."""
-        return self.records.copy()
+        return list(self.records)
 
     def get_stats(self) -> Dict[str, Any]:
         """Return rotator statistics."""
@@ -167,6 +172,25 @@ class StreamingJSONWriter:
 
         self.file.write(f'  "{key}": ')
         json.dump(value, self.file, ensure_ascii=False, separators=(",", ":"))
+        self.file.flush()
+
+    def write_iterable_array(self, key: str, values: Iterable[Any]) -> None:
+        """Write a top-level key whose value is an array streamed item-by-item."""
+        if not self.file:
+            raise RuntimeError("StreamingJSONWriter not used as context manager")
+
+        if not self.first_item:
+            self.file.write(",\n")
+        self.first_item = False
+
+        self.file.write(f'  "{key}": [')
+        first = True
+        for item in values:
+            if not first:
+                self.file.write(",")
+            first = False
+            json.dump(item, self.file, ensure_ascii=False, separators=(",", ":"))
+        self.file.write("]")
         self.file.flush()
 
 
