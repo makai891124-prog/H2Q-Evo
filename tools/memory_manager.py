@@ -9,6 +9,9 @@ from pathlib import Path
 from typing import Any, Dict, List, Optional, TextIO
 
 
+_LOGGER = logging.getLogger(__name__)
+
+
 def append_with_limit(items: List[Any], value: Any, max_items: int) -> None:
     """Append a value and keep only the latest ``max_items`` entries."""
     items.append(value)
@@ -58,5 +61,5 @@ def flush_logger_handlers(logger_obj: logging.Logger) -> None:
     for handler in logger_obj.handlers:
         try:
             handler.flush()
-        except Exception:
-            continue
+        except Exception as exc:
+            _LOGGER.debug("Failed to flush logger handler %r: %s", handler, exc)

@@ -104,8 +104,8 @@ def _deepseek_stream_chat(
         "max_tokens": max_tokens,
         "stream": True,
     }
-    max_response_chars = max(0, int(max_response_chars))
-    collect_enabled = max_response_chars > 0
+    response_char_limit = max(0, int(max_response_chars))
+    collect_enabled = response_char_limit > 0
 
     collected: List[str] = []
     collected_chars = 0
@@ -135,7 +135,7 @@ def _deepseek_stream_chat(
                 if not collect_enabled:
                     truncated = True
                     continue
-                remain = max_response_chars - collected_chars
+                remain = response_char_limit - collected_chars
                 if remain <= 0:
                     truncated = True
                     continue
