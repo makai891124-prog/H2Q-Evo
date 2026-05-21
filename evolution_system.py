@@ -20,6 +20,7 @@ from google import genai
 from google.genai import types
 import docker
 import aiofiles
+from tools.memory_manager import append_with_limit, flush_logger_handlers
 
 try:
     from h2q_project.fractal_memory import FractalMemory
@@ -65,6 +66,8 @@ class Config:
     DOCKER_MEM_LIMIT = "8g"
     MAX_RETRIES = 3
     INFERENCE_MODE = os.getenv("INFERENCE_MODE", "api").lower()
+    MAX_DAS_METRICS = int(os.getenv("MAX_DAS_METRICS", "1000"))
+    LOG_FLUSH_EVERY_LOOPS = int(os.getenv("LOG_FLUSH_EVERY_LOOPS", "1"))
 
 class CodeValidator:
     @staticmethod
@@ -357,6 +360,7 @@ class H2QNexus:
 
     async def run(self):
         life_process = None
+        loop_counter = 0
         if Config.INFERENCE_MODE == 'local':
             logger.info("🚀 Starting independent Life Cycle process...")
             # 【核心修复】调用 heartbeat.py 脚本，而不是复杂的单行命令
@@ -372,6 +376,7 @@ class H2QNexus:
             
         try:
             while True:
+                loop_counter += 1
                 # 简化版主循环
                 await asyncio.sleep(60) # 在本地模式下，主程序可以轮询得慢一点
                 logger.info("Supervisor check...")
@@ -390,16 +395,18 @@ class H2QNexus:
                         
                         # 将DAS指标写入状态文件
                         self.state.setdefault("das_metrics", [])
-                        self.state["das_metrics"].append({
+                        append_with_limit(self.state["das_metrics"], {
                             "timestamp": time.time(),
                             "generation": results.get("generation", 0),
                             "invariant_distances": results.get("invariant_distances", 0.0),
                             "manifold_size": results.get("manifold_size", 1),
                             "group_hierarchy_depth": results.get("group_hierarchy_depth", 1),
-                        })
+                        }, max(1, Config.MAX_DAS_METRICS))
                         self._save_json(Config.STATE_FILE, self.state)
                 except Exception as e:
                     logger.warning(f"Mathematical evolution step failed: {e}")
+                if loop_counter % max(1, Config.LOG_FLUSH_EVERY_LOOPS) == 0:
+                    flush_logger_handlers(logger)
         finally:
             if life_process:
                 logger.info("🛑 Shutting down Life Cycle process...")

@@ -26,6 +26,7 @@ ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
+from tools.memory_manager import append_with_limit, json_write_round_payload
 from tools.trusted_joint_agi_quantum_center import run_center
 from tools.trusted_local_agi_chat import _http_json, _start_local_server, _wait_server_ready
 
@@ -71,6 +72,7 @@ def _deepseek_stream_chat(
     temperature: float,
     max_tokens: int,
     timeout: float = 120.0,
+    max_response_chars: int = 32768,
 ) -> Dict[str, Any]:
     url = f"{base_url.rstrip('/')}/chat/completions"
     headers = {
@@ -92,6 +94,8 @@ def _deepseek_stream_chat(
     }
 
     collected: List[str] = []
+    collected_chars = 0
+    truncated = False
     usage: Dict[str, Any] = {}
     with requests.post(url, headers=headers, json=payload, stream=True, timeout=timeout) as resp:
         resp.raise_for_status()
@@ -114,7 +118,20 @@ def _deepseek_stream_chat(
                 .get("content", "")
             )
             if delta:
+                if max_response_chars <= 0:
+                    truncated = True
+                    continue
+                remain = max_response_chars - collected_chars
+                if remain <= 0:
+                    truncated = True
+                    continue
+                if len(delta) > remain:
+                    collected.append(delta[:remain])
+                    collected_chars += remain
+                    truncated = True
+                    continue
                 collected.append(delta)
+                collected_chars += len(delta)
 
             if "usage" in obj and isinstance(obj["usage"], dict):
                 usage = obj["usage"]
@@ -131,6 +148,7 @@ def _deepseek_stream_chat(
         "completion_tokens": completion_tokens,
         "total_tokens": total_tokens,
         "model": model,
+        "truncated": truncated,
     }
 
 
@@ -177,6 +195,7 @@ def _external_assist(
                 prompt=prompt,
                 temperature=assist_cfg["temperature"],
                 max_tokens=assist_cfg["max_tokens"],
+                max_response_chars=assist_cfg.get("max_response_chars", 32768),
             )
             if not result.get("ok", False):
                 last_err_reason = "assist-empty-response"
@@ -777,41 +796,53 @@ def _adapt_inference_params(
 
 def write_round_report(round_payload: Dict[str, Any], trust_summary: Dict[str, Any], trust_report: Optional[Path]) -> Path:
     out = ROOT / "reports" / f"agi_self_evolution_round_{int(time.time())}.json"
-    payload = {
-        "meta": {
-            "created_at_utc": now_utc(),
-            "trust_report": str(trust_report) if trust_report else "",
-        },
-        "trust": trust_summary,
-        "round": round_payload,
-    }
-    out.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
+    json_write_round_payload(
+        out_path=out,
+        round_payload=round_payload,
+        trust_summary=trust_summary,
+        trust_report=trust_report,
+    )
     return out
 
 
-def write_daily_report(all_rounds: List[Dict[str, Any]], trust_summary: Dict[str, Any], trust_report: Optional[Path], alert_files: List[Path]) -> Tuple[Path, Path]:
+def write_daily_report(
+    all_rounds: List[Dict[str, Any]],
+    trust_summary: Dict[str, Any],
+    trust_report: Optional[Path],
+    alert_files: List[Path],
+    aggregate: Optional[Dict[str, Any]] = None,
+) -> Tuple[Path, Path]:
     ts = int(time.time())
     out_json = ROOT / "reports" / f"agi_self_evolution_daily_{ts}.json"
     out_md = ROOT / "reports" / f"AGI自我进化日报_{ts}.md"
 
-    success_rounds = sum(1 for r in all_rounds if r.get("success", False))
-    failed_rounds = len(all_rounds) - success_rounds
-
-    assist_total_calls = 0
-    assist_success_calls = 0
-    assist_total_tokens = 0
-    assist_reasons: Dict[str, int] = {}
-    for r in all_rounds:
-        for e in r.get("entries", []):
-            assist = e.get("runtime", {}).get("assist", {})
-            if not assist.get("enabled", False):
-                continue
-            assist_total_calls += 1
-            if assist.get("ok", False):
-                assist_success_calls += 1
-            assist_total_tokens += int(assist.get("tokens", 0) or 0)
-            reason = str(assist.get("reason", "") or "ok" if assist.get("ok", False) else assist.get("reason", "unknown"))
-            assist_reasons[reason] = assist_reasons.get(reason, 0) + 1
+    if aggregate is None:
+        success_rounds = sum(1 for r in all_rounds if r.get("success", False))
+        failed_rounds = len(all_rounds) - success_rounds
+        total_rounds = len(all_rounds)
+        assist_total_calls = 0
+        assist_success_calls = 0
+        assist_total_tokens = 0
+        assist_reasons: Dict[str, int] = {}
+        for r in all_rounds:
+            for e in r.get("entries", []):
+                assist = e.get("runtime", {}).get("assist", {})
+                if not assist.get("enabled", False):
+                    continue
+                assist_total_calls += 1
+                if assist.get("ok", False):
+                    assist_success_calls += 1
+                assist_total_tokens += int(assist.get("tokens", 0) or 0)
+                reason = str(assist.get("reason", "") or "ok" if assist.get("ok", False) else assist.get("reason", "unknown"))
+                assist_reasons[reason] = assist_reasons.get(reason, 0) + 1
+    else:
+        total_rounds = int(aggregate.get("total_rounds", len(all_rounds)))
+        success_rounds = int(aggregate.get("success_rounds", 0))
+        failed_rounds = int(aggregate.get("failed_rounds", 0))
+        assist_total_calls = int(aggregate.get("assist_total_calls", 0))
+        assist_success_calls = int(aggregate.get("assist_success_calls", 0))
+        assist_total_tokens = int(aggregate.get("assist_total_tokens", 0))
+        assist_reasons = dict(aggregate.get("assist_reasons", {}))
 
     assist_success_rate = (
         float(assist_success_calls) / float(assist_total_calls)
@@ -822,9 +853,10 @@ def write_daily_report(all_rounds: List[Dict[str, Any]], trust_summary: Dict[str
     payload = {
         "meta": {
             "created_at_utc": now_utc(),
-            "round_count": len(all_rounds),
+            "round_count": total_rounds,
             "success_rounds": success_rounds,
             "failed_rounds": failed_rounds,
+            "retained_rounds_in_memory": len(all_rounds),
             "trust_report": str(trust_report) if trust_report else "",
         },
         "trust": trust_summary,
@@ -846,7 +878,7 @@ def write_daily_report(all_rounds: List[Dict[str, Any]], trust_summary: Dict[str
         f"- Created at (UTC): `{payload['meta']['created_at_utc']}`",
         f"- Trust score: `{trust_summary.get('trust_score', 0.0):.4f}`",
         f"- Trusted ready: `{trust_summary.get('trusted_ready', False)}`",
-        f"- Rounds: `{len(all_rounds)}` | Success: `{success_rounds}` | Failed: `{failed_rounds}`",
+        f"- Rounds: `{total_rounds}` | Success: `{success_rounds}` | Failed: `{failed_rounds}`",
         (
             "- Assist: "
             f"enabled=`{assist_total_calls}` "
@@ -949,12 +981,15 @@ def main() -> None:
     parser.add_argument("--assist-retries", type=int, default=2)
     parser.add_argument("--assist-retry-backoff-seconds", type=float, default=1.5)
     parser.add_argument("--assist-retry-backoff-max-seconds", type=float, default=8.0)
+    parser.add_argument("--assist-max-response-chars", type=int, default=32768)
     parser.add_argument("--no-assist-fallback", dest="assist_fallback", action="store_false")
 
     parser.add_argument("--enable-docker-consistency-check", action="store_true")
     parser.add_argument("--docker-check-interval-rounds", type=int, default=6)
     parser.add_argument("--docker-image", default=os.getenv("DOCKER_IMAGE", "h2q-sandbox"))
     parser.add_argument("--docker-min-overlap", type=float, default=0.05)
+    parser.add_argument("--in-memory-round-window", type=int, default=100)
+    parser.add_argument("--in-memory-alert-window", type=int, default=256)
     parser.set_defaults(assist_fallback=True)
 
     args = parser.parse_args()
@@ -975,6 +1010,7 @@ def main() -> None:
         "retries": max(0, args.assist_retries),
         "retry_backoff_seconds": max(0.0, args.assist_retry_backoff_seconds),
         "retry_backoff_max_seconds": max(0.0, args.assist_retry_backoff_max_seconds),
+        "max_response_chars": max(256, args.assist_max_response_chars),
     }
     traffic_state: Dict[str, Any] = {
         "calls_total": 0,
@@ -1002,6 +1038,17 @@ def main() -> None:
     server_proc: Optional[subprocess.Popen] = None
     all_rounds: List[Dict[str, Any]] = []
     alert_files: List[Path] = []
+    round_window = max(1, int(args.in_memory_round_window))
+    alert_window = max(1, int(args.in_memory_alert_window))
+    aggregate_stats: Dict[str, Any] = {
+        "total_rounds": 0,
+        "success_rounds": 0,
+        "failed_rounds": 0,
+        "assist_total_calls": 0,
+        "assist_success_calls": 0,
+        "assist_total_tokens": 0,
+        "assist_reasons": {},
+    }
 
     try:
         if not _wait_server_ready(base_url, timeout_sec=3.0):
@@ -1091,14 +1138,30 @@ def main() -> None:
             round_payload["self_evolution_adjustments"] = self_adjustments
             current_temperature = next_temp
             current_max_tokens = next_tokens
-            all_rounds.append(round_payload)
+            append_with_limit(all_rounds, round_payload, round_window)
+            aggregate_stats["total_rounds"] += 1
+            if round_payload.get("success", False):
+                aggregate_stats["success_rounds"] += 1
+            else:
+                aggregate_stats["failed_rounds"] += 1
+            for entry in round_payload.get("entries", []):
+                assist = entry.get("runtime", {}).get("assist", {})
+                if not assist.get("enabled", False):
+                    continue
+                aggregate_stats["assist_total_calls"] += 1
+                if assist.get("ok", False):
+                    aggregate_stats["assist_success_calls"] += 1
+                aggregate_stats["assist_total_tokens"] += int(assist.get("tokens", 0) or 0)
+                reason = str(assist.get("reason", "") or "ok" if assist.get("ok", False) else assist.get("reason", "unknown"))
+                reasons = aggregate_stats["assist_reasons"]
+                reasons[reason] = int(reasons.get(reason, 0)) + 1
 
             round_path = write_round_report(round_payload, trust_summary, trust_path)
             print(f"Round {round_id} report: {round_path}")
 
             alert = write_alert(round_payload)
             if alert is not None:
-                alert_files.append(alert)
+                append_with_limit(alert_files, alert, alert_window)
                 print(f"Round {round_id} alert: {alert}")
 
             if args.rounds > 0 and round_id >= args.rounds:
@@ -1106,7 +1169,13 @@ def main() -> None:
 
             time.sleep(max(1.0, args.interval_minutes * 60.0))
 
-        daily_json, daily_md = write_daily_report(all_rounds, trust_summary, trust_path, alert_files)
+        daily_json, daily_md = write_daily_report(
+            all_rounds,
+            trust_summary,
+            trust_path,
+            alert_files,
+            aggregate=aggregate_stats,
+        )
         print(f"Daily report JSON: {daily_json}")
         print(f"Daily report MD: {daily_md}")
 
