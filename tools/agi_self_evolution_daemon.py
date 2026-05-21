@@ -84,7 +84,8 @@ def _deepseek_stream_chat(
         temperature: Sampling temperature.
         max_tokens: Maximum generated tokens.
         timeout: HTTP timeout seconds.
-        max_response_chars: Maximum buffered response chars; 0 disables collection.
+        max_response_chars: Maximum buffered response chars; 0 disables collection
+            (returned text will be empty and `truncated` will be true when content arrives).
     """
     url = f"{base_url.rstrip('/')}/chat/completions"
     headers = {
@@ -109,7 +110,7 @@ def _deepseek_stream_chat(
 
     collected: List[str] = []
     collected_chars = 0
-    truncated = False
+    truncated = not collect_enabled
     usage: Dict[str, Any] = {}
     with requests.post(url, headers=headers, json=payload, stream=True, timeout=timeout) as resp:
         resp.raise_for_status()
@@ -133,7 +134,6 @@ def _deepseek_stream_chat(
             )
             if delta:
                 if not collect_enabled:
-                    truncated = True
                     continue
                 remain = response_char_limit - collected_chars
                 if remain <= 0:

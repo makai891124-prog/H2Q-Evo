@@ -13,7 +13,7 @@ _LOGGER = logging.getLogger(__name__)
 
 
 def append_with_limit(items: List[Any], value: Any, max_items: int) -> None:
-    """Append a value and keep only the latest ``max_items`` entries."""
+    """Append a value and keep only the latest `max_items` entries."""
     items.append(value)
     if max_items > 0 and len(items) > max_items:
         del items[: len(items) - max_items]

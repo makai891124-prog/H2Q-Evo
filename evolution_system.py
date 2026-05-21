@@ -63,7 +63,7 @@ def _env_int(name: str, default: int) -> int:
     try:
         return int(raw)
     except (TypeError, ValueError):
-        logger.warning(f"Invalid {name}={raw!r}; using default {default}")
+        logger.warning(f"Invalid environment variable {name}={raw!r}; using default {default}")
         return default
 
 
