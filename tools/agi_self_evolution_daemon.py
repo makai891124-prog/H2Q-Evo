@@ -18,7 +18,7 @@ import sys
 import time
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import Any, Dict, List, Optional, Tuple
+from typing import Any, Dict, List, Optional, Sequence, Tuple
 
 import requests
 
@@ -790,7 +790,7 @@ def write_round_report(round_payload: Dict[str, Any], trust_summary: Dict[str, A
     return out
 
 
-def write_daily_report(all_rounds: List[Dict[str, Any]], trust_summary: Dict[str, Any], trust_report: Optional[Path], alert_files: List[Path]) -> Tuple[Path, Path]:
+def write_daily_report(all_rounds: Sequence[Dict[str, Any]], trust_summary: Dict[str, Any], trust_report: Optional[Path], alert_files: List[Path]) -> Tuple[Path, Path]:
     ts = int(time.time())
     out_json = ROOT / "reports" / f"agi_self_evolution_daily_{ts}.json"
     out_md = ROOT / "reports" / f"AGI自我进化日报_{ts}.md"
@@ -1104,7 +1104,8 @@ def main() -> None:
             current_temperature = next_temp
             current_max_tokens = next_tokens
             rounds_buffer.append(round_payload)
-            any_failed_round = any_failed_round or (not round_success)
+            if not round_success:
+                any_failed_round = True
 
             round_path = write_round_report(round_payload, trust_summary, trust_path)
             print(f"Round {round_id} report: {round_path}")

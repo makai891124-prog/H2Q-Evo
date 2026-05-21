@@ -89,24 +89,24 @@ class MetricsRotator:
             checkpoint_size: Write to disk after this many new records.
         """
         self.max_records = max(1, max_records)
-        self.checkpoint_size = max(1, checkpoint_size)
+        self.checkpoint_size = min(self.max_records, max(1, checkpoint_size))
         self.records: Deque[Dict[str, Any]] = deque(maxlen=self.max_records)
         self.checkpoint_idx = 0
         self.checkpoint_dir = checkpoint_dir or Path(".")
         self.checkpoint_dir.mkdir(parents=True, exist_ok=True)
-        self._pending_checkpoint: List[Dict[str, Any]] = []
+        self.new_since_checkpoint = 0
 
     def append(self, record: Dict[str, Any]) -> Optional[Path]:
         """Add record; returns checkpoint file if limit exceeded."""
         self.records.append(record)
-        self._pending_checkpoint.append(record)
+        self.new_since_checkpoint += 1
         checkpoint_file = None
 
         # Checkpoint periodically.
-        if len(self._pending_checkpoint) >= self.checkpoint_size:
+        if self.new_since_checkpoint >= self.checkpoint_size:
             checkpoint_file = self._write_checkpoint()
-            self.checkpoint_idx += len(self._pending_checkpoint)
-            self._pending_checkpoint.clear()
+            self.checkpoint_idx += self.new_since_checkpoint
+            self.new_since_checkpoint = 0
 
         return checkpoint_file
 
@@ -114,9 +114,11 @@ class MetricsRotator:
         """Write checkpoint file with metrics since last checkpoint."""
         ts = int(time.time())
         checkpoint_file = self.checkpoint_dir / f"metrics_checkpoint_{ts}.json"
+        count = min(self.new_since_checkpoint, len(self.records))
+        checkpoint_records = list(self.records)[-count:] if count > 0 else []
         try:
             checkpoint_file.write_text(
-                json.dumps(self._pending_checkpoint, ensure_ascii=False, indent=2),
+                json.dumps(checkpoint_records, ensure_ascii=False, indent=2),
                 encoding="utf-8"
             )
             logger.info(f"Metrics checkpoint written: {checkpoint_file}")
@@ -124,9 +126,22 @@ class MetricsRotator:
             logger.error(f"Failed to write checkpoint: {e}")
         return checkpoint_file
 
+    def load_existing(self, records: List[Dict[str, Any]]) -> None:
+        """Load existing records without creating checkpoint side effects."""
+        self.records = deque(records[-self.max_records:], maxlen=self.max_records)
+        self.checkpoint_idx = len(self.records)
+        self.new_since_checkpoint = 0
+
     def get_records(self) -> List[Dict[str, Any]]:
         """Return current records."""
         return list(self.records)
+
+    def get_tail_records(self, limit: int) -> List[Dict[str, Any]]:
+        """Return the most recent N records."""
+        n = max(0, limit)
+        if n == 0:
+            return []
+        return list(self.records)[-n:]
 
     def get_stats(self) -> Dict[str, Any]:
         """Return rotator statistics."""
@@ -134,6 +149,7 @@ class MetricsRotator:
             "current_count": len(self.records),
             "max_records": self.max_records,
             "checkpoint_idx": self.checkpoint_idx,
+            "new_since_checkpoint": self.new_since_checkpoint,
         }
 
 
@@ -185,11 +201,13 @@ class StreamingJSONWriter:
 
         self.file.write(f'  "{key}": [')
         first = True
-        for item in values:
+        for idx, item in enumerate(values, start=1):
             if not first:
                 self.file.write(",")
             first = False
             json.dump(item, self.file, ensure_ascii=False, separators=(",", ":"))
+            if idx % 100 == 0:
+                self.file.flush()
         self.file.write("]")
         self.file.flush()
 

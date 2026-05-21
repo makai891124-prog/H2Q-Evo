@@ -69,6 +69,7 @@ class Config:
     MAX_METRICS_MEMORY = int(os.getenv("MAX_METRICS_MEMORY", "1000"))
     MAX_STATE_METRICS = int(os.getenv("MAX_STATE_METRICS", "100"))
     LOG_FLUSH_INTERVAL = float(os.getenv("LOG_FLUSH_INTERVAL", "5.0"))
+    DOCKER_STOP_TIMEOUT = float(os.getenv("DOCKER_STOP_TIMEOUT", "20"))
 
 class CodeValidator:
     @staticmethod
@@ -102,17 +103,19 @@ class H2QNexus:
         self.state = self._load_json(Config.STATE_FILE, {
             "generation": 0, "last_task_id": 0, "todo_list": [], "history": []
         })
-        self.state.setdefault("das_metrics", [])
-        if len(self.state["das_metrics"]) > Config.MAX_STATE_METRICS:
-            self.state["das_metrics"] = self.state["das_metrics"][-Config.MAX_STATE_METRICS:]
-            self._save_json(Config.STATE_FILE, self.state)
         self.metrics_rotator = MetricsRotator(
             max_records=Config.MAX_METRICS_MEMORY,
             checkpoint_size=max(1, Config.MAX_STATE_METRICS),
             checkpoint_dir=Path("reports"),
         )
-        for metric in self.state.get("das_metrics", []):
-            self.metrics_rotator.append(metric)
+        existing_metrics = self.state.get("das_metrics", [])
+        if not isinstance(existing_metrics, list):
+            logger.warning("Invalid das_metrics format in state file; resetting to bounded empty list.")
+            existing_metrics = []
+        self.metrics_rotator.load_existing(existing_metrics)
+        self.state["das_metrics"] = self.metrics_rotator.get_tail_records(Config.MAX_STATE_METRICS)
+        if self.state["das_metrics"] != existing_metrics:
+            self._save_json(Config.STATE_FILE, self.state)
         self.log_flusher = LogBufferFlusher(flush_interval=Config.LOG_FLUSH_INTERVAL)
         # 确保可以导入 h2q_project 下的统一数学架构
         try:
@@ -415,7 +418,7 @@ class H2QNexus:
                         checkpoint_file = self.metrics_rotator.append(metric)
                         if checkpoint_file is not None:
                             logger.info(f"Metrics checkpoint written: {checkpoint_file}")
-                        self.state["das_metrics"] = self.metrics_rotator.get_records()[-Config.MAX_STATE_METRICS:]
+                        self.state["das_metrics"] = self.metrics_rotator.get_tail_records(Config.MAX_STATE_METRICS)
                         self._save_json(Config.STATE_FILE, self.state)
                 except Exception as e:
                     logger.warning(f"Mathematical evolution step failed: {e}")
@@ -430,11 +433,19 @@ class H2QNexus:
                     # 使用 docker stop 命令优雅地停止容器
                     stop_process = await asyncio.create_subprocess_shell(f"docker stop h2q_life_cycle")
                     await stop_process.wait()
-                    await asyncio.wait_for(life_process.wait(), timeout=20)
+                    await asyncio.wait_for(life_process.wait(), timeout=Config.DOCKER_STOP_TIMEOUT)
+                except asyncio.TimeoutError:
+                    logger.warning("Life Cycle process did not stop in time, terminating forcefully.")
+                    life_process.terminate()
+                    try:
+                        await asyncio.wait_for(life_process.wait(), timeout=5)
+                    except asyncio.TimeoutError:
+                        life_process.kill()
+                        await life_process.wait()
                 except Exception as e:
                     logger.error(f"Failed to stop container: {e}")
 
-    async def _stream_logs(self, stream, prefix):
+    async def _stream_logs(self, stream: Optional[asyncio.StreamReader], prefix: str):
         if stream is None:
             return
         while True:
