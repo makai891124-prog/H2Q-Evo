@@ -74,6 +74,10 @@ def _deepseek_stream_chat(
     timeout: float = 120.0,
     max_response_chars: int = 32768,
 ) -> Dict[str, Any]:
+    """DeepSeek stream chat with bounded buffering.
+
+    `max_response_chars=0` disables response collection and returns empty text.
+    """
     url = f"{base_url.rstrip('/')}/chat/completions"
     headers = {
         "Authorization": f"Bearer {api_key}",
@@ -285,6 +289,13 @@ def _safe_json_list(raw: str, limit: int) -> List[str]:
             continue
         cleaned.append(ln)
     return cleaned[:limit]
+
+
+def _assist_reason(assist: Dict[str, Any]) -> str:
+    reason = str(assist.get("reason", "")).strip()
+    if assist.get("ok", False):
+        return reason or "ok"
+    return reason or "unknown"
 
 
 def _synthesize_external_goals(assist_cfg: Dict[str, Any], count: int) -> List[str]:
@@ -835,7 +846,7 @@ def write_daily_report(
                 if assist.get("ok", False):
                     assist_success_calls += 1
                 assist_total_tokens += int(assist.get("tokens", 0) or 0)
-                reason = str(assist.get("reason", "") or "ok" if assist.get("ok", False) else assist.get("reason", "unknown"))
+                reason = _assist_reason(assist)
                 assist_reasons[reason] = assist_reasons.get(reason, 0) + 1
     else:
         total_rounds = int(aggregate.get("total_rounds", len(all_rounds)))
@@ -1012,7 +1023,7 @@ def main() -> None:
         "retries": max(0, args.assist_retries),
         "retry_backoff_seconds": max(0.0, args.assist_retry_backoff_seconds),
         "retry_backoff_max_seconds": max(0.0, args.assist_retry_backoff_max_seconds),
-        "max_response_chars": max(256, args.assist_max_response_chars),
+        "max_response_chars": max(0, args.assist_max_response_chars),
     }
     traffic_state: Dict[str, Any] = {
         "calls_total": 0,
@@ -1154,7 +1165,7 @@ def main() -> None:
                 if assist.get("ok", False):
                     aggregate_stats["assist_success_calls"] += 1
                 aggregate_stats["assist_total_tokens"] += int(assist.get("tokens", 0) or 0)
-                reason = str(assist.get("reason", "") or "ok" if assist.get("ok", False) else assist.get("reason", "unknown"))
+                reason = _assist_reason(assist)
                 reasons = aggregate_stats["assist_reasons"]
                 reasons[reason] = int(reasons.get(reason, 0)) + 1
 

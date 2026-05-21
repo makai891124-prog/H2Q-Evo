@@ -56,6 +56,16 @@ logging.basicConfig(
 )
 logger = logging.getLogger("H2Q-Evo")
 
+
+def _env_int(name: str, default: int) -> int:
+    raw = os.getenv(name, str(default))
+    try:
+        return int(raw)
+    except (TypeError, ValueError):
+        logger.warning(f"Invalid {name}={raw!r}; using default {default}")
+        return default
+
+
 class Config:
     API_KEY = os.getenv("GEMINI_API_KEY")
     MODEL_NAME = os.getenv("MODEL_NAME", "gemini-3-flash-preview")
@@ -66,8 +76,8 @@ class Config:
     DOCKER_MEM_LIMIT = "8g"
     MAX_RETRIES = 3
     INFERENCE_MODE = os.getenv("INFERENCE_MODE", "api").lower()
-    MAX_DAS_METRICS = int(os.getenv("MAX_DAS_METRICS", "1000"))
-    LOG_FLUSH_EVERY_N_LOOPS = int(os.getenv("LOG_FLUSH_EVERY_N_LOOPS", "1"))
+    MAX_DAS_METRICS = _env_int("MAX_DAS_METRICS", 1000)
+    LOG_FLUSH_EVERY_N_LOOPS = _env_int("LOG_FLUSH_EVERY_N_LOOPS", 1)
 
 class CodeValidator:
     @staticmethod
