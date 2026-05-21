@@ -4,6 +4,7 @@ import torch
 import torch.nn as nn
 import torch.optim as optim
 import matplotlib.pyplot as plt
+from collections import deque
 
 from h2q_project.src.h2q.core.discrete_decision_engine import get_canonical_dde, LatentConfig
 from h2q_project.src.h2q.core.sst import SpectralShiftTracker
@@ -83,14 +84,15 @@ loss_fn = nn.MSELoss()
 optimizer = optim.Adam(_dde.parameters(), lr=0.001)
 
 # --- 4. 实验记录器 ---
+HISTORY_WINDOW = 1000
 history = {
-    'loss': [],
-    'autonomy_score': [], # 我们将定义一个简单的自主性得分
-    'eta_total': [],
-    'trace_error': [], # (未来添加)
-    'math_integrity': [],
-    'fueter_curvature': [],
-    'homeostasis': [],
+    'loss': deque(maxlen=HISTORY_WINDOW),
+    'autonomy_score': deque(maxlen=HISTORY_WINDOW), # 我们将定义一个简单的自主性得分
+    'eta_total': deque(maxlen=HISTORY_WINDOW),
+    'trace_error': deque(maxlen=HISTORY_WINDOW), # (未来添加)
+    'math_integrity': deque(maxlen=HISTORY_WINDOW),
+    'fueter_curvature': deque(maxlen=HISTORY_WINDOW),
+    'homeostasis': deque(maxlen=HISTORY_WINDOW),
 }
 
 manifold_view = ExperimentManifold()
@@ -193,24 +195,24 @@ rows = 4 if _das_arch is not None else 3
 fig, axs = plt.subplots(rows, 1, figsize=(10, 4 * rows))
 fig.suptitle('DAS-Based Autonomous System - First Experiment')
 
-axs[0].plot(history['loss'])
+axs[0].plot(list(history['loss']))
 axs[0].set_title('Task Loss over Episodes')
 axs[0].set_ylabel('MSE Loss')
 axs[0].grid(True)
 
-axs[1].plot(history['autonomy_score'])
+axs[1].plot(list(history['autonomy_score']))
 axs[1].set_title('Autonomy Score (Fraction of non-optimal task choices)')
 axs[1].set_ylabel('Score')
 axs[1].grid(True)
 
-axs[2].plot(history['eta_total'])
+axs[2].plot(list(history['eta_total']))
 axs[2].set_title('Cumulative Spectral Shift (Total Learning)')
 axs[2].set_ylabel('Cumulative η')
 axs[2].set_xlabel('Episode')
 axs[2].grid(True)
 
 if _das_arch is not None:
-    axs[3].plot(history['math_integrity'])
+    axs[3].plot(list(history['math_integrity']))
     axs[3].set_title('Mathematical Integrity (DAS Architecture)')
     axs[3].set_ylabel('Integrity')
     axs[3].grid(True)

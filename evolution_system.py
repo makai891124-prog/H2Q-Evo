@@ -20,6 +20,7 @@ from google import genai
 from google.genai import types
 import docker
 import aiofiles
+from tools.memory_manager import MetricsRotator, LogBufferFlusher
 
 try:
     from h2q_project.fractal_memory import FractalMemory
@@ -65,6 +66,10 @@ class Config:
     DOCKER_MEM_LIMIT = "8g"
     MAX_RETRIES = 3
     INFERENCE_MODE = os.getenv("INFERENCE_MODE", "api").lower()
+    MAX_METRICS_MEMORY = int(os.getenv("MAX_METRICS_MEMORY", "1000"))
+    MAX_STATE_METRICS = int(os.getenv("MAX_STATE_METRICS", "100"))
+    LOG_FLUSH_INTERVAL = float(os.getenv("LOG_FLUSH_INTERVAL", "5.0"))
+    DOCKER_STOP_TIMEOUT = float(os.getenv("DOCKER_STOP_TIMEOUT", "20"))
 
 class CodeValidator:
     @staticmethod
@@ -98,6 +103,20 @@ class H2QNexus:
         self.state = self._load_json(Config.STATE_FILE, {
             "generation": 0, "last_task_id": 0, "todo_list": [], "history": []
         })
+        self.metrics_rotator = MetricsRotator(
+            max_records=Config.MAX_METRICS_MEMORY,
+            checkpoint_size=max(1, Config.MAX_STATE_METRICS),
+            checkpoint_dir=Path("reports"),
+        )
+        existing_metrics = self.state.get("das_metrics", [])
+        if not isinstance(existing_metrics, list):
+            logger.warning("Invalid das_metrics format in state file; resetting to bounded empty list.")
+            existing_metrics = []
+        self.metrics_rotator.load_existing(existing_metrics)
+        self.state["das_metrics"] = self.metrics_rotator.get_tail_records(Config.MAX_STATE_METRICS)
+        if self.state["das_metrics"] != existing_metrics:
+            self._save_json(Config.STATE_FILE, self.state)
+        self.log_flusher = LogBufferFlusher(flush_interval=Config.LOG_FLUSH_INTERVAL)
         # 确保可以导入 h2q_project 下的统一数学架构
         try:
             sys.path.insert(0, str(Config.PROJECT_ROOT))
@@ -357,6 +376,7 @@ class H2QNexus:
 
     async def run(self):
         life_process = None
+        life_log_tasks: List[asyncio.Task] = []
         if Config.INFERENCE_MODE == 'local':
             logger.info("🚀 Starting independent Life Cycle process...")
             # 【核心修复】调用 heartbeat.py 脚本，而不是复杂的单行命令
@@ -367,8 +387,8 @@ class H2QNexus:
                 f"python3 -u tools/heartbeat.py" # -u 确保日志不缓存
             )
             life_process = await asyncio.create_subprocess_shell(cmd, stdout=asyncio.subprocess.PIPE, stderr=asyncio.subprocess.PIPE)
-            asyncio.create_task(self._stream_logs(life_process.stdout, "[LifeCycle]"))
-            asyncio.create_task(self._stream_logs(life_process.stderr, "[LifeCycle ERR]"))
+            life_log_tasks.append(asyncio.create_task(self._stream_logs(life_process.stdout, "[LifeCycle]")))
+            life_log_tasks.append(asyncio.create_task(self._stream_logs(life_process.stderr, "[LifeCycle ERR]")))
             
         try:
             while True:
@@ -388,33 +408,53 @@ class H2QNexus:
                         
                         # 计算AGI进化损失指标（如果有的话，暂时跳过）
                         
-                        # 将DAS指标写入状态文件
-                        self.state.setdefault("das_metrics", [])
-                        self.state["das_metrics"].append({
+                        metric = {
                             "timestamp": time.time(),
                             "generation": results.get("generation", 0),
                             "invariant_distances": results.get("invariant_distances", 0.0),
                             "manifold_size": results.get("manifold_size", 1),
                             "group_hierarchy_depth": results.get("group_hierarchy_depth", 1),
-                        })
+                        }
+                        checkpoint_file = self.metrics_rotator.append(metric)
+                        if checkpoint_file is not None:
+                            logger.info(f"Metrics checkpoint written: {checkpoint_file}")
+                        self.state["das_metrics"] = self.metrics_rotator.get_tail_records(Config.MAX_STATE_METRICS)
                         self._save_json(Config.STATE_FILE, self.state)
                 except Exception as e:
                     logger.warning(f"Mathematical evolution step failed: {e}")
         finally:
+            for task in life_log_tasks:
+                task.cancel()
+            if life_log_tasks:
+                await asyncio.gather(*life_log_tasks, return_exceptions=True)
             if life_process:
                 logger.info("🛑 Shutting down Life Cycle process...")
                 try:
                     # 使用 docker stop 命令优雅地停止容器
                     stop_process = await asyncio.create_subprocess_shell(f"docker stop h2q_life_cycle")
                     await stop_process.wait()
+                    await asyncio.wait_for(life_process.wait(), timeout=Config.DOCKER_STOP_TIMEOUT)
+                except asyncio.TimeoutError:
+                    logger.warning("Life Cycle process did not stop in time, terminating forcefully.")
+                    life_process.terminate()
+                    try:
+                        await asyncio.wait_for(life_process.wait(), timeout=5)
+                    except asyncio.TimeoutError:
+                        life_process.kill()
+                        await life_process.wait()
                 except Exception as e:
                     logger.error(f"Failed to stop container: {e}")
 
-    async def _stream_logs(self, stream, prefix):
+    async def _stream_logs(self, stream: Optional[asyncio.StreamReader], prefix: str):
+        if stream is None:
+            return
         while True:
             line = await stream.readline()
-            if not line: break
+            if not line:
+                break
             logger.info(f"{prefix} {line.decode().strip()}")
+            self.log_flusher.maybe_flush()
+        self.log_flusher.flush()
 
     # --- 完整的辅助函数 ---
     def _check_source_integrity(self):
