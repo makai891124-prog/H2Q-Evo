@@ -58,6 +58,7 @@ logger = logging.getLogger("H2Q-Evo")
 
 
 def _env_int(name: str, default: int) -> int:
+    """Parse integer env var safely, with warning fallback on invalid values."""
     raw = os.getenv(name, str(default))
     try:
         return int(raw)

@@ -74,9 +74,17 @@ def _deepseek_stream_chat(
     timeout: float = 120.0,
     max_response_chars: int = 32768,
 ) -> Dict[str, Any]:
-    """DeepSeek stream chat with bounded buffering.
+    """Call DeepSeek streaming chat endpoint with bounded buffering.
 
-    `max_response_chars=0` disables response collection and returns empty text.
+    Args:
+        api_key: DeepSeek API key.
+        base_url: DeepSeek-compatible API base URL.
+        model: Model identifier.
+        prompt: User prompt text.
+        temperature: Sampling temperature.
+        max_tokens: Maximum generated tokens.
+        timeout: HTTP timeout seconds.
+        max_response_chars: Maximum buffered response chars; 0 disables collection.
     """
     url = f"{base_url.rstrip('/')}/chat/completions"
     headers = {
@@ -292,6 +300,7 @@ def _safe_json_list(raw: str, limit: int) -> List[str]:
 
 
 def _assist_reason(assist: Dict[str, Any]) -> str:
+    """Normalize assist reason to stable non-empty values for aggregation."""
     reason = str(assist.get("reason", "")).strip()
     if assist.get("ok", False):
         return reason or "ok"
