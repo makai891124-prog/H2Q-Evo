@@ -92,6 +92,8 @@ def _deepseek_stream_chat(
         "max_tokens": max_tokens,
         "stream": True,
     }
+    max_response_chars = max(0, int(max_response_chars))
+    collect_enabled = max_response_chars > 0
 
     collected: List[str] = []
     collected_chars = 0
@@ -118,7 +120,7 @@ def _deepseek_stream_chat(
                 .get("content", "")
             )
             if delta:
-                if max_response_chars <= 0:
+                if not collect_enabled:
                     truncated = True
                     continue
                 remain = max_response_chars - collected_chars
@@ -1038,8 +1040,8 @@ def main() -> None:
     server_proc: Optional[subprocess.Popen] = None
     all_rounds: List[Dict[str, Any]] = []
     alert_files: List[Path] = []
-    round_window = max(1, int(args.in_memory_round_window))
-    alert_window = max(1, int(args.in_memory_alert_window))
+    round_window = max(1, args.in_memory_round_window)
+    alert_window = max(1, args.in_memory_alert_window)
     aggregate_stats: Dict[str, Any] = {
         "total_rounds": 0,
         "success_rounds": 0,

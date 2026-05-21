@@ -67,7 +67,7 @@ class Config:
     MAX_RETRIES = 3
     INFERENCE_MODE = os.getenv("INFERENCE_MODE", "api").lower()
     MAX_DAS_METRICS = int(os.getenv("MAX_DAS_METRICS", "1000"))
-    LOG_FLUSH_EVERY_LOOPS = int(os.getenv("LOG_FLUSH_EVERY_LOOPS", "1"))
+    LOG_FLUSH_EVERY_N_LOOPS = int(os.getenv("LOG_FLUSH_EVERY_N_LOOPS", "1"))
 
 class CodeValidator:
     @staticmethod
@@ -405,7 +405,7 @@ class H2QNexus:
                         self._save_json(Config.STATE_FILE, self.state)
                 except Exception as e:
                     logger.warning(f"Mathematical evolution step failed: {e}")
-                if loop_counter % max(1, Config.LOG_FLUSH_EVERY_LOOPS) == 0:
+                if loop_counter % max(1, Config.LOG_FLUSH_EVERY_N_LOOPS) == 0:
                     flush_logger_handlers(logger)
         finally:
             if life_process:
