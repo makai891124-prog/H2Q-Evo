@@ -106,7 +106,10 @@ int topo_node_collides(const TopoNode *a, const TopoNode *b) {
  * Taylor decay
  * ──────────────────────────────────────────────────────────────────── */
 
-static double factorial_table[21];  /* 0! .. 20! */
+/* Table holds 0! through 20!.  20! ≈ 2.4e18 fits in double without
+   precision loss.  calculate_taylor_decay returns 0.0 for step > 20
+   because 1/21! is below any practical threshold. */
+static double factorial_table[21];
 static int    factorial_ready = 0;
 
 static void init_factorial(void) {
@@ -120,16 +123,15 @@ static void init_factorial(void) {
 
 double calculate_taylor_decay(int step_s, int precision_level) {
     init_factorial();
+    (void)precision_level;  /* reserved for future threshold logic */
     if (step_s < 0) step_s = 0;
     if (step_s > 20) return 0.0;  /* essentially zero */
 
     double decay = 1.0 / factorial_table[step_s];
 
-    /* Threshold from precision: 1 / 2^precision */
-    double threshold = 1.0 / (double)(1u << (unsigned)precision_level);
-
-    /* Return the decay; caller checks against threshold */
-    (void)threshold;
+    /* Note: this function only returns the raw decay value.
+       The truncation threshold (1 / 2^precision) is applied by the
+       caller (propagate_from_origin) to decide whether to prune. */
     return decay;
 }
 
