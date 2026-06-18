@@ -148,9 +148,14 @@ typedef struct {
 } BFSQueue;
 
 static BFSQueue *bfs_queue_create(uint64_t cap) {
+    if (cap < 2) cap = 2;
     BFSQueue *q = (BFSQueue *)malloc(sizeof(BFSQueue));
     if (!q) return NULL;
     q->buf  = (TopoNode **)malloc(cap * sizeof(TopoNode *));
+    if (!q->buf) {
+        free(q);
+        return NULL;
+    }
     q->cap  = cap;
     q->head = 0;
     q->tail = 0;
@@ -186,6 +191,7 @@ void propagate_from_origin(TopoNode *origin, int max_steps,
                            PropagationStats *stats)
 {
     init_factorial();
+    if (!stats) return;
     memset(stats, 0, sizeof(*stats));
 
     if (!origin) return;
@@ -198,7 +204,11 @@ void propagate_from_origin(TopoNode *origin, int max_steps,
 
     origin->visited = 1;
     origin->relative_step_distance = 0;
-    bfs_queue_push(queue, origin);
+    if (bfs_queue_push(queue, origin) != 0) {
+        stats->queue_overflow_events++;
+        bfs_queue_destroy(queue);
+        return;
+    }
     stats->nodes_visited = 1;
 
     while (!bfs_queue_empty(queue)) {
@@ -240,7 +250,11 @@ void propagate_from_origin(TopoNode *origin, int max_steps,
             if (child->p_adic_precision > stats->max_precision_seen)
                 stats->max_precision_seen = child->p_adic_precision;
 
-            bfs_queue_push(queue, child);
+            if (bfs_queue_push(queue, child) != 0) {
+                stats->queue_overflow_events++;
+                child->visited = 0;
+                continue;
+            }
         }
     }
 
@@ -295,6 +309,7 @@ static uint64_t lcg_next(void) {
 }
 
 TopoNode **topo_network_build(uint64_t n, uint16_t avg_edges, uint32_t seed) {
+    if (n == 0) return NULL;
     lcg_seed(seed);
 
     TopoNode **nodes = (TopoNode **)calloc(n, sizeof(TopoNode *));
@@ -379,6 +394,7 @@ BenchmarkResult topo_run_benchmark(uint64_t num_nodes, uint16_t avg_edges,
     result.morphism_count    = pstats.morphism_count;
     result.truncation_events = pstats.truncation_events;
     result.collision_events  = pstats.collision_events;
+    result.queue_overflow_events = pstats.queue_overflow_events;
     result.max_step          = pstats.max_step_reached;
 
     /* Memory estimate: nodes + edge pointers */

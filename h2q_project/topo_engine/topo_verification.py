@@ -19,7 +19,7 @@ from __future__ import annotations
 
 import json
 import math
-import os
+import statistics
 import sys
 import time
 from pathlib import Path
@@ -87,6 +87,7 @@ def test_small_network():
     print(f"  Morphisms (jumps):  {r['morphism_count']}")
     print(f"  Truncation events:  {r['truncation_events']}")
     print(f"  Collision events:   {r['collision_events']}")
+    print(f"  Queue overflows:    {r.get('queue_overflow_events', 0)}")
     print(f"  Max step reached:   {r['max_step']}")
     print(f"  Build time:         {r['build_time_us']:.1f} µs")
     print(f"  Propagate time:     {r['propagate_time_us']:.1f} µs")
@@ -111,8 +112,8 @@ def test_scaling_analysis():
     results = []
 
     print(f"  {'N':>7s}  {'Edges':>8s}  {'Morphisms':>10s}  {'N²':>12s}"
-          f"  {'Ratio':>8s}  {'Trunc':>7s}  {'Time(µs)':>10s}")
-    print(f"  {'-'*7}  {'-'*8}  {'-'*10}  {'-'*12}  {'-'*8}  {'-'*7}  {'-'*10}")
+          f"  {'Ratio':>8s}  {'Trunc':>7s}  {'QOvfl':>7s}  {'Time(µs)':>10s}")
+    print(f"  {'-'*7}  {'-'*8}  {'-'*10}  {'-'*12}  {'-'*8}  {'-'*7}  {'-'*7}  {'-'*10}")
 
     for n in sizes:
         r = run_benchmark(n, avg_edges=4, max_steps=10, seed=42)
@@ -125,12 +126,14 @@ def test_scaling_analysis():
             "N_squared": n_sq,
             "ratio": ratio,
             "truncations": r['truncation_events'],
+            "queue_overflows": r.get("queue_overflow_events", 0),
             "time_us": r['propagate_time_us'],
             "memory_bytes": r['memory_bytes'],
             "ops_per_sec": r['ops_per_second'],
         })
         print(f"  {n:>7d}  {r['num_edges']:>8d}  {r['morphism_count']:>10d}"
               f"  {n_sq:>12d}  {ratio:>8.4f}  {r['truncation_events']:>7d}"
+              f"  {r.get('queue_overflow_events', 0):>7d}"
               f"  {r['propagate_time_us']:>10.1f}")
 
     # Check that morphism count is always ≪ N²
@@ -229,12 +232,12 @@ def test_throughput():
     print("=" * 70)
 
     sizes = [1000, 10000, 100000, 500000]
-    print(f"  {'N':>8s}  {'Morphisms':>10s}  {'Time(ms)':>10s}  {'Ops/sec':>14s}")
+    print(f"  {'N':>8s}  {'Morphisms':>10s}  {'QOvfl':>7s}  {'Time(ms)':>10s}  {'Ops/sec':>14s}")
 
     for n in sizes:
         r = run_benchmark(n, avg_edges=4, max_steps=10, seed=42)
         time_ms = r['propagate_time_us'] / 1000.0
-        print(f"  {n:>8d}  {r['morphism_count']:>10d}  {time_ms:>10.2f}"
+        print(f"  {n:>8d}  {r['morphism_count']:>10d}  {r.get('queue_overflow_events', 0):>7d}  {time_ms:>10.2f}"
               f"  {r['ops_per_second']:>14,.0f}")
 
     print(f"\n  Result: PASS\n")
@@ -266,14 +269,17 @@ def test_vs_dense_simulation():
 
     comparison_results = []
 
+    rng = np.random.default_rng(1234)
+
     for n in sizes:
         # Topology engine
         r = run_benchmark(n, avg_edges=4, max_steps=10, seed=42)
         topo_ms = r['propagate_time_us'] / 1000.0
 
         # Dense N×N matrix-vector multiply (simulates O(N²) attention)
-        mat = np.random.randn(n, n).astype(np.float32)
-        vec = np.random.randn(n).astype(np.float32)
+        mat = rng.standard_normal((n, n), dtype=np.float32)
+        vec = rng.standard_normal(n, dtype=np.float32)
+        _ = mat @ vec  # warmup
         t0 = time.perf_counter()
         _ = mat @ vec  # O(N²) operation
         t1 = time.perf_counter()
@@ -296,6 +302,52 @@ def test_vs_dense_simulation():
 
     print(f"\n  Result: PASS (topology engine measured against dense baseline)\n")
     return comparison_results
+
+
+def test_repeatability():
+    """Quantify run-to-run stability using repeated benchmark runs."""
+    print("=" * 70)
+    print("TEST 10: Reliability — Repeatability Stability")
+    print("=" * 70)
+
+    repeats = 10
+    cfg = {"num_nodes": 50000, "avg_edges": 4, "max_steps": 10, "seed": 42}
+    runs = [run_benchmark(**cfg) for _ in range(repeats)]
+
+    morphisms = [r["morphism_count"] for r in runs]
+    ops = [r["ops_per_second"] for r in runs]
+    overflows = [r.get("queue_overflow_events", 0) for r in runs]
+
+    m_mean = statistics.mean(morphisms)
+    m_std = statistics.pstdev(morphisms)
+    o_mean = statistics.mean(ops)
+    o_std = statistics.pstdev(ops)
+    m_cv = m_std / max(m_mean, 1.0)
+    o_cv = o_std / max(o_mean, 1.0)
+    overflow_total = sum(overflows)
+
+    print(f"  repeats:          {repeats}")
+    print(f"  morphism_mean:    {m_mean:.2f}")
+    print(f"  morphism_std:     {m_std:.2f}")
+    print(f"  morphism_cv:      {m_cv:.6f}")
+    print(f"  ops_mean:         {o_mean:.2f}")
+    print(f"  ops_std:          {o_std:.2f}")
+    print(f"  ops_cv:           {o_cv:.6f}")
+    print(f"  overflow_total:   {overflow_total}")
+
+    reliable = (m_cv < 0.02) and (o_cv < 0.20) and (overflow_total == 0)
+    print(f"\n  Result: {'PASS' if reliable else 'FAIL'}\n")
+    return {
+        "repeats": repeats,
+        "morphism_mean": m_mean,
+        "morphism_std": m_std,
+        "morphism_cv": m_cv,
+        "ops_mean": o_mean,
+        "ops_std": o_std,
+        "ops_cv": o_cv,
+        "overflow_total": overflow_total,
+        "pass": reliable,
+    }, reliable
 
 
 # ═══════════════════════════════════════════════════════════════════════
@@ -332,6 +384,8 @@ def main():
 
     # Comparison
     comparison = test_vs_dense_simulation()
+    repeatability, repeatability_pass = test_repeatability()
+    all_pass &= repeatability_pass
 
     # ── Summary ──
     print("═" * 70)
@@ -342,6 +396,7 @@ def main():
         "overall_pass": all_pass,
         "scaling": scaling_data,
         "comparison": comparison if isinstance(comparison, list) else [],
+        "repeatability": repeatability,
         "conclusion": {
             "sub_quadratic": "Morphism count is consistently ≪ N² due to Taylor truncation",
             "memory_efficient": "Pointer network uses orders of magnitude less memory than dense matrices",
@@ -349,6 +404,8 @@ def main():
             "collision_detection": "Congruence-based collision detection is operational",
             "architecture_viable": "The pointer-reuse topology engine is a viable alternative "
                                    "to dense tensor computation for discrete routing tasks",
+            "repeatability": "Repeated runs provide explicit stability coefficients (CV) "
+                             "for morphism throughput and operation rate",
         },
     }
 

@@ -63,6 +63,7 @@ typedef struct PropagationStats {
     uint64_t nodes_visited;
     uint64_t truncation_events;    /* far-field Taylor cutoffs */
     uint64_t collision_events;     /* semantic collisions detected */
+    uint64_t queue_overflow_events;/* BFS enqueue failures due to capacity */
     uint32_t max_step_reached;
     uint32_t max_precision_seen;
     double   elapsed_us;           /* wall-clock microseconds */
@@ -78,6 +79,7 @@ typedef struct BenchmarkResult {
     uint64_t morphism_count;
     uint64_t truncation_events;
     uint64_t collision_events;
+    uint64_t queue_overflow_events;
     uint32_t max_step;
     double   memory_bytes;
     double   ops_per_second;
