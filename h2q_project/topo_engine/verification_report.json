@@ -9,9 +9,9 @@
       "ratio": 0.0107,
       "truncations": 13,
       "queue_overflows": 0,
-      "time_us": 12.278999328613281,
+      "time_us": 16.460000038146973,
       "memory_bytes": 6488.0,
-      "ops_per_sec": 8714065.139710695
+      "ops_per_sec": 6500607.518348815
     },
     {
       "N": 500,
@@ -21,9 +21,9 @@
       "ratio": 0.002872,
       "truncations": 350,
       "queue_overflows": 0,
-      "time_us": 32.635000228881836,
+      "time_us": 22.130000114440918,
       "memory_bytes": 34096.0,
-      "ops_per_sec": 22000919.10416391
+      "ops_per_sec": 32444645.110122234
     },
     {
       "N": 1000,
@@ -33,9 +33,9 @@
       "ratio": 0.001079,
       "truncations": 790,
       "queue_overflows": 0,
-      "time_us": 19.361000061035156,
+      "time_us": 16.611000061035156,
       "memory_bytes": 67616.0,
-      "ops_per_sec": 55730592.25238751
+      "ops_per_sec": 64956955.99514431
     },
     {
       "N": 5000,
@@ -45,9 +45,9 @@
       "ratio": 4.2e-05,
       "truncations": 792,
       "queue_overflows": 0,
-      "time_us": 15.849000930786133,
+      "time_us": 16.67099952697754,
       "memory_bytes": 338456.0,
-      "ops_per_sec": 66250232.71721888
+      "ops_per_sec": 62983626.04478854
     },
     {
       "N": 10000,
@@ -57,9 +57,9 @@
       "ratio": 3.022e-05,
       "truncations": 2319,
       "queue_overflows": 0,
-      "time_us": 40.23699951171875,
+      "time_us": 39.05200004577637,
       "memory_bytes": 678856.0,
-      "ops_per_sec": 75105003.76947498
+      "ops_per_sec": 77384000.7287115
     },
     {
       "N": 50000,
@@ -69,9 +69,9 @@
       "ratio": 1.996e-07,
       "truncations": 397,
       "queue_overflows": 0,
-      "time_us": 16.01599884033203,
+      "time_us": 11.873000144958496,
       "memory_bytes": 3398408.0,
-      "ops_per_sec": 31156345.91227625
+      "ops_per_sec": 42028130.54052602
     }
   ],
   "comparison": [],
@@ -80,9 +80,9 @@
     "morphism_mean": 499,
     "morphism_std": 0.0,
     "morphism_cv": 0.0,
-    "ops_mean": 41280571.70533824,
-    "ops_std": 10837158.749707319,
-    "ops_cv": 0.26252443466779557,
+    "ops_mean": 47903448.77979102,
+    "ops_std": 6506164.075234993,
+    "ops_cv": 0.1358182811668404,
     "overflow_total": 0,
     "pass": true
   },
