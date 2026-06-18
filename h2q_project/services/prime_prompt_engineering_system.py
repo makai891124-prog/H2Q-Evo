@@ -46,16 +46,16 @@ class PrimePromptEngineeringSystem:
         if value < 2:
             return []
         out: List[int] = []
-        n = value
+        remaining = value
         divisor = 2
-        while divisor * divisor <= n:
-            while n % divisor == 0:
+        while divisor * divisor <= remaining:
+            while remaining % divisor == 0:
                 out.append(divisor)
-                n //= divisor
+                remaining //= divisor
             divisor += 1
-        if n > 1:
-            out.append(n)
-        return out or [value]
+        if remaining > 1:
+            out.append(remaining)
+        return out
 
     def analyze_prime_structure(self, values: Iterable[int]) -> Dict[str, List[Dict[str, object]]]:
         structures = []

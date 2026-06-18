@@ -7,7 +7,7 @@ class PrimePromptEngineeringSystemTests(unittest.TestCase):
     def setUp(self):
         self.system = PrimePromptEngineeringSystem()
 
-    def test_prime_judgement(self):
+    def test_prime_judgment(self):
         self.assertTrue(self.system.is_prime(2))
         self.assertTrue(self.system.is_prime(29))
         self.assertFalse(self.system.is_prime(1))
