@@ -14,6 +14,13 @@
 #include <string.h>
 #include <math.h>
 #include <time.h>
+#include <limits.h>
+
+#define TOPO_INITIAL_EDGE_CAPACITY 8u
+#define TOPO_MIN_QUEUE_CAPACITY    2u
+#define TOPO_BFS_QUEUE_CAPACITY    65536u
+#define TOPO_BUILD_MIN_PRECISION   2u
+#define TOPO_BUILD_PRECISION_RANGE 7u   /* generates 2..8 inclusive */
 
 /* ────────────────────────────────────────────────────────────────────
  * Portable high-resolution timer (POSIX)
@@ -35,7 +42,7 @@ TopoNode *topo_node_create(uint64_t base_id, uint32_t precision) {
 
     n->base_id          = base_id;
     n->p_adic_precision = (precision > 0) ? precision : TOPO_DEFAULT_PRECISION;
-    n->edge_capacity    = 8;  /* start small, grow on demand */
+    n->edge_capacity    = TOPO_INITIAL_EDGE_CAPACITY;  /* start small, grow on demand */
     n->directed_edges   = (TopoNode **)calloc(n->edge_capacity, sizeof(TopoNode *));
     n->num_edges        = 0;
     n->visited          = 0;
@@ -148,7 +155,7 @@ typedef struct {
 } BFSQueue;
 
 static BFSQueue *bfs_queue_create(uint64_t cap) {
-    if (cap < 2) cap = 2;
+    if (cap < TOPO_MIN_QUEUE_CAPACITY) cap = TOPO_MIN_QUEUE_CAPACITY;
     BFSQueue *q = (BFSQueue *)malloc(sizeof(BFSQueue));
     if (!q) return NULL;
     q->buf  = (TopoNode **)malloc(cap * sizeof(TopoNode *));
@@ -199,7 +206,7 @@ void propagate_from_origin(TopoNode *origin, int max_steps,
     double t0 = now_us();
 
     /* Start BFS from origin */
-    BFSQueue *queue = bfs_queue_create(65536);
+    BFSQueue *queue = bfs_queue_create(TOPO_BFS_QUEUE_CAPACITY);
     if (!queue) return;
 
     origin->visited = 1;
@@ -241,6 +248,11 @@ void propagate_from_origin(TopoNode *origin, int max_steps,
                 /* In a full system we'd call expand_leftward_precision here */
             }
 
+            if (bfs_queue_push(queue, child) != 0) {
+                stats->queue_overflow_events++;
+                continue;
+            }
+
             child->visited = 1;
             child->relative_step_distance = child_step;
             stats->nodes_visited++;
@@ -249,12 +261,6 @@ void propagate_from_origin(TopoNode *origin, int max_steps,
                 stats->max_step_reached = child_step;
             if (child->p_adic_precision > stats->max_precision_seen)
                 stats->max_precision_seen = child->p_adic_precision;
-
-            if (bfs_queue_push(queue, child) != 0) {
-                stats->queue_overflow_events++;
-                child->visited = 0;
-                continue;
-            }
         }
     }
 
@@ -271,11 +277,13 @@ TopoNode *expand_leftward_precision(TopoNode *collision_node) {
     if (collision_node->p_adic_precision >= TOPO_MAX_PRECISION) return NULL;
 
     uint32_t new_prec = collision_node->p_adic_precision + 1;
+    uint64_t precision_delta = 1ULL << collision_node->p_adic_precision;
+    if (UINT64_MAX - collision_node->base_id < precision_delta) return NULL;
 
     /* Create two children with higher precision */
     TopoNode *child_a = topo_node_create(collision_node->base_id, new_prec);
     TopoNode *child_b = topo_node_create(
-        collision_node->base_id + (1u << collision_node->p_adic_precision),
+        collision_node->base_id + precision_delta,
         new_prec);
 
     if (!child_a || !child_b) {
@@ -317,7 +325,8 @@ TopoNode **topo_network_build(uint64_t n, uint16_t avg_edges, uint32_t seed) {
 
     /* Create nodes with random precision 2..8 */
     for (uint64_t i = 0; i < n; i++) {
-        uint32_t prec = 2 + (uint32_t)(lcg_next() % 7);  /* 2-8 */
+        uint32_t prec = TOPO_BUILD_MIN_PRECISION
+                      + (uint32_t)(lcg_next() % TOPO_BUILD_PRECISION_RANGE);
         nodes[i] = topo_node_create(i, prec);
         if (!nodes[i]) {
             topo_network_destroy(nodes, i);
