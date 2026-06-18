@@ -34,7 +34,15 @@ class H2Q_Knot_Kernel(nn.Module):
     """
     H2Q 纽结内核 (底层拼写核) - 修正版
     """
-    def __init__(self, max_dim=256, vocab_size=257, depth=6):
+    def __init__(
+        self,
+        max_dim=256,
+        vocab_size=257,
+        depth=6,
+        dropout_p=0.0,
+        use_layer_norm=True,
+        use_spectral_head=False,
+    ):
         super().__init__()
         assert max_dim % 4 == 0
         self.q_dim = max_dim // 4
@@ -51,7 +59,12 @@ class H2Q_Knot_Kernel(nn.Module):
             QuaternionLinear(self.q_dim, self.q_dim) for _ in range(depth)
         ])
         
-        self.head = nn.Linear(max_dim, vocab_size, bias=False)
+        head = nn.Linear(max_dim, vocab_size, bias=False)
+        if use_spectral_head:
+            head = nn.utils.parametrizations.spectral_norm(head)
+        self.head = head
+        self.dropout = nn.Dropout(p=dropout_p)
+        self.output_norm = nn.LayerNorm(max_dim) if use_layer_norm else nn.Identity()
 
     def forward(self, x, return_features=False):
         # x: [B, S]
@@ -75,6 +88,8 @@ class H2Q_Knot_Kernel(nn.Module):
             
         # 展平: [B, S, max_dim]
         h_flat = q.view(x.shape[0], x.shape[1], -1)
+        h_flat = self.output_norm(h_flat)
+        h_flat = self.dropout(h_flat)
         
         if return_features:
             # 现在返回的是 Tensor 类型的 loss，可以进行反向传播了

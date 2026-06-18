@@ -1,0 +1,138 @@
+{
+  "overall_pass": true,
+  "scaling": [
+    {
+      "N": 100,
+      "edges": 411,
+      "morphisms": 107,
+      "N_squared": 10000,
+      "ratio": 0.0107,
+      "truncations": 13,
+      "queue_overflows": 0,
+      "time_us": 13.093999862670898,
+      "memory_bytes": 6488.0,
+      "ops_per_sec": 8171681.771972637
+    },
+    {
+      "N": 500,
+      "edges": 2262,
+      "morphisms": 718,
+      "N_squared": 250000,
+      "ratio": 0.002872,
+      "truncations": 350,
+      "queue_overflows": 0,
+      "time_us": 20.117000579833984,
+      "memory_bytes": 34096.0,
+      "ops_per_sec": 35691205.413581856
+    },
+    {
+      "N": 1000,
+      "edges": 4452,
+      "morphisms": 1079,
+      "N_squared": 1000000,
+      "ratio": 0.001079,
+      "truncations": 790,
+      "queue_overflows": 0,
+      "time_us": 17.332000732421875,
+      "memory_bytes": 67616.0,
+      "ops_per_sec": 62254786.1991249
+    },
+    {
+      "N": 5000,
+      "edges": 22307,
+      "morphisms": 1050,
+      "N_squared": 25000000,
+      "ratio": 4.2e-05,
+      "truncations": 792,
+      "queue_overflows": 0,
+      "time_us": 19.517000198364258,
+      "memory_bytes": 338456.0,
+      "ops_per_sec": 53799251.38741361
+    },
+    {
+      "N": 10000,
+      "edges": 44857,
+      "morphisms": 3022,
+      "N_squared": 100000000,
+      "ratio": 3.022e-05,
+      "truncations": 2319,
+      "queue_overflows": 0,
+      "time_us": 36.749000549316406,
+      "memory_bytes": 678856.0,
+      "ops_per_sec": 82233528.93487641
+    },
+    {
+      "N": 50000,
+      "edges": 224801,
+      "morphisms": 499,
+      "N_squared": 2500000000,
+      "ratio": 1.996e-07,
+      "truncations": 397,
+      "queue_overflows": 0,
+      "time_us": 10.770000457763672,
+      "memory_bytes": 3398408.0,
+      "ops_per_sec": 46332402.85893306
+    }
+  ],
+  "comparison": [
+    {
+      "N": 100,
+      "topo_ms": 0.011871999740600585,
+      "dense_ms": 0.015968999832693953,
+      "speedup": 1.3450977241923445,
+      "topo_morphisms": 107,
+      "dense_ops": 10000
+    },
+    {
+      "N": 500,
+      "topo_ms": 0.02827199935913086,
+      "dense_ms": 0.026749000426207203,
+      "speedup": 0.9461304836075635,
+      "topo_morphisms": 718,
+      "dense_ops": 250000
+    },
+    {
+      "N": 1000,
+      "topo_ms": 0.02114900016784668,
+      "dense_ms": 0.08058000003074994,
+      "speedup": 3.81010919623792,
+      "topo_morphisms": 1079,
+      "dense_ops": 1000000
+    },
+    {
+      "N": 5000,
+      "topo_ms": 0.023563000679016115,
+      "dense_ms": 2.643175000230258,
+      "speedup": 112.17480473885998,
+      "topo_morphisms": 1050,
+      "dense_ops": 25000000
+    },
+    {
+      "N": 10000,
+      "topo_ms": 0.04920199966430664,
+      "dense_ms": 10.998800999914238,
+      "speedup": 223.54378023162474,
+      "topo_morphisms": 3022,
+      "dense_ops": 100000000
+    }
+  ],
+  "repeatability": {
+    "repeats": 10,
+    "morphism_mean": 499,
+    "morphism_std": 0.0,
+    "morphism_cv": 0.0,
+    "ops_mean": 72493537.78104323,
+    "ops_std": 16550950.045543129,
+    "ops_cv": 0.22830931628048004,
+    "overflow_total": 0,
+    "pass": true
+  },
+  "conclusion": {
+    "sub_quadratic": "Morphism count is consistently \u226a N\u00b2 due to Taylor truncation",
+    "memory_efficient": "Pointer network uses orders of magnitude less memory than dense matrices",
+    "truncation_effective": "Far-field pruning via 1/s! decay actively reduces computation",
+    "collision_detection": "Congruence-based collision detection is operational",
+    "architecture_viable": "The pointer-reuse topology engine is a viable alternative to dense tensor computation for discrete routing tasks",
+    "repeatability": "Repeated runs provide explicit stability coefficients (CV) for morphism throughput and operation rate"
+  }
+}
