@@ -21,6 +21,8 @@ class PrimePromptEngineeringSystemTests(unittest.TestCase):
         self.assertEqual(structures[1]["factors"], [2, 2])
         self.assertEqual(structures[2]["residue_mod_6"], 5)
         self.assertEqual(structures[2]["binary"], "11101")
+        self.assertEqual(self.system.factors(1), [])
+        self.assertEqual(self.system.factors(0), [])
 
     def test_prime_encoding_roundtrip(self):
         encoded = self.system.encode_primes(50)
@@ -28,6 +30,10 @@ class PrimePromptEngineeringSystemTests(unittest.TestCase):
 
         self.assertEqual(decoded, encoded["primes"])
         self.assertIn(47, decoded)
+
+    def test_negative_value_rejected(self):
+        with self.assertRaises(ValueError):
+            self.system.analyze_prime_structure([-3])
 
 
 if __name__ == "__main__":

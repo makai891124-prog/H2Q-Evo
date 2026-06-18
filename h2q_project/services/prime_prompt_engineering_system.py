@@ -22,8 +22,9 @@ class PrimePromptEngineeringSystem:
 
     def build_analysis_prompt(self, value: int) -> str:
         return (
-            "你是一个数学结构分析器。请先判断数字是否为素数，再给出因子分解、模6余数、"
-            f"以及二进制结构。目标数字: {value}"
+            "You are a mathematical structure analyzer. Determine if the number is prime, "
+            "then provide factorization, modulo-6 residue, and binary structure. "
+            f"Target number: {value}"
         )
 
     def is_prime(self, value: int) -> bool:
@@ -43,7 +44,7 @@ class PrimePromptEngineeringSystem:
 
     def factors(self, value: int) -> List[int]:
         if value < 2:
-            return [value]
+            return []
         out: List[int] = []
         n = value
         divisor = 2
@@ -59,12 +60,14 @@ class PrimePromptEngineeringSystem:
     def analyze_prime_structure(self, values: Iterable[int]) -> Dict[str, List[Dict[str, object]]]:
         structures = []
         for value in values:
+            if value < 0:
+                raise ValueError("analyze_prime_structure expects non-negative integers")
             structure = PrimeStructure(
                 value=value,
                 is_prime=self.is_prime(value),
                 factors=self.factors(value),
                 residue_mod_6=value % 6,
-                binary=bin(value)[2:] if value >= 0 else f"-{bin(abs(value))[2:]}",
+                binary=bin(value)[2:],
             )
             structures.append(structure.__dict__)
         return {"structures": structures}
